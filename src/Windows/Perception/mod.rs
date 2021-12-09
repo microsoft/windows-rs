@@ -172,6 +172,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionTimestamp {}
+unsafe impl ::core::marker::Sync for PerceptionTimestamp {}
 pub struct PerceptionTimestampHelper {}
 impl PerceptionTimestampHelper {
     #[cfg(feature = "Foundation")]

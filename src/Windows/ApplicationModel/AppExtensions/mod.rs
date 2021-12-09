@@ -122,6 +122,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppExtension {}
+unsafe impl ::core::marker::Sync for AppExtension {}
 #[repr(transparent)]
 pub struct AppExtensionCatalog(::windows::core::IUnknown);
 impl AppExtensionCatalog {
@@ -365,6 +367,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppExtensionPackageInstalledEventArgs {}
+unsafe impl ::core::marker::Sync for AppExtensionPackageInstalledEventArgs {}
 #[repr(transparent)]
 pub struct AppExtensionPackageStatusChangedEventArgs(::windows::core::IUnknown);
 impl AppExtensionPackageStatusChangedEventArgs {
@@ -444,6 +448,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppExtensionPackageStatusChangedEventArgs {}
+unsafe impl ::core::marker::Sync for AppExtensionPackageStatusChangedEventArgs {}
 #[repr(transparent)]
 pub struct AppExtensionPackageUninstallingEventArgs(::windows::core::IUnknown);
 impl AppExtensionPackageUninstallingEventArgs {
@@ -523,6 +529,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppExtensionPackageUninstallingEventArgs {}
+unsafe impl ::core::marker::Sync for AppExtensionPackageUninstallingEventArgs {}
 #[repr(transparent)]
 pub struct AppExtensionPackageUpdatedEventArgs(::windows::core::IUnknown);
 impl AppExtensionPackageUpdatedEventArgs {
@@ -610,6 +618,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppExtensionPackageUpdatedEventArgs {}
+unsafe impl ::core::marker::Sync for AppExtensionPackageUpdatedEventArgs {}
 #[repr(transparent)]
 pub struct AppExtensionPackageUpdatingEventArgs(::windows::core::IUnknown);
 impl AppExtensionPackageUpdatingEventArgs {
@@ -689,6 +699,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppExtensionPackageUpdatingEventArgs {}
+unsafe impl ::core::marker::Sync for AppExtensionPackageUpdatingEventArgs {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppExtension(::windows::core::IUnknown);

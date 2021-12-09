@@ -295,6 +295,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &AmbientLight {
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for AmbientLight {}
+unsafe impl ::core::marker::Sync for AmbientLight {}
 #[repr(transparent)]
 pub struct AnimationController(::windows::core::IUnknown);
 impl AnimationController {
@@ -569,6 +571,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &AnimationControl
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for AnimationController {}
+unsafe impl ::core::marker::Sync for AnimationController {}
 #[repr(transparent)]
 pub struct AnimationControllerProgressBehavior(pub i32);
 impl AnimationControllerProgressBehavior {
@@ -950,6 +954,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &AnimationPropert
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for AnimationPropertyInfo {}
+unsafe impl ::core::marker::Sync for AnimationPropertyInfo {}
 #[repr(transparent)]
 pub struct AnimationStopBehavior(pub i32);
 impl AnimationStopBehavior {
@@ -1229,6 +1235,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &BackEasingFuncti
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for BackEasingFunction {}
+unsafe impl ::core::marker::Sync for BackEasingFunction {}
 #[repr(transparent)]
 pub struct BooleanKeyFrameAnimation(::windows::core::IUnknown);
 impl BooleanKeyFrameAnimation {
@@ -1685,6 +1693,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &BooleanKeyFrameA
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for BooleanKeyFrameAnimation {}
+unsafe impl ::core::marker::Sync for BooleanKeyFrameAnimation {}
 #[repr(transparent)]
 pub struct BounceEasingFunction(::windows::core::IUnknown);
 impl BounceEasingFunction {
@@ -1943,6 +1953,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &BounceEasingFunc
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for BounceEasingFunction {}
+unsafe impl ::core::marker::Sync for BounceEasingFunction {}
 #[repr(transparent)]
 pub struct BounceScalarNaturalMotionAnimation(::windows::core::IUnknown);
 impl BounceScalarNaturalMotionAnimation {
@@ -2413,6 +2425,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &BounceScalarNatu
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for BounceScalarNaturalMotionAnimation {}
+unsafe impl ::core::marker::Sync for BounceScalarNaturalMotionAnimation {}
 #[repr(transparent)]
 pub struct BounceVector2NaturalMotionAnimation(::windows::core::IUnknown);
 impl BounceVector2NaturalMotionAnimation {
@@ -2885,6 +2899,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &BounceVector2Nat
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for BounceVector2NaturalMotionAnimation {}
+unsafe impl ::core::marker::Sync for BounceVector2NaturalMotionAnimation {}
 #[repr(transparent)]
 pub struct BounceVector3NaturalMotionAnimation(::windows::core::IUnknown);
 impl BounceVector3NaturalMotionAnimation {
@@ -3357,6 +3373,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &BounceVector3Nat
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for BounceVector3NaturalMotionAnimation {}
+unsafe impl ::core::marker::Sync for BounceVector3NaturalMotionAnimation {}
 #[repr(transparent)]
 pub struct CircleEasingFunction(::windows::core::IUnknown);
 impl CircleEasingFunction {
@@ -3601,6 +3619,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CircleEasingFunc
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CircleEasingFunction {}
+unsafe impl ::core::marker::Sync for CircleEasingFunction {}
 #[repr(transparent)]
 pub struct ColorKeyFrameAnimation(::windows::core::IUnknown);
 impl ColorKeyFrameAnimation {
@@ -4072,6 +4092,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &ColorKeyFrameAni
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ColorKeyFrameAnimation {}
+unsafe impl ::core::marker::Sync for ColorKeyFrameAnimation {}
 #[repr(transparent)]
 pub struct CompositionAnimation(::windows::core::IUnknown);
 impl CompositionAnimation {
@@ -4388,6 +4410,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionAnima
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionAnimation {}
+unsafe impl ::core::marker::Sync for CompositionAnimation {}
 #[repr(transparent)]
 pub struct CompositionAnimationGroup(::windows::core::IUnknown);
 impl CompositionAnimationGroup {
@@ -4696,6 +4720,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionAnima
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionAnimationGroup {}
+unsafe impl ::core::marker::Sync for CompositionAnimationGroup {}
 #[repr(transparent)]
 pub struct CompositionBackdropBrush(::windows::core::IUnknown);
 impl CompositionBackdropBrush {
@@ -4933,6 +4959,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionBackd
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionBackdropBrush {}
+unsafe impl ::core::marker::Sync for CompositionBackdropBrush {}
 #[repr(transparent)]
 pub struct CompositionBackfaceVisibility(pub i32);
 impl CompositionBackfaceVisibility {
@@ -5178,6 +5206,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionBatch
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionBatchCompletedEventArgs {}
+unsafe impl ::core::marker::Sync for CompositionBatchCompletedEventArgs {}
 #[repr(transparent)]
 pub struct CompositionBatchTypes(pub u32);
 impl CompositionBatchTypes {
@@ -5488,6 +5518,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionBrush
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionBrush {}
+unsafe impl ::core::marker::Sync for CompositionBrush {}
 #[repr(transparent)]
 pub struct CompositionCapabilities(::windows::core::IUnknown);
 impl CompositionCapabilities {
@@ -5590,6 +5622,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Comp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CompositionCapabilities {}
+unsafe impl ::core::marker::Sync for CompositionCapabilities {}
 #[repr(transparent)]
 pub struct CompositionClip(::windows::core::IUnknown);
 impl CompositionClip {
@@ -5894,6 +5928,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionClip 
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionClip {}
+unsafe impl ::core::marker::Sync for CompositionClip {}
 #[repr(transparent)]
 pub struct CompositionColorBrush(::windows::core::IUnknown);
 impl CompositionColorBrush {
@@ -6142,6 +6178,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionColor
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionColorBrush {}
+unsafe impl ::core::marker::Sync for CompositionColorBrush {}
 #[repr(transparent)]
 pub struct CompositionColorGradientStop(::windows::core::IUnknown);
 impl CompositionColorGradientStop {
@@ -6381,6 +6419,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionColor
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionColorGradientStop {}
+unsafe impl ::core::marker::Sync for CompositionColorGradientStop {}
 #[repr(transparent)]
 pub struct CompositionColorGradientStopCollection(::windows::core::IUnknown);
 impl CompositionColorGradientStopCollection {
@@ -6597,6 +6637,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for CompositionColorGradientStopCollection {}
+unsafe impl ::core::marker::Sync for CompositionColorGradientStopCollection {}
 #[repr(transparent)]
 pub struct CompositionColorSpace(pub i32);
 impl CompositionColorSpace {
@@ -6871,6 +6913,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionCommi
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionCommitBatch {}
+unsafe impl ::core::marker::Sync for CompositionCommitBatch {}
 #[repr(transparent)]
 pub struct CompositionCompositeMode(pub i32);
 impl CompositionCompositeMode {
@@ -7219,6 +7263,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionConta
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionContainerShape {}
+unsafe impl ::core::marker::Sync for CompositionContainerShape {}
 #[repr(transparent)]
 pub struct CompositionDrawingSurface(::windows::core::IUnknown);
 impl CompositionDrawingSurface {
@@ -7515,6 +7561,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionDrawi
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionDrawingSurface {}
+unsafe impl ::core::marker::Sync for CompositionDrawingSurface {}
 #[repr(transparent)]
 pub struct CompositionDropShadowSourcePolicy(pub i32);
 impl CompositionDropShadowSourcePolicy {
@@ -7830,6 +7878,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionEasin
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionEasingFunction {}
+unsafe impl ::core::marker::Sync for CompositionEasingFunction {}
 #[repr(transparent)]
 pub struct CompositionEasingFunctionMode(pub i32);
 impl CompositionEasingFunctionMode {
@@ -8106,6 +8156,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionEffec
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionEffectBrush {}
+unsafe impl ::core::marker::Sync for CompositionEffectBrush {}
 #[repr(transparent)]
 pub struct CompositionEffectFactory(::windows::core::IUnknown);
 impl CompositionEffectFactory {
@@ -8344,6 +8396,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionEffec
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionEffectFactory {}
+unsafe impl ::core::marker::Sync for CompositionEffectFactory {}
 #[repr(transparent)]
 pub struct CompositionEffectFactoryLoadStatus(pub i32);
 impl CompositionEffectFactoryLoadStatus {
@@ -8481,6 +8535,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Effects::IGraphi
         ::core::convert::TryInto::<super::super::Graphics::Effects::IGraphicsEffectSource>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for CompositionEffectSourceParameter {}
+unsafe impl ::core::marker::Sync for CompositionEffectSourceParameter {}
 #[repr(transparent)]
 pub struct CompositionEllipseGeometry(::windows::core::IUnknown);
 impl CompositionEllipseGeometry {
@@ -8777,6 +8833,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionEllip
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionEllipseGeometry {}
+unsafe impl ::core::marker::Sync for CompositionEllipseGeometry {}
 #[repr(transparent)]
 pub struct CompositionGeometricClip(::windows::core::IUnknown);
 impl CompositionGeometricClip {
@@ -9123,6 +9181,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionGeome
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionGeometricClip {}
+unsafe impl ::core::marker::Sync for CompositionGeometricClip {}
 #[repr(transparent)]
 pub struct CompositionGeometry(::windows::core::IUnknown);
 impl CompositionGeometry {
@@ -9373,6 +9433,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionGeome
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionGeometry {}
+unsafe impl ::core::marker::Sync for CompositionGeometry {}
 #[repr(transparent)]
 pub struct CompositionGetValueStatus(pub i32);
 impl CompositionGetValueStatus {
@@ -9765,6 +9827,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionGradi
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionGradientBrush {}
+unsafe impl ::core::marker::Sync for CompositionGradientBrush {}
 #[repr(transparent)]
 pub struct CompositionGradientExtendMode(pub i32);
 impl CompositionGradientExtendMode {
@@ -10067,6 +10131,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionGraph
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionGraphicsDevice {}
+unsafe impl ::core::marker::Sync for CompositionGraphicsDevice {}
 #[repr(transparent)]
 pub struct CompositionLight(::windows::core::IUnknown);
 impl CompositionLight {
@@ -10309,6 +10375,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionLight
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionLight {}
+unsafe impl ::core::marker::Sync for CompositionLight {}
 #[repr(transparent)]
 pub struct CompositionLineGeometry(::windows::core::IUnknown);
 impl CompositionLineGeometry {
@@ -10605,6 +10673,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionLineG
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionLineGeometry {}
+unsafe impl ::core::marker::Sync for CompositionLineGeometry {}
 #[repr(transparent)]
 pub struct CompositionLinearGradientBrush(::windows::core::IUnknown);
 impl CompositionLinearGradientBrush {
@@ -11015,6 +11085,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionLinea
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionLinearGradientBrush {}
+unsafe impl ::core::marker::Sync for CompositionLinearGradientBrush {}
 #[repr(transparent)]
 pub struct CompositionMappingMode(pub i32);
 impl CompositionMappingMode {
@@ -11301,6 +11373,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionMaskB
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionMaskBrush {}
+unsafe impl ::core::marker::Sync for CompositionMaskBrush {}
 #[repr(transparent)]
 pub struct CompositionMipmapSurface(::windows::core::IUnknown);
 impl CompositionMipmapSurface {
@@ -11578,6 +11652,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionMipma
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionMipmapSurface {}
+unsafe impl ::core::marker::Sync for CompositionMipmapSurface {}
 #[repr(transparent)]
 pub struct CompositionNineGridBrush(::windows::core::IUnknown);
 impl CompositionNineGridBrush {
@@ -11941,6 +12017,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionNineG
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionNineGridBrush {}
+unsafe impl ::core::marker::Sync for CompositionNineGridBrush {}
 #[repr(transparent)]
 pub struct CompositionObject(::windows::core::IUnknown);
 impl CompositionObject {
@@ -12148,6 +12226,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for CompositionObject {}
+unsafe impl ::core::marker::Sync for CompositionObject {}
 #[repr(transparent)]
 pub struct CompositionPath(::windows::core::IUnknown);
 impl CompositionPath {
@@ -12250,6 +12330,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::IGeometrySource2
         ::core::convert::TryInto::<super::super::Graphics::IGeometrySource2D>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for CompositionPath {}
+unsafe impl ::core::marker::Sync for CompositionPath {}
 #[repr(transparent)]
 pub struct CompositionPathGeometry(::windows::core::IUnknown);
 impl CompositionPathGeometry {
@@ -12531,6 +12613,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionPathG
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionPathGeometry {}
+unsafe impl ::core::marker::Sync for CompositionPathGeometry {}
 #[repr(transparent)]
 pub struct CompositionProjectedShadow(::windows::core::IUnknown);
 impl CompositionProjectedShadow {
@@ -12806,6 +12890,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionProje
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionProjectedShadow {}
+unsafe impl ::core::marker::Sync for CompositionProjectedShadow {}
 #[repr(transparent)]
 pub struct CompositionProjectedShadowCaster(::windows::core::IUnknown);
 impl CompositionProjectedShadowCaster {
@@ -13045,6 +13131,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionProje
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionProjectedShadowCaster {}
+unsafe impl ::core::marker::Sync for CompositionProjectedShadowCaster {}
 #[repr(transparent)]
 pub struct CompositionProjectedShadowCasterCollection(::windows::core::IUnknown);
 impl CompositionProjectedShadowCasterCollection {
@@ -13353,6 +13441,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionProje
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionProjectedShadowCasterCollection {}
+unsafe impl ::core::marker::Sync for CompositionProjectedShadowCasterCollection {}
 #[repr(transparent)]
 pub struct CompositionProjectedShadowReceiver(::windows::core::IUnknown);
 impl CompositionProjectedShadowReceiver {
@@ -13581,6 +13671,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionProje
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionProjectedShadowReceiver {}
+unsafe impl ::core::marker::Sync for CompositionProjectedShadowReceiver {}
 #[repr(transparent)]
 pub struct CompositionProjectedShadowReceiverUnorderedCollection(::windows::core::IUnknown);
 impl CompositionProjectedShadowReceiverUnorderedCollection {
@@ -13867,6 +13959,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionProje
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionProjectedShadowReceiverUnorderedCollection {}
+unsafe impl ::core::marker::Sync for CompositionProjectedShadowReceiverUnorderedCollection {}
 #[repr(transparent)]
 pub struct CompositionPropertySet(::windows::core::IUnknown);
 impl CompositionPropertySet {
@@ -14195,6 +14289,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionPrope
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionPropertySet {}
+unsafe impl ::core::marker::Sync for CompositionPropertySet {}
 #[repr(transparent)]
 pub struct CompositionRadialGradientBrush(::windows::core::IUnknown);
 impl CompositionRadialGradientBrush {
@@ -14618,6 +14714,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionRadia
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionRadialGradientBrush {}
+unsafe impl ::core::marker::Sync for CompositionRadialGradientBrush {}
 #[repr(transparent)]
 pub struct CompositionRectangleGeometry(::windows::core::IUnknown);
 impl CompositionRectangleGeometry {
@@ -14914,6 +15012,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionRecta
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionRectangleGeometry {}
+unsafe impl ::core::marker::Sync for CompositionRectangleGeometry {}
 #[repr(transparent)]
 pub struct CompositionRoundedRectangleGeometry(::windows::core::IUnknown);
 impl CompositionRoundedRectangleGeometry {
@@ -15223,6 +15323,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionRound
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionRoundedRectangleGeometry {}
+unsafe impl ::core::marker::Sync for CompositionRoundedRectangleGeometry {}
 #[repr(transparent)]
 pub struct CompositionScopedBatch(::windows::core::IUnknown);
 impl CompositionScopedBatch {
@@ -15479,6 +15581,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionScope
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionScopedBatch {}
+unsafe impl ::core::marker::Sync for CompositionScopedBatch {}
 #[repr(transparent)]
 pub struct CompositionShadow(::windows::core::IUnknown);
 impl CompositionShadow {
@@ -15696,6 +15800,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionShado
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionShadow {}
+unsafe impl ::core::marker::Sync for CompositionShadow {}
 #[repr(transparent)]
 pub struct CompositionShape(::windows::core::IUnknown);
 impl CompositionShape {
@@ -15987,6 +16093,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionShape
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionShape {}
+unsafe impl ::core::marker::Sync for CompositionShape {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct CompositionShapeCollection(::windows::core::IUnknown);
@@ -16393,6 +16501,10 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionShape
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for CompositionShapeCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for CompositionShapeCollection {}
 #[repr(transparent)]
 pub struct CompositionSpriteShape(::windows::core::IUnknown);
 impl CompositionSpriteShape {
@@ -16833,6 +16945,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionSprit
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionSpriteShape {}
+unsafe impl ::core::marker::Sync for CompositionSpriteShape {}
 #[repr(transparent)]
 pub struct CompositionStretch(pub i32);
 impl CompositionStretch {
@@ -17297,6 +17411,10 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionStrok
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for CompositionStrokeDashArray {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for CompositionStrokeDashArray {}
 #[repr(transparent)]
 pub struct CompositionStrokeLineJoin(pub i32);
 impl CompositionStrokeLineJoin {
@@ -17716,6 +17834,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionSurfa
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionSurfaceBrush {}
+unsafe impl ::core::marker::Sync for CompositionSurfaceBrush {}
 #[repr(transparent)]
 pub struct CompositionTarget(::windows::core::IUnknown);
 impl CompositionTarget {
@@ -17944,6 +18064,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionTarge
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionTarget {}
+unsafe impl ::core::marker::Sync for CompositionTarget {}
 #[repr(transparent)]
 pub struct CompositionTransform(::windows::core::IUnknown);
 impl CompositionTransform {
@@ -18161,6 +18283,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionTrans
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionTransform {}
+unsafe impl ::core::marker::Sync for CompositionTransform {}
 #[repr(transparent)]
 pub struct CompositionViewBox(::windows::core::IUnknown);
 impl CompositionViewBox {
@@ -18437,6 +18561,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionViewB
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionViewBox {}
+unsafe impl ::core::marker::Sync for CompositionViewBox {}
 #[repr(transparent)]
 pub struct CompositionVirtualDrawingSurface(::windows::core::IUnknown);
 impl CompositionVirtualDrawingSurface {
@@ -18758,6 +18884,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionVirtu
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionVirtualDrawingSurface {}
+unsafe impl ::core::marker::Sync for CompositionVirtualDrawingSurface {}
 #[repr(transparent)]
 pub struct CompositionVisualSurface(::windows::core::IUnknown);
 impl CompositionVisualSurface {
@@ -19034,6 +19162,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionVisua
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionVisualSurface {}
+unsafe impl ::core::marker::Sync for CompositionVisualSurface {}
 #[repr(transparent)]
 pub struct Compositor(::windows::core::IUnknown);
 impl Compositor {
@@ -19713,6 +19843,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for Compositor {}
+unsafe impl ::core::marker::Sync for Compositor {}
 #[repr(transparent)]
 pub struct ContainerVisual(::windows::core::IUnknown);
 impl ContainerVisual {
@@ -20215,6 +20347,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &ContainerVisual 
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ContainerVisual {}
+unsafe impl ::core::marker::Sync for ContainerVisual {}
 #[repr(transparent)]
 pub struct CubicBezierEasingFunction(::windows::core::IUnknown);
 impl CubicBezierEasingFunction {
@@ -20468,6 +20602,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CubicBezierEasin
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CubicBezierEasingFunction {}
+unsafe impl ::core::marker::Sync for CubicBezierEasingFunction {}
 #[repr(transparent)]
 pub struct DelegatedInkTrailVisual(::windows::core::IUnknown);
 impl DelegatedInkTrailVisual {
@@ -21003,6 +21139,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &DelegatedInkTrai
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DelegatedInkTrailVisual {}
+unsafe impl ::core::marker::Sync for DelegatedInkTrailVisual {}
 #[repr(transparent)]
 pub struct DistantLight(::windows::core::IUnknown);
 impl DistantLight {
@@ -21311,6 +21449,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &DistantLight {
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DistantLight {}
+unsafe impl ::core::marker::Sync for DistantLight {}
 #[repr(transparent)]
 pub struct DropShadow(::windows::core::IUnknown);
 impl DropShadow {
@@ -21616,6 +21756,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &DropShadow {
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DropShadow {}
+unsafe impl ::core::marker::Sync for DropShadow {}
 #[repr(transparent)]
 pub struct ElasticEasingFunction(::windows::core::IUnknown);
 impl ElasticEasingFunction {
@@ -21874,6 +22016,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &ElasticEasingFun
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ElasticEasingFunction {}
+unsafe impl ::core::marker::Sync for ElasticEasingFunction {}
 #[repr(transparent)]
 pub struct ExponentialEasingFunction(::windows::core::IUnknown);
 impl ExponentialEasingFunction {
@@ -22125,6 +22269,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &ExponentialEasin
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ExponentialEasingFunction {}
+unsafe impl ::core::marker::Sync for ExponentialEasingFunction {}
 #[repr(transparent)]
 pub struct ExpressionAnimation(::windows::core::IUnknown);
 impl ExpressionAnimation {
@@ -22472,6 +22618,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &ExpressionAnimat
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ExpressionAnimation {}
+unsafe impl ::core::marker::Sync for ExpressionAnimation {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAmbientLight(::windows::core::IUnknown);
@@ -27212,6 +27360,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &ImplicitAnimatio
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ImplicitAnimationCollection {}
+unsafe impl ::core::marker::Sync for ImplicitAnimationCollection {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct InitialValueExpressionCollection(::windows::core::IUnknown);
@@ -27593,6 +27743,10 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &InitialValueExpr
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for InitialValueExpressionCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for InitialValueExpressionCollection {}
 #[repr(C)]
 #[cfg(feature = "Foundation")]
 pub struct InkTrailPoint {
@@ -28001,6 +28155,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &InsetClip {
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for InsetClip {}
+unsafe impl ::core::marker::Sync for InsetClip {}
 #[repr(transparent)]
 pub struct KeyFrameAnimation(::windows::core::IUnknown);
 impl KeyFrameAnimation {
@@ -28433,6 +28589,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &KeyFrameAnimatio
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for KeyFrameAnimation {}
+unsafe impl ::core::marker::Sync for KeyFrameAnimation {}
 #[repr(transparent)]
 pub struct LayerVisual(::windows::core::IUnknown);
 impl LayerVisual {
@@ -28977,6 +29135,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &LayerVisual {
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for LayerVisual {}
+unsafe impl ::core::marker::Sync for LayerVisual {}
 #[repr(transparent)]
 pub struct LinearEasingFunction(::windows::core::IUnknown);
 impl LinearEasingFunction {
@@ -29214,6 +29374,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &LinearEasingFunc
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for LinearEasingFunction {}
+unsafe impl ::core::marker::Sync for LinearEasingFunction {}
 #[repr(transparent)]
 pub struct NaturalMotionAnimation(::windows::core::IUnknown);
 impl NaturalMotionAnimation {
@@ -29585,6 +29747,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &NaturalMotionAni
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for NaturalMotionAnimation {}
+unsafe impl ::core::marker::Sync for NaturalMotionAnimation {}
 #[repr(transparent)]
 pub struct PathKeyFrameAnimation(::windows::core::IUnknown);
 impl PathKeyFrameAnimation {
@@ -30045,6 +30209,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &PathKeyFrameAnim
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PathKeyFrameAnimation {}
+unsafe impl ::core::marker::Sync for PathKeyFrameAnimation {}
 #[repr(transparent)]
 pub struct PointLight(::windows::core::IUnknown);
 impl PointLight {
@@ -30408,6 +30574,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &PointLight {
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PointLight {}
+unsafe impl ::core::marker::Sync for PointLight {}
 #[repr(transparent)]
 pub struct PowerEasingFunction(::windows::core::IUnknown);
 impl PowerEasingFunction {
@@ -30659,6 +30827,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &PowerEasingFunct
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PowerEasingFunction {}
+unsafe impl ::core::marker::Sync for PowerEasingFunction {}
 #[repr(transparent)]
 pub struct QuaternionKeyFrameAnimation(::windows::core::IUnknown);
 impl QuaternionKeyFrameAnimation {
@@ -31121,6 +31291,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &QuaternionKeyFra
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for QuaternionKeyFrameAnimation {}
+unsafe impl ::core::marker::Sync for QuaternionKeyFrameAnimation {}
 #[repr(transparent)]
 pub struct RectangleClip(::windows::core::IUnknown);
 impl RectangleClip {
@@ -31541,6 +31713,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &RectangleClip {
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for RectangleClip {}
+unsafe impl ::core::marker::Sync for RectangleClip {}
 #[repr(transparent)]
 pub struct RedirectVisual(::windows::core::IUnknown);
 impl RedirectVisual {
@@ -32074,6 +32248,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &RedirectVisual {
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for RedirectVisual {}
+unsafe impl ::core::marker::Sync for RedirectVisual {}
 #[repr(transparent)]
 pub struct RenderingDeviceReplacedEventArgs(::windows::core::IUnknown);
 impl RenderingDeviceReplacedEventArgs {
@@ -32298,6 +32474,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &RenderingDeviceR
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for RenderingDeviceReplacedEventArgs {}
+unsafe impl ::core::marker::Sync for RenderingDeviceReplacedEventArgs {}
 #[repr(transparent)]
 pub struct ScalarKeyFrameAnimation(::windows::core::IUnknown);
 impl ScalarKeyFrameAnimation {
@@ -32758,6 +32936,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &ScalarKeyFrameAn
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ScalarKeyFrameAnimation {}
+unsafe impl ::core::marker::Sync for ScalarKeyFrameAnimation {}
 #[repr(transparent)]
 pub struct ScalarNaturalMotionAnimation(::windows::core::IUnknown);
 impl ScalarNaturalMotionAnimation {
@@ -33186,6 +33366,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &ScalarNaturalMot
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ScalarNaturalMotionAnimation {}
+unsafe impl ::core::marker::Sync for ScalarNaturalMotionAnimation {}
 #[repr(transparent)]
 pub struct ShapeVisual(::windows::core::IUnknown);
 impl ShapeVisual {
@@ -33727,6 +33909,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &ShapeVisual {
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ShapeVisual {}
+unsafe impl ::core::marker::Sync for ShapeVisual {}
 #[repr(transparent)]
 pub struct SineEasingFunction(::windows::core::IUnknown);
 impl SineEasingFunction {
@@ -33971,6 +34155,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &SineEasingFuncti
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SineEasingFunction {}
+unsafe impl ::core::marker::Sync for SineEasingFunction {}
 #[repr(transparent)]
 pub struct SpotLight(::windows::core::IUnknown);
 impl SpotLight {
@@ -34413,6 +34599,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &SpotLight {
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SpotLight {}
+unsafe impl ::core::marker::Sync for SpotLight {}
 #[repr(transparent)]
 pub struct SpringScalarNaturalMotionAnimation(::windows::core::IUnknown);
 impl SpringScalarNaturalMotionAnimation {
@@ -34885,6 +35073,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &SpringScalarNatu
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SpringScalarNaturalMotionAnimation {}
+unsafe impl ::core::marker::Sync for SpringScalarNaturalMotionAnimation {}
 #[repr(transparent)]
 pub struct SpringVector2NaturalMotionAnimation(::windows::core::IUnknown);
 impl SpringVector2NaturalMotionAnimation {
@@ -35359,6 +35549,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &SpringVector2Nat
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SpringVector2NaturalMotionAnimation {}
+unsafe impl ::core::marker::Sync for SpringVector2NaturalMotionAnimation {}
 #[repr(transparent)]
 pub struct SpringVector3NaturalMotionAnimation(::windows::core::IUnknown);
 impl SpringVector3NaturalMotionAnimation {
@@ -35833,6 +36025,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &SpringVector3Nat
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SpringVector3NaturalMotionAnimation {}
+unsafe impl ::core::marker::Sync for SpringVector3NaturalMotionAnimation {}
 #[repr(transparent)]
 pub struct SpriteVisual(::windows::core::IUnknown);
 impl SpriteVisual {
@@ -36377,6 +36571,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &SpriteVisual {
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SpriteVisual {}
+unsafe impl ::core::marker::Sync for SpriteVisual {}
 #[repr(transparent)]
 pub struct StepEasingFunction(::windows::core::IUnknown);
 impl StepEasingFunction {
@@ -36669,6 +36865,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &StepEasingFuncti
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for StepEasingFunction {}
+unsafe impl ::core::marker::Sync for StepEasingFunction {}
 #[repr(transparent)]
 pub struct Vector2KeyFrameAnimation(::windows::core::IUnknown);
 impl Vector2KeyFrameAnimation {
@@ -37131,6 +37329,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &Vector2KeyFrameA
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Vector2KeyFrameAnimation {}
+unsafe impl ::core::marker::Sync for Vector2KeyFrameAnimation {}
 #[repr(transparent)]
 pub struct Vector2NaturalMotionAnimation(::windows::core::IUnknown);
 impl Vector2NaturalMotionAnimation {
@@ -37561,6 +37761,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &Vector2NaturalMo
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Vector2NaturalMotionAnimation {}
+unsafe impl ::core::marker::Sync for Vector2NaturalMotionAnimation {}
 #[repr(transparent)]
 pub struct Vector3KeyFrameAnimation(::windows::core::IUnknown);
 impl Vector3KeyFrameAnimation {
@@ -38023,6 +38225,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &Vector3KeyFrameA
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Vector3KeyFrameAnimation {}
+unsafe impl ::core::marker::Sync for Vector3KeyFrameAnimation {}
 #[repr(transparent)]
 pub struct Vector3NaturalMotionAnimation(::windows::core::IUnknown);
 impl Vector3NaturalMotionAnimation {
@@ -38453,6 +38657,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &Vector3NaturalMo
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Vector3NaturalMotionAnimation {}
+unsafe impl ::core::marker::Sync for Vector3NaturalMotionAnimation {}
 #[repr(transparent)]
 pub struct Vector4KeyFrameAnimation(::windows::core::IUnknown);
 impl Vector4KeyFrameAnimation {
@@ -38915,6 +39121,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &Vector4KeyFrameA
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Vector4KeyFrameAnimation {}
+unsafe impl ::core::marker::Sync for Vector4KeyFrameAnimation {}
 #[repr(transparent)]
 pub struct Visual(::windows::core::IUnknown);
 impl Visual {
@@ -39390,6 +39598,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &Visual {
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Visual {}
+unsafe impl ::core::marker::Sync for Visual {}
 #[repr(transparent)]
 pub struct VisualCollection(::windows::core::IUnknown);
 impl VisualCollection {
@@ -39688,6 +39898,8 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &VisualCollection
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for VisualCollection {}
+unsafe impl ::core::marker::Sync for VisualCollection {}
 #[repr(transparent)]
 pub struct VisualUnorderedCollection(::windows::core::IUnknown);
 impl VisualUnorderedCollection {
@@ -39974,3 +40186,5 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &VisualUnorderedC
         ::windows::core::Param::Owned(::core::convert::Into::<CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for VisualUnorderedCollection {}
+unsafe impl ::core::marker::Sync for VisualUnorderedCollection {}

@@ -210,6 +210,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Note
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for NotePlacementChangedPreviewEventArgs {}
+unsafe impl ::core::marker::Sync for NotePlacementChangedPreviewEventArgs {}
 #[repr(transparent)]
 pub struct NoteVisibilityChangedPreviewEventArgs(::windows::core::IUnknown);
 impl NoteVisibilityChangedPreviewEventArgs {
@@ -289,6 +291,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Note
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for NoteVisibilityChangedPreviewEventArgs {}
+unsafe impl ::core::marker::Sync for NoteVisibilityChangedPreviewEventArgs {}
 #[repr(transparent)]
 pub struct NotesWindowManagerPreview(::windows::core::IUnknown);
 impl NotesWindowManagerPreview {
@@ -476,6 +480,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Note
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for NotesWindowManagerPreview {}
+unsafe impl ::core::marker::Sync for NotesWindowManagerPreview {}
 #[repr(transparent)]
 pub struct NotesWindowManagerPreviewShowNoteOptions(::windows::core::IUnknown);
 impl NotesWindowManagerPreviewShowNoteOptions {
@@ -559,3 +565,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Note
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for NotesWindowManagerPreviewShowNoteOptions {}
+unsafe impl ::core::marker::Sync for NotesWindowManagerPreviewShowNoteOptions {}

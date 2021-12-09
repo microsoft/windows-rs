@@ -113,6 +113,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CoreIncrementalInkStroke {}
+unsafe impl ::core::marker::Sync for CoreIncrementalInkStroke {}
 #[repr(transparent)]
 pub struct CoreInkIndependentInputSource(::windows::core::IUnknown);
 impl CoreInkIndependentInputSource {
@@ -299,6 +301,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CoreInkIndependentInputSource {}
+unsafe impl ::core::marker::Sync for CoreInkIndependentInputSource {}
 #[repr(transparent)]
 pub struct CoreInkPresenterHost(::windows::core::IUnknown);
 impl CoreInkPresenterHost {
@@ -391,6 +395,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CoreInkPresenterHost {}
+unsafe impl ::core::marker::Sync for CoreInkPresenterHost {}
 #[repr(transparent)]
 pub struct CoreWetStrokeDisposition(pub i32);
 impl CoreWetStrokeDisposition {
@@ -510,6 +516,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CoreWetStrokeUpdateEventArgs {}
+unsafe impl ::core::marker::Sync for CoreWetStrokeUpdateEventArgs {}
 #[repr(transparent)]
 pub struct CoreWetStrokeUpdateSource(::windows::core::IUnknown);
 impl CoreWetStrokeUpdateSource {
@@ -657,6 +665,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CoreWetStrokeUpdateSource {}
+unsafe impl ::core::marker::Sync for CoreWetStrokeUpdateSource {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICoreIncrementalInkStroke(::windows::core::IUnknown);

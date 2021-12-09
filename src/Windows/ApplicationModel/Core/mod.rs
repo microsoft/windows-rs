@@ -101,6 +101,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppL
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppListEntry {}
+unsafe impl ::core::marker::Sync for AppListEntry {}
 #[repr(transparent)]
 pub struct AppRestartFailureReason(pub i32);
 impl AppRestartFailureReason {
@@ -686,6 +688,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Host
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HostedViewClosingEventArgs {}
+unsafe impl ::core::marker::Sync for HostedViewClosingEventArgs {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppListEntry(::windows::core::IUnknown);
@@ -1478,6 +1482,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Unha
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UnhandledError {}
+unsafe impl ::core::marker::Sync for UnhandledError {}
 #[repr(transparent)]
 pub struct UnhandledErrorDetectedEventArgs(::windows::core::IUnknown);
 impl UnhandledErrorDetectedEventArgs {
@@ -1550,3 +1556,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Unha
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UnhandledErrorDetectedEventArgs {}
+unsafe impl ::core::marker::Sync for UnhandledErrorDetectedEventArgs {}

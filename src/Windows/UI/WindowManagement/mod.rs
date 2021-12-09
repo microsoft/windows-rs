@@ -264,6 +264,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppWindow {}
+unsafe impl ::core::marker::Sync for AppWindow {}
 #[repr(transparent)]
 pub struct AppWindowChangedEventArgs(::windows::core::IUnknown);
 impl AppWindowChangedEventArgs {
@@ -385,6 +387,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppWindowChangedEventArgs {}
+unsafe impl ::core::marker::Sync for AppWindowChangedEventArgs {}
 #[repr(transparent)]
 pub struct AppWindowCloseRequestedEventArgs(::windows::core::IUnknown);
 impl AppWindowCloseRequestedEventArgs {
@@ -469,6 +473,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppWindowCloseRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for AppWindowCloseRequestedEventArgs {}
 #[repr(transparent)]
 pub struct AppWindowClosedEventArgs(::windows::core::IUnknown);
 impl AppWindowClosedEventArgs {
@@ -541,6 +547,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppWindowClosedEventArgs {}
+unsafe impl ::core::marker::Sync for AppWindowClosedEventArgs {}
 #[repr(transparent)]
 pub struct AppWindowClosedReason(pub i32);
 impl AppWindowClosedReason {
@@ -653,6 +661,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppWindowFrame {}
+unsafe impl ::core::marker::Sync for AppWindowFrame {}
 #[repr(transparent)]
 pub struct AppWindowFrameStyle(pub i32);
 impl AppWindowFrameStyle {
@@ -768,6 +778,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppWindowPlacement {}
+unsafe impl ::core::marker::Sync for AppWindowPlacement {}
 #[repr(transparent)]
 pub struct AppWindowPresentationConfiguration(::windows::core::IUnknown);
 impl AppWindowPresentationConfiguration {
@@ -840,6 +852,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppWindowPresentationConfiguration {}
+unsafe impl ::core::marker::Sync for AppWindowPresentationConfiguration {}
 #[repr(transparent)]
 pub struct AppWindowPresentationKind(pub i32);
 impl AppWindowPresentationKind {
@@ -961,6 +975,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppWindowPresenter {}
+unsafe impl ::core::marker::Sync for AppWindowPresenter {}
 #[repr(transparent)]
 pub struct AppWindowTitleBar(::windows::core::IUnknown);
 impl AppWindowTitleBar {
@@ -1219,6 +1235,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppWindowTitleBar {}
+unsafe impl ::core::marker::Sync for AppWindowTitleBar {}
 #[repr(transparent)]
 pub struct AppWindowTitleBarOcclusion(::windows::core::IUnknown);
 impl AppWindowTitleBarOcclusion {
@@ -1292,6 +1310,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppWindowTitleBarOcclusion {}
+unsafe impl ::core::marker::Sync for AppWindowTitleBarOcclusion {}
 #[repr(transparent)]
 pub struct AppWindowTitleBarVisibility(pub i32);
 impl AppWindowTitleBarVisibility {
@@ -1418,6 +1438,8 @@ impl<'a> ::windows::core::IntoParam<'a, AppWindowPresentationConfiguration> for 
         ::windows::core::Param::Owned(::core::convert::Into::<AppWindowPresentationConfiguration>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompactOverlayPresentationConfiguration {}
+unsafe impl ::core::marker::Sync for CompactOverlayPresentationConfiguration {}
 #[repr(transparent)]
 pub struct DefaultPresentationConfiguration(::windows::core::IUnknown);
 impl DefaultPresentationConfiguration {
@@ -1517,6 +1539,8 @@ impl<'a> ::windows::core::IntoParam<'a, AppWindowPresentationConfiguration> for 
         ::windows::core::Param::Owned(::core::convert::Into::<AppWindowPresentationConfiguration>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DefaultPresentationConfiguration {}
+unsafe impl ::core::marker::Sync for DefaultPresentationConfiguration {}
 #[repr(transparent)]
 pub struct DisplayRegion(::windows::core::IUnknown);
 impl DisplayRegion {
@@ -1632,6 +1656,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplayRegion {}
+unsafe impl ::core::marker::Sync for DisplayRegion {}
 #[repr(transparent)]
 pub struct FullScreenPresentationConfiguration(::windows::core::IUnknown);
 impl FullScreenPresentationConfiguration {
@@ -1742,6 +1768,8 @@ impl<'a> ::windows::core::IntoParam<'a, AppWindowPresentationConfiguration> for 
         ::windows::core::Param::Owned(::core::convert::Into::<AppWindowPresentationConfiguration>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for FullScreenPresentationConfiguration {}
+unsafe impl ::core::marker::Sync for FullScreenPresentationConfiguration {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppWindow(::windows::core::IUnknown);
@@ -2445,6 +2473,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wind
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WindowingEnvironment {}
+unsafe impl ::core::marker::Sync for WindowingEnvironment {}
 #[repr(transparent)]
 pub struct WindowingEnvironmentAddedEventArgs(::windows::core::IUnknown);
 impl WindowingEnvironmentAddedEventArgs {
@@ -2517,6 +2547,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wind
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WindowingEnvironmentAddedEventArgs {}
+unsafe impl ::core::marker::Sync for WindowingEnvironmentAddedEventArgs {}
 #[repr(transparent)]
 pub struct WindowingEnvironmentChangedEventArgs(::windows::core::IUnknown);
 impl WindowingEnvironmentChangedEventArgs {}
@@ -2581,6 +2613,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wind
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WindowingEnvironmentChangedEventArgs {}
+unsafe impl ::core::marker::Sync for WindowingEnvironmentChangedEventArgs {}
 #[repr(transparent)]
 pub struct WindowingEnvironmentKind(pub i32);
 impl WindowingEnvironmentKind {
@@ -2681,3 +2715,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wind
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WindowingEnvironmentRemovedEventArgs {}
+unsafe impl ::core::marker::Sync for WindowingEnvironmentRemovedEventArgs {}

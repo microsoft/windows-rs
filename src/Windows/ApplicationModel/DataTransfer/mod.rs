@@ -229,6 +229,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Clip
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ClipboardContentOptions {}
+unsafe impl ::core::marker::Sync for ClipboardContentOptions {}
 #[repr(transparent)]
 pub struct ClipboardHistoryChangedEventArgs(::windows::core::IUnknown);
 impl ClipboardHistoryChangedEventArgs {}
@@ -293,6 +295,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Clip
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ClipboardHistoryChangedEventArgs {}
+unsafe impl ::core::marker::Sync for ClipboardHistoryChangedEventArgs {}
 #[repr(transparent)]
 pub struct ClipboardHistoryItem(::windows::core::IUnknown);
 impl ClipboardHistoryItem {
@@ -380,6 +384,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Clip
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ClipboardHistoryItem {}
+unsafe impl ::core::marker::Sync for ClipboardHistoryItem {}
 #[repr(transparent)]
 pub struct ClipboardHistoryItemsResult(::windows::core::IUnknown);
 impl ClipboardHistoryItemsResult {
@@ -460,6 +466,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Clip
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ClipboardHistoryItemsResult {}
+unsafe impl ::core::marker::Sync for ClipboardHistoryItemsResult {}
 #[repr(transparent)]
 pub struct ClipboardHistoryItemsResultStatus(pub i32);
 impl ClipboardHistoryItemsResultStatus {
@@ -696,6 +704,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DataPackage {}
+unsafe impl ::core::marker::Sync for DataPackage {}
 #[repr(transparent)]
 pub struct DataPackageOperation(pub u32);
 impl DataPackageOperation {
@@ -1068,6 +1078,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for DataPackagePropertySet {}
+unsafe impl ::core::marker::Sync for DataPackagePropertySet {}
 #[repr(transparent)]
 pub struct DataPackagePropertySetView(::windows::core::IUnknown);
 impl DataPackagePropertySetView {
@@ -1343,6 +1355,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for DataPackagePropertySetView {}
+unsafe impl ::core::marker::Sync for DataPackagePropertySetView {}
 #[repr(transparent)]
 pub struct DataPackageView(::windows::core::IUnknown);
 impl DataPackageView {
@@ -1558,6 +1572,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DataPackageView {}
+unsafe impl ::core::marker::Sync for DataPackageView {}
 #[repr(transparent)]
 pub struct DataProviderDeferral(::windows::core::IUnknown);
 impl DataProviderDeferral {
@@ -1627,6 +1643,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DataProviderDeferral {}
+unsafe impl ::core::marker::Sync for DataProviderDeferral {}
 #[repr(transparent)]
 pub struct DataProviderHandler(pub ::windows::core::IUnknown);
 impl DataProviderHandler {
@@ -1786,6 +1804,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DataProviderRequest {}
+unsafe impl ::core::marker::Sync for DataProviderRequest {}
 #[repr(transparent)]
 pub struct DataRequest(::windows::core::IUnknown);
 impl DataRequest {
@@ -1881,6 +1901,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DataRequest {}
+unsafe impl ::core::marker::Sync for DataRequest {}
 #[repr(transparent)]
 pub struct DataRequestDeferral(::windows::core::IUnknown);
 impl DataRequestDeferral {
@@ -1950,6 +1972,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DataRequestDeferral {}
+unsafe impl ::core::marker::Sync for DataRequestDeferral {}
 #[repr(transparent)]
 pub struct DataRequestedEventArgs(::windows::core::IUnknown);
 impl DataRequestedEventArgs {
@@ -2022,6 +2046,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DataRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for DataRequestedEventArgs {}
 #[repr(transparent)]
 pub struct DataTransferManager(::windows::core::IUnknown);
 impl DataTransferManager {
@@ -3324,6 +3350,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Oper
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for OperationCompletedEventArgs {}
+unsafe impl ::core::marker::Sync for OperationCompletedEventArgs {}
 #[repr(transparent)]
 pub struct SetHistoryItemAsContentStatus(pub i32);
 impl SetHistoryItemAsContentStatus {
@@ -3424,6 +3452,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Shar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ShareCompletedEventArgs {}
+unsafe impl ::core::marker::Sync for ShareCompletedEventArgs {}
 #[repr(transparent)]
 pub struct ShareProvider(::windows::core::IUnknown);
 impl ShareProvider {
@@ -3534,6 +3564,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Shar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ShareProvider {}
+unsafe impl ::core::marker::Sync for ShareProvider {}
 #[repr(transparent)]
 pub struct ShareProviderHandler(pub ::windows::core::IUnknown);
 impl ShareProviderHandler {
@@ -3685,6 +3717,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Shar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ShareProviderOperation {}
+unsafe impl ::core::marker::Sync for ShareProviderOperation {}
 #[repr(transparent)]
 pub struct ShareProvidersRequestedEventArgs(::windows::core::IUnknown);
 impl ShareProvidersRequestedEventArgs {
@@ -3773,6 +3807,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Shar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ShareProvidersRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for ShareProvidersRequestedEventArgs {}
 #[repr(transparent)]
 pub struct ShareTargetInfo(::windows::core::IUnknown);
 impl ShareTargetInfo {
@@ -3852,6 +3888,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Shar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ShareTargetInfo {}
+unsafe impl ::core::marker::Sync for ShareTargetInfo {}
 #[repr(transparent)]
 pub struct ShareUIOptions(::windows::core::IUnknown);
 impl ShareUIOptions {
@@ -3948,6 +3986,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Shar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ShareUIOptions {}
+unsafe impl ::core::marker::Sync for ShareUIOptions {}
 #[repr(transparent)]
 pub struct ShareUITheme(pub i32);
 impl ShareUITheme {
@@ -4148,3 +4188,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TargetApplicationChosenEventArgs {}
+unsafe impl ::core::marker::Sync for TargetApplicationChosenEventArgs {}

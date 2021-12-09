@@ -126,6 +126,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &ActivitySensorT
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ActivitySensorTrigger {}
+unsafe impl ::core::marker::Sync for ActivitySensorTrigger {}
 #[repr(transparent)]
 pub struct AlarmAccessStatus(pub i32);
 impl AlarmAccessStatus {
@@ -286,6 +288,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &AppBroadcastTri
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AppBroadcastTrigger {}
+unsafe impl ::core::marker::Sync for AppBroadcastTrigger {}
 #[repr(transparent)]
 pub struct AppBroadcastTriggerProviderInfo(::windows::core::IUnknown);
 impl AppBroadcastTriggerProviderInfo {
@@ -419,6 +423,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppBroadcastTriggerProviderInfo {}
+unsafe impl ::core::marker::Sync for AppBroadcastTriggerProviderInfo {}
 #[repr(transparent)]
 pub struct ApplicationTrigger(::windows::core::IUnknown);
 impl ApplicationTrigger {
@@ -529,6 +535,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &ApplicationTrig
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ApplicationTrigger {}
+unsafe impl ::core::marker::Sync for ApplicationTrigger {}
 #[repr(transparent)]
 pub struct ApplicationTriggerDetails(::windows::core::IUnknown);
 impl ApplicationTriggerDetails {
@@ -602,6 +610,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appl
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ApplicationTriggerDetails {}
+unsafe impl ::core::marker::Sync for ApplicationTriggerDetails {}
 #[repr(transparent)]
 pub struct ApplicationTriggerResult(pub i32);
 impl ApplicationTriggerResult {
@@ -725,6 +735,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &AppointmentStor
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AppointmentStoreNotificationTrigger {}
+unsafe impl ::core::marker::Sync for AppointmentStoreNotificationTrigger {}
 #[repr(transparent)]
 pub struct BackgroundAccessRequestKind(pub i32);
 impl BackgroundAccessRequestKind {
@@ -1188,6 +1200,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Back
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BackgroundTaskCompletedEventArgs {}
+unsafe impl ::core::marker::Sync for BackgroundTaskCompletedEventArgs {}
 #[repr(transparent)]
 pub struct BackgroundTaskCompletedEventHandler(pub ::windows::core::IUnknown);
 impl BackgroundTaskCompletedEventHandler {
@@ -1325,6 +1339,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Back
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BackgroundTaskDeferral {}
+unsafe impl ::core::marker::Sync for BackgroundTaskDeferral {}
 #[repr(transparent)]
 pub struct BackgroundTaskProgressEventArgs(::windows::core::IUnknown);
 impl BackgroundTaskProgressEventArgs {
@@ -1404,6 +1420,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Back
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BackgroundTaskProgressEventArgs {}
+unsafe impl ::core::marker::Sync for BackgroundTaskProgressEventArgs {}
 #[repr(transparent)]
 pub struct BackgroundTaskProgressEventHandler(pub ::windows::core::IUnknown);
 impl BackgroundTaskProgressEventHandler {
@@ -1689,6 +1707,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTaskRegistration3> for &Backg
         ::core::convert::TryInto::<IBackgroundTaskRegistration3>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for BackgroundTaskRegistration {}
+unsafe impl ::core::marker::Sync for BackgroundTaskRegistration {}
 #[repr(transparent)]
 pub struct BackgroundTaskRegistrationGroup(::windows::core::IUnknown);
 impl BackgroundTaskRegistrationGroup {
@@ -1805,6 +1825,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Back
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BackgroundTaskRegistrationGroup {}
+unsafe impl ::core::marker::Sync for BackgroundTaskRegistrationGroup {}
 #[repr(transparent)]
 pub struct BackgroundTaskThrottleCounter(pub i32);
 impl BackgroundTaskThrottleCounter {
@@ -2025,6 +2047,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &BluetoothLEAdve
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for BluetoothLEAdvertisementPublisherTrigger {}
+unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementPublisherTrigger {}
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementWatcherTrigger(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementWatcherTrigger {
@@ -2188,6 +2212,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &BluetoothLEAdve
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for BluetoothLEAdvertisementWatcherTrigger {}
+unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementWatcherTrigger {}
 #[repr(transparent)]
 pub struct CachedFileUpdaterTrigger(::windows::core::IUnknown);
 impl CachedFileUpdaterTrigger {
@@ -2282,6 +2308,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &CachedFileUpdat
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for CachedFileUpdaterTrigger {}
+unsafe impl ::core::marker::Sync for CachedFileUpdaterTrigger {}
 #[repr(transparent)]
 pub struct CachedFileUpdaterTriggerDetails(::windows::core::IUnknown);
 impl CachedFileUpdaterTriggerDetails {
@@ -2370,6 +2398,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cach
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CachedFileUpdaterTriggerDetails {}
+unsafe impl ::core::marker::Sync for CachedFileUpdaterTriggerDetails {}
 #[repr(transparent)]
 pub struct ChatMessageNotificationTrigger(::windows::core::IUnknown);
 impl ChatMessageNotificationTrigger {
@@ -2464,6 +2494,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &ChatMessageNoti
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ChatMessageNotificationTrigger {}
+unsafe impl ::core::marker::Sync for ChatMessageNotificationTrigger {}
 #[repr(transparent)]
 pub struct ChatMessageReceivedNotificationTrigger(::windows::core::IUnknown);
 impl ChatMessageReceivedNotificationTrigger {
@@ -2558,6 +2590,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &ChatMessageRece
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ChatMessageReceivedNotificationTrigger {}
+unsafe impl ::core::marker::Sync for ChatMessageReceivedNotificationTrigger {}
 #[repr(transparent)]
 pub struct CommunicationBlockingAppSetAsActiveTrigger(::windows::core::IUnknown);
 impl CommunicationBlockingAppSetAsActiveTrigger {
@@ -2652,6 +2686,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &CommunicationBl
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for CommunicationBlockingAppSetAsActiveTrigger {}
+unsafe impl ::core::marker::Sync for CommunicationBlockingAppSetAsActiveTrigger {}
 #[repr(transparent)]
 pub struct ContactStoreNotificationTrigger(::windows::core::IUnknown);
 impl ContactStoreNotificationTrigger {
@@ -2746,6 +2782,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &ContactStoreNot
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ContactStoreNotificationTrigger {}
+unsafe impl ::core::marker::Sync for ContactStoreNotificationTrigger {}
 #[repr(transparent)]
 pub struct ContentPrefetchTrigger(::windows::core::IUnknown);
 impl ContentPrefetchTrigger {
@@ -3214,6 +3252,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &DeviceConnectio
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for DeviceConnectionChangeTrigger {}
+unsafe impl ::core::marker::Sync for DeviceConnectionChangeTrigger {}
 #[repr(transparent)]
 pub struct DeviceManufacturerNotificationTrigger(::windows::core::IUnknown);
 impl DeviceManufacturerNotificationTrigger {
@@ -3438,6 +3478,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &DeviceServicing
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for DeviceServicingTrigger {}
+unsafe impl ::core::marker::Sync for DeviceServicingTrigger {}
 #[repr(transparent)]
 pub struct DeviceTriggerResult(pub i32);
 impl DeviceTriggerResult {
@@ -3577,6 +3619,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &DeviceUseTrigge
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for DeviceUseTrigger {}
+unsafe impl ::core::marker::Sync for DeviceUseTrigger {}
 #[repr(transparent)]
 pub struct DeviceWatcherTrigger(::windows::core::IUnknown);
 impl DeviceWatcherTrigger {}
@@ -3757,6 +3801,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &EmailStoreNotif
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for EmailStoreNotificationTrigger {}
+unsafe impl ::core::marker::Sync for EmailStoreNotificationTrigger {}
 #[repr(transparent)]
 pub struct GattCharacteristicNotificationTrigger(::windows::core::IUnknown);
 impl GattCharacteristicNotificationTrigger {
@@ -3882,6 +3928,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &GattCharacteris
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for GattCharacteristicNotificationTrigger {}
+unsafe impl ::core::marker::Sync for GattCharacteristicNotificationTrigger {}
 #[repr(transparent)]
 pub struct GattServiceProviderTrigger(::windows::core::IUnknown);
 impl GattServiceProviderTrigger {
@@ -4008,6 +4056,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &GattServiceProv
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for GattServiceProviderTrigger {}
+unsafe impl ::core::marker::Sync for GattServiceProviderTrigger {}
 #[repr(transparent)]
 pub struct GattServiceProviderTriggerResult(::windows::core::IUnknown);
 impl GattServiceProviderTriggerResult {
@@ -4088,6 +4138,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattServiceProviderTriggerResult {}
+unsafe impl ::core::marker::Sync for GattServiceProviderTriggerResult {}
 #[repr(transparent)]
 pub struct GeovisitTrigger(::windows::core::IUnknown);
 impl GeovisitTrigger {
@@ -4195,6 +4247,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &GeovisitTrigger
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for GeovisitTrigger {}
+unsafe impl ::core::marker::Sync for GeovisitTrigger {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IActivitySensorTrigger(::windows::core::IUnknown);
@@ -7105,6 +7159,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &LocationTrigger
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for LocationTrigger {}
+unsafe impl ::core::marker::Sync for LocationTrigger {}
 #[repr(transparent)]
 pub struct LocationTriggerType(pub i32);
 impl LocationTriggerType {
@@ -7475,6 +7531,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &MobileBroadband
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceNotificationTrigger {}
+unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceNotificationTrigger {}
 #[repr(transparent)]
 pub struct MobileBroadbandPcoDataChangeTrigger(::windows::core::IUnknown);
 impl MobileBroadbandPcoDataChangeTrigger {
@@ -7569,6 +7627,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &MobileBroadband
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandPcoDataChangeTrigger {}
+unsafe impl ::core::marker::Sync for MobileBroadbandPcoDataChangeTrigger {}
 #[repr(transparent)]
 pub struct MobileBroadbandPinLockStateChangeTrigger(::windows::core::IUnknown);
 impl MobileBroadbandPinLockStateChangeTrigger {
@@ -7663,6 +7723,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &MobileBroadband
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandPinLockStateChangeTrigger {}
+unsafe impl ::core::marker::Sync for MobileBroadbandPinLockStateChangeTrigger {}
 #[repr(transparent)]
 pub struct MobileBroadbandRadioStateChangeTrigger(::windows::core::IUnknown);
 impl MobileBroadbandRadioStateChangeTrigger {
@@ -7757,6 +7819,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &MobileBroadband
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandRadioStateChangeTrigger {}
+unsafe impl ::core::marker::Sync for MobileBroadbandRadioStateChangeTrigger {}
 #[repr(transparent)]
 pub struct MobileBroadbandRegistrationStateChangeTrigger(::windows::core::IUnknown);
 impl MobileBroadbandRegistrationStateChangeTrigger {
@@ -7851,6 +7915,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &MobileBroadband
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandRegistrationStateChangeTrigger {}
+unsafe impl ::core::marker::Sync for MobileBroadbandRegistrationStateChangeTrigger {}
 #[repr(transparent)]
 pub struct NetworkOperatorDataUsageTrigger(::windows::core::IUnknown);
 impl NetworkOperatorDataUsageTrigger {
@@ -7945,6 +8011,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &NetworkOperator
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for NetworkOperatorDataUsageTrigger {}
+unsafe impl ::core::marker::Sync for NetworkOperatorDataUsageTrigger {}
 #[repr(transparent)]
 pub struct NetworkOperatorHotspotAuthenticationTrigger(::windows::core::IUnknown);
 impl NetworkOperatorHotspotAuthenticationTrigger {
@@ -8237,6 +8305,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &PaymentAppCanMa
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PaymentAppCanMakePaymentTrigger {}
+unsafe impl ::core::marker::Sync for PaymentAppCanMakePaymentTrigger {}
 #[repr(transparent)]
 pub struct PhoneTrigger(::windows::core::IUnknown);
 impl PhoneTrigger {
@@ -8350,6 +8420,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &PhoneTrigger {
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PhoneTrigger {}
+unsafe impl ::core::marker::Sync for PhoneTrigger {}
 #[repr(transparent)]
 pub struct PushNotificationTrigger(::windows::core::IUnknown);
 impl PushNotificationTrigger {
@@ -8454,6 +8526,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &PushNotificatio
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PushNotificationTrigger {}
+unsafe impl ::core::marker::Sync for PushNotificationTrigger {}
 #[repr(transparent)]
 pub struct RcsEndUserMessageAvailableTrigger(::windows::core::IUnknown);
 impl RcsEndUserMessageAvailableTrigger {
@@ -8548,6 +8622,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &RcsEndUserMessa
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for RcsEndUserMessageAvailableTrigger {}
+unsafe impl ::core::marker::Sync for RcsEndUserMessageAvailableTrigger {}
 #[repr(transparent)]
 pub struct RfcommConnectionTrigger(::windows::core::IUnknown);
 impl RfcommConnectionTrigger {
@@ -8695,6 +8771,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &RfcommConnectio
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for RfcommConnectionTrigger {}
+unsafe impl ::core::marker::Sync for RfcommConnectionTrigger {}
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationTrigger(::windows::core::IUnknown);
 impl SecondaryAuthenticationFactorAuthenticationTrigger {
@@ -8887,6 +8965,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &SensorDataThres
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SensorDataThresholdTrigger {}
+unsafe impl ::core::marker::Sync for SensorDataThresholdTrigger {}
 #[repr(transparent)]
 pub struct SmartCardTrigger(::windows::core::IUnknown);
 impl SmartCardTrigger {
@@ -9091,6 +9171,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &SmsMessageRecei
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SmsMessageReceivedTrigger {}
+unsafe impl ::core::marker::Sync for SmsMessageReceivedTrigger {}
 #[repr(transparent)]
 pub struct SocketActivityTrigger(::windows::core::IUnknown);
 impl SocketActivityTrigger {
@@ -9192,6 +9274,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &SocketActivityT
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SocketActivityTrigger {}
+unsafe impl ::core::marker::Sync for SocketActivityTrigger {}
 #[repr(transparent)]
 pub struct StorageLibraryChangeTrackerTrigger(::windows::core::IUnknown);
 impl StorageLibraryChangeTrackerTrigger {
@@ -9290,6 +9374,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &StorageLibraryC
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for StorageLibraryChangeTrackerTrigger {}
+unsafe impl ::core::marker::Sync for StorageLibraryChangeTrackerTrigger {}
 #[repr(transparent)]
 pub struct StorageLibraryContentChangedTrigger(::windows::core::IUnknown);
 impl StorageLibraryContentChangedTrigger {
@@ -9779,6 +9865,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &TetheringEntitl
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for TetheringEntitlementCheckTrigger {}
+unsafe impl ::core::marker::Sync for TetheringEntitlementCheckTrigger {}
 #[repr(transparent)]
 pub struct TimeTrigger(::windows::core::IUnknown);
 impl TimeTrigger {
@@ -9994,6 +10082,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &ToastNotificati
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ToastNotificationActionTrigger {}
+unsafe impl ::core::marker::Sync for ToastNotificationActionTrigger {}
 #[repr(transparent)]
 pub struct ToastNotificationHistoryChangedTrigger(::windows::core::IUnknown);
 impl ToastNotificationHistoryChangedTrigger {
@@ -10098,6 +10188,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &ToastNotificati
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ToastNotificationHistoryChangedTrigger {}
+unsafe impl ::core::marker::Sync for ToastNotificationHistoryChangedTrigger {}
 #[repr(transparent)]
 pub struct UserNotificationChangedTrigger(::windows::core::IUnknown);
 impl UserNotificationChangedTrigger {
@@ -10196,3 +10288,5 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &UserNotificatio
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for UserNotificationChangedTrigger {}
+unsafe impl ::core::marker::Sync for UserNotificationChangedTrigger {}

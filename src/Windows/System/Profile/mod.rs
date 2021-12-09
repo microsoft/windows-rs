@@ -120,6 +120,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Anal
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AnalyticsVersionInfo {}
+unsafe impl ::core::marker::Sync for AnalyticsVersionInfo {}
 pub struct AppApplicability {}
 impl AppApplicability {
     #[cfg(feature = "Foundation_Collections")]
@@ -259,6 +261,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Hard
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HardwareToken {}
+unsafe impl ::core::marker::Sync for HardwareToken {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAnalyticsInfoStatics(::windows::core::IUnknown);
@@ -991,6 +995,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemIdentificationInfo {}
+unsafe impl ::core::marker::Sync for SystemIdentificationInfo {}
 #[repr(transparent)]
 pub struct SystemIdentificationSource(pub i32);
 impl SystemIdentificationSource {
@@ -1154,6 +1160,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Unsu
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UnsupportedAppRequirement {}
+unsafe impl ::core::marker::Sync for UnsupportedAppRequirement {}
 #[repr(transparent)]
 pub struct UnsupportedAppRequirementReasons(pub u32);
 impl UnsupportedAppRequirementReasons {

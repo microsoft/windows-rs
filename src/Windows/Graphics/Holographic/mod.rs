@@ -215,6 +215,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HolographicCamera {}
+unsafe impl ::core::marker::Sync for HolographicCamera {}
 #[repr(transparent)]
 pub struct HolographicCameraPose(::windows::core::IUnknown);
 impl HolographicCameraPose {
@@ -356,6 +358,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HolographicCameraPose {}
+unsafe impl ::core::marker::Sync for HolographicCameraPose {}
 #[repr(transparent)]
 pub struct HolographicCameraRenderingParameters(::windows::core::IUnknown);
 impl HolographicCameraRenderingParameters {
@@ -490,6 +494,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HolographicCameraRenderingParameters {}
+unsafe impl ::core::marker::Sync for HolographicCameraRenderingParameters {}
 #[repr(transparent)]
 pub struct HolographicCameraViewportParameters(::windows::core::IUnknown);
 impl HolographicCameraViewportParameters {
@@ -571,6 +577,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HolographicCameraViewportParameters {}
+unsafe impl ::core::marker::Sync for HolographicCameraViewportParameters {}
 #[repr(transparent)]
 pub struct HolographicDepthReprojectionMethod(pub i32);
 impl HolographicDepthReprojectionMethod {
@@ -731,6 +739,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HolographicDisplay {}
+unsafe impl ::core::marker::Sync for HolographicDisplay {}
 #[repr(transparent)]
 pub struct HolographicFrame(::windows::core::IUnknown);
 impl HolographicFrame {
@@ -870,6 +880,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HolographicFrame {}
+unsafe impl ::core::marker::Sync for HolographicFrame {}
 #[repr(C)]
 pub struct HolographicFrameId {
     pub Value: u64,
@@ -981,6 +993,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HolographicFramePrediction {}
+unsafe impl ::core::marker::Sync for HolographicFramePrediction {}
 #[repr(transparent)]
 pub struct HolographicFramePresentResult(pub i32);
 impl HolographicFramePresentResult {
@@ -1140,6 +1154,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HolographicFramePresentationMonitor {}
+unsafe impl ::core::marker::Sync for HolographicFramePresentationMonitor {}
 #[repr(transparent)]
 pub struct HolographicFramePresentationReport(::windows::core::IUnknown);
 impl HolographicFramePresentationReport {
@@ -1248,6 +1264,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HolographicFramePresentationReport {}
+unsafe impl ::core::marker::Sync for HolographicFramePresentationReport {}
 #[repr(transparent)]
 pub struct HolographicFrameRenderingReport(::windows::core::IUnknown);
 impl HolographicFrameRenderingReport {
@@ -1351,6 +1369,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HolographicFrameRenderingReport {}
+unsafe impl ::core::marker::Sync for HolographicFrameRenderingReport {}
 #[repr(transparent)]
 pub struct HolographicFrameScanoutMonitor(::windows::core::IUnknown);
 impl HolographicFrameScanoutMonitor {
@@ -1455,6 +1475,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HolographicFrameScanoutMonitor {}
+unsafe impl ::core::marker::Sync for HolographicFrameScanoutMonitor {}
 #[repr(transparent)]
 pub struct HolographicFrameScanoutReport(::windows::core::IUnknown);
 impl HolographicFrameScanoutReport {
@@ -1558,6 +1580,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HolographicFrameScanoutReport {}
+unsafe impl ::core::marker::Sync for HolographicFrameScanoutReport {}
 #[repr(transparent)]
 pub struct HolographicQuadLayer(::windows::core::IUnknown);
 impl HolographicQuadLayer {
@@ -1688,6 +1712,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HolographicQuadLayer {}
+unsafe impl ::core::marker::Sync for HolographicQuadLayer {}
 #[repr(transparent)]
 pub struct HolographicQuadLayerUpdateParameters(::windows::core::IUnknown);
 impl HolographicQuadLayerUpdateParameters {
@@ -1800,6 +1826,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HolographicQuadLayerUpdateParameters {}
+unsafe impl ::core::marker::Sync for HolographicQuadLayerUpdateParameters {}
 #[repr(transparent)]
 pub struct HolographicReprojectionMode(pub i32);
 impl HolographicReprojectionMode {
@@ -2030,6 +2058,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HolographicSpace {}
+unsafe impl ::core::marker::Sync for HolographicSpace {}
 #[repr(transparent)]
 pub struct HolographicSpaceCameraAddedEventArgs(::windows::core::IUnknown);
 impl HolographicSpaceCameraAddedEventArgs {
@@ -2110,6 +2140,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HolographicSpaceCameraAddedEventArgs {}
+unsafe impl ::core::marker::Sync for HolographicSpaceCameraAddedEventArgs {}
 #[repr(transparent)]
 pub struct HolographicSpaceCameraRemovedEventArgs(::windows::core::IUnknown);
 impl HolographicSpaceCameraRemovedEventArgs {
@@ -2182,6 +2214,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HolographicSpaceCameraRemovedEventArgs {}
+unsafe impl ::core::marker::Sync for HolographicSpaceCameraRemovedEventArgs {}
 #[repr(transparent)]
 pub struct HolographicSpaceUserPresence(pub i32);
 impl HolographicSpaceUserPresence {
@@ -2407,6 +2441,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HolographicViewConfiguration {}
+unsafe impl ::core::marker::Sync for HolographicViewConfiguration {}
 #[repr(transparent)]
 pub struct HolographicViewConfigurationKind(pub i32);
 impl HolographicViewConfigurationKind {

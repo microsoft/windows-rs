@@ -141,6 +141,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DevicePortalConnection {}
+unsafe impl ::core::marker::Sync for DevicePortalConnection {}
 #[repr(transparent)]
 pub struct DevicePortalConnectionClosedEventArgs(::windows::core::IUnknown);
 impl DevicePortalConnectionClosedEventArgs {
@@ -213,6 +215,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DevicePortalConnectionClosedEventArgs {}
+unsafe impl ::core::marker::Sync for DevicePortalConnectionClosedEventArgs {}
 #[repr(transparent)]
 pub struct DevicePortalConnectionClosedReason(pub i32);
 impl DevicePortalConnectionClosedReason {
@@ -348,6 +352,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DevicePortalConnectionRequestReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for DevicePortalConnectionRequestReceivedEventArgs {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDevicePortalConnection(::windows::core::IUnknown);

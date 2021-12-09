@@ -230,6 +230,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppInstallItem {}
+unsafe impl ::core::marker::Sync for AppInstallItem {}
 #[repr(transparent)]
 pub struct AppInstallManager(::windows::core::IUnknown);
 impl AppInstallManager {
@@ -662,6 +664,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppInstallManager {}
+unsafe impl ::core::marker::Sync for AppInstallManager {}
 #[repr(transparent)]
 pub struct AppInstallManagerItemEventArgs(::windows::core::IUnknown);
 impl AppInstallManagerItemEventArgs {
@@ -734,6 +738,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppInstallManagerItemEventArgs {}
+unsafe impl ::core::marker::Sync for AppInstallManagerItemEventArgs {}
 #[repr(transparent)]
 pub struct AppInstallOptions(::windows::core::IUnknown);
 impl AppInstallOptions {
@@ -973,6 +979,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppInstallOptions {}
+unsafe impl ::core::marker::Sync for AppInstallOptions {}
 #[repr(transparent)]
 pub struct AppInstallState(pub i32);
 impl AppInstallState {
@@ -1134,6 +1142,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppInstallStatus {}
+unsafe impl ::core::marker::Sync for AppInstallStatus {}
 #[repr(transparent)]
 pub struct AppInstallType(pub i32);
 impl AppInstallType {
@@ -1296,6 +1306,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppU
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppUpdateOptions {}
+unsafe impl ::core::marker::Sync for AppUpdateOptions {}
 #[repr(transparent)]
 pub struct AutoUpdateSetting(pub i32);
 impl AutoUpdateSetting {
@@ -1397,6 +1409,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GetE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GetEntitlementResult {}
+unsafe impl ::core::marker::Sync for GetEntitlementResult {}
 #[repr(transparent)]
 pub struct GetEntitlementStatus(pub i32);
 impl GetEntitlementStatus {

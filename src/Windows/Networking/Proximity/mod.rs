@@ -71,6 +71,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Conn
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ConnectionRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for ConnectionRequestedEventArgs {}
 #[repr(transparent)]
 pub struct DeviceArrivedEventHandler(pub ::windows::core::IUnknown);
 impl DeviceArrivedEventHandler {
@@ -892,6 +894,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Peer
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PeerInformation {}
+unsafe impl ::core::marker::Sync for PeerInformation {}
 #[repr(transparent)]
 pub struct PeerRole(pub i32);
 impl PeerRole {
@@ -1065,6 +1069,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Peer
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PeerWatcher {}
+unsafe impl ::core::marker::Sync for PeerWatcher {}
 #[repr(transparent)]
 pub struct PeerWatcherStatus(pub i32);
 impl PeerWatcherStatus {
@@ -1291,6 +1297,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prox
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProximityDevice {}
+unsafe impl ::core::marker::Sync for ProximityDevice {}
 #[repr(transparent)]
 pub struct ProximityMessage(::windows::core::IUnknown);
 impl ProximityMessage {
@@ -1385,6 +1393,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prox
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProximityMessage {}
+unsafe impl ::core::marker::Sync for ProximityMessage {}
 #[repr(transparent)]
 pub struct TriggeredConnectState(pub i32);
 impl TriggeredConnectState {
@@ -1503,3 +1513,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Trig
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TriggeredConnectionStateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for TriggeredConnectionStateChangedEventArgs {}

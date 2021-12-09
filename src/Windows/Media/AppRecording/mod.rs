@@ -113,6 +113,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppRecordingManager {}
+unsafe impl ::core::marker::Sync for AppRecordingManager {}
 #[repr(transparent)]
 pub struct AppRecordingResult(::windows::core::IUnknown);
 impl AppRecordingResult {
@@ -207,6 +209,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppRecordingResult {}
+unsafe impl ::core::marker::Sync for AppRecordingResult {}
 #[repr(transparent)]
 pub struct AppRecordingSaveScreenshotOption(pub i32);
 impl AppRecordingSaveScreenshotOption {
@@ -321,6 +325,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppRecordingSaveScreenshotResult {}
+unsafe impl ::core::marker::Sync for AppRecordingSaveScreenshotResult {}
 #[repr(transparent)]
 pub struct AppRecordingSavedScreenshotInfo(::windows::core::IUnknown);
 impl AppRecordingSavedScreenshotInfo {
@@ -401,6 +407,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppRecordingSavedScreenshotInfo {}
+unsafe impl ::core::marker::Sync for AppRecordingSavedScreenshotInfo {}
 #[repr(transparent)]
 pub struct AppRecordingStatus(::windows::core::IUnknown);
 impl AppRecordingStatus {
@@ -495,6 +503,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppRecordingStatus {}
+unsafe impl ::core::marker::Sync for AppRecordingStatus {}
 #[repr(transparent)]
 pub struct AppRecordingStatusDetails(::windows::core::IUnknown);
 impl AppRecordingStatusDetails {
@@ -623,6 +633,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppRecordingStatusDetails {}
+unsafe impl ::core::marker::Sync for AppRecordingStatusDetails {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppRecordingManager(::windows::core::IUnknown);

@@ -782,6 +782,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebU
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WebUICommandBar {}
+unsafe impl ::core::marker::Sync for WebUICommandBar {}
 #[repr(transparent)]
 pub struct WebUICommandBarBitmapIcon(::windows::core::IUnknown);
 impl WebUICommandBarBitmapIcon {
@@ -900,6 +902,8 @@ impl<'a> ::windows::core::IntoParam<'a, IWebUICommandBarIcon> for &WebUICommandB
         ::core::convert::TryInto::<IWebUICommandBarIcon>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for WebUICommandBarBitmapIcon {}
+unsafe impl ::core::marker::Sync for WebUICommandBarBitmapIcon {}
 #[repr(transparent)]
 pub struct WebUICommandBarClosedDisplayMode(pub i32);
 impl WebUICommandBarClosedDisplayMode {
@@ -1046,6 +1050,8 @@ impl<'a> ::windows::core::IntoParam<'a, IWebUICommandBarElement> for &WebUIComma
         ::core::convert::TryInto::<IWebUICommandBarElement>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for WebUICommandBarConfirmationButton {}
+unsafe impl ::core::marker::Sync for WebUICommandBarConfirmationButton {}
 #[repr(transparent)]
 pub struct WebUICommandBarIconButton(::windows::core::IUnknown);
 impl WebUICommandBarIconButton {
@@ -1208,6 +1214,8 @@ impl<'a> ::windows::core::IntoParam<'a, IWebUICommandBarElement> for &WebUIComma
         ::core::convert::TryInto::<IWebUICommandBarElement>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for WebUICommandBarIconButton {}
+unsafe impl ::core::marker::Sync for WebUICommandBarIconButton {}
 #[repr(transparent)]
 pub struct WebUICommandBarItemInvokedEventArgs(::windows::core::IUnknown);
 impl WebUICommandBarItemInvokedEventArgs {
@@ -1280,6 +1288,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebU
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WebUICommandBarItemInvokedEventArgs {}
+unsafe impl ::core::marker::Sync for WebUICommandBarItemInvokedEventArgs {}
 #[repr(transparent)]
 pub struct WebUICommandBarSizeChangedEventArgs(::windows::core::IUnknown);
 impl WebUICommandBarSizeChangedEventArgs {
@@ -1353,6 +1363,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebU
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WebUICommandBarSizeChangedEventArgs {}
+unsafe impl ::core::marker::Sync for WebUICommandBarSizeChangedEventArgs {}
 #[repr(transparent)]
 pub struct WebUICommandBarSymbolIcon(::windows::core::IUnknown);
 impl WebUICommandBarSymbolIcon {
@@ -1468,3 +1480,5 @@ impl<'a> ::windows::core::IntoParam<'a, IWebUICommandBarIcon> for &WebUICommandB
         ::core::convert::TryInto::<IWebUICommandBarIcon>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for WebUICommandBarSymbolIcon {}
+unsafe impl ::core::marker::Sync for WebUICommandBarSymbolIcon {}

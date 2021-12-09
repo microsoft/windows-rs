@@ -148,6 +148,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Deli
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DeliveryOptimizationSettings {}
+unsafe impl ::core::marker::Sync for DeliveryOptimizationSettings {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDeliveryOptimizationSettings(::windows::core::IUnknown);
@@ -715,6 +717,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StoreHardwareManufacturerInfo {}
+unsafe impl ::core::marker::Sync for StoreHardwareManufacturerInfo {}
 #[repr(transparent)]
 pub struct StoreLogOptions(pub u32);
 impl StoreLogOptions {
@@ -867,6 +871,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StorePreviewProductInfo {}
+unsafe impl ::core::marker::Sync for StorePreviewProductInfo {}
 #[repr(transparent)]
 pub struct StorePreviewProductPurchaseStatus(pub i32);
 impl StorePreviewProductPurchaseStatus {
@@ -968,6 +974,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StorePreviewPurchaseResults {}
+unsafe impl ::core::marker::Sync for StorePreviewPurchaseResults {}
 #[repr(transparent)]
 pub struct StorePreviewSkuInfo(::windows::core::IUnknown);
 impl StorePreviewSkuInfo {
@@ -1096,6 +1104,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StorePreviewSkuInfo {}
+unsafe impl ::core::marker::Sync for StorePreviewSkuInfo {}
 #[repr(transparent)]
 pub struct StoreSystemFeature(pub i32);
 impl StoreSystemFeature {

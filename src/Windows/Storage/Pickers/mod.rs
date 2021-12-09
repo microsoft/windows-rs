@@ -243,6 +243,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for FileExtensionVector {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for FileExtensionVector {}
 #[repr(transparent)]
 pub struct FileOpenPicker(::windows::core::IUnknown);
 impl FileOpenPicker {
@@ -441,6 +445,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &File
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for FileOpenPicker {}
+unsafe impl ::core::marker::Sync for FileOpenPicker {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct FilePickerFileTypesOrderedMap(::windows::core::IUnknown);
@@ -659,6 +665,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for FilePickerFileTypesOrderedMap {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for FilePickerFileTypesOrderedMap {}
+#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct FilePickerSelectedFilesArray(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
@@ -857,6 +867,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IVectorView<super::StorageFile>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for FilePickerSelectedFilesArray {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for FilePickerSelectedFilesArray {}
 #[repr(transparent)]
 pub struct FileSavePicker(::windows::core::IUnknown);
 impl FileSavePicker {
@@ -1054,6 +1068,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &File
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for FileSavePicker {}
+unsafe impl ::core::marker::Sync for FileSavePicker {}
 #[repr(transparent)]
 pub struct FolderPicker(::windows::core::IUnknown);
 impl FolderPicker {
@@ -1218,6 +1234,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Fold
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for FolderPicker {}
+unsafe impl ::core::marker::Sync for FolderPicker {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IFileOpenPicker(::windows::core::IUnknown);

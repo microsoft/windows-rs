@@ -197,6 +197,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Block {
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Block {}
+unsafe impl ::core::marker::Sync for Block {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct BlockCollection(::windows::core::IUnknown);
@@ -439,6 +441,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVector<Block>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for BlockCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for BlockCollection {}
 #[repr(transparent)]
 pub struct Bold(::windows::core::IUnknown);
 impl Bold {
@@ -591,6 +597,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Bold {
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Bold {}
+unsafe impl ::core::marker::Sync for Bold {}
 #[repr(transparent)]
 pub struct ContactContentLinkProvider(::windows::core::IUnknown);
 impl ContactContentLinkProvider {
@@ -703,6 +711,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &ContactCon
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ContactContentLinkProvider {}
+unsafe impl ::core::marker::Sync for ContactContentLinkProvider {}
 #[repr(transparent)]
 pub struct ContentLink(::windows::core::IUnknown);
 impl ContentLink {
@@ -1144,6 +1154,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &ContentLin
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ContentLink {}
+unsafe impl ::core::marker::Sync for ContentLink {}
 #[repr(transparent)]
 pub struct ContentLinkInvokedEventArgs(::windows::core::IUnknown);
 impl ContentLinkInvokedEventArgs {
@@ -1228,6 +1240,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContentLinkInvokedEventArgs {}
+unsafe impl ::core::marker::Sync for ContentLinkInvokedEventArgs {}
 #[repr(transparent)]
 pub struct ContentLinkProvider(::windows::core::IUnknown);
 impl ContentLinkProvider {}
@@ -1312,6 +1326,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &ContentLin
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ContentLinkProvider {}
+unsafe impl ::core::marker::Sync for ContentLinkProvider {}
 #[repr(transparent)]
 pub struct ContentLinkProviderCollection(::windows::core::IUnknown);
 impl ContentLinkProviderCollection {
@@ -1535,6 +1551,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVector<ContentLinkProvider>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ContentLinkProviderCollection {}
+unsafe impl ::core::marker::Sync for ContentLinkProviderCollection {}
 #[repr(transparent)]
 pub struct Glyphs(::windows::core::IUnknown);
 impl Glyphs {
@@ -1903,6 +1921,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Glyphs {
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Glyphs {}
+unsafe impl ::core::marker::Sync for Glyphs {}
 #[repr(transparent)]
 pub struct Hyperlink(::windows::core::IUnknown);
 impl Hyperlink {
@@ -2365,6 +2385,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Hyperlink 
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Hyperlink {}
+unsafe impl ::core::marker::Sync for Hyperlink {}
 #[repr(transparent)]
 pub struct HyperlinkClickEventArgs(::windows::core::IUnknown);
 impl HyperlinkClickEventArgs {}
@@ -2449,6 +2471,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &HyperlinkCl
         ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for HyperlinkClickEventArgs {}
+unsafe impl ::core::marker::Sync for HyperlinkClickEventArgs {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBlock(::windows::core::IUnknown);
@@ -4020,6 +4044,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Inline {
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Inline {}
+unsafe impl ::core::marker::Sync for Inline {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct InlineCollection(::windows::core::IUnknown);
@@ -4262,6 +4288,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVector<Inline>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for InlineCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for InlineCollection {}
 #[repr(transparent)]
 pub struct InlineUIContainer(::windows::core::IUnknown);
 impl InlineUIContainer {
@@ -4405,6 +4435,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &InlineUICo
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for InlineUIContainer {}
+unsafe impl ::core::marker::Sync for InlineUIContainer {}
 #[repr(transparent)]
 pub struct Italic(::windows::core::IUnknown);
 impl Italic {
@@ -4557,6 +4589,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Italic {
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Italic {}
+unsafe impl ::core::marker::Sync for Italic {}
 #[repr(transparent)]
 pub struct LineBreak(::windows::core::IUnknown);
 impl LineBreak {
@@ -4689,6 +4723,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &LineBreak 
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for LineBreak {}
+unsafe impl ::core::marker::Sync for LineBreak {}
 #[repr(transparent)]
 pub struct LogicalDirection(pub i32);
 impl LogicalDirection {
@@ -4877,6 +4913,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Paragraph 
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Paragraph {}
+unsafe impl ::core::marker::Sync for Paragraph {}
 #[repr(transparent)]
 pub struct PlaceContentLinkProvider(::windows::core::IUnknown);
 impl PlaceContentLinkProvider {
@@ -4989,6 +5027,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &PlaceConte
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PlaceContentLinkProvider {}
+unsafe impl ::core::marker::Sync for PlaceContentLinkProvider {}
 #[repr(transparent)]
 pub struct Run(::windows::core::IUnknown);
 impl Run {
@@ -5153,6 +5193,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Run {
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Run {}
+unsafe impl ::core::marker::Sync for Run {}
 #[repr(transparent)]
 pub struct Span(::windows::core::IUnknown);
 impl Span {
@@ -5301,6 +5343,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Span {
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Span {}
+unsafe impl ::core::marker::Sync for Span {}
 #[repr(transparent)]
 pub struct TextElement(::windows::core::IUnknown);
 impl TextElement {
@@ -5814,6 +5858,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &TextElemen
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for TextElement {}
+unsafe impl ::core::marker::Sync for TextElement {}
 #[repr(transparent)]
 pub struct TextHighlighter(::windows::core::IUnknown);
 impl TextHighlighter {
@@ -5939,6 +5985,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Text
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TextHighlighter {}
+unsafe impl ::core::marker::Sync for TextHighlighter {}
 #[repr(transparent)]
 pub struct TextHighlighterBase(::windows::core::IUnknown);
 impl TextHighlighterBase {}
@@ -6023,6 +6071,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &TextHighli
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for TextHighlighterBase {}
+unsafe impl ::core::marker::Sync for TextHighlighterBase {}
 #[repr(transparent)]
 pub struct TextPointer(::windows::core::IUnknown);
 impl TextPointer {
@@ -6131,6 +6181,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Text
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TextPointer {}
+unsafe impl ::core::marker::Sync for TextPointer {}
 #[repr(C)]
 pub struct TextRange {
     pub StartIndex: i32,
@@ -6876,6 +6928,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Typo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Typography {}
+unsafe impl ::core::marker::Sync for Typography {}
 #[repr(transparent)]
 pub struct Underline(::windows::core::IUnknown);
 impl Underline {
@@ -7028,6 +7082,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Underline 
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Underline {}
+unsafe impl ::core::marker::Sync for Underline {}
 #[repr(transparent)]
 pub struct UnderlineStyle(pub i32);
 impl UnderlineStyle {

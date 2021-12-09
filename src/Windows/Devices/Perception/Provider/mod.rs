@@ -694,6 +694,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionControlGroup {}
+unsafe impl ::core::marker::Sync for PerceptionControlGroup {}
 #[repr(transparent)]
 pub struct PerceptionCorrelation(::windows::core::IUnknown);
 impl PerceptionCorrelation {
@@ -797,6 +799,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionCorrelation {}
+unsafe impl ::core::marker::Sync for PerceptionCorrelation {}
 #[repr(transparent)]
 pub struct PerceptionCorrelationGroup(::windows::core::IUnknown);
 impl PerceptionCorrelationGroup {
@@ -883,6 +887,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionCorrelationGroup {}
+unsafe impl ::core::marker::Sync for PerceptionCorrelationGroup {}
 #[repr(transparent)]
 pub struct PerceptionFaceAuthenticationGroup(::windows::core::IUnknown);
 impl PerceptionFaceAuthenticationGroup {
@@ -969,6 +975,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionFaceAuthenticationGroup {}
+unsafe impl ::core::marker::Sync for PerceptionFaceAuthenticationGroup {}
 #[repr(transparent)]
 pub struct PerceptionFrame(::windows::core::IUnknown);
 impl PerceptionFrame {
@@ -1067,6 +1075,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionFrame {}
+unsafe impl ::core::marker::Sync for PerceptionFrame {}
 #[repr(transparent)]
 pub struct PerceptionFrameProviderInfo(::windows::core::IUnknown);
 impl PerceptionFrameProviderInfo {
@@ -1204,6 +1214,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionFrameProviderInfo {}
+unsafe impl ::core::marker::Sync for PerceptionFrameProviderInfo {}
 pub struct PerceptionFrameProviderManagerService {}
 impl PerceptionFrameProviderManagerService {
     #[cfg(feature = "deprecated")]
@@ -1357,6 +1369,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionPropertyChangeRequest {}
+unsafe impl ::core::marker::Sync for PerceptionPropertyChangeRequest {}
 #[repr(transparent)]
 pub struct PerceptionStartFaceAuthenticationHandler(pub ::windows::core::IUnknown);
 impl PerceptionStartFaceAuthenticationHandler {
@@ -1630,3 +1644,5 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PerceptionVideoFrameAllocator {}
+unsafe impl ::core::marker::Sync for PerceptionVideoFrameAllocator {}

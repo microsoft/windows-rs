@@ -652,6 +652,8 @@ impl<'a> ::windows::core::IntoParam<'a, IClosable> for &Deferral {
         ::core::convert::TryInto::<IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for Deferral {}
+unsafe impl ::core::marker::Sync for Deferral {}
 #[repr(transparent)]
 pub struct DeferralCompletedHandler(pub ::windows::core::IUnknown);
 impl DeferralCompletedHandler {
@@ -3609,6 +3611,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMemoryBuffer> for &MemoryBuffer {
         ::core::convert::TryInto::<IMemoryBuffer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MemoryBuffer {}
+unsafe impl ::core::marker::Sync for MemoryBuffer {}
 #[repr(C)]
 pub struct Point {
     pub X: f32,
@@ -4403,6 +4407,8 @@ impl<'a> ::windows::core::IntoParam<'a, IStringable> for &Uri {
         ::core::convert::TryInto::<IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for Uri {}
+unsafe impl ::core::marker::Sync for Uri {}
 #[repr(transparent)]
 pub struct WwwFormUrlDecoder(::windows::core::IUnknown);
 impl WwwFormUrlDecoder {
@@ -4593,6 +4599,8 @@ impl<'a> ::windows::core::IntoParam<'a, Collections::IVectorView<IWwwFormUrlDeco
         ::core::convert::TryInto::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for WwwFormUrlDecoder {}
+unsafe impl ::core::marker::Sync for WwwFormUrlDecoder {}
 #[repr(transparent)]
 pub struct WwwFormUrlDecoderEntry(::windows::core::IUnknown);
 impl WwwFormUrlDecoderEntry {
@@ -4694,3 +4702,5 @@ impl<'a> ::windows::core::IntoParam<'a, IWwwFormUrlDecoderEntry> for &WwwFormUrl
         ::core::convert::TryInto::<IWwwFormUrlDecoderEntry>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for WwwFormUrlDecoderEntry {}
+unsafe impl ::core::marker::Sync for WwwFormUrlDecoderEntry {}

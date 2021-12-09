@@ -167,6 +167,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Vari
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VariablePhotoCapturedEventArgs {}
+unsafe impl ::core::marker::Sync for VariablePhotoCapturedEventArgs {}
 #[repr(transparent)]
 pub struct VariablePhotoSequenceCapture(::windows::core::IUnknown);
 impl VariablePhotoSequenceCapture {

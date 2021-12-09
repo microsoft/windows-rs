@@ -160,6 +160,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppD
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppDataPaths {}
+unsafe impl ::core::marker::Sync for AppDataPaths {}
 #[repr(transparent)]
 pub struct ApplicationData(::windows::core::IUnknown);
 impl ApplicationData {
@@ -396,6 +398,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::Foundation::IClosable> for &Appli
         ::core::convert::TryInto::<super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ApplicationData {}
+unsafe impl ::core::marker::Sync for ApplicationData {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct ApplicationDataCompositeValue(::windows::core::IUnknown);
@@ -693,6 +697,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::Foundation::Collections::IPropert
         ::core::convert::TryInto::<super::Foundation::Collections::IPropertySet>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for ApplicationDataCompositeValue {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for ApplicationDataCompositeValue {}
 #[repr(transparent)]
 pub struct ApplicationDataContainer(::windows::core::IUnknown);
 impl ApplicationDataContainer {
@@ -830,6 +838,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::Foundation::IClosable> for &Appli
         ::core::convert::TryInto::<super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ApplicationDataContainer {}
+unsafe impl ::core::marker::Sync for ApplicationDataContainer {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct ApplicationDataContainerSettings(::windows::core::IUnknown);
@@ -1120,6 +1130,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::Foundation::Collections::IPropert
         ::core::convert::TryInto::<super::Foundation::Collections::IPropertySet>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for ApplicationDataContainerSettings {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for ApplicationDataContainerSettings {}
 #[repr(transparent)]
 pub struct ApplicationDataCreateDisposition(pub i32);
 impl ApplicationDataCreateDisposition {
@@ -4928,6 +4942,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SetV
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SetVersionDeferral {}
+unsafe impl ::core::marker::Sync for SetVersionDeferral {}
 #[repr(transparent)]
 pub struct SetVersionRequest(::windows::core::IUnknown);
 impl SetVersionRequest {
@@ -5014,6 +5030,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SetV
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SetVersionRequest {}
+unsafe impl ::core::marker::Sync for SetVersionRequest {}
 #[repr(transparent)]
 pub struct StorageDeleteOption(pub i32);
 impl StorageDeleteOption {
@@ -6647,6 +6665,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StorageLibraryChange {}
+unsafe impl ::core::marker::Sync for StorageLibraryChange {}
 #[repr(transparent)]
 pub struct StorageLibraryChangeReader(::windows::core::IUnknown);
 impl StorageLibraryChangeReader {
@@ -6735,6 +6755,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StorageLibraryChangeReader {}
+unsafe impl ::core::marker::Sync for StorageLibraryChangeReader {}
 #[repr(transparent)]
 pub struct StorageLibraryChangeTracker(::windows::core::IUnknown);
 impl StorageLibraryChangeTracker {
@@ -6823,6 +6845,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StorageLibraryChangeTracker {}
+unsafe impl ::core::marker::Sync for StorageLibraryChangeTracker {}
 #[repr(transparent)]
 pub struct StorageLibraryChangeTrackerOptions(::windows::core::IUnknown);
 impl StorageLibraryChangeTrackerOptions {
@@ -6906,6 +6930,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StorageLibraryChangeTrackerOptions {}
+unsafe impl ::core::marker::Sync for StorageLibraryChangeTrackerOptions {}
 #[repr(transparent)]
 pub struct StorageLibraryChangeType(pub i32);
 impl StorageLibraryChangeType {
@@ -7016,6 +7042,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StorageLibraryLastChangeId {}
+unsafe impl ::core::marker::Sync for StorageLibraryLastChangeId {}
 #[repr(transparent)]
 pub struct StorageOpenOptions(pub u32);
 impl StorageOpenOptions {
@@ -7620,6 +7648,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemAudioProperties {}
+unsafe impl ::core::marker::Sync for SystemAudioProperties {}
 #[repr(transparent)]
 pub struct SystemDataPaths(::windows::core::IUnknown);
 impl SystemDataPaths {
@@ -7807,6 +7837,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemDataPaths {}
+unsafe impl ::core::marker::Sync for SystemDataPaths {}
 #[repr(transparent)]
 pub struct SystemGPSProperties(::windows::core::IUnknown);
 impl SystemGPSProperties {
@@ -7886,6 +7918,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemGPSProperties {}
+unsafe impl ::core::marker::Sync for SystemGPSProperties {}
 #[repr(transparent)]
 pub struct SystemImageProperties(::windows::core::IUnknown);
 impl SystemImageProperties {
@@ -7965,6 +7999,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemImageProperties {}
+unsafe impl ::core::marker::Sync for SystemImageProperties {}
 #[repr(transparent)]
 pub struct SystemMediaProperties(::windows::core::IUnknown);
 impl SystemMediaProperties {
@@ -8072,6 +8108,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemMediaProperties {}
+unsafe impl ::core::marker::Sync for SystemMediaProperties {}
 #[repr(transparent)]
 pub struct SystemMusicProperties(::windows::core::IUnknown);
 impl SystemMusicProperties {
@@ -8193,6 +8231,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemMusicProperties {}
+unsafe impl ::core::marker::Sync for SystemMusicProperties {}
 #[repr(transparent)]
 pub struct SystemPhotoProperties(::windows::core::IUnknown);
 impl SystemPhotoProperties {
@@ -8293,6 +8333,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemPhotoProperties {}
+unsafe impl ::core::marker::Sync for SystemPhotoProperties {}
 pub struct SystemProperties {}
 impl SystemProperties {
     pub fn Author() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -8481,6 +8523,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemVideoProperties {}
+unsafe impl ::core::marker::Sync for SystemVideoProperties {}
 #[repr(transparent)]
 pub struct UserDataPaths(::windows::core::IUnknown);
 impl UserDataPaths {
@@ -8696,3 +8740,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataPaths {}
+unsafe impl ::core::marker::Sync for UserDataPaths {}

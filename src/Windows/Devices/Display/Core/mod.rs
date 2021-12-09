@@ -133,6 +133,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplayAdapter {}
+unsafe impl ::core::marker::Sync for DisplayAdapter {}
 #[repr(transparent)]
 pub struct DisplayBitsPerChannel(pub u32);
 impl DisplayBitsPerChannel {
@@ -285,6 +287,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplayDevice {}
+unsafe impl ::core::marker::Sync for DisplayDevice {}
 #[repr(transparent)]
 pub struct DisplayDeviceCapability(pub i32);
 impl DisplayDeviceCapability {
@@ -375,6 +379,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplayFence {}
+unsafe impl ::core::marker::Sync for DisplayFence {}
 #[repr(transparent)]
 pub struct DisplayManager(::windows::core::IUnknown);
 impl DisplayManager {
@@ -606,6 +612,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for DisplayManager {}
+unsafe impl ::core::marker::Sync for DisplayManager {}
 #[repr(transparent)]
 pub struct DisplayManagerChangedEventArgs(::windows::core::IUnknown);
 impl DisplayManagerChangedEventArgs {
@@ -690,6 +698,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplayManagerChangedEventArgs {}
+unsafe impl ::core::marker::Sync for DisplayManagerChangedEventArgs {}
 #[repr(transparent)]
 pub struct DisplayManagerDisabledEventArgs(::windows::core::IUnknown);
 impl DisplayManagerDisabledEventArgs {
@@ -774,6 +784,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplayManagerDisabledEventArgs {}
+unsafe impl ::core::marker::Sync for DisplayManagerDisabledEventArgs {}
 #[repr(transparent)]
 pub struct DisplayManagerEnabledEventArgs(::windows::core::IUnknown);
 impl DisplayManagerEnabledEventArgs {
@@ -858,6 +870,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplayManagerEnabledEventArgs {}
+unsafe impl ::core::marker::Sync for DisplayManagerEnabledEventArgs {}
 #[repr(transparent)]
 pub struct DisplayManagerOptions(pub u32);
 impl DisplayManagerOptions {
@@ -970,6 +984,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
+unsafe impl ::core::marker::Sync for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
 #[repr(transparent)]
 pub struct DisplayManagerResult(pub i32);
 impl DisplayManagerResult {
@@ -1086,6 +1102,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplayManagerResultWithState {}
+unsafe impl ::core::marker::Sync for DisplayManagerResultWithState {}
 #[repr(transparent)]
 pub struct DisplayModeInfo(::windows::core::IUnknown);
 impl DisplayModeInfo {
@@ -1227,6 +1245,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplayModeInfo {}
+unsafe impl ::core::marker::Sync for DisplayModeInfo {}
 #[repr(transparent)]
 pub struct DisplayModeQueryOptions(pub u32);
 impl DisplayModeQueryOptions {
@@ -1482,6 +1502,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplayPath {}
+unsafe impl ::core::marker::Sync for DisplayPath {}
 #[repr(transparent)]
 pub struct DisplayPathScaling(pub i32);
 impl DisplayPathScaling {
@@ -1755,6 +1777,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplayPrimaryDescription {}
+unsafe impl ::core::marker::Sync for DisplayPrimaryDescription {}
 #[repr(transparent)]
 pub struct DisplayRotation(pub i32);
 impl DisplayRotation {
@@ -1848,6 +1872,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplayScanout {}
+unsafe impl ::core::marker::Sync for DisplayScanout {}
 #[repr(transparent)]
 pub struct DisplayScanoutOptions(pub u32);
 impl DisplayScanoutOptions {
@@ -1983,6 +2009,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplaySource {}
+unsafe impl ::core::marker::Sync for DisplaySource {}
 #[repr(transparent)]
 pub struct DisplaySourceStatus(pub i32);
 impl DisplaySourceStatus {
@@ -2176,6 +2204,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplayState {}
+unsafe impl ::core::marker::Sync for DisplayState {}
 #[repr(transparent)]
 pub struct DisplayStateApplyOptions(pub u32);
 impl DisplayStateApplyOptions {
@@ -2312,6 +2342,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplayStateOperationResult {}
+unsafe impl ::core::marker::Sync for DisplayStateOperationResult {}
 #[repr(transparent)]
 pub struct DisplayStateOperationStatus(pub i32);
 impl DisplayStateOperationStatus {
@@ -2409,6 +2441,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplaySurface {}
+unsafe impl ::core::marker::Sync for DisplaySurface {}
 #[repr(transparent)]
 pub struct DisplayTarget(::windows::core::IUnknown);
 impl DisplayTarget {
@@ -2573,6 +2607,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplayTarget {}
+unsafe impl ::core::marker::Sync for DisplayTarget {}
 #[repr(transparent)]
 pub struct DisplayTargetPersistence(pub i32);
 impl DisplayTargetPersistence {
@@ -2679,6 +2715,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplayTask {}
+unsafe impl ::core::marker::Sync for DisplayTask {}
 #[repr(transparent)]
 pub struct DisplayTaskPool(::windows::core::IUnknown);
 impl DisplayTaskPool {
@@ -2763,6 +2801,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplayTaskPool {}
+unsafe impl ::core::marker::Sync for DisplayTaskPool {}
 #[repr(transparent)]
 pub struct DisplayTaskResult(::windows::core::IUnknown);
 impl DisplayTaskResult {
@@ -2849,6 +2889,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplayTaskResult {}
+unsafe impl ::core::marker::Sync for DisplayTaskResult {}
 #[repr(transparent)]
 pub struct DisplayTaskSignalKind(pub i32);
 impl DisplayTaskSignalKind {
@@ -2974,6 +3016,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplayView {}
+unsafe impl ::core::marker::Sync for DisplayView {}
 #[repr(transparent)]
 pub struct DisplayWireFormat(::windows::core::IUnknown);
 impl DisplayWireFormat {
@@ -3103,6 +3147,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplayWireFormat {}
+unsafe impl ::core::marker::Sync for DisplayWireFormat {}
 #[repr(transparent)]
 pub struct DisplayWireFormatColorSpace(pub i32);
 impl DisplayWireFormatColorSpace {

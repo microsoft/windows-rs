@@ -100,6 +100,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acce
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AccessibilitySettings {}
+unsafe impl ::core::marker::Sync for AccessibilitySettings {}
 #[repr(transparent)]
 pub struct ActivationViewSwitcher(::windows::core::IUnknown);
 impl ActivationViewSwitcher {
@@ -188,6 +190,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acti
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ActivationViewSwitcher {}
+unsafe impl ::core::marker::Sync for ActivationViewSwitcher {}
 #[repr(transparent)]
 pub struct ApplicationView(::windows::core::IUnknown);
 impl ApplicationView {
@@ -597,6 +601,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appl
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ApplicationView {}
+unsafe impl ::core::marker::Sync for ApplicationView {}
 #[repr(transparent)]
 pub struct ApplicationViewBoundsMode(pub i32);
 impl ApplicationViewBoundsMode {
@@ -703,6 +709,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appl
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ApplicationViewConsolidatedEventArgs {}
+unsafe impl ::core::marker::Sync for ApplicationViewConsolidatedEventArgs {}
 #[repr(transparent)]
 pub struct ApplicationViewMode(pub i32);
 impl ApplicationViewMode {
@@ -1203,6 +1211,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appl
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ApplicationViewTitleBar {}
+unsafe impl ::core::marker::Sync for ApplicationViewTitleBar {}
 #[repr(transparent)]
 pub struct ApplicationViewTransferContext(::windows::core::IUnknown);
 impl ApplicationViewTransferContext {
@@ -2969,6 +2979,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StatusBar {}
+unsafe impl ::core::marker::Sync for StatusBar {}
 #[repr(transparent)]
 pub struct StatusBarProgressIndicator(::windows::core::IUnknown);
 impl StatusBarProgressIndicator {
@@ -3074,6 +3086,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StatusBarProgressIndicator {}
+unsafe impl ::core::marker::Sync for StatusBarProgressIndicator {}
 #[repr(transparent)]
 pub struct UIColorType(pub i32);
 impl UIColorType {
@@ -3433,6 +3447,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UISe
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UISettings {}
+unsafe impl ::core::marker::Sync for UISettings {}
 #[repr(transparent)]
 pub struct UISettingsAnimationsEnabledChangedEventArgs(::windows::core::IUnknown);
 impl UISettingsAnimationsEnabledChangedEventArgs {}
@@ -3497,6 +3513,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UISe
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UISettingsAnimationsEnabledChangedEventArgs {}
+unsafe impl ::core::marker::Sync for UISettingsAnimationsEnabledChangedEventArgs {}
 #[repr(transparent)]
 pub struct UISettingsAutoHideScrollBarsChangedEventArgs(::windows::core::IUnknown);
 impl UISettingsAutoHideScrollBarsChangedEventArgs {}
@@ -3561,6 +3579,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UISe
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UISettingsAutoHideScrollBarsChangedEventArgs {}
+unsafe impl ::core::marker::Sync for UISettingsAutoHideScrollBarsChangedEventArgs {}
 #[repr(transparent)]
 pub struct UISettingsMessageDurationChangedEventArgs(::windows::core::IUnknown);
 impl UISettingsMessageDurationChangedEventArgs {}
@@ -3625,6 +3645,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UISe
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UISettingsMessageDurationChangedEventArgs {}
+unsafe impl ::core::marker::Sync for UISettingsMessageDurationChangedEventArgs {}
 #[repr(transparent)]
 pub struct UIViewSettings(::windows::core::IUnknown);
 impl UIViewSettings {
@@ -3707,6 +3729,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UIVi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UIViewSettings {}
+unsafe impl ::core::marker::Sync for UIViewSettings {}
 #[repr(transparent)]
 pub struct UserInteractionMode(pub i32);
 impl UserInteractionMode {

@@ -432,6 +432,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintTicketCapabilities {}
+unsafe impl ::core::marker::Sync for PrintTicketCapabilities {}
 #[repr(transparent)]
 pub struct PrintTicketFeature(::windows::core::IUnknown);
 impl PrintTicketFeature {
@@ -559,6 +561,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintTicketFeature {}
+unsafe impl ::core::marker::Sync for PrintTicketFeature {}
 #[repr(transparent)]
 pub struct PrintTicketFeatureSelectionType(pub i32);
 impl PrintTicketFeatureSelectionType {
@@ -710,6 +714,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintTicketOption {}
+unsafe impl ::core::marker::Sync for PrintTicketOption {}
 #[repr(transparent)]
 pub struct PrintTicketParameterDataType(pub i32);
 impl PrintTicketParameterDataType {
@@ -853,6 +859,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintTicketParameterDefinition {}
+unsafe impl ::core::marker::Sync for PrintTicketParameterDefinition {}
 #[repr(transparent)]
 pub struct PrintTicketParameterInitializer(::windows::core::IUnknown);
 impl PrintTicketParameterInitializer {
@@ -951,6 +959,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintTicketParameterInitializer {}
+unsafe impl ::core::marker::Sync for PrintTicketParameterInitializer {}
 #[repr(transparent)]
 pub struct PrintTicketValue(::windows::core::IUnknown);
 impl PrintTicketValue {
@@ -1037,6 +1047,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintTicketValue {}
+unsafe impl ::core::marker::Sync for PrintTicketValue {}
 #[repr(transparent)]
 pub struct PrintTicketValueType(pub i32);
 impl PrintTicketValueType {
@@ -1315,6 +1327,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Work
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WorkflowPrintTicket {}
+unsafe impl ::core::marker::Sync for WorkflowPrintTicket {}
 #[repr(transparent)]
 pub struct WorkflowPrintTicketValidationResult(::windows::core::IUnknown);
 impl WorkflowPrintTicketValidationResult {
@@ -1394,3 +1408,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Work
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WorkflowPrintTicketValidationResult {}
+unsafe impl ::core::marker::Sync for WorkflowPrintTicketValidationResult {}

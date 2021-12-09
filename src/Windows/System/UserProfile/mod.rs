@@ -132,6 +132,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Adve
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AdvertisingManagerForUser {}
+unsafe impl ::core::marker::Sync for AdvertisingManagerForUser {}
 #[repr(transparent)]
 pub struct AssignedAccessSettings(::windows::core::IUnknown);
 impl AssignedAccessSettings {
@@ -234,6 +236,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Assi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AssignedAccessSettings {}
+unsafe impl ::core::marker::Sync for AssignedAccessSettings {}
 #[repr(transparent)]
 pub struct DiagnosticsSettings(::windows::core::IUnknown);
 impl DiagnosticsSettings {
@@ -329,6 +333,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Diag
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DiagnosticsSettings {}
+unsafe impl ::core::marker::Sync for DiagnosticsSettings {}
 #[repr(transparent)]
 pub struct FirstSignInSettings(::windows::core::IUnknown);
 impl FirstSignInSettings {
@@ -509,6 +515,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for FirstSignInSettings {}
+unsafe impl ::core::marker::Sync for FirstSignInSettings {}
 pub struct GlobalizationPreferences {}
 impl GlobalizationPreferences {
     #[cfg(feature = "Foundation_Collections")]
@@ -706,6 +714,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Glob
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GlobalizationPreferencesForUser {}
+unsafe impl ::core::marker::Sync for GlobalizationPreferencesForUser {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAdvertisingManagerForUser(::windows::core::IUnknown);
@@ -1434,3 +1444,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserProfilePersonalizationSettings {}
+unsafe impl ::core::marker::Sync for UserProfilePersonalizationSettings {}

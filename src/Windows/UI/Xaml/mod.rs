@@ -180,6 +180,8 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &AdaptiveTrigger {
         ::windows::core::Param::Owned(::core::convert::Into::<DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for AdaptiveTrigger {}
+unsafe impl ::core::marker::Sync for AdaptiveTrigger {}
 #[repr(transparent)]
 pub struct Application(::windows::core::IUnknown);
 impl Application {
@@ -407,6 +409,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appl
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Application {}
+unsafe impl ::core::marker::Sync for Application {}
 #[repr(transparent)]
 pub struct ApplicationHighContrastAdjustment(pub u32);
 impl ApplicationHighContrastAdjustment {
@@ -566,6 +570,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appl
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ApplicationInitializationCallbackParams {}
+unsafe impl ::core::marker::Sync for ApplicationInitializationCallbackParams {}
 #[repr(transparent)]
 pub struct ApplicationRequiresPointerMode(pub i32);
 impl ApplicationRequiresPointerMode {
@@ -757,6 +763,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Bind
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BindingFailedEventArgs {}
+unsafe impl ::core::marker::Sync for BindingFailedEventArgs {}
 #[repr(transparent)]
 pub struct BindingFailedEventHandler(pub ::windows::core::IUnknown);
 impl BindingFailedEventHandler {
@@ -965,6 +973,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Brin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BringIntoViewOptions {}
+unsafe impl ::core::marker::Sync for BringIntoViewOptions {}
 #[repr(transparent)]
 pub struct BringIntoViewRequestedEventArgs(::windows::core::IUnknown);
 impl BringIntoViewRequestedEventArgs {
@@ -1132,6 +1142,8 @@ impl<'a> ::windows::core::IntoParam<'a, RoutedEventArgs> for &BringIntoViewReque
         ::windows::core::Param::Owned(::core::convert::Into::<RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for BringIntoViewRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for BringIntoViewRequestedEventArgs {}
 #[repr(transparent)]
 pub struct BrushTransition(::windows::core::IUnknown);
 impl BrushTransition {
@@ -1220,6 +1232,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Brus
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BrushTransition {}
+unsafe impl ::core::marker::Sync for BrushTransition {}
 #[repr(transparent)]
 pub struct ColorPaletteResources(::windows::core::IUnknown);
 impl ColorPaletteResources {
@@ -1812,6 +1826,8 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &ColorPaletteResou
         ::windows::core::Param::Owned(::core::convert::Into::<DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ColorPaletteResources {}
+unsafe impl ::core::marker::Sync for ColorPaletteResources {}
 #[repr(C)]
 pub struct CornerRadius {
     pub TopLeft: f64,
@@ -1926,6 +1942,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Corn
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CornerRadiusHelper {}
+unsafe impl ::core::marker::Sync for CornerRadiusHelper {}
 #[repr(transparent)]
 pub struct CreateDefaultValueCallback(pub ::windows::core::IUnknown);
 impl CreateDefaultValueCallback {
@@ -2087,6 +2105,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DataContextChangedEventArgs {}
+unsafe impl ::core::marker::Sync for DataContextChangedEventArgs {}
 #[repr(transparent)]
 pub struct DataTemplate(::windows::core::IUnknown);
 impl DataTemplate {
@@ -2261,6 +2281,8 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &DataTemplate {
         ::windows::core::Param::Owned(::core::convert::Into::<DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DataTemplate {}
+unsafe impl ::core::marker::Sync for DataTemplate {}
 #[repr(transparent)]
 pub struct DataTemplateKey(::windows::core::IUnknown);
 impl DataTemplateKey {
@@ -2353,6 +2375,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DataTemplateKey {}
+unsafe impl ::core::marker::Sync for DataTemplateKey {}
 #[repr(transparent)]
 pub struct DebugSettings(::windows::core::IUnknown);
 impl DebugSettings {
@@ -2497,6 +2521,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Debu
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DebugSettings {}
+unsafe impl ::core::marker::Sync for DebugSettings {}
 #[repr(transparent)]
 pub struct DependencyObject(::windows::core::IUnknown);
 impl DependencyObject {
@@ -2610,6 +2636,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Depe
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DependencyObject {}
+unsafe impl ::core::marker::Sync for DependencyObject {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct DependencyObjectCollection(::windows::core::IUnknown);
@@ -2930,6 +2958,10 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &DependencyObjectC
         ::windows::core::Param::Owned(::core::convert::Into::<DependencyObject>::into(self))
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for DependencyObjectCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for DependencyObjectCollection {}
 #[repr(transparent)]
 pub struct DependencyProperty(::windows::core::IUnknown);
 impl DependencyProperty {
@@ -3027,6 +3059,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Depe
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DependencyProperty {}
+unsafe impl ::core::marker::Sync for DependencyProperty {}
 #[repr(transparent)]
 pub struct DependencyPropertyChangedCallback(pub ::windows::core::IUnknown);
 impl DependencyPropertyChangedCallback {
@@ -3181,6 +3215,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Depe
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DependencyPropertyChangedEventArgs {}
+unsafe impl ::core::marker::Sync for DependencyPropertyChangedEventArgs {}
 #[repr(transparent)]
 pub struct DependencyPropertyChangedEventHandler(pub ::windows::core::IUnknown);
 impl DependencyPropertyChangedEventHandler {
@@ -3365,6 +3401,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DispatcherTimer {}
+unsafe impl ::core::marker::Sync for DispatcherTimer {}
 #[repr(transparent)]
 pub struct DragEventArgs(::windows::core::IUnknown);
 impl DragEventArgs {
@@ -3533,6 +3571,8 @@ impl<'a> ::windows::core::IntoParam<'a, RoutedEventArgs> for &DragEventArgs {
         ::windows::core::Param::Owned(::core::convert::Into::<RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DragEventArgs {}
+unsafe impl ::core::marker::Sync for DragEventArgs {}
 #[repr(transparent)]
 pub struct DragEventHandler(pub ::windows::core::IUnknown);
 impl DragEventHandler {
@@ -3670,6 +3710,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Drag
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DragOperationDeferral {}
+unsafe impl ::core::marker::Sync for DragOperationDeferral {}
 #[repr(transparent)]
 pub struct DragStartingEventArgs(::windows::core::IUnknown);
 impl DragStartingEventArgs {
@@ -3809,6 +3851,8 @@ impl<'a> ::windows::core::IntoParam<'a, RoutedEventArgs> for &DragStartingEventA
         ::windows::core::Param::Owned(::core::convert::Into::<RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DragStartingEventArgs {}
+unsafe impl ::core::marker::Sync for DragStartingEventArgs {}
 #[repr(transparent)]
 pub struct DragUI(::windows::core::IUnknown);
 impl DragUI {
@@ -3898,6 +3942,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Drag
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DragUI {}
+unsafe impl ::core::marker::Sync for DragUI {}
 #[repr(transparent)]
 pub struct DragUIOverride(::windows::core::IUnknown);
 impl DragUIOverride {
@@ -4031,6 +4077,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Drag
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DragUIOverride {}
+unsafe impl ::core::marker::Sync for DragUIOverride {}
 #[repr(transparent)]
 pub struct DropCompletedEventArgs(::windows::core::IUnknown);
 impl DropCompletedEventArgs {
@@ -4124,6 +4172,8 @@ impl<'a> ::windows::core::IntoParam<'a, RoutedEventArgs> for &DropCompletedEvent
         ::windows::core::Param::Owned(::core::convert::Into::<RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DropCompletedEventArgs {}
+unsafe impl ::core::marker::Sync for DropCompletedEventArgs {}
 #[repr(C)]
 #[cfg(feature = "Foundation")]
 pub struct Duration {
@@ -4289,6 +4339,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dura
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DurationHelper {}
+unsafe impl ::core::marker::Sync for DurationHelper {}
 #[repr(transparent)]
 pub struct DurationType(pub i32);
 impl DurationType {
@@ -4412,6 +4464,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Effe
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EffectiveViewportChangedEventArgs {}
+unsafe impl ::core::marker::Sync for EffectiveViewportChangedEventArgs {}
 #[repr(transparent)]
 pub struct ElementFactoryGetArgs(::windows::core::IUnknown);
 impl ElementFactoryGetArgs {
@@ -4509,6 +4563,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Elem
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ElementFactoryGetArgs {}
+unsafe impl ::core::marker::Sync for ElementFactoryGetArgs {}
 #[repr(transparent)]
 pub struct ElementFactoryRecycleArgs(::windows::core::IUnknown);
 impl ElementFactoryRecycleArgs {
@@ -4606,6 +4662,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Elem
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ElementFactoryRecycleArgs {}
+unsafe impl ::core::marker::Sync for ElementFactoryRecycleArgs {}
 #[repr(transparent)]
 pub struct ElementHighContrastAdjustment(pub u32);
 impl ElementHighContrastAdjustment {
@@ -4797,6 +4855,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Elem
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ElementSoundPlayer {}
+unsafe impl ::core::marker::Sync for ElementSoundPlayer {}
 #[repr(transparent)]
 pub struct ElementSoundPlayerState(pub i32);
 impl ElementSoundPlayerState {
@@ -5097,6 +5157,8 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &EventTrigger {
         ::windows::core::Param::Owned(::core::convert::Into::<DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for EventTrigger {}
+unsafe impl ::core::marker::Sync for EventTrigger {}
 #[repr(transparent)]
 pub struct ExceptionRoutedEventArgs(::windows::core::IUnknown);
 impl ExceptionRoutedEventArgs {
@@ -5189,6 +5251,8 @@ impl<'a> ::windows::core::IntoParam<'a, RoutedEventArgs> for &ExceptionRoutedEve
         ::windows::core::Param::Owned(::core::convert::Into::<RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ExceptionRoutedEventArgs {}
+unsafe impl ::core::marker::Sync for ExceptionRoutedEventArgs {}
 #[repr(transparent)]
 pub struct ExceptionRoutedEventHandler(pub ::windows::core::IUnknown);
 impl ExceptionRoutedEventHandler {
@@ -6337,6 +6401,8 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &FrameworkElement 
         ::windows::core::Param::Owned(::core::convert::Into::<DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for FrameworkElement {}
+unsafe impl ::core::marker::Sync for FrameworkElement {}
 #[repr(transparent)]
 pub struct FrameworkTemplate(::windows::core::IUnknown);
 impl FrameworkTemplate {}
@@ -6421,6 +6487,8 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &FrameworkTemplate
         ::windows::core::Param::Owned(::core::convert::Into::<DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for FrameworkTemplate {}
+unsafe impl ::core::marker::Sync for FrameworkTemplate {}
 #[repr(transparent)]
 pub struct FrameworkView(::windows::core::IUnknown);
 impl FrameworkView {
@@ -6544,6 +6612,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Core::IF
         ::core::convert::TryInto::<super::super::ApplicationModel::Core::IFrameworkView>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for FrameworkView {}
+unsafe impl ::core::marker::Sync for FrameworkView {}
 #[repr(transparent)]
 pub struct FrameworkViewSource(::windows::core::IUnknown);
 impl FrameworkViewSource {
@@ -6650,6 +6720,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Core::IF
         ::core::convert::TryInto::<super::super::ApplicationModel::Core::IFrameworkViewSource>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for FrameworkViewSource {}
+unsafe impl ::core::marker::Sync for FrameworkViewSource {}
 #[repr(C)]
 pub struct GridLength {
     pub Value: f64,
@@ -6792,6 +6864,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Grid
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GridLengthHelper {}
+unsafe impl ::core::marker::Sync for GridLengthHelper {}
 #[repr(transparent)]
 pub struct GridUnitType(pub i32);
 impl GridUnitType {
@@ -11354,6 +11428,8 @@ impl<'a> ::windows::core::IntoParam<'a, RoutedEventArgs> for &MediaFailedRoutedE
         ::windows::core::Param::Owned(::core::convert::Into::<RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MediaFailedRoutedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaFailedRoutedEventArgs {}
 #[repr(transparent)]
 pub struct OpticalMarginAlignment(pub i32);
 impl OpticalMarginAlignment {
@@ -11457,6 +11533,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Poin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PointHelper {}
+unsafe impl ::core::marker::Sync for PointHelper {}
 #[repr(transparent)]
 pub struct PropertyChangedCallback(pub ::windows::core::IUnknown);
 impl PropertyChangedCallback {
@@ -11648,6 +11726,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prop
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PropertyMetadata {}
+unsafe impl ::core::marker::Sync for PropertyMetadata {}
 #[repr(transparent)]
 pub struct PropertyPath(::windows::core::IUnknown);
 impl PropertyPath {
@@ -11750,6 +11830,8 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &PropertyPath {
         ::windows::core::Param::Owned(::core::convert::Into::<DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PropertyPath {}
+unsafe impl ::core::marker::Sync for PropertyPath {}
 #[repr(transparent)]
 pub struct RectHelper(::windows::core::IUnknown);
 impl RectHelper {
@@ -11917,6 +11999,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rect
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RectHelper {}
+unsafe impl ::core::marker::Sync for RectHelper {}
 #[repr(transparent)]
 pub struct ResourceDictionary(::windows::core::IUnknown);
 impl ResourceDictionary {
@@ -12167,6 +12251,8 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &ResourceDictionar
         ::windows::core::Param::Owned(::core::convert::Into::<DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ResourceDictionary {}
+unsafe impl ::core::marker::Sync for ResourceDictionary {}
 #[repr(transparent)]
 pub struct RoutedEvent(::windows::core::IUnknown);
 impl RoutedEvent {}
@@ -12231,6 +12317,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rout
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RoutedEvent {}
+unsafe impl ::core::marker::Sync for RoutedEvent {}
 #[repr(transparent)]
 pub struct RoutedEventArgs(::windows::core::IUnknown);
 impl RoutedEventArgs {
@@ -12313,6 +12401,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rout
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RoutedEventArgs {}
+unsafe impl ::core::marker::Sync for RoutedEventArgs {}
 #[repr(transparent)]
 pub struct RoutedEventHandler(pub ::windows::core::IUnknown);
 impl RoutedEventHandler {
@@ -12469,6 +12559,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Scal
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ScalarTransition {}
+unsafe impl ::core::marker::Sync for ScalarTransition {}
 #[repr(transparent)]
 pub struct Setter(::windows::core::IUnknown);
 impl Setter {
@@ -12624,6 +12716,8 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &Setter {
         ::windows::core::Param::Owned(::core::convert::Into::<DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Setter {}
+unsafe impl ::core::marker::Sync for Setter {}
 #[repr(transparent)]
 pub struct SetterBase(::windows::core::IUnknown);
 impl SetterBase {
@@ -12716,6 +12810,8 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &SetterBase {
         ::windows::core::Param::Owned(::core::convert::Into::<DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SetterBase {}
+unsafe impl ::core::marker::Sync for SetterBase {}
 #[repr(transparent)]
 pub struct SetterBaseCollection(::windows::core::IUnknown);
 impl SetterBaseCollection {
@@ -12946,6 +13042,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IVector<SetterBase>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SetterBaseCollection {}
+unsafe impl ::core::marker::Sync for SetterBaseCollection {}
 #[repr(transparent)]
 pub struct SizeChangedEventArgs(::windows::core::IUnknown);
 impl SizeChangedEventArgs {
@@ -13047,6 +13145,8 @@ impl<'a> ::windows::core::IntoParam<'a, RoutedEventArgs> for &SizeChangedEventAr
         ::windows::core::Param::Owned(::core::convert::Into::<RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SizeChangedEventArgs {}
+unsafe impl ::core::marker::Sync for SizeChangedEventArgs {}
 #[repr(transparent)]
 pub struct SizeChangedEventHandler(pub ::windows::core::IUnknown);
 impl SizeChangedEventHandler {
@@ -13212,6 +13312,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Size
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SizeHelper {}
+unsafe impl ::core::marker::Sync for SizeHelper {}
 #[repr(transparent)]
 pub struct StateTrigger(::windows::core::IUnknown);
 impl StateTrigger {
@@ -13345,6 +13447,8 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &StateTrigger {
         ::windows::core::Param::Owned(::core::convert::Into::<DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for StateTrigger {}
+unsafe impl ::core::marker::Sync for StateTrigger {}
 #[repr(transparent)]
 pub struct StateTriggerBase(::windows::core::IUnknown);
 impl StateTriggerBase {
@@ -13434,6 +13538,8 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &StateTriggerBase 
         ::windows::core::Param::Owned(::core::convert::Into::<DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for StateTriggerBase {}
+unsafe impl ::core::marker::Sync for StateTriggerBase {}
 #[repr(transparent)]
 pub struct Style(::windows::core::IUnknown);
 impl Style {
@@ -13579,6 +13685,8 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &Style {
         ::windows::core::Param::Owned(::core::convert::Into::<DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Style {}
+unsafe impl ::core::marker::Sync for Style {}
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 pub struct SuspendingEventHandler(pub ::windows::core::IUnknown);
@@ -13768,6 +13876,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TargetPropertyPath {}
+unsafe impl ::core::marker::Sync for TargetPropertyPath {}
 #[repr(transparent)]
 pub struct TextAlignment(pub i32);
 impl TextAlignment {
@@ -14028,6 +14138,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Thic
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ThicknessHelper {}
+unsafe impl ::core::marker::Sync for ThicknessHelper {}
 #[repr(transparent)]
 pub struct TriggerAction(::windows::core::IUnknown);
 impl TriggerAction {}
@@ -14112,6 +14224,8 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &TriggerAction {
         ::windows::core::Param::Owned(::core::convert::Into::<DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for TriggerAction {}
+unsafe impl ::core::marker::Sync for TriggerAction {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct TriggerActionCollection(::windows::core::IUnknown);
@@ -14361,6 +14475,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IVector<TriggerAction>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for TriggerActionCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for TriggerActionCollection {}
 #[repr(transparent)]
 pub struct TriggerBase(::windows::core::IUnknown);
 impl TriggerBase {}
@@ -14445,6 +14563,8 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &TriggerBase {
         ::windows::core::Param::Owned(::core::convert::Into::<DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for TriggerBase {}
+unsafe impl ::core::marker::Sync for TriggerBase {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct TriggerCollection(::windows::core::IUnknown);
@@ -14687,6 +14807,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IVector<TriggerBase>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for TriggerCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for TriggerCollection {}
 #[repr(transparent)]
 pub struct UIElement(::windows::core::IUnknown);
 impl UIElement {
@@ -16585,6 +16709,8 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &UIElement {
         ::windows::core::Param::Owned(::core::convert::Into::<DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for UIElement {}
+unsafe impl ::core::marker::Sync for UIElement {}
 #[repr(transparent)]
 pub struct UIElementWeakCollection(::windows::core::IUnknown);
 impl UIElementWeakCollection {
@@ -16811,6 +16937,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IVector<UIElement>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for UIElementWeakCollection {}
+unsafe impl ::core::marker::Sync for UIElementWeakCollection {}
 #[repr(transparent)]
 pub struct UnhandledExceptionEventArgs(::windows::core::IUnknown);
 impl UnhandledExceptionEventArgs {
@@ -16901,6 +17029,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Unha
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UnhandledExceptionEventArgs {}
+unsafe impl ::core::marker::Sync for UnhandledExceptionEventArgs {}
 #[repr(transparent)]
 pub struct UnhandledExceptionEventHandler(pub ::windows::core::IUnknown);
 impl UnhandledExceptionEventHandler {
@@ -17068,6 +17198,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Vect
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Vector3Transition {}
+unsafe impl ::core::marker::Sync for Vector3Transition {}
 #[repr(transparent)]
 pub struct Vector3TransitionComponents(pub u32);
 impl Vector3TransitionComponents {
@@ -17279,6 +17411,8 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &VisualState {
         ::windows::core::Param::Owned(::core::convert::Into::<DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for VisualState {}
+unsafe impl ::core::marker::Sync for VisualState {}
 #[repr(transparent)]
 pub struct VisualStateChangedEventArgs(::windows::core::IUnknown);
 impl VisualStateChangedEventArgs {
@@ -17386,6 +17520,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Visu
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VisualStateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for VisualStateChangedEventArgs {}
 #[repr(transparent)]
 pub struct VisualStateChangedEventHandler(pub ::windows::core::IUnknown);
 impl VisualStateChangedEventHandler {
@@ -17602,6 +17738,8 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &VisualStateGroup 
         ::windows::core::Param::Owned(::core::convert::Into::<DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for VisualStateGroup {}
+unsafe impl ::core::marker::Sync for VisualStateGroup {}
 #[repr(transparent)]
 pub struct VisualStateManager(::windows::core::IUnknown);
 impl VisualStateManager {
@@ -17740,6 +17878,8 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &VisualStateManage
         ::windows::core::Param::Owned(::core::convert::Into::<DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for VisualStateManager {}
+unsafe impl ::core::marker::Sync for VisualStateManager {}
 #[repr(transparent)]
 pub struct VisualTransition(::windows::core::IUnknown);
 impl VisualTransition {
@@ -17896,6 +18036,8 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &VisualTransition 
         ::windows::core::Param::Owned(::core::convert::Into::<DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for VisualTransition {}
+unsafe impl ::core::marker::Sync for VisualTransition {}
 #[repr(transparent)]
 pub struct Window(::windows::core::IUnknown);
 impl Window {
@@ -18092,6 +18234,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wind
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Window {}
+unsafe impl ::core::marker::Sync for Window {}
 #[cfg(feature = "UI_Core")]
 #[repr(transparent)]
 pub struct WindowActivatedEventHandler(pub ::windows::core::IUnknown);
@@ -18334,6 +18478,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wind
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WindowCreatedEventArgs {}
+unsafe impl ::core::marker::Sync for WindowCreatedEventArgs {}
 #[cfg(feature = "UI_Core")]
 #[repr(transparent)]
 pub struct WindowSizeChangedEventHandler(pub ::windows::core::IUnknown);
@@ -18618,6 +18764,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xaml
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for XamlRoot {}
+unsafe impl ::core::marker::Sync for XamlRoot {}
 #[repr(transparent)]
 pub struct XamlRootChangedEventArgs(::windows::core::IUnknown);
 impl XamlRootChangedEventArgs {}
@@ -18682,3 +18830,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xaml
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for XamlRootChangedEventArgs {}
+unsafe impl ::core::marker::Sync for XamlRootChangedEventArgs {}

@@ -100,6 +100,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Attr
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AttributedNetworkUsage {}
+unsafe impl ::core::marker::Sync for AttributedNetworkUsage {}
 #[repr(transparent)]
 pub struct CellularApnAuthenticationType(pub i32);
 impl CellularApnAuthenticationType {
@@ -278,6 +280,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cell
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CellularApnContext {}
+unsafe impl ::core::marker::Sync for CellularApnContext {}
 #[repr(transparent)]
 pub struct ConnectionCost(::windows::core::IUnknown);
 impl ConnectionCost {
@@ -378,6 +382,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Conn
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ConnectionCost {}
+unsafe impl ::core::marker::Sync for ConnectionCost {}
 #[repr(transparent)]
 pub struct ConnectionProfile(::windows::core::IUnknown);
 impl ConnectionProfile {
@@ -609,6 +615,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Conn
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ConnectionProfile {}
+unsafe impl ::core::marker::Sync for ConnectionProfile {}
 #[repr(transparent)]
 pub struct ConnectionProfileDeleteStatus(pub i32);
 impl ConnectionProfileDeleteStatus {
@@ -827,6 +835,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Conn
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ConnectionProfileFilter {}
+unsafe impl ::core::marker::Sync for ConnectionProfileFilter {}
 #[repr(transparent)]
 pub struct ConnectionSession(::windows::core::IUnknown);
 impl ConnectionSession {
@@ -930,6 +940,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ConnectionSession {}
+unsafe impl ::core::marker::Sync for ConnectionSession {}
 #[repr(transparent)]
 pub struct ConnectivityInterval(::windows::core::IUnknown);
 impl ConnectivityInterval {
@@ -1011,6 +1023,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Conn
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ConnectivityInterval {}
+unsafe impl ::core::marker::Sync for ConnectivityInterval {}
 pub struct ConnectivityManager {}
 impl ConnectivityManager {
     #[cfg(feature = "Foundation")]
@@ -1146,6 +1160,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DataPlanStatus {}
+unsafe impl ::core::marker::Sync for DataPlanStatus {}
 #[repr(transparent)]
 pub struct DataPlanUsage(::windows::core::IUnknown);
 impl DataPlanUsage {
@@ -1226,6 +1242,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DataPlanUsage {}
+unsafe impl ::core::marker::Sync for DataPlanUsage {}
 #[repr(transparent)]
 pub struct DataUsage(::windows::core::IUnknown);
 impl DataUsage {
@@ -1307,6 +1325,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DataUsage {}
+unsafe impl ::core::marker::Sync for DataUsage {}
 #[repr(transparent)]
 pub struct DataUsageGranularity(pub i32);
 impl DataUsageGranularity {
@@ -2115,6 +2135,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPIn
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for IPInformation {}
+unsafe impl ::core::marker::Sync for IPInformation {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IProviderNetworkUsage(::windows::core::IUnknown);
@@ -2338,6 +2360,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LanI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LanIdentifier {}
+unsafe impl ::core::marker::Sync for LanIdentifier {}
 #[repr(transparent)]
 pub struct LanIdentifierData(::windows::core::IUnknown);
 impl LanIdentifierData {
@@ -2418,6 +2442,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LanI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LanIdentifierData {}
+unsafe impl ::core::marker::Sync for LanIdentifierData {}
 #[repr(transparent)]
 pub struct NetworkAdapter(::windows::core::IUnknown);
 impl NetworkAdapter {
@@ -2526,6 +2552,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Netw
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for NetworkAdapter {}
+unsafe impl ::core::marker::Sync for NetworkAdapter {}
 #[repr(transparent)]
 pub struct NetworkAuthenticationType(pub i32);
 impl NetworkAuthenticationType {
@@ -2813,6 +2841,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Netw
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for NetworkItem {}
+unsafe impl ::core::marker::Sync for NetworkItem {}
 #[repr(transparent)]
 pub struct NetworkSecuritySettings(::windows::core::IUnknown);
 impl NetworkSecuritySettings {
@@ -2892,6 +2922,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Netw
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for NetworkSecuritySettings {}
+unsafe impl ::core::marker::Sync for NetworkSecuritySettings {}
 #[repr(transparent)]
 pub struct NetworkStateChangeEventDetails(::windows::core::IUnknown);
 impl NetworkStateChangeEventDetails {
@@ -3013,6 +3045,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Netw
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for NetworkStateChangeEventDetails {}
+unsafe impl ::core::marker::Sync for NetworkStateChangeEventDetails {}
 #[repr(transparent)]
 pub struct NetworkStatusChangedEventHandler(pub ::windows::core::IUnknown);
 impl NetworkStatusChangedEventHandler {
@@ -3196,6 +3230,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Netw
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for NetworkUsage {}
+unsafe impl ::core::marker::Sync for NetworkUsage {}
 #[repr(C)]
 pub struct NetworkUsageStates {
     pub Roaming: TriStates,
@@ -3313,6 +3349,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prov
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProviderNetworkUsage {}
+unsafe impl ::core::marker::Sync for ProviderNetworkUsage {}
 #[repr(transparent)]
 pub struct ProxyConfiguration(::windows::core::IUnknown);
 impl ProxyConfiguration {
@@ -3393,6 +3431,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prox
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProxyConfiguration {}
+unsafe impl ::core::marker::Sync for ProxyConfiguration {}
 #[repr(transparent)]
 pub struct RoamingStates(pub u32);
 impl RoamingStates {
@@ -3517,6 +3557,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rout
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RoutePolicy {}
+unsafe impl ::core::marker::Sync for RoutePolicy {}
 #[repr(transparent)]
 pub struct TriStates(pub i32);
 impl TriStates {
@@ -3617,6 +3659,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wlan
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WlanConnectionProfileDetails {}
+unsafe impl ::core::marker::Sync for WlanConnectionProfileDetails {}
 #[repr(transparent)]
 pub struct WwanConnectionProfileDetails(::windows::core::IUnknown);
 impl WwanConnectionProfileDetails {
@@ -3725,6 +3769,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wwan
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WwanConnectionProfileDetails {}
+unsafe impl ::core::marker::Sync for WwanConnectionProfileDetails {}
 #[repr(transparent)]
 pub struct WwanDataClass(pub u32);
 impl WwanDataClass {

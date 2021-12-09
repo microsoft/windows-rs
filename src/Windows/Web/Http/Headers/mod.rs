@@ -312,6 +312,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpCacheDirectiveHeaderValueCollection {}
+unsafe impl ::core::marker::Sync for HttpCacheDirectiveHeaderValueCollection {}
 #[repr(transparent)]
 pub struct HttpChallengeHeaderValue(::windows::core::IUnknown);
 impl HttpChallengeHeaderValue {
@@ -465,6 +467,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
         ::core::convert::TryInto::<super::super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpChallengeHeaderValue {}
+unsafe impl ::core::marker::Sync for HttpChallengeHeaderValue {}
 #[repr(transparent)]
 pub struct HttpChallengeHeaderValueCollection(::windows::core::IUnknown);
 impl HttpChallengeHeaderValueCollection {
@@ -726,6 +730,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpChallengeHeaderValueCollection {}
+unsafe impl ::core::marker::Sync for HttpChallengeHeaderValueCollection {}
 #[repr(transparent)]
 pub struct HttpConnectionOptionHeaderValue(::windows::core::IUnknown);
 impl HttpConnectionOptionHeaderValue {
@@ -858,6 +864,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
         ::core::convert::TryInto::<super::super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpConnectionOptionHeaderValue {}
+unsafe impl ::core::marker::Sync for HttpConnectionOptionHeaderValue {}
 #[repr(transparent)]
 pub struct HttpConnectionOptionHeaderValueCollection(::windows::core::IUnknown);
 impl HttpConnectionOptionHeaderValueCollection {
@@ -1119,6 +1127,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpConnectionOptionHeaderValueCollection {}
+unsafe impl ::core::marker::Sync for HttpConnectionOptionHeaderValueCollection {}
 #[repr(transparent)]
 pub struct HttpContentCodingHeaderValue(::windows::core::IUnknown);
 impl HttpContentCodingHeaderValue {
@@ -1251,6 +1261,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
         ::core::convert::TryInto::<super::super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpContentCodingHeaderValue {}
+unsafe impl ::core::marker::Sync for HttpContentCodingHeaderValue {}
 #[repr(transparent)]
 pub struct HttpContentCodingHeaderValueCollection(::windows::core::IUnknown);
 impl HttpContentCodingHeaderValueCollection {
@@ -1512,6 +1524,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpContentCodingHeaderValueCollection {}
+unsafe impl ::core::marker::Sync for HttpContentCodingHeaderValueCollection {}
 #[repr(transparent)]
 pub struct HttpContentCodingWithQualityHeaderValue(::windows::core::IUnknown);
 impl HttpContentCodingWithQualityHeaderValue {
@@ -1658,6 +1672,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
         ::core::convert::TryInto::<super::super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpContentCodingWithQualityHeaderValue {}
+unsafe impl ::core::marker::Sync for HttpContentCodingWithQualityHeaderValue {}
 #[repr(transparent)]
 pub struct HttpContentCodingWithQualityHeaderValueCollection(::windows::core::IUnknown);
 impl HttpContentCodingWithQualityHeaderValueCollection {
@@ -1919,6 +1935,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpContentCodingWithQualityHeaderValueCollection {}
+unsafe impl ::core::marker::Sync for HttpContentCodingWithQualityHeaderValueCollection {}
 #[repr(transparent)]
 pub struct HttpContentDispositionHeaderValue(::windows::core::IUnknown);
 impl HttpContentDispositionHeaderValue {
@@ -2109,6 +2127,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
         ::core::convert::TryInto::<super::super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpContentDispositionHeaderValue {}
+unsafe impl ::core::marker::Sync for HttpContentDispositionHeaderValue {}
 #[repr(transparent)]
 pub struct HttpContentHeaderCollection(::windows::core::IUnknown);
 impl HttpContentHeaderCollection {
@@ -2464,6 +2484,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
         ::core::convert::TryInto::<super::super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpContentHeaderCollection {}
+unsafe impl ::core::marker::Sync for HttpContentHeaderCollection {}
 #[repr(transparent)]
 pub struct HttpContentRangeHeaderValue(::windows::core::IUnknown);
 impl HttpContentRangeHeaderValue {
@@ -2636,6 +2658,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
         ::core::convert::TryInto::<super::super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpContentRangeHeaderValue {}
+unsafe impl ::core::marker::Sync for HttpContentRangeHeaderValue {}
 #[repr(transparent)]
 pub struct HttpCookiePairHeaderValue(::windows::core::IUnknown);
 impl HttpCookiePairHeaderValue {
@@ -2785,6 +2809,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
         ::core::convert::TryInto::<super::super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpCookiePairHeaderValue {}
+unsafe impl ::core::marker::Sync for HttpCookiePairHeaderValue {}
 #[repr(transparent)]
 pub struct HttpCookiePairHeaderValueCollection(::windows::core::IUnknown);
 impl HttpCookiePairHeaderValueCollection {
@@ -3046,6 +3072,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpCookiePairHeaderValueCollection {}
+unsafe impl ::core::marker::Sync for HttpCookiePairHeaderValueCollection {}
 #[repr(transparent)]
 pub struct HttpCredentialsHeaderValue(::windows::core::IUnknown);
 impl HttpCredentialsHeaderValue {
@@ -3199,6 +3227,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
         ::core::convert::TryInto::<super::super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpCredentialsHeaderValue {}
+unsafe impl ::core::marker::Sync for HttpCredentialsHeaderValue {}
 #[repr(transparent)]
 pub struct HttpDateOrDeltaHeaderValue(::windows::core::IUnknown);
 impl HttpDateOrDeltaHeaderValue {
@@ -3330,6 +3360,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
         ::core::convert::TryInto::<super::super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpDateOrDeltaHeaderValue {}
+unsafe impl ::core::marker::Sync for HttpDateOrDeltaHeaderValue {}
 #[repr(transparent)]
 pub struct HttpExpectationHeaderValue(::windows::core::IUnknown);
 impl HttpExpectationHeaderValue {
@@ -3487,6 +3519,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
         ::core::convert::TryInto::<super::super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpExpectationHeaderValue {}
+unsafe impl ::core::marker::Sync for HttpExpectationHeaderValue {}
 #[repr(transparent)]
 pub struct HttpExpectationHeaderValueCollection(::windows::core::IUnknown);
 impl HttpExpectationHeaderValueCollection {
@@ -3748,6 +3782,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpExpectationHeaderValueCollection {}
+unsafe impl ::core::marker::Sync for HttpExpectationHeaderValueCollection {}
 #[repr(transparent)]
 pub struct HttpLanguageHeaderValueCollection(::windows::core::IUnknown);
 impl HttpLanguageHeaderValueCollection {
@@ -4009,6 +4045,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpLanguageHeaderValueCollection {}
+unsafe impl ::core::marker::Sync for HttpLanguageHeaderValueCollection {}
 #[repr(transparent)]
 pub struct HttpLanguageRangeWithQualityHeaderValue(::windows::core::IUnknown);
 impl HttpLanguageRangeWithQualityHeaderValue {
@@ -4155,6 +4193,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
         ::core::convert::TryInto::<super::super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpLanguageRangeWithQualityHeaderValue {}
+unsafe impl ::core::marker::Sync for HttpLanguageRangeWithQualityHeaderValue {}
 #[repr(transparent)]
 pub struct HttpLanguageRangeWithQualityHeaderValueCollection(::windows::core::IUnknown);
 impl HttpLanguageRangeWithQualityHeaderValueCollection {
@@ -4416,6 +4456,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpLanguageRangeWithQualityHeaderValueCollection {}
+unsafe impl ::core::marker::Sync for HttpLanguageRangeWithQualityHeaderValueCollection {}
 #[repr(transparent)]
 pub struct HttpMediaTypeHeaderValue(::windows::core::IUnknown);
 impl HttpMediaTypeHeaderValue {
@@ -4571,6 +4613,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
         ::core::convert::TryInto::<super::super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpMediaTypeHeaderValue {}
+unsafe impl ::core::marker::Sync for HttpMediaTypeHeaderValue {}
 #[repr(transparent)]
 pub struct HttpMediaTypeWithQualityHeaderValue(::windows::core::IUnknown);
 impl HttpMediaTypeWithQualityHeaderValue {
@@ -4745,6 +4789,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
         ::core::convert::TryInto::<super::super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpMediaTypeWithQualityHeaderValue {}
+unsafe impl ::core::marker::Sync for HttpMediaTypeWithQualityHeaderValue {}
 #[repr(transparent)]
 pub struct HttpMediaTypeWithQualityHeaderValueCollection(::windows::core::IUnknown);
 impl HttpMediaTypeWithQualityHeaderValueCollection {
@@ -5006,6 +5052,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpMediaTypeWithQualityHeaderValueCollection {}
+unsafe impl ::core::marker::Sync for HttpMediaTypeWithQualityHeaderValueCollection {}
 #[repr(transparent)]
 pub struct HttpMethodHeaderValueCollection(::windows::core::IUnknown);
 impl HttpMethodHeaderValueCollection {
@@ -5267,6 +5315,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVector<super::HttpMethod>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpMethodHeaderValueCollection {}
+unsafe impl ::core::marker::Sync for HttpMethodHeaderValueCollection {}
 #[repr(transparent)]
 pub struct HttpNameValueHeaderValue(::windows::core::IUnknown);
 impl HttpNameValueHeaderValue {
@@ -5416,6 +5466,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
         ::core::convert::TryInto::<super::super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpNameValueHeaderValue {}
+unsafe impl ::core::marker::Sync for HttpNameValueHeaderValue {}
 #[repr(transparent)]
 pub struct HttpProductHeaderValue(::windows::core::IUnknown);
 impl HttpProductHeaderValue {
@@ -5561,6 +5613,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
         ::core::convert::TryInto::<super::super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpProductHeaderValue {}
+unsafe impl ::core::marker::Sync for HttpProductHeaderValue {}
 #[repr(transparent)]
 pub struct HttpProductInfoHeaderValue(::windows::core::IUnknown);
 impl HttpProductInfoHeaderValue {
@@ -5706,6 +5760,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
         ::core::convert::TryInto::<super::super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpProductInfoHeaderValue {}
+unsafe impl ::core::marker::Sync for HttpProductInfoHeaderValue {}
 #[repr(transparent)]
 pub struct HttpProductInfoHeaderValueCollection(::windows::core::IUnknown);
 impl HttpProductInfoHeaderValueCollection {
@@ -5967,6 +6023,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpProductInfoHeaderValueCollection {}
+unsafe impl ::core::marker::Sync for HttpProductInfoHeaderValueCollection {}
 #[repr(transparent)]
 pub struct HttpRequestHeaderCollection(::windows::core::IUnknown);
 impl HttpRequestHeaderCollection {
@@ -6377,6 +6435,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
         ::core::convert::TryInto::<super::super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpRequestHeaderCollection {}
+unsafe impl ::core::marker::Sync for HttpRequestHeaderCollection {}
 #[repr(transparent)]
 pub struct HttpResponseHeaderCollection(::windows::core::IUnknown);
 impl HttpResponseHeaderCollection {
@@ -6705,6 +6765,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
         ::core::convert::TryInto::<super::super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpResponseHeaderCollection {}
+unsafe impl ::core::marker::Sync for HttpResponseHeaderCollection {}
 #[repr(transparent)]
 pub struct HttpTransferCodingHeaderValue(::windows::core::IUnknown);
 impl HttpTransferCodingHeaderValue {
@@ -6845,6 +6907,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
         ::core::convert::TryInto::<super::super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpTransferCodingHeaderValue {}
+unsafe impl ::core::marker::Sync for HttpTransferCodingHeaderValue {}
 #[repr(transparent)]
 pub struct HttpTransferCodingHeaderValueCollection(::windows::core::IUnknown);
 impl HttpTransferCodingHeaderValueCollection {
@@ -7106,6 +7170,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpTransferCodingHeaderValueCollection {}
+unsafe impl ::core::marker::Sync for HttpTransferCodingHeaderValueCollection {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHttpCacheDirectiveHeaderValueCollection(::windows::core::IUnknown);

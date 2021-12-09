@@ -75,6 +75,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Call
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CallAnswerEventArgs {}
+unsafe impl ::core::marker::Sync for CallAnswerEventArgs {}
 #[repr(transparent)]
 pub struct CallRejectEventArgs(::windows::core::IUnknown);
 impl CallRejectEventArgs {
@@ -147,6 +149,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Call
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CallRejectEventArgs {}
+unsafe impl ::core::marker::Sync for CallRejectEventArgs {}
 #[repr(transparent)]
 pub struct CallStateChangeEventArgs(::windows::core::IUnknown);
 impl CallStateChangeEventArgs {
@@ -219,6 +223,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Call
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CallStateChangeEventArgs {}
+unsafe impl ::core::marker::Sync for CallStateChangeEventArgs {}
 #[repr(transparent)]
 pub struct CellularDtmfMode(pub i32);
 impl CellularDtmfMode {
@@ -1548,6 +1554,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lock
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LockScreenCallEndCallDeferral {}
+unsafe impl ::core::marker::Sync for LockScreenCallEndCallDeferral {}
 #[repr(transparent)]
 pub struct LockScreenCallEndRequestedEventArgs(::windows::core::IUnknown);
 impl LockScreenCallEndRequestedEventArgs {
@@ -1628,6 +1636,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lock
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LockScreenCallEndRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for LockScreenCallEndRequestedEventArgs {}
 #[repr(transparent)]
 pub struct LockScreenCallUI(::windows::core::IUnknown);
 impl LockScreenCallUI {
@@ -1734,6 +1744,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lock
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LockScreenCallUI {}
+unsafe impl ::core::marker::Sync for LockScreenCallUI {}
 #[repr(transparent)]
 pub struct MuteChangeEventArgs(::windows::core::IUnknown);
 impl MuteChangeEventArgs {
@@ -1806,6 +1818,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mute
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MuteChangeEventArgs {}
+unsafe impl ::core::marker::Sync for MuteChangeEventArgs {}
 #[repr(transparent)]
 pub struct PhoneAudioRoutingEndpoint(pub i32);
 impl PhoneAudioRoutingEndpoint {
@@ -2126,6 +2140,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneCall {}
+unsafe impl ::core::marker::Sync for PhoneCall {}
 #[repr(transparent)]
 pub struct PhoneCallAudioDevice(pub i32);
 impl PhoneCallAudioDevice {
@@ -2483,6 +2499,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneCallHistoryEntry {}
+unsafe impl ::core::marker::Sync for PhoneCallHistoryEntry {}
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryAddress(::windows::core::IUnknown);
 impl PhoneCallHistoryEntryAddress {
@@ -2609,6 +2627,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneCallHistoryEntryAddress {}
+unsafe impl ::core::marker::Sync for PhoneCallHistoryEntryAddress {}
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryMedia(pub i32);
 impl PhoneCallHistoryEntryMedia {
@@ -2783,6 +2803,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneCallHistoryEntryQueryOptions {}
+unsafe impl ::core::marker::Sync for PhoneCallHistoryEntryQueryOptions {}
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryRawAddressKind(pub i32);
 impl PhoneCallHistoryEntryRawAddressKind {
@@ -2883,6 +2905,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneCallHistoryEntryReader {}
+unsafe impl ::core::marker::Sync for PhoneCallHistoryEntryReader {}
 pub struct PhoneCallHistoryManager {}
 impl PhoneCallHistoryManager {
     #[cfg(feature = "Foundation")]
@@ -2992,6 +3016,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneCallHistoryManagerForUser {}
+unsafe impl ::core::marker::Sync for PhoneCallHistoryManagerForUser {}
 #[repr(transparent)]
 pub struct PhoneCallHistorySourceIdKind(pub i32);
 impl PhoneCallHistorySourceIdKind {
@@ -3178,6 +3204,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneCallHistoryStore {}
+unsafe impl ::core::marker::Sync for PhoneCallHistoryStore {}
 #[repr(transparent)]
 pub struct PhoneCallHistoryStoreAccessType(pub i32);
 impl PhoneCallHistoryStoreAccessType {
@@ -3314,6 +3342,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneCallInfo {}
+unsafe impl ::core::marker::Sync for PhoneCallInfo {}
 pub struct PhoneCallManager {}
 impl PhoneCallManager {
     pub fn ShowPhoneCallUI<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(phonenumber: Param0, displayname: Param1) -> ::windows::core::Result<()> {
@@ -3541,6 +3571,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneCallStore {}
+unsafe impl ::core::marker::Sync for PhoneCallStore {}
 #[repr(transparent)]
 pub struct PhoneCallVideoCapabilities(::windows::core::IUnknown);
 impl PhoneCallVideoCapabilities {
@@ -3613,6 +3645,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneCallVideoCapabilities {}
+unsafe impl ::core::marker::Sync for PhoneCallVideoCapabilities {}
 pub struct PhoneCallVideoCapabilitiesManager {}
 impl PhoneCallVideoCapabilitiesManager {
     #[cfg(feature = "Foundation")]
@@ -3710,6 +3744,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneCallsResult {}
+unsafe impl ::core::marker::Sync for PhoneCallsResult {}
 #[repr(transparent)]
 pub struct PhoneDialOptions(::windows::core::IUnknown);
 impl PhoneDialOptions {
@@ -3852,6 +3888,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneDialOptions {}
+unsafe impl ::core::marker::Sync for PhoneDialOptions {}
 #[repr(transparent)]
 pub struct PhoneLine(::windows::core::IUnknown);
 impl PhoneLine {
@@ -4083,6 +4121,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneLine {}
+unsafe impl ::core::marker::Sync for PhoneLine {}
 #[repr(transparent)]
 pub struct PhoneLineCellularDetails(::windows::core::IUnknown);
 impl PhoneLineCellularDetails {
@@ -4183,6 +4223,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneLineCellularDetails {}
+unsafe impl ::core::marker::Sync for PhoneLineCellularDetails {}
 #[repr(transparent)]
 pub struct PhoneLineConfiguration(::windows::core::IUnknown);
 impl PhoneLineConfiguration {
@@ -4263,6 +4305,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneLineConfiguration {}
+unsafe impl ::core::marker::Sync for PhoneLineConfiguration {}
 #[repr(transparent)]
 pub struct PhoneLineDialResult(::windows::core::IUnknown);
 impl PhoneLineDialResult {
@@ -4342,6 +4386,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneLineDialResult {}
+unsafe impl ::core::marker::Sync for PhoneLineDialResult {}
 #[repr(transparent)]
 pub struct PhoneLineNetworkOperatorDisplayTextLocation(pub i32);
 impl PhoneLineNetworkOperatorDisplayTextLocation {
@@ -4618,6 +4664,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneLineTransportDevice {}
+unsafe impl ::core::marker::Sync for PhoneLineTransportDevice {}
 #[repr(transparent)]
 pub struct PhoneLineWatcher(::windows::core::IUnknown);
 impl PhoneLineWatcher {
@@ -4763,6 +4811,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneLineWatcher {}
+unsafe impl ::core::marker::Sync for PhoneLineWatcher {}
 #[repr(transparent)]
 pub struct PhoneLineWatcherEventArgs(::windows::core::IUnknown);
 impl PhoneLineWatcherEventArgs {
@@ -4835,6 +4885,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneLineWatcherEventArgs {}
+unsafe impl ::core::marker::Sync for PhoneLineWatcherEventArgs {}
 #[repr(transparent)]
 pub struct PhoneLineWatcherStatus(pub i32);
 impl PhoneLineWatcherStatus {
@@ -5024,6 +5076,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneVoicemail {}
+unsafe impl ::core::marker::Sync for PhoneVoicemail {}
 #[repr(transparent)]
 pub struct PhoneVoicemailType(pub i32);
 impl PhoneVoicemailType {
@@ -5288,6 +5342,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Voip
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VoipCallCoordinator {}
+unsafe impl ::core::marker::Sync for VoipCallCoordinator {}
 #[repr(transparent)]
 pub struct VoipPhoneCall(::windows::core::IUnknown);
 impl VoipPhoneCall {
@@ -5477,6 +5533,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Voip
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VoipPhoneCall {}
+unsafe impl ::core::marker::Sync for VoipPhoneCall {}
 #[repr(transparent)]
 pub struct VoipPhoneCallMedia(pub u32);
 impl VoipPhoneCallMedia {

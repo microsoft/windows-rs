@@ -128,6 +128,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Exte
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ExtendedExecutionRevokedEventArgs {}
+unsafe impl ::core::marker::Sync for ExtendedExecutionRevokedEventArgs {}
 #[repr(transparent)]
 pub struct ExtendedExecutionRevokedReason(pub i32);
 impl ExtendedExecutionRevokedReason {
@@ -312,6 +314,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ExtendedExecutionSession {}
+unsafe impl ::core::marker::Sync for ExtendedExecutionSession {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IExtendedExecutionRevokedEventArgs(::windows::core::IUnknown);

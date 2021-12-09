@@ -86,6 +86,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Find
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for FindAllAccountsResult {}
+unsafe impl ::core::marker::Sync for FindAllAccountsResult {}
 #[repr(transparent)]
 pub struct FindAllWebAccountsStatus(pub i32);
 impl FindAllWebAccountsStatus {
@@ -568,6 +570,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebA
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WebAccountEventArgs {}
+unsafe impl ::core::marker::Sync for WebAccountEventArgs {}
 #[repr(transparent)]
 pub struct WebAccountMonitor(::windows::core::IUnknown);
 impl WebAccountMonitor {
@@ -685,6 +689,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebA
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WebAccountMonitor {}
+unsafe impl ::core::marker::Sync for WebAccountMonitor {}
 pub struct WebAuthenticationCoreManager {}
 impl WebAuthenticationCoreManager {
     #[cfg(feature = "Foundation")]
@@ -902,6 +908,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebP
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WebProviderError {}
+unsafe impl ::core::marker::Sync for WebProviderError {}
 #[repr(transparent)]
 pub struct WebTokenRequest(::windows::core::IUnknown);
 impl WebTokenRequest {
@@ -1055,6 +1063,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebT
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WebTokenRequest {}
+unsafe impl ::core::marker::Sync for WebTokenRequest {}
 #[repr(transparent)]
 pub struct WebTokenRequestPromptType(pub i32);
 impl WebTokenRequestPromptType {
@@ -1177,6 +1187,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebT
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WebTokenRequestResult {}
+unsafe impl ::core::marker::Sync for WebTokenRequestResult {}
 #[repr(transparent)]
 pub struct WebTokenRequestStatus(pub i32);
 impl WebTokenRequestStatus {
@@ -1334,3 +1346,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebT
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WebTokenResponse {}
+unsafe impl ::core::marker::Sync for WebTokenResponse {}

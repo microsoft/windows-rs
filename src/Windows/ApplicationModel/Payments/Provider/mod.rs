@@ -201,6 +201,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PaymentAppCanMakePaymentTriggerDetails {}
+unsafe impl ::core::marker::Sync for PaymentAppCanMakePaymentTriggerDetails {}
 #[repr(transparent)]
 pub struct PaymentAppManager(::windows::core::IUnknown);
 impl PaymentAppManager {
@@ -292,6 +294,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PaymentAppManager {}
+unsafe impl ::core::marker::Sync for PaymentAppManager {}
 #[repr(transparent)]
 pub struct PaymentTransaction(::windows::core::IUnknown);
 impl PaymentTransaction {
@@ -436,6 +440,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PaymentTransaction {}
+unsafe impl ::core::marker::Sync for PaymentTransaction {}
 #[repr(transparent)]
 pub struct PaymentTransactionAcceptResult(::windows::core::IUnknown);
 impl PaymentTransactionAcceptResult {
@@ -508,3 +514,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PaymentTransactionAcceptResult {}
+unsafe impl ::core::marker::Sync for PaymentTransactionAcceptResult {}

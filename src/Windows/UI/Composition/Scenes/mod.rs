@@ -927,6 +927,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneBoun
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SceneBoundingBox {}
+unsafe impl ::core::marker::Sync for SceneBoundingBox {}
 #[repr(transparent)]
 pub struct SceneComponent(::windows::core::IUnknown);
 impl SceneComponent {
@@ -1171,6 +1173,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneComp
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SceneComponent {}
+unsafe impl ::core::marker::Sync for SceneComponent {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct SceneComponentCollection(::windows::core::IUnknown);
@@ -1601,6 +1605,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneComp
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for SceneComponentCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for SceneComponentCollection {}
 #[repr(transparent)]
 pub struct SceneComponentType(pub i32);
 impl SceneComponentType {
@@ -1864,6 +1872,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneMate
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SceneMaterial {}
+unsafe impl ::core::marker::Sync for SceneMaterial {}
 #[repr(transparent)]
 pub struct SceneMaterialInput(::windows::core::IUnknown);
 impl SceneMaterialInput {
@@ -2101,6 +2111,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneMate
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SceneMaterialInput {}
+unsafe impl ::core::marker::Sync for SceneMaterialInput {}
 #[repr(transparent)]
 pub struct SceneMesh(::windows::core::IUnknown);
 impl SceneMesh {
@@ -2373,6 +2385,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneMesh
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SceneMesh {}
+unsafe impl ::core::marker::Sync for SceneMesh {}
 #[repr(transparent)]
 pub struct SceneMeshMaterialAttributeMap(::windows::core::IUnknown);
 impl SceneMeshMaterialAttributeMap {
@@ -2736,6 +2750,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneMesh
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SceneMeshMaterialAttributeMap {}
+unsafe impl ::core::marker::Sync for SceneMeshMaterialAttributeMap {}
 #[repr(transparent)]
 pub struct SceneMeshRendererComponent(::windows::core::IUnknown);
 impl SceneMeshRendererComponent {
@@ -3059,6 +3075,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneMesh
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SceneMeshRendererComponent {}
+unsafe impl ::core::marker::Sync for SceneMeshRendererComponent {}
 #[repr(transparent)]
 pub struct SceneMetallicRoughnessMaterial(::windows::core::IUnknown);
 impl SceneMetallicRoughnessMaterial {
@@ -3504,6 +3522,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneMeta
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SceneMetallicRoughnessMaterial {}
+unsafe impl ::core::marker::Sync for SceneMetallicRoughnessMaterial {}
 #[repr(transparent)]
 pub struct SceneModelTransform(::windows::core::IUnknown);
 impl SceneModelTransform {
@@ -3815,6 +3835,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneMode
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SceneModelTransform {}
+unsafe impl ::core::marker::Sync for SceneModelTransform {}
 #[repr(transparent)]
 pub struct SceneNode(::windows::core::IUnknown);
 impl SceneNode {
@@ -4099,6 +4121,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneNode
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SceneNode {}
+unsafe impl ::core::marker::Sync for SceneNode {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct SceneNodeCollection(::windows::core::IUnknown);
@@ -4529,6 +4553,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneNode
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for SceneNodeCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for SceneNodeCollection {}
 #[repr(transparent)]
 pub struct SceneObject(::windows::core::IUnknown);
 impl SceneObject {
@@ -4746,6 +4774,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneObje
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SceneObject {}
+unsafe impl ::core::marker::Sync for SceneObject {}
 #[repr(transparent)]
 pub struct ScenePbrMaterial(::windows::core::IUnknown);
 impl ScenePbrMaterial {
@@ -5104,6 +5134,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &ScenePbrM
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ScenePbrMaterial {}
+unsafe impl ::core::marker::Sync for ScenePbrMaterial {}
 #[repr(transparent)]
 pub struct SceneRendererComponent(::windows::core::IUnknown);
 impl SceneRendererComponent {
@@ -5368,6 +5400,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneRend
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SceneRendererComponent {}
+unsafe impl ::core::marker::Sync for SceneRendererComponent {}
 #[repr(transparent)]
 pub struct SceneSurfaceMaterialInput(::windows::core::IUnknown);
 impl SceneSurfaceMaterialInput {
@@ -5679,6 +5713,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneSurf
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SceneSurfaceMaterialInput {}
+unsafe impl ::core::marker::Sync for SceneSurfaceMaterialInput {}
 #[repr(transparent)]
 pub struct SceneVisual(::windows::core::IUnknown);
 impl SceneVisual {
@@ -6222,6 +6258,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneVisu
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SceneVisual {}
+unsafe impl ::core::marker::Sync for SceneVisual {}
 #[repr(transparent)]
 pub struct SceneWrappingMode(pub i32);
 impl SceneWrappingMode {

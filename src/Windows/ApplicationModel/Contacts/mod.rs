@@ -108,6 +108,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Aggr
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AggregateContactManager {}
+unsafe impl ::core::marker::Sync for AggregateContactManager {}
 #[repr(transparent)]
 pub struct Contact(::windows::core::IUnknown);
 impl Contact {
@@ -551,6 +553,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Contact {}
+unsafe impl ::core::marker::Sync for Contact {}
 #[repr(transparent)]
 pub struct ContactAddress(::windows::core::IUnknown);
 impl ContactAddress {
@@ -700,6 +704,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactAddress {}
+unsafe impl ::core::marker::Sync for ContactAddress {}
 #[repr(transparent)]
 pub struct ContactAddressKind(pub i32);
 impl ContactAddressKind {
@@ -873,6 +879,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactAnnotation {}
+unsafe impl ::core::marker::Sync for ContactAnnotation {}
 #[repr(transparent)]
 pub struct ContactAnnotationList(::windows::core::IUnknown);
 impl ContactAnnotationList {
@@ -1007,6 +1015,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactAnnotationList {}
+unsafe impl ::core::marker::Sync for ContactAnnotationList {}
 #[repr(transparent)]
 pub struct ContactAnnotationOperations(pub u32);
 impl ContactAnnotationOperations {
@@ -1176,6 +1186,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactAnnotationStore {}
+unsafe impl ::core::marker::Sync for ContactAnnotationStore {}
 #[repr(transparent)]
 pub struct ContactAnnotationStoreAccessType(pub i32);
 impl ContactAnnotationStoreAccessType {
@@ -1283,6 +1295,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactBatch {}
+unsafe impl ::core::marker::Sync for ContactBatch {}
 #[repr(transparent)]
 pub struct ContactBatchStatus(pub i32);
 impl ContactBatchStatus {
@@ -1411,6 +1425,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ContactCardDelayedDataLoader {}
+unsafe impl ::core::marker::Sync for ContactCardDelayedDataLoader {}
 #[repr(transparent)]
 pub struct ContactCardHeaderKind(pub i32);
 impl ContactCardHeaderKind {
@@ -1541,6 +1557,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactCardOptions {}
+unsafe impl ::core::marker::Sync for ContactCardOptions {}
 #[repr(transparent)]
 pub struct ContactCardTabKind(pub i32);
 impl ContactCardTabKind {
@@ -1651,6 +1669,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactChange {}
+unsafe impl ::core::marker::Sync for ContactChange {}
 #[repr(transparent)]
 pub struct ContactChangeReader(::windows::core::IUnknown);
 impl ContactChangeReader {
@@ -1732,6 +1752,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactChangeReader {}
+unsafe impl ::core::marker::Sync for ContactChangeReader {}
 #[repr(transparent)]
 pub struct ContactChangeTracker(::windows::core::IUnknown);
 impl ContactChangeTracker {
@@ -1819,6 +1841,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactChangeTracker {}
+unsafe impl ::core::marker::Sync for ContactChangeTracker {}
 #[repr(transparent)]
 pub struct ContactChangeType(pub i32);
 impl ContactChangeType {
@@ -1917,6 +1941,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactChangedDeferral {}
+unsafe impl ::core::marker::Sync for ContactChangedDeferral {}
 #[repr(transparent)]
 pub struct ContactChangedEventArgs(::windows::core::IUnknown);
 impl ContactChangedEventArgs {
@@ -1989,6 +2015,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactChangedEventArgs {}
+unsafe impl ::core::marker::Sync for ContactChangedEventArgs {}
 #[repr(transparent)]
 pub struct ContactConnectedServiceAccount(::windows::core::IUnknown);
 impl ContactConnectedServiceAccount {
@@ -2083,6 +2111,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactConnectedServiceAccount {}
+unsafe impl ::core::marker::Sync for ContactConnectedServiceAccount {}
 #[repr(transparent)]
 pub struct ContactDate(::windows::core::IUnknown);
 impl ContactDate {
@@ -2216,6 +2246,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactDate {}
+unsafe impl ::core::marker::Sync for ContactDate {}
 #[repr(transparent)]
 pub struct ContactDateKind(pub i32);
 impl ContactDateKind {
@@ -2349,6 +2381,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactEmail {}
+unsafe impl ::core::marker::Sync for ContactEmail {}
 #[repr(transparent)]
 pub struct ContactEmailKind(pub i32);
 impl ContactEmailKind {
@@ -2514,6 +2548,8 @@ impl<'a> ::windows::core::IntoParam<'a, IContactField> for &ContactField {
         ::core::convert::TryInto::<IContactField>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ContactField {}
+unsafe impl ::core::marker::Sync for ContactField {}
 #[repr(transparent)]
 pub struct ContactFieldCategory(pub i32);
 impl ContactFieldCategory {
@@ -2746,6 +2782,8 @@ impl<'a> ::windows::core::IntoParam<'a, IContactLocationFieldFactory> for &Conta
         ::core::convert::TryInto::<IContactLocationFieldFactory>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ContactFieldFactory {}
+unsafe impl ::core::marker::Sync for ContactFieldFactory {}
 #[repr(transparent)]
 pub struct ContactFieldType(pub i32);
 impl ContactFieldType {
@@ -2847,6 +2885,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactGroup {}
+unsafe impl ::core::marker::Sync for ContactGroup {}
 #[repr(transparent)]
 pub struct ContactInformation(::windows::core::IUnknown);
 impl ContactInformation {
@@ -3142,6 +3182,8 @@ impl<'a> ::windows::core::IntoParam<'a, IContactField> for &ContactInstantMessag
         ::core::convert::TryInto::<IContactField>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ContactInstantMessageField {}
+unsafe impl ::core::marker::Sync for ContactInstantMessageField {}
 #[repr(transparent)]
 pub struct ContactJobInfo(::windows::core::IUnknown);
 impl ContactJobInfo {
@@ -3302,6 +3344,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactJobInfo {}
+unsafe impl ::core::marker::Sync for ContactJobInfo {}
 pub struct ContactLaunchActionVerbs {}
 impl ContactLaunchActionVerbs {
     pub fn Call() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3609,6 +3653,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactList {}
+unsafe impl ::core::marker::Sync for ContactList {}
 #[repr(transparent)]
 pub struct ContactListLimitedWriteOperations(::windows::core::IUnknown);
 impl ContactListLimitedWriteOperations {
@@ -3690,6 +3736,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactListLimitedWriteOperations {}
+unsafe impl ::core::marker::Sync for ContactListLimitedWriteOperations {}
 #[repr(transparent)]
 pub struct ContactListOtherAppReadAccess(pub i32);
 impl ContactListOtherAppReadAccess {
@@ -4174,6 +4222,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactListSyncConstraints {}
+unsafe impl ::core::marker::Sync for ContactListSyncConstraints {}
 #[repr(transparent)]
 pub struct ContactListSyncManager(::windows::core::IUnknown);
 impl ContactListSyncManager {
@@ -4297,6 +4347,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactListSyncManager {}
+unsafe impl ::core::marker::Sync for ContactListSyncManager {}
 #[repr(transparent)]
 pub struct ContactListSyncStatus(pub i32);
 impl ContactListSyncStatus {
@@ -4508,6 +4560,8 @@ impl<'a> ::windows::core::IntoParam<'a, IContactField> for &ContactLocationField
         ::core::convert::TryInto::<IContactField>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ContactLocationField {}
+unsafe impl ::core::marker::Sync for ContactLocationField {}
 pub struct ContactManager {}
 impl ContactManager {
     #[cfg(feature = "Foundation")]
@@ -4797,6 +4851,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactManagerForUser {}
+unsafe impl ::core::marker::Sync for ContactManagerForUser {}
 #[repr(transparent)]
 pub struct ContactMatchReason(::windows::core::IUnknown);
 impl ContactMatchReason {
@@ -4884,6 +4940,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactMatchReason {}
+unsafe impl ::core::marker::Sync for ContactMatchReason {}
 #[repr(transparent)]
 pub struct ContactMatchReasonKind(pub i32);
 impl ContactMatchReasonKind {
@@ -5050,6 +5108,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactPanel {}
+unsafe impl ::core::marker::Sync for ContactPanel {}
 #[repr(transparent)]
 pub struct ContactPanelClosingEventArgs(::windows::core::IUnknown);
 impl ContactPanelClosingEventArgs {
@@ -5123,6 +5183,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactPanelClosingEventArgs {}
+unsafe impl ::core::marker::Sync for ContactPanelClosingEventArgs {}
 #[repr(transparent)]
 pub struct ContactPanelLaunchFullAppRequestedEventArgs(::windows::core::IUnknown);
 impl ContactPanelLaunchFullAppRequestedEventArgs {
@@ -5199,6 +5261,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactPanelLaunchFullAppRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for ContactPanelLaunchFullAppRequestedEventArgs {}
 #[repr(transparent)]
 pub struct ContactPhone(::windows::core::IUnknown);
 impl ContactPhone {
@@ -5304,6 +5368,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactPhone {}
+unsafe impl ::core::marker::Sync for ContactPhone {}
 #[repr(transparent)]
 pub struct ContactPhoneKind(pub i32);
 impl ContactPhoneKind {
@@ -5680,6 +5746,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactQueryOptions {}
+unsafe impl ::core::marker::Sync for ContactQueryOptions {}
 #[repr(transparent)]
 pub struct ContactQuerySearchFields(pub u32);
 impl ContactQuerySearchFields {
@@ -5835,6 +5903,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactQueryTextSearch {}
+unsafe impl ::core::marker::Sync for ContactQueryTextSearch {}
 #[repr(transparent)]
 pub struct ContactReader(::windows::core::IUnknown);
 impl ContactReader {
@@ -5916,6 +5986,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactReader {}
+unsafe impl ::core::marker::Sync for ContactReader {}
 #[repr(transparent)]
 pub struct ContactRelationship(pub i32);
 impl ContactRelationship {
@@ -6079,6 +6151,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactSignificantOther {}
+unsafe impl ::core::marker::Sync for ContactSignificantOther {}
 #[repr(transparent)]
 pub struct ContactStore(::windows::core::IUnknown);
 impl ContactStore {
@@ -6256,6 +6330,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactStore {}
+unsafe impl ::core::marker::Sync for ContactStore {}
 #[repr(transparent)]
 pub struct ContactStoreAccessType(pub i32);
 impl ContactStoreAccessType {
@@ -6348,6 +6424,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactStoreNotificationTriggerDetails {}
+unsafe impl ::core::marker::Sync for ContactStoreNotificationTriggerDetails {}
 #[repr(transparent)]
 pub struct ContactWebsite(::windows::core::IUnknown);
 impl ContactWebsite {
@@ -6455,6 +6533,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactWebsite {}
+unsafe impl ::core::marker::Sync for ContactWebsite {}
 #[repr(transparent)]
 pub struct FullContactCardOptions(::windows::core::IUnknown);
 impl FullContactCardOptions {
@@ -6540,6 +6620,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Full
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for FullContactCardOptions {}
+unsafe impl ::core::marker::Sync for FullContactCardOptions {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAggregateContactManager(::windows::core::IUnknown);
@@ -8870,6 +8952,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pinn
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PinnedContactIdsQueryResult {}
+unsafe impl ::core::marker::Sync for PinnedContactIdsQueryResult {}
 #[repr(transparent)]
 pub struct PinnedContactManager(::windows::core::IUnknown);
 impl PinnedContactManager {
@@ -9016,6 +9100,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pinn
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PinnedContactManager {}
+unsafe impl ::core::marker::Sync for PinnedContactManager {}
 #[repr(transparent)]
 pub struct PinnedContactSurface(pub i32);
 impl PinnedContactSurface {

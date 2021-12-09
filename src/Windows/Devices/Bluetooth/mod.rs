@@ -181,6 +181,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BluetoothAdapter {}
+unsafe impl ::core::marker::Sync for BluetoothAdapter {}
 #[repr(transparent)]
 pub struct BluetoothAddressType(pub i32);
 impl BluetoothAddressType {
@@ -345,6 +347,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BluetoothClassOfDevice {}
+unsafe impl ::core::marker::Sync for BluetoothClassOfDevice {}
 #[repr(transparent)]
 pub struct BluetoothConnectionStatus(pub i32);
 impl BluetoothConnectionStatus {
@@ -702,6 +706,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for BluetoothDevice {}
+unsafe impl ::core::marker::Sync for BluetoothDevice {}
 #[repr(transparent)]
 pub struct BluetoothDeviceId(::windows::core::IUnknown);
 impl BluetoothDeviceId {
@@ -798,6 +804,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BluetoothDeviceId {}
+unsafe impl ::core::marker::Sync for BluetoothDeviceId {}
 #[repr(transparent)]
 pub struct BluetoothError(pub i32);
 impl BluetoothError {
@@ -935,6 +943,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BluetoothLEAppearance {}
+unsafe impl ::core::marker::Sync for BluetoothLEAppearance {}
 pub struct BluetoothLEAppearanceCategories {}
 impl BluetoothLEAppearanceCategories {
     pub fn Uncategorized() -> ::windows::core::Result<u16> {
@@ -1341,6 +1351,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BluetoothLEConnectionParameters {}
+unsafe impl ::core::marker::Sync for BluetoothLEConnectionParameters {}
 #[repr(transparent)]
 pub struct BluetoothLEConnectionPhy(::windows::core::IUnknown);
 impl BluetoothLEConnectionPhy {
@@ -1420,6 +1432,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BluetoothLEConnectionPhy {}
+unsafe impl ::core::marker::Sync for BluetoothLEConnectionPhy {}
 #[repr(transparent)]
 pub struct BluetoothLEConnectionPhyInfo(::windows::core::IUnknown);
 impl BluetoothLEConnectionPhyInfo {
@@ -1506,6 +1520,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BluetoothLEConnectionPhyInfo {}
+unsafe impl ::core::marker::Sync for BluetoothLEConnectionPhyInfo {}
 #[repr(transparent)]
 pub struct BluetoothLEDevice(::windows::core::IUnknown);
 impl BluetoothLEDevice {
@@ -1889,6 +1905,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for BluetoothLEDevice {}
+unsafe impl ::core::marker::Sync for BluetoothLEDevice {}
 #[repr(transparent)]
 pub struct BluetoothLEPreferredConnectionParameters(::windows::core::IUnknown);
 impl BluetoothLEPreferredConnectionParameters {
@@ -2004,6 +2022,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BluetoothLEPreferredConnectionParameters {}
+unsafe impl ::core::marker::Sync for BluetoothLEPreferredConnectionParameters {}
 #[repr(transparent)]
 pub struct BluetoothLEPreferredConnectionParametersRequest(::windows::core::IUnknown);
 impl BluetoothLEPreferredConnectionParametersRequest {
@@ -2107,6 +2127,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for BluetoothLEPreferredConnectionParametersRequest {}
+unsafe impl ::core::marker::Sync for BluetoothLEPreferredConnectionParametersRequest {}
 #[repr(transparent)]
 pub struct BluetoothLEPreferredConnectionParametersRequestStatus(pub i32);
 impl BluetoothLEPreferredConnectionParametersRequestStatus {
@@ -2426,6 +2448,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BluetoothSignalStrengthFilter {}
+unsafe impl ::core::marker::Sync for BluetoothSignalStrengthFilter {}
 pub struct BluetoothUuidHelper {}
 impl BluetoothUuidHelper {
     pub fn FromShortId(shortid: u32) -> ::windows::core::Result<::windows::core::GUID> {

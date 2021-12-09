@@ -1240,6 +1240,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintManager {}
+unsafe impl ::core::marker::Sync for PrintManager {}
 #[repr(transparent)]
 pub struct PrintMediaSize(pub i32);
 impl PrintMediaSize {
@@ -1698,6 +1700,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintPageInfo {}
+unsafe impl ::core::marker::Sync for PrintPageInfo {}
 #[repr(transparent)]
 pub struct PrintPageRange(::windows::core::IUnknown);
 impl PrintPageRange {
@@ -1793,6 +1797,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintPageRange {}
+unsafe impl ::core::marker::Sync for PrintPageRange {}
 #[repr(transparent)]
 pub struct PrintPageRangeOptions(::windows::core::IUnknown);
 impl PrintPageRangeOptions {
@@ -1891,6 +1897,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintPageRangeOptions {}
+unsafe impl ::core::marker::Sync for PrintPageRangeOptions {}
 #[repr(transparent)]
 pub struct PrintQuality(pub i32);
 impl PrintQuality {
@@ -2136,6 +2144,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintTask {}
+unsafe impl ::core::marker::Sync for PrintTask {}
 #[repr(transparent)]
 pub struct PrintTaskCompletedEventArgs(::windows::core::IUnknown);
 impl PrintTaskCompletedEventArgs {
@@ -2208,6 +2218,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintTaskCompletedEventArgs {}
+unsafe impl ::core::marker::Sync for PrintTaskCompletedEventArgs {}
 #[repr(transparent)]
 pub struct PrintTaskCompletion(pub i32);
 impl PrintTaskCompletion {
@@ -2553,6 +2565,8 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintTaskOptionsCoreUIConfiguration> fo
         ::core::convert::TryInto::<IPrintTaskOptionsCoreUIConfiguration>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PrintTaskOptions {}
+unsafe impl ::core::marker::Sync for PrintTaskOptions {}
 #[repr(transparent)]
 pub struct PrintTaskProgressingEventArgs(::windows::core::IUnknown);
 impl PrintTaskProgressingEventArgs {
@@ -2625,6 +2639,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintTaskProgressingEventArgs {}
+unsafe impl ::core::marker::Sync for PrintTaskProgressingEventArgs {}
 #[repr(transparent)]
 pub struct PrintTaskRequest(::windows::core::IUnknown);
 impl PrintTaskRequest {
@@ -2712,6 +2728,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintTaskRequest {}
+unsafe impl ::core::marker::Sync for PrintTaskRequest {}
 #[repr(transparent)]
 pub struct PrintTaskRequestedDeferral(::windows::core::IUnknown);
 impl PrintTaskRequestedDeferral {
@@ -2781,6 +2799,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintTaskRequestedDeferral {}
+unsafe impl ::core::marker::Sync for PrintTaskRequestedDeferral {}
 #[repr(transparent)]
 pub struct PrintTaskRequestedEventArgs(::windows::core::IUnknown);
 impl PrintTaskRequestedEventArgs {
@@ -2853,6 +2873,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintTaskRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for PrintTaskRequestedEventArgs {}
 #[repr(transparent)]
 pub struct PrintTaskSourceRequestedArgs(::windows::core::IUnknown);
 impl PrintTaskSourceRequestedArgs {
@@ -2937,6 +2959,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintTaskSourceRequestedArgs {}
+unsafe impl ::core::marker::Sync for PrintTaskSourceRequestedArgs {}
 #[repr(transparent)]
 pub struct PrintTaskSourceRequestedDeferral(::windows::core::IUnknown);
 impl PrintTaskSourceRequestedDeferral {
@@ -3006,6 +3030,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintTaskSourceRequestedDeferral {}
+unsafe impl ::core::marker::Sync for PrintTaskSourceRequestedDeferral {}
 #[repr(transparent)]
 pub struct PrintTaskSourceRequestedHandler(pub ::windows::core::IUnknown);
 impl PrintTaskSourceRequestedHandler {

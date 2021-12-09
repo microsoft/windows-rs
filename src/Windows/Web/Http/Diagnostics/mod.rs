@@ -122,6 +122,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Http
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HttpDiagnosticProvider {}
+unsafe impl ::core::marker::Sync for HttpDiagnosticProvider {}
 #[repr(transparent)]
 pub struct HttpDiagnosticProviderRequestResponseCompletedEventArgs(::windows::core::IUnknown);
 impl HttpDiagnosticProviderRequestResponseCompletedEventArgs {
@@ -238,6 +240,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Http
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HttpDiagnosticProviderRequestResponseCompletedEventArgs {}
+unsafe impl ::core::marker::Sync for HttpDiagnosticProviderRequestResponseCompletedEventArgs {}
 #[repr(transparent)]
 pub struct HttpDiagnosticProviderRequestResponseTimestamps(::windows::core::IUnknown);
 impl HttpDiagnosticProviderRequestResponseTimestamps {
@@ -375,6 +379,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Http
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HttpDiagnosticProviderRequestResponseTimestamps {}
+unsafe impl ::core::marker::Sync for HttpDiagnosticProviderRequestResponseTimestamps {}
 #[repr(transparent)]
 pub struct HttpDiagnosticProviderRequestSentEventArgs(::windows::core::IUnknown);
 impl HttpDiagnosticProviderRequestSentEventArgs {
@@ -491,6 +497,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Http
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HttpDiagnosticProviderRequestSentEventArgs {}
+unsafe impl ::core::marker::Sync for HttpDiagnosticProviderRequestSentEventArgs {}
 #[repr(transparent)]
 pub struct HttpDiagnosticProviderResponseReceivedEventArgs(::windows::core::IUnknown);
 impl HttpDiagnosticProviderResponseReceivedEventArgs {
@@ -578,6 +586,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Http
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HttpDiagnosticProviderResponseReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for HttpDiagnosticProviderResponseReceivedEventArgs {}
 #[repr(transparent)]
 pub struct HttpDiagnosticRequestInitiator(pub i32);
 impl HttpDiagnosticRequestInitiator {
@@ -703,6 +713,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Http
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HttpDiagnosticSourceLocation {}
+unsafe impl ::core::marker::Sync for HttpDiagnosticSourceLocation {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHttpDiagnosticProvider(::windows::core::IUnknown);

@@ -366,6 +366,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Voic
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VoiceCommand {}
+unsafe impl ::core::marker::Sync for VoiceCommand {}
 #[repr(transparent)]
 pub struct VoiceCommandCompletedEventArgs(::windows::core::IUnknown);
 impl VoiceCommandCompletedEventArgs {
@@ -438,6 +440,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Voic
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VoiceCommandCompletedEventArgs {}
+unsafe impl ::core::marker::Sync for VoiceCommandCompletedEventArgs {}
 #[repr(transparent)]
 pub struct VoiceCommandCompletionReason(pub i32);
 impl VoiceCommandCompletionReason {
@@ -542,6 +546,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Voic
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VoiceCommandConfirmationResult {}
+unsafe impl ::core::marker::Sync for VoiceCommandConfirmationResult {}
 #[repr(transparent)]
 pub struct VoiceCommandContentTile(::windows::core::IUnknown);
 impl VoiceCommandContentTile {
@@ -704,6 +710,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Voic
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VoiceCommandContentTile {}
+unsafe impl ::core::marker::Sync for VoiceCommandContentTile {}
 #[repr(transparent)]
 pub struct VoiceCommandContentTileType(pub i32);
 impl VoiceCommandContentTileType {
@@ -824,6 +832,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Voic
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VoiceCommandDefinition {}
+unsafe impl ::core::marker::Sync for VoiceCommandDefinition {}
 pub struct VoiceCommandDefinitionManager {}
 impl VoiceCommandDefinitionManager {
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
@@ -920,6 +930,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Voic
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VoiceCommandDisambiguationResult {}
+unsafe impl ::core::marker::Sync for VoiceCommandDisambiguationResult {}
 #[repr(transparent)]
 pub struct VoiceCommandResponse(::windows::core::IUnknown);
 impl VoiceCommandResponse {
@@ -1062,6 +1074,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Voic
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VoiceCommandResponse {}
+unsafe impl ::core::marker::Sync for VoiceCommandResponse {}
 #[repr(transparent)]
 pub struct VoiceCommandServiceConnection(::windows::core::IUnknown);
 impl VoiceCommandServiceConnection {
@@ -1215,6 +1229,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Voic
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VoiceCommandServiceConnection {}
+unsafe impl ::core::marker::Sync for VoiceCommandServiceConnection {}
 #[repr(transparent)]
 pub struct VoiceCommandUserMessage(::windows::core::IUnknown);
 impl VoiceCommandUserMessage {
@@ -1309,3 +1325,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Voic
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VoiceCommandUserMessage {}
+unsafe impl ::core::marker::Sync for VoiceCommandUserMessage {}

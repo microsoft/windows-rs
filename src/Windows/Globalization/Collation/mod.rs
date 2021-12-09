@@ -78,6 +78,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Char
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CharacterGrouping {}
+unsafe impl ::core::marker::Sync for CharacterGrouping {}
 #[repr(transparent)]
 pub struct CharacterGroupings(::windows::core::IUnknown);
 impl CharacterGroupings {
@@ -275,6 +277,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IVectorView<CharacterGrouping>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for CharacterGroupings {}
+unsafe impl ::core::marker::Sync for CharacterGroupings {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICharacterGrouping(::windows::core::IUnknown);

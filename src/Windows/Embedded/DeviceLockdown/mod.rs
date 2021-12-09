@@ -107,6 +107,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DeviceLockdownProfileInformation {}
+unsafe impl ::core::marker::Sync for DeviceLockdownProfileInformation {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDeviceLockdownProfileInformation(::windows::core::IUnknown);

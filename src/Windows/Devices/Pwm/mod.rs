@@ -260,6 +260,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PwmC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PwmController {}
+unsafe impl ::core::marker::Sync for PwmController {}
 #[repr(transparent)]
 pub struct PwmPin(::windows::core::IUnknown);
 impl PwmPin {
@@ -400,6 +402,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PwmPin {}
+unsafe impl ::core::marker::Sync for PwmPin {}
 #[repr(transparent)]
 pub struct PwmPulsePolarity(pub i32);
 impl PwmPulsePolarity {

@@ -944,6 +944,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISearchPaneQueryChangedEventArgs> for &S
         ::core::convert::TryInto::<ISearchPaneQueryChangedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SearchPaneQueryChangedEventArgs {}
+unsafe impl ::core::marker::Sync for SearchPaneQueryChangedEventArgs {}
 #[repr(transparent)]
 pub struct SearchPaneQueryLinguisticDetails(::windows::core::IUnknown);
 impl SearchPaneQueryLinguisticDetails {
@@ -1031,6 +1033,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sear
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SearchPaneQueryLinguisticDetails {}
+unsafe impl ::core::marker::Sync for SearchPaneQueryLinguisticDetails {}
 #[repr(transparent)]
 pub struct SearchPaneQuerySubmittedEventArgs(::windows::core::IUnknown);
 impl SearchPaneQuerySubmittedEventArgs {
@@ -1120,6 +1124,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sear
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SearchPaneQuerySubmittedEventArgs {}
+unsafe impl ::core::marker::Sync for SearchPaneQuerySubmittedEventArgs {}
 #[repr(transparent)]
 pub struct SearchPaneResultSuggestionChosenEventArgs(::windows::core::IUnknown);
 impl SearchPaneResultSuggestionChosenEventArgs {
@@ -1193,6 +1199,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sear
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SearchPaneResultSuggestionChosenEventArgs {}
+unsafe impl ::core::marker::Sync for SearchPaneResultSuggestionChosenEventArgs {}
 #[repr(transparent)]
 pub struct SearchPaneSuggestionsRequest(::windows::core::IUnknown);
 impl SearchPaneSuggestionsRequest {
@@ -1282,6 +1290,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sear
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SearchPaneSuggestionsRequest {}
+unsafe impl ::core::marker::Sync for SearchPaneSuggestionsRequest {}
 #[repr(transparent)]
 pub struct SearchPaneSuggestionsRequestDeferral(::windows::core::IUnknown);
 impl SearchPaneSuggestionsRequestDeferral {
@@ -1352,6 +1362,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sear
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SearchPaneSuggestionsRequestDeferral {}
+unsafe impl ::core::marker::Sync for SearchPaneSuggestionsRequestDeferral {}
 #[repr(transparent)]
 pub struct SearchPaneSuggestionsRequestedEventArgs(::windows::core::IUnknown);
 impl SearchPaneSuggestionsRequestedEventArgs {
@@ -1471,6 +1483,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISearchPaneQueryChangedEventArgs> for &S
         ::core::convert::TryInto::<ISearchPaneQueryChangedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SearchPaneSuggestionsRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for SearchPaneSuggestionsRequestedEventArgs {}
 #[repr(transparent)]
 pub struct SearchPaneVisibilityChangedEventArgs(::windows::core::IUnknown);
 impl SearchPaneVisibilityChangedEventArgs {
@@ -1544,6 +1558,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sear
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SearchPaneVisibilityChangedEventArgs {}
+unsafe impl ::core::marker::Sync for SearchPaneVisibilityChangedEventArgs {}
 #[repr(transparent)]
 pub struct SearchQueryLinguisticDetails(::windows::core::IUnknown);
 impl SearchQueryLinguisticDetails {
@@ -1642,6 +1658,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sear
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SearchQueryLinguisticDetails {}
+unsafe impl ::core::marker::Sync for SearchQueryLinguisticDetails {}
 #[repr(transparent)]
 pub struct SearchSuggestionCollection(::windows::core::IUnknown);
 impl SearchSuggestionCollection {
@@ -1732,6 +1750,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sear
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SearchSuggestionCollection {}
+unsafe impl ::core::marker::Sync for SearchSuggestionCollection {}
 #[repr(transparent)]
 pub struct SearchSuggestionsRequest(::windows::core::IUnknown);
 impl SearchSuggestionsRequest {
@@ -1818,6 +1838,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sear
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SearchSuggestionsRequest {}
+unsafe impl ::core::marker::Sync for SearchSuggestionsRequest {}
 #[repr(transparent)]
 pub struct SearchSuggestionsRequestDeferral(::windows::core::IUnknown);
 impl SearchSuggestionsRequestDeferral {
@@ -1887,3 +1909,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sear
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SearchSuggestionsRequestDeferral {}
+unsafe impl ::core::marker::Sync for SearchSuggestionsRequestDeferral {}

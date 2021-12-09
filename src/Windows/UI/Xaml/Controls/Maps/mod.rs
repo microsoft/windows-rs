@@ -127,6 +127,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Cus
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CustomMapTileDataSource {}
+unsafe impl ::core::marker::Sync for CustomMapTileDataSource {}
 #[repr(transparent)]
 pub struct HttpMapTileDataSource(::windows::core::IUnknown);
 impl HttpMapTileDataSource {
@@ -291,6 +293,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Htt
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for HttpMapTileDataSource {}
+unsafe impl ::core::marker::Sync for HttpMapTileDataSource {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICustomMapTileDataSource(::windows::core::IUnknown);
@@ -3162,6 +3166,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Loc
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for LocalMapTileDataSource {}
+unsafe impl ::core::marker::Sync for LocalMapTileDataSource {}
 #[repr(transparent)]
 pub struct MapActualCameraChangedEventArgs(::windows::core::IUnknown);
 impl MapActualCameraChangedEventArgs {
@@ -3248,6 +3254,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapA
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapActualCameraChangedEventArgs {}
+unsafe impl ::core::marker::Sync for MapActualCameraChangedEventArgs {}
 #[repr(transparent)]
 pub struct MapActualCameraChangingEventArgs(::windows::core::IUnknown);
 impl MapActualCameraChangingEventArgs {
@@ -3334,6 +3342,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapA
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapActualCameraChangingEventArgs {}
+unsafe impl ::core::marker::Sync for MapActualCameraChangingEventArgs {}
 #[repr(transparent)]
 pub struct MapAnimationKind(pub i32);
 impl MapAnimationKind {
@@ -3557,6 +3567,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MapBillboard {}
+unsafe impl ::core::marker::Sync for MapBillboard {}
 #[repr(transparent)]
 pub struct MapCamera(::windows::core::IUnknown);
 impl MapCamera {
@@ -3731,6 +3743,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MapCamera {}
+unsafe impl ::core::marker::Sync for MapCamera {}
 #[repr(transparent)]
 pub struct MapCameraChangeReason(pub i32);
 impl MapCameraChangeReason {
@@ -3882,6 +3896,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapContextRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for MapContextRequestedEventArgs {}
 #[repr(transparent)]
 pub struct MapControl(::windows::core::IUnknown);
 impl MapControl {
@@ -5249,6 +5265,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MapControl {}
+unsafe impl ::core::marker::Sync for MapControl {}
 #[repr(transparent)]
 pub struct MapControlBusinessLandmarkClickEventArgs(::windows::core::IUnknown);
 impl MapControlBusinessLandmarkClickEventArgs {
@@ -5329,6 +5347,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapControlBusinessLandmarkClickEventArgs {}
+unsafe impl ::core::marker::Sync for MapControlBusinessLandmarkClickEventArgs {}
 #[repr(transparent)]
 pub struct MapControlBusinessLandmarkPointerEnteredEventArgs(::windows::core::IUnknown);
 impl MapControlBusinessLandmarkPointerEnteredEventArgs {
@@ -5409,6 +5429,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapControlBusinessLandmarkPointerEnteredEventArgs {}
+unsafe impl ::core::marker::Sync for MapControlBusinessLandmarkPointerEnteredEventArgs {}
 #[repr(transparent)]
 pub struct MapControlBusinessLandmarkPointerExitedEventArgs(::windows::core::IUnknown);
 impl MapControlBusinessLandmarkPointerExitedEventArgs {
@@ -5489,6 +5511,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapControlBusinessLandmarkPointerExitedEventArgs {}
+unsafe impl ::core::marker::Sync for MapControlBusinessLandmarkPointerExitedEventArgs {}
 #[repr(transparent)]
 pub struct MapControlBusinessLandmarkRightTappedEventArgs(::windows::core::IUnknown);
 impl MapControlBusinessLandmarkRightTappedEventArgs {
@@ -5569,6 +5593,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapControlBusinessLandmarkRightTappedEventArgs {}
+unsafe impl ::core::marker::Sync for MapControlBusinessLandmarkRightTappedEventArgs {}
 #[repr(transparent)]
 pub struct MapControlDataHelper(::windows::core::IUnknown);
 impl MapControlDataHelper {
@@ -5778,6 +5804,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MapControlDataHelper {}
+unsafe impl ::core::marker::Sync for MapControlDataHelper {}
 #[repr(transparent)]
 pub struct MapControlTransitFeatureClickEventArgs(::windows::core::IUnknown);
 impl MapControlTransitFeatureClickEventArgs {
@@ -5873,6 +5901,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapControlTransitFeatureClickEventArgs {}
+unsafe impl ::core::marker::Sync for MapControlTransitFeatureClickEventArgs {}
 #[repr(transparent)]
 pub struct MapControlTransitFeaturePointerEnteredEventArgs(::windows::core::IUnknown);
 impl MapControlTransitFeaturePointerEnteredEventArgs {
@@ -5968,6 +5998,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapControlTransitFeaturePointerEnteredEventArgs {}
+unsafe impl ::core::marker::Sync for MapControlTransitFeaturePointerEnteredEventArgs {}
 #[repr(transparent)]
 pub struct MapControlTransitFeaturePointerExitedEventArgs(::windows::core::IUnknown);
 impl MapControlTransitFeaturePointerExitedEventArgs {
@@ -6063,6 +6095,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapControlTransitFeaturePointerExitedEventArgs {}
+unsafe impl ::core::marker::Sync for MapControlTransitFeaturePointerExitedEventArgs {}
 #[repr(transparent)]
 pub struct MapControlTransitFeatureRightTappedEventArgs(::windows::core::IUnknown);
 impl MapControlTransitFeatureRightTappedEventArgs {
@@ -6158,6 +6192,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapControlTransitFeatureRightTappedEventArgs {}
+unsafe impl ::core::marker::Sync for MapControlTransitFeatureRightTappedEventArgs {}
 #[repr(transparent)]
 pub struct MapCustomExperience(::windows::core::IUnknown);
 impl MapCustomExperience {
@@ -6253,6 +6289,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MapCustomExperience {}
+unsafe impl ::core::marker::Sync for MapCustomExperience {}
 #[repr(transparent)]
 pub struct MapCustomExperienceChangedEventArgs(::windows::core::IUnknown);
 impl MapCustomExperienceChangedEventArgs {
@@ -6325,6 +6363,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapCustomExperienceChangedEventArgs {}
+unsafe impl ::core::marker::Sync for MapCustomExperienceChangedEventArgs {}
 #[repr(transparent)]
 pub struct MapElement(::windows::core::IUnknown);
 impl MapElement {
@@ -6555,6 +6595,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MapElement {}
+unsafe impl ::core::marker::Sync for MapElement {}
 #[repr(transparent)]
 pub struct MapElement3D(::windows::core::IUnknown);
 impl MapElement3D {
@@ -6771,6 +6813,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MapElement3D {}
+unsafe impl ::core::marker::Sync for MapElement3D {}
 #[repr(transparent)]
 pub struct MapElementClickEventArgs(::windows::core::IUnknown);
 impl MapElementClickEventArgs {
@@ -6867,6 +6911,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapElementClickEventArgs {}
+unsafe impl ::core::marker::Sync for MapElementClickEventArgs {}
 #[repr(transparent)]
 pub struct MapElementCollisionBehavior(pub i32);
 impl MapElementCollisionBehavior {
@@ -6989,6 +7035,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapElementPointerEnteredEventArgs {}
+unsafe impl ::core::marker::Sync for MapElementPointerEnteredEventArgs {}
 #[repr(transparent)]
 pub struct MapElementPointerExitedEventArgs(::windows::core::IUnknown);
 impl MapElementPointerExitedEventArgs {
@@ -7084,6 +7132,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapElementPointerExitedEventArgs {}
+unsafe impl ::core::marker::Sync for MapElementPointerExitedEventArgs {}
 #[repr(transparent)]
 pub struct MapElementsLayer(::windows::core::IUnknown);
 impl MapElementsLayer {
@@ -7271,6 +7321,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MapElementsLayer {}
+unsafe impl ::core::marker::Sync for MapElementsLayer {}
 #[repr(transparent)]
 pub struct MapElementsLayerClickEventArgs(::windows::core::IUnknown);
 impl MapElementsLayerClickEventArgs {
@@ -7367,6 +7419,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapElementsLayerClickEventArgs {}
+unsafe impl ::core::marker::Sync for MapElementsLayerClickEventArgs {}
 #[repr(transparent)]
 pub struct MapElementsLayerContextRequestedEventArgs(::windows::core::IUnknown);
 impl MapElementsLayerContextRequestedEventArgs {
@@ -7463,6 +7517,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapElementsLayerContextRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for MapElementsLayerContextRequestedEventArgs {}
 #[repr(transparent)]
 pub struct MapElementsLayerPointerEnteredEventArgs(::windows::core::IUnknown);
 impl MapElementsLayerPointerEnteredEventArgs {
@@ -7558,6 +7614,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapElementsLayerPointerEnteredEventArgs {}
+unsafe impl ::core::marker::Sync for MapElementsLayerPointerEnteredEventArgs {}
 #[repr(transparent)]
 pub struct MapElementsLayerPointerExitedEventArgs(::windows::core::IUnknown);
 impl MapElementsLayerPointerExitedEventArgs {
@@ -7653,6 +7711,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapElementsLayerPointerExitedEventArgs {}
+unsafe impl ::core::marker::Sync for MapElementsLayerPointerExitedEventArgs {}
 #[repr(transparent)]
 pub struct MapIcon(::windows::core::IUnknown);
 impl MapIcon {
@@ -7858,6 +7918,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MapIcon {}
+unsafe impl ::core::marker::Sync for MapIcon {}
 #[repr(transparent)]
 pub struct MapInputEventArgs(::windows::core::IUnknown);
 impl MapInputEventArgs {
@@ -7966,6 +8028,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MapInputEventArgs {}
+unsafe impl ::core::marker::Sync for MapInputEventArgs {}
 #[repr(transparent)]
 pub struct MapInteractionMode(pub i32);
 impl MapInteractionMode {
@@ -8143,6 +8207,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MapItemsControl {}
+unsafe impl ::core::marker::Sync for MapItemsControl {}
 #[repr(transparent)]
 pub struct MapLayer(::windows::core::IUnknown);
 impl MapLayer {
@@ -8293,6 +8359,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MapLayer {}
+unsafe impl ::core::marker::Sync for MapLayer {}
 #[repr(transparent)]
 pub struct MapLoadingStatus(pub i32);
 impl MapLoadingStatus {
@@ -8435,6 +8503,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MapModel3D {}
+unsafe impl ::core::marker::Sync for MapModel3D {}
 #[repr(transparent)]
 pub struct MapModel3DShadingOption(pub i32);
 impl MapModel3DShadingOption {
@@ -8689,6 +8759,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MapPolygon {}
+unsafe impl ::core::marker::Sync for MapPolygon {}
 #[repr(transparent)]
 pub struct MapPolyline(::windows::core::IUnknown);
 impl MapPolyline {
@@ -8863,6 +8935,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MapPolyline {}
+unsafe impl ::core::marker::Sync for MapPolyline {}
 #[repr(transparent)]
 pub struct MapProjection(pub i32);
 impl MapProjection {
@@ -8978,6 +9052,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapRightTappedEventArgs {}
+unsafe impl ::core::marker::Sync for MapRightTappedEventArgs {}
 #[repr(transparent)]
 pub struct MapRouteView(::windows::core::IUnknown);
 impl MapRouteView {
@@ -9104,6 +9180,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MapRouteView {}
+unsafe impl ::core::marker::Sync for MapRouteView {}
 #[repr(transparent)]
 pub struct MapScene(::windows::core::IUnknown);
 impl MapScene {
@@ -9275,6 +9353,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MapScene {}
+unsafe impl ::core::marker::Sync for MapScene {}
 #[repr(transparent)]
 pub struct MapStyle(pub i32);
 impl MapStyle {
@@ -9452,6 +9532,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MapStyleSheet {}
+unsafe impl ::core::marker::Sync for MapStyleSheet {}
 pub struct MapStyleSheetEntries {}
 impl MapStyleSheetEntries {
     pub fn Area() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -9960,6 +10042,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapT
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapTargetCameraChangedEventArgs {}
+unsafe impl ::core::marker::Sync for MapTargetCameraChangedEventArgs {}
 #[repr(transparent)]
 pub struct MapTileAnimationState(pub i32);
 impl MapTileAnimationState {
@@ -10080,6 +10164,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapT
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapTileBitmapRequest {}
+unsafe impl ::core::marker::Sync for MapTileBitmapRequest {}
 #[repr(transparent)]
 pub struct MapTileBitmapRequestDeferral(::windows::core::IUnknown);
 impl MapTileBitmapRequestDeferral {
@@ -10156,6 +10242,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapT
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapTileBitmapRequestDeferral {}
+unsafe impl ::core::marker::Sync for MapTileBitmapRequestDeferral {}
 #[repr(transparent)]
 pub struct MapTileBitmapRequestedEventArgs(::windows::core::IUnknown);
 impl MapTileBitmapRequestedEventArgs {
@@ -10263,6 +10351,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapT
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapTileBitmapRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for MapTileBitmapRequestedEventArgs {}
 #[repr(transparent)]
 pub struct MapTileDataSource(::windows::core::IUnknown);
 impl MapTileDataSource {
@@ -10358,6 +10448,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MapTileDataSource {}
+unsafe impl ::core::marker::Sync for MapTileDataSource {}
 #[repr(transparent)]
 pub struct MapTileLayer(pub i32);
 impl MapTileLayer {
@@ -10784,6 +10876,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MapTileSource {}
+unsafe impl ::core::marker::Sync for MapTileSource {}
 #[repr(transparent)]
 pub struct MapTileUriRequest(::windows::core::IUnknown);
 impl MapTileUriRequest {
@@ -10876,6 +10970,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapT
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapTileUriRequest {}
+unsafe impl ::core::marker::Sync for MapTileUriRequest {}
 #[repr(transparent)]
 pub struct MapTileUriRequestDeferral(::windows::core::IUnknown);
 impl MapTileUriRequestDeferral {
@@ -10952,6 +11048,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapT
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapTileUriRequestDeferral {}
+unsafe impl ::core::marker::Sync for MapTileUriRequestDeferral {}
 #[repr(transparent)]
 pub struct MapTileUriRequestedEventArgs(::windows::core::IUnknown);
 impl MapTileUriRequestedEventArgs {
@@ -11059,6 +11157,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapT
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapTileUriRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for MapTileUriRequestedEventArgs {}
 #[repr(transparent)]
 pub struct MapVisibleRegionKind(pub i32);
 impl MapVisibleRegionKind {
@@ -11331,6 +11431,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Str
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for StreetsideExperience {}
+unsafe impl ::core::marker::Sync for StreetsideExperience {}
 #[repr(transparent)]
 pub struct StreetsidePanorama(::windows::core::IUnknown);
 impl StreetsidePanorama {
@@ -11442,3 +11544,5 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Str
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for StreetsidePanorama {}
+unsafe impl ::core::marker::Sync for StreetsidePanorama {}

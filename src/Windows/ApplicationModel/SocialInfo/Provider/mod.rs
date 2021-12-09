@@ -213,6 +213,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Soci
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SocialDashboardItemUpdater {}
+unsafe impl ::core::marker::Sync for SocialDashboardItemUpdater {}
 #[repr(transparent)]
 pub struct SocialFeedUpdater(::windows::core::IUnknown);
 impl SocialFeedUpdater {
@@ -312,6 +314,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Soci
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SocialFeedUpdater {}
+unsafe impl ::core::marker::Sync for SocialFeedUpdater {}
 pub struct SocialInfoProviderManager {}
 impl SocialInfoProviderManager {
     #[cfg(feature = "deprecated")]

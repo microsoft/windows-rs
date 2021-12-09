@@ -99,6 +99,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ChatCapabilities {}
+unsafe impl ::core::marker::Sync for ChatCapabilities {}
 pub struct ChatCapabilitiesManager {}
 impl ChatCapabilitiesManager {
     #[cfg(feature = "Foundation")]
@@ -364,6 +366,8 @@ impl<'a> ::windows::core::IntoParam<'a, IChatItem> for &ChatConversation {
         ::core::convert::TryInto::<IChatItem>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ChatConversation {}
+unsafe impl ::core::marker::Sync for ChatConversation {}
 #[repr(transparent)]
 pub struct ChatConversationReader(::windows::core::IUnknown);
 impl ChatConversationReader {
@@ -445,6 +449,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ChatConversationReader {}
+unsafe impl ::core::marker::Sync for ChatConversationReader {}
 #[repr(transparent)]
 pub struct ChatConversationThreadingInfo(::windows::core::IUnknown);
 impl ChatConversationThreadingInfo {
@@ -569,6 +575,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ChatConversationThreadingInfo {}
+unsafe impl ::core::marker::Sync for ChatConversationThreadingInfo {}
 #[repr(transparent)]
 pub struct ChatConversationThreadingKind(pub i32);
 impl ChatConversationThreadingKind {
@@ -1010,6 +1018,8 @@ impl<'a> ::windows::core::IntoParam<'a, IChatItem> for &ChatMessage {
         ::core::convert::TryInto::<IChatItem>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ChatMessage {}
+unsafe impl ::core::marker::Sync for ChatMessage {}
 #[repr(transparent)]
 pub struct ChatMessageAttachment(::windows::core::IUnknown);
 impl ChatMessageAttachment {
@@ -1167,6 +1177,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ChatMessageAttachment {}
+unsafe impl ::core::marker::Sync for ChatMessageAttachment {}
 pub struct ChatMessageBlocking {}
 impl ChatMessageBlocking {
     #[cfg(feature = "Foundation")]
@@ -1263,6 +1275,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ChatMessageChange {}
+unsafe impl ::core::marker::Sync for ChatMessageChange {}
 #[repr(transparent)]
 pub struct ChatMessageChangeReader(::windows::core::IUnknown);
 impl ChatMessageChangeReader {
@@ -1344,6 +1358,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ChatMessageChangeReader {}
+unsafe impl ::core::marker::Sync for ChatMessageChangeReader {}
 #[repr(transparent)]
 pub struct ChatMessageChangeTracker(::windows::core::IUnknown);
 impl ChatMessageChangeTracker {
@@ -1424,6 +1440,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ChatMessageChangeTracker {}
+unsafe impl ::core::marker::Sync for ChatMessageChangeTracker {}
 #[repr(transparent)]
 pub struct ChatMessageChangeType(pub i32);
 impl ChatMessageChangeType {
@@ -1522,6 +1540,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ChatMessageChangedDeferral {}
+unsafe impl ::core::marker::Sync for ChatMessageChangedDeferral {}
 #[repr(transparent)]
 pub struct ChatMessageChangedEventArgs(::windows::core::IUnknown);
 impl ChatMessageChangedEventArgs {
@@ -1594,6 +1614,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ChatMessageChangedEventArgs {}
+unsafe impl ::core::marker::Sync for ChatMessageChangedEventArgs {}
 #[repr(transparent)]
 pub struct ChatMessageKind(pub i32);
 impl ChatMessageKind {
@@ -1789,6 +1811,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ChatMessageNotificationTriggerDetails {}
+unsafe impl ::core::marker::Sync for ChatMessageNotificationTriggerDetails {}
 #[repr(transparent)]
 pub struct ChatMessageOperatorKind(pub i32);
 impl ChatMessageOperatorKind {
@@ -1899,6 +1923,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ChatMessageReader {}
+unsafe impl ::core::marker::Sync for ChatMessageReader {}
 #[repr(transparent)]
 pub struct ChatMessageStatus(pub i32);
 impl ChatMessageStatus {
@@ -2232,6 +2258,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ChatMessageStore {}
+unsafe impl ::core::marker::Sync for ChatMessageStore {}
 #[repr(transparent)]
 pub struct ChatMessageStoreChangedEventArgs(::windows::core::IUnknown);
 impl ChatMessageStoreChangedEventArgs {
@@ -2311,6 +2339,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ChatMessageStoreChangedEventArgs {}
+unsafe impl ::core::marker::Sync for ChatMessageStoreChangedEventArgs {}
 #[repr(transparent)]
 pub struct ChatMessageTransport(::windows::core::IUnknown);
 impl ChatMessageTransport {
@@ -2426,6 +2456,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ChatMessageTransport {}
+unsafe impl ::core::marker::Sync for ChatMessageTransport {}
 #[repr(transparent)]
 pub struct ChatMessageTransportConfiguration(::windows::core::IUnknown);
 impl ChatMessageTransportConfiguration {
@@ -2528,6 +2560,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ChatMessageTransportConfiguration {}
+unsafe impl ::core::marker::Sync for ChatMessageTransportConfiguration {}
 #[repr(transparent)]
 pub struct ChatMessageTransportKind(pub i32);
 impl ChatMessageTransportKind {
@@ -2653,6 +2687,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ChatMessageValidationResult {}
+unsafe impl ::core::marker::Sync for ChatMessageValidationResult {}
 #[repr(transparent)]
 pub struct ChatMessageValidationStatus(pub i32);
 impl ChatMessageValidationStatus {
@@ -2775,6 +2811,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ChatQueryOptions {}
+unsafe impl ::core::marker::Sync for ChatQueryOptions {}
 #[repr(transparent)]
 pub struct ChatRecipientDeliveryInfo(::windows::core::IUnknown);
 impl ChatRecipientDeliveryInfo {
@@ -2919,6 +2957,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ChatRecipientDeliveryInfo {}
+unsafe impl ::core::marker::Sync for ChatRecipientDeliveryInfo {}
 #[repr(transparent)]
 pub struct ChatRestoreHistorySpan(pub i32);
 impl ChatRestoreHistorySpan {
@@ -3028,6 +3068,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ChatSearchReader {}
+unsafe impl ::core::marker::Sync for ChatSearchReader {}
 #[repr(transparent)]
 pub struct ChatStoreChangedEventKind(pub i32);
 impl ChatStoreChangedEventKind {
@@ -3148,6 +3190,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ChatSyncConfiguration {}
+unsafe impl ::core::marker::Sync for ChatSyncConfiguration {}
 #[repr(transparent)]
 pub struct ChatSyncManager(::windows::core::IUnknown);
 impl ChatSyncManager {
@@ -3256,6 +3300,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ChatSyncManager {}
+unsafe impl ::core::marker::Sync for ChatSyncManager {}
 #[repr(transparent)]
 pub struct ChatTransportErrorCodeCategory(pub i32);
 impl ChatTransportErrorCodeCategory {
@@ -4711,6 +4757,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RcsE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RcsEndUserMessage {}
+unsafe impl ::core::marker::Sync for RcsEndUserMessage {}
 #[repr(transparent)]
 pub struct RcsEndUserMessageAction(::windows::core::IUnknown);
 impl RcsEndUserMessageAction {
@@ -4783,6 +4831,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RcsE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RcsEndUserMessageAction {}
+unsafe impl ::core::marker::Sync for RcsEndUserMessageAction {}
 #[repr(transparent)]
 pub struct RcsEndUserMessageAvailableEventArgs(::windows::core::IUnknown);
 impl RcsEndUserMessageAvailableEventArgs {
@@ -4862,6 +4912,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RcsE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RcsEndUserMessageAvailableEventArgs {}
+unsafe impl ::core::marker::Sync for RcsEndUserMessageAvailableEventArgs {}
 #[repr(transparent)]
 pub struct RcsEndUserMessageAvailableTriggerDetails(::windows::core::IUnknown);
 impl RcsEndUserMessageAvailableTriggerDetails {
@@ -4941,6 +4993,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RcsE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RcsEndUserMessageAvailableTriggerDetails {}
+unsafe impl ::core::marker::Sync for RcsEndUserMessageAvailableTriggerDetails {}
 #[repr(transparent)]
 pub struct RcsEndUserMessageManager(::windows::core::IUnknown);
 impl RcsEndUserMessageManager {
@@ -5019,6 +5073,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RcsE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RcsEndUserMessageManager {}
+unsafe impl ::core::marker::Sync for RcsEndUserMessageManager {}
 pub struct RcsManager {}
 impl RcsManager {
     pub fn GetEndUserMessageManager() -> ::windows::core::Result<RcsEndUserMessageManager> {
@@ -5172,6 +5228,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RcsS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RcsServiceKindSupportedChangedEventArgs {}
+unsafe impl ::core::marker::Sync for RcsServiceKindSupportedChangedEventArgs {}
 #[repr(transparent)]
 pub struct RcsTransport(::windows::core::IUnknown);
 impl RcsTransport {
@@ -5300,6 +5358,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RcsT
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RcsTransport {}
+unsafe impl ::core::marker::Sync for RcsTransport {}
 #[repr(transparent)]
 pub struct RcsTransportConfiguration(::windows::core::IUnknown);
 impl RcsTransportConfiguration {
@@ -5407,6 +5467,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RcsT
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RcsTransportConfiguration {}
+unsafe impl ::core::marker::Sync for RcsTransportConfiguration {}
 #[repr(transparent)]
 pub struct RemoteParticipantComposingChangedEventArgs(::windows::core::IUnknown);
 impl RemoteParticipantComposingChangedEventArgs {
@@ -5493,3 +5555,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteParticipantComposingChangedEventArgs {}
+unsafe impl ::core::marker::Sync for RemoteParticipantComposingChangedEventArgs {}

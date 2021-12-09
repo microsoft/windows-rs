@@ -259,6 +259,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lice
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LicenseSatisfactionInfo {}
+unsafe impl ::core::marker::Sync for LicenseSatisfactionInfo {}
 #[repr(transparent)]
 pub struct LicenseSatisfactionResult(::windows::core::IUnknown);
 impl LicenseSatisfactionResult {
@@ -339,3 +341,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lice
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LicenseSatisfactionResult {}
+unsafe impl ::core::marker::Sync for LicenseSatisfactionResult {}

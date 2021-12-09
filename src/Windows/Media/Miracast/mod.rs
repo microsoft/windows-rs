@@ -612,6 +612,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MiracastReceiver {}
+unsafe impl ::core::marker::Sync for MiracastReceiver {}
 #[repr(transparent)]
 pub struct MiracastReceiverApplySettingsResult(::windows::core::IUnknown);
 impl MiracastReceiverApplySettingsResult {
@@ -691,6 +693,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MiracastReceiverApplySettingsResult {}
+unsafe impl ::core::marker::Sync for MiracastReceiverApplySettingsResult {}
 #[repr(transparent)]
 pub struct MiracastReceiverApplySettingsStatus(pub i32);
 impl MiracastReceiverApplySettingsStatus {
@@ -909,6 +913,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MiracastReceiverConnection {}
+unsafe impl ::core::marker::Sync for MiracastReceiverConnection {}
 #[repr(transparent)]
 pub struct MiracastReceiverConnectionCreatedEventArgs(::windows::core::IUnknown);
 impl MiracastReceiverConnectionCreatedEventArgs {
@@ -996,6 +1002,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MiracastReceiverConnectionCreatedEventArgs {}
+unsafe impl ::core::marker::Sync for MiracastReceiverConnectionCreatedEventArgs {}
 #[repr(transparent)]
 pub struct MiracastReceiverCursorImageChannel(::windows::core::IUnknown);
 impl MiracastReceiverCursorImageChannel {
@@ -1118,6 +1126,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MiracastReceiverCursorImageChannel {}
+unsafe impl ::core::marker::Sync for MiracastReceiverCursorImageChannel {}
 #[repr(transparent)]
 pub struct MiracastReceiverCursorImageChannelSettings(::windows::core::IUnknown);
 impl MiracastReceiverCursorImageChannelSettings {
@@ -1207,6 +1217,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MiracastReceiverCursorImageChannelSettings {}
+unsafe impl ::core::marker::Sync for MiracastReceiverCursorImageChannelSettings {}
 #[repr(transparent)]
 pub struct MiracastReceiverDisconnectReason(pub i32);
 impl MiracastReceiverDisconnectReason {
@@ -1312,6 +1324,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MiracastReceiverDisconnectedEventArgs {}
+unsafe impl ::core::marker::Sync for MiracastReceiverDisconnectedEventArgs {}
 #[repr(transparent)]
 pub struct MiracastReceiverGameControllerDevice(::windows::core::IUnknown);
 impl MiracastReceiverGameControllerDevice {
@@ -1426,6 +1440,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MiracastReceiverGameControllerDevice {}
+unsafe impl ::core::marker::Sync for MiracastReceiverGameControllerDevice {}
 #[repr(transparent)]
 pub struct MiracastReceiverGameControllerDeviceUsageMode(pub i32);
 impl MiracastReceiverGameControllerDeviceUsageMode {
@@ -1532,6 +1548,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MiracastReceiverInputDevices {}
+unsafe impl ::core::marker::Sync for MiracastReceiverInputDevices {}
 #[repr(transparent)]
 pub struct MiracastReceiverKeyboardDevice(::windows::core::IUnknown);
 impl MiracastReceiverKeyboardDevice {
@@ -1635,6 +1653,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MiracastReceiverKeyboardDevice {}
+unsafe impl ::core::marker::Sync for MiracastReceiverKeyboardDevice {}
 #[repr(transparent)]
 pub struct MiracastReceiverListeningStatus(pub i32);
 impl MiracastReceiverListeningStatus {
@@ -1761,6 +1781,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MiracastReceiverMediaSourceCreatedEventArgs {}
+unsafe impl ::core::marker::Sync for MiracastReceiverMediaSourceCreatedEventArgs {}
 #[repr(transparent)]
 pub struct MiracastReceiverSession(::windows::core::IUnknown);
 impl MiracastReceiverSession {
@@ -1933,6 +1955,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MiracastReceiverSession {}
+unsafe impl ::core::marker::Sync for MiracastReceiverSession {}
 #[repr(transparent)]
 pub struct MiracastReceiverSessionStartResult(::windows::core::IUnknown);
 impl MiracastReceiverSessionStartResult {
@@ -2012,6 +2036,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MiracastReceiverSessionStartResult {}
+unsafe impl ::core::marker::Sync for MiracastReceiverSessionStartResult {}
 #[repr(transparent)]
 pub struct MiracastReceiverSessionStartStatus(pub i32);
 impl MiracastReceiverSessionStartStatus {
@@ -2161,6 +2187,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MiracastReceiverSettings {}
+unsafe impl ::core::marker::Sync for MiracastReceiverSettings {}
 #[repr(transparent)]
 pub struct MiracastReceiverStatus(::windows::core::IUnknown);
 impl MiracastReceiverStatus {
@@ -2262,6 +2290,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MiracastReceiverStatus {}
+unsafe impl ::core::marker::Sync for MiracastReceiverStatus {}
 #[repr(transparent)]
 pub struct MiracastReceiverStreamControl(::windows::core::IUnknown);
 impl MiracastReceiverStreamControl {
@@ -2365,6 +2395,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MiracastReceiverStreamControl {}
+unsafe impl ::core::marker::Sync for MiracastReceiverStreamControl {}
 #[repr(transparent)]
 pub struct MiracastReceiverVideoStreamSettings(::windows::core::IUnknown);
 impl MiracastReceiverVideoStreamSettings {
@@ -2454,6 +2486,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MiracastReceiverVideoStreamSettings {}
+unsafe impl ::core::marker::Sync for MiracastReceiverVideoStreamSettings {}
 #[repr(transparent)]
 pub struct MiracastReceiverWiFiStatus(pub i32);
 impl MiracastReceiverWiFiStatus {
@@ -2593,6 +2627,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MiracastTransmitter {}
+unsafe impl ::core::marker::Sync for MiracastTransmitter {}
 #[repr(transparent)]
 pub struct MiracastTransmitterAuthorizationStatus(pub i32);
 impl MiracastTransmitterAuthorizationStatus {

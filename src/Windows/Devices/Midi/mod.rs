@@ -854,6 +854,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiActiveSensingMess
         ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MidiActiveSensingMessage {}
+unsafe impl ::core::marker::Sync for MidiActiveSensingMessage {}
 #[repr(transparent)]
 pub struct MidiChannelPressureMessage(::windows::core::IUnknown);
 impl MidiChannelPressureMessage {
@@ -988,6 +990,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiChannelPressureMe
         ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MidiChannelPressureMessage {}
+unsafe impl ::core::marker::Sync for MidiChannelPressureMessage {}
 #[repr(transparent)]
 pub struct MidiContinueMessage(::windows::core::IUnknown);
 impl MidiContinueMessage {
@@ -1105,6 +1109,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiContinueMessage {
         ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MidiContinueMessage {}
+unsafe impl ::core::marker::Sync for MidiContinueMessage {}
 #[repr(transparent)]
 pub struct MidiControlChangeMessage(::windows::core::IUnknown);
 impl MidiControlChangeMessage {
@@ -1246,6 +1252,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiControlChangeMess
         ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MidiControlChangeMessage {}
+unsafe impl ::core::marker::Sync for MidiControlChangeMessage {}
 #[repr(transparent)]
 pub struct MidiInPort(::windows::core::IUnknown);
 impl MidiInPort {
@@ -1379,6 +1387,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MidiInPort {}
+unsafe impl ::core::marker::Sync for MidiInPort {}
 #[repr(transparent)]
 pub struct MidiMessageReceivedEventArgs(::windows::core::IUnknown);
 impl MidiMessageReceivedEventArgs {
@@ -1451,6 +1461,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Midi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MidiMessageReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for MidiMessageReceivedEventArgs {}
 #[repr(transparent)]
 pub struct MidiMessageType(pub i32);
 impl MidiMessageType {
@@ -1637,6 +1649,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiNoteOffMessage {
         ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MidiNoteOffMessage {}
+unsafe impl ::core::marker::Sync for MidiNoteOffMessage {}
 #[repr(transparent)]
 pub struct MidiNoteOnMessage(::windows::core::IUnknown);
 impl MidiNoteOnMessage {
@@ -1778,6 +1792,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiNoteOnMessage {
         ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MidiNoteOnMessage {}
+unsafe impl ::core::marker::Sync for MidiNoteOnMessage {}
 #[repr(transparent)]
 pub struct MidiOutPort(::windows::core::IUnknown);
 impl MidiOutPort {
@@ -1929,6 +1945,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiOutPort> for &MidiOutPort {
         ::core::convert::TryInto::<IMidiOutPort>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MidiOutPort {}
+unsafe impl ::core::marker::Sync for MidiOutPort {}
 #[repr(transparent)]
 pub struct MidiPitchBendChangeMessage(::windows::core::IUnknown);
 impl MidiPitchBendChangeMessage {
@@ -2063,6 +2081,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiPitchBendChangeMe
         ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MidiPitchBendChangeMessage {}
+unsafe impl ::core::marker::Sync for MidiPitchBendChangeMessage {}
 #[repr(transparent)]
 pub struct MidiPolyphonicKeyPressureMessage(::windows::core::IUnknown);
 impl MidiPolyphonicKeyPressureMessage {
@@ -2204,6 +2224,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiPolyphonicKeyPres
         ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MidiPolyphonicKeyPressureMessage {}
+unsafe impl ::core::marker::Sync for MidiPolyphonicKeyPressureMessage {}
 #[repr(transparent)]
 pub struct MidiProgramChangeMessage(::windows::core::IUnknown);
 impl MidiProgramChangeMessage {
@@ -2338,6 +2360,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiProgramChangeMess
         ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MidiProgramChangeMessage {}
+unsafe impl ::core::marker::Sync for MidiProgramChangeMessage {}
 #[repr(transparent)]
 pub struct MidiSongPositionPointerMessage(::windows::core::IUnknown);
 impl MidiSongPositionPointerMessage {
@@ -2465,6 +2489,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiSongPositionPoint
         ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MidiSongPositionPointerMessage {}
+unsafe impl ::core::marker::Sync for MidiSongPositionPointerMessage {}
 #[repr(transparent)]
 pub struct MidiSongSelectMessage(::windows::core::IUnknown);
 impl MidiSongSelectMessage {
@@ -2592,6 +2618,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiSongSelectMessage
         ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MidiSongSelectMessage {}
+unsafe impl ::core::marker::Sync for MidiSongSelectMessage {}
 #[repr(transparent)]
 pub struct MidiStartMessage(::windows::core::IUnknown);
 impl MidiStartMessage {
@@ -2709,6 +2737,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiStartMessage {
         ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MidiStartMessage {}
+unsafe impl ::core::marker::Sync for MidiStartMessage {}
 #[repr(transparent)]
 pub struct MidiStopMessage(::windows::core::IUnknown);
 impl MidiStopMessage {
@@ -2826,6 +2856,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiStopMessage {
         ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MidiStopMessage {}
+unsafe impl ::core::marker::Sync for MidiStopMessage {}
 #[repr(transparent)]
 pub struct MidiSynthesizer(::windows::core::IUnknown);
 impl MidiSynthesizer {
@@ -3004,6 +3036,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiOutPort> for &MidiSynthesizer {
         ::core::convert::TryInto::<IMidiOutPort>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MidiSynthesizer {}
+unsafe impl ::core::marker::Sync for MidiSynthesizer {}
 #[repr(transparent)]
 pub struct MidiSystemExclusiveMessage(::windows::core::IUnknown);
 impl MidiSystemExclusiveMessage {
@@ -3125,6 +3159,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiSystemExclusiveMe
         ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MidiSystemExclusiveMessage {}
+unsafe impl ::core::marker::Sync for MidiSystemExclusiveMessage {}
 #[repr(transparent)]
 pub struct MidiSystemResetMessage(::windows::core::IUnknown);
 impl MidiSystemResetMessage {
@@ -3242,6 +3278,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiSystemResetMessag
         ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MidiSystemResetMessage {}
+unsafe impl ::core::marker::Sync for MidiSystemResetMessage {}
 #[repr(transparent)]
 pub struct MidiTimeCodeMessage(::windows::core::IUnknown);
 impl MidiTimeCodeMessage {
@@ -3376,6 +3414,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiTimeCodeMessage {
         ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MidiTimeCodeMessage {}
+unsafe impl ::core::marker::Sync for MidiTimeCodeMessage {}
 #[repr(transparent)]
 pub struct MidiTimingClockMessage(::windows::core::IUnknown);
 impl MidiTimingClockMessage {
@@ -3493,6 +3533,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiTimingClockMessag
         ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MidiTimingClockMessage {}
+unsafe impl ::core::marker::Sync for MidiTimingClockMessage {}
 #[repr(transparent)]
 pub struct MidiTuneRequestMessage(::windows::core::IUnknown);
 impl MidiTuneRequestMessage {
@@ -3610,3 +3652,5 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiTuneRequestMessag
         ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MidiTuneRequestMessage {}
+unsafe impl ::core::marker::Sync for MidiTuneRequestMessage {}

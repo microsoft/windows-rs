@@ -212,6 +212,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AllJoynAboutData {}
+unsafe impl ::core::marker::Sync for AllJoynAboutData {}
 #[repr(transparent)]
 pub struct AllJoynAboutDataView(::windows::core::IUnknown);
 impl AllJoynAboutDataView {
@@ -430,6 +432,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AllJoynAboutDataView {}
+unsafe impl ::core::marker::Sync for AllJoynAboutDataView {}
 #[repr(transparent)]
 pub struct AllJoynAcceptSessionJoinerEventArgs(::windows::core::IUnknown);
 impl AllJoynAcceptSessionJoinerEventArgs {
@@ -551,6 +555,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AllJoynAcceptSessionJoinerEventArgs {}
+unsafe impl ::core::marker::Sync for AllJoynAcceptSessionJoinerEventArgs {}
 #[repr(transparent)]
 pub struct AllJoynAuthenticationCompleteEventArgs(::windows::core::IUnknown);
 impl AllJoynAuthenticationCompleteEventArgs {
@@ -640,6 +646,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AllJoynAuthenticationCompleteEventArgs {}
+unsafe impl ::core::marker::Sync for AllJoynAuthenticationCompleteEventArgs {}
 #[repr(transparent)]
 pub struct AllJoynAuthenticationMechanism(pub i32);
 impl AllJoynAuthenticationMechanism {
@@ -942,6 +950,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AllJoynBusAttachment {}
+unsafe impl ::core::marker::Sync for AllJoynBusAttachment {}
 #[repr(transparent)]
 pub struct AllJoynBusAttachmentState(pub i32);
 impl AllJoynBusAttachmentState {
@@ -1052,6 +1062,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AllJoynBusAttachmentStateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for AllJoynBusAttachmentStateChangedEventArgs {}
 #[repr(transparent)]
 pub struct AllJoynBusObject(::windows::core::IUnknown);
 impl AllJoynBusObject {
@@ -1188,6 +1200,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AllJoynBusObject {}
+unsafe impl ::core::marker::Sync for AllJoynBusObject {}
 #[repr(transparent)]
 pub struct AllJoynBusObjectStoppedEventArgs(::windows::core::IUnknown);
 impl AllJoynBusObjectStoppedEventArgs {
@@ -1272,6 +1286,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AllJoynBusObjectStoppedEventArgs {}
+unsafe impl ::core::marker::Sync for AllJoynBusObjectStoppedEventArgs {}
 #[repr(transparent)]
 pub struct AllJoynCredentials(::windows::core::IUnknown);
 impl AllJoynCredentials {
@@ -1390,6 +1406,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AllJoynCredentials {}
+unsafe impl ::core::marker::Sync for AllJoynCredentials {}
 #[repr(transparent)]
 pub struct AllJoynCredentialsRequestedEventArgs(::windows::core::IUnknown);
 impl AllJoynCredentialsRequestedEventArgs {
@@ -1496,6 +1514,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AllJoynCredentialsRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for AllJoynCredentialsRequestedEventArgs {}
 #[repr(transparent)]
 pub struct AllJoynCredentialsVerificationRequestedEventArgs(::windows::core::IUnknown);
 impl AllJoynCredentialsVerificationRequestedEventArgs {
@@ -1627,6 +1647,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AllJoynCredentialsVerificationRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for AllJoynCredentialsVerificationRequestedEventArgs {}
 #[repr(transparent)]
 pub struct AllJoynMessageInfo(::windows::core::IUnknown);
 impl AllJoynMessageInfo {
@@ -1711,6 +1733,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AllJoynMessageInfo {}
+unsafe impl ::core::marker::Sync for AllJoynMessageInfo {}
 #[repr(transparent)]
 pub struct AllJoynProducerStoppedEventArgs(::windows::core::IUnknown);
 impl AllJoynProducerStoppedEventArgs {
@@ -1795,6 +1819,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AllJoynProducerStoppedEventArgs {}
+unsafe impl ::core::marker::Sync for AllJoynProducerStoppedEventArgs {}
 #[repr(transparent)]
 pub struct AllJoynServiceInfo(::windows::core::IUnknown);
 impl AllJoynServiceInfo {
@@ -1907,6 +1933,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AllJoynServiceInfo {}
+unsafe impl ::core::marker::Sync for AllJoynServiceInfo {}
 #[repr(transparent)]
 pub struct AllJoynServiceInfoRemovedEventArgs(::windows::core::IUnknown);
 impl AllJoynServiceInfoRemovedEventArgs {
@@ -1991,6 +2019,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AllJoynServiceInfoRemovedEventArgs {}
+unsafe impl ::core::marker::Sync for AllJoynServiceInfoRemovedEventArgs {}
 #[repr(transparent)]
 pub struct AllJoynSession(::windows::core::IUnknown);
 impl AllJoynSession {
@@ -2146,6 +2176,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AllJoynSession {}
+unsafe impl ::core::marker::Sync for AllJoynSession {}
 #[repr(transparent)]
 pub struct AllJoynSessionJoinedEventArgs(::windows::core::IUnknown);
 impl AllJoynSessionJoinedEventArgs {
@@ -2230,6 +2262,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AllJoynSessionJoinedEventArgs {}
+unsafe impl ::core::marker::Sync for AllJoynSessionJoinedEventArgs {}
 #[repr(transparent)]
 pub struct AllJoynSessionLostEventArgs(::windows::core::IUnknown);
 impl AllJoynSessionLostEventArgs {
@@ -2314,6 +2348,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AllJoynSessionLostEventArgs {}
+unsafe impl ::core::marker::Sync for AllJoynSessionLostEventArgs {}
 #[repr(transparent)]
 pub struct AllJoynSessionLostReason(pub i32);
 impl AllJoynSessionLostReason {
@@ -2429,6 +2465,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AllJoynSessionMemberAddedEventArgs {}
+unsafe impl ::core::marker::Sync for AllJoynSessionMemberAddedEventArgs {}
 #[repr(transparent)]
 pub struct AllJoynSessionMemberRemovedEventArgs(::windows::core::IUnknown);
 impl AllJoynSessionMemberRemovedEventArgs {
@@ -2513,6 +2551,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AllJoynSessionMemberRemovedEventArgs {}
+unsafe impl ::core::marker::Sync for AllJoynSessionMemberRemovedEventArgs {}
 pub struct AllJoynStatus {}
 impl AllJoynStatus {
     #[cfg(feature = "deprecated")]
@@ -2762,6 +2802,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AllJoynWatcherStoppedEventArgs {}
+unsafe impl ::core::marker::Sync for AllJoynWatcherStoppedEventArgs {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAllJoynAboutData(::windows::core::IUnknown);

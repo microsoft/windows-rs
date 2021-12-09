@@ -235,6 +235,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaEncodingProperties> for &AudioEnco
         ::core::convert::TryInto::<IMediaEncodingProperties>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AudioEncodingProperties {}
+unsafe impl ::core::marker::Sync for AudioEncodingProperties {}
 #[repr(transparent)]
 pub struct AudioEncodingQuality(pub i32);
 impl AudioEncodingQuality {
@@ -391,6 +393,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaEncodingProperties> for &Container
         ::core::convert::TryInto::<IMediaEncodingProperties>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ContainerEncodingProperties {}
+unsafe impl ::core::marker::Sync for ContainerEncodingProperties {}
 pub struct H264ProfileIds {}
 impl H264ProfileIds {
     pub fn ConstrainedBaseline() -> ::windows::core::Result<i32> {
@@ -1550,6 +1554,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaEncodingProperties> for &ImageEnco
         ::core::convert::TryInto::<IMediaEncodingProperties>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ImageEncodingProperties {}
+unsafe impl ::core::marker::Sync for ImageEncodingProperties {}
 #[repr(transparent)]
 pub struct MediaEncodingProfile(::windows::core::IUnknown);
 impl MediaEncodingProfile {
@@ -1780,6 +1786,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaEncodingProfile {}
+unsafe impl ::core::marker::Sync for MediaEncodingProfile {}
 pub struct MediaEncodingSubtypes {}
 impl MediaEncodingSubtypes {
     pub fn Aac() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2402,6 +2410,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for MediaPropertySet {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for MediaPropertySet {}
 #[repr(transparent)]
 pub struct MediaRatio(::windows::core::IUnknown);
 impl MediaRatio {
@@ -2489,6 +2501,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaRatio {}
+unsafe impl ::core::marker::Sync for MediaRatio {}
 #[repr(transparent)]
 pub struct MediaRotation(pub i32);
 impl MediaRotation {
@@ -2804,6 +2818,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaEncodingProperties> for &TimedMeta
         ::core::convert::TryInto::<IMediaEncodingProperties>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for TimedMetadataEncodingProperties {}
+unsafe impl ::core::marker::Sync for TimedMetadataEncodingProperties {}
 #[repr(transparent)]
 pub struct VideoEncodingProperties(::windows::core::IUnknown);
 impl VideoEncodingProperties {
@@ -3043,6 +3059,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaEncodingProperties> for &VideoEnco
         ::core::convert::TryInto::<IMediaEncodingProperties>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for VideoEncodingProperties {}
+unsafe impl ::core::marker::Sync for VideoEncodingProperties {}
 #[repr(transparent)]
 pub struct VideoEncodingQuality(pub i32);
 impl VideoEncodingQuality {

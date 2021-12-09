@@ -50,6 +50,7 @@ fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
         tokens.combine(&gen_runtime_trait(def, &cfg, gen));
         tokens.combine(&gen_async(def, &cfg, gen));
         tokens.combine(&gen_iterator(def, &cfg, gen));
+        tokens.combine(&gen_agile(def, &cfg, gen));
     }
 
     tokens.combine(&gen_interface_trait(def, &cfg, gen));
@@ -174,4 +175,18 @@ fn gen_conversions(def: &TypeDef, gen: &Gen) -> TokenStream {
     }
 
     tokens
+}
+
+fn gen_agile(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream {
+    if def.type_name() == TypeName::IRestrictedErrorInfo {
+        let name = gen_type_ident(def, gen);
+        quote! {
+            #cfg
+            unsafe impl ::core::marker::Send for #name {}
+            #cfg
+            unsafe impl ::core::marker::Sync for #name {}
+        }
+    } else {
+        TokenStream::new()
+    }
 }

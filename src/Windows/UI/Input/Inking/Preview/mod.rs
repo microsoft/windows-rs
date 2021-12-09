@@ -151,3 +151,5 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::
         ::core::convert::TryInto::<super::super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PalmRejectionDelayZonePreview {}
+unsafe impl ::core::marker::Sync for PalmRejectionDelayZonePreview {}

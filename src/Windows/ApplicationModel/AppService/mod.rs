@@ -88,6 +88,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppServiceClosedEventArgs {}
+unsafe impl ::core::marker::Sync for AppServiceClosedEventArgs {}
 #[repr(transparent)]
 pub struct AppServiceClosedStatus(pub i32);
 impl AppServiceClosedStatus {
@@ -316,6 +318,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AppServiceConnection {}
+unsafe impl ::core::marker::Sync for AppServiceConnection {}
 #[repr(transparent)]
 pub struct AppServiceConnectionStatus(pub i32);
 impl AppServiceConnectionStatus {
@@ -422,6 +426,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppServiceDeferral {}
+unsafe impl ::core::marker::Sync for AppServiceDeferral {}
 #[repr(transparent)]
 pub struct AppServiceRequest(::windows::core::IUnknown);
 impl AppServiceRequest {
@@ -503,6 +509,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppServiceRequest {}
+unsafe impl ::core::marker::Sync for AppServiceRequest {}
 #[repr(transparent)]
 pub struct AppServiceRequestReceivedEventArgs(::windows::core::IUnknown);
 impl AppServiceRequestReceivedEventArgs {
@@ -582,6 +590,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppServiceRequestReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for AppServiceRequestReceivedEventArgs {}
 #[repr(transparent)]
 pub struct AppServiceResponse(::windows::core::IUnknown);
 impl AppServiceResponse {
@@ -662,6 +672,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppServiceResponse {}
+unsafe impl ::core::marker::Sync for AppServiceResponse {}
 #[repr(transparent)]
 pub struct AppServiceResponseStatus(pub i32);
 impl AppServiceResponseStatus {
@@ -806,6 +818,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppServiceTriggerDetails {}
+unsafe impl ::core::marker::Sync for AppServiceTriggerDetails {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppServiceCatalogStatics(::windows::core::IUnknown);
@@ -1171,6 +1185,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StatelessAppServiceResponse {}
+unsafe impl ::core::marker::Sync for StatelessAppServiceResponse {}
 #[repr(transparent)]
 pub struct StatelessAppServiceResponseStatus(pub i32);
 impl StatelessAppServiceResponseStatus {

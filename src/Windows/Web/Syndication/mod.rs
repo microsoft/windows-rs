@@ -1190,6 +1190,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Synd
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SyndicationAttribute {}
+unsafe impl ::core::marker::Sync for SyndicationAttribute {}
 #[repr(transparent)]
 pub struct SyndicationCategory(::windows::core::IUnknown);
 impl SyndicationCategory {
@@ -1414,6 +1416,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISyndicationNode> for &SyndicationCatego
         ::core::convert::TryInto::<ISyndicationNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SyndicationCategory {}
+unsafe impl ::core::marker::Sync for SyndicationCategory {}
 #[repr(transparent)]
 pub struct SyndicationClient(::windows::core::IUnknown);
 impl SyndicationClient {
@@ -1590,6 +1594,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISyndicationClient> for &SyndicationClie
         ::core::convert::TryInto::<ISyndicationClient>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SyndicationClient {}
+unsafe impl ::core::marker::Sync for SyndicationClient {}
 #[repr(transparent)]
 pub struct SyndicationContent(::windows::core::IUnknown);
 impl SyndicationContent {
@@ -1852,6 +1858,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISyndicationText> for &SyndicationConten
         ::core::convert::TryInto::<ISyndicationText>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SyndicationContent {}
+unsafe impl ::core::marker::Sync for SyndicationContent {}
 pub struct SyndicationError {}
 impl SyndicationError {
     pub fn GetStatus(hresult: i32) -> ::windows::core::Result<SyndicationErrorStatus> {
@@ -2267,6 +2275,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISyndicationNode> for &SyndicationFeed {
         ::core::convert::TryInto::<ISyndicationNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SyndicationFeed {}
+unsafe impl ::core::marker::Sync for SyndicationFeed {}
 #[repr(transparent)]
 pub struct SyndicationFormat(pub i32);
 impl SyndicationFormat {
@@ -2518,6 +2528,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISyndicationNode> for &SyndicationGenera
         ::core::convert::TryInto::<ISyndicationNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SyndicationGenerator {}
+unsafe impl ::core::marker::Sync for SyndicationGenerator {}
 #[repr(transparent)]
 pub struct SyndicationItem(::windows::core::IUnknown);
 impl SyndicationItem {
@@ -2881,6 +2893,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISyndicationNode> for &SyndicationItem {
         ::core::convert::TryInto::<ISyndicationNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SyndicationItem {}
+unsafe impl ::core::marker::Sync for SyndicationItem {}
 #[repr(transparent)]
 pub struct SyndicationLink(::windows::core::IUnknown);
 impl SyndicationLink {
@@ -3142,6 +3156,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISyndicationNode> for &SyndicationLink {
         ::core::convert::TryInto::<ISyndicationNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SyndicationLink {}
+unsafe impl ::core::marker::Sync for SyndicationLink {}
 #[repr(transparent)]
 pub struct SyndicationNode(::windows::core::IUnknown);
 impl SyndicationNode {
@@ -3327,6 +3343,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISyndicationNode> for &SyndicationNode {
         ::core::convert::TryInto::<ISyndicationNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SyndicationNode {}
+unsafe impl ::core::marker::Sync for SyndicationNode {}
 #[repr(transparent)]
 pub struct SyndicationPerson(::windows::core::IUnknown);
 impl SyndicationPerson {
@@ -3554,6 +3572,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISyndicationNode> for &SyndicationPerson
         ::core::convert::TryInto::<ISyndicationNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SyndicationPerson {}
+unsafe impl ::core::marker::Sync for SyndicationPerson {}
 #[repr(transparent)]
 pub struct SyndicationText(::windows::core::IUnknown);
 impl SyndicationText {
@@ -3802,6 +3822,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISyndicationText> for &SyndicationText {
         ::core::convert::TryInto::<ISyndicationText>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SyndicationText {}
+unsafe impl ::core::marker::Sync for SyndicationText {}
 #[repr(transparent)]
 pub struct SyndicationTextType(pub i32);
 impl SyndicationTextType {

@@ -112,6 +112,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Anim
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AnimationDescription {}
+unsafe impl ::core::marker::Sync for AnimationDescription {}
 #[repr(transparent)]
 pub struct AnimationEffect(pub i32);
 impl AnimationEffect {
@@ -567,6 +569,8 @@ impl<'a> ::windows::core::IntoParam<'a, IPropertyAnimation> for &OpacityAnimatio
         ::core::convert::TryInto::<IPropertyAnimation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for OpacityAnimation {}
+unsafe impl ::core::marker::Sync for OpacityAnimation {}
 #[repr(transparent)]
 pub struct PropertyAnimation(::windows::core::IUnknown);
 impl PropertyAnimation {
@@ -693,6 +697,8 @@ impl<'a> ::windows::core::IntoParam<'a, IPropertyAnimation> for &PropertyAnimati
         ::core::convert::TryInto::<IPropertyAnimation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PropertyAnimation {}
+unsafe impl ::core::marker::Sync for PropertyAnimation {}
 #[repr(transparent)]
 pub struct PropertyAnimationType(pub i32);
 impl PropertyAnimationType {
@@ -885,6 +891,8 @@ impl<'a> ::windows::core::IntoParam<'a, IPropertyAnimation> for &ScaleAnimation 
         ::core::convert::TryInto::<IPropertyAnimation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ScaleAnimation {}
+unsafe impl ::core::marker::Sync for ScaleAnimation {}
 #[repr(transparent)]
 pub struct TranslationAnimation(::windows::core::IUnknown);
 impl TranslationAnimation {
@@ -1011,3 +1019,5 @@ impl<'a> ::windows::core::IntoParam<'a, IPropertyAnimation> for &TranslationAnim
         ::core::convert::TryInto::<IPropertyAnimation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for TranslationAnimation {}
+unsafe impl ::core::marker::Sync for TranslationAnimation {}

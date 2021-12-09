@@ -404,6 +404,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Seco
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorAuthentication {}
+unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorAuthentication {}
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationMessage(pub i32);
 impl SecondaryAuthenticationFactorAuthenticationMessage {
@@ -539,6 +541,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Seco
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorAuthenticationResult {}
+unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorAuthenticationResult {}
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationScenario(pub i32);
 impl SecondaryAuthenticationFactorAuthenticationScenario {
@@ -673,6 +677,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Seco
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {}
+unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {}
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationStageInfo(::windows::core::IUnknown);
 impl SecondaryAuthenticationFactorAuthenticationStageInfo {
@@ -762,6 +768,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Seco
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorAuthenticationStageInfo {}
+unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorAuthenticationStageInfo {}
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationStatus(pub i32);
 impl SecondaryAuthenticationFactorAuthenticationStatus {
@@ -1086,6 +1094,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Seco
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorInfo {}
+unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorInfo {}
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorRegistration(::windows::core::IUnknown);
 impl SecondaryAuthenticationFactorRegistration {
@@ -1240,6 +1250,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Seco
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorRegistration {}
+unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorRegistration {}
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorRegistrationResult(::windows::core::IUnknown);
 impl SecondaryAuthenticationFactorRegistrationResult {
@@ -1321,6 +1333,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Seco
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorRegistrationResult {}
+unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorRegistrationResult {}
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorRegistrationStatus(pub i32);
 impl SecondaryAuthenticationFactorRegistrationStatus {

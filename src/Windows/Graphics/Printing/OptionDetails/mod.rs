@@ -1436,6 +1436,8 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintBindingOp
         ::core::convert::TryInto::<IPrintOptionDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PrintBindingOptionDetails {}
+unsafe impl ::core::marker::Sync for PrintBindingOptionDetails {}
 #[repr(transparent)]
 pub struct PrintBorderingOptionDetails(::windows::core::IUnknown);
 impl PrintBorderingOptionDetails {
@@ -1625,6 +1627,8 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintBordering
         ::core::convert::TryInto::<IPrintOptionDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PrintBorderingOptionDetails {}
+unsafe impl ::core::marker::Sync for PrintBorderingOptionDetails {}
 #[repr(transparent)]
 pub struct PrintCollationOptionDetails(::windows::core::IUnknown);
 impl PrintCollationOptionDetails {
@@ -1814,6 +1818,8 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintCollation
         ::core::convert::TryInto::<IPrintOptionDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PrintCollationOptionDetails {}
+unsafe impl ::core::marker::Sync for PrintCollationOptionDetails {}
 #[repr(transparent)]
 pub struct PrintColorModeOptionDetails(::windows::core::IUnknown);
 impl PrintColorModeOptionDetails {
@@ -2003,6 +2009,8 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintColorMode
         ::core::convert::TryInto::<IPrintOptionDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PrintColorModeOptionDetails {}
+unsafe impl ::core::marker::Sync for PrintColorModeOptionDetails {}
 #[repr(transparent)]
 pub struct PrintCopiesOptionDetails(::windows::core::IUnknown);
 impl PrintCopiesOptionDetails {
@@ -2198,6 +2206,8 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintCopiesOpt
         ::core::convert::TryInto::<IPrintOptionDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PrintCopiesOptionDetails {}
+unsafe impl ::core::marker::Sync for PrintCopiesOptionDetails {}
 #[repr(transparent)]
 pub struct PrintCustomItemDetails(::windows::core::IUnknown);
 impl PrintCustomItemDetails {
@@ -2281,6 +2291,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintCustomItemDetails {}
+unsafe impl ::core::marker::Sync for PrintCustomItemDetails {}
 #[repr(transparent)]
 pub struct PrintCustomItemListOptionDetails(::windows::core::IUnknown);
 impl PrintCustomItemListOptionDetails {
@@ -2512,6 +2524,8 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintCustomIte
         ::core::convert::TryInto::<IPrintOptionDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PrintCustomItemListOptionDetails {}
+unsafe impl ::core::marker::Sync for PrintCustomItemListOptionDetails {}
 #[repr(transparent)]
 pub struct PrintCustomTextOptionDetails(::windows::core::IUnknown);
 impl PrintCustomTextOptionDetails {
@@ -2715,6 +2729,8 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintCustomTex
         ::core::convert::TryInto::<IPrintOptionDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PrintCustomTextOptionDetails {}
+unsafe impl ::core::marker::Sync for PrintCustomTextOptionDetails {}
 #[repr(transparent)]
 pub struct PrintCustomToggleOptionDetails(::windows::core::IUnknown);
 impl PrintCustomToggleOptionDetails {
@@ -2907,6 +2923,8 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintCustomTog
         ::core::convert::TryInto::<IPrintOptionDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PrintCustomToggleOptionDetails {}
+unsafe impl ::core::marker::Sync for PrintCustomToggleOptionDetails {}
 #[repr(transparent)]
 pub struct PrintDuplexOptionDetails(::windows::core::IUnknown);
 impl PrintDuplexOptionDetails {
@@ -3096,6 +3114,8 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintDuplexOpt
         ::core::convert::TryInto::<IPrintOptionDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PrintDuplexOptionDetails {}
+unsafe impl ::core::marker::Sync for PrintDuplexOptionDetails {}
 #[repr(transparent)]
 pub struct PrintHolePunchOptionDetails(::windows::core::IUnknown);
 impl PrintHolePunchOptionDetails {
@@ -3285,6 +3305,8 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintHolePunch
         ::core::convert::TryInto::<IPrintOptionDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PrintHolePunchOptionDetails {}
+unsafe impl ::core::marker::Sync for PrintHolePunchOptionDetails {}
 #[repr(transparent)]
 pub struct PrintMediaSizeOptionDetails(::windows::core::IUnknown);
 impl PrintMediaSizeOptionDetails {
@@ -3474,6 +3496,8 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintMediaSize
         ::core::convert::TryInto::<IPrintOptionDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PrintMediaSizeOptionDetails {}
+unsafe impl ::core::marker::Sync for PrintMediaSizeOptionDetails {}
 #[repr(transparent)]
 pub struct PrintMediaTypeOptionDetails(::windows::core::IUnknown);
 impl PrintMediaTypeOptionDetails {
@@ -3663,6 +3687,8 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintMediaType
         ::core::convert::TryInto::<IPrintOptionDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PrintMediaTypeOptionDetails {}
+unsafe impl ::core::marker::Sync for PrintMediaTypeOptionDetails {}
 #[repr(transparent)]
 pub struct PrintOptionStates(pub u32);
 impl PrintOptionStates {
@@ -3910,6 +3936,8 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintOrientati
         ::core::convert::TryInto::<IPrintOptionDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PrintOrientationOptionDetails {}
+unsafe impl ::core::marker::Sync for PrintOrientationOptionDetails {}
 #[repr(transparent)]
 pub struct PrintPageRangeOptionDetails(::windows::core::IUnknown);
 impl PrintPageRangeOptionDetails {
@@ -4069,6 +4097,8 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintPageRange
         ::core::convert::TryInto::<IPrintOptionDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PrintPageRangeOptionDetails {}
+unsafe impl ::core::marker::Sync for PrintPageRangeOptionDetails {}
 #[repr(transparent)]
 pub struct PrintQualityOptionDetails(::windows::core::IUnknown);
 impl PrintQualityOptionDetails {
@@ -4258,6 +4288,8 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintQualityOp
         ::core::convert::TryInto::<IPrintOptionDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PrintQualityOptionDetails {}
+unsafe impl ::core::marker::Sync for PrintQualityOptionDetails {}
 #[repr(transparent)]
 pub struct PrintStapleOptionDetails(::windows::core::IUnknown);
 impl PrintStapleOptionDetails {
@@ -4447,6 +4479,8 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintStapleOpt
         ::core::convert::TryInto::<IPrintOptionDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PrintStapleOptionDetails {}
+unsafe impl ::core::marker::Sync for PrintStapleOptionDetails {}
 #[repr(transparent)]
 pub struct PrintTaskOptionChangedEventArgs(::windows::core::IUnknown);
 impl PrintTaskOptionChangedEventArgs {
@@ -4519,6 +4553,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintTaskOptionChangedEventArgs {}
+unsafe impl ::core::marker::Sync for PrintTaskOptionChangedEventArgs {}
 #[repr(transparent)]
 pub struct PrintTaskOptionDetails(::windows::core::IUnknown);
 impl PrintTaskOptionDetails {
@@ -4709,3 +4745,5 @@ impl<'a> ::windows::core::IntoParam<'a, super::IPrintTaskOptionsCoreUIConfigurat
         ::core::convert::TryInto::<super::IPrintTaskOptionsCoreUIConfiguration>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PrintTaskOptionDetails {}
+unsafe impl ::core::marker::Sync for PrintTaskOptionDetails {}

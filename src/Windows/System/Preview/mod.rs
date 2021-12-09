@@ -217,6 +217,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TwoP
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TwoPanelHingedDevicePosturePreview {}
+unsafe impl ::core::marker::Sync for TwoPanelHingedDevicePosturePreview {}
 #[repr(transparent)]
 pub struct TwoPanelHingedDevicePosturePreviewReading(::windows::core::IUnknown);
 impl TwoPanelHingedDevicePosturePreviewReading {
@@ -333,6 +335,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TwoP
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TwoPanelHingedDevicePosturePreviewReading {}
+unsafe impl ::core::marker::Sync for TwoPanelHingedDevicePosturePreviewReading {}
 #[repr(transparent)]
 pub struct TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs(::windows::core::IUnknown);
 impl TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {
@@ -406,3 +410,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TwoP
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {}
+unsafe impl ::core::marker::Sync for TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {}

@@ -300,6 +300,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Micr
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorAuthenticationManager {}
+unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorAuthenticationManager {}
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorAuthenticationType(pub i32);
 impl MicrosoftAccountMultiFactorAuthenticationType {
@@ -407,6 +409,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Micr
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorGetSessionsResult {}
+unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorGetSessionsResult {}
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorOneTimeCodedInfo(::windows::core::IUnknown);
 impl MicrosoftAccountMultiFactorOneTimeCodedInfo {
@@ -502,6 +506,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Micr
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
+unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorServiceResponse(pub i32);
 impl MicrosoftAccountMultiFactorServiceResponse {
@@ -720,6 +726,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Micr
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorSessionInfo {}
+unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorSessionInfo {}
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo(::windows::core::IUnknown);
 impl MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
@@ -808,3 +816,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Micr
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {}
+unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {}

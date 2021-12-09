@@ -243,6 +243,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Erro
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ErrorDetails {}
+unsafe impl ::core::marker::Sync for ErrorDetails {}
 #[repr(transparent)]
 pub struct ErrorOptions(pub u32);
 impl ErrorOptions {
@@ -434,6 +436,8 @@ impl<'a> ::windows::core::IntoParam<'a, IFileLoggingSession> for &FileLoggingSes
         ::core::convert::TryInto::<IFileLoggingSession>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for FileLoggingSession {}
+unsafe impl ::core::marker::Sync for FileLoggingSession {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAsyncCausalityTracerStatics(::windows::core::IUnknown);
@@ -1636,6 +1640,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LogF
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LogFileGeneratedEventArgs {}
+unsafe impl ::core::marker::Sync for LogFileGeneratedEventArgs {}
 #[repr(transparent)]
 pub struct LoggingActivity(::windows::core::IUnknown);
 impl LoggingActivity {
@@ -1863,6 +1869,8 @@ impl<'a> ::windows::core::IntoParam<'a, ILoggingTarget> for &LoggingActivity {
         ::core::convert::TryInto::<ILoggingTarget>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for LoggingActivity {}
+unsafe impl ::core::marker::Sync for LoggingActivity {}
 #[repr(transparent)]
 pub struct LoggingChannel(::windows::core::IUnknown);
 impl LoggingChannel {
@@ -2145,6 +2153,8 @@ impl<'a> ::windows::core::IntoParam<'a, ILoggingTarget> for &LoggingChannel {
         ::core::convert::TryInto::<ILoggingTarget>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for LoggingChannel {}
+unsafe impl ::core::marker::Sync for LoggingChannel {}
 #[repr(transparent)]
 pub struct LoggingChannelOptions(::windows::core::IUnknown);
 impl LoggingChannelOptions {
@@ -2238,6 +2248,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Logg
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LoggingChannelOptions {}
+unsafe impl ::core::marker::Sync for LoggingChannelOptions {}
 #[repr(transparent)]
 pub struct LoggingFieldFormat(pub i32);
 impl LoggingFieldFormat {
@@ -2814,6 +2826,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Logg
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LoggingFields {}
+unsafe impl ::core::marker::Sync for LoggingFields {}
 #[repr(transparent)]
 pub struct LoggingLevel(pub i32);
 impl LoggingLevel {
@@ -3024,6 +3038,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Logg
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LoggingOptions {}
+unsafe impl ::core::marker::Sync for LoggingOptions {}
 #[repr(transparent)]
 pub struct LoggingSession(::windows::core::IUnknown);
 impl LoggingSession {
@@ -3174,6 +3190,8 @@ impl<'a> ::windows::core::IntoParam<'a, ILoggingSession> for &LoggingSession {
         ::core::convert::TryInto::<ILoggingSession>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for LoggingSession {}
+unsafe impl ::core::marker::Sync for LoggingSession {}
 #[repr(transparent)]
 pub struct RuntimeBrokerErrorSettings(::windows::core::IUnknown);
 impl RuntimeBrokerErrorSettings {
@@ -3279,6 +3297,8 @@ impl<'a> ::windows::core::IntoParam<'a, IErrorReportingSettings> for &RuntimeBro
         ::core::convert::TryInto::<IErrorReportingSettings>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for RuntimeBrokerErrorSettings {}
+unsafe impl ::core::marker::Sync for RuntimeBrokerErrorSettings {}
 #[repr(transparent)]
 pub struct TracingStatusChangedEventArgs(::windows::core::IUnknown);
 impl TracingStatusChangedEventArgs {
@@ -3358,3 +3378,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Trac
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TracingStatusChangedEventArgs {}
+unsafe impl ::core::marker::Sync for TracingStatusChangedEventArgs {}

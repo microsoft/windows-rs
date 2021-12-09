@@ -157,6 +157,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContentLinkInfo {}
+unsafe impl ::core::marker::Sync for ContentLinkInfo {}
 #[repr(transparent)]
 pub struct FindOptions(pub u32);
 impl FindOptions {
@@ -413,6 +415,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Font
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for FontWeights {}
+unsafe impl ::core::marker::Sync for FontWeights {}
 #[repr(transparent)]
 pub struct FormatEffect(pub i32);
 impl FormatEffect {
@@ -3202,6 +3206,8 @@ impl<'a> ::windows::core::IntoParam<'a, ITextDocument> for &RichEditTextDocument
         ::core::convert::TryInto::<ITextDocument>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for RichEditTextDocument {}
+unsafe impl ::core::marker::Sync for RichEditTextDocument {}
 #[repr(transparent)]
 pub struct RichEditTextRange(::windows::core::IUnknown);
 impl RichEditTextRange {
@@ -3589,6 +3595,8 @@ impl<'a> ::windows::core::IntoParam<'a, ITextRange> for &RichEditTextRange {
         ::core::convert::TryInto::<ITextRange>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for RichEditTextRange {}
+unsafe impl ::core::marker::Sync for RichEditTextRange {}
 #[repr(transparent)]
 pub struct SelectionOptions(pub u32);
 impl SelectionOptions {

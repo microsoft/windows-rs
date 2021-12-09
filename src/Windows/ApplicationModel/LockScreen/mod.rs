@@ -235,6 +235,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lock
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LockApplicationHost {}
+unsafe impl ::core::marker::Sync for LockApplicationHost {}
 #[repr(transparent)]
 pub struct LockScreenBadge(::windows::core::IUnknown);
 impl LockScreenBadge {
@@ -335,6 +337,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lock
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LockScreenBadge {}
+unsafe impl ::core::marker::Sync for LockScreenBadge {}
 #[repr(transparent)]
 pub struct LockScreenInfo(::windows::core::IUnknown);
 impl LockScreenInfo {
@@ -484,6 +488,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lock
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LockScreenInfo {}
+unsafe impl ::core::marker::Sync for LockScreenInfo {}
 #[repr(transparent)]
 pub struct LockScreenUnlockingDeferral(::windows::core::IUnknown);
 impl LockScreenUnlockingDeferral {
@@ -553,6 +559,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lock
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LockScreenUnlockingDeferral {}
+unsafe impl ::core::marker::Sync for LockScreenUnlockingDeferral {}
 #[repr(transparent)]
 pub struct LockScreenUnlockingEventArgs(::windows::core::IUnknown);
 impl LockScreenUnlockingEventArgs {
@@ -633,3 +641,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lock
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LockScreenUnlockingEventArgs {}
+unsafe impl ::core::marker::Sync for LockScreenUnlockingEventArgs {}

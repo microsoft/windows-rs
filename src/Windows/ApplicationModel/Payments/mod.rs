@@ -884,6 +884,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PaymentAddress {}
+unsafe impl ::core::marker::Sync for PaymentAddress {}
 #[repr(transparent)]
 pub struct PaymentCanMakePaymentResult(::windows::core::IUnknown);
 impl PaymentCanMakePaymentResult {
@@ -966,6 +968,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PaymentCanMakePaymentResult {}
+unsafe impl ::core::marker::Sync for PaymentCanMakePaymentResult {}
 #[repr(transparent)]
 pub struct PaymentCanMakePaymentResultStatus(pub i32);
 impl PaymentCanMakePaymentResultStatus {
@@ -1112,6 +1116,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PaymentCurrencyAmount {}
+unsafe impl ::core::marker::Sync for PaymentCurrencyAmount {}
 #[repr(transparent)]
 pub struct PaymentDetails(::windows::core::IUnknown);
 impl PaymentDetails {
@@ -1251,6 +1257,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PaymentDetails {}
+unsafe impl ::core::marker::Sync for PaymentDetails {}
 #[repr(transparent)]
 pub struct PaymentDetailsModifier(::windows::core::IUnknown);
 impl PaymentDetailsModifier {
@@ -1371,6 +1379,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PaymentDetailsModifier {}
+unsafe impl ::core::marker::Sync for PaymentDetailsModifier {}
 #[repr(transparent)]
 pub struct PaymentItem(::windows::core::IUnknown);
 impl PaymentItem {
@@ -1479,6 +1489,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PaymentItem {}
+unsafe impl ::core::marker::Sync for PaymentItem {}
 #[repr(transparent)]
 pub struct PaymentMediator(::windows::core::IUnknown);
 impl PaymentMediator {
@@ -1583,6 +1595,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PaymentMediator {}
+unsafe impl ::core::marker::Sync for PaymentMediator {}
 #[repr(transparent)]
 pub struct PaymentMerchantInfo(::windows::core::IUnknown);
 impl PaymentMerchantInfo {
@@ -1681,6 +1695,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PaymentMerchantInfo {}
+unsafe impl ::core::marker::Sync for PaymentMerchantInfo {}
 #[repr(transparent)]
 pub struct PaymentMethodData(::windows::core::IUnknown);
 impl PaymentMethodData {
@@ -1779,6 +1795,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PaymentMethodData {}
+unsafe impl ::core::marker::Sync for PaymentMethodData {}
 #[repr(transparent)]
 pub struct PaymentOptionPresence(pub i32);
 impl PaymentOptionPresence {
@@ -1934,6 +1952,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PaymentOptions {}
+unsafe impl ::core::marker::Sync for PaymentOptions {}
 #[repr(transparent)]
 pub struct PaymentRequest(::windows::core::IUnknown);
 impl PaymentRequest {
@@ -2071,6 +2091,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PaymentRequest {}
+unsafe impl ::core::marker::Sync for PaymentRequest {}
 #[repr(transparent)]
 pub struct PaymentRequestChangeKind(pub i32);
 impl PaymentRequestChangeKind {
@@ -2188,6 +2210,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PaymentRequestChangedArgs {}
+unsafe impl ::core::marker::Sync for PaymentRequestChangedArgs {}
 #[repr(transparent)]
 pub struct PaymentRequestChangedHandler(pub ::windows::core::IUnknown);
 impl PaymentRequestChangedHandler {
@@ -2370,6 +2394,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PaymentRequestChangedResult {}
+unsafe impl ::core::marker::Sync for PaymentRequestChangedResult {}
 #[repr(transparent)]
 pub struct PaymentRequestCompletionStatus(pub i32);
 impl PaymentRequestCompletionStatus {
@@ -2505,6 +2531,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PaymentRequestSubmitResult {}
+unsafe impl ::core::marker::Sync for PaymentRequestSubmitResult {}
 #[repr(transparent)]
 pub struct PaymentResponse(::windows::core::IUnknown);
 impl PaymentResponse {
@@ -2620,6 +2648,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PaymentResponse {}
+unsafe impl ::core::marker::Sync for PaymentResponse {}
 #[repr(transparent)]
 pub struct PaymentShippingOption(::windows::core::IUnknown);
 impl PaymentShippingOption {
@@ -2751,6 +2781,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PaymentShippingOption {}
+unsafe impl ::core::marker::Sync for PaymentShippingOption {}
 #[repr(transparent)]
 pub struct PaymentShippingType(pub i32);
 impl PaymentShippingType {
@@ -2874,3 +2906,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PaymentToken {}
+unsafe impl ::core::marker::Sync for PaymentToken {}

@@ -295,6 +295,8 @@ impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderAddAppointmentActiv
         ::core::convert::TryInto::<IAppointmentsProviderAddAppointmentActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AppointmentsProviderAddAppointmentActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for AppointmentsProviderAddAppointmentActivatedEventArgs {}
 #[repr(transparent)]
 pub struct AppointmentsProviderRemoveAppointmentActivatedEventArgs(::windows::core::IUnknown);
 impl AppointmentsProviderRemoveAppointmentActivatedEventArgs {
@@ -492,6 +494,8 @@ impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderRemoveAppointmentAc
         ::core::convert::TryInto::<IAppointmentsProviderRemoveAppointmentActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AppointmentsProviderRemoveAppointmentActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for AppointmentsProviderRemoveAppointmentActivatedEventArgs {}
 #[repr(transparent)]
 pub struct AppointmentsProviderReplaceAppointmentActivatedEventArgs(::windows::core::IUnknown);
 impl AppointmentsProviderReplaceAppointmentActivatedEventArgs {
@@ -689,6 +693,8 @@ impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderReplaceAppointmentA
         ::core::convert::TryInto::<IAppointmentsProviderReplaceAppointmentActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AppointmentsProviderReplaceAppointmentActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for AppointmentsProviderReplaceAppointmentActivatedEventArgs {}
 #[repr(transparent)]
 pub struct AppointmentsProviderShowAppointmentDetailsActivatedEventArgs(::windows::core::IUnknown);
 impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
@@ -900,6 +906,8 @@ impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderShowAppointmentDeta
         ::core::convert::TryInto::<IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
 #[repr(transparent)]
 pub struct AppointmentsProviderShowTimeFrameActivatedEventArgs(::windows::core::IUnknown);
 impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
@@ -1105,6 +1113,8 @@ impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderShowTimeFrameActiva
         ::core::convert::TryInto::<IAppointmentsProviderShowTimeFrameActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AppointmentsProviderShowTimeFrameActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for AppointmentsProviderShowTimeFrameActivatedEventArgs {}
 #[repr(transparent)]
 pub struct BackgroundActivatedEventArgs(::windows::core::IUnknown);
 impl BackgroundActivatedEventArgs {
@@ -1200,6 +1210,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundActivatedEventArgs> for &Back
         ::core::convert::TryInto::<IBackgroundActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for BackgroundActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for BackgroundActivatedEventArgs {}
 #[repr(transparent)]
 pub struct BarcodeScannerPreviewActivatedEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerPreviewActivatedEventArgs {
@@ -1367,6 +1379,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBarcodeScannerPreviewActivatedEventArgs
         ::core::convert::TryInto::<IBarcodeScannerPreviewActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerPreviewActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for BarcodeScannerPreviewActivatedEventArgs {}
 #[repr(transparent)]
 pub struct CachedFileUpdaterActivatedEventArgs(::windows::core::IUnknown);
 impl CachedFileUpdaterActivatedEventArgs {
@@ -1535,6 +1549,8 @@ impl<'a> ::windows::core::IntoParam<'a, ICachedFileUpdaterActivatedEventArgs> fo
         ::core::convert::TryInto::<ICachedFileUpdaterActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for CachedFileUpdaterActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for CachedFileUpdaterActivatedEventArgs {}
 #[repr(transparent)]
 pub struct CameraSettingsActivatedEventArgs(::windows::core::IUnknown);
 impl CameraSettingsActivatedEventArgs {
@@ -1679,6 +1695,8 @@ impl<'a> ::windows::core::IntoParam<'a, ICameraSettingsActivatedEventArgs> for &
         ::core::convert::TryInto::<ICameraSettingsActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for CameraSettingsActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for CameraSettingsActivatedEventArgs {}
 #[repr(transparent)]
 pub struct CommandLineActivatedEventArgs(::windows::core::IUnknown);
 impl CommandLineActivatedEventArgs {
@@ -1846,6 +1864,8 @@ impl<'a> ::windows::core::IntoParam<'a, ICommandLineActivatedEventArgs> for &Com
         ::core::convert::TryInto::<ICommandLineActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for CommandLineActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for CommandLineActivatedEventArgs {}
 #[repr(transparent)]
 pub struct CommandLineActivationOperation(::windows::core::IUnknown);
 impl CommandLineActivationOperation {
@@ -1944,6 +1964,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Comm
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CommandLineActivationOperation {}
+unsafe impl ::core::marker::Sync for CommandLineActivationOperation {}
 #[repr(transparent)]
 pub struct ContactCallActivatedEventArgs(::windows::core::IUnknown);
 impl ContactCallActivatedEventArgs {
@@ -2125,6 +2147,8 @@ impl<'a> ::windows::core::IntoParam<'a, IContactCallActivatedEventArgs> for &Con
         ::core::convert::TryInto::<IContactCallActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ContactCallActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for ContactCallActivatedEventArgs {}
 #[repr(transparent)]
 pub struct ContactMapActivatedEventArgs(::windows::core::IUnknown);
 impl ContactMapActivatedEventArgs {
@@ -2300,6 +2324,8 @@ impl<'a> ::windows::core::IntoParam<'a, IContactMapActivatedEventArgs> for &Cont
         ::core::convert::TryInto::<IContactMapActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ContactMapActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for ContactMapActivatedEventArgs {}
 #[repr(transparent)]
 pub struct ContactMessageActivatedEventArgs(::windows::core::IUnknown);
 impl ContactMessageActivatedEventArgs {
@@ -2481,6 +2507,8 @@ impl<'a> ::windows::core::IntoParam<'a, IContactMessageActivatedEventArgs> for &
         ::core::convert::TryInto::<IContactMessageActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ContactMessageActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for ContactMessageActivatedEventArgs {}
 #[repr(transparent)]
 pub struct ContactPanelActivatedEventArgs(::windows::core::IUnknown);
 impl ContactPanelActivatedEventArgs {
@@ -2657,6 +2685,8 @@ impl<'a> ::windows::core::IntoParam<'a, IContactPanelActivatedEventArgs> for &Co
         ::core::convert::TryInto::<IContactPanelActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ContactPanelActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for ContactPanelActivatedEventArgs {}
 #[repr(transparent)]
 pub struct ContactPickerActivatedEventArgs(::windows::core::IUnknown);
 impl ContactPickerActivatedEventArgs {
@@ -2795,6 +2825,8 @@ impl<'a> ::windows::core::IntoParam<'a, IContactPickerActivatedEventArgs> for &C
         ::core::convert::TryInto::<IContactPickerActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ContactPickerActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for ContactPickerActivatedEventArgs {}
 #[repr(transparent)]
 pub struct ContactPostActivatedEventArgs(::windows::core::IUnknown);
 impl ContactPostActivatedEventArgs {
@@ -2976,6 +3008,8 @@ impl<'a> ::windows::core::IntoParam<'a, IContactPostActivatedEventArgs> for &Con
         ::core::convert::TryInto::<IContactPostActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ContactPostActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for ContactPostActivatedEventArgs {}
 #[repr(transparent)]
 pub struct ContactVideoCallActivatedEventArgs(::windows::core::IUnknown);
 impl ContactVideoCallActivatedEventArgs {
@@ -3157,6 +3191,8 @@ impl<'a> ::windows::core::IntoParam<'a, IContactVideoCallActivatedEventArgs> for
         ::core::convert::TryInto::<IContactVideoCallActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ContactVideoCallActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for ContactVideoCallActivatedEventArgs {}
 #[repr(transparent)]
 pub struct DeviceActivatedEventArgs(::windows::core::IUnknown);
 impl DeviceActivatedEventArgs {
@@ -3390,6 +3426,8 @@ impl<'a> ::windows::core::IntoParam<'a, IViewSwitcherProvider> for &DeviceActiva
         ::core::convert::TryInto::<IViewSwitcherProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for DeviceActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for DeviceActivatedEventArgs {}
 #[repr(transparent)]
 pub struct DevicePairingActivatedEventArgs(::windows::core::IUnknown);
 impl DevicePairingActivatedEventArgs {
@@ -3558,6 +3596,8 @@ impl<'a> ::windows::core::IntoParam<'a, IDevicePairingActivatedEventArgs> for &D
         ::core::convert::TryInto::<IDevicePairingActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for DevicePairingActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for DevicePairingActivatedEventArgs {}
 #[repr(transparent)]
 pub struct DialReceiverActivatedEventArgs(::windows::core::IUnknown);
 impl DialReceiverActivatedEventArgs {
@@ -3820,6 +3860,8 @@ impl<'a> ::windows::core::IntoParam<'a, IViewSwitcherProvider> for &DialReceiver
         ::core::convert::TryInto::<IViewSwitcherProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for DialReceiverActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for DialReceiverActivatedEventArgs {}
 #[repr(transparent)]
 pub struct FileActivatedEventArgs(::windows::core::IUnknown);
 impl FileActivatedEventArgs {
@@ -4113,6 +4155,8 @@ impl<'a> ::windows::core::IntoParam<'a, IViewSwitcherProvider> for &FileActivate
         ::core::convert::TryInto::<IViewSwitcherProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for FileActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for FileActivatedEventArgs {}
 #[repr(transparent)]
 pub struct FileOpenPickerActivatedEventArgs(::windows::core::IUnknown);
 impl FileOpenPickerActivatedEventArgs {
@@ -4310,6 +4354,8 @@ impl<'a> ::windows::core::IntoParam<'a, IFileOpenPickerActivatedEventArgs2> for 
         ::core::convert::TryInto::<IFileOpenPickerActivatedEventArgs2>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for FileOpenPickerActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for FileOpenPickerActivatedEventArgs {}
 #[repr(transparent)]
 pub struct FileOpenPickerContinuationEventArgs(::windows::core::IUnknown);
 impl FileOpenPickerContinuationEventArgs {
@@ -4509,6 +4555,8 @@ impl<'a> ::windows::core::IntoParam<'a, IFileOpenPickerContinuationEventArgs> fo
         ::core::convert::TryInto::<IFileOpenPickerContinuationEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for FileOpenPickerContinuationEventArgs {}
+unsafe impl ::core::marker::Sync for FileOpenPickerContinuationEventArgs {}
 #[repr(transparent)]
 pub struct FileSavePickerActivatedEventArgs(::windows::core::IUnknown);
 impl FileSavePickerActivatedEventArgs {
@@ -4713,6 +4761,8 @@ impl<'a> ::windows::core::IntoParam<'a, IFileSavePickerActivatedEventArgs2> for 
         ::core::convert::TryInto::<IFileSavePickerActivatedEventArgs2>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for FileSavePickerActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for FileSavePickerActivatedEventArgs {}
 #[repr(transparent)]
 pub struct FileSavePickerContinuationEventArgs(::windows::core::IUnknown);
 impl FileSavePickerContinuationEventArgs {
@@ -4912,6 +4962,8 @@ impl<'a> ::windows::core::IntoParam<'a, IFileSavePickerContinuationEventArgs> fo
         ::core::convert::TryInto::<IFileSavePickerContinuationEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for FileSavePickerContinuationEventArgs {}
+unsafe impl ::core::marker::Sync for FileSavePickerContinuationEventArgs {}
 #[repr(transparent)]
 pub struct FolderPickerContinuationEventArgs(::windows::core::IUnknown);
 impl FolderPickerContinuationEventArgs {
@@ -5111,6 +5163,8 @@ impl<'a> ::windows::core::IntoParam<'a, IFolderPickerContinuationEventArgs> for 
         ::core::convert::TryInto::<IFolderPickerContinuationEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for FolderPickerContinuationEventArgs {}
+unsafe impl ::core::marker::Sync for FolderPickerContinuationEventArgs {}
 #[repr(transparent)]
 pub struct IActivatedEventArgs(::windows::core::IUnknown);
 impl IActivatedEventArgs {
@@ -13554,6 +13608,8 @@ impl<'a> ::windows::core::IntoParam<'a, IViewSwitcherProvider> for &LaunchActiva
         ::core::convert::TryInto::<IViewSwitcherProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for LaunchActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for LaunchActivatedEventArgs {}
 #[repr(transparent)]
 pub struct LockScreenActivatedEventArgs(::windows::core::IUnknown);
 impl LockScreenActivatedEventArgs {
@@ -13721,6 +13777,8 @@ impl<'a> ::windows::core::IntoParam<'a, ILockScreenActivatedEventArgs> for &Lock
         ::core::convert::TryInto::<ILockScreenActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for LockScreenActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for LockScreenActivatedEventArgs {}
 #[repr(transparent)]
 pub struct LockScreenCallActivatedEventArgs(::windows::core::IUnknown);
 impl LockScreenCallActivatedEventArgs {
@@ -13954,6 +14012,8 @@ impl<'a> ::windows::core::IntoParam<'a, IViewSwitcherProvider> for &LockScreenCa
         ::core::convert::TryInto::<IViewSwitcherProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for LockScreenCallActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for LockScreenCallActivatedEventArgs {}
 #[repr(transparent)]
 pub struct LockScreenComponentActivatedEventArgs(::windows::core::IUnknown);
 impl LockScreenComponentActivatedEventArgs {
@@ -14062,6 +14122,8 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &LockScreenComp
         ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for LockScreenComponentActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for LockScreenComponentActivatedEventArgs {}
 #[repr(transparent)]
 pub struct PhoneCallActivatedEventArgs(::windows::core::IUnknown);
 impl PhoneCallActivatedEventArgs {
@@ -14229,6 +14291,8 @@ impl<'a> ::windows::core::IntoParam<'a, IPhoneCallActivatedEventArgs> for &Phone
         ::core::convert::TryInto::<IPhoneCallActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PhoneCallActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for PhoneCallActivatedEventArgs {}
 #[repr(transparent)]
 pub struct PickerReturnedActivatedEventArgs(::windows::core::IUnknown);
 impl PickerReturnedActivatedEventArgs {
@@ -14366,6 +14430,8 @@ impl<'a> ::windows::core::IntoParam<'a, IPickerReturnedActivatedEventArgs> for &
         ::core::convert::TryInto::<IPickerReturnedActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PickerReturnedActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for PickerReturnedActivatedEventArgs {}
 #[repr(transparent)]
 pub struct Print3DWorkflowActivatedEventArgs(::windows::core::IUnknown);
 impl Print3DWorkflowActivatedEventArgs {
@@ -14504,6 +14570,8 @@ impl<'a> ::windows::core::IntoParam<'a, IPrint3DWorkflowActivatedEventArgs> for 
         ::core::convert::TryInto::<IPrint3DWorkflowActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for Print3DWorkflowActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for Print3DWorkflowActivatedEventArgs {}
 #[repr(transparent)]
 pub struct PrintTaskSettingsActivatedEventArgs(::windows::core::IUnknown);
 impl PrintTaskSettingsActivatedEventArgs {
@@ -14642,6 +14710,8 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintTaskSettingsActivatedEventArgs> fo
         ::core::convert::TryInto::<IPrintTaskSettingsActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PrintTaskSettingsActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for PrintTaskSettingsActivatedEventArgs {}
 #[repr(transparent)]
 pub struct ProtocolActivatedEventArgs(::windows::core::IUnknown);
 impl ProtocolActivatedEventArgs {
@@ -14906,6 +14976,8 @@ impl<'a> ::windows::core::IntoParam<'a, IViewSwitcherProvider> for &ProtocolActi
         ::core::convert::TryInto::<IViewSwitcherProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ProtocolActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for ProtocolActivatedEventArgs {}
 #[repr(transparent)]
 pub struct ProtocolForResultsActivatedEventArgs(::windows::core::IUnknown);
 impl ProtocolForResultsActivatedEventArgs {
@@ -15200,6 +15272,8 @@ impl<'a> ::windows::core::IntoParam<'a, IViewSwitcherProvider> for &ProtocolForR
         ::core::convert::TryInto::<IViewSwitcherProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ProtocolForResultsActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for ProtocolForResultsActivatedEventArgs {}
 #[repr(transparent)]
 pub struct RestrictedLaunchActivatedEventArgs(::windows::core::IUnknown);
 impl RestrictedLaunchActivatedEventArgs {
@@ -15367,6 +15441,8 @@ impl<'a> ::windows::core::IntoParam<'a, IRestrictedLaunchActivatedEventArgs> for
         ::core::convert::TryInto::<IRestrictedLaunchActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for RestrictedLaunchActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for RestrictedLaunchActivatedEventArgs {}
 #[repr(transparent)]
 pub struct SearchActivatedEventArgs(::windows::core::IUnknown);
 impl SearchActivatedEventArgs {
@@ -15630,6 +15706,8 @@ impl<'a> ::windows::core::IntoParam<'a, IViewSwitcherProvider> for &SearchActiva
         ::core::convert::TryInto::<IViewSwitcherProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SearchActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for SearchActivatedEventArgs {}
 #[repr(transparent)]
 pub struct ShareTargetActivatedEventArgs(::windows::core::IUnknown);
 impl ShareTargetActivatedEventArgs {
@@ -15798,6 +15876,8 @@ impl<'a> ::windows::core::IntoParam<'a, IShareTargetActivatedEventArgs> for &Sha
         ::core::convert::TryInto::<IShareTargetActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ShareTargetActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for ShareTargetActivatedEventArgs {}
 #[repr(transparent)]
 pub struct SplashScreen(::windows::core::IUnknown);
 impl SplashScreen {
@@ -16051,6 +16131,8 @@ impl<'a> ::windows::core::IntoParam<'a, IStartupTaskActivatedEventArgs> for &Sta
         ::core::convert::TryInto::<IStartupTaskActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for StartupTaskActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for StartupTaskActivatedEventArgs {}
 #[repr(transparent)]
 pub struct TileActivatedInfo(::windows::core::IUnknown);
 impl TileActivatedInfo {
@@ -16124,6 +16206,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Tile
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TileActivatedInfo {}
+unsafe impl ::core::marker::Sync for TileActivatedInfo {}
 #[repr(transparent)]
 pub struct ToastNotificationActivatedEventArgs(::windows::core::IUnknown);
 impl ToastNotificationActivatedEventArgs {
@@ -16328,6 +16412,8 @@ impl<'a> ::windows::core::IntoParam<'a, IToastNotificationActivatedEventArgs> fo
         ::core::convert::TryInto::<IToastNotificationActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ToastNotificationActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for ToastNotificationActivatedEventArgs {}
 #[repr(transparent)]
 pub struct UserDataAccountProviderActivatedEventArgs(::windows::core::IUnknown);
 impl UserDataAccountProviderActivatedEventArgs {
@@ -16466,6 +16552,8 @@ impl<'a> ::windows::core::IntoParam<'a, IUserDataAccountProviderActivatedEventAr
         ::core::convert::TryInto::<IUserDataAccountProviderActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for UserDataAccountProviderActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for UserDataAccountProviderActivatedEventArgs {}
 #[repr(transparent)]
 pub struct VoiceCommandActivatedEventArgs(::windows::core::IUnknown);
 impl VoiceCommandActivatedEventArgs {
@@ -16634,6 +16722,8 @@ impl<'a> ::windows::core::IntoParam<'a, IVoiceCommandActivatedEventArgs> for &Vo
         ::core::convert::TryInto::<IVoiceCommandActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for VoiceCommandActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for VoiceCommandActivatedEventArgs {}
 #[repr(transparent)]
 pub struct WalletActionActivatedEventArgs(::windows::core::IUnknown);
 impl WalletActionActivatedEventArgs {
@@ -16786,6 +16876,8 @@ impl<'a> ::windows::core::IntoParam<'a, IWalletActionActivatedEventArgs> for &Wa
         ::core::convert::TryInto::<IWalletActionActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for WalletActionActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for WalletActionActivatedEventArgs {}
 #[repr(transparent)]
 pub struct WebAccountProviderActivatedEventArgs(::windows::core::IUnknown);
 impl WebAccountProviderActivatedEventArgs {
@@ -16954,6 +17046,8 @@ impl<'a> ::windows::core::IntoParam<'a, IWebAccountProviderActivatedEventArgs> f
         ::core::convert::TryInto::<IWebAccountProviderActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for WebAccountProviderActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for WebAccountProviderActivatedEventArgs {}
 #[repr(transparent)]
 pub struct WebAuthenticationBrokerContinuationEventArgs(::windows::core::IUnknown);
 impl WebAuthenticationBrokerContinuationEventArgs {
@@ -17122,3 +17216,5 @@ impl<'a> ::windows::core::IntoParam<'a, IWebAuthenticationBrokerContinuationEven
         ::core::convert::TryInto::<IWebAuthenticationBrokerContinuationEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for WebAuthenticationBrokerContinuationEventArgs {}
+unsafe impl ::core::marker::Sync for WebAuthenticationBrokerContinuationEventArgs {}

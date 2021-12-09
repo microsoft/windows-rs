@@ -103,6 +103,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AttachableInputObject {}
+unsafe impl ::core::marker::Sync for AttachableInputObject {}
 #[repr(C)]
 pub struct CrossSlideThresholds {
     pub SelectionStart: f32,
@@ -3081,6 +3083,8 @@ impl<'a> ::windows::core::IntoParam<'a, AttachableInputObject> for &InputActivat
         ::windows::core::Param::Owned(::core::convert::Into::<AttachableInputObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for InputActivationListener {}
+unsafe impl ::core::marker::Sync for InputActivationListener {}
 #[repr(transparent)]
 pub struct InputActivationListenerActivationChangedEventArgs(::windows::core::IUnknown);
 impl InputActivationListenerActivationChangedEventArgs {
@@ -3153,6 +3157,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inpu
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InputActivationListenerActivationChangedEventArgs {}
+unsafe impl ::core::marker::Sync for InputActivationListenerActivationChangedEventArgs {}
 #[repr(transparent)]
 pub struct InputActivationState(pub i32);
 impl InputActivationState {
@@ -3294,6 +3300,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Keyb
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for KeyboardDeliveryInterceptor {}
+unsafe impl ::core::marker::Sync for KeyboardDeliveryInterceptor {}
 #[repr(transparent)]
 pub struct ManipulationCompletedEventArgs(::windows::core::IUnknown);
 impl ManipulationCompletedEventArgs {
@@ -4458,6 +4466,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Poin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PointerVisualizationSettings {}
+unsafe impl ::core::marker::Sync for PointerVisualizationSettings {}
 #[repr(transparent)]
 pub struct RadialController(::windows::core::IUnknown);
 impl RadialController {
@@ -4698,6 +4708,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RadialController {}
+unsafe impl ::core::marker::Sync for RadialController {}
 #[repr(transparent)]
 pub struct RadialControllerButtonClickedEventArgs(::windows::core::IUnknown);
 impl RadialControllerButtonClickedEventArgs {
@@ -4778,6 +4790,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RadialControllerButtonClickedEventArgs {}
+unsafe impl ::core::marker::Sync for RadialControllerButtonClickedEventArgs {}
 #[repr(transparent)]
 pub struct RadialControllerButtonHoldingEventArgs(::windows::core::IUnknown);
 impl RadialControllerButtonHoldingEventArgs {
@@ -4858,6 +4872,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RadialControllerButtonHoldingEventArgs {}
+unsafe impl ::core::marker::Sync for RadialControllerButtonHoldingEventArgs {}
 #[repr(transparent)]
 pub struct RadialControllerButtonPressedEventArgs(::windows::core::IUnknown);
 impl RadialControllerButtonPressedEventArgs {
@@ -4938,6 +4954,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RadialControllerButtonPressedEventArgs {}
+unsafe impl ::core::marker::Sync for RadialControllerButtonPressedEventArgs {}
 #[repr(transparent)]
 pub struct RadialControllerButtonReleasedEventArgs(::windows::core::IUnknown);
 impl RadialControllerButtonReleasedEventArgs {
@@ -5018,6 +5036,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RadialControllerButtonReleasedEventArgs {}
+unsafe impl ::core::marker::Sync for RadialControllerButtonReleasedEventArgs {}
 #[repr(transparent)]
 pub struct RadialControllerConfiguration(::windows::core::IUnknown);
 impl RadialControllerConfiguration {
@@ -5153,6 +5173,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RadialControllerConfiguration {}
+unsafe impl ::core::marker::Sync for RadialControllerConfiguration {}
 #[repr(transparent)]
 pub struct RadialControllerControlAcquiredEventArgs(::windows::core::IUnknown);
 impl RadialControllerControlAcquiredEventArgs {
@@ -5240,6 +5262,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RadialControllerControlAcquiredEventArgs {}
+unsafe impl ::core::marker::Sync for RadialControllerControlAcquiredEventArgs {}
 #[repr(transparent)]
 pub struct RadialControllerMenu(::windows::core::IUnknown);
 impl RadialControllerMenu {
@@ -5342,6 +5366,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RadialControllerMenu {}
+unsafe impl ::core::marker::Sync for RadialControllerMenu {}
 #[repr(transparent)]
 pub struct RadialControllerMenuItem(::windows::core::IUnknown);
 impl RadialControllerMenuItem {
@@ -5472,6 +5498,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RadialControllerMenuItem {}
+unsafe impl ::core::marker::Sync for RadialControllerMenuItem {}
 #[repr(transparent)]
 pub struct RadialControllerMenuKnownIcon(pub i32);
 impl RadialControllerMenuKnownIcon {
@@ -5600,6 +5628,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RadialControllerRotationChangedEventArgs {}
+unsafe impl ::core::marker::Sync for RadialControllerRotationChangedEventArgs {}
 #[repr(transparent)]
 pub struct RadialControllerScreenContact(::windows::core::IUnknown);
 impl RadialControllerScreenContact {
@@ -5681,6 +5711,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RadialControllerScreenContact {}
+unsafe impl ::core::marker::Sync for RadialControllerScreenContact {}
 #[repr(transparent)]
 pub struct RadialControllerScreenContactContinuedEventArgs(::windows::core::IUnknown);
 impl RadialControllerScreenContactContinuedEventArgs {
@@ -5768,6 +5800,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RadialControllerScreenContactContinuedEventArgs {}
+unsafe impl ::core::marker::Sync for RadialControllerScreenContactContinuedEventArgs {}
 #[repr(transparent)]
 pub struct RadialControllerScreenContactEndedEventArgs(::windows::core::IUnknown);
 impl RadialControllerScreenContactEndedEventArgs {
@@ -5848,6 +5882,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RadialControllerScreenContactEndedEventArgs {}
+unsafe impl ::core::marker::Sync for RadialControllerScreenContactEndedEventArgs {}
 #[repr(transparent)]
 pub struct RadialControllerScreenContactStartedEventArgs(::windows::core::IUnknown);
 impl RadialControllerScreenContactStartedEventArgs {
@@ -5935,6 +5971,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RadialControllerScreenContactStartedEventArgs {}
+unsafe impl ::core::marker::Sync for RadialControllerScreenContactStartedEventArgs {}
 #[repr(transparent)]
 pub struct RadialControllerSystemMenuItemKind(pub i32);
 impl RadialControllerSystemMenuItemKind {
@@ -6232,6 +6270,8 @@ impl<'a> ::windows::core::IntoParam<'a, AttachableInputObject> for &SystemButton
         ::windows::core::Param::Owned(::core::convert::Into::<AttachableInputObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SystemButtonEventController {}
+unsafe impl ::core::marker::Sync for SystemButtonEventController {}
 #[repr(transparent)]
 pub struct SystemFunctionButtonEventArgs(::windows::core::IUnknown);
 impl SystemFunctionButtonEventArgs {
@@ -6315,6 +6355,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemFunctionButtonEventArgs {}
+unsafe impl ::core::marker::Sync for SystemFunctionButtonEventArgs {}
 #[repr(transparent)]
 pub struct SystemFunctionLockChangedEventArgs(::windows::core::IUnknown);
 impl SystemFunctionLockChangedEventArgs {
@@ -6405,6 +6447,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemFunctionLockChangedEventArgs {}
+unsafe impl ::core::marker::Sync for SystemFunctionLockChangedEventArgs {}
 #[repr(transparent)]
 pub struct SystemFunctionLockIndicatorChangedEventArgs(::windows::core::IUnknown);
 impl SystemFunctionLockIndicatorChangedEventArgs {
@@ -6495,6 +6539,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemFunctionLockIndicatorChangedEventArgs {}
+unsafe impl ::core::marker::Sync for SystemFunctionLockIndicatorChangedEventArgs {}
 #[repr(transparent)]
 pub struct TappedEventArgs(::windows::core::IUnknown);
 impl TappedEventArgs {

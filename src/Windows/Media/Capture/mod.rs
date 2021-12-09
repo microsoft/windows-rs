@@ -98,6 +98,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Adva
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AdvancedCapturedPhoto {}
+unsafe impl ::core::marker::Sync for AdvancedCapturedPhoto {}
 #[repr(transparent)]
 pub struct AdvancedPhotoCapture(::windows::core::IUnknown);
 impl AdvancedPhotoCapture {
@@ -213,6 +215,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Adva
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AdvancedPhotoCapture {}
+unsafe impl ::core::marker::Sync for AdvancedPhotoCapture {}
 #[repr(transparent)]
 pub struct AppBroadcastBackgroundService(::windows::core::IUnknown);
 impl AppBroadcastBackgroundService {
@@ -830,6 +834,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppBroadcastCameraCaptureStateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for AppBroadcastCameraCaptureStateChangedEventArgs {}
 #[repr(transparent)]
 pub struct AppBroadcastCameraOverlayLocation(pub i32);
 impl AppBroadcastCameraOverlayLocation {
@@ -1362,6 +1368,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppBroadcastMicrophoneCaptureStateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for AppBroadcastMicrophoneCaptureStateChangedEventArgs {}
 #[repr(transparent)]
 pub struct AppBroadcastPlugIn(::windows::core::IUnknown);
 impl AppBroadcastPlugIn {
@@ -1456,6 +1464,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppBroadcastPlugIn {}
+unsafe impl ::core::marker::Sync for AppBroadcastPlugIn {}
 #[repr(transparent)]
 pub struct AppBroadcastPlugInManager(::windows::core::IUnknown);
 impl AppBroadcastPlugInManager {
@@ -1564,6 +1574,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppBroadcastPlugInManager {}
+unsafe impl ::core::marker::Sync for AppBroadcastPlugInManager {}
 #[repr(transparent)]
 pub struct AppBroadcastPlugInState(pub i32);
 impl AppBroadcastPlugInState {
@@ -1668,6 +1680,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppBroadcastPlugInStateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for AppBroadcastPlugInStateChangedEventArgs {}
 #[repr(transparent)]
 pub struct AppBroadcastPreview(::windows::core::IUnknown);
 impl AppBroadcastPreview {
@@ -1772,6 +1786,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppBroadcastPreview {}
+unsafe impl ::core::marker::Sync for AppBroadcastPreview {}
 #[repr(transparent)]
 pub struct AppBroadcastPreviewState(pub i32);
 impl AppBroadcastPreviewState {
@@ -1879,6 +1895,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppBroadcastPreviewStateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for AppBroadcastPreviewStateChangedEventArgs {}
 #[repr(transparent)]
 pub struct AppBroadcastPreviewStreamReader(::windows::core::IUnknown);
 impl AppBroadcastPreviewStreamReader {
@@ -2001,6 +2019,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppBroadcastPreviewStreamReader {}
+unsafe impl ::core::marker::Sync for AppBroadcastPreviewStreamReader {}
 #[repr(transparent)]
 pub struct AppBroadcastPreviewStreamVideoFrame(::windows::core::IUnknown);
 impl AppBroadcastPreviewStreamVideoFrame {
@@ -2081,6 +2101,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppBroadcastPreviewStreamVideoFrame {}
+unsafe impl ::core::marker::Sync for AppBroadcastPreviewStreamVideoFrame {}
 #[repr(transparent)]
 pub struct AppBroadcastPreviewStreamVideoHeader(::windows::core::IUnknown);
 impl AppBroadcastPreviewStreamVideoHeader {
@@ -2177,6 +2199,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppBroadcastPreviewStreamVideoHeader {}
+unsafe impl ::core::marker::Sync for AppBroadcastPreviewStreamVideoHeader {}
 #[repr(transparent)]
 pub struct AppBroadcastProviderSettings(::windows::core::IUnknown);
 impl AppBroadcastProviderSettings {
@@ -2470,6 +2494,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppBroadcastServices {}
+unsafe impl ::core::marker::Sync for AppBroadcastServices {}
 #[repr(transparent)]
 pub struct AppBroadcastSignInResult(pub i32);
 impl AppBroadcastSignInResult {
@@ -2900,6 +2926,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppBroadcastState {}
+unsafe impl ::core::marker::Sync for AppBroadcastState {}
 #[repr(transparent)]
 pub struct AppBroadcastStreamAudioFrame(::windows::core::IUnknown);
 impl AppBroadcastStreamAudioFrame {
@@ -3763,6 +3791,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppBroadcastViewerCountChangedEventArgs {}
+unsafe impl ::core::marker::Sync for AppBroadcastViewerCountChangedEventArgs {}
 #[repr(transparent)]
 pub struct AppCapture(::windows::core::IUnknown);
 impl AppCapture {
@@ -4222,6 +4252,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppCaptureDurationGeneratedEventArgs {}
+unsafe impl ::core::marker::Sync for AppCaptureDurationGeneratedEventArgs {}
 #[repr(transparent)]
 pub struct AppCaptureFileGeneratedEventArgs(::windows::core::IUnknown);
 impl AppCaptureFileGeneratedEventArgs {
@@ -4295,6 +4327,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppCaptureFileGeneratedEventArgs {}
+unsafe impl ::core::marker::Sync for AppCaptureFileGeneratedEventArgs {}
 #[repr(transparent)]
 pub struct AppCaptureHistoricalBufferLengthUnit(pub i32);
 impl AppCaptureHistoricalBufferLengthUnit {
@@ -4523,6 +4557,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AppCaptureMetadataWriter {}
+unsafe impl ::core::marker::Sync for AppCaptureMetadataWriter {}
 #[repr(transparent)]
 pub struct AppCaptureMicrophoneCaptureState(pub i32);
 impl AppCaptureMicrophoneCaptureState {
@@ -4630,6 +4666,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppCaptureMicrophoneCaptureStateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for AppCaptureMicrophoneCaptureStateChangedEventArgs {}
 #[repr(transparent)]
 pub struct AppCaptureRecordOperation(::windows::core::IUnknown);
 impl AppCaptureRecordOperation {
@@ -4777,6 +4815,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppCaptureRecordOperation {}
+unsafe impl ::core::marker::Sync for AppCaptureRecordOperation {}
 #[repr(transparent)]
 pub struct AppCaptureRecordingState(pub i32);
 impl AppCaptureRecordingState {
@@ -4884,6 +4924,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppCaptureRecordingStateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for AppCaptureRecordingStateChangedEventArgs {}
 #[repr(transparent)]
 pub struct AppCaptureServices(::windows::core::IUnknown);
 impl AppCaptureServices {
@@ -4978,6 +5020,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppCaptureServices {}
+unsafe impl ::core::marker::Sync for AppCaptureServices {}
 #[repr(transparent)]
 pub struct AppCaptureSettings(::windows::core::IUnknown);
 impl AppCaptureSettings {
@@ -5478,6 +5522,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppCaptureState {}
+unsafe impl ::core::marker::Sync for AppCaptureState {}
 #[repr(transparent)]
 pub struct AppCaptureVideoEncodingBitrateMode(pub i32);
 impl AppCaptureVideoEncodingBitrateMode {
@@ -5867,6 +5913,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Came
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CameraCaptureUIPhotoCaptureSettings {}
+unsafe impl ::core::marker::Sync for CameraCaptureUIPhotoCaptureSettings {}
 #[repr(transparent)]
 pub struct CameraCaptureUIPhotoFormat(pub i32);
 impl CameraCaptureUIPhotoFormat {
@@ -6004,6 +6052,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Came
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CameraCaptureUIVideoCaptureSettings {}
+unsafe impl ::core::marker::Sync for CameraCaptureUIVideoCaptureSettings {}
 #[repr(transparent)]
 pub struct CameraCaptureUIVideoFormat(pub i32);
 impl CameraCaptureUIVideoFormat {
@@ -6405,6 +6455,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomA
         ::core::convert::TryInto::<super::super::Storage::Streams::IRandomAccessStreamWithContentType>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for CapturedFrame {}
+unsafe impl ::core::marker::Sync for CapturedFrame {}
 #[repr(transparent)]
 pub struct CapturedFrameControlValues(::windows::core::IUnknown);
 impl CapturedFrameControlValues {
@@ -6582,6 +6634,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Capt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CapturedFrameControlValues {}
+unsafe impl ::core::marker::Sync for CapturedFrameControlValues {}
 #[repr(transparent)]
 pub struct CapturedPhoto(::windows::core::IUnknown);
 impl CapturedPhoto {
@@ -6661,6 +6715,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Capt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CapturedPhoto {}
+unsafe impl ::core::marker::Sync for CapturedPhoto {}
 #[repr(transparent)]
 pub struct ForegroundActivationArgument(pub i32);
 impl ForegroundActivationArgument {
@@ -6876,6 +6932,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GameBarServices {}
+unsafe impl ::core::marker::Sync for GameBarServices {}
 #[repr(transparent)]
 pub struct GameBarServicesCommandEventArgs(::windows::core::IUnknown);
 impl GameBarServicesCommandEventArgs {
@@ -6955,6 +7013,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GameBarServicesCommandEventArgs {}
+unsafe impl ::core::marker::Sync for GameBarServicesCommandEventArgs {}
 #[repr(transparent)]
 pub struct GameBarServicesDisplayMode(pub i32);
 impl GameBarServicesDisplayMode {
@@ -7070,6 +7130,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GameBarServicesManager {}
+unsafe impl ::core::marker::Sync for GameBarServicesManager {}
 #[repr(transparent)]
 pub struct GameBarServicesManagerGameBarServicesCreatedEventArgs(::windows::core::IUnknown);
 impl GameBarServicesManagerGameBarServicesCreatedEventArgs {
@@ -7142,6 +7204,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GameBarServicesManagerGameBarServicesCreatedEventArgs {}
+unsafe impl ::core::marker::Sync for GameBarServicesManagerGameBarServicesCreatedEventArgs {}
 #[repr(transparent)]
 pub struct GameBarServicesTargetInfo(::windows::core::IUnknown);
 impl GameBarServicesTargetInfo {
@@ -7235,6 +7299,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GameBarServicesTargetInfo {}
+unsafe impl ::core::marker::Sync for GameBarServicesTargetInfo {}
 #[repr(transparent)]
 pub struct GameBarTargetCapturePolicy(pub i32);
 impl GameBarTargetCapturePolicy {
@@ -11112,6 +11178,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {}
 #[repr(transparent)]
 pub struct MediaCaptureFailedEventArgs(::windows::core::IUnknown);
 impl MediaCaptureFailedEventArgs {
@@ -11332,6 +11400,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaCaptureFocusChangedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaCaptureFocusChangedEventArgs {}
 #[repr(transparent)]
 pub struct MediaCaptureInitializationSettings(::windows::core::IUnknown);
 impl MediaCaptureInitializationSettings {
@@ -11612,6 +11682,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaCaptureInitializationSettings {}
+unsafe impl ::core::marker::Sync for MediaCaptureInitializationSettings {}
 #[repr(transparent)]
 pub struct MediaCaptureMemoryPreference(pub i32);
 impl MediaCaptureMemoryPreference {
@@ -11875,6 +11947,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MediaCaptureRelativePanelWatcher {}
+unsafe impl ::core::marker::Sync for MediaCaptureRelativePanelWatcher {}
 #[repr(transparent)]
 pub struct MediaCaptureSettings(::windows::core::IUnknown);
 impl MediaCaptureSettings {
@@ -12334,6 +12408,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaCaptureVideoProfile {}
+unsafe impl ::core::marker::Sync for MediaCaptureVideoProfile {}
 #[repr(transparent)]
 pub struct MediaCaptureVideoProfileMediaDescription(::windows::core::IUnknown);
 impl MediaCaptureVideoProfileMediaDescription {
@@ -12451,6 +12527,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaCaptureVideoProfileMediaDescription {}
+unsafe impl ::core::marker::Sync for MediaCaptureVideoProfileMediaDescription {}
 #[repr(transparent)]
 pub struct MediaCategory(pub i32);
 impl MediaCategory {
@@ -12593,6 +12671,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Opti
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for OptionalReferencePhotoCapturedEventArgs {}
+unsafe impl ::core::marker::Sync for OptionalReferencePhotoCapturedEventArgs {}
 #[repr(transparent)]
 pub struct PhotoCaptureSource(pub i32);
 impl PhotoCaptureSource {
@@ -12708,6 +12788,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phot
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhotoCapturedEventArgs {}
+unsafe impl ::core::marker::Sync for PhotoCapturedEventArgs {}
 #[repr(transparent)]
 pub struct PhotoConfirmationCapturedEventArgs(::windows::core::IUnknown);
 impl PhotoConfirmationCapturedEventArgs {
@@ -12788,6 +12870,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phot
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhotoConfirmationCapturedEventArgs {}
+unsafe impl ::core::marker::Sync for PhotoConfirmationCapturedEventArgs {}
 #[repr(transparent)]
 pub struct PowerlineFrequency(pub i32);
 impl PowerlineFrequency {
@@ -13003,6 +13087,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Scre
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ScreenCapture {}
+unsafe impl ::core::marker::Sync for ScreenCapture {}
 #[repr(transparent)]
 pub struct SourceSuspensionChangedEventArgs(::windows::core::IUnknown);
 impl SourceSuspensionChangedEventArgs {
@@ -13082,6 +13168,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sour
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SourceSuspensionChangedEventArgs {}
+unsafe impl ::core::marker::Sync for SourceSuspensionChangedEventArgs {}
 #[repr(transparent)]
 pub struct StreamingCaptureMode(pub i32);
 impl StreamingCaptureMode {
@@ -13250,6 +13338,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Vide
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VideoStreamConfiguration {}
+unsafe impl ::core::marker::Sync for VideoStreamConfiguration {}
 #[repr(C)]
 pub struct WhiteBalanceGain {
     pub R: f64,

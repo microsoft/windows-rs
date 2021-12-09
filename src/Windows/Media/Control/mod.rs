@@ -63,6 +63,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Curr
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CurrentSessionChangedEventArgs {}
+unsafe impl ::core::marker::Sync for CurrentSessionChangedEventArgs {}
 #[repr(transparent)]
 pub struct GlobalSystemMediaTransportControlsSession(::windows::core::IUnknown);
 impl GlobalSystemMediaTransportControlsSession {
@@ -316,6 +318,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Glob
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSession {}
+unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSession {}
 #[repr(transparent)]
 pub struct GlobalSystemMediaTransportControlsSessionManager(::windows::core::IUnknown);
 impl GlobalSystemMediaTransportControlsSessionManager {
@@ -433,6 +437,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Glob
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionManager {}
+unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionManager {}
 #[repr(transparent)]
 pub struct GlobalSystemMediaTransportControlsSessionMediaProperties(::windows::core::IUnknown);
 impl GlobalSystemMediaTransportControlsSessionMediaProperties {
@@ -571,6 +577,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Glob
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionMediaProperties {}
+unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionMediaProperties {}
 #[repr(transparent)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackControls(::windows::core::IUnknown);
 impl GlobalSystemMediaTransportControlsSessionPlaybackControls {
@@ -741,6 +749,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Glob
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionPlaybackControls {}
+unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionPlaybackControls {}
 #[repr(transparent)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackInfo(::windows::core::IUnknown);
 impl GlobalSystemMediaTransportControlsSessionPlaybackInfo {
@@ -852,6 +862,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Glob
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionPlaybackInfo {}
+unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionPlaybackInfo {}
 #[repr(transparent)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackStatus(pub i32);
 impl GlobalSystemMediaTransportControlsSessionPlaybackStatus {
@@ -996,6 +1008,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Glob
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionTimelineProperties {}
+unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionTimelineProperties {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICurrentSessionChangedEventArgs(::windows::core::IUnknown);
@@ -1374,6 +1388,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaPropertiesChangedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaPropertiesChangedEventArgs {}
 #[repr(transparent)]
 pub struct PlaybackInfoChangedEventArgs(::windows::core::IUnknown);
 impl PlaybackInfoChangedEventArgs {}
@@ -1438,6 +1454,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PlaybackInfoChangedEventArgs {}
+unsafe impl ::core::marker::Sync for PlaybackInfoChangedEventArgs {}
 #[repr(transparent)]
 pub struct SessionsChangedEventArgs(::windows::core::IUnknown);
 impl SessionsChangedEventArgs {}
@@ -1502,6 +1520,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sess
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SessionsChangedEventArgs {}
+unsafe impl ::core::marker::Sync for SessionsChangedEventArgs {}
 #[repr(transparent)]
 pub struct TimelinePropertiesChangedEventArgs(::windows::core::IUnknown);
 impl TimelinePropertiesChangedEventArgs {}
@@ -1566,3 +1586,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Time
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TimelinePropertiesChangedEventArgs {}
+unsafe impl ::core::marker::Sync for TimelinePropertiesChangedEventArgs {}

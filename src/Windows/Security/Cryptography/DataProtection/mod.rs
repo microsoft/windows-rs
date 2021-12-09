@@ -113,6 +113,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DataProtectionProvider {}
+unsafe impl ::core::marker::Sync for DataProtectionProvider {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDataProtectionProvider(::windows::core::IUnknown);

@@ -132,6 +132,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBuffer> for &Buffer {
         ::core::convert::TryInto::<IBuffer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for Buffer {}
+unsafe impl ::core::marker::Sync for Buffer {}
 #[repr(transparent)]
 pub struct ByteOrder(pub i32);
 impl ByteOrder {
@@ -470,6 +472,8 @@ impl<'a> ::windows::core::IntoParam<'a, IDataReader> for &DataReader {
         ::core::convert::TryInto::<IDataReader>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for DataReader {}
+unsafe impl ::core::marker::Sync for DataReader {}
 #[cfg(feature = "Foundation")]
 #[repr(transparent)]
 pub struct DataReaderLoadOperation(::windows::core::IUnknown);
@@ -698,6 +702,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncOperatio
         ::core::convert::TryInto::<super::super::Foundation::IAsyncOperation<u32>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation")]
+unsafe impl ::core::marker::Send for DataReaderLoadOperation {}
+#[cfg(feature = "Foundation")]
+unsafe impl ::core::marker::Sync for DataReaderLoadOperation {}
 #[repr(transparent)]
 pub struct DataWriter(::windows::core::IUnknown);
 impl DataWriter {
@@ -972,6 +980,8 @@ impl<'a> ::windows::core::IntoParam<'a, IDataWriter> for &DataWriter {
         ::core::convert::TryInto::<IDataWriter>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for DataWriter {}
+unsafe impl ::core::marker::Sync for DataWriter {}
 #[cfg(feature = "Foundation")]
 #[repr(transparent)]
 pub struct DataWriterStoreOperation(::windows::core::IUnknown);
@@ -1200,6 +1210,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncOperatio
         ::core::convert::TryInto::<super::super::Foundation::IAsyncOperation<u32>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation")]
+unsafe impl ::core::marker::Send for DataWriterStoreOperation {}
+#[cfg(feature = "Foundation")]
+unsafe impl ::core::marker::Sync for DataWriterStoreOperation {}
 #[repr(transparent)]
 pub struct FileInputStream(::windows::core::IUnknown);
 impl FileInputStream {
@@ -1326,6 +1340,8 @@ impl<'a> ::windows::core::IntoParam<'a, IInputStream> for &FileInputStream {
         ::core::convert::TryInto::<IInputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for FileInputStream {}
+unsafe impl ::core::marker::Sync for FileInputStream {}
 #[repr(transparent)]
 pub struct FileOpenDisposition(pub i32);
 impl FileOpenDisposition {
@@ -1490,6 +1506,8 @@ impl<'a> ::windows::core::IntoParam<'a, IOutputStream> for &FileOutputStream {
         ::core::convert::TryInto::<IOutputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for FileOutputStream {}
+unsafe impl ::core::marker::Sync for FileOutputStream {}
 #[repr(transparent)]
 pub struct FileRandomAccessStream(::windows::core::IUnknown);
 impl FileRandomAccessStream {
@@ -1793,6 +1811,8 @@ impl<'a> ::windows::core::IntoParam<'a, IRandomAccessStream> for &FileRandomAcce
         ::core::convert::TryInto::<IRandomAccessStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for FileRandomAccessStream {}
+unsafe impl ::core::marker::Sync for FileRandomAccessStream {}
 #[repr(transparent)]
 pub struct IBuffer(::windows::core::IUnknown);
 impl IBuffer {
@@ -3742,6 +3762,8 @@ impl<'a> ::windows::core::IntoParam<'a, IRandomAccessStream> for &InMemoryRandom
         ::core::convert::TryInto::<IRandomAccessStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for InMemoryRandomAccessStream {}
+unsafe impl ::core::marker::Sync for InMemoryRandomAccessStream {}
 #[repr(transparent)]
 pub struct InputStreamOptions(pub u32);
 impl InputStreamOptions {
@@ -3896,6 +3918,8 @@ impl<'a> ::windows::core::IntoParam<'a, IInputStream> for &InputStreamOverStream
         ::core::convert::TryInto::<IInputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for InputStreamOverStream {}
+unsafe impl ::core::marker::Sync for InputStreamOverStream {}
 #[repr(transparent)]
 pub struct OutputStreamOverStream(::windows::core::IUnknown);
 impl OutputStreamOverStream {
@@ -4030,6 +4054,8 @@ impl<'a> ::windows::core::IntoParam<'a, IOutputStream> for &OutputStreamOverStre
         ::core::convert::TryInto::<IOutputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for OutputStreamOverStream {}
+unsafe impl ::core::marker::Sync for OutputStreamOverStream {}
 pub struct RandomAccessStream {}
 impl RandomAccessStream {
     #[cfg(feature = "Foundation")]
@@ -4304,6 +4330,8 @@ impl<'a> ::windows::core::IntoParam<'a, IRandomAccessStream> for &RandomAccessSt
         ::core::convert::TryInto::<IRandomAccessStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for RandomAccessStreamOverStream {}
+unsafe impl ::core::marker::Sync for RandomAccessStreamOverStream {}
 #[repr(transparent)]
 pub struct RandomAccessStreamReference(::windows::core::IUnknown);
 impl RandomAccessStreamReference {
@@ -4422,6 +4450,8 @@ impl<'a> ::windows::core::IntoParam<'a, IRandomAccessStreamReference> for &Rando
         ::core::convert::TryInto::<IRandomAccessStreamReference>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for RandomAccessStreamReference {}
+unsafe impl ::core::marker::Sync for RandomAccessStreamReference {}
 #[repr(transparent)]
 pub struct UnicodeEncoding(pub i32);
 impl UnicodeEncoding {

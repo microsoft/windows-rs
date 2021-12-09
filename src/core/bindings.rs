@@ -1510,8 +1510,8 @@ pub unsafe fn CoCreateGuid() -> ::windows::core::Result<::windows::core::GUID> {
         extern "system" {
             fn CoCreateGuid(pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
-        let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        CoCreateGuid(&mut result__).from_abi::<::windows::core::GUID>(result__)
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        CoCreateGuid(::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1591,8 +1591,8 @@ pub unsafe fn GetErrorInfo(dwreserved: u32) -> ::windows::core::Result<IErrorInf
         extern "system" {
             fn GetErrorInfo(dwreserved: u32, pperrinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: <IErrorInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        GetErrorInfo(::core::mem::transmute(dwreserved), &mut result__).from_abi::<IErrorInfo>(result__)
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        GetErrorInfo(::core::mem::transmute(dwreserved), ::core::mem::transmute(&mut result__)).from_abi::<IErrorInfo>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1601,24 +1601,24 @@ pub unsafe fn GetErrorInfo(dwreserved: u32) -> ::windows::core::Result<IErrorInf
 pub struct IErrorInfo(::windows::core::IUnknown);
 impl IErrorInfo {
     pub unsafe fn GetGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::GUID>(result__)
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     pub unsafe fn GetSource(&self) -> ::windows::core::Result<BSTR> {
-        let mut result__: <BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<BSTR>(result__)
+        let mut result__: ::core::mem::ManuallyDrop<BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<BSTR>(result__)
     }
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<BSTR> {
-        let mut result__: <BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<BSTR>(result__)
+        let mut result__: ::core::mem::ManuallyDrop<BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<BSTR>(result__)
     }
     pub unsafe fn GetHelpFile(&self) -> ::windows::core::Result<BSTR> {
-        let mut result__: <BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<BSTR>(result__)
+        let mut result__: ::core::mem::ManuallyDrop<BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<BSTR>(result__)
     }
     pub unsafe fn GetHelpContext(&self) -> ::windows::core::Result<u32> {
-        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IErrorInfo> for ::windows::core::IUnknown {
@@ -1663,9 +1663,9 @@ pub struct IErrorInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsource: *mut ::core::mem::ManuallyDrop<BSTR>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdescription: *mut ::core::mem::ManuallyDrop<BSTR>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrhelpfile: *mut ::core::mem::ManuallyDrop<BSTR>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsource: *mut BSTR) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdescription: *mut BSTR) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrhelpfile: *mut BSTR) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwhelpcontext: *mut u32) -> ::windows::core::HRESULT,
 );
 #[inline]
@@ -1841,8 +1841,8 @@ pub unsafe fn WaitForSingleObject<'a, Param0: ::windows::core::IntoParam<'a, HAN
 pub struct ILanguageExceptionErrorInfo(::windows::core::IUnknown);
 impl ILanguageExceptionErrorInfo {
     pub unsafe fn GetLanguageException(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::IUnknown>(result__)
+        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
 impl ::core::convert::From<ILanguageExceptionErrorInfo> for ::windows::core::IUnknown {
@@ -1887,19 +1887,19 @@ pub struct ILanguageExceptionErrorInfoVtbl(pub unsafe extern "system" fn(this: *
 pub struct ILanguageExceptionErrorInfo2(::windows::core::IUnknown);
 impl ILanguageExceptionErrorInfo2 {
     pub unsafe fn GetLanguageException(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::IUnknown>(result__)
+        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     pub unsafe fn GetPreviousLanguageExceptionErrorInfo(&self) -> ::windows::core::Result<ILanguageExceptionErrorInfo2> {
-        let mut result__: <ILanguageExceptionErrorInfo2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ILanguageExceptionErrorInfo2>(result__)
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ILanguageExceptionErrorInfo2>(result__)
     }
     pub unsafe fn CapturePropagationContext<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, languageexception: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), languageexception.into_param().abi()).ok()
     }
     pub unsafe fn GetPropagationContextHead(&self) -> ::windows::core::Result<ILanguageExceptionErrorInfo2> {
-        let mut result__: <ILanguageExceptionErrorInfo2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ILanguageExceptionErrorInfo2>(result__)
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ILanguageExceptionErrorInfo2>(result__)
     }
 }
 impl ::core::convert::From<ILanguageExceptionErrorInfo2> for ILanguageExceptionErrorInfo {
@@ -1975,8 +1975,8 @@ impl IRestrictedErrorInfo {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(description), ::core::mem::transmute(error), ::core::mem::transmute(restricteddescription), ::core::mem::transmute(capabilitysid)).ok()
     }
     pub unsafe fn GetReference(&self) -> ::windows::core::Result<BSTR> {
-        let mut result__: <BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<BSTR>(result__)
+        let mut result__: ::core::mem::ManuallyDrop<BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<BSTR>(result__)
     }
 }
 impl ::core::convert::From<IRestrictedErrorInfo> for ::windows::core::IUnknown {
@@ -2010,6 +2010,8 @@ impl ::core::cmp::PartialEq for IRestrictedErrorInfo {
     }
 }
 impl ::core::cmp::Eq for IRestrictedErrorInfo {}
+unsafe impl ::core::marker::Send for IRestrictedErrorInfo {}
+unsafe impl ::core::marker::Sync for IRestrictedErrorInfo {}
 unsafe impl ::windows::core::Interface for IRestrictedErrorInfo {
     type Vtable = IRestrictedErrorInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82ba7092_4c88_427d_a7bc_16dd93feb67e);
@@ -2020,8 +2022,8 @@ pub struct IRestrictedErrorInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: *mut ::core::mem::ManuallyDrop<BSTR>, error: *mut ::windows::core::HRESULT, restricteddescription: *mut ::core::mem::ManuallyDrop<BSTR>, capabilitysid: *mut ::core::mem::ManuallyDrop<BSTR>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reference: *mut ::core::mem::ManuallyDrop<BSTR>) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: *mut BSTR, error: *mut ::windows::core::HRESULT, restricteddescription: *mut BSTR, capabilitysid: *mut BSTR) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reference: *mut BSTR) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 pub struct IWeakReference(::windows::core::IUnknown);
@@ -2073,8 +2075,8 @@ pub struct IWeakReferenceVtbl(pub unsafe extern "system" fn(this: *mut ::core::f
 pub struct IWeakReferenceSource(::windows::core::IUnknown);
 impl IWeakReferenceSource {
     pub unsafe fn GetWeakReference(&self) -> ::windows::core::Result<IWeakReference> {
-        let mut result__: <IWeakReference as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IWeakReference>(result__)
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWeakReference>(result__)
     }
 }
 impl ::core::convert::From<IWeakReferenceSource> for ::windows::core::IUnknown {

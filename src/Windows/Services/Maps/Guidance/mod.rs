@@ -145,6 +145,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Guid
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GuidanceAudioNotificationRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for GuidanceAudioNotificationRequestedEventArgs {}
 #[repr(transparent)]
 pub struct GuidanceAudioNotifications(pub u32);
 impl GuidanceAudioNotifications {
@@ -256,6 +258,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Guid
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GuidanceLaneInfo {}
+unsafe impl ::core::marker::Sync for GuidanceLaneInfo {}
 #[repr(transparent)]
 pub struct GuidanceLaneMarkers(pub u32);
 impl GuidanceLaneMarkers {
@@ -442,6 +446,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Guid
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GuidanceManeuver {}
+unsafe impl ::core::marker::Sync for GuidanceManeuver {}
 #[repr(transparent)]
 pub struct GuidanceManeuverKind(pub i32);
 impl GuidanceManeuverKind {
@@ -616,6 +622,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Guid
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GuidanceMapMatchedCoordinate {}
+unsafe impl ::core::marker::Sync for GuidanceMapMatchedCoordinate {}
 #[repr(transparent)]
 pub struct GuidanceMode(pub i32);
 impl GuidanceMode {
@@ -909,6 +917,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Guid
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GuidanceNavigator {}
+unsafe impl ::core::marker::Sync for GuidanceNavigator {}
 #[repr(transparent)]
 pub struct GuidanceReroutedEventArgs(::windows::core::IUnknown);
 impl GuidanceReroutedEventArgs {
@@ -981,6 +991,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Guid
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GuidanceReroutedEventArgs {}
+unsafe impl ::core::marker::Sync for GuidanceReroutedEventArgs {}
 #[repr(transparent)]
 pub struct GuidanceRoadSegment(::windows::core::IUnknown);
 impl GuidanceRoadSegment {
@@ -1118,6 +1130,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Guid
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GuidanceRoadSegment {}
+unsafe impl ::core::marker::Sync for GuidanceRoadSegment {}
 #[repr(transparent)]
 pub struct GuidanceRoadSignpost(::windows::core::IUnknown);
 impl GuidanceRoadSignpost {
@@ -1221,6 +1235,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Guid
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GuidanceRoadSignpost {}
+unsafe impl ::core::marker::Sync for GuidanceRoadSignpost {}
 #[repr(transparent)]
 pub struct GuidanceRoute(::windows::core::IUnknown);
 impl GuidanceRoute {
@@ -1356,6 +1372,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Guid
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GuidanceRoute {}
+unsafe impl ::core::marker::Sync for GuidanceRoute {}
 #[repr(transparent)]
 pub struct GuidanceTelemetryCollector(::windows::core::IUnknown);
 impl GuidanceTelemetryCollector {
@@ -1468,6 +1486,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Guid
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GuidanceTelemetryCollector {}
+unsafe impl ::core::marker::Sync for GuidanceTelemetryCollector {}
 #[repr(transparent)]
 pub struct GuidanceUpdatedEventArgs(::windows::core::IUnknown);
 impl GuidanceUpdatedEventArgs {
@@ -1634,6 +1654,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Guid
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GuidanceUpdatedEventArgs {}
+unsafe impl ::core::marker::Sync for GuidanceUpdatedEventArgs {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGuidanceAudioNotificationRequestedEventArgs(::windows::core::IUnknown);

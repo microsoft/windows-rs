@@ -264,6 +264,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattCharacteristic {}
+unsafe impl ::core::marker::Sync for GattCharacteristic {}
 #[repr(transparent)]
 pub struct GattCharacteristicProperties(pub u32);
 impl GattCharacteristicProperties {
@@ -888,6 +890,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattCharacteristicsResult {}
+unsafe impl ::core::marker::Sync for GattCharacteristicsResult {}
 #[repr(transparent)]
 pub struct GattClientCharacteristicConfigurationDescriptorValue(pub i32);
 impl GattClientCharacteristicConfigurationDescriptorValue {
@@ -1010,6 +1014,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattClientNotificationResult {}
+unsafe impl ::core::marker::Sync for GattClientNotificationResult {}
 #[repr(transparent)]
 pub struct GattCommunicationStatus(pub i32);
 impl GattCommunicationStatus {
@@ -1172,6 +1178,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattDescriptor {}
+unsafe impl ::core::marker::Sync for GattDescriptor {}
 pub struct GattDescriptorUuids {}
 impl GattDescriptorUuids {
     pub fn CharacteristicAggregateFormat() -> ::windows::core::Result<::windows::core::GUID> {
@@ -1306,6 +1314,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattDescriptorsResult {}
+unsafe impl ::core::marker::Sync for GattDescriptorsResult {}
 #[repr(transparent)]
 pub struct GattDeviceService(::windows::core::IUnknown);
 impl GattDeviceService {
@@ -1644,6 +1654,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for GattDeviceService {}
+unsafe impl ::core::marker::Sync for GattDeviceService {}
 #[repr(transparent)]
 pub struct GattDeviceServicesResult(::windows::core::IUnknown);
 impl GattDeviceServicesResult {
@@ -1732,6 +1744,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattDeviceServicesResult {}
+unsafe impl ::core::marker::Sync for GattDeviceServicesResult {}
 #[repr(transparent)]
 pub struct GattLocalCharacteristic(::windows::core::IUnknown);
 impl GattLocalCharacteristic {
@@ -1927,6 +1941,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattLocalCharacteristic {}
+unsafe impl ::core::marker::Sync for GattLocalCharacteristic {}
 #[repr(transparent)]
 pub struct GattLocalCharacteristicParameters(::windows::core::IUnknown);
 impl GattLocalCharacteristicParameters {
@@ -2064,6 +2080,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattLocalCharacteristicParameters {}
+unsafe impl ::core::marker::Sync for GattLocalCharacteristicParameters {}
 #[repr(transparent)]
 pub struct GattLocalCharacteristicResult(::windows::core::IUnknown);
 impl GattLocalCharacteristicResult {
@@ -2143,6 +2161,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattLocalCharacteristicResult {}
+unsafe impl ::core::marker::Sync for GattLocalCharacteristicResult {}
 #[repr(transparent)]
 pub struct GattLocalDescriptor(::windows::core::IUnknown);
 impl GattLocalDescriptor {
@@ -2263,6 +2283,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattLocalDescriptor {}
+unsafe impl ::core::marker::Sync for GattLocalDescriptor {}
 #[repr(transparent)]
 pub struct GattLocalDescriptorParameters(::windows::core::IUnknown);
 impl GattLocalDescriptorParameters {
@@ -2370,6 +2392,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattLocalDescriptorParameters {}
+unsafe impl ::core::marker::Sync for GattLocalDescriptorParameters {}
 #[repr(transparent)]
 pub struct GattLocalDescriptorResult(::windows::core::IUnknown);
 impl GattLocalDescriptorResult {
@@ -2449,6 +2473,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattLocalDescriptorResult {}
+unsafe impl ::core::marker::Sync for GattLocalDescriptorResult {}
 #[repr(transparent)]
 pub struct GattLocalService(::windows::core::IUnknown);
 impl GattLocalService {
@@ -2537,6 +2563,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattLocalService {}
+unsafe impl ::core::marker::Sync for GattLocalService {}
 #[repr(transparent)]
 pub struct GattOpenStatus(pub i32);
 impl GattOpenStatus {
@@ -2688,6 +2716,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattPresentationFormat {}
+unsafe impl ::core::marker::Sync for GattPresentationFormat {}
 pub struct GattPresentationFormatTypes {}
 impl GattPresentationFormatTypes {
     pub fn Boolean() -> ::windows::core::Result<u8> {
@@ -3088,6 +3118,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattReadClientCharacteristicConfigurationDescriptorResult {}
+unsafe impl ::core::marker::Sync for GattReadClientCharacteristicConfigurationDescriptorResult {}
 #[repr(transparent)]
 pub struct GattReadRequest(::windows::core::IUnknown);
 impl GattReadRequest {
@@ -3196,6 +3228,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattReadRequest {}
+unsafe impl ::core::marker::Sync for GattReadRequest {}
 #[repr(transparent)]
 pub struct GattReadRequestedEventArgs(::windows::core::IUnknown);
 impl GattReadRequestedEventArgs {
@@ -3284,6 +3318,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattReadRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for GattReadRequestedEventArgs {}
 #[repr(transparent)]
 pub struct GattReadResult(::windows::core::IUnknown);
 impl GattReadResult {
@@ -3372,6 +3408,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattReadResult {}
+unsafe impl ::core::marker::Sync for GattReadResult {}
 #[repr(transparent)]
 pub struct GattReliableWriteTransaction(::windows::core::IUnknown);
 impl GattReliableWriteTransaction {
@@ -3465,6 +3503,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattReliableWriteTransaction {}
+unsafe impl ::core::marker::Sync for GattReliableWriteTransaction {}
 #[repr(transparent)]
 pub struct GattRequestState(pub i32);
 impl GattRequestState {
@@ -3572,6 +3612,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattRequestStateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for GattRequestStateChangedEventArgs {}
 #[repr(transparent)]
 pub struct GattServiceProvider(::windows::core::IUnknown);
 impl GattServiceProvider {
@@ -3687,6 +3729,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattServiceProvider {}
+unsafe impl ::core::marker::Sync for GattServiceProvider {}
 #[repr(transparent)]
 pub struct GattServiceProviderAdvertisementStatus(pub i32);
 impl GattServiceProviderAdvertisementStatus {
@@ -3796,6 +3840,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattServiceProviderAdvertisementStatusChangedEventArgs {}
+unsafe impl ::core::marker::Sync for GattServiceProviderAdvertisementStatusChangedEventArgs {}
 #[repr(transparent)]
 pub struct GattServiceProviderAdvertisingParameters(::windows::core::IUnknown);
 impl GattServiceProviderAdvertisingParameters {
@@ -3903,6 +3949,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattServiceProviderAdvertisingParameters {}
+unsafe impl ::core::marker::Sync for GattServiceProviderAdvertisingParameters {}
 #[repr(transparent)]
 pub struct GattServiceProviderResult(::windows::core::IUnknown);
 impl GattServiceProviderResult {
@@ -3982,6 +4030,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattServiceProviderResult {}
+unsafe impl ::core::marker::Sync for GattServiceProviderResult {}
 pub struct GattServiceUuids {}
 impl GattServiceUuids {
     pub fn Battery() -> ::windows::core::Result<::windows::core::GUID> {
@@ -4300,6 +4350,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for GattSession {}
+unsafe impl ::core::marker::Sync for GattSession {}
 #[repr(transparent)]
 pub struct GattSessionStatus(pub i32);
 impl GattSessionStatus {
@@ -4406,6 +4458,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattSessionStatusChangedEventArgs {}
+unsafe impl ::core::marker::Sync for GattSessionStatusChangedEventArgs {}
 #[repr(transparent)]
 pub struct GattSharingMode(pub i32);
 impl GattSharingMode {
@@ -4527,6 +4581,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattSubscribedClient {}
+unsafe impl ::core::marker::Sync for GattSubscribedClient {}
 #[repr(transparent)]
 pub struct GattValueChangedEventArgs(::windows::core::IUnknown);
 impl GattValueChangedEventArgs {
@@ -4608,6 +4664,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattValueChangedEventArgs {}
+unsafe impl ::core::marker::Sync for GattValueChangedEventArgs {}
 #[repr(transparent)]
 pub struct GattWriteOption(pub i32);
 impl GattWriteOption {
@@ -4750,6 +4808,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattWriteRequest {}
+unsafe impl ::core::marker::Sync for GattWriteRequest {}
 #[repr(transparent)]
 pub struct GattWriteRequestedEventArgs(::windows::core::IUnknown);
 impl GattWriteRequestedEventArgs {
@@ -4838,6 +4898,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattWriteRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for GattWriteRequestedEventArgs {}
 #[repr(transparent)]
 pub struct GattWriteResult(::windows::core::IUnknown);
 impl GattWriteResult {
@@ -4918,6 +4980,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattWriteResult {}
+unsafe impl ::core::marker::Sync for GattWriteResult {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGattCharacteristic(::windows::core::IUnknown);

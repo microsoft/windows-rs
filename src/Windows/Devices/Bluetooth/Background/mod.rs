@@ -115,6 +115,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BluetoothLEAdvertisementPublisherTriggerDetails {}
+unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementPublisherTriggerDetails {}
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementWatcherTriggerDetails(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementWatcherTriggerDetails {
@@ -202,6 +204,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BluetoothLEAdvertisementWatcherTriggerDetails {}
+unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementWatcherTriggerDetails {}
 #[repr(transparent)]
 pub struct GattCharacteristicNotificationTriggerDetails(::windows::core::IUnknown);
 impl GattCharacteristicNotificationTriggerDetails {
@@ -305,6 +309,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattCharacteristicNotificationTriggerDetails {}
+unsafe impl ::core::marker::Sync for GattCharacteristicNotificationTriggerDetails {}
 #[repr(transparent)]
 pub struct GattServiceProviderConnection(::windows::core::IUnknown);
 impl GattServiceProviderConnection {
@@ -400,6 +406,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattServiceProviderConnection {}
+unsafe impl ::core::marker::Sync for GattServiceProviderConnection {}
 #[repr(transparent)]
 pub struct GattServiceProviderTriggerDetails(::windows::core::IUnknown);
 impl GattServiceProviderTriggerDetails {
@@ -472,6 +480,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GattServiceProviderTriggerDetails {}
+unsafe impl ::core::marker::Sync for GattServiceProviderTriggerDetails {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBluetoothLEAdvertisementPublisherTriggerDetails(::windows::core::IUnknown);
@@ -788,6 +798,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rfco
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RfcommConnectionTriggerDetails {}
+unsafe impl ::core::marker::Sync for RfcommConnectionTriggerDetails {}
 #[repr(transparent)]
 pub struct RfcommInboundConnectionInformation(::windows::core::IUnknown);
 impl RfcommInboundConnectionInformation {
@@ -890,6 +902,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rfco
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RfcommInboundConnectionInformation {}
+unsafe impl ::core::marker::Sync for RfcommInboundConnectionInformation {}
 #[repr(transparent)]
 pub struct RfcommOutboundConnectionInformation(::windows::core::IUnknown);
 impl RfcommOutboundConnectionInformation {
@@ -968,3 +982,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rfco
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RfcommOutboundConnectionInformation {}
+unsafe impl ::core::marker::Sync for RfcommOutboundConnectionInformation {}

@@ -1616,6 +1616,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StorageProviderError {}
+unsafe impl ::core::marker::Sync for StorageProviderError {}
 #[repr(transparent)]
 pub struct StorageProviderErrorCommand(::windows::core::IUnknown);
 impl StorageProviderErrorCommand {
@@ -1707,6 +1709,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StorageProviderErrorCommand {}
+unsafe impl ::core::marker::Sync for StorageProviderErrorCommand {}
 #[repr(transparent)]
 pub struct StorageProviderFileTypeInfo(::windows::core::IUnknown);
 impl StorageProviderFileTypeInfo {
@@ -1796,6 +1800,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StorageProviderFileTypeInfo {}
+unsafe impl ::core::marker::Sync for StorageProviderFileTypeInfo {}
 #[repr(transparent)]
 pub struct StorageProviderGetContentInfoForPathResult(::windows::core::IUnknown);
 impl StorageProviderGetContentInfoForPathResult {
@@ -1901,6 +1907,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StorageProviderGetContentInfoForPathResult {}
+unsafe impl ::core::marker::Sync for StorageProviderGetContentInfoForPathResult {}
 #[repr(transparent)]
 pub struct StorageProviderGetPathForContentUriResult(::windows::core::IUnknown);
 impl StorageProviderGetPathForContentUriResult {
@@ -1995,6 +2003,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StorageProviderGetPathForContentUriResult {}
+unsafe impl ::core::marker::Sync for StorageProviderGetPathForContentUriResult {}
 #[repr(transparent)]
 pub struct StorageProviderHardlinkPolicy(pub u32);
 impl StorageProviderHardlinkPolicy {
@@ -2240,6 +2250,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StorageProviderItemProperty {}
+unsafe impl ::core::marker::Sync for StorageProviderItemProperty {}
 #[repr(transparent)]
 pub struct StorageProviderItemPropertyDefinition(::windows::core::IUnknown);
 impl StorageProviderItemPropertyDefinition {
@@ -2334,6 +2346,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StorageProviderItemPropertyDefinition {}
+unsafe impl ::core::marker::Sync for StorageProviderItemPropertyDefinition {}
 #[repr(transparent)]
 pub struct StorageProviderPopulationPolicy(pub i32);
 impl StorageProviderPopulationPolicy {
@@ -2523,6 +2537,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StorageProviderStatus {}
+unsafe impl ::core::marker::Sync for StorageProviderStatus {}
 #[repr(transparent)]
 pub struct StorageProviderSyncRootInfo(::windows::core::IUnknown);
 impl StorageProviderSyncRootInfo {
@@ -2791,6 +2807,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StorageProviderSyncRootInfo {}
+unsafe impl ::core::marker::Sync for StorageProviderSyncRootInfo {}
 pub struct StorageProviderSyncRootManager {}
 impl StorageProviderSyncRootManager {
     pub fn Register<'a, Param0: ::windows::core::IntoParam<'a, StorageProviderSyncRootInfo>>(syncrootinformation: Param0) -> ::windows::core::Result<()> {

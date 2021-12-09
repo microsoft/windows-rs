@@ -103,6 +103,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Ente
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EnterpriseKeyCredentialRegistrationInfo {}
+unsafe impl ::core::marker::Sync for EnterpriseKeyCredentialRegistrationInfo {}
 #[repr(transparent)]
 pub struct EnterpriseKeyCredentialRegistrationManager(::windows::core::IUnknown);
 impl EnterpriseKeyCredentialRegistrationManager {
@@ -186,6 +188,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Ente
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EnterpriseKeyCredentialRegistrationManager {}
+unsafe impl ::core::marker::Sync for EnterpriseKeyCredentialRegistrationManager {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IEnterpriseKeyCredentialRegistrationInfo(::windows::core::IUnknown);

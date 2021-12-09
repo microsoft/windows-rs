@@ -1653,6 +1653,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystem {}
+unsafe impl ::core::marker::Sync for RemoteSystem {}
 #[repr(transparent)]
 pub struct RemoteSystemAccessStatus(pub i32);
 impl RemoteSystemAccessStatus {
@@ -1754,6 +1756,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemAddedEventArgs {}
+unsafe impl ::core::marker::Sync for RemoteSystemAddedEventArgs {}
 #[repr(transparent)]
 pub struct RemoteSystemApp(::windows::core::IUnknown);
 impl RemoteSystemApp {
@@ -1869,6 +1873,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemApp {}
+unsafe impl ::core::marker::Sync for RemoteSystemApp {}
 #[repr(transparent)]
 pub struct RemoteSystemAppRegistration(::windows::core::IUnknown);
 impl RemoteSystemAppRegistration {
@@ -1973,6 +1979,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemAppRegistration {}
+unsafe impl ::core::marker::Sync for RemoteSystemAppRegistration {}
 #[repr(transparent)]
 pub struct RemoteSystemAuthorizationKind(pub i32);
 impl RemoteSystemAuthorizationKind {
@@ -2104,6 +2112,8 @@ impl<'a> ::windows::core::IntoParam<'a, IRemoteSystemFilter> for &RemoteSystemAu
         ::core::convert::TryInto::<IRemoteSystemFilter>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemAuthorizationKindFilter {}
+unsafe impl ::core::marker::Sync for RemoteSystemAuthorizationKindFilter {}
 #[repr(transparent)]
 pub struct RemoteSystemConnectionInfo(::windows::core::IUnknown);
 impl RemoteSystemConnectionInfo {
@@ -2187,6 +2197,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemConnectionInfo {}
+unsafe impl ::core::marker::Sync for RemoteSystemConnectionInfo {}
 #[repr(transparent)]
 pub struct RemoteSystemConnectionRequest(::windows::core::IUnknown);
 impl RemoteSystemConnectionRequest {
@@ -2309,6 +2321,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemConnectionRequest {}
+unsafe impl ::core::marker::Sync for RemoteSystemConnectionRequest {}
 #[repr(transparent)]
 pub struct RemoteSystemDiscoveryType(pub i32);
 impl RemoteSystemDiscoveryType {
@@ -2442,6 +2456,8 @@ impl<'a> ::windows::core::IntoParam<'a, IRemoteSystemFilter> for &RemoteSystemDi
         ::core::convert::TryInto::<IRemoteSystemFilter>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemDiscoveryTypeFilter {}
+unsafe impl ::core::marker::Sync for RemoteSystemDiscoveryTypeFilter {}
 #[repr(transparent)]
 pub struct RemoteSystemEnumerationCompletedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemEnumerationCompletedEventArgs {}
@@ -2506,6 +2522,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemEnumerationCompletedEventArgs {}
+unsafe impl ::core::marker::Sync for RemoteSystemEnumerationCompletedEventArgs {}
 #[repr(transparent)]
 pub struct RemoteSystemKindFilter(::windows::core::IUnknown);
 impl RemoteSystemKindFilter {
@@ -2612,6 +2630,8 @@ impl<'a> ::windows::core::IntoParam<'a, IRemoteSystemFilter> for &RemoteSystemKi
         ::core::convert::TryInto::<IRemoteSystemFilter>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemKindFilter {}
+unsafe impl ::core::marker::Sync for RemoteSystemKindFilter {}
 pub struct RemoteSystemKinds {}
 impl RemoteSystemKinds {
     pub fn Phone() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2776,6 +2796,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemRemovedEventArgs {}
+unsafe impl ::core::marker::Sync for RemoteSystemRemovedEventArgs {}
 #[repr(transparent)]
 pub struct RemoteSystemSession(::windows::core::IUnknown);
 impl RemoteSystemSession {
@@ -2931,6 +2953,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemSession {}
+unsafe impl ::core::marker::Sync for RemoteSystemSession {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionAddedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemSessionAddedEventArgs {
@@ -3003,6 +3027,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemSessionAddedEventArgs {}
+unsafe impl ::core::marker::Sync for RemoteSystemSessionAddedEventArgs {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionController(::windows::core::IUnknown);
 impl RemoteSystemSessionController {
@@ -3113,6 +3139,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemSessionController {}
+unsafe impl ::core::marker::Sync for RemoteSystemSessionController {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionCreationResult(::windows::core::IUnknown);
 impl RemoteSystemSessionCreationResult {
@@ -3192,6 +3220,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemSessionCreationResult {}
+unsafe impl ::core::marker::Sync for RemoteSystemSessionCreationResult {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionCreationStatus(pub i32);
 impl RemoteSystemSessionCreationStatus {
@@ -3292,6 +3322,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemSessionDisconnectedEventArgs {}
+unsafe impl ::core::marker::Sync for RemoteSystemSessionDisconnectedEventArgs {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionDisconnectedReason(pub i32);
 impl RemoteSystemSessionDisconnectedReason {
@@ -3407,6 +3439,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemSessionInfo {}
+unsafe impl ::core::marker::Sync for RemoteSystemSessionInfo {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionInvitation(::windows::core::IUnknown);
 impl RemoteSystemSessionInvitation {
@@ -3486,6 +3520,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemSessionInvitation {}
+unsafe impl ::core::marker::Sync for RemoteSystemSessionInvitation {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionInvitationListener(::windows::core::IUnknown);
 impl RemoteSystemSessionInvitationListener {
@@ -3571,6 +3607,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemSessionInvitationListener {}
+unsafe impl ::core::marker::Sync for RemoteSystemSessionInvitationListener {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionInvitationReceivedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemSessionInvitationReceivedEventArgs {
@@ -3643,6 +3681,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemSessionInvitationReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for RemoteSystemSessionInvitationReceivedEventArgs {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionJoinRequest(::windows::core::IUnknown);
 impl RemoteSystemSessionJoinRequest {
@@ -3719,6 +3759,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemSessionJoinRequest {}
+unsafe impl ::core::marker::Sync for RemoteSystemSessionJoinRequest {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionJoinRequestedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemSessionJoinRequestedEventArgs {
@@ -3799,6 +3841,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemSessionJoinRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for RemoteSystemSessionJoinRequestedEventArgs {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionJoinResult(::windows::core::IUnknown);
 impl RemoteSystemSessionJoinResult {
@@ -3878,6 +3922,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemSessionJoinResult {}
+unsafe impl ::core::marker::Sync for RemoteSystemSessionJoinResult {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionJoinStatus(pub i32);
 impl RemoteSystemSessionJoinStatus {
@@ -4033,6 +4079,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemSessionMessageChannel {}
+unsafe impl ::core::marker::Sync for RemoteSystemSessionMessageChannel {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionMessageChannelReliability(pub i32);
 impl RemoteSystemSessionMessageChannelReliability {
@@ -4143,6 +4191,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemSessionOptions {}
+unsafe impl ::core::marker::Sync for RemoteSystemSessionOptions {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionParticipant(::windows::core::IUnknown);
 impl RemoteSystemSessionParticipant {
@@ -4223,6 +4273,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemSessionParticipant {}
+unsafe impl ::core::marker::Sync for RemoteSystemSessionParticipant {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionParticipantAddedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemSessionParticipantAddedEventArgs {
@@ -4295,6 +4347,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemSessionParticipantAddedEventArgs {}
+unsafe impl ::core::marker::Sync for RemoteSystemSessionParticipantAddedEventArgs {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionParticipantRemovedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemSessionParticipantRemovedEventArgs {
@@ -4367,6 +4421,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemSessionParticipantRemovedEventArgs {}
+unsafe impl ::core::marker::Sync for RemoteSystemSessionParticipantRemovedEventArgs {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionParticipantWatcher(::windows::core::IUnknown);
 impl RemoteSystemSessionParticipantWatcher {
@@ -4486,6 +4542,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemSessionParticipantWatcher {}
+unsafe impl ::core::marker::Sync for RemoteSystemSessionParticipantWatcher {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionParticipantWatcherStatus(pub i32);
 impl RemoteSystemSessionParticipantWatcherStatus {
@@ -4589,6 +4647,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemSessionRemovedEventArgs {}
+unsafe impl ::core::marker::Sync for RemoteSystemSessionRemovedEventArgs {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionUpdatedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemSessionUpdatedEventArgs {
@@ -4661,6 +4721,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemSessionUpdatedEventArgs {}
+unsafe impl ::core::marker::Sync for RemoteSystemSessionUpdatedEventArgs {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionValueSetReceivedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemSessionValueSetReceivedEventArgs {
@@ -4741,6 +4803,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemSessionValueSetReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for RemoteSystemSessionValueSetReceivedEventArgs {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionWatcher(::windows::core::IUnknown);
 impl RemoteSystemSessionWatcher {
@@ -4860,6 +4924,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemSessionWatcher {}
+unsafe impl ::core::marker::Sync for RemoteSystemSessionWatcher {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionWatcherStatus(pub i32);
 impl RemoteSystemSessionWatcherStatus {
@@ -5051,6 +5117,8 @@ impl<'a> ::windows::core::IntoParam<'a, IRemoteSystemFilter> for &RemoteSystemSt
         ::core::convert::TryInto::<IRemoteSystemFilter>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemStatusTypeFilter {}
+unsafe impl ::core::marker::Sync for RemoteSystemStatusTypeFilter {}
 #[repr(transparent)]
 pub struct RemoteSystemUpdatedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemUpdatedEventArgs {
@@ -5123,6 +5191,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemUpdatedEventArgs {}
+unsafe impl ::core::marker::Sync for RemoteSystemUpdatedEventArgs {}
 #[repr(transparent)]
 pub struct RemoteSystemWatcher(::windows::core::IUnknown);
 impl RemoteSystemWatcher {
@@ -5268,6 +5338,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemWatcher {}
+unsafe impl ::core::marker::Sync for RemoteSystemWatcher {}
 #[repr(transparent)]
 pub struct RemoteSystemWatcherError(pub i32);
 impl RemoteSystemWatcherError {
@@ -5368,6 +5440,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemWatcherErrorOccurredEventArgs {}
+unsafe impl ::core::marker::Sync for RemoteSystemWatcherErrorOccurredEventArgs {}
 #[repr(transparent)]
 pub struct RemoteSystemWebAccountFilter(::windows::core::IUnknown);
 impl RemoteSystemWebAccountFilter {
@@ -5474,3 +5548,5 @@ impl<'a> ::windows::core::IntoParam<'a, IRemoteSystemFilter> for &RemoteSystemWe
         ::core::convert::TryInto::<IRemoteSystemFilter>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for RemoteSystemWebAccountFilter {}
+unsafe impl ::core::marker::Sync for RemoteSystemWebAccountFilter {}

@@ -189,6 +189,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for GpioChangeCounter {}
+unsafe impl ::core::marker::Sync for GpioChangeCounter {}
 #[repr(transparent)]
 pub struct GpioChangePolarity(pub i32);
 impl GpioChangePolarity {
@@ -419,6 +421,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for GpioChangeReader {}
+unsafe impl ::core::marker::Sync for GpioChangeReader {}
 #[repr(C)]
 #[cfg(feature = "Foundation")]
 pub struct GpioChangeRecord {
@@ -580,6 +584,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gpio
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GpioController {}
+unsafe impl ::core::marker::Sync for GpioController {}
 #[repr(transparent)]
 pub struct GpioOpenStatus(pub i32);
 impl GpioOpenStatus {
@@ -775,6 +781,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for GpioPin {}
+unsafe impl ::core::marker::Sync for GpioPin {}
 #[repr(transparent)]
 pub struct GpioPinDriveMode(pub i32);
 impl GpioPinDriveMode {
@@ -934,6 +942,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gpio
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GpioPinValueChangedEventArgs {}
+unsafe impl ::core::marker::Sync for GpioPinValueChangedEventArgs {}
 #[repr(transparent)]
 pub struct GpioSharingMode(pub i32);
 impl GpioSharingMode {

@@ -181,6 +181,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prea
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PreallocatedWorkItem {}
+unsafe impl ::core::marker::Sync for PreallocatedWorkItem {}
 #[repr(transparent)]
 pub struct SignalHandler(pub ::windows::core::IUnknown);
 impl SignalHandler {
@@ -352,3 +354,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sign
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SignalNotifier {}
+unsafe impl ::core::marker::Sync for SignalNotifier {}

@@ -704,6 +704,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PlayToConnection {}
+unsafe impl ::core::marker::Sync for PlayToConnection {}
 #[repr(transparent)]
 pub struct PlayToConnectionError(pub i32);
 impl PlayToConnectionError {
@@ -815,6 +817,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PlayToConnectionErrorEventArgs {}
+unsafe impl ::core::marker::Sync for PlayToConnectionErrorEventArgs {}
 #[repr(transparent)]
 pub struct PlayToConnectionState(pub i32);
 impl PlayToConnectionState {
@@ -924,6 +928,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PlayToConnectionStateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for PlayToConnectionStateChangedEventArgs {}
 #[repr(transparent)]
 pub struct PlayToConnectionTransferredEventArgs(::windows::core::IUnknown);
 impl PlayToConnectionTransferredEventArgs {
@@ -1005,6 +1011,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PlayToConnectionTransferredEventArgs {}
+unsafe impl ::core::marker::Sync for PlayToConnectionTransferredEventArgs {}
 #[repr(transparent)]
 pub struct PlayToManager(::windows::core::IUnknown);
 impl PlayToManager {
@@ -1128,6 +1136,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PlayToManager {}
+unsafe impl ::core::marker::Sync for PlayToManager {}
 #[repr(transparent)]
 pub struct PlayToReceiver(::windows::core::IUnknown);
 impl PlayToReceiver {
@@ -1541,6 +1551,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PlayToSource {}
+unsafe impl ::core::marker::Sync for PlayToSource {}
 #[repr(transparent)]
 pub struct PlayToSourceDeferral(::windows::core::IUnknown);
 impl PlayToSourceDeferral {
@@ -1611,6 +1623,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PlayToSourceDeferral {}
+unsafe impl ::core::marker::Sync for PlayToSourceDeferral {}
 #[repr(transparent)]
 pub struct PlayToSourceRequest(::windows::core::IUnknown);
 impl PlayToSourceRequest {
@@ -1703,6 +1717,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PlayToSourceRequest {}
+unsafe impl ::core::marker::Sync for PlayToSourceRequest {}
 #[repr(transparent)]
 pub struct PlayToSourceRequestedEventArgs(::windows::core::IUnknown);
 impl PlayToSourceRequestedEventArgs {
@@ -1776,6 +1792,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PlayToSourceRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for PlayToSourceRequestedEventArgs {}
 #[repr(transparent)]
 pub struct PlayToSourceSelectedEventArgs(::windows::core::IUnknown);
 impl PlayToSourceSelectedEventArgs {
@@ -1882,6 +1900,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PlayToSourceSelectedEventArgs {}
+unsafe impl ::core::marker::Sync for PlayToSourceSelectedEventArgs {}
 #[repr(transparent)]
 pub struct PlaybackRateChangeRequestedEventArgs(::windows::core::IUnknown);
 impl PlaybackRateChangeRequestedEventArgs {

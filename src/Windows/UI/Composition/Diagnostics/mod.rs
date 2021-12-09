@@ -80,6 +80,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Comp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CompositionDebugHeatMaps {}
+unsafe impl ::core::marker::Sync for CompositionDebugHeatMaps {}
 #[repr(transparent)]
 pub struct CompositionDebugOverdrawContentKinds(pub u32);
 impl CompositionDebugOverdrawContentKinds {
@@ -196,6 +198,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Comp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CompositionDebugSettings {}
+unsafe impl ::core::marker::Sync for CompositionDebugSettings {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICompositionDebugHeatMaps(::windows::core::IUnknown);

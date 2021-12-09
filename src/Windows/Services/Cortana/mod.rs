@@ -155,6 +155,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cort
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CortanaActionableInsights {}
+unsafe impl ::core::marker::Sync for CortanaActionableInsights {}
 #[repr(transparent)]
 pub struct CortanaActionableInsightsOptions(::windows::core::IUnknown);
 impl CortanaActionableInsightsOptions {
@@ -255,6 +257,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cort
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CortanaActionableInsightsOptions {}
+unsafe impl ::core::marker::Sync for CortanaActionableInsightsOptions {}
 #[repr(transparent)]
 pub struct CortanaPermission(pub i32);
 impl CortanaPermission {
@@ -430,6 +434,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cort
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CortanaPermissionsManager {}
+unsafe impl ::core::marker::Sync for CortanaPermissionsManager {}
 #[repr(transparent)]
 pub struct CortanaSettings(::windows::core::IUnknown);
 impl CortanaSettings {
@@ -534,6 +540,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cort
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CortanaSettings {}
+unsafe impl ::core::marker::Sync for CortanaSettings {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICortanaActionableInsights(::windows::core::IUnknown);

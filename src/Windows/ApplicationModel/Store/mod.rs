@@ -985,6 +985,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lice
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LicenseInformation {}
+unsafe impl ::core::marker::Sync for LicenseInformation {}
 #[repr(transparent)]
 pub struct ListingInformation(::windows::core::IUnknown);
 impl ListingInformation {
@@ -1122,6 +1124,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &List
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ListingInformation {}
+unsafe impl ::core::marker::Sync for ListingInformation {}
 #[repr(transparent)]
 pub struct ProductLicense(::windows::core::IUnknown);
 impl ProductLicense {
@@ -1216,6 +1220,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prod
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProductLicense {}
+unsafe impl ::core::marker::Sync for ProductLicense {}
 #[repr(transparent)]
 pub struct ProductListing(::windows::core::IUnknown);
 impl ProductListing {
@@ -1368,6 +1374,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prod
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProductListing {}
+unsafe impl ::core::marker::Sync for ProductListing {}
 #[repr(transparent)]
 pub struct ProductPurchaseDisplayProperties(::windows::core::IUnknown);
 impl ProductPurchaseDisplayProperties {
@@ -1485,6 +1493,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prod
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProductPurchaseDisplayProperties {}
+unsafe impl ::core::marker::Sync for ProductPurchaseDisplayProperties {}
 #[repr(transparent)]
 pub struct ProductPurchaseStatus(pub i32);
 impl ProductPurchaseStatus {
@@ -1635,6 +1645,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Purc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PurchaseResults {}
+unsafe impl ::core::marker::Sync for PurchaseResults {}
 #[repr(transparent)]
 pub struct UnfulfilledConsumable(::windows::core::IUnknown);
 impl UnfulfilledConsumable {
@@ -1721,3 +1733,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Unfu
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UnfulfilledConsumable {}
+unsafe impl ::core::marker::Sync for UnfulfilledConsumable {}

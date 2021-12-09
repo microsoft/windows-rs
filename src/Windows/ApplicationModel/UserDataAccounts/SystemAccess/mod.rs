@@ -594,6 +594,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DeviceAccountConfiguration {}
+unsafe impl ::core::marker::Sync for DeviceAccountConfiguration {}
 #[repr(transparent)]
 pub struct DeviceAccountIconId(pub i32);
 impl DeviceAccountIconId {

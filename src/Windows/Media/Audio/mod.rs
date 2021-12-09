@@ -256,6 +256,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AudioDeviceInputNode {}
+unsafe impl ::core::marker::Sync for AudioDeviceInputNode {}
 #[repr(transparent)]
 pub struct AudioDeviceNodeCreationStatus(pub i32);
 impl AudioDeviceNodeCreationStatus {
@@ -505,6 +507,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AudioDeviceOutputNode {}
+unsafe impl ::core::marker::Sync for AudioDeviceOutputNode {}
 #[repr(transparent)]
 pub struct AudioFileInputNode(::windows::core::IUnknown);
 impl AudioFileInputNode {
@@ -846,6 +850,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AudioFileInputNode {}
+unsafe impl ::core::marker::Sync for AudioFileInputNode {}
 #[repr(transparent)]
 pub struct AudioFileNodeCreationStatus(pub i32);
 impl AudioFileNodeCreationStatus {
@@ -1078,6 +1084,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AudioFileOutputNode {}
+unsafe impl ::core::marker::Sync for AudioFileOutputNode {}
 #[repr(transparent)]
 pub struct AudioFrameCompletedEventArgs(::windows::core::IUnknown);
 impl AudioFrameCompletedEventArgs {
@@ -1150,6 +1158,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AudioFrameCompletedEventArgs {}
+unsafe impl ::core::marker::Sync for AudioFrameCompletedEventArgs {}
 #[repr(transparent)]
 pub struct AudioFrameInputNode(::windows::core::IUnknown);
 impl AudioFrameInputNode {
@@ -1451,6 +1461,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AudioFrameInputNode {}
+unsafe impl ::core::marker::Sync for AudioFrameInputNode {}
 #[repr(transparent)]
 pub struct AudioFrameOutputNode(::windows::core::IUnknown);
 impl AudioFrameOutputNode {
@@ -1636,6 +1648,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AudioFrameOutputNode {}
+unsafe impl ::core::marker::Sync for AudioFrameOutputNode {}
 #[repr(transparent)]
 pub struct AudioGraph(::windows::core::IUnknown);
 impl AudioGraph {
@@ -1995,6 +2009,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AudioGraph {}
+unsafe impl ::core::marker::Sync for AudioGraph {}
 #[cfg(feature = "Foundation")]
 #[repr(transparent)]
 pub struct AudioGraphBatchUpdater(::windows::core::IUnknown);
@@ -2111,6 +2127,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation")]
+unsafe impl ::core::marker::Send for AudioGraphBatchUpdater {}
+#[cfg(feature = "Foundation")]
+unsafe impl ::core::marker::Sync for AudioGraphBatchUpdater {}
 #[repr(transparent)]
 pub struct AudioGraphConnection(::windows::core::IUnknown);
 impl AudioGraphConnection {
@@ -2194,6 +2214,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AudioGraphConnection {}
+unsafe impl ::core::marker::Sync for AudioGraphConnection {}
 #[repr(transparent)]
 pub struct AudioGraphCreationStatus(pub i32);
 impl AudioGraphCreationStatus {
@@ -2382,6 +2404,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AudioGraphSettings {}
+unsafe impl ::core::marker::Sync for AudioGraphSettings {}
 #[repr(transparent)]
 pub struct AudioGraphUnrecoverableError(pub i32);
 impl AudioGraphUnrecoverableError {
@@ -2483,6 +2507,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AudioGraphUnrecoverableErrorOccurredEventArgs {}
+unsafe impl ::core::marker::Sync for AudioGraphUnrecoverableErrorOccurredEventArgs {}
 #[repr(transparent)]
 pub struct AudioNodeEmitter(::windows::core::IUnknown);
 impl AudioNodeEmitter {
@@ -2669,6 +2695,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AudioNodeEmitter {}
+unsafe impl ::core::marker::Sync for AudioNodeEmitter {}
 #[repr(transparent)]
 pub struct AudioNodeEmitterConeProperties(::windows::core::IUnknown);
 impl AudioNodeEmitterConeProperties {
@@ -2755,6 +2783,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AudioNodeEmitterConeProperties {}
+unsafe impl ::core::marker::Sync for AudioNodeEmitterConeProperties {}
 #[repr(transparent)]
 pub struct AudioNodeEmitterDecayKind(pub i32);
 impl AudioNodeEmitterDecayKind {
@@ -2891,6 +2921,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AudioNodeEmitterDecayModel {}
+unsafe impl ::core::marker::Sync for AudioNodeEmitterDecayModel {}
 #[repr(transparent)]
 pub struct AudioNodeEmitterNaturalDecayModelProperties(::windows::core::IUnknown);
 impl AudioNodeEmitterNaturalDecayModelProperties {
@@ -2970,6 +3002,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AudioNodeEmitterNaturalDecayModelProperties {}
+unsafe impl ::core::marker::Sync for AudioNodeEmitterNaturalDecayModelProperties {}
 #[repr(transparent)]
 pub struct AudioNodeEmitterSettings(pub u32);
 impl AudioNodeEmitterSettings {
@@ -3092,6 +3126,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AudioNodeEmitterShape {}
+unsafe impl ::core::marker::Sync for AudioNodeEmitterShape {}
 #[repr(transparent)]
 pub struct AudioNodeEmitterShapeKind(pub i32);
 impl AudioNodeEmitterShapeKind {
@@ -3241,6 +3277,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AudioNodeListener {}
+unsafe impl ::core::marker::Sync for AudioNodeListener {}
 #[repr(transparent)]
 pub struct AudioPlaybackConnection(::windows::core::IUnknown);
 impl AudioPlaybackConnection {
@@ -3407,6 +3445,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AudioPlaybackConnection {}
+unsafe impl ::core::marker::Sync for AudioPlaybackConnection {}
 #[repr(transparent)]
 pub struct AudioPlaybackConnectionOpenResult(::windows::core::IUnknown);
 impl AudioPlaybackConnectionOpenResult {
@@ -3486,6 +3526,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AudioPlaybackConnectionOpenResult {}
+unsafe impl ::core::marker::Sync for AudioPlaybackConnectionOpenResult {}
 #[repr(transparent)]
 pub struct AudioPlaybackConnectionOpenResultStatus(pub i32);
 impl AudioPlaybackConnectionOpenResultStatus {
@@ -3685,6 +3727,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AudioStateMonitor {}
+unsafe impl ::core::marker::Sync for AudioStateMonitor {}
 #[repr(transparent)]
 pub struct AudioSubmixNode(::windows::core::IUnknown);
 impl AudioSubmixNode {
@@ -3934,6 +3978,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AudioSubmixNode {}
+unsafe impl ::core::marker::Sync for AudioSubmixNode {}
 #[repr(transparent)]
 pub struct CreateAudioDeviceInputNodeResult(::windows::core::IUnknown);
 impl CreateAudioDeviceInputNodeResult {
@@ -4020,6 +4066,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Crea
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CreateAudioDeviceInputNodeResult {}
+unsafe impl ::core::marker::Sync for CreateAudioDeviceInputNodeResult {}
 #[repr(transparent)]
 pub struct CreateAudioDeviceOutputNodeResult(::windows::core::IUnknown);
 impl CreateAudioDeviceOutputNodeResult {
@@ -4106,6 +4154,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Crea
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CreateAudioDeviceOutputNodeResult {}
+unsafe impl ::core::marker::Sync for CreateAudioDeviceOutputNodeResult {}
 #[repr(transparent)]
 pub struct CreateAudioFileInputNodeResult(::windows::core::IUnknown);
 impl CreateAudioFileInputNodeResult {
@@ -4192,6 +4242,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Crea
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CreateAudioFileInputNodeResult {}
+unsafe impl ::core::marker::Sync for CreateAudioFileInputNodeResult {}
 #[repr(transparent)]
 pub struct CreateAudioFileOutputNodeResult(::windows::core::IUnknown);
 impl CreateAudioFileOutputNodeResult {
@@ -4278,6 +4330,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Crea
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CreateAudioFileOutputNodeResult {}
+unsafe impl ::core::marker::Sync for CreateAudioFileOutputNodeResult {}
 #[repr(transparent)]
 pub struct CreateAudioGraphResult(::windows::core::IUnknown);
 impl CreateAudioGraphResult {
@@ -4364,6 +4418,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Crea
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CreateAudioGraphResult {}
+unsafe impl ::core::marker::Sync for CreateAudioGraphResult {}
 #[repr(transparent)]
 pub struct CreateMediaSourceAudioInputNodeResult(::windows::core::IUnknown);
 impl CreateMediaSourceAudioInputNodeResult {
@@ -4450,6 +4506,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Crea
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CreateMediaSourceAudioInputNodeResult {}
+unsafe impl ::core::marker::Sync for CreateMediaSourceAudioInputNodeResult {}
 #[repr(transparent)]
 pub struct EchoEffectDefinition(::windows::core::IUnknown);
 impl EchoEffectDefinition {
@@ -4600,6 +4658,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::Effects::IAudioEffectDefinition> 
         ::core::convert::TryInto::<super::Effects::IAudioEffectDefinition>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for EchoEffectDefinition {}
+unsafe impl ::core::marker::Sync for EchoEffectDefinition {}
 #[repr(transparent)]
 pub struct EqualizerBand(::windows::core::IUnknown);
 impl EqualizerBand {
@@ -4698,6 +4758,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Equa
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EqualizerBand {}
+unsafe impl ::core::marker::Sync for EqualizerBand {}
 #[repr(transparent)]
 pub struct EqualizerEffectDefinition(::windows::core::IUnknown);
 impl EqualizerEffectDefinition {
@@ -4823,6 +4885,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::Effects::IAudioEffectDefinition> 
         ::core::convert::TryInto::<super::Effects::IAudioEffectDefinition>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for EqualizerEffectDefinition {}
+unsafe impl ::core::marker::Sync for EqualizerEffectDefinition {}
 #[repr(transparent)]
 pub struct FrameInputNodeQuantumStartedEventArgs(::windows::core::IUnknown);
 impl FrameInputNodeQuantumStartedEventArgs {
@@ -4895,6 +4959,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Fram
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for FrameInputNodeQuantumStartedEventArgs {}
+unsafe impl ::core::marker::Sync for FrameInputNodeQuantumStartedEventArgs {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAudioDeviceInputNode(::windows::core::IUnknown);
@@ -7135,6 +7201,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::Effects::IAudioEffectDefinition> 
         ::core::convert::TryInto::<super::Effects::IAudioEffectDefinition>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for LimiterEffectDefinition {}
+unsafe impl ::core::marker::Sync for LimiterEffectDefinition {}
 #[repr(transparent)]
 pub struct MediaSourceAudioInputNode(::windows::core::IUnknown);
 impl MediaSourceAudioInputNode {
@@ -7476,6 +7544,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MediaSourceAudioInputNode {}
+unsafe impl ::core::marker::Sync for MediaSourceAudioInputNode {}
 #[repr(transparent)]
 pub struct MediaSourceAudioInputNodeCreationStatus(pub i32);
 impl MediaSourceAudioInputNodeCreationStatus {
@@ -7930,6 +8000,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::Effects::IAudioEffectDefinition> 
         ::core::convert::TryInto::<super::Effects::IAudioEffectDefinition>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ReverbEffectDefinition {}
+unsafe impl ::core::marker::Sync for ReverbEffectDefinition {}
 #[repr(transparent)]
 pub struct SetDefaultSpatialAudioFormatResult(::windows::core::IUnknown);
 impl SetDefaultSpatialAudioFormatResult {
@@ -8002,6 +8074,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SetD
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SetDefaultSpatialAudioFormatResult {}
+unsafe impl ::core::marker::Sync for SetDefaultSpatialAudioFormatResult {}
 #[repr(transparent)]
 pub struct SetDefaultSpatialAudioFormatStatus(pub i32);
 impl SetDefaultSpatialAudioFormatStatus {
@@ -8164,6 +8238,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialAudioDeviceConfiguration {}
+unsafe impl ::core::marker::Sync for SpatialAudioDeviceConfiguration {}
 #[repr(transparent)]
 pub struct SpatialAudioFormatConfiguration(::windows::core::IUnknown);
 impl SpatialAudioFormatConfiguration {
@@ -8266,6 +8342,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialAudioFormatConfiguration {}
+unsafe impl ::core::marker::Sync for SpatialAudioFormatConfiguration {}
 pub struct SpatialAudioFormatSubtype {}
 impl SpatialAudioFormatSubtype {
     pub fn WindowsSonic() -> ::windows::core::Result<::windows::core::HSTRING> {

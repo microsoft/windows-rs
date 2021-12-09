@@ -75,6 +75,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CoreAppWindowPreview {}
+unsafe impl ::core::marker::Sync for CoreAppWindowPreview {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICoreAppWindowPreview(::windows::core::IUnknown);
@@ -255,6 +257,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemNavigationCloseRequestedPreviewEventArgs {}
+unsafe impl ::core::marker::Sync for SystemNavigationCloseRequestedPreviewEventArgs {}
 #[repr(transparent)]
 pub struct SystemNavigationManagerPreview(::windows::core::IUnknown);
 impl SystemNavigationManagerPreview {
@@ -343,3 +347,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemNavigationManagerPreview {}
+unsafe impl ::core::marker::Sync for SystemNavigationManagerPreview {}

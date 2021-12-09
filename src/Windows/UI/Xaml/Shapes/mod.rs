@@ -203,6 +203,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Ellipse {
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Ellipse {}
+unsafe impl ::core::marker::Sync for Ellipse {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IEllipse(::windows::core::IUnknown);
@@ -849,6 +851,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Line {
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Line {}
+unsafe impl ::core::marker::Sync for Line {}
 #[repr(transparent)]
 pub struct Path(::windows::core::IUnknown);
 impl Path {
@@ -1079,6 +1083,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Path {
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Path {}
+unsafe impl ::core::marker::Sync for Path {}
 #[repr(transparent)]
 pub struct Polygon(::windows::core::IUnknown);
 impl Polygon {
@@ -1325,6 +1331,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Polygon {
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Polygon {}
+unsafe impl ::core::marker::Sync for Polygon {}
 #[repr(transparent)]
 pub struct Polyline(::windows::core::IUnknown);
 impl Polyline {
@@ -1571,6 +1579,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Polyline {
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Polyline {}
+unsafe impl ::core::marker::Sync for Polyline {}
 #[repr(transparent)]
 pub struct Rectangle(::windows::core::IUnknown);
 impl Rectangle {
@@ -1813,6 +1823,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Rectangle 
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Rectangle {}
+unsafe impl ::core::marker::Sync for Rectangle {}
 #[repr(transparent)]
 pub struct Shape(::windows::core::IUnknown);
 impl Shape {
@@ -2213,3 +2225,5 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Shape {
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Shape {}
+unsafe impl ::core::marker::Sync for Shape {}

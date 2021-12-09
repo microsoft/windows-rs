@@ -228,6 +228,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContentIndexer {}
+unsafe impl ::core::marker::Sync for ContentIndexer {}
 #[repr(transparent)]
 pub struct ContentIndexerQuery(::windows::core::IUnknown);
 impl ContentIndexerQuery {
@@ -340,6 +342,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContentIndexerQuery {}
+unsafe impl ::core::marker::Sync for ContentIndexerQuery {}
 #[repr(transparent)]
 pub struct DateStackOption(pub i32);
 impl DateStackOption {
@@ -1344,6 +1348,8 @@ impl<'a> ::windows::core::IntoParam<'a, IIndexableContent> for &IndexableContent
         ::core::convert::TryInto::<IIndexableContent>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for IndexableContent {}
+unsafe impl ::core::marker::Sync for IndexableContent {}
 #[repr(transparent)]
 pub struct IndexedState(pub i32);
 impl IndexedState {
@@ -1605,6 +1611,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Quer
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for QueryOptions {}
+unsafe impl ::core::marker::Sync for QueryOptions {}
 #[repr(C)]
 pub struct SortEntry {
     pub PropertyName: ::windows::core::HSTRING,
@@ -2627,3 +2635,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Valu
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ValueAndLanguage {}
+unsafe impl ::core::marker::Sync for ValueAndLanguage {}

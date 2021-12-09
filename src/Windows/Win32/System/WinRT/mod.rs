@@ -1722,6 +1722,8 @@ impl ::core::cmp::PartialEq for IRestrictedErrorInfo {
     }
 }
 impl ::core::cmp::Eq for IRestrictedErrorInfo {}
+unsafe impl ::core::marker::Send for IRestrictedErrorInfo {}
+unsafe impl ::core::marker::Sync for IRestrictedErrorInfo {}
 unsafe impl ::windows::core::Interface for IRestrictedErrorInfo {
     type Vtable = IRestrictedErrorInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82ba7092_4c88_427d_a7bc_16dd93feb67e);

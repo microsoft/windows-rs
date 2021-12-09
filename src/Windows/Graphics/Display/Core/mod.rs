@@ -233,6 +233,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Hdmi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HdmiDisplayInformation {}
+unsafe impl ::core::marker::Sync for HdmiDisplayInformation {}
 #[repr(transparent)]
 pub struct HdmiDisplayMode(::windows::core::IUnknown);
 impl HdmiDisplayMode {
@@ -382,6 +384,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Hdmi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HdmiDisplayMode {}
+unsafe impl ::core::marker::Sync for HdmiDisplayMode {}
 #[repr(transparent)]
 pub struct HdmiDisplayPixelEncoding(pub i32);
 impl HdmiDisplayPixelEncoding {

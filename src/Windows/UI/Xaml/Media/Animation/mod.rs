@@ -111,6 +111,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Add
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for AddDeleteThemeTransition {}
+unsafe impl ::core::marker::Sync for AddDeleteThemeTransition {}
 #[repr(transparent)]
 pub struct BackEase(::windows::core::IUnknown);
 impl BackEase {
@@ -244,6 +246,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Bac
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for BackEase {}
+unsafe impl ::core::marker::Sync for BackEase {}
 #[repr(transparent)]
 pub struct BasicConnectedAnimationConfiguration(::windows::core::IUnknown);
 impl BasicConnectedAnimationConfiguration {
@@ -339,6 +343,8 @@ impl<'a> ::windows::core::IntoParam<'a, ConnectedAnimationConfiguration> for &Ba
         ::windows::core::Param::Owned(::core::convert::Into::<ConnectedAnimationConfiguration>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for BasicConnectedAnimationConfiguration {}
+unsafe impl ::core::marker::Sync for BasicConnectedAnimationConfiguration {}
 #[repr(transparent)]
 pub struct BeginStoryboard(::windows::core::IUnknown);
 impl BeginStoryboard {
@@ -472,6 +478,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Beg
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for BeginStoryboard {}
+unsafe impl ::core::marker::Sync for BeginStoryboard {}
 #[repr(transparent)]
 pub struct BounceEase(::windows::core::IUnknown);
 impl BounceEase {
@@ -622,6 +630,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Bou
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for BounceEase {}
+unsafe impl ::core::marker::Sync for BounceEase {}
 #[repr(transparent)]
 pub struct CircleEase(::windows::core::IUnknown);
 impl CircleEase {
@@ -734,6 +744,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Cir
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CircleEase {}
+unsafe impl ::core::marker::Sync for CircleEase {}
 #[repr(transparent)]
 pub struct ClockState(pub i32);
 impl ClockState {
@@ -969,6 +981,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Col
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ColorAnimation {}
+unsafe impl ::core::marker::Sync for ColorAnimation {}
 #[repr(transparent)]
 pub struct ColorAnimationUsingKeyFrames(::windows::core::IUnknown);
 impl ColorAnimationUsingKeyFrames {
@@ -1110,6 +1124,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Col
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ColorAnimationUsingKeyFrames {}
+unsafe impl ::core::marker::Sync for ColorAnimationUsingKeyFrames {}
 #[repr(transparent)]
 pub struct ColorKeyFrame(::windows::core::IUnknown);
 impl ColorKeyFrame {
@@ -1235,6 +1251,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Col
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ColorKeyFrame {}
+unsafe impl ::core::marker::Sync for ColorKeyFrame {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct ColorKeyFrameCollection(::windows::core::IUnknown);
@@ -1484,6 +1502,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::
         ::core::convert::TryInto::<super::super::super::super::Foundation::Collections::IVector<ColorKeyFrame>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for ColorKeyFrameCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for ColorKeyFrameCollection {}
 #[repr(transparent)]
 pub struct CommonNavigationTransitionInfo(::windows::core::IUnknown);
 impl CommonNavigationTransitionInfo {
@@ -1632,6 +1654,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Com
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CommonNavigationTransitionInfo {}
+unsafe impl ::core::marker::Sync for CommonNavigationTransitionInfo {}
 #[repr(transparent)]
 pub struct ConnectedAnimation(::windows::core::IUnknown);
 impl ConnectedAnimation {
@@ -1756,6 +1780,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Conn
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ConnectedAnimation {}
+unsafe impl ::core::marker::Sync for ConnectedAnimation {}
 #[repr(transparent)]
 pub struct ConnectedAnimationComponent(pub i32);
 impl ConnectedAnimationComponent {
@@ -1849,6 +1875,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Conn
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ConnectedAnimationConfiguration {}
+unsafe impl ::core::marker::Sync for ConnectedAnimationConfiguration {}
 #[repr(transparent)]
 pub struct ConnectedAnimationService(::windows::core::IUnknown);
 impl ConnectedAnimationService {
@@ -1964,6 +1992,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Conn
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ConnectedAnimationService {}
+unsafe impl ::core::marker::Sync for ConnectedAnimationService {}
 #[repr(transparent)]
 pub struct ContentThemeTransition(::windows::core::IUnknown);
 impl ContentThemeTransition {
@@ -2114,6 +2144,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Con
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ContentThemeTransition {}
+unsafe impl ::core::marker::Sync for ContentThemeTransition {}
 #[repr(transparent)]
 pub struct ContinuumNavigationTransitionInfo(::windows::core::IUnknown);
 impl ContinuumNavigationTransitionInfo {
@@ -2294,6 +2326,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Con
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ContinuumNavigationTransitionInfo {}
+unsafe impl ::core::marker::Sync for ContinuumNavigationTransitionInfo {}
 #[repr(transparent)]
 pub struct CubicEase(::windows::core::IUnknown);
 impl CubicEase {
@@ -2406,6 +2440,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Cub
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CubicEase {}
+unsafe impl ::core::marker::Sync for CubicEase {}
 #[repr(transparent)]
 pub struct DirectConnectedAnimationConfiguration(::windows::core::IUnknown);
 impl DirectConnectedAnimationConfiguration {
@@ -2501,6 +2537,8 @@ impl<'a> ::windows::core::IntoParam<'a, ConnectedAnimationConfiguration> for &Di
         ::windows::core::Param::Owned(::core::convert::Into::<ConnectedAnimationConfiguration>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DirectConnectedAnimationConfiguration {}
+unsafe impl ::core::marker::Sync for DirectConnectedAnimationConfiguration {}
 #[repr(transparent)]
 pub struct DiscreteColorKeyFrame(::windows::core::IUnknown);
 impl DiscreteColorKeyFrame {
@@ -2613,6 +2651,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dis
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DiscreteColorKeyFrame {}
+unsafe impl ::core::marker::Sync for DiscreteColorKeyFrame {}
 #[repr(transparent)]
 pub struct DiscreteDoubleKeyFrame(::windows::core::IUnknown);
 impl DiscreteDoubleKeyFrame {
@@ -2725,6 +2765,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dis
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DiscreteDoubleKeyFrame {}
+unsafe impl ::core::marker::Sync for DiscreteDoubleKeyFrame {}
 #[repr(transparent)]
 pub struct DiscreteObjectKeyFrame(::windows::core::IUnknown);
 impl DiscreteObjectKeyFrame {
@@ -2837,6 +2879,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dis
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DiscreteObjectKeyFrame {}
+unsafe impl ::core::marker::Sync for DiscreteObjectKeyFrame {}
 #[repr(transparent)]
 pub struct DiscretePointKeyFrame(::windows::core::IUnknown);
 impl DiscretePointKeyFrame {
@@ -2949,6 +2993,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dis
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DiscretePointKeyFrame {}
+unsafe impl ::core::marker::Sync for DiscretePointKeyFrame {}
 #[repr(transparent)]
 pub struct DoubleAnimation(::windows::core::IUnknown);
 impl DoubleAnimation {
@@ -3156,6 +3202,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dou
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DoubleAnimation {}
+unsafe impl ::core::marker::Sync for DoubleAnimation {}
 #[repr(transparent)]
 pub struct DoubleAnimationUsingKeyFrames(::windows::core::IUnknown);
 impl DoubleAnimationUsingKeyFrames {
@@ -3297,6 +3345,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dou
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DoubleAnimationUsingKeyFrames {}
+unsafe impl ::core::marker::Sync for DoubleAnimationUsingKeyFrames {}
 #[repr(transparent)]
 pub struct DoubleKeyFrame(::windows::core::IUnknown);
 impl DoubleKeyFrame {
@@ -3422,6 +3472,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dou
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DoubleKeyFrame {}
+unsafe impl ::core::marker::Sync for DoubleKeyFrame {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct DoubleKeyFrameCollection(::windows::core::IUnknown);
@@ -3671,6 +3723,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::
         ::core::convert::TryInto::<super::super::super::super::Foundation::Collections::IVector<DoubleKeyFrame>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for DoubleKeyFrameCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for DoubleKeyFrameCollection {}
 #[repr(transparent)]
 pub struct DragItemThemeAnimation(::windows::core::IUnknown);
 impl DragItemThemeAnimation {
@@ -3804,6 +3860,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dra
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DragItemThemeAnimation {}
+unsafe impl ::core::marker::Sync for DragItemThemeAnimation {}
 #[repr(transparent)]
 pub struct DragOverThemeAnimation(::windows::core::IUnknown);
 impl DragOverThemeAnimation {
@@ -3973,6 +4031,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dra
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DragOverThemeAnimation {}
+unsafe impl ::core::marker::Sync for DragOverThemeAnimation {}
 #[repr(transparent)]
 pub struct DrillInNavigationTransitionInfo(::windows::core::IUnknown);
 impl DrillInNavigationTransitionInfo {
@@ -4085,6 +4145,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dri
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DrillInNavigationTransitionInfo {}
+unsafe impl ::core::marker::Sync for DrillInNavigationTransitionInfo {}
 #[repr(transparent)]
 pub struct DrillInThemeAnimation(::windows::core::IUnknown);
 impl DrillInThemeAnimation {
@@ -4269,6 +4331,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dri
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DrillInThemeAnimation {}
+unsafe impl ::core::marker::Sync for DrillInThemeAnimation {}
 #[repr(transparent)]
 pub struct DrillOutThemeAnimation(::windows::core::IUnknown);
 impl DrillOutThemeAnimation {
@@ -4453,6 +4517,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dri
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DrillOutThemeAnimation {}
+unsafe impl ::core::marker::Sync for DrillOutThemeAnimation {}
 #[repr(transparent)]
 pub struct DropTargetItemThemeAnimation(::windows::core::IUnknown);
 impl DropTargetItemThemeAnimation {
@@ -4586,6 +4652,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dro
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DropTargetItemThemeAnimation {}
+unsafe impl ::core::marker::Sync for DropTargetItemThemeAnimation {}
 #[repr(transparent)]
 pub struct EasingColorKeyFrame(::windows::core::IUnknown);
 impl EasingColorKeyFrame {
@@ -4719,6 +4787,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Eas
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for EasingColorKeyFrame {}
+unsafe impl ::core::marker::Sync for EasingColorKeyFrame {}
 #[repr(transparent)]
 pub struct EasingDoubleKeyFrame(::windows::core::IUnknown);
 impl EasingDoubleKeyFrame {
@@ -4852,6 +4922,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Eas
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for EasingDoubleKeyFrame {}
+unsafe impl ::core::marker::Sync for EasingDoubleKeyFrame {}
 #[repr(transparent)]
 pub struct EasingFunctionBase(::windows::core::IUnknown);
 impl EasingFunctionBase {
@@ -4965,6 +5037,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Eas
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for EasingFunctionBase {}
+unsafe impl ::core::marker::Sync for EasingFunctionBase {}
 #[repr(transparent)]
 pub struct EasingMode(pub i32);
 impl EasingMode {
@@ -5126,6 +5200,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Eas
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for EasingPointKeyFrame {}
+unsafe impl ::core::marker::Sync for EasingPointKeyFrame {}
 #[repr(transparent)]
 pub struct EdgeUIThemeTransition(::windows::core::IUnknown);
 impl EdgeUIThemeTransition {
@@ -5261,6 +5337,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Edg
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for EdgeUIThemeTransition {}
+unsafe impl ::core::marker::Sync for EdgeUIThemeTransition {}
 #[repr(transparent)]
 pub struct ElasticEase(::windows::core::IUnknown);
 impl ElasticEase {
@@ -5411,6 +5489,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ela
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ElasticEase {}
+unsafe impl ::core::marker::Sync for ElasticEase {}
 #[repr(transparent)]
 pub struct EntranceNavigationTransitionInfo(::windows::core::IUnknown);
 impl EntranceNavigationTransitionInfo {
@@ -5542,6 +5622,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ent
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for EntranceNavigationTransitionInfo {}
+unsafe impl ::core::marker::Sync for EntranceNavigationTransitionInfo {}
 #[repr(transparent)]
 pub struct EntranceThemeTransition(::windows::core::IUnknown);
 impl EntranceThemeTransition {
@@ -5709,6 +5791,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ent
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for EntranceThemeTransition {}
+unsafe impl ::core::marker::Sync for EntranceThemeTransition {}
 #[repr(transparent)]
 pub struct ExponentialEase(::windows::core::IUnknown);
 impl ExponentialEase {
@@ -5842,6 +5926,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Exp
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ExponentialEase {}
+unsafe impl ::core::marker::Sync for ExponentialEase {}
 #[repr(transparent)]
 pub struct FadeInThemeAnimation(::windows::core::IUnknown);
 impl FadeInThemeAnimation {
@@ -5975,6 +6061,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Fad
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for FadeInThemeAnimation {}
+unsafe impl ::core::marker::Sync for FadeInThemeAnimation {}
 #[repr(transparent)]
 pub struct FadeOutThemeAnimation(::windows::core::IUnknown);
 impl FadeOutThemeAnimation {
@@ -6108,6 +6196,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Fad
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for FadeOutThemeAnimation {}
+unsafe impl ::core::marker::Sync for FadeOutThemeAnimation {}
 #[repr(transparent)]
 pub struct FillBehavior(pub i32);
 impl FillBehavior {
@@ -6241,6 +6331,8 @@ impl<'a> ::windows::core::IntoParam<'a, ConnectedAnimationConfiguration> for &Gr
         ::windows::core::Param::Owned(::core::convert::Into::<ConnectedAnimationConfiguration>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for GravityConnectedAnimationConfiguration {}
+unsafe impl ::core::marker::Sync for GravityConnectedAnimationConfiguration {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAddDeleteThemeTransition(::windows::core::IUnknown);
@@ -9493,6 +9585,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Key
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for KeySpline {}
+unsafe impl ::core::marker::Sync for KeySpline {}
 #[repr(C)]
 #[cfg(feature = "Foundation")]
 pub struct KeyTime {
@@ -9608,6 +9702,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &KeyT
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for KeyTimeHelper {}
+unsafe impl ::core::marker::Sync for KeyTimeHelper {}
 #[repr(transparent)]
 pub struct LinearColorKeyFrame(::windows::core::IUnknown);
 impl LinearColorKeyFrame {
@@ -9720,6 +9816,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lin
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for LinearColorKeyFrame {}
+unsafe impl ::core::marker::Sync for LinearColorKeyFrame {}
 #[repr(transparent)]
 pub struct LinearDoubleKeyFrame(::windows::core::IUnknown);
 impl LinearDoubleKeyFrame {
@@ -9832,6 +9930,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lin
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for LinearDoubleKeyFrame {}
+unsafe impl ::core::marker::Sync for LinearDoubleKeyFrame {}
 #[repr(transparent)]
 pub struct LinearPointKeyFrame(::windows::core::IUnknown);
 impl LinearPointKeyFrame {
@@ -9944,6 +10044,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lin
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for LinearPointKeyFrame {}
+unsafe impl ::core::marker::Sync for LinearPointKeyFrame {}
 #[repr(transparent)]
 pub struct NavigationThemeTransition(::windows::core::IUnknown);
 impl NavigationThemeTransition {
@@ -10077,6 +10179,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Nav
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for NavigationThemeTransition {}
+unsafe impl ::core::marker::Sync for NavigationThemeTransition {}
 #[repr(transparent)]
 pub struct NavigationTransitionInfo(::windows::core::IUnknown);
 impl NavigationTransitionInfo {}
@@ -10161,6 +10265,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Nav
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for NavigationTransitionInfo {}
+unsafe impl ::core::marker::Sync for NavigationTransitionInfo {}
 #[repr(transparent)]
 pub struct ObjectAnimationUsingKeyFrames(::windows::core::IUnknown);
 impl ObjectAnimationUsingKeyFrames {
@@ -10302,6 +10408,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Obj
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ObjectAnimationUsingKeyFrames {}
+unsafe impl ::core::marker::Sync for ObjectAnimationUsingKeyFrames {}
 #[repr(transparent)]
 pub struct ObjectKeyFrame(::windows::core::IUnknown);
 impl ObjectKeyFrame {
@@ -10427,6 +10535,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Obj
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ObjectKeyFrame {}
+unsafe impl ::core::marker::Sync for ObjectKeyFrame {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct ObjectKeyFrameCollection(::windows::core::IUnknown);
@@ -10676,6 +10786,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::
         ::core::convert::TryInto::<super::super::super::super::Foundation::Collections::IVector<ObjectKeyFrame>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for ObjectKeyFrameCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for ObjectKeyFrameCollection {}
 #[repr(transparent)]
 pub struct PaneThemeTransition(::windows::core::IUnknown);
 impl PaneThemeTransition {
@@ -10811,6 +10925,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pan
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PaneThemeTransition {}
+unsafe impl ::core::marker::Sync for PaneThemeTransition {}
 #[repr(transparent)]
 pub struct PointAnimation(::windows::core::IUnknown);
 impl PointAnimation {
@@ -11018,6 +11134,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Poi
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PointAnimation {}
+unsafe impl ::core::marker::Sync for PointAnimation {}
 #[repr(transparent)]
 pub struct PointAnimationUsingKeyFrames(::windows::core::IUnknown);
 impl PointAnimationUsingKeyFrames {
@@ -11159,6 +11277,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Poi
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PointAnimationUsingKeyFrames {}
+unsafe impl ::core::marker::Sync for PointAnimationUsingKeyFrames {}
 #[repr(transparent)]
 pub struct PointKeyFrame(::windows::core::IUnknown);
 impl PointKeyFrame {
@@ -11286,6 +11406,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Poi
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PointKeyFrame {}
+unsafe impl ::core::marker::Sync for PointKeyFrame {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct PointKeyFrameCollection(::windows::core::IUnknown);
@@ -11535,6 +11657,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::
         ::core::convert::TryInto::<super::super::super::super::Foundation::Collections::IVector<PointKeyFrame>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for PointKeyFrameCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for PointKeyFrameCollection {}
 #[repr(transparent)]
 pub struct PointerDownThemeAnimation(::windows::core::IUnknown);
 impl PointerDownThemeAnimation {
@@ -11668,6 +11794,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Poi
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PointerDownThemeAnimation {}
+unsafe impl ::core::marker::Sync for PointerDownThemeAnimation {}
 #[repr(transparent)]
 pub struct PointerUpThemeAnimation(::windows::core::IUnknown);
 impl PointerUpThemeAnimation {
@@ -11801,6 +11929,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Poi
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PointerUpThemeAnimation {}
+unsafe impl ::core::marker::Sync for PointerUpThemeAnimation {}
 #[repr(transparent)]
 pub struct PopInThemeAnimation(::windows::core::IUnknown);
 impl PopInThemeAnimation {
@@ -11968,6 +12098,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pop
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PopInThemeAnimation {}
+unsafe impl ::core::marker::Sync for PopInThemeAnimation {}
 #[repr(transparent)]
 pub struct PopOutThemeAnimation(::windows::core::IUnknown);
 impl PopOutThemeAnimation {
@@ -12101,6 +12233,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pop
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PopOutThemeAnimation {}
+unsafe impl ::core::marker::Sync for PopOutThemeAnimation {}
 #[repr(transparent)]
 pub struct PopupThemeTransition(::windows::core::IUnknown);
 impl PopupThemeTransition {
@@ -12251,6 +12385,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pop
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PopupThemeTransition {}
+unsafe impl ::core::marker::Sync for PopupThemeTransition {}
 #[repr(transparent)]
 pub struct PowerEase(::windows::core::IUnknown);
 impl PowerEase {
@@ -12384,6 +12520,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pow
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PowerEase {}
+unsafe impl ::core::marker::Sync for PowerEase {}
 #[repr(transparent)]
 pub struct QuadraticEase(::windows::core::IUnknown);
 impl QuadraticEase {
@@ -12496,6 +12634,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Qua
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for QuadraticEase {}
+unsafe impl ::core::marker::Sync for QuadraticEase {}
 #[repr(transparent)]
 pub struct QuarticEase(::windows::core::IUnknown);
 impl QuarticEase {
@@ -12608,6 +12748,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Qua
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for QuarticEase {}
+unsafe impl ::core::marker::Sync for QuarticEase {}
 #[repr(transparent)]
 pub struct QuinticEase(::windows::core::IUnknown);
 impl QuinticEase {
@@ -12720,6 +12862,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Qui
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for QuinticEase {}
+unsafe impl ::core::marker::Sync for QuinticEase {}
 #[repr(transparent)]
 pub struct ReorderThemeTransition(::windows::core::IUnknown);
 impl ReorderThemeTransition {
@@ -12832,6 +12976,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Reo
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ReorderThemeTransition {}
+unsafe impl ::core::marker::Sync for ReorderThemeTransition {}
 #[repr(C)]
 #[cfg(feature = "Foundation")]
 pub struct RepeatBehavior {
@@ -12984,6 +13130,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Repe
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RepeatBehaviorHelper {}
+unsafe impl ::core::marker::Sync for RepeatBehaviorHelper {}
 #[repr(transparent)]
 pub struct RepeatBehaviorType(pub i32);
 impl RepeatBehaviorType {
@@ -13179,6 +13327,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Rep
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for RepositionThemeAnimation {}
+unsafe impl ::core::marker::Sync for RepositionThemeAnimation {}
 #[repr(transparent)]
 pub struct RepositionThemeTransition(::windows::core::IUnknown);
 impl RepositionThemeTransition {
@@ -13312,6 +13462,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Rep
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for RepositionThemeTransition {}
+unsafe impl ::core::marker::Sync for RepositionThemeTransition {}
 #[repr(transparent)]
 pub struct SineEase(::windows::core::IUnknown);
 impl SineEase {
@@ -13424,6 +13576,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sin
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SineEase {}
+unsafe impl ::core::marker::Sync for SineEase {}
 #[repr(transparent)]
 pub struct SlideNavigationTransitionEffect(pub i32);
 impl SlideNavigationTransitionEffect {
@@ -13585,6 +13739,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sli
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SlideNavigationTransitionInfo {}
+unsafe impl ::core::marker::Sync for SlideNavigationTransitionInfo {}
 #[repr(transparent)]
 pub struct SplineColorKeyFrame(::windows::core::IUnknown);
 impl SplineColorKeyFrame {
@@ -13718,6 +13874,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Spl
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SplineColorKeyFrame {}
+unsafe impl ::core::marker::Sync for SplineColorKeyFrame {}
 #[repr(transparent)]
 pub struct SplineDoubleKeyFrame(::windows::core::IUnknown);
 impl SplineDoubleKeyFrame {
@@ -13851,6 +14009,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Spl
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SplineDoubleKeyFrame {}
+unsafe impl ::core::marker::Sync for SplineDoubleKeyFrame {}
 #[repr(transparent)]
 pub struct SplinePointKeyFrame(::windows::core::IUnknown);
 impl SplinePointKeyFrame {
@@ -13984,6 +14144,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Spl
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SplinePointKeyFrame {}
+unsafe impl ::core::marker::Sync for SplinePointKeyFrame {}
 #[repr(transparent)]
 pub struct SplitCloseThemeAnimation(::windows::core::IUnknown);
 impl SplitCloseThemeAnimation {
@@ -14289,6 +14451,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Spl
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SplitCloseThemeAnimation {}
+unsafe impl ::core::marker::Sync for SplitCloseThemeAnimation {}
 #[repr(transparent)]
 pub struct SplitOpenThemeAnimation(::windows::core::IUnknown);
 impl SplitOpenThemeAnimation {
@@ -14594,6 +14758,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Spl
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SplitOpenThemeAnimation {}
+unsafe impl ::core::marker::Sync for SplitOpenThemeAnimation {}
 #[repr(transparent)]
 pub struct Storyboard(::windows::core::IUnknown);
 impl Storyboard {
@@ -14796,6 +14962,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sto
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Storyboard {}
+unsafe impl ::core::marker::Sync for Storyboard {}
 #[repr(transparent)]
 pub struct SuppressNavigationTransitionInfo(::windows::core::IUnknown);
 impl SuppressNavigationTransitionInfo {
@@ -14908,6 +15076,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sup
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SuppressNavigationTransitionInfo {}
+unsafe impl ::core::marker::Sync for SuppressNavigationTransitionInfo {}
 #[repr(transparent)]
 pub struct SwipeBackThemeAnimation(::windows::core::IUnknown);
 impl SwipeBackThemeAnimation {
@@ -15075,6 +15245,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Swi
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SwipeBackThemeAnimation {}
+unsafe impl ::core::marker::Sync for SwipeBackThemeAnimation {}
 #[repr(transparent)]
 pub struct SwipeHintThemeAnimation(::windows::core::IUnknown);
 impl SwipeHintThemeAnimation {
@@ -15242,6 +15414,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Swi
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SwipeHintThemeAnimation {}
+unsafe impl ::core::marker::Sync for SwipeHintThemeAnimation {}
 #[repr(transparent)]
 pub struct Timeline(::windows::core::IUnknown);
 impl Timeline {
@@ -15461,6 +15635,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tim
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Timeline {}
+unsafe impl ::core::marker::Sync for Timeline {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct TimelineCollection(::windows::core::IUnknown);
@@ -15710,6 +15886,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::
         ::core::convert::TryInto::<super::super::super::super::Foundation::Collections::IVector<Timeline>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for TimelineCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for TimelineCollection {}
 #[repr(transparent)]
 pub struct Transition(::windows::core::IUnknown);
 impl Transition {}
@@ -15794,6 +15974,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tra
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Transition {}
+unsafe impl ::core::marker::Sync for Transition {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct TransitionCollection(::windows::core::IUnknown);
@@ -16043,3 +16225,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::
         ::core::convert::TryInto::<super::super::super::super::Foundation::Collections::IVector<Transition>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for TransitionCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for TransitionCollection {}

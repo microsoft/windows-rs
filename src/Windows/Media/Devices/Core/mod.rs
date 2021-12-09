@@ -181,6 +181,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Came
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CameraIntrinsics {}
+unsafe impl ::core::marker::Sync for CameraIntrinsics {}
 #[repr(transparent)]
 pub struct DepthCorrelatedCoordinateMapper(::windows::core::IUnknown);
 impl DepthCorrelatedCoordinateMapper {
@@ -303,6 +305,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for DepthCorrelatedCoordinateMapper {}
+unsafe impl ::core::marker::Sync for DepthCorrelatedCoordinateMapper {}
 #[repr(transparent)]
 pub struct FrameControlCapabilities(::windows::core::IUnknown);
 impl FrameControlCapabilities {
@@ -530,6 +534,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Fram
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for FrameController {}
+unsafe impl ::core::marker::Sync for FrameController {}
 #[repr(transparent)]
 pub struct FrameExposureCapabilities(::windows::core::IUnknown);
 impl FrameExposureCapabilities {

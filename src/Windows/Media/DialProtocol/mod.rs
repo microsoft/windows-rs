@@ -95,6 +95,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dial
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DialApp {}
+unsafe impl ::core::marker::Sync for DialApp {}
 #[repr(transparent)]
 pub struct DialAppLaunchResult(pub i32);
 impl DialAppLaunchResult {
@@ -232,6 +234,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dial
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DialAppStateDetails {}
+unsafe impl ::core::marker::Sync for DialAppStateDetails {}
 #[repr(transparent)]
 pub struct DialAppStopResult(pub i32);
 impl DialAppStopResult {
@@ -379,6 +383,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dial
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DialDevice {}
+unsafe impl ::core::marker::Sync for DialDevice {}
 #[repr(transparent)]
 pub struct DialDeviceDisplayStatus(pub i32);
 impl DialDeviceDisplayStatus {
@@ -570,6 +576,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dial
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DialDevicePicker {}
+unsafe impl ::core::marker::Sync for DialDevicePicker {}
 #[repr(transparent)]
 pub struct DialDevicePickerFilter(::windows::core::IUnknown);
 impl DialDevicePickerFilter {
@@ -643,6 +651,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dial
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DialDevicePickerFilter {}
+unsafe impl ::core::marker::Sync for DialDevicePickerFilter {}
 #[repr(transparent)]
 pub struct DialDeviceSelectedEventArgs(::windows::core::IUnknown);
 impl DialDeviceSelectedEventArgs {
@@ -715,6 +725,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dial
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DialDeviceSelectedEventArgs {}
+unsafe impl ::core::marker::Sync for DialDeviceSelectedEventArgs {}
 #[repr(transparent)]
 pub struct DialDisconnectButtonClickedEventArgs(::windows::core::IUnknown);
 impl DialDisconnectButtonClickedEventArgs {
@@ -787,6 +799,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dial
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DialDisconnectButtonClickedEventArgs {}
+unsafe impl ::core::marker::Sync for DialDisconnectButtonClickedEventArgs {}
 #[repr(transparent)]
 pub struct DialReceiverApp(::windows::core::IUnknown);
 impl DialReceiverApp {
@@ -886,6 +900,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dial
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DialReceiverApp {}
+unsafe impl ::core::marker::Sync for DialReceiverApp {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDialApp(::windows::core::IUnknown);

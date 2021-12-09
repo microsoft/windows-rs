@@ -475,6 +475,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prov
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProviderSpiConnectionSettings {}
+unsafe impl ::core::marker::Sync for ProviderSpiConnectionSettings {}
 #[repr(transparent)]
 pub struct ProviderSpiMode(pub i32);
 impl ProviderSpiMode {

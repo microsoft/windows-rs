@@ -460,6 +460,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WiFiDirectAdvertisement {}
+unsafe impl ::core::marker::Sync for WiFiDirectAdvertisement {}
 #[repr(transparent)]
 pub struct WiFiDirectAdvertisementListenStateDiscoverability(pub i32);
 impl WiFiDirectAdvertisementListenStateDiscoverability {
@@ -595,6 +597,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WiFiDirectAdvertisementPublisher {}
+unsafe impl ::core::marker::Sync for WiFiDirectAdvertisementPublisher {}
 #[repr(transparent)]
 pub struct WiFiDirectAdvertisementPublisherStatus(pub i32);
 impl WiFiDirectAdvertisementPublisherStatus {
@@ -703,6 +707,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WiFiDirectAdvertisementPublisherStatusChangedEventArgs {}
+unsafe impl ::core::marker::Sync for WiFiDirectAdvertisementPublisherStatusChangedEventArgs {}
 #[repr(transparent)]
 pub struct WiFiDirectConfigurationMethod(pub i32);
 impl WiFiDirectConfigurationMethod {
@@ -816,6 +822,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WiFiDirectConnectionListener {}
+unsafe impl ::core::marker::Sync for WiFiDirectConnectionListener {}
 #[repr(transparent)]
 pub struct WiFiDirectConnectionParameters(::windows::core::IUnknown);
 impl WiFiDirectConnectionParameters {
@@ -955,6 +963,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::Enumeration::IDevicePairingSettin
         ::core::convert::TryInto::<super::Enumeration::IDevicePairingSettings>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for WiFiDirectConnectionParameters {}
+unsafe impl ::core::marker::Sync for WiFiDirectConnectionParameters {}
 #[repr(transparent)]
 pub struct WiFiDirectConnectionRequest(::windows::core::IUnknown);
 impl WiFiDirectConnectionRequest {
@@ -1059,6 +1069,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for WiFiDirectConnectionRequest {}
+unsafe impl ::core::marker::Sync for WiFiDirectConnectionRequest {}
 #[repr(transparent)]
 pub struct WiFiDirectConnectionRequestedEventArgs(::windows::core::IUnknown);
 impl WiFiDirectConnectionRequestedEventArgs {
@@ -1131,6 +1143,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WiFiDirectConnectionRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for WiFiDirectConnectionRequestedEventArgs {}
 #[repr(transparent)]
 pub struct WiFiDirectConnectionStatus(pub i32);
 impl WiFiDirectConnectionStatus {
@@ -1323,6 +1337,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for WiFiDirectDevice {}
+unsafe impl ::core::marker::Sync for WiFiDirectDevice {}
 #[repr(transparent)]
 pub struct WiFiDirectDeviceSelectorType(pub i32);
 impl WiFiDirectDeviceSelectorType {
@@ -1505,6 +1521,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WiFiDirectInformationElement {}
+unsafe impl ::core::marker::Sync for WiFiDirectInformationElement {}
 #[repr(transparent)]
 pub struct WiFiDirectLegacySettings(::windows::core::IUnknown);
 impl WiFiDirectLegacySettings {
@@ -1605,6 +1623,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WiFiDirectLegacySettings {}
+unsafe impl ::core::marker::Sync for WiFiDirectLegacySettings {}
 #[repr(transparent)]
 pub struct WiFiDirectPairingProcedure(pub i32);
 impl WiFiDirectPairingProcedure {

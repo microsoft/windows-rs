@@ -376,6 +376,8 @@ impl<'a> ::windows::core::IntoParam<'a, ILowLevelDevicesAggregateProvider> for &
         ::core::convert::TryInto::<ILowLevelDevicesAggregateProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for LowLevelDevicesAggregateProvider {}
+unsafe impl ::core::marker::Sync for LowLevelDevicesAggregateProvider {}
 #[repr(transparent)]
 pub struct LowLevelDevicesController(::windows::core::IUnknown);
 impl LowLevelDevicesController {
@@ -454,3 +456,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LowL
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LowLevelDevicesController {}
+unsafe impl ::core::marker::Sync for LowLevelDevicesController {}

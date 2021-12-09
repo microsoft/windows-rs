@@ -421,6 +421,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TargetedContentAction {}
+unsafe impl ::core::marker::Sync for TargetedContentAction {}
 #[repr(transparent)]
 pub struct TargetedContentAppInstallationState(pub i32);
 impl TargetedContentAppInstallationState {
@@ -550,6 +552,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TargetedContentAvailabilityChangedEventArgs {}
+unsafe impl ::core::marker::Sync for TargetedContentAvailabilityChangedEventArgs {}
 #[repr(transparent)]
 pub struct TargetedContentChangedEventArgs(::windows::core::IUnknown);
 impl TargetedContentChangedEventArgs {
@@ -630,6 +634,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TargetedContentChangedEventArgs {}
+unsafe impl ::core::marker::Sync for TargetedContentChangedEventArgs {}
 #[repr(transparent)]
 pub struct TargetedContentCollection(::windows::core::IUnknown);
 impl TargetedContentCollection {
@@ -741,6 +747,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TargetedContentCollection {}
+unsafe impl ::core::marker::Sync for TargetedContentCollection {}
 #[repr(transparent)]
 pub struct TargetedContentContainer(::windows::core::IUnknown);
 impl TargetedContentContainer {
@@ -853,6 +861,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TargetedContentContainer {}
+unsafe impl ::core::marker::Sync for TargetedContentContainer {}
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
 pub struct TargetedContentFile(::windows::core::IUnknown);
@@ -972,6 +982,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomA
         ::core::convert::TryInto::<super::super::Storage::Streams::IRandomAccessStreamReference>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Storage_Streams")]
+unsafe impl ::core::marker::Send for TargetedContentFile {}
+#[cfg(feature = "Storage_Streams")]
+unsafe impl ::core::marker::Sync for TargetedContentFile {}
 #[repr(transparent)]
 pub struct TargetedContentImage(::windows::core::IUnknown);
 impl TargetedContentImage {
@@ -1085,6 +1099,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomA
         ::core::convert::TryInto::<super::super::Storage::Streams::IRandomAccessStreamReference>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for TargetedContentImage {}
+unsafe impl ::core::marker::Sync for TargetedContentImage {}
 #[repr(transparent)]
 pub struct TargetedContentInteraction(pub i32);
 impl TargetedContentInteraction {
@@ -1226,6 +1242,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TargetedContentItem {}
+unsafe impl ::core::marker::Sync for TargetedContentItem {}
 #[repr(transparent)]
 pub struct TargetedContentItemState(::windows::core::IUnknown);
 impl TargetedContentItemState {
@@ -1305,6 +1323,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TargetedContentItemState {}
+unsafe impl ::core::marker::Sync for TargetedContentItemState {}
 #[repr(transparent)]
 pub struct TargetedContentObject(::windows::core::IUnknown);
 impl TargetedContentObject {
@@ -1398,6 +1418,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TargetedContentObject {}
+unsafe impl ::core::marker::Sync for TargetedContentObject {}
 #[repr(transparent)]
 pub struct TargetedContentObjectKind(pub i32);
 impl TargetedContentObjectKind {
@@ -1499,6 +1521,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TargetedContentStateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for TargetedContentStateChangedEventArgs {}
 #[repr(transparent)]
 pub struct TargetedContentSubscription(::windows::core::IUnknown);
 impl TargetedContentSubscription {
@@ -1635,6 +1659,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TargetedContentSubscription {}
+unsafe impl ::core::marker::Sync for TargetedContentSubscription {}
 #[repr(transparent)]
 pub struct TargetedContentSubscriptionOptions(::windows::core::IUnknown);
 impl TargetedContentSubscriptionOptions {
@@ -1738,6 +1764,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TargetedContentSubscriptionOptions {}
+unsafe impl ::core::marker::Sync for TargetedContentSubscriptionOptions {}
 #[repr(transparent)]
 pub struct TargetedContentValue(::windows::core::IUnknown);
 impl TargetedContentValue {
@@ -1924,6 +1952,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TargetedContentValue {}
+unsafe impl ::core::marker::Sync for TargetedContentValue {}
 #[repr(transparent)]
 pub struct TargetedContentValueKind(pub i32);
 impl TargetedContentValueKind {

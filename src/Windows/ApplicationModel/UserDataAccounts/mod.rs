@@ -509,6 +509,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataAccount {}
+unsafe impl ::core::marker::Sync for UserDataAccount {}
 #[repr(transparent)]
 pub struct UserDataAccountContentKinds(pub u32);
 impl UserDataAccountContentKinds {
@@ -667,6 +669,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataAccountManagerForUser {}
+unsafe impl ::core::marker::Sync for UserDataAccountManagerForUser {}
 #[repr(transparent)]
 pub struct UserDataAccountOtherAppReadAccess(pub i32);
 impl UserDataAccountOtherAppReadAccess {
@@ -813,6 +817,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataAccountStore {}
+unsafe impl ::core::marker::Sync for UserDataAccountStore {}
 #[repr(transparent)]
 pub struct UserDataAccountStoreAccessType(pub i32);
 impl UserDataAccountStoreAccessType {
@@ -913,3 +919,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataAccountStoreChangedEventArgs {}
+unsafe impl ::core::marker::Sync for UserDataAccountStoreChangedEventArgs {}

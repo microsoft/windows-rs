@@ -210,6 +210,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wall
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WalletItemSystemStore {}
+unsafe impl ::core::marker::Sync for WalletItemSystemStore {}
 pub struct WalletManagerSystem {}
 impl WalletManagerSystem {
     #[cfg(feature = "Foundation")]

@@ -403,6 +403,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataTaskDataProviderConnection {}
+unsafe impl ::core::marker::Sync for UserDataTaskDataProviderConnection {}
 #[repr(transparent)]
 pub struct UserDataTaskDataProviderTriggerDetails(::windows::core::IUnknown);
 impl UserDataTaskDataProviderTriggerDetails {
@@ -475,6 +477,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataTaskDataProviderTriggerDetails {}
+unsafe impl ::core::marker::Sync for UserDataTaskDataProviderTriggerDetails {}
 #[repr(transparent)]
 pub struct UserDataTaskListCompleteTaskRequest(::windows::core::IUnknown);
 impl UserDataTaskListCompleteTaskRequest {
@@ -570,6 +574,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataTaskListCompleteTaskRequest {}
+unsafe impl ::core::marker::Sync for UserDataTaskListCompleteTaskRequest {}
 #[repr(transparent)]
 pub struct UserDataTaskListCompleteTaskRequestEventArgs(::windows::core::IUnknown);
 impl UserDataTaskListCompleteTaskRequestEventArgs {
@@ -650,6 +656,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataTaskListCompleteTaskRequestEventArgs {}
+unsafe impl ::core::marker::Sync for UserDataTaskListCompleteTaskRequestEventArgs {}
 #[repr(transparent)]
 pub struct UserDataTaskListCreateOrUpdateTaskRequest(::windows::core::IUnknown);
 impl UserDataTaskListCreateOrUpdateTaskRequest {
@@ -745,6 +753,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataTaskListCreateOrUpdateTaskRequest {}
+unsafe impl ::core::marker::Sync for UserDataTaskListCreateOrUpdateTaskRequest {}
 #[repr(transparent)]
 pub struct UserDataTaskListCreateOrUpdateTaskRequestEventArgs(::windows::core::IUnknown);
 impl UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
@@ -825,6 +835,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {}
+unsafe impl ::core::marker::Sync for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {}
 #[repr(transparent)]
 pub struct UserDataTaskListDeleteTaskRequest(::windows::core::IUnknown);
 impl UserDataTaskListDeleteTaskRequest {
@@ -920,6 +932,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataTaskListDeleteTaskRequest {}
+unsafe impl ::core::marker::Sync for UserDataTaskListDeleteTaskRequest {}
 #[repr(transparent)]
 pub struct UserDataTaskListDeleteTaskRequestEventArgs(::windows::core::IUnknown);
 impl UserDataTaskListDeleteTaskRequestEventArgs {
@@ -1000,6 +1014,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataTaskListDeleteTaskRequestEventArgs {}
+unsafe impl ::core::marker::Sync for UserDataTaskListDeleteTaskRequestEventArgs {}
 #[repr(transparent)]
 pub struct UserDataTaskListSkipOccurrenceRequest(::windows::core::IUnknown);
 impl UserDataTaskListSkipOccurrenceRequest {
@@ -1095,6 +1111,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataTaskListSkipOccurrenceRequest {}
+unsafe impl ::core::marker::Sync for UserDataTaskListSkipOccurrenceRequest {}
 #[repr(transparent)]
 pub struct UserDataTaskListSkipOccurrenceRequestEventArgs(::windows::core::IUnknown);
 impl UserDataTaskListSkipOccurrenceRequestEventArgs {
@@ -1175,6 +1193,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataTaskListSkipOccurrenceRequestEventArgs {}
+unsafe impl ::core::marker::Sync for UserDataTaskListSkipOccurrenceRequestEventArgs {}
 #[repr(transparent)]
 pub struct UserDataTaskListSyncManagerSyncRequest(::windows::core::IUnknown);
 impl UserDataTaskListSyncManagerSyncRequest {
@@ -1263,6 +1283,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataTaskListSyncManagerSyncRequest {}
+unsafe impl ::core::marker::Sync for UserDataTaskListSyncManagerSyncRequest {}
 #[repr(transparent)]
 pub struct UserDataTaskListSyncManagerSyncRequestEventArgs(::windows::core::IUnknown);
 impl UserDataTaskListSyncManagerSyncRequestEventArgs {
@@ -1343,3 +1365,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataTaskListSyncManagerSyncRequestEventArgs {}
+unsafe impl ::core::marker::Sync for UserDataTaskListSyncManagerSyncRequestEventArgs {}

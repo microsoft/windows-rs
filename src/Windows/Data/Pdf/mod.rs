@@ -251,6 +251,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PdfD
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PdfDocument {}
+unsafe impl ::core::marker::Sync for PdfDocument {}
 #[repr(transparent)]
 pub struct PdfPage(::windows::core::IUnknown);
 impl PdfPage {
@@ -407,6 +409,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PdfPage {}
+unsafe impl ::core::marker::Sync for PdfPage {}
 #[repr(transparent)]
 pub struct PdfPageDimensions(::windows::core::IUnknown);
 impl PdfPageDimensions {
@@ -512,6 +516,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PdfP
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PdfPageDimensions {}
+unsafe impl ::core::marker::Sync for PdfPageDimensions {}
 #[repr(transparent)]
 pub struct PdfPageRenderOptions(::windows::core::IUnknown);
 impl PdfPageRenderOptions {
@@ -654,6 +660,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PdfP
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PdfPageRenderOptions {}
+unsafe impl ::core::marker::Sync for PdfPageRenderOptions {}
 #[repr(transparent)]
 pub struct PdfPageRotation(pub i32);
 impl PdfPageRotation {

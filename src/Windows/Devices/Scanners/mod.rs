@@ -714,6 +714,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Imag
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ImageScanner {}
+unsafe impl ::core::marker::Sync for ImageScanner {}
 #[repr(transparent)]
 pub struct ImageScannerAutoConfiguration(::windows::core::IUnknown);
 impl ImageScannerAutoConfiguration {
@@ -826,6 +828,8 @@ impl<'a> ::windows::core::IntoParam<'a, IImageScannerFormatConfiguration> for &I
         ::core::convert::TryInto::<IImageScannerFormatConfiguration>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ImageScannerAutoConfiguration {}
+unsafe impl ::core::marker::Sync for ImageScannerAutoConfiguration {}
 #[repr(transparent)]
 pub struct ImageScannerAutoCroppingMode(pub i32);
 impl ImageScannerAutoCroppingMode {
@@ -1313,6 +1317,8 @@ impl<'a> ::windows::core::IntoParam<'a, IImageScannerSourceConfiguration> for &I
         ::core::convert::TryInto::<IImageScannerSourceConfiguration>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ImageScannerFeederConfiguration {}
+unsafe impl ::core::marker::Sync for ImageScannerFeederConfiguration {}
 #[repr(transparent)]
 pub struct ImageScannerFlatbedConfiguration(::windows::core::IUnknown);
 impl ImageScannerFlatbedConfiguration {
@@ -1636,6 +1642,8 @@ impl<'a> ::windows::core::IntoParam<'a, IImageScannerSourceConfiguration> for &I
         ::core::convert::TryInto::<IImageScannerSourceConfiguration>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ImageScannerFlatbedConfiguration {}
+unsafe impl ::core::marker::Sync for ImageScannerFlatbedConfiguration {}
 #[repr(transparent)]
 pub struct ImageScannerFormat(pub i32);
 impl ImageScannerFormat {
@@ -1747,6 +1755,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Imag
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ImageScannerPreviewResult {}
+unsafe impl ::core::marker::Sync for ImageScannerPreviewResult {}
 #[repr(C)]
 pub struct ImageScannerResolution {
     pub DpiX: f32,
@@ -1851,6 +1861,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Imag
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ImageScannerScanResult {}
+unsafe impl ::core::marker::Sync for ImageScannerScanResult {}
 #[repr(transparent)]
 pub struct ImageScannerScanSource(pub i32);
 impl ImageScannerScanSource {

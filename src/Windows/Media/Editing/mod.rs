@@ -178,6 +178,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Back
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BackgroundAudioTrack {}
+unsafe impl ::core::marker::Sync for BackgroundAudioTrack {}
 #[repr(transparent)]
 pub struct EmbeddedAudioTrack(::windows::core::IUnknown);
 impl EmbeddedAudioTrack {
@@ -251,6 +253,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Embe
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmbeddedAudioTrack {}
+unsafe impl ::core::marker::Sync for EmbeddedAudioTrack {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBackgroundAudioTrack(::windows::core::IUnknown);
@@ -826,6 +830,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaClip {}
+unsafe impl ::core::marker::Sync for MediaClip {}
 #[repr(transparent)]
 pub struct MediaComposition(::windows::core::IUnknown);
 impl MediaComposition {
@@ -1036,6 +1042,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaComposition {}
+unsafe impl ::core::marker::Sync for MediaComposition {}
 #[repr(transparent)]
 pub struct MediaOverlay(::windows::core::IUnknown);
 impl MediaOverlay {
@@ -1180,6 +1188,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaOverlay {}
+unsafe impl ::core::marker::Sync for MediaOverlay {}
 #[repr(transparent)]
 pub struct MediaOverlayLayer(::windows::core::IUnknown);
 impl MediaOverlayLayer {
@@ -1286,6 +1296,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaOverlayLayer {}
+unsafe impl ::core::marker::Sync for MediaOverlayLayer {}
 #[repr(transparent)]
 pub struct MediaTrimmingPreference(pub i32);
 impl MediaTrimmingPreference {

@@ -777,6 +777,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spee
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpeechContinuousRecognitionCompletedEventArgs {}
+unsafe impl ::core::marker::Sync for SpeechContinuousRecognitionCompletedEventArgs {}
 #[repr(transparent)]
 pub struct SpeechContinuousRecognitionMode(pub i32);
 impl SpeechContinuousRecognitionMode {
@@ -876,6 +878,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spee
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpeechContinuousRecognitionResultGeneratedEventArgs {}
+unsafe impl ::core::marker::Sync for SpeechContinuousRecognitionResultGeneratedEventArgs {}
 #[repr(transparent)]
 pub struct SpeechContinuousRecognitionSession(::windows::core::IUnknown);
 impl SpeechContinuousRecognitionSession {
@@ -1024,6 +1028,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spee
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpeechContinuousRecognitionSession {}
+unsafe impl ::core::marker::Sync for SpeechContinuousRecognitionSession {}
 #[repr(transparent)]
 pub struct SpeechRecognitionAudioProblem(pub i32);
 impl SpeechRecognitionAudioProblem {
@@ -1128,6 +1134,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spee
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpeechRecognitionCompilationResult {}
+unsafe impl ::core::marker::Sync for SpeechRecognitionCompilationResult {}
 #[repr(transparent)]
 pub struct SpeechRecognitionConfidence(pub i32);
 impl SpeechRecognitionConfidence {
@@ -1367,6 +1375,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISpeechRecognitionConstraint> for &Speec
         ::core::convert::TryInto::<ISpeechRecognitionConstraint>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SpeechRecognitionGrammarFileConstraint {}
+unsafe impl ::core::marker::Sync for SpeechRecognitionGrammarFileConstraint {}
 #[repr(transparent)]
 pub struct SpeechRecognitionHypothesis(::windows::core::IUnknown);
 impl SpeechRecognitionHypothesis {
@@ -1439,6 +1449,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spee
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpeechRecognitionHypothesis {}
+unsafe impl ::core::marker::Sync for SpeechRecognitionHypothesis {}
 #[repr(transparent)]
 pub struct SpeechRecognitionHypothesisGeneratedEventArgs(::windows::core::IUnknown);
 impl SpeechRecognitionHypothesisGeneratedEventArgs {
@@ -1511,6 +1523,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spee
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpeechRecognitionHypothesisGeneratedEventArgs {}
+unsafe impl ::core::marker::Sync for SpeechRecognitionHypothesisGeneratedEventArgs {}
 #[repr(transparent)]
 pub struct SpeechRecognitionListConstraint(::windows::core::IUnknown);
 impl SpeechRecognitionListConstraint {
@@ -1664,6 +1678,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISpeechRecognitionConstraint> for &Speec
         ::core::convert::TryInto::<ISpeechRecognitionConstraint>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SpeechRecognitionListConstraint {}
+unsafe impl ::core::marker::Sync for SpeechRecognitionListConstraint {}
 #[repr(transparent)]
 pub struct SpeechRecognitionQualityDegradingEventArgs(::windows::core::IUnknown);
 impl SpeechRecognitionQualityDegradingEventArgs {
@@ -1736,6 +1752,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spee
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpeechRecognitionQualityDegradingEventArgs {}
+unsafe impl ::core::marker::Sync for SpeechRecognitionQualityDegradingEventArgs {}
 #[repr(transparent)]
 pub struct SpeechRecognitionResult(::windows::core::IUnknown);
 impl SpeechRecognitionResult {
@@ -1875,6 +1893,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spee
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpeechRecognitionResult {}
+unsafe impl ::core::marker::Sync for SpeechRecognitionResult {}
 #[repr(transparent)]
 pub struct SpeechRecognitionResultStatus(pub i32);
 impl SpeechRecognitionResultStatus {
@@ -2012,6 +2032,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spee
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpeechRecognitionSemanticInterpretation {}
+unsafe impl ::core::marker::Sync for SpeechRecognitionSemanticInterpretation {}
 #[repr(transparent)]
 pub struct SpeechRecognitionTopicConstraint(::windows::core::IUnknown);
 impl SpeechRecognitionTopicConstraint {
@@ -2169,6 +2191,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISpeechRecognitionConstraint> for &Speec
         ::core::convert::TryInto::<ISpeechRecognitionConstraint>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SpeechRecognitionTopicConstraint {}
+unsafe impl ::core::marker::Sync for SpeechRecognitionTopicConstraint {}
 #[repr(transparent)]
 pub struct SpeechRecognitionVoiceCommandDefinitionConstraint(::windows::core::IUnknown);
 impl SpeechRecognitionVoiceCommandDefinitionConstraint {
@@ -2296,6 +2320,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISpeechRecognitionConstraint> for &Speec
         ::core::convert::TryInto::<ISpeechRecognitionConstraint>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SpeechRecognitionVoiceCommandDefinitionConstraint {}
+unsafe impl ::core::marker::Sync for SpeechRecognitionVoiceCommandDefinitionConstraint {}
 #[repr(transparent)]
 pub struct SpeechRecognizer(::windows::core::IUnknown);
 impl SpeechRecognizer {
@@ -2561,6 +2587,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SpeechRecognizer {}
+unsafe impl ::core::marker::Sync for SpeechRecognizer {}
 #[repr(transparent)]
 pub struct SpeechRecognizerState(pub i32);
 impl SpeechRecognizerState {
@@ -2665,6 +2693,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spee
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpeechRecognizerStateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for SpeechRecognizerStateChangedEventArgs {}
 #[repr(transparent)]
 pub struct SpeechRecognizerTimeouts(::windows::core::IUnknown);
 impl SpeechRecognizerTimeouts {
@@ -2769,6 +2799,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spee
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpeechRecognizerTimeouts {}
+unsafe impl ::core::marker::Sync for SpeechRecognizerTimeouts {}
 #[repr(transparent)]
 pub struct SpeechRecognizerUIOptions(::windows::core::IUnknown);
 impl SpeechRecognizerUIOptions {
@@ -2878,6 +2910,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spee
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpeechRecognizerUIOptions {}
+unsafe impl ::core::marker::Sync for SpeechRecognizerUIOptions {}
 pub struct VoiceCommandManager {}
 impl VoiceCommandManager {
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
@@ -2989,3 +3023,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Voic
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VoiceCommandSet {}
+unsafe impl ::core::marker::Sync for VoiceCommandSet {}

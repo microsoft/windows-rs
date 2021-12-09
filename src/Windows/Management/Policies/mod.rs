@@ -233,6 +233,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Name
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for NamedPolicyData {}
+unsafe impl ::core::marker::Sync for NamedPolicyData {}
 #[repr(transparent)]
 pub struct NamedPolicyKind(pub i32);
 impl NamedPolicyKind {

@@ -85,6 +85,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AudioCaptureEffectsManager {}
+unsafe impl ::core::marker::Sync for AudioCaptureEffectsManager {}
 #[repr(transparent)]
 pub struct AudioEffect(::windows::core::IUnknown);
 impl AudioEffect {
@@ -157,6 +159,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AudioEffect {}
+unsafe impl ::core::marker::Sync for AudioEffect {}
 #[repr(transparent)]
 pub struct AudioEffectDefinition(::windows::core::IUnknown);
 impl AudioEffectDefinition {
@@ -276,6 +280,8 @@ impl<'a> ::windows::core::IntoParam<'a, IAudioEffectDefinition> for &AudioEffect
         ::core::convert::TryInto::<IAudioEffectDefinition>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AudioEffectDefinition {}
+unsafe impl ::core::marker::Sync for AudioEffectDefinition {}
 #[repr(transparent)]
 pub struct AudioEffectType(pub i32);
 impl AudioEffectType {
@@ -467,6 +473,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AudioRenderEffectsManager {}
+unsafe impl ::core::marker::Sync for AudioRenderEffectsManager {}
 #[repr(transparent)]
 pub struct CompositeVideoFrameContext(::windows::core::IUnknown);
 impl CompositeVideoFrameContext {
@@ -562,6 +570,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Comp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CompositeVideoFrameContext {}
+unsafe impl ::core::marker::Sync for CompositeVideoFrameContext {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAudioCaptureEffectsManager(::windows::core::IUnknown);
@@ -1733,6 +1743,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Proc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProcessAudioFrameContext {}
+unsafe impl ::core::marker::Sync for ProcessAudioFrameContext {}
 #[repr(transparent)]
 pub struct ProcessVideoFrameContext(::windows::core::IUnknown);
 impl ProcessVideoFrameContext {
@@ -1812,6 +1824,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Proc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProcessVideoFrameContext {}
+unsafe impl ::core::marker::Sync for ProcessVideoFrameContext {}
 #[repr(transparent)]
 pub struct SlowMotionEffectDefinition(::windows::core::IUnknown);
 impl SlowMotionEffectDefinition {
@@ -1932,6 +1946,8 @@ impl<'a> ::windows::core::IntoParam<'a, IVideoEffectDefinition> for &SlowMotionE
         ::core::convert::TryInto::<IVideoEffectDefinition>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SlowMotionEffectDefinition {}
+unsafe impl ::core::marker::Sync for SlowMotionEffectDefinition {}
 #[repr(transparent)]
 pub struct VideoCompositorDefinition(::windows::core::IUnknown);
 impl VideoCompositorDefinition {
@@ -2051,6 +2067,8 @@ impl<'a> ::windows::core::IntoParam<'a, IVideoCompositorDefinition> for &VideoCo
         ::core::convert::TryInto::<IVideoCompositorDefinition>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for VideoCompositorDefinition {}
+unsafe impl ::core::marker::Sync for VideoCompositorDefinition {}
 #[repr(transparent)]
 pub struct VideoEffectDefinition(::windows::core::IUnknown);
 impl VideoEffectDefinition {
@@ -2170,6 +2188,8 @@ impl<'a> ::windows::core::IntoParam<'a, IVideoEffectDefinition> for &VideoEffect
         ::core::convert::TryInto::<IVideoEffectDefinition>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for VideoEffectDefinition {}
+unsafe impl ::core::marker::Sync for VideoEffectDefinition {}
 #[repr(transparent)]
 pub struct VideoTransformEffectDefinition(::windows::core::IUnknown);
 impl VideoTransformEffectDefinition {
@@ -2364,6 +2384,8 @@ impl<'a> ::windows::core::IntoParam<'a, IVideoEffectDefinition> for &VideoTransf
         ::core::convert::TryInto::<IVideoEffectDefinition>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for VideoTransformEffectDefinition {}
+unsafe impl ::core::marker::Sync for VideoTransformEffectDefinition {}
 #[repr(transparent)]
 pub struct VideoTransformSphericalProjection(::windows::core::IUnknown);
 impl VideoTransformSphericalProjection {
@@ -2490,3 +2512,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Vide
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VideoTransformSphericalProjection {}
+unsafe impl ::core::marker::Sync for VideoTransformSphericalProjection {}

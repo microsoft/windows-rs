@@ -356,6 +356,8 @@ impl<'a> ::windows::core::IntoParam<'a, IGameListEntry> for &GameListEntry {
         ::core::convert::TryInto::<IGameListEntry>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for GameListEntry {}
+unsafe impl ::core::marker::Sync for GameListEntry {}
 #[repr(transparent)]
 pub struct GameListEntryLaunchableState(pub i32);
 impl GameListEntryLaunchableState {
@@ -634,6 +636,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GameModeConfiguration {}
+unsafe impl ::core::marker::Sync for GameModeConfiguration {}
 #[repr(transparent)]
 pub struct GameModeUserConfiguration(::windows::core::IUnknown);
 impl GameModeUserConfiguration {
@@ -725,6 +729,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GameModeUserConfiguration {}
+unsafe impl ::core::marker::Sync for GameModeUserConfiguration {}
 #[repr(transparent)]
 pub struct IGameListEntry(::windows::core::IUnknown);
 impl IGameListEntry {

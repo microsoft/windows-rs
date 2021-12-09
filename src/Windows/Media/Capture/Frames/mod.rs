@@ -86,6 +86,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AudioMediaFrame {}
+unsafe impl ::core::marker::Sync for AudioMediaFrame {}
 #[repr(transparent)]
 pub struct BufferMediaFrame(::windows::core::IUnknown);
 impl BufferMediaFrame {
@@ -166,6 +168,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Buff
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BufferMediaFrame {}
+unsafe impl ::core::marker::Sync for BufferMediaFrame {}
 #[repr(transparent)]
 pub struct DepthMediaFrame(::windows::core::IUnknown);
 impl DepthMediaFrame {
@@ -274,6 +278,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dept
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DepthMediaFrame {}
+unsafe impl ::core::marker::Sync for DepthMediaFrame {}
 #[repr(transparent)]
 pub struct DepthMediaFrameFormat(::windows::core::IUnknown);
 impl DepthMediaFrameFormat {
@@ -353,6 +359,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dept
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DepthMediaFrameFormat {}
+unsafe impl ::core::marker::Sync for DepthMediaFrameFormat {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAudioMediaFrame(::windows::core::IUnknown);
@@ -1062,6 +1070,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Infr
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InfraredMediaFrame {}
+unsafe impl ::core::marker::Sync for InfraredMediaFrame {}
 #[repr(transparent)]
 pub struct MediaFrameArrivedEventArgs(::windows::core::IUnknown);
 impl MediaFrameArrivedEventArgs {}
@@ -1126,6 +1136,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaFrameArrivedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaFrameArrivedEventArgs {}
 #[repr(transparent)]
 pub struct MediaFrameFormat(::windows::core::IUnknown);
 impl MediaFrameFormat {
@@ -1236,6 +1248,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaFrameFormat {}
+unsafe impl ::core::marker::Sync for MediaFrameFormat {}
 #[repr(transparent)]
 pub struct MediaFrameReader(::windows::core::IUnknown);
 impl MediaFrameReader {
@@ -1379,6 +1393,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MediaFrameReader {}
+unsafe impl ::core::marker::Sync for MediaFrameReader {}
 #[repr(transparent)]
 pub struct MediaFrameReaderAcquisitionMode(pub i32);
 impl MediaFrameReaderAcquisitionMode {
@@ -1599,6 +1615,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MediaFrameReference {}
+unsafe impl ::core::marker::Sync for MediaFrameReference {}
 #[repr(transparent)]
 pub struct MediaFrameSource(::windows::core::IUnknown);
 impl MediaFrameSource {
@@ -1722,6 +1740,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaFrameSource {}
+unsafe impl ::core::marker::Sync for MediaFrameSource {}
 #[repr(transparent)]
 pub struct MediaFrameSourceController(::windows::core::IUnknown);
 impl MediaFrameSourceController {
@@ -1835,6 +1855,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaFrameSourceController {}
+unsafe impl ::core::marker::Sync for MediaFrameSourceController {}
 #[repr(transparent)]
 pub struct MediaFrameSourceGetPropertyResult(::windows::core::IUnknown);
 impl MediaFrameSourceGetPropertyResult {
@@ -1914,6 +1936,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaFrameSourceGetPropertyResult {}
+unsafe impl ::core::marker::Sync for MediaFrameSourceGetPropertyResult {}
 #[repr(transparent)]
 pub struct MediaFrameSourceGetPropertyStatus(pub i32);
 impl MediaFrameSourceGetPropertyStatus {
@@ -2056,6 +2080,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaFrameSourceGroup {}
+unsafe impl ::core::marker::Sync for MediaFrameSourceGroup {}
 #[repr(transparent)]
 pub struct MediaFrameSourceInfo(::windows::core::IUnknown);
 impl MediaFrameSourceInfo {
@@ -2196,6 +2222,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaFrameSourceInfo {}
+unsafe impl ::core::marker::Sync for MediaFrameSourceInfo {}
 #[repr(transparent)]
 pub struct MediaFrameSourceKind(pub i32);
 impl MediaFrameSourceKind {
@@ -2323,6 +2351,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mult
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MultiSourceMediaFrameArrivedEventArgs {}
+unsafe impl ::core::marker::Sync for MultiSourceMediaFrameArrivedEventArgs {}
 #[repr(transparent)]
 pub struct MultiSourceMediaFrameReader(::windows::core::IUnknown);
 impl MultiSourceMediaFrameReader {
@@ -2466,6 +2496,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MultiSourceMediaFrameReader {}
+unsafe impl ::core::marker::Sync for MultiSourceMediaFrameReader {}
 #[repr(transparent)]
 pub struct MultiSourceMediaFrameReaderStartStatus(pub i32);
 impl MultiSourceMediaFrameReaderStartStatus {
@@ -2599,6 +2631,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MultiSourceMediaFrameReference {}
+unsafe impl ::core::marker::Sync for MultiSourceMediaFrameReference {}
 #[repr(transparent)]
 pub struct VideoMediaFrame(::windows::core::IUnknown);
 impl VideoMediaFrame {
@@ -2723,6 +2757,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Vide
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VideoMediaFrame {}
+unsafe impl ::core::marker::Sync for VideoMediaFrame {}
 #[repr(transparent)]
 pub struct VideoMediaFrameFormat(::windows::core::IUnknown);
 impl VideoMediaFrameFormat {
@@ -2816,3 +2852,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Vide
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VideoMediaFrameFormat {}
+unsafe impl ::core::marker::Sync for VideoMediaFrameFormat {}

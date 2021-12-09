@@ -138,6 +138,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppCapability {}
+unsafe impl ::core::marker::Sync for AppCapability {}
 #[repr(transparent)]
 pub struct AppCapabilityAccessChangedEventArgs(::windows::core::IUnknown);
 impl AppCapabilityAccessChangedEventArgs {}
@@ -202,6 +204,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppCapabilityAccessChangedEventArgs {}
+unsafe impl ::core::marker::Sync for AppCapabilityAccessChangedEventArgs {}
 #[repr(transparent)]
 pub struct AppCapabilityAccessStatus(pub i32);
 impl AppCapabilityAccessStatus {

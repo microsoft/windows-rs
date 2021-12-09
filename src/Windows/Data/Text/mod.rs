@@ -115,6 +115,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Alte
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AlternateWordForm {}
+unsafe impl ::core::marker::Sync for AlternateWordForm {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAlternateWordForm(::windows::core::IUnknown);
@@ -594,6 +596,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sele
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SelectableWordSegment {}
+unsafe impl ::core::marker::Sync for SelectableWordSegment {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct SelectableWordSegmentsTokenizingHandler(pub ::windows::core::IUnknown);
@@ -785,6 +789,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sele
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SelectableWordsSegmenter {}
+unsafe impl ::core::marker::Sync for SelectableWordsSegmenter {}
 #[repr(transparent)]
 pub struct SemanticTextQuery(::windows::core::IUnknown);
 impl SemanticTextQuery {
@@ -882,6 +888,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sema
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SemanticTextQuery {}
+unsafe impl ::core::marker::Sync for SemanticTextQuery {}
 #[repr(transparent)]
 pub struct TextConversionGenerator(::windows::core::IUnknown);
 impl TextConversionGenerator {
@@ -987,6 +995,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Text
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TextConversionGenerator {}
+unsafe impl ::core::marker::Sync for TextConversionGenerator {}
 #[repr(transparent)]
 pub struct TextPhoneme(::windows::core::IUnknown);
 impl TextPhoneme {
@@ -1066,6 +1076,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Text
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TextPhoneme {}
+unsafe impl ::core::marker::Sync for TextPhoneme {}
 #[repr(transparent)]
 pub struct TextPredictionGenerator(::windows::core::IUnknown);
 impl TextPredictionGenerator {
@@ -1200,6 +1212,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Text
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TextPredictionGenerator {}
+unsafe impl ::core::marker::Sync for TextPredictionGenerator {}
 #[repr(transparent)]
 pub struct TextPredictionOptions(pub u32);
 impl TextPredictionOptions {
@@ -1333,6 +1347,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Text
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TextReverseConversionGenerator {}
+unsafe impl ::core::marker::Sync for TextReverseConversionGenerator {}
 #[repr(C)]
 pub struct TextSegment {
     pub StartPosition: u32,
@@ -1644,6 +1660,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Word
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WordSegment {}
+unsafe impl ::core::marker::Sync for WordSegment {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct WordSegmentsTokenizingHandler(pub ::windows::core::IUnknown);
@@ -1831,3 +1849,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Word
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WordsSegmenter {}
+unsafe impl ::core::marker::Sync for WordsSegmenter {}

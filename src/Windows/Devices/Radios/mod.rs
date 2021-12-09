@@ -187,6 +187,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Radio {}
+unsafe impl ::core::marker::Sync for Radio {}
 #[repr(transparent)]
 pub struct RadioAccessStatus(pub i32);
 impl RadioAccessStatus {

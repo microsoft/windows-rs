@@ -220,6 +220,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScanner {}
+unsafe impl ::core::marker::Sync for BarcodeScanner {}
 #[repr(transparent)]
 pub struct BarcodeScannerCapabilities(::windows::core::IUnknown);
 impl BarcodeScannerCapabilities {
@@ -327,6 +329,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerCapabilities {}
+unsafe impl ::core::marker::Sync for BarcodeScannerCapabilities {}
 #[repr(transparent)]
 pub struct BarcodeScannerDataReceivedEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerDataReceivedEventArgs {
@@ -399,6 +403,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerDataReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for BarcodeScannerDataReceivedEventArgs {}
 #[repr(transparent)]
 pub struct BarcodeScannerErrorOccurredEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerErrorOccurredEventArgs {
@@ -485,6 +491,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerErrorOccurredEventArgs {}
+unsafe impl ::core::marker::Sync for BarcodeScannerErrorOccurredEventArgs {}
 #[repr(transparent)]
 pub struct BarcodeScannerImagePreviewReceivedEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerImagePreviewReceivedEventArgs {
@@ -558,6 +566,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerImagePreviewReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for BarcodeScannerImagePreviewReceivedEventArgs {}
 #[repr(transparent)]
 pub struct BarcodeScannerReport(::windows::core::IUnknown);
 impl BarcodeScannerReport {
@@ -657,6 +667,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerReport {}
+unsafe impl ::core::marker::Sync for BarcodeScannerReport {}
 #[repr(transparent)]
 pub struct BarcodeScannerStatus(pub i32);
 impl BarcodeScannerStatus {
@@ -766,6 +778,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerStatusUpdatedEventArgs {}
+unsafe impl ::core::marker::Sync for BarcodeScannerStatusUpdatedEventArgs {}
 pub struct BarcodeSymbologies {}
 impl BarcodeSymbologies {
     pub fn Unknown() -> ::windows::core::Result<u32> {
@@ -1491,6 +1505,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarcodeSymbologyAttributes {}
+unsafe impl ::core::marker::Sync for BarcodeSymbologyAttributes {}
 #[repr(transparent)]
 pub struct BarcodeSymbologyDecodeLengthKind(pub i32);
 impl BarcodeSymbologyDecodeLengthKind {
@@ -1721,6 +1737,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for CashDrawer {}
+unsafe impl ::core::marker::Sync for CashDrawer {}
 #[repr(transparent)]
 pub struct CashDrawerCapabilities(::windows::core::IUnknown);
 impl CashDrawerCapabilities {
@@ -1828,6 +1846,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cash
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CashDrawerCapabilities {}
+unsafe impl ::core::marker::Sync for CashDrawerCapabilities {}
 #[repr(transparent)]
 pub struct CashDrawerCloseAlarm(::windows::core::IUnknown);
 impl CashDrawerCloseAlarm {
@@ -1964,6 +1984,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cash
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CashDrawerCloseAlarm {}
+unsafe impl ::core::marker::Sync for CashDrawerCloseAlarm {}
 #[repr(transparent)]
 pub struct CashDrawerClosedEventArgs(::windows::core::IUnknown);
 impl CashDrawerClosedEventArgs {
@@ -2058,6 +2080,8 @@ impl<'a> ::windows::core::IntoParam<'a, ICashDrawerEventSourceEventArgs> for &Ca
         ::core::convert::TryInto::<ICashDrawerEventSourceEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for CashDrawerClosedEventArgs {}
+unsafe impl ::core::marker::Sync for CashDrawerClosedEventArgs {}
 #[repr(transparent)]
 pub struct CashDrawerEventSource(::windows::core::IUnknown);
 impl CashDrawerEventSource {
@@ -2149,6 +2173,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cash
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CashDrawerEventSource {}
+unsafe impl ::core::marker::Sync for CashDrawerEventSource {}
 #[repr(transparent)]
 pub struct CashDrawerOpenedEventArgs(::windows::core::IUnknown);
 impl CashDrawerOpenedEventArgs {
@@ -2243,6 +2269,8 @@ impl<'a> ::windows::core::IntoParam<'a, ICashDrawerEventSourceEventArgs> for &Ca
         ::core::convert::TryInto::<ICashDrawerEventSourceEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for CashDrawerOpenedEventArgs {}
+unsafe impl ::core::marker::Sync for CashDrawerOpenedEventArgs {}
 #[repr(transparent)]
 pub struct CashDrawerStatus(::windows::core::IUnknown);
 impl CashDrawerStatus {
@@ -2322,6 +2350,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cash
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CashDrawerStatus {}
+unsafe impl ::core::marker::Sync for CashDrawerStatus {}
 #[repr(transparent)]
 pub struct CashDrawerStatusKind(pub i32);
 impl CashDrawerStatusKind {
@@ -2424,6 +2454,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cash
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CashDrawerStatusUpdatedEventArgs {}
+unsafe impl ::core::marker::Sync for CashDrawerStatusUpdatedEventArgs {}
 #[repr(transparent)]
 pub struct ClaimedBarcodeScanner(::windows::core::IUnknown);
 impl ClaimedBarcodeScanner {
@@ -2754,6 +2786,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ClaimedBarcodeScanner {}
+unsafe impl ::core::marker::Sync for ClaimedBarcodeScanner {}
 #[repr(transparent)]
 pub struct ClaimedBarcodeScannerClosedEventArgs(::windows::core::IUnknown);
 impl ClaimedBarcodeScannerClosedEventArgs {}
@@ -2818,6 +2852,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Clai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ClaimedBarcodeScannerClosedEventArgs {}
+unsafe impl ::core::marker::Sync for ClaimedBarcodeScannerClosedEventArgs {}
 #[repr(transparent)]
 pub struct ClaimedCashDrawer(::windows::core::IUnknown);
 impl ClaimedCashDrawer {
@@ -3016,6 +3052,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ClaimedCashDrawer {}
+unsafe impl ::core::marker::Sync for ClaimedCashDrawer {}
 #[repr(transparent)]
 pub struct ClaimedCashDrawerClosedEventArgs(::windows::core::IUnknown);
 impl ClaimedCashDrawerClosedEventArgs {}
@@ -3080,6 +3118,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Clai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ClaimedCashDrawerClosedEventArgs {}
+unsafe impl ::core::marker::Sync for ClaimedCashDrawerClosedEventArgs {}
 #[repr(transparent)]
 pub struct ClaimedJournalPrinter(::windows::core::IUnknown);
 impl ClaimedJournalPrinter {
@@ -3292,6 +3332,8 @@ impl<'a> ::windows::core::IntoParam<'a, ICommonClaimedPosPrinterStation> for &Cl
         ::core::convert::TryInto::<ICommonClaimedPosPrinterStation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ClaimedJournalPrinter {}
+unsafe impl ::core::marker::Sync for ClaimedJournalPrinter {}
 #[repr(transparent)]
 pub struct ClaimedLineDisplay(::windows::core::IUnknown);
 impl ClaimedLineDisplay {
@@ -3628,6 +3670,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ClaimedLineDisplay {}
+unsafe impl ::core::marker::Sync for ClaimedLineDisplay {}
 #[repr(transparent)]
 pub struct ClaimedLineDisplayClosedEventArgs(::windows::core::IUnknown);
 impl ClaimedLineDisplayClosedEventArgs {}
@@ -3692,6 +3736,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Clai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ClaimedLineDisplayClosedEventArgs {}
+unsafe impl ::core::marker::Sync for ClaimedLineDisplayClosedEventArgs {}
 #[repr(transparent)]
 pub struct ClaimedMagneticStripeReader(::windows::core::IUnknown);
 impl ClaimedMagneticStripeReader {
@@ -4014,6 +4060,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ClaimedMagneticStripeReader {}
+unsafe impl ::core::marker::Sync for ClaimedMagneticStripeReader {}
 #[repr(transparent)]
 pub struct ClaimedMagneticStripeReaderClosedEventArgs(::windows::core::IUnknown);
 impl ClaimedMagneticStripeReaderClosedEventArgs {}
@@ -4078,6 +4126,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Clai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ClaimedMagneticStripeReaderClosedEventArgs {}
+unsafe impl ::core::marker::Sync for ClaimedMagneticStripeReaderClosedEventArgs {}
 #[repr(transparent)]
 pub struct ClaimedPosPrinter(::windows::core::IUnknown);
 impl ClaimedPosPrinter {
@@ -4315,6 +4365,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ClaimedPosPrinter {}
+unsafe impl ::core::marker::Sync for ClaimedPosPrinter {}
 #[repr(transparent)]
 pub struct ClaimedPosPrinterClosedEventArgs(::windows::core::IUnknown);
 impl ClaimedPosPrinterClosedEventArgs {}
@@ -4379,6 +4431,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Clai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ClaimedPosPrinterClosedEventArgs {}
+unsafe impl ::core::marker::Sync for ClaimedPosPrinterClosedEventArgs {}
 #[repr(transparent)]
 pub struct ClaimedReceiptPrinter(::windows::core::IUnknown);
 impl ClaimedReceiptPrinter {
@@ -4628,6 +4682,8 @@ impl<'a> ::windows::core::IntoParam<'a, ICommonClaimedPosPrinterStation> for &Cl
         ::core::convert::TryInto::<ICommonClaimedPosPrinterStation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ClaimedReceiptPrinter {}
+unsafe impl ::core::marker::Sync for ClaimedReceiptPrinter {}
 #[repr(transparent)]
 pub struct ClaimedSlipPrinter(::windows::core::IUnknown);
 impl ClaimedSlipPrinter {
@@ -4919,6 +4975,8 @@ impl<'a> ::windows::core::IntoParam<'a, ICommonClaimedPosPrinterStation> for &Cl
         ::core::convert::TryInto::<ICommonClaimedPosPrinterStation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ClaimedSlipPrinter {}
+unsafe impl ::core::marker::Sync for ClaimedSlipPrinter {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBarcodeScanner(::windows::core::IUnknown);
@@ -8540,6 +8598,8 @@ impl<'a> ::windows::core::IntoParam<'a, IPosPrinterJob> for &JournalPrintJob {
         ::core::convert::TryInto::<IPosPrinterJob>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for JournalPrintJob {}
+unsafe impl ::core::marker::Sync for JournalPrintJob {}
 #[repr(transparent)]
 pub struct JournalPrinterCapabilities(::windows::core::IUnknown);
 impl JournalPrinterCapabilities {
@@ -8761,6 +8821,8 @@ impl<'a> ::windows::core::IntoParam<'a, ICommonPosPrintStationCapabilities> for 
         ::core::convert::TryInto::<ICommonPosPrintStationCapabilities>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for JournalPrinterCapabilities {}
+unsafe impl ::core::marker::Sync for JournalPrinterCapabilities {}
 #[repr(transparent)]
 pub struct LineDisplay(::windows::core::IUnknown);
 impl LineDisplay {
@@ -8962,6 +9024,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for LineDisplay {}
+unsafe impl ::core::marker::Sync for LineDisplay {}
 #[repr(transparent)]
 pub struct LineDisplayAttributes(::windows::core::IUnknown);
 impl LineDisplayAttributes {
@@ -9108,6 +9172,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LineDisplayAttributes {}
+unsafe impl ::core::marker::Sync for LineDisplayAttributes {}
 #[repr(transparent)]
 pub struct LineDisplayCapabilities(::windows::core::IUnknown);
 impl LineDisplayCapabilities {
@@ -9299,6 +9365,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LineDisplayCapabilities {}
+unsafe impl ::core::marker::Sync for LineDisplayCapabilities {}
 #[repr(transparent)]
 pub struct LineDisplayCursor(::windows::core::IUnknown);
 impl LineDisplayCursor {
@@ -9428,6 +9496,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LineDisplayCursor {}
+unsafe impl ::core::marker::Sync for LineDisplayCursor {}
 #[repr(transparent)]
 pub struct LineDisplayCursorAttributes(::windows::core::IUnknown);
 impl LineDisplayCursorAttributes {
@@ -9539,6 +9609,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LineDisplayCursorAttributes {}
+unsafe impl ::core::marker::Sync for LineDisplayCursorAttributes {}
 #[repr(transparent)]
 pub struct LineDisplayCursorType(pub i32);
 impl LineDisplayCursorType {
@@ -9659,6 +9731,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LineDisplayCustomGlyphs {}
+unsafe impl ::core::marker::Sync for LineDisplayCustomGlyphs {}
 #[repr(transparent)]
 pub struct LineDisplayDescriptorState(pub i32);
 impl LineDisplayDescriptorState {
@@ -9833,6 +9907,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LineDisplayMarquee {}
+unsafe impl ::core::marker::Sync for LineDisplayMarquee {}
 #[repr(transparent)]
 pub struct LineDisplayMarqueeFormat(pub i32);
 impl LineDisplayMarqueeFormat {
@@ -10006,6 +10082,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LineDisplayStatisticsCategorySelector {}
+unsafe impl ::core::marker::Sync for LineDisplayStatisticsCategorySelector {}
 #[repr(transparent)]
 pub struct LineDisplayStatusUpdatedEventArgs(::windows::core::IUnknown);
 impl LineDisplayStatusUpdatedEventArgs {
@@ -10078,6 +10156,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LineDisplayStatusUpdatedEventArgs {}
+unsafe impl ::core::marker::Sync for LineDisplayStatusUpdatedEventArgs {}
 #[repr(transparent)]
 pub struct LineDisplayStoredBitmap(::windows::core::IUnknown);
 impl LineDisplayStoredBitmap {
@@ -10158,6 +10238,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LineDisplayStoredBitmap {}
+unsafe impl ::core::marker::Sync for LineDisplayStoredBitmap {}
 #[repr(transparent)]
 pub struct LineDisplayTextAttribute(pub i32);
 impl LineDisplayTextAttribute {
@@ -10478,6 +10560,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for LineDisplayWindow {}
+unsafe impl ::core::marker::Sync for LineDisplayWindow {}
 #[repr(transparent)]
 pub struct MagneticStripeReader(::windows::core::IUnknown);
 impl MagneticStripeReader {
@@ -10680,6 +10764,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MagneticStripeReader {}
+unsafe impl ::core::marker::Sync for MagneticStripeReader {}
 #[repr(transparent)]
 pub struct MagneticStripeReaderAamvaCardDataReceivedEventArgs(::windows::core::IUnknown);
 impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
@@ -10878,6 +10964,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MagneticStripeReaderAamvaCardDataReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for MagneticStripeReaderAamvaCardDataReceivedEventArgs {}
 #[repr(transparent)]
 pub struct MagneticStripeReaderAuthenticationLevel(pub i32);
 impl MagneticStripeReaderAuthenticationLevel {
@@ -11061,6 +11149,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MagneticStripeReaderBankCardDataReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for MagneticStripeReaderBankCardDataReceivedEventArgs {}
 #[repr(transparent)]
 pub struct MagneticStripeReaderCapabilities(::windows::core::IUnknown);
 impl MagneticStripeReaderCapabilities {
@@ -11203,6 +11293,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MagneticStripeReaderCapabilities {}
+unsafe impl ::core::marker::Sync for MagneticStripeReaderCapabilities {}
 pub struct MagneticStripeReaderCardTypes {}
 impl MagneticStripeReaderCardTypes {
     pub fn Unknown() -> ::windows::core::Result<u32> {
@@ -11372,6 +11464,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MagneticStripeReaderErrorOccurredEventArgs {}
+unsafe impl ::core::marker::Sync for MagneticStripeReaderErrorOccurredEventArgs {}
 #[repr(transparent)]
 pub struct MagneticStripeReaderErrorReportingType(pub i32);
 impl MagneticStripeReaderErrorReportingType {
@@ -11530,6 +11624,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MagneticStripeReaderReport {}
+unsafe impl ::core::marker::Sync for MagneticStripeReaderReport {}
 #[repr(transparent)]
 pub struct MagneticStripeReaderStatus(pub i32);
 impl MagneticStripeReaderStatus {
@@ -11637,6 +11733,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MagneticStripeReaderStatusUpdatedEventArgs {}
+unsafe impl ::core::marker::Sync for MagneticStripeReaderStatusUpdatedEventArgs {}
 #[repr(transparent)]
 pub struct MagneticStripeReaderTrackData(::windows::core::IUnknown);
 impl MagneticStripeReaderTrackData {
@@ -11726,6 +11824,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MagneticStripeReaderTrackData {}
+unsafe impl ::core::marker::Sync for MagneticStripeReaderTrackData {}
 #[repr(transparent)]
 pub struct MagneticStripeReaderTrackErrorType(pub i32);
 impl MagneticStripeReaderTrackErrorType {
@@ -11859,6 +11959,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {}
 #[repr(transparent)]
 pub struct PosConnectionTypes(pub u32);
 impl PosConnectionTypes {
@@ -12107,6 +12209,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PosPrinter {}
+unsafe impl ::core::marker::Sync for PosPrinter {}
 #[repr(transparent)]
 pub struct PosPrinterAlignment(pub i32);
 impl PosPrinterAlignment {
@@ -12298,6 +12402,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PosP
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PosPrinterCapabilities {}
+unsafe impl ::core::marker::Sync for PosPrinterCapabilities {}
 #[repr(transparent)]
 pub struct PosPrinterCartridgeSensors(pub u32);
 impl PosPrinterCartridgeSensors {
@@ -12516,6 +12622,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PosP
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PosPrinterFontProperty {}
+unsafe impl ::core::marker::Sync for PosPrinterFontProperty {}
 #[repr(transparent)]
 pub struct PosPrinterLineDirection(pub i32);
 impl PosPrinterLineDirection {
@@ -12875,6 +12983,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PosP
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PosPrinterPrintOptions {}
+unsafe impl ::core::marker::Sync for PosPrinterPrintOptions {}
 #[repr(transparent)]
 pub struct PosPrinterPrintSide(pub i32);
 impl PosPrinterPrintSide {
@@ -12967,6 +13077,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PosP
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PosPrinterReleaseDeviceRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for PosPrinterReleaseDeviceRequestedEventArgs {}
 #[repr(transparent)]
 pub struct PosPrinterRotation(pub i32);
 impl PosPrinterRotation {
@@ -13103,6 +13215,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PosP
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PosPrinterStatus {}
+unsafe impl ::core::marker::Sync for PosPrinterStatus {}
 #[repr(transparent)]
 pub struct PosPrinterStatusKind(pub i32);
 impl PosPrinterStatusKind {
@@ -13205,6 +13319,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PosP
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PosPrinterStatusUpdatedEventArgs {}
+unsafe impl ::core::marker::Sync for PosPrinterStatusUpdatedEventArgs {}
 #[repr(transparent)]
 pub struct ReceiptPrintJob(::windows::core::IUnknown);
 impl ReceiptPrintJob {
@@ -13431,6 +13547,8 @@ impl<'a> ::windows::core::IntoParam<'a, IReceiptOrSlipJob> for &ReceiptPrintJob 
         ::core::convert::TryInto::<IReceiptOrSlipJob>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ReceiptPrintJob {}
+unsafe impl ::core::marker::Sync for ReceiptPrintJob {}
 #[repr(transparent)]
 pub struct ReceiptPrinterCapabilities(::windows::core::IUnknown);
 impl ReceiptPrinterCapabilities {
@@ -13760,6 +13878,8 @@ impl<'a> ::windows::core::IntoParam<'a, ICommonReceiptSlipCapabilities> for &Rec
         ::core::convert::TryInto::<ICommonReceiptSlipCapabilities>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ReceiptPrinterCapabilities {}
+unsafe impl ::core::marker::Sync for ReceiptPrinterCapabilities {}
 #[repr(C)]
 pub struct SizeUInt32 {
     pub Width: u32,
@@ -14001,6 +14121,8 @@ impl<'a> ::windows::core::IntoParam<'a, IReceiptOrSlipJob> for &SlipPrintJob {
         ::core::convert::TryInto::<IReceiptOrSlipJob>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SlipPrintJob {}
+unsafe impl ::core::marker::Sync for SlipPrintJob {}
 #[repr(transparent)]
 pub struct SlipPrinterCapabilities(::windows::core::IUnknown);
 impl SlipPrinterCapabilities {
@@ -14323,6 +14445,8 @@ impl<'a> ::windows::core::IntoParam<'a, ICommonReceiptSlipCapabilities> for &Sli
         ::core::convert::TryInto::<ICommonReceiptSlipCapabilities>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SlipPrinterCapabilities {}
+unsafe impl ::core::marker::Sync for SlipPrinterCapabilities {}
 #[repr(transparent)]
 pub struct UnifiedPosErrorData(::windows::core::IUnknown);
 impl UnifiedPosErrorData {
@@ -14426,6 +14550,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Unif
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UnifiedPosErrorData {}
+unsafe impl ::core::marker::Sync for UnifiedPosErrorData {}
 #[repr(transparent)]
 pub struct UnifiedPosErrorReason(pub i32);
 impl UnifiedPosErrorReason {

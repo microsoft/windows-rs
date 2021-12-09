@@ -135,6 +135,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BluetoothLEAdvertisement {}
+unsafe impl ::core::marker::Sync for BluetoothLEAdvertisement {}
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementBytePattern(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementBytePattern {
@@ -253,6 +255,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BluetoothLEAdvertisementBytePattern {}
+unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementBytePattern {}
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementDataSection(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementDataSection {
@@ -360,6 +364,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BluetoothLEAdvertisementDataSection {}
+unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementDataSection {}
 pub struct BluetoothLEAdvertisementDataTypes {}
 impl BluetoothLEAdvertisementDataTypes {
     pub fn Flags() -> ::windows::core::Result<u8> {
@@ -593,6 +599,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BluetoothLEAdvertisementFilter {}
+unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementFilter {}
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementFlags(pub u32);
 impl BluetoothLEAdvertisementFlags {
@@ -787,6 +795,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BluetoothLEAdvertisementPublisher {}
+unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementPublisher {}
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementPublisherStatus(pub i32);
 impl BluetoothLEAdvertisementPublisherStatus {
@@ -905,6 +915,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {}
+unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {}
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementReceivedEventArgs(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementReceivedEventArgs {
@@ -1056,6 +1068,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BluetoothLEAdvertisementReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementReceivedEventArgs {}
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementType(pub i32);
 impl BluetoothLEAdvertisementType {
@@ -1286,6 +1300,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BluetoothLEAdvertisementWatcher {}
+unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementWatcher {}
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementWatcherStatus(pub i32);
 impl BluetoothLEAdvertisementWatcherStatus {
@@ -1388,6 +1404,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BluetoothLEAdvertisementWatcherStoppedEventArgs {}
+unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementWatcherStoppedEventArgs {}
 #[repr(transparent)]
 pub struct BluetoothLEManufacturerData(::windows::core::IUnknown);
 impl BluetoothLEManufacturerData {
@@ -1495,6 +1513,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BluetoothLEManufacturerData {}
+unsafe impl ::core::marker::Sync for BluetoothLEManufacturerData {}
 #[repr(transparent)]
 pub struct BluetoothLEScanningMode(pub i32);
 impl BluetoothLEScanningMode {

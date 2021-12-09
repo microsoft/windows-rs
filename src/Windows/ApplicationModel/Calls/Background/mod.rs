@@ -235,6 +235,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneCallBlockedTriggerDetails {}
+unsafe impl ::core::marker::Sync for PhoneCallBlockedTriggerDetails {}
 #[repr(transparent)]
 pub struct PhoneCallOriginDataRequestTriggerDetails(::windows::core::IUnknown);
 impl PhoneCallOriginDataRequestTriggerDetails {
@@ -314,6 +316,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneCallOriginDataRequestTriggerDetails {}
+unsafe impl ::core::marker::Sync for PhoneCallOriginDataRequestTriggerDetails {}
 #[repr(transparent)]
 pub struct PhoneIncomingCallDismissedReason(pub i32);
 impl PhoneIncomingCallDismissedReason {
@@ -451,6 +455,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneIncomingCallDismissedTriggerDetails {}
+unsafe impl ::core::marker::Sync for PhoneIncomingCallDismissedTriggerDetails {}
 #[repr(transparent)]
 pub struct PhoneIncomingCallNotificationTriggerDetails(::windows::core::IUnknown);
 impl PhoneIncomingCallNotificationTriggerDetails {
@@ -530,6 +536,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneIncomingCallNotificationTriggerDetails {}
+unsafe impl ::core::marker::Sync for PhoneIncomingCallNotificationTriggerDetails {}
 #[repr(transparent)]
 pub struct PhoneLineChangeKind(pub i32);
 impl PhoneLineChangeKind {
@@ -644,6 +652,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneLineChangedTriggerDetails {}
+unsafe impl ::core::marker::Sync for PhoneLineChangedTriggerDetails {}
 #[repr(transparent)]
 pub struct PhoneLineProperties(pub u32);
 impl PhoneLineProperties {
@@ -765,6 +775,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneNewVoicemailMessageTriggerDetails {}
+unsafe impl ::core::marker::Sync for PhoneNewVoicemailMessageTriggerDetails {}
 #[repr(transparent)]
 pub struct PhoneTriggerType(pub i32);
 impl PhoneTriggerType {

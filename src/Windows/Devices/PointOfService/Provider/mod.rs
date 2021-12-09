@@ -96,6 +96,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerDisableScannerRequest {}
+unsafe impl ::core::marker::Sync for BarcodeScannerDisableScannerRequest {}
 #[repr(transparent)]
 pub struct BarcodeScannerDisableScannerRequestEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerDisableScannerRequestEventArgs {
@@ -176,6 +178,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerDisableScannerRequestEventArgs {}
+unsafe impl ::core::marker::Sync for BarcodeScannerDisableScannerRequestEventArgs {}
 #[repr(transparent)]
 pub struct BarcodeScannerEnableScannerRequest(::windows::core::IUnknown);
 impl BarcodeScannerEnableScannerRequest {
@@ -273,6 +277,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerEnableScannerRequest {}
+unsafe impl ::core::marker::Sync for BarcodeScannerEnableScannerRequest {}
 #[repr(transparent)]
 pub struct BarcodeScannerEnableScannerRequestEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerEnableScannerRequestEventArgs {
@@ -353,6 +359,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerEnableScannerRequestEventArgs {}
+unsafe impl ::core::marker::Sync for BarcodeScannerEnableScannerRequestEventArgs {}
 #[repr(transparent)]
 pub struct BarcodeScannerFrameReader(::windows::core::IUnknown);
 impl BarcodeScannerFrameReader {
@@ -493,6 +501,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerFrameReader {}
+unsafe impl ::core::marker::Sync for BarcodeScannerFrameReader {}
 #[repr(transparent)]
 pub struct BarcodeScannerFrameReaderFrameArrivedEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerFrameReaderFrameArrivedEventArgs {
@@ -566,6 +576,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerFrameReaderFrameArrivedEventArgs {}
+unsafe impl ::core::marker::Sync for BarcodeScannerFrameReaderFrameArrivedEventArgs {}
 #[repr(transparent)]
 pub struct BarcodeScannerGetSymbologyAttributesRequest(::windows::core::IUnknown);
 impl BarcodeScannerGetSymbologyAttributesRequest {
@@ -670,6 +682,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerGetSymbologyAttributesRequest {}
+unsafe impl ::core::marker::Sync for BarcodeScannerGetSymbologyAttributesRequest {}
 #[repr(transparent)]
 pub struct BarcodeScannerGetSymbologyAttributesRequestEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerGetSymbologyAttributesRequestEventArgs {
@@ -750,6 +764,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerGetSymbologyAttributesRequestEventArgs {}
+unsafe impl ::core::marker::Sync for BarcodeScannerGetSymbologyAttributesRequestEventArgs {}
 #[repr(transparent)]
 pub struct BarcodeScannerHideVideoPreviewRequest(::windows::core::IUnknown);
 impl BarcodeScannerHideVideoPreviewRequest {
@@ -847,6 +863,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerHideVideoPreviewRequest {}
+unsafe impl ::core::marker::Sync for BarcodeScannerHideVideoPreviewRequest {}
 #[repr(transparent)]
 pub struct BarcodeScannerHideVideoPreviewRequestEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerHideVideoPreviewRequestEventArgs {
@@ -927,6 +945,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerHideVideoPreviewRequestEventArgs {}
+unsafe impl ::core::marker::Sync for BarcodeScannerHideVideoPreviewRequestEventArgs {}
 #[repr(transparent)]
 pub struct BarcodeScannerProviderConnection(::windows::core::IUnknown);
 impl BarcodeScannerProviderConnection {
@@ -1242,6 +1262,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerProviderConnection {}
+unsafe impl ::core::marker::Sync for BarcodeScannerProviderConnection {}
 #[repr(transparent)]
 pub struct BarcodeScannerProviderTriggerDetails(::windows::core::IUnknown);
 impl BarcodeScannerProviderTriggerDetails {
@@ -1314,6 +1336,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerProviderTriggerDetails {}
+unsafe impl ::core::marker::Sync for BarcodeScannerProviderTriggerDetails {}
 #[repr(transparent)]
 pub struct BarcodeScannerSetActiveSymbologiesRequest(::windows::core::IUnknown);
 impl BarcodeScannerSetActiveSymbologiesRequest {
@@ -1419,6 +1443,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerSetActiveSymbologiesRequest {}
+unsafe impl ::core::marker::Sync for BarcodeScannerSetActiveSymbologiesRequest {}
 #[repr(transparent)]
 pub struct BarcodeScannerSetActiveSymbologiesRequestEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerSetActiveSymbologiesRequestEventArgs {
@@ -1499,6 +1525,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerSetActiveSymbologiesRequestEventArgs {}
+unsafe impl ::core::marker::Sync for BarcodeScannerSetActiveSymbologiesRequestEventArgs {}
 #[repr(transparent)]
 pub struct BarcodeScannerSetSymbologyAttributesRequest(::windows::core::IUnknown);
 impl BarcodeScannerSetSymbologyAttributesRequest {
@@ -1610,6 +1638,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerSetSymbologyAttributesRequest {}
+unsafe impl ::core::marker::Sync for BarcodeScannerSetSymbologyAttributesRequest {}
 #[repr(transparent)]
 pub struct BarcodeScannerSetSymbologyAttributesRequestEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerSetSymbologyAttributesRequestEventArgs {
@@ -1690,6 +1720,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerSetSymbologyAttributesRequestEventArgs {}
+unsafe impl ::core::marker::Sync for BarcodeScannerSetSymbologyAttributesRequestEventArgs {}
 #[repr(transparent)]
 pub struct BarcodeScannerStartSoftwareTriggerRequest(::windows::core::IUnknown);
 impl BarcodeScannerStartSoftwareTriggerRequest {
@@ -1787,6 +1819,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerStartSoftwareTriggerRequest {}
+unsafe impl ::core::marker::Sync for BarcodeScannerStartSoftwareTriggerRequest {}
 #[repr(transparent)]
 pub struct BarcodeScannerStartSoftwareTriggerRequestEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerStartSoftwareTriggerRequestEventArgs {
@@ -1867,6 +1901,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerStartSoftwareTriggerRequestEventArgs {}
+unsafe impl ::core::marker::Sync for BarcodeScannerStartSoftwareTriggerRequestEventArgs {}
 #[repr(transparent)]
 pub struct BarcodeScannerStopSoftwareTriggerRequest(::windows::core::IUnknown);
 impl BarcodeScannerStopSoftwareTriggerRequest {
@@ -1964,6 +2000,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerStopSoftwareTriggerRequest {}
+unsafe impl ::core::marker::Sync for BarcodeScannerStopSoftwareTriggerRequest {}
 #[repr(transparent)]
 pub struct BarcodeScannerStopSoftwareTriggerRequestEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerStopSoftwareTriggerRequestEventArgs {
@@ -2044,6 +2082,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerStopSoftwareTriggerRequestEventArgs {}
+unsafe impl ::core::marker::Sync for BarcodeScannerStopSoftwareTriggerRequestEventArgs {}
 #[repr(transparent)]
 pub struct BarcodeScannerTriggerState(pub i32);
 impl BarcodeScannerTriggerState {
@@ -2197,6 +2237,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for BarcodeScannerVideoFrame {}
+unsafe impl ::core::marker::Sync for BarcodeScannerVideoFrame {}
 #[repr(transparent)]
 pub struct BarcodeSymbologyAttributesBuilder(::windows::core::IUnknown);
 impl BarcodeSymbologyAttributesBuilder {
@@ -2309,6 +2351,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarcodeSymbologyAttributesBuilder {}
+unsafe impl ::core::marker::Sync for BarcodeSymbologyAttributesBuilder {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBarcodeScannerDisableScannerRequest(::windows::core::IUnknown);

@@ -298,6 +298,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ActivationSignalDetectionConfiguration {}
+unsafe impl ::core::marker::Sync for ActivationSignalDetectionConfiguration {}
 #[repr(transparent)]
 pub struct ActivationSignalDetectionConfigurationCreationResult(::windows::core::IUnknown);
 impl ActivationSignalDetectionConfigurationCreationResult {
@@ -377,6 +379,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acti
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ActivationSignalDetectionConfigurationCreationResult {}
+unsafe impl ::core::marker::Sync for ActivationSignalDetectionConfigurationCreationResult {}
 #[repr(transparent)]
 pub struct ActivationSignalDetectionConfigurationCreationStatus(pub i32);
 impl ActivationSignalDetectionConfigurationCreationStatus {
@@ -770,6 +774,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acti
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ActivationSignalDetector {}
+unsafe impl ::core::marker::Sync for ActivationSignalDetector {}
 #[repr(transparent)]
 pub struct ActivationSignalDetectorKind(pub i32);
 impl ActivationSignalDetectorKind {
@@ -1004,6 +1010,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Conv
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ConversationalAgentDetectorManager {}
+unsafe impl ::core::marker::Sync for ConversationalAgentDetectorManager {}
 #[repr(transparent)]
 pub struct ConversationalAgentSession(::windows::core::IUnknown);
 impl ConversationalAgentSession {
@@ -1407,6 +1415,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ConversationalAgentSession {}
+unsafe impl ::core::marker::Sync for ConversationalAgentSession {}
 #[repr(transparent)]
 pub struct ConversationalAgentSessionInterruptedEventArgs(::windows::core::IUnknown);
 impl ConversationalAgentSessionInterruptedEventArgs {}
@@ -1471,6 +1481,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Conv
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ConversationalAgentSessionInterruptedEventArgs {}
+unsafe impl ::core::marker::Sync for ConversationalAgentSessionInterruptedEventArgs {}
 #[repr(transparent)]
 pub struct ConversationalAgentSessionUpdateResponse(pub i32);
 impl ConversationalAgentSessionUpdateResponse {
@@ -1647,6 +1659,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Conv
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ConversationalAgentSignal {}
+unsafe impl ::core::marker::Sync for ConversationalAgentSignal {}
 #[repr(transparent)]
 pub struct ConversationalAgentSignalDetectedEventArgs(::windows::core::IUnknown);
 impl ConversationalAgentSignalDetectedEventArgs {}
@@ -1711,6 +1725,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Conv
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ConversationalAgentSignalDetectedEventArgs {}
+unsafe impl ::core::marker::Sync for ConversationalAgentSignalDetectedEventArgs {}
 #[repr(transparent)]
 pub struct ConversationalAgentState(pub i32);
 impl ConversationalAgentState {
@@ -1843,6 +1859,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Conv
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ConversationalAgentSystemStateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for ConversationalAgentSystemStateChangedEventArgs {}
 #[repr(transparent)]
 pub struct ConversationalAgentVoiceActivationPrerequisiteKind(pub i32);
 impl ConversationalAgentVoiceActivationPrerequisiteKind {
@@ -1974,6 +1992,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dete
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DetectionConfigurationAvailabilityChangedEventArgs {}
+unsafe impl ::core::marker::Sync for DetectionConfigurationAvailabilityChangedEventArgs {}
 #[repr(transparent)]
 pub struct DetectionConfigurationAvailabilityInfo(::windows::core::IUnknown);
 impl DetectionConfigurationAvailabilityInfo {
@@ -2075,6 +2095,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dete
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DetectionConfigurationAvailabilityInfo {}
+unsafe impl ::core::marker::Sync for DetectionConfigurationAvailabilityInfo {}
 #[repr(transparent)]
 pub struct DetectionConfigurationTrainingStatus(pub i32);
 impl DetectionConfigurationTrainingStatus {

@@ -318,6 +318,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Print3DWorkflow {}
+unsafe impl ::core::marker::Sync for Print3DWorkflow {}
 #[repr(transparent)]
 pub struct Print3DWorkflowDetail(pub i32);
 impl Print3DWorkflowDetail {
@@ -434,6 +436,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Print3DWorkflowPrintRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for Print3DWorkflowPrintRequestedEventArgs {}
 #[repr(transparent)]
 pub struct Print3DWorkflowPrinterChangedEventArgs(::windows::core::IUnknown);
 impl Print3DWorkflowPrinterChangedEventArgs {
@@ -506,6 +510,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Print3DWorkflowPrinterChangedEventArgs {}
+unsafe impl ::core::marker::Sync for Print3DWorkflowPrinterChangedEventArgs {}
 #[repr(transparent)]
 pub struct Print3DWorkflowStatus(pub i32);
 impl Print3DWorkflowStatus {
@@ -635,6 +641,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintNotificationEventDetails {}
+unsafe impl ::core::marker::Sync for PrintNotificationEventDetails {}
 #[repr(transparent)]
 pub struct PrintTaskConfiguration(::windows::core::IUnknown);
 impl PrintTaskConfiguration {

@@ -71,6 +71,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Erro
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ErrorReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for ErrorReceivedEventArgs {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IErrorReceivedEventArgs(::windows::core::IUnknown);
@@ -261,6 +263,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PinC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PinChangedEventArgs {}
+unsafe impl ::core::marker::Sync for PinChangedEventArgs {}
 #[repr(transparent)]
 pub struct SerialDevice(::windows::core::IUnknown);
 impl SerialDevice {
@@ -591,6 +595,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SerialDevice {}
+unsafe impl ::core::marker::Sync for SerialDevice {}
 #[repr(transparent)]
 pub struct SerialError(pub i32);
 impl SerialError {

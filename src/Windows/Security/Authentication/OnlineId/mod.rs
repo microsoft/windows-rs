@@ -341,6 +341,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Onli
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for OnlineIdAuthenticator {}
+unsafe impl ::core::marker::Sync for OnlineIdAuthenticator {}
 #[repr(transparent)]
 pub struct OnlineIdServiceTicket(::windows::core::IUnknown);
 impl OnlineIdServiceTicket {
@@ -427,6 +429,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Onli
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for OnlineIdServiceTicket {}
+unsafe impl ::core::marker::Sync for OnlineIdServiceTicket {}
 #[repr(transparent)]
 pub struct OnlineIdServiceTicketRequest(::windows::core::IUnknown);
 impl OnlineIdServiceTicketRequest {
@@ -522,6 +526,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Onli
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for OnlineIdServiceTicketRequest {}
+unsafe impl ::core::marker::Sync for OnlineIdServiceTicketRequest {}
 pub struct OnlineIdSystemAuthenticator {}
 impl OnlineIdSystemAuthenticator {
     pub fn Default() -> ::windows::core::Result<OnlineIdSystemAuthenticatorForUser> {
@@ -637,6 +643,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Onli
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for OnlineIdSystemAuthenticatorForUser {}
+unsafe impl ::core::marker::Sync for OnlineIdSystemAuthenticatorForUser {}
 #[repr(transparent)]
 pub struct OnlineIdSystemIdentity(::windows::core::IUnknown);
 impl OnlineIdSystemIdentity {
@@ -716,6 +724,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Onli
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for OnlineIdSystemIdentity {}
+unsafe impl ::core::marker::Sync for OnlineIdSystemIdentity {}
 #[repr(transparent)]
 pub struct OnlineIdSystemTicketResult(::windows::core::IUnknown);
 impl OnlineIdSystemTicketResult {
@@ -802,6 +812,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Onli
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for OnlineIdSystemTicketResult {}
+unsafe impl ::core::marker::Sync for OnlineIdSystemTicketResult {}
 #[repr(transparent)]
 pub struct OnlineIdSystemTicketStatus(pub i32);
 impl OnlineIdSystemTicketStatus {
@@ -1056,6 +1068,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IAsyncI
     }
 }
 #[cfg(feature = "Foundation")]
+unsafe impl ::core::marker::Send for SignOutUserOperation {}
+#[cfg(feature = "Foundation")]
+unsafe impl ::core::marker::Sync for SignOutUserOperation {}
+#[cfg(feature = "Foundation")]
 #[repr(transparent)]
 pub struct UserAuthenticationOperation(::windows::core::IUnknown);
 #[cfg(feature = "Foundation")]
@@ -1283,6 +1299,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IAsyncO
         ::core::convert::TryInto::<super::super::super::Foundation::IAsyncOperation<UserIdentity>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation")]
+unsafe impl ::core::marker::Send for UserAuthenticationOperation {}
+#[cfg(feature = "Foundation")]
+unsafe impl ::core::marker::Sync for UserAuthenticationOperation {}
 #[repr(transparent)]
 pub struct UserIdentity(::windows::core::IUnknown);
 impl UserIdentity {
@@ -1405,3 +1425,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserIdentity {}
+unsafe impl ::core::marker::Sync for UserIdentity {}

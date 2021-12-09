@@ -547,6 +547,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xaml
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for XamlDirect {}
+unsafe impl ::core::marker::Sync for XamlDirect {}
 #[repr(transparent)]
 pub struct XamlEventIndex(pub i32);
 impl XamlEventIndex {

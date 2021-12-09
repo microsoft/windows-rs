@@ -103,6 +103,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HidBooleanControl {}
+unsafe impl ::core::marker::Sync for HidBooleanControl {}
 #[repr(transparent)]
 pub struct HidBooleanControlDescription(::windows::core::IUnknown);
 impl HidBooleanControlDescription {
@@ -218,6 +220,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HidBooleanControlDescription {}
+unsafe impl ::core::marker::Sync for HidBooleanControlDescription {}
 #[repr(transparent)]
 pub struct HidCollection(::windows::core::IUnknown);
 impl HidCollection {
@@ -311,6 +315,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HidCollection {}
+unsafe impl ::core::marker::Sync for HidCollection {}
 #[repr(transparent)]
 pub struct HidCollectionType(pub i32);
 impl HidCollectionType {
@@ -603,6 +609,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HidDevice {}
+unsafe impl ::core::marker::Sync for HidDevice {}
 #[repr(transparent)]
 pub struct HidFeatureReport(::windows::core::IUnknown);
 impl HidFeatureReport {
@@ -716,6 +724,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidF
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HidFeatureReport {}
+unsafe impl ::core::marker::Sync for HidFeatureReport {}
 #[repr(transparent)]
 pub struct HidInputReport(::windows::core::IUnknown);
 impl HidInputReport {
@@ -840,6 +850,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HidInputReport {}
+unsafe impl ::core::marker::Sync for HidInputReport {}
 #[repr(transparent)]
 pub struct HidInputReportReceivedEventArgs(::windows::core::IUnknown);
 impl HidInputReportReceivedEventArgs {
@@ -912,6 +924,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HidInputReportReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for HidInputReportReceivedEventArgs {}
 #[repr(transparent)]
 pub struct HidNumericControl(::windows::core::IUnknown);
 impl HidNumericControl {
@@ -1034,6 +1048,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidN
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HidNumericControl {}
+unsafe impl ::core::marker::Sync for HidNumericControl {}
 #[repr(transparent)]
 pub struct HidNumericControlDescription(::windows::core::IUnknown);
 impl HidNumericControlDescription {
@@ -1212,6 +1228,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidN
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HidNumericControlDescription {}
+unsafe impl ::core::marker::Sync for HidNumericControlDescription {}
 #[repr(transparent)]
 pub struct HidOutputReport(::windows::core::IUnknown);
 impl HidOutputReport {
@@ -1325,6 +1343,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidO
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HidOutputReport {}
+unsafe impl ::core::marker::Sync for HidOutputReport {}
 #[repr(transparent)]
 pub struct HidReportType(pub i32);
 impl HidReportType {

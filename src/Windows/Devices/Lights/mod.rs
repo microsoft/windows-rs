@@ -360,6 +360,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for Lamp {}
+unsafe impl ::core::marker::Sync for Lamp {}
 #[repr(transparent)]
 pub struct LampArray(::windows::core::IUnknown);
 impl LampArray {
@@ -609,6 +611,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lamp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LampArray {}
+unsafe impl ::core::marker::Sync for LampArray {}
 #[repr(transparent)]
 pub struct LampArrayKind(pub i32);
 impl LampArrayKind {
@@ -717,6 +721,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lamp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LampAvailabilityChangedEventArgs {}
+unsafe impl ::core::marker::Sync for LampAvailabilityChangedEventArgs {}
 #[repr(transparent)]
 pub struct LampInfo(::windows::core::IUnknown);
 impl LampInfo {
@@ -856,6 +862,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lamp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LampInfo {}
+unsafe impl ::core::marker::Sync for LampInfo {}
 #[repr(transparent)]
 pub struct LampPurposes(pub u32);
 impl LampPurposes {

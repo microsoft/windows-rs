@@ -248,6 +248,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &Compositi
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionConditionalValue {}
+unsafe impl ::core::marker::Sync for CompositionConditionalValue {}
 #[repr(transparent)]
 pub struct CompositionInteractionSourceCollection(::windows::core::IUnknown);
 impl CompositionInteractionSourceCollection {
@@ -534,6 +536,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &Compositi
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositionInteractionSourceCollection {}
+unsafe impl ::core::marker::Sync for CompositionInteractionSourceCollection {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICompositionConditionalValue(::windows::core::IUnknown);
@@ -1866,6 +1870,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &Interacti
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for InteractionSourceConfiguration {}
+unsafe impl ::core::marker::Sync for InteractionSourceConfiguration {}
 #[repr(transparent)]
 pub struct InteractionSourceMode(pub i32);
 impl InteractionSourceMode {
@@ -2431,6 +2437,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &Interacti
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for InteractionTracker {}
+unsafe impl ::core::marker::Sync for InteractionTracker {}
 #[repr(transparent)]
 pub struct InteractionTrackerClampingOption(pub i32);
 impl InteractionTrackerClampingOption {
@@ -2537,6 +2545,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inte
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InteractionTrackerCustomAnimationStateEnteredArgs {}
+unsafe impl ::core::marker::Sync for InteractionTrackerCustomAnimationStateEnteredArgs {}
 #[repr(transparent)]
 pub struct InteractionTrackerIdleStateEnteredArgs(::windows::core::IUnknown);
 impl InteractionTrackerIdleStateEnteredArgs {
@@ -2616,6 +2626,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inte
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InteractionTrackerIdleStateEnteredArgs {}
+unsafe impl ::core::marker::Sync for InteractionTrackerIdleStateEnteredArgs {}
 #[repr(transparent)]
 pub struct InteractionTrackerInertiaModifier(::windows::core::IUnknown);
 impl InteractionTrackerInertiaModifier {
@@ -2833,6 +2845,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &Interacti
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for InteractionTrackerInertiaModifier {}
+unsafe impl ::core::marker::Sync for InteractionTrackerInertiaModifier {}
 #[repr(transparent)]
 pub struct InteractionTrackerInertiaMotion(::windows::core::IUnknown);
 impl InteractionTrackerInertiaMotion {
@@ -3102,6 +3116,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &Interacti
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for InteractionTrackerInertiaMotion {}
+unsafe impl ::core::marker::Sync for InteractionTrackerInertiaMotion {}
 #[repr(transparent)]
 pub struct InteractionTrackerInertiaNaturalMotion(::windows::core::IUnknown);
 impl InteractionTrackerInertiaNaturalMotion {
@@ -3371,6 +3387,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &Interacti
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for InteractionTrackerInertiaNaturalMotion {}
+unsafe impl ::core::marker::Sync for InteractionTrackerInertiaNaturalMotion {}
 #[repr(transparent)]
 pub struct InteractionTrackerInertiaRestingValue(::windows::core::IUnknown);
 impl InteractionTrackerInertiaRestingValue {
@@ -3640,6 +3658,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &Interacti
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for InteractionTrackerInertiaRestingValue {}
+unsafe impl ::core::marker::Sync for InteractionTrackerInertiaRestingValue {}
 #[repr(transparent)]
 pub struct InteractionTrackerInertiaStateEnteredArgs(::windows::core::IUnknown);
 impl InteractionTrackerInertiaStateEnteredArgs {
@@ -3772,6 +3792,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inte
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InteractionTrackerInertiaStateEnteredArgs {}
+unsafe impl ::core::marker::Sync for InteractionTrackerInertiaStateEnteredArgs {}
 #[repr(transparent)]
 pub struct InteractionTrackerInteractingStateEnteredArgs(::windows::core::IUnknown);
 impl InteractionTrackerInteractingStateEnteredArgs {
@@ -3851,6 +3873,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inte
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InteractionTrackerInteractingStateEnteredArgs {}
+unsafe impl ::core::marker::Sync for InteractionTrackerInteractingStateEnteredArgs {}
 #[repr(transparent)]
 pub struct InteractionTrackerPositionUpdateOption(pub i32);
 impl InteractionTrackerPositionUpdateOption {
@@ -3950,6 +3974,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inte
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InteractionTrackerRequestIgnoredArgs {}
+unsafe impl ::core::marker::Sync for InteractionTrackerRequestIgnoredArgs {}
 #[repr(transparent)]
 pub struct InteractionTrackerValuesChangedArgs(::windows::core::IUnknown);
 impl InteractionTrackerValuesChangedArgs {
@@ -4037,6 +4063,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inte
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InteractionTrackerValuesChangedArgs {}
+unsafe impl ::core::marker::Sync for InteractionTrackerValuesChangedArgs {}
 #[repr(transparent)]
 pub struct InteractionTrackerVector2InertiaModifier(::windows::core::IUnknown);
 impl InteractionTrackerVector2InertiaModifier {
@@ -4254,6 +4282,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &Interacti
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for InteractionTrackerVector2InertiaModifier {}
+unsafe impl ::core::marker::Sync for InteractionTrackerVector2InertiaModifier {}
 #[repr(transparent)]
 pub struct InteractionTrackerVector2InertiaNaturalMotion(::windows::core::IUnknown);
 impl InteractionTrackerVector2InertiaNaturalMotion {
@@ -4523,6 +4553,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &Interacti
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for InteractionTrackerVector2InertiaNaturalMotion {}
+unsafe impl ::core::marker::Sync for InteractionTrackerVector2InertiaNaturalMotion {}
 #[repr(transparent)]
 pub struct VisualInteractionSource(::windows::core::IUnknown);
 impl VisualInteractionSource {
@@ -4970,6 +5002,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &VisualInt
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for VisualInteractionSource {}
+unsafe impl ::core::marker::Sync for VisualInteractionSource {}
 #[repr(transparent)]
 pub struct VisualInteractionSourceRedirectionMode(pub i32);
 impl VisualInteractionSourceRedirectionMode {

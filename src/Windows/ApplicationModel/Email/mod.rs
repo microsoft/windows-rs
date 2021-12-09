@@ -199,6 +199,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailAttachment {}
+unsafe impl ::core::marker::Sync for EmailAttachment {}
 #[repr(transparent)]
 pub struct EmailAttachmentDownloadState(pub i32);
 impl EmailAttachmentDownloadState {
@@ -465,6 +467,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailConversation {}
+unsafe impl ::core::marker::Sync for EmailConversation {}
 #[repr(transparent)]
 pub struct EmailConversationBatch(::windows::core::IUnknown);
 impl EmailConversationBatch {
@@ -545,6 +549,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailConversationBatch {}
+unsafe impl ::core::marker::Sync for EmailConversationBatch {}
 #[repr(transparent)]
 pub struct EmailConversationReader(::windows::core::IUnknown);
 impl EmailConversationReader {
@@ -618,6 +624,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailConversationReader {}
+unsafe impl ::core::marker::Sync for EmailConversationReader {}
 #[repr(transparent)]
 pub struct EmailFlagState(pub i32);
 impl EmailFlagState {
@@ -886,6 +894,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailFolder {}
+unsafe impl ::core::marker::Sync for EmailFolder {}
 #[repr(transparent)]
 pub struct EmailImportance(pub i32);
 impl EmailImportance {
@@ -1131,6 +1141,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailIrmInfo {}
+unsafe impl ::core::marker::Sync for EmailIrmInfo {}
 #[repr(transparent)]
 pub struct EmailIrmTemplate(::windows::core::IUnknown);
 impl EmailIrmTemplate {
@@ -1246,6 +1258,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailIrmTemplate {}
+unsafe impl ::core::marker::Sync for EmailIrmTemplate {}
 #[repr(transparent)]
 pub struct EmailItemCounts(::windows::core::IUnknown);
 impl EmailItemCounts {
@@ -1339,6 +1353,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailItemCounts {}
+unsafe impl ::core::marker::Sync for EmailItemCounts {}
 #[repr(transparent)]
 pub struct EmailMailbox(::windows::core::IUnknown);
 impl EmailMailbox {
@@ -1844,6 +1860,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailMailbox {}
+unsafe impl ::core::marker::Sync for EmailMailbox {}
 #[repr(transparent)]
 pub struct EmailMailboxAction(::windows::core::IUnknown);
 impl EmailMailboxAction {
@@ -1923,6 +1941,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailMailboxAction {}
+unsafe impl ::core::marker::Sync for EmailMailboxAction {}
 #[repr(transparent)]
 pub struct EmailMailboxActionKind(pub i32);
 impl EmailMailboxActionKind {
@@ -2074,6 +2094,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailMailboxAutoReply {}
+unsafe impl ::core::marker::Sync for EmailMailboxAutoReply {}
 #[repr(transparent)]
 pub struct EmailMailboxAutoReplyMessageResponseKind(pub i32);
 impl EmailMailboxAutoReplyMessageResponseKind {
@@ -2242,6 +2264,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailMailboxAutoReplySettings {}
+unsafe impl ::core::marker::Sync for EmailMailboxAutoReplySettings {}
 #[repr(transparent)]
 pub struct EmailMailboxCapabilities(::windows::core::IUnknown);
 impl EmailMailboxCapabilities {
@@ -2461,6 +2485,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailMailboxCapabilities {}
+unsafe impl ::core::marker::Sync for EmailMailboxCapabilities {}
 #[repr(transparent)]
 pub struct EmailMailboxChange(::windows::core::IUnknown);
 impl EmailMailboxChange {
@@ -2555,6 +2581,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailMailboxChange {}
+unsafe impl ::core::marker::Sync for EmailMailboxChange {}
 #[repr(transparent)]
 pub struct EmailMailboxChangeReader(::windows::core::IUnknown);
 impl EmailMailboxChangeReader {
@@ -2636,6 +2664,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailMailboxChangeReader {}
+unsafe impl ::core::marker::Sync for EmailMailboxChangeReader {}
 #[repr(transparent)]
 pub struct EmailMailboxChangeTracker(::windows::core::IUnknown);
 impl EmailMailboxChangeTracker {
@@ -2723,6 +2753,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailMailboxChangeTracker {}
+unsafe impl ::core::marker::Sync for EmailMailboxChangeTracker {}
 #[repr(transparent)]
 pub struct EmailMailboxChangeType(pub i32);
 impl EmailMailboxChangeType {
@@ -2824,6 +2856,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailMailboxChangedDeferral {}
+unsafe impl ::core::marker::Sync for EmailMailboxChangedDeferral {}
 #[repr(transparent)]
 pub struct EmailMailboxChangedEventArgs(::windows::core::IUnknown);
 impl EmailMailboxChangedEventArgs {
@@ -2896,6 +2930,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailMailboxChangedEventArgs {}
+unsafe impl ::core::marker::Sync for EmailMailboxChangedEventArgs {}
 #[repr(transparent)]
 pub struct EmailMailboxCreateFolderResult(::windows::core::IUnknown);
 impl EmailMailboxCreateFolderResult {
@@ -2975,6 +3011,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailMailboxCreateFolderResult {}
+unsafe impl ::core::marker::Sync for EmailMailboxCreateFolderResult {}
 #[repr(transparent)]
 pub struct EmailMailboxCreateFolderStatus(pub i32);
 impl EmailMailboxCreateFolderStatus {
@@ -3259,6 +3297,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailMailboxPolicies {}
+unsafe impl ::core::marker::Sync for EmailMailboxPolicies {}
 #[repr(transparent)]
 pub struct EmailMailboxSmimeEncryptionAlgorithm(pub i32);
 impl EmailMailboxSmimeEncryptionAlgorithm {
@@ -3441,6 +3481,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailMailboxSyncManager {}
+unsafe impl ::core::marker::Sync for EmailMailboxSyncManager {}
 #[repr(transparent)]
 pub struct EmailMailboxSyncStatus(pub i32);
 impl EmailMailboxSyncStatus {
@@ -3601,6 +3643,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailManagerForUser {}
+unsafe impl ::core::marker::Sync for EmailManagerForUser {}
 #[repr(transparent)]
 pub struct EmailMeetingInfo(::windows::core::IUnknown);
 impl EmailMeetingInfo {
@@ -3837,6 +3881,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailMeetingInfo {}
+unsafe impl ::core::marker::Sync for EmailMeetingInfo {}
 #[repr(transparent)]
 pub struct EmailMeetingResponseType(pub i32);
 impl EmailMeetingResponseType {
@@ -4302,6 +4348,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailMessage {}
+unsafe impl ::core::marker::Sync for EmailMessage {}
 #[repr(transparent)]
 pub struct EmailMessageBatch(::windows::core::IUnknown);
 impl EmailMessageBatch {
@@ -4382,6 +4430,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailMessageBatch {}
+unsafe impl ::core::marker::Sync for EmailMessageBatch {}
 #[repr(transparent)]
 pub struct EmailMessageBodyKind(pub i32);
 impl EmailMessageBodyKind {
@@ -4511,6 +4561,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailMessageReader {}
+unsafe impl ::core::marker::Sync for EmailMessageReader {}
 #[repr(transparent)]
 pub struct EmailMessageResponseKind(pub i32);
 impl EmailMessageResponseKind {
@@ -4736,6 +4788,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailQueryOptions {}
+unsafe impl ::core::marker::Sync for EmailQueryOptions {}
 #[repr(transparent)]
 pub struct EmailQuerySearchFields(pub u32);
 impl EmailQuerySearchFields {
@@ -4945,6 +4999,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailQueryTextSearch {}
+unsafe impl ::core::marker::Sync for EmailQueryTextSearch {}
 #[repr(transparent)]
 pub struct EmailRecipient(::windows::core::IUnknown);
 impl EmailRecipient {
@@ -5055,6 +5111,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailRecipient {}
+unsafe impl ::core::marker::Sync for EmailRecipient {}
 #[repr(transparent)]
 pub struct EmailRecipientResolutionResult(::windows::core::IUnknown);
 impl EmailRecipientResolutionResult {
@@ -5151,6 +5209,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailRecipientResolutionResult {}
+unsafe impl ::core::marker::Sync for EmailRecipientResolutionResult {}
 #[repr(transparent)]
 pub struct EmailRecipientResolutionStatus(pub i32);
 impl EmailRecipientResolutionStatus {
@@ -5365,6 +5425,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailStore {}
+unsafe impl ::core::marker::Sync for EmailStore {}
 #[repr(transparent)]
 pub struct EmailStoreAccessType(pub i32);
 impl EmailStoreAccessType {
@@ -5456,6 +5518,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EmailStoreNotificationTriggerDetails {}
+unsafe impl ::core::marker::Sync for EmailStoreNotificationTriggerDetails {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IEmailAttachment(::windows::core::IUnknown);

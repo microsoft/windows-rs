@@ -730,6 +730,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phot
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhotoImportDeleteImportedItemsFromSourceResult {}
+unsafe impl ::core::marker::Sync for PhotoImportDeleteImportedItemsFromSourceResult {}
 #[repr(transparent)]
 pub struct PhotoImportFindItemsResult(::windows::core::IUnknown);
 impl PhotoImportFindItemsResult {
@@ -1023,6 +1025,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phot
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhotoImportFindItemsResult {}
+unsafe impl ::core::marker::Sync for PhotoImportFindItemsResult {}
 #[repr(transparent)]
 pub struct PhotoImportImportItemsResult(::windows::core::IUnknown);
 impl PhotoImportImportItemsResult {
@@ -1188,6 +1192,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phot
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhotoImportImportItemsResult {}
+unsafe impl ::core::marker::Sync for PhotoImportImportItemsResult {}
 #[repr(transparent)]
 pub struct PhotoImportImportMode(pub i32);
 impl PhotoImportImportMode {
@@ -1383,6 +1389,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phot
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhotoImportItem {}
+unsafe impl ::core::marker::Sync for PhotoImportItem {}
 #[repr(transparent)]
 pub struct PhotoImportItemImportedEventArgs(::windows::core::IUnknown);
 impl PhotoImportItemImportedEventArgs {
@@ -1455,6 +1463,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phot
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhotoImportItemImportedEventArgs {}
+unsafe impl ::core::marker::Sync for PhotoImportItemImportedEventArgs {}
 #[repr(transparent)]
 pub struct PhotoImportItemSelectionMode(pub i32);
 impl PhotoImportItemSelectionMode {
@@ -1617,6 +1627,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phot
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhotoImportOperation {}
+unsafe impl ::core::marker::Sync for PhotoImportOperation {}
 #[repr(transparent)]
 pub struct PhotoImportPowerSource(pub i32);
 impl PhotoImportPowerSource {
@@ -1751,6 +1763,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phot
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhotoImportSelectionChangedEventArgs {}
+unsafe impl ::core::marker::Sync for PhotoImportSelectionChangedEventArgs {}
 #[repr(transparent)]
 pub struct PhotoImportSession(::windows::core::IUnknown);
 impl PhotoImportSession {
@@ -1937,6 +1951,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PhotoImportSession {}
+unsafe impl ::core::marker::Sync for PhotoImportSession {}
 #[repr(transparent)]
 pub struct PhotoImportSidecar(::windows::core::IUnknown);
 impl PhotoImportSidecar {
@@ -2024,6 +2040,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phot
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhotoImportSidecar {}
+unsafe impl ::core::marker::Sync for PhotoImportSidecar {}
 #[repr(transparent)]
 pub struct PhotoImportSource(::windows::core::IUnknown);
 impl PhotoImportSource {
@@ -2231,6 +2249,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phot
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhotoImportSource {}
+unsafe impl ::core::marker::Sync for PhotoImportSource {}
 #[repr(transparent)]
 pub struct PhotoImportSourceType(pub i32);
 impl PhotoImportSourceType {
@@ -2410,6 +2430,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phot
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhotoImportStorageMedium {}
+unsafe impl ::core::marker::Sync for PhotoImportStorageMedium {}
 #[repr(transparent)]
 pub struct PhotoImportStorageMediumType(pub i32);
 impl PhotoImportStorageMediumType {
@@ -2597,3 +2619,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phot
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhotoImportVideoSegment {}
+unsafe impl ::core::marker::Sync for PhotoImportVideoSegment {}

@@ -2175,6 +2175,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnA
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VpnAppId {}
+unsafe impl ::core::marker::Sync for VpnAppId {}
 #[repr(transparent)]
 pub struct VpnAppIdType(pub i32);
 impl VpnAppIdType {
@@ -2562,6 +2564,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VpnChannel {}
+unsafe impl ::core::marker::Sync for VpnChannel {}
 #[repr(transparent)]
 pub struct VpnChannelActivityEventArgs(::windows::core::IUnknown);
 impl VpnChannelActivityEventArgs {
@@ -2634,6 +2638,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VpnChannelActivityEventArgs {}
+unsafe impl ::core::marker::Sync for VpnChannelActivityEventArgs {}
 #[repr(transparent)]
 pub struct VpnChannelActivityEventType(pub i32);
 impl VpnChannelActivityEventType {
@@ -2733,6 +2739,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VpnChannelActivityStateChangedArgs {}
+unsafe impl ::core::marker::Sync for VpnChannelActivityStateChangedArgs {}
 #[repr(transparent)]
 pub struct VpnChannelConfiguration(::windows::core::IUnknown);
 impl VpnChannelConfiguration {
@@ -2828,6 +2836,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VpnChannelConfiguration {}
+unsafe impl ::core::marker::Sync for VpnChannelConfiguration {}
 #[repr(transparent)]
 pub struct VpnChannelRequestCredentialsOptions(pub u32);
 impl VpnChannelRequestCredentialsOptions {
@@ -2974,6 +2984,8 @@ impl<'a> ::windows::core::IntoParam<'a, IVpnCredential> for &VpnCredential {
         ::core::convert::TryInto::<IVpnCredential>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for VpnCredential {}
+unsafe impl ::core::marker::Sync for VpnCredential {}
 #[repr(transparent)]
 pub struct VpnCredentialType(pub i32);
 impl VpnCredentialType {
@@ -3151,6 +3163,8 @@ impl<'a> ::windows::core::IntoParam<'a, IVpnCustomPrompt> for &VpnCustomCheckBox
         ::core::convert::TryInto::<IVpnCustomPrompt>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for VpnCustomCheckBox {}
+unsafe impl ::core::marker::Sync for VpnCustomCheckBox {}
 #[repr(transparent)]
 pub struct VpnCustomComboBox(::windows::core::IUnknown);
 impl VpnCustomComboBox {
@@ -3298,6 +3312,8 @@ impl<'a> ::windows::core::IntoParam<'a, IVpnCustomPrompt> for &VpnCustomComboBox
         ::core::convert::TryInto::<IVpnCustomPrompt>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for VpnCustomComboBox {}
+unsafe impl ::core::marker::Sync for VpnCustomComboBox {}
 #[repr(transparent)]
 pub struct VpnCustomEditBox(::windows::core::IUnknown);
 impl VpnCustomEditBox {
@@ -3454,6 +3470,8 @@ impl<'a> ::windows::core::IntoParam<'a, IVpnCustomPrompt> for &VpnCustomEditBox 
         ::core::convert::TryInto::<IVpnCustomPrompt>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for VpnCustomEditBox {}
+unsafe impl ::core::marker::Sync for VpnCustomEditBox {}
 #[repr(transparent)]
 pub struct VpnCustomErrorBox(::windows::core::IUnknown);
 impl VpnCustomErrorBox {
@@ -3581,6 +3599,8 @@ impl<'a> ::windows::core::IntoParam<'a, IVpnCustomPrompt> for &VpnCustomErrorBox
         ::core::convert::TryInto::<IVpnCustomPrompt>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for VpnCustomErrorBox {}
+unsafe impl ::core::marker::Sync for VpnCustomErrorBox {}
 #[repr(transparent)]
 pub struct VpnCustomPromptBooleanInput(::windows::core::IUnknown);
 impl VpnCustomPromptBooleanInput {
@@ -3726,6 +3746,8 @@ impl<'a> ::windows::core::IntoParam<'a, IVpnCustomPromptElement> for &VpnCustomP
         ::core::convert::TryInto::<IVpnCustomPromptElement>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for VpnCustomPromptBooleanInput {}
+unsafe impl ::core::marker::Sync for VpnCustomPromptBooleanInput {}
 #[repr(transparent)]
 pub struct VpnCustomPromptOptionSelector(::windows::core::IUnknown);
 impl VpnCustomPromptOptionSelector {
@@ -3868,6 +3890,8 @@ impl<'a> ::windows::core::IntoParam<'a, IVpnCustomPromptElement> for &VpnCustomP
         ::core::convert::TryInto::<IVpnCustomPromptElement>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for VpnCustomPromptOptionSelector {}
+unsafe impl ::core::marker::Sync for VpnCustomPromptOptionSelector {}
 #[repr(transparent)]
 pub struct VpnCustomPromptText(::windows::core::IUnknown);
 impl VpnCustomPromptText {
@@ -4006,6 +4030,8 @@ impl<'a> ::windows::core::IntoParam<'a, IVpnCustomPromptElement> for &VpnCustomP
         ::core::convert::TryInto::<IVpnCustomPromptElement>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for VpnCustomPromptText {}
+unsafe impl ::core::marker::Sync for VpnCustomPromptText {}
 #[repr(transparent)]
 pub struct VpnCustomPromptTextInput(::windows::core::IUnknown);
 impl VpnCustomPromptTextInput {
@@ -4162,6 +4188,8 @@ impl<'a> ::windows::core::IntoParam<'a, IVpnCustomPromptElement> for &VpnCustomP
         ::core::convert::TryInto::<IVpnCustomPromptElement>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for VpnCustomPromptTextInput {}
+unsafe impl ::core::marker::Sync for VpnCustomPromptTextInput {}
 #[repr(transparent)]
 pub struct VpnCustomTextBox(::windows::core::IUnknown);
 impl VpnCustomTextBox {
@@ -4300,6 +4328,8 @@ impl<'a> ::windows::core::IntoParam<'a, IVpnCustomPrompt> for &VpnCustomTextBox 
         ::core::convert::TryInto::<IVpnCustomPrompt>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for VpnCustomTextBox {}
+unsafe impl ::core::marker::Sync for VpnCustomTextBox {}
 #[repr(transparent)]
 pub struct VpnDataPathType(pub i32);
 impl VpnDataPathType {
@@ -4420,6 +4450,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnD
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VpnDomainNameAssignment {}
+unsafe impl ::core::marker::Sync for VpnDomainNameAssignment {}
 #[repr(transparent)]
 pub struct VpnDomainNameInfo(::windows::core::IUnknown);
 impl VpnDomainNameInfo {
@@ -4542,6 +4574,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnD
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VpnDomainNameInfo {}
+unsafe impl ::core::marker::Sync for VpnDomainNameInfo {}
 #[repr(transparent)]
 pub struct VpnDomainNameType(pub i32);
 impl VpnDomainNameType {
@@ -4741,6 +4775,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for VpnForegroundActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for VpnForegroundActivatedEventArgs {}
 #[repr(transparent)]
 pub struct VpnForegroundActivationOperation(::windows::core::IUnknown);
 impl VpnForegroundActivationOperation {
@@ -4811,6 +4847,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnF
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VpnForegroundActivationOperation {}
+unsafe impl ::core::marker::Sync for VpnForegroundActivationOperation {}
 #[repr(transparent)]
 pub struct VpnIPProtocol(pub i32);
 impl VpnIPProtocol {
@@ -4922,6 +4960,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VpnInterfaceId {}
+unsafe impl ::core::marker::Sync for VpnInterfaceId {}
 #[repr(transparent)]
 pub struct VpnManagementAgent(::windows::core::IUnknown);
 impl VpnManagementAgent {
@@ -5066,6 +5106,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnM
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VpnManagementAgent {}
+unsafe impl ::core::marker::Sync for VpnManagementAgent {}
 #[repr(transparent)]
 pub struct VpnManagementConnectionStatus(pub i32);
 impl VpnManagementConnectionStatus {
@@ -5237,6 +5279,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnN
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VpnNamespaceAssignment {}
+unsafe impl ::core::marker::Sync for VpnNamespaceAssignment {}
 #[repr(transparent)]
 pub struct VpnNamespaceInfo(::windows::core::IUnknown);
 impl VpnNamespaceInfo {
@@ -5350,6 +5394,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnN
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VpnNamespaceInfo {}
+unsafe impl ::core::marker::Sync for VpnNamespaceInfo {}
 #[repr(transparent)]
 pub struct VpnNativeProfile(::windows::core::IUnknown);
 impl VpnNativeProfile {
@@ -5590,6 +5636,8 @@ impl<'a> ::windows::core::IntoParam<'a, IVpnProfile> for &VpnNativeProfile {
         ::core::convert::TryInto::<IVpnProfile>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for VpnNativeProfile {}
+unsafe impl ::core::marker::Sync for VpnNativeProfile {}
 #[repr(transparent)]
 pub struct VpnNativeProtocolType(pub i32);
 impl VpnNativeProtocolType {
@@ -5741,6 +5789,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnP
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VpnPacketBuffer {}
+unsafe impl ::core::marker::Sync for VpnPacketBuffer {}
 #[repr(transparent)]
 pub struct VpnPacketBufferList(::windows::core::IUnknown);
 impl VpnPacketBufferList {
@@ -5900,6 +5950,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<VpnPacketBuffer>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for VpnPacketBufferList {}
+unsafe impl ::core::marker::Sync for VpnPacketBufferList {}
 #[repr(transparent)]
 pub struct VpnPacketBufferStatus(pub i32);
 impl VpnPacketBufferStatus {
@@ -6015,6 +6067,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnP
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VpnPickedCredential {}
+unsafe impl ::core::marker::Sync for VpnPickedCredential {}
 #[repr(transparent)]
 pub struct VpnPlugInProfile(::windows::core::IUnknown);
 impl VpnPlugInProfile {
@@ -6222,6 +6276,8 @@ impl<'a> ::windows::core::IntoParam<'a, IVpnProfile> for &VpnPlugInProfile {
         ::core::convert::TryInto::<IVpnProfile>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for VpnPlugInProfile {}
+unsafe impl ::core::marker::Sync for VpnPlugInProfile {}
 #[repr(transparent)]
 pub struct VpnRoute(::windows::core::IUnknown);
 impl VpnRoute {
@@ -6319,6 +6375,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VpnRoute {}
+unsafe impl ::core::marker::Sync for VpnRoute {}
 #[repr(transparent)]
 pub struct VpnRouteAssignment(::windows::core::IUnknown);
 impl VpnRouteAssignment {
@@ -6454,6 +6512,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VpnRouteAssignment {}
+unsafe impl ::core::marker::Sync for VpnRouteAssignment {}
 #[repr(transparent)]
 pub struct VpnRoutingPolicyType(pub i32);
 impl VpnRoutingPolicyType {
@@ -6554,6 +6614,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VpnSystemHealth {}
+unsafe impl ::core::marker::Sync for VpnSystemHealth {}
 #[repr(transparent)]
 pub struct VpnTrafficFilter(::windows::core::IUnknown);
 impl VpnTrafficFilter {
@@ -6702,6 +6764,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnT
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VpnTrafficFilter {}
+unsafe impl ::core::marker::Sync for VpnTrafficFilter {}
 #[repr(transparent)]
 pub struct VpnTrafficFilterAssignment(::windows::core::IUnknown);
 impl VpnTrafficFilterAssignment {
@@ -6804,3 +6868,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnT
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VpnTrafficFilterAssignment {}
+unsafe impl ::core::marker::Sync for VpnTrafficFilterAssignment {}

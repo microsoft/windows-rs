@@ -489,6 +489,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xbox
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for XboxLiveDeviceAddress {}
+unsafe impl ::core::marker::Sync for XboxLiveDeviceAddress {}
 #[repr(transparent)]
 pub struct XboxLiveEndpointPair(::windows::core::IUnknown);
 impl XboxLiveEndpointPair {
@@ -648,6 +650,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xbox
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for XboxLiveEndpointPair {}
+unsafe impl ::core::marker::Sync for XboxLiveEndpointPair {}
 #[repr(transparent)]
 pub struct XboxLiveEndpointPairCreationBehaviors(pub u32);
 impl XboxLiveEndpointPairCreationBehaviors {
@@ -768,6 +772,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xbox
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for XboxLiveEndpointPairCreationResult {}
+unsafe impl ::core::marker::Sync for XboxLiveEndpointPairCreationResult {}
 #[repr(transparent)]
 pub struct XboxLiveEndpointPairCreationStatus(pub i32);
 impl XboxLiveEndpointPairCreationStatus {
@@ -913,6 +919,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xbox
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for XboxLiveEndpointPairStateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for XboxLiveEndpointPairStateChangedEventArgs {}
 #[repr(transparent)]
 pub struct XboxLiveEndpointPairTemplate(::windows::core::IUnknown);
 impl XboxLiveEndpointPairTemplate {
@@ -1090,6 +1098,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xbox
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for XboxLiveEndpointPairTemplate {}
+unsafe impl ::core::marker::Sync for XboxLiveEndpointPairTemplate {}
 #[repr(transparent)]
 pub struct XboxLiveInboundEndpointPairCreatedEventArgs(::windows::core::IUnknown);
 impl XboxLiveInboundEndpointPairCreatedEventArgs {
@@ -1162,6 +1172,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xbox
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for XboxLiveInboundEndpointPairCreatedEventArgs {}
+unsafe impl ::core::marker::Sync for XboxLiveInboundEndpointPairCreatedEventArgs {}
 #[repr(transparent)]
 pub struct XboxLiveNetworkAccessKind(pub i32);
 impl XboxLiveNetworkAccessKind {
@@ -1426,6 +1438,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xbox
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for XboxLiveQualityOfServiceMeasurement {}
+unsafe impl ::core::marker::Sync for XboxLiveQualityOfServiceMeasurement {}
 #[repr(transparent)]
 pub struct XboxLiveQualityOfServiceMeasurementStatus(pub i32);
 impl XboxLiveQualityOfServiceMeasurementStatus {
@@ -1590,6 +1604,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xbox
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for XboxLiveQualityOfServiceMetricResult {}
+unsafe impl ::core::marker::Sync for XboxLiveQualityOfServiceMetricResult {}
 #[repr(transparent)]
 pub struct XboxLiveQualityOfServicePrivatePayloadResult(::windows::core::IUnknown);
 impl XboxLiveQualityOfServicePrivatePayloadResult {
@@ -1677,6 +1693,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xbox
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for XboxLiveQualityOfServicePrivatePayloadResult {}
+unsafe impl ::core::marker::Sync for XboxLiveQualityOfServicePrivatePayloadResult {}
 #[repr(transparent)]
 pub struct XboxLiveSocketKind(pub i32);
 impl XboxLiveSocketKind {

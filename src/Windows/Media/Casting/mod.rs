@@ -162,6 +162,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for CastingConnection {}
+unsafe impl ::core::marker::Sync for CastingConnection {}
 #[repr(transparent)]
 pub struct CastingConnectionErrorOccurredEventArgs(::windows::core::IUnknown);
 impl CastingConnectionErrorOccurredEventArgs {
@@ -241,6 +243,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cast
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CastingConnectionErrorOccurredEventArgs {}
+unsafe impl ::core::marker::Sync for CastingConnectionErrorOccurredEventArgs {}
 #[repr(transparent)]
 pub struct CastingConnectionErrorStatus(pub i32);
 impl CastingConnectionErrorStatus {
@@ -436,6 +440,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cast
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CastingDevice {}
+unsafe impl ::core::marker::Sync for CastingDevice {}
 #[repr(transparent)]
 pub struct CastingDevicePicker(::windows::core::IUnknown);
 impl CastingDevicePicker {
@@ -563,6 +569,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cast
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CastingDevicePicker {}
+unsafe impl ::core::marker::Sync for CastingDevicePicker {}
 #[repr(transparent)]
 pub struct CastingDevicePickerFilter(::windows::core::IUnknown);
 impl CastingDevicePickerFilter {
@@ -669,6 +677,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cast
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CastingDevicePickerFilter {}
+unsafe impl ::core::marker::Sync for CastingDevicePickerFilter {}
 #[repr(transparent)]
 pub struct CastingDeviceSelectedEventArgs(::windows::core::IUnknown);
 impl CastingDeviceSelectedEventArgs {
@@ -741,6 +751,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cast
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CastingDeviceSelectedEventArgs {}
+unsafe impl ::core::marker::Sync for CastingDeviceSelectedEventArgs {}
 #[repr(transparent)]
 pub struct CastingPlaybackTypes(pub u32);
 impl CastingPlaybackTypes {
@@ -848,6 +860,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cast
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CastingSource {}
+unsafe impl ::core::marker::Sync for CastingSource {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICastingConnection(::windows::core::IUnknown);

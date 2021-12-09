@@ -306,6 +306,8 @@ impl<'a> ::windows::core::IntoParam<'a, IHttpFilter> for &HttpBaseProtocolFilter
         ::core::convert::TryInto::<IHttpFilter>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpBaseProtocolFilter {}
+unsafe impl ::core::marker::Sync for HttpBaseProtocolFilter {}
 #[repr(transparent)]
 pub struct HttpCacheControl(::windows::core::IUnknown);
 impl HttpCacheControl {
@@ -393,6 +395,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Http
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HttpCacheControl {}
+unsafe impl ::core::marker::Sync for HttpCacheControl {}
 #[repr(transparent)]
 pub struct HttpCacheReadBehavior(pub i32);
 impl HttpCacheReadBehavior {
@@ -592,6 +596,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Http
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HttpServerCustomValidationRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for HttpServerCustomValidationRequestedEventArgs {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHttpBaseProtocolFilter(::windows::core::IUnknown);

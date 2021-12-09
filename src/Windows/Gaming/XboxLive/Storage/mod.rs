@@ -79,6 +79,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GameSaveBlobGetResult {}
+unsafe impl ::core::marker::Sync for GameSaveBlobGetResult {}
 #[repr(transparent)]
 pub struct GameSaveBlobInfo(::windows::core::IUnknown);
 impl GameSaveBlobInfo {
@@ -158,6 +160,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GameSaveBlobInfo {}
+unsafe impl ::core::marker::Sync for GameSaveBlobInfo {}
 #[repr(transparent)]
 pub struct GameSaveBlobInfoGetResult(::windows::core::IUnknown);
 impl GameSaveBlobInfoGetResult {
@@ -238,6 +242,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GameSaveBlobInfoGetResult {}
+unsafe impl ::core::marker::Sync for GameSaveBlobInfoGetResult {}
 #[repr(transparent)]
 pub struct GameSaveBlobInfoQuery(::windows::core::IUnknown);
 impl GameSaveBlobInfoQuery {
@@ -327,6 +333,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GameSaveBlobInfoQuery {}
+unsafe impl ::core::marker::Sync for GameSaveBlobInfoQuery {}
 #[repr(transparent)]
 pub struct GameSaveContainer(::windows::core::IUnknown);
 impl GameSaveContainer {
@@ -445,6 +453,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GameSaveContainer {}
+unsafe impl ::core::marker::Sync for GameSaveContainer {}
 #[repr(transparent)]
 pub struct GameSaveContainerInfo(::windows::core::IUnknown);
 impl GameSaveContainerInfo {
@@ -546,6 +556,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GameSaveContainerInfo {}
+unsafe impl ::core::marker::Sync for GameSaveContainerInfo {}
 #[repr(transparent)]
 pub struct GameSaveContainerInfoGetResult(::windows::core::IUnknown);
 impl GameSaveContainerInfoGetResult {
@@ -626,6 +638,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GameSaveContainerInfoGetResult {}
+unsafe impl ::core::marker::Sync for GameSaveContainerInfoGetResult {}
 #[repr(transparent)]
 pub struct GameSaveContainerInfoQuery(::windows::core::IUnknown);
 impl GameSaveContainerInfoQuery {
@@ -715,6 +729,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GameSaveContainerInfoQuery {}
+unsafe impl ::core::marker::Sync for GameSaveContainerInfoQuery {}
 #[repr(transparent)]
 pub struct GameSaveErrorStatus(pub i32);
 impl GameSaveErrorStatus {
@@ -827,6 +843,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GameSaveOperationResult {}
+unsafe impl ::core::marker::Sync for GameSaveOperationResult {}
 #[repr(transparent)]
 pub struct GameSaveProvider(::windows::core::IUnknown);
 impl GameSaveProvider {
@@ -963,6 +981,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GameSaveProvider {}
+unsafe impl ::core::marker::Sync for GameSaveProvider {}
 #[repr(transparent)]
 pub struct GameSaveProviderGetResult(::windows::core::IUnknown);
 impl GameSaveProviderGetResult {
@@ -1042,6 +1062,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GameSaveProviderGetResult {}
+unsafe impl ::core::marker::Sync for GameSaveProviderGetResult {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGameSaveBlobGetResult(::windows::core::IUnknown);

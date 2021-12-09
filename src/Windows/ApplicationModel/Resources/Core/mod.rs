@@ -417,6 +417,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Name
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for NamedResource {}
+unsafe impl ::core::marker::Sync for NamedResource {}
 #[repr(transparent)]
 pub struct ResourceCandidate(::windows::core::IUnknown);
 impl ResourceCandidate {
@@ -548,6 +550,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Reso
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ResourceCandidate {}
+unsafe impl ::core::marker::Sync for ResourceCandidate {}
 #[repr(transparent)]
 pub struct ResourceCandidateKind(pub i32);
 impl ResourceCandidateKind {
@@ -775,6 +779,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for ResourceCandidateVectorView {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for ResourceCandidateVectorView {}
 #[repr(transparent)]
 pub struct ResourceContext(::windows::core::IUnknown);
 impl ResourceContext {
@@ -944,6 +952,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Reso
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ResourceContext {}
+unsafe impl ::core::marker::Sync for ResourceContext {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct ResourceContextLanguagesVectorView(::windows::core::IUnknown);
@@ -1143,6 +1153,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for ResourceContextLanguagesVectorView {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for ResourceContextLanguagesVectorView {}
 #[repr(C)]
 pub struct ResourceLayoutInfo {
     pub MajorVersion: u32,
@@ -1306,6 +1320,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Reso
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ResourceManager {}
+unsafe impl ::core::marker::Sync for ResourceManager {}
 #[repr(transparent)]
 pub struct ResourceMap(::windows::core::IUnknown);
 impl ResourceMap {
@@ -1505,6 +1521,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, NamedResource>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ResourceMap {}
+unsafe impl ::core::marker::Sync for ResourceMap {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct ResourceMapIterator(::windows::core::IUnknown);
@@ -1648,6 +1666,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, NamedResource>>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for ResourceMapIterator {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for ResourceMapIterator {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct ResourceMapMapView(::windows::core::IUnknown);
@@ -1845,6 +1867,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for ResourceMapMapView {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for ResourceMapMapView {}
+#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct ResourceMapMapViewIterator(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
@@ -1987,6 +2013,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ResourceMap>>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for ResourceMapMapViewIterator {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for ResourceMapMapViewIterator {}
 #[repr(transparent)]
 pub struct ResourceQualifier(::windows::core::IUnknown);
 impl ResourceQualifier {
@@ -2087,6 +2117,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Reso
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ResourceQualifier {}
+unsafe impl ::core::marker::Sync for ResourceQualifier {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct ResourceQualifierMapView(::windows::core::IUnknown);
@@ -2283,6 +2315,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for ResourceQualifierMapView {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for ResourceQualifierMapView {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct ResourceQualifierObservableMap(::windows::core::IUnknown);
@@ -2543,6 +2579,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IObservableMap<::windows::core::HSTRING, ::windows::core::HSTRING>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for ResourceQualifierObservableMap {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for ResourceQualifierObservableMap {}
 #[repr(transparent)]
 pub struct ResourceQualifierPersistence(pub i32);
 impl ResourceQualifierPersistence {
@@ -2769,3 +2809,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVectorView<ResourceQualifier>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for ResourceQualifierVectorView {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for ResourceQualifierVectorView {}

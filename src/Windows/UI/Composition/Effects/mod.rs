@@ -252,6 +252,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Graphics::Effects::
         ::core::convert::TryInto::<super::super::super::Graphics::Effects::IGraphicsEffectSource>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SceneLightingEffect {}
+unsafe impl ::core::marker::Sync for SceneLightingEffect {}
 #[repr(transparent)]
 pub struct SceneLightingEffectReflectanceModel(pub i32);
 impl SceneLightingEffectReflectanceModel {

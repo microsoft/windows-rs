@@ -837,6 +837,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for IsolatedWindowsEnvironment {}
+unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironment {}
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentActivator(pub i32);
 impl IsolatedWindowsEnvironmentActivator {
@@ -1067,6 +1069,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentCreateResult {}
+unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentCreateResult {}
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentCreateStatus(pub i32);
 impl IsolatedWindowsEnvironmentCreateStatus {
@@ -1192,6 +1196,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentFile {}
+unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentFile {}
 pub struct IsolatedWindowsEnvironmentHost {}
 impl IsolatedWindowsEnvironmentHost {
     pub fn IsReady() -> ::windows::core::Result<bool> {
@@ -1331,6 +1337,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentLaunchFileResult {}
+unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentLaunchFileResult {}
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentLaunchFileStatus(pub i32);
 impl IsolatedWindowsEnvironmentLaunchFileStatus {
@@ -1540,6 +1548,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentOptions {}
+unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentOptions {}
 pub struct IsolatedWindowsEnvironmentOwnerRegistration {}
 impl IsolatedWindowsEnvironmentOwnerRegistration {
     pub fn Register<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, IsolatedWindowsEnvironmentOwnerRegistrationData>>(ownername: Param0, ownerregistrationdata: Param1) -> ::windows::core::Result<IsolatedWindowsEnvironmentOwnerRegistrationResult> {
@@ -1663,6 +1673,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentOwnerRegistrationData {}
+unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentOwnerRegistrationData {}
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentOwnerRegistrationResult(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentOwnerRegistrationResult {
@@ -1742,6 +1754,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentOwnerRegistrationResult {}
+unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentOwnerRegistrationResult {}
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentOwnerRegistrationStatus(pub i32);
 impl IsolatedWindowsEnvironmentOwnerRegistrationStatus {
@@ -1851,6 +1865,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentPostMessageResult {}
+unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentPostMessageResult {}
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentPostMessageStatus(pub i32);
 impl IsolatedWindowsEnvironmentPostMessageStatus {
@@ -1974,6 +1990,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentProcess {}
+unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentProcess {}
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentProcessState(pub i32);
 impl IsolatedWindowsEnvironmentProcessState {
@@ -2113,6 +2131,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFileRequestOptions {}
+unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFileRequestOptions {}
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentShareFileResult(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentShareFileResult {
@@ -2199,6 +2219,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFileResult {}
+unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFileResult {}
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentShareFileStatus(pub i32);
 impl IsolatedWindowsEnvironmentShareFileStatus {
@@ -2313,6 +2335,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFolderRequestOptions {}
+unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFolderRequestOptions {}
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentShareFolderResult(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentShareFolderResult {
@@ -2392,6 +2416,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFolderResult {}
+unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFolderResult {}
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentShareFolderStatus(pub i32);
 impl IsolatedWindowsEnvironmentShareFolderStatus {
@@ -2508,6 +2534,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentStartProcessResult {}
+unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentStartProcessResult {}
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentStartProcessStatus(pub i32);
 impl IsolatedWindowsEnvironmentStartProcessStatus {
@@ -2621,6 +2649,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentTelemetryParameters {}
+unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentTelemetryParameters {}
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentUserInfo(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentUserInfo {
@@ -2708,6 +2738,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentUserInfo {}
+unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentUserInfo {}
 pub struct IsolatedWindowsHostMessenger {}
 impl IsolatedWindowsHostMessenger {
     #[cfg(feature = "Foundation_Collections")]

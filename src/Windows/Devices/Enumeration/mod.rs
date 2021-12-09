@@ -80,6 +80,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DeviceAccessChangedEventArgs {}
+unsafe impl ::core::marker::Sync for DeviceAccessChangedEventArgs {}
 #[repr(transparent)]
 pub struct DeviceAccessInformation(::windows::core::IUnknown);
 impl DeviceAccessInformation {
@@ -187,6 +189,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DeviceAccessInformation {}
+unsafe impl ::core::marker::Sync for DeviceAccessInformation {}
 #[repr(transparent)]
 pub struct DeviceAccessStatus(pub i32);
 impl DeviceAccessStatus {
@@ -320,6 +324,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DeviceConnectionChangeTriggerDetails {}
+unsafe impl ::core::marker::Sync for DeviceConnectionChangeTriggerDetails {}
 #[repr(transparent)]
 pub struct DeviceDisconnectButtonClickedEventArgs(::windows::core::IUnknown);
 impl DeviceDisconnectButtonClickedEventArgs {
@@ -392,6 +398,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DeviceDisconnectButtonClickedEventArgs {}
+unsafe impl ::core::marker::Sync for DeviceDisconnectButtonClickedEventArgs {}
 #[repr(transparent)]
 pub struct DeviceInformation(::windows::core::IUnknown);
 impl DeviceInformation {
@@ -636,6 +644,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DeviceInformation {}
+unsafe impl ::core::marker::Sync for DeviceInformation {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct DeviceInformationCollection(::windows::core::IUnknown);
@@ -835,6 +845,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IVectorView<DeviceInformation>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for DeviceInformationCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for DeviceInformationCollection {}
 #[repr(transparent)]
 pub struct DeviceInformationCustomPairing(::windows::core::IUnknown);
 impl DeviceInformationCustomPairing {
@@ -937,6 +951,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DeviceInformationCustomPairing {}
+unsafe impl ::core::marker::Sync for DeviceInformationCustomPairing {}
 #[repr(transparent)]
 pub struct DeviceInformationKind(pub i32);
 impl DeviceInformationKind {
@@ -1116,6 +1132,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DeviceInformationPairing {}
+unsafe impl ::core::marker::Sync for DeviceInformationPairing {}
 #[repr(transparent)]
 pub struct DeviceInformationUpdate(::windows::core::IUnknown);
 impl DeviceInformationUpdate {
@@ -1203,6 +1221,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DeviceInformationUpdate {}
+unsafe impl ::core::marker::Sync for DeviceInformationUpdate {}
 #[repr(transparent)]
 pub struct DevicePairingKinds(pub u32);
 impl DevicePairingKinds {
@@ -1370,6 +1390,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DevicePairingRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for DevicePairingRequestedEventArgs {}
 #[repr(transparent)]
 pub struct DevicePairingResult(::windows::core::IUnknown);
 impl DevicePairingResult {
@@ -1449,6 +1471,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DevicePairingResult {}
+unsafe impl ::core::marker::Sync for DevicePairingResult {}
 #[repr(transparent)]
 pub struct DevicePairingResultStatus(pub i32);
 impl DevicePairingResultStatus {
@@ -1661,6 +1685,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DevicePicker {}
+unsafe impl ::core::marker::Sync for DevicePicker {}
 #[repr(transparent)]
 pub struct DevicePickerAppearance(::windows::core::IUnknown);
 impl DevicePickerAppearance {
@@ -1815,6 +1841,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DevicePickerAppearance {}
+unsafe impl ::core::marker::Sync for DevicePickerAppearance {}
 #[repr(transparent)]
 pub struct DevicePickerDisplayStatusOptions(pub u32);
 impl DevicePickerDisplayStatusOptions {
@@ -1925,6 +1953,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DevicePickerFilter {}
+unsafe impl ::core::marker::Sync for DevicePickerFilter {}
 #[repr(transparent)]
 pub struct DeviceSelectedEventArgs(::windows::core::IUnknown);
 impl DeviceSelectedEventArgs {
@@ -1997,6 +2027,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DeviceSelectedEventArgs {}
+unsafe impl ::core::marker::Sync for DeviceSelectedEventArgs {}
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
 pub struct DeviceThumbnail(::windows::core::IUnknown);
@@ -2361,6 +2393,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomA
         ::core::convert::TryInto::<super::super::Storage::Streams::IRandomAccessStreamWithContentType>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Storage_Streams")]
+unsafe impl ::core::marker::Send for DeviceThumbnail {}
+#[cfg(feature = "Storage_Streams")]
+unsafe impl ::core::marker::Sync for DeviceThumbnail {}
 #[repr(transparent)]
 pub struct DeviceUnpairingResult(::windows::core::IUnknown);
 impl DeviceUnpairingResult {
@@ -2433,6 +2469,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DeviceUnpairingResult {}
+unsafe impl ::core::marker::Sync for DeviceUnpairingResult {}
 #[repr(transparent)]
 pub struct DeviceUnpairingResultStatus(pub i32);
 impl DeviceUnpairingResultStatus {
@@ -2616,6 +2654,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DeviceWatcher {}
+unsafe impl ::core::marker::Sync for DeviceWatcher {}
 #[repr(transparent)]
 pub struct DeviceWatcherEvent(::windows::core::IUnknown);
 impl DeviceWatcherEvent {
@@ -2702,6 +2742,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DeviceWatcherEvent {}
+unsafe impl ::core::marker::Sync for DeviceWatcherEvent {}
 #[repr(transparent)]
 pub struct DeviceWatcherEventKind(pub i32);
 impl DeviceWatcherEventKind {
@@ -2834,6 +2876,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DeviceWatcherTriggerDetails {}
+unsafe impl ::core::marker::Sync for DeviceWatcherTriggerDetails {}
 #[repr(transparent)]
 pub struct EnclosureLocation(::windows::core::IUnknown);
 impl EnclosureLocation {
@@ -2927,6 +2971,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Encl
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EnclosureLocation {}
+unsafe impl ::core::marker::Sync for EnclosureLocation {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDeviceAccessChangedEventArgs(::windows::core::IUnknown);

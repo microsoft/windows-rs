@@ -508,6 +508,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wall
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WalletBarcode {}
+unsafe impl ::core::marker::Sync for WalletBarcode {}
 #[repr(transparent)]
 pub struct WalletBarcodeSymbology(pub i32);
 impl WalletBarcodeSymbology {
@@ -987,6 +989,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wall
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WalletItem {}
+unsafe impl ::core::marker::Sync for WalletItem {}
 #[repr(transparent)]
 pub struct WalletItemCustomProperty(::windows::core::IUnknown);
 impl WalletItemCustomProperty {
@@ -1117,6 +1121,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wall
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WalletItemCustomProperty {}
+unsafe impl ::core::marker::Sync for WalletItemCustomProperty {}
 #[repr(transparent)]
 pub struct WalletItemKind(pub i32);
 impl WalletItemKind {
@@ -1294,6 +1300,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wall
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WalletItemStore {}
+unsafe impl ::core::marker::Sync for WalletItemStore {}
 pub struct WalletManager {}
 impl WalletManager {
     #[cfg(feature = "Foundation")]
@@ -1407,6 +1415,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wall
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WalletRelevantLocation {}
+unsafe impl ::core::marker::Sync for WalletRelevantLocation {}
 #[repr(transparent)]
 pub struct WalletSummaryViewPosition(pub i32);
 impl WalletSummaryViewPosition {
@@ -1575,6 +1585,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wall
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WalletTransaction {}
+unsafe impl ::core::marker::Sync for WalletTransaction {}
 #[repr(transparent)]
 pub struct WalletVerb(::windows::core::IUnknown);
 impl WalletVerb {
@@ -1661,3 +1673,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wall
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WalletVerb {}
+unsafe impl ::core::marker::Sync for WalletVerb {}

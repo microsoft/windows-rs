@@ -605,6 +605,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::Core::ITimedMetadataTrackProvider
         ::core::convert::TryInto::<super::Core::ITimedMetadataTrackProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SpeechSynthesisStream {}
+unsafe impl ::core::marker::Sync for SpeechSynthesisStream {}
 #[repr(transparent)]
 pub struct SpeechSynthesizer(::windows::core::IUnknown);
 impl SpeechSynthesizer {
@@ -770,6 +772,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SpeechSynthesizer {}
+unsafe impl ::core::marker::Sync for SpeechSynthesizer {}
 #[repr(transparent)]
 pub struct SpeechSynthesizerOptions(::windows::core::IUnknown);
 impl SpeechSynthesizerOptions {
@@ -912,6 +916,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spee
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpeechSynthesizerOptions {}
+unsafe impl ::core::marker::Sync for SpeechSynthesizerOptions {}
 #[repr(transparent)]
 pub struct VoiceGender(pub i32);
 impl VoiceGender {
@@ -1039,3 +1045,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Voic
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VoiceInformation {}
+unsafe impl ::core::marker::Sync for VoiceInformation {}

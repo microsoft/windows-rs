@@ -159,6 +159,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Auto
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AutomationRemoteOperationResult {}
+unsafe impl ::core::marker::Sync for AutomationRemoteOperationResult {}
 #[repr(transparent)]
 pub struct AutomationRemoteOperationStatus(pub i32);
 impl AutomationRemoteOperationStatus {
@@ -310,6 +312,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CoreAutomationRemoteOperation {}
+unsafe impl ::core::marker::Sync for CoreAutomationRemoteOperation {}
 #[repr(transparent)]
 pub struct CoreAutomationRemoteOperationContext(::windows::core::IUnknown);
 impl CoreAutomationRemoteOperationContext {
@@ -390,6 +394,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CoreAutomationRemoteOperationContext {}
+unsafe impl ::core::marker::Sync for CoreAutomationRemoteOperationContext {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationRemoteOperationResult(::windows::core::IUnknown);
@@ -910,6 +916,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteAutomationClientSession {}
+unsafe impl ::core::marker::Sync for RemoteAutomationClientSession {}
 #[repr(transparent)]
 pub struct RemoteAutomationConnectionRequestedEventArgs(::windows::core::IUnknown);
 impl RemoteAutomationConnectionRequestedEventArgs {
@@ -989,6 +997,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteAutomationConnectionRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for RemoteAutomationConnectionRequestedEventArgs {}
 #[repr(transparent)]
 pub struct RemoteAutomationDisconnectedEventArgs(::windows::core::IUnknown);
 impl RemoteAutomationDisconnectedEventArgs {
@@ -1061,6 +1071,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteAutomationDisconnectedEventArgs {}
+unsafe impl ::core::marker::Sync for RemoteAutomationDisconnectedEventArgs {}
 pub struct RemoteAutomationServer {}
 impl RemoteAutomationServer {
     pub fn ReportSession<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(sessionid: Param0) -> ::windows::core::Result<()> {
@@ -1154,3 +1166,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteAutomationWindow {}
+unsafe impl ::core::marker::Sync for RemoteAutomationWindow {}

@@ -358,6 +358,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Bit
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for BitmapImage {}
+unsafe impl ::core::marker::Sync for BitmapImage {}
 #[repr(transparent)]
 pub struct BitmapSource(::windows::core::IUnknown);
 impl BitmapSource {
@@ -506,6 +508,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Bit
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for BitmapSource {}
+unsafe impl ::core::marker::Sync for BitmapSource {}
 #[repr(transparent)]
 pub struct DecodePixelType(pub i32);
 impl DecodePixelType {
@@ -609,6 +613,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Down
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DownloadProgressEventArgs {}
+unsafe impl ::core::marker::Sync for DownloadProgressEventArgs {}
 #[repr(transparent)]
 pub struct DownloadProgressEventHandler(pub ::windows::core::IUnknown);
 impl DownloadProgressEventHandler {
@@ -1418,6 +1424,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ren
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for RenderTargetBitmap {}
+unsafe impl ::core::marker::Sync for RenderTargetBitmap {}
 #[repr(transparent)]
 pub struct SoftwareBitmapSource(::windows::core::IUnknown);
 impl SoftwareBitmapSource {
@@ -1569,6 +1577,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sof
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SoftwareBitmapSource {}
+unsafe impl ::core::marker::Sync for SoftwareBitmapSource {}
 #[repr(transparent)]
 pub struct SurfaceImageSource(::windows::core::IUnknown);
 impl SurfaceImageSource {
@@ -1690,6 +1700,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sur
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SurfaceImageSource {}
+unsafe impl ::core::marker::Sync for SurfaceImageSource {}
 #[repr(transparent)]
 pub struct SvgImageSource(::windows::core::IUnknown);
 impl SvgImageSource {
@@ -1903,6 +1915,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Svg
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SvgImageSource {}
+unsafe impl ::core::marker::Sync for SvgImageSource {}
 #[repr(transparent)]
 pub struct SvgImageSourceFailedEventArgs(::windows::core::IUnknown);
 impl SvgImageSourceFailedEventArgs {
@@ -1975,6 +1989,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SvgI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SvgImageSourceFailedEventArgs {}
+unsafe impl ::core::marker::Sync for SvgImageSourceFailedEventArgs {}
 #[repr(transparent)]
 pub struct SvgImageSourceLoadStatus(pub i32);
 impl SvgImageSourceLoadStatus {
@@ -2068,6 +2084,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SvgI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SvgImageSourceOpenedEventArgs {}
+unsafe impl ::core::marker::Sync for SvgImageSourceOpenedEventArgs {}
 #[repr(transparent)]
 pub struct VirtualSurfaceImageSource(::windows::core::IUnknown);
 impl VirtualSurfaceImageSource {
@@ -2209,6 +2227,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Vir
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for VirtualSurfaceImageSource {}
+unsafe impl ::core::marker::Sync for VirtualSurfaceImageSource {}
 #[repr(transparent)]
 pub struct WriteableBitmap(::windows::core::IUnknown);
 impl WriteableBitmap {
@@ -2356,6 +2376,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Wri
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for WriteableBitmap {}
+unsafe impl ::core::marker::Sync for WriteableBitmap {}
 #[repr(transparent)]
 pub struct XamlRenderingBackgroundTask(::windows::core::IUnknown);
 impl XamlRenderingBackgroundTask {}
@@ -2420,3 +2442,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xaml
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for XamlRenderingBackgroundTask {}
+unsafe impl ::core::marker::Sync for XamlRenderingBackgroundTask {}

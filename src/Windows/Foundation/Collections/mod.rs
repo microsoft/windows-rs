@@ -2183,6 +2183,8 @@ impl<'a> ::windows::core::IntoParam<'a, IPropertySet> for &PropertySet {
         ::core::convert::TryInto::<IPropertySet>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PropertySet {}
+unsafe impl ::core::marker::Sync for PropertySet {}
 #[repr(transparent)]
 pub struct StringMap(::windows::core::IUnknown);
 impl StringMap {
@@ -2396,6 +2398,8 @@ impl<'a> ::windows::core::IntoParam<'a, IObservableMap<::windows::core::HSTRING,
         ::core::convert::TryInto::<IObservableMap<::windows::core::HSTRING, ::windows::core::HSTRING>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for StringMap {}
+unsafe impl ::core::marker::Sync for StringMap {}
 #[repr(transparent)]
 pub struct ValueSet(::windows::core::IUnknown);
 impl ValueSet {
@@ -2631,6 +2635,8 @@ impl<'a> ::windows::core::IntoParam<'a, IPropertySet> for &ValueSet {
         ::core::convert::TryInto::<IPropertySet>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ValueSet {}
+unsafe impl ::core::marker::Sync for ValueSet {}
 #[repr(transparent)]
 pub struct VectorChangedEventHandler<T>(pub ::windows::core::IUnknown, ::core::marker::PhantomData<T>)
 where

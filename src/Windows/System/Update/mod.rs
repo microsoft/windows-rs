@@ -247,6 +247,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemUpdateItem {}
+unsafe impl ::core::marker::Sync for SystemUpdateItem {}
 #[repr(transparent)]
 pub struct SystemUpdateItemState(pub i32);
 impl SystemUpdateItemState {
@@ -367,6 +369,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemUpdateLastErrorInfo {}
+unsafe impl ::core::marker::Sync for SystemUpdateLastErrorInfo {}
 pub struct SystemUpdateManager {}
 impl SystemUpdateManager {
     pub fn IsSupported() -> ::windows::core::Result<bool> {

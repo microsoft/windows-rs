@@ -349,6 +349,8 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &DtdEntity {
         ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for DtdEntity {}
+unsafe impl ::core::marker::Sync for DtdEntity {}
 #[repr(transparent)]
 pub struct DtdNotation(::windows::core::IUnknown);
 impl DtdNotation {
@@ -692,6 +694,8 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &DtdNotation {
         ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for DtdNotation {}
+unsafe impl ::core::marker::Sync for DtdNotation {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDtdEntity(::windows::core::IUnknown);
@@ -2678,6 +2682,8 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlAttribute {
         ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for XmlAttribute {}
+unsafe impl ::core::marker::Sync for XmlAttribute {}
 #[repr(transparent)]
 pub struct XmlCDataSection(::windows::core::IUnknown);
 impl XmlCDataSection {
@@ -3099,6 +3105,8 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlText> for &XmlCDataSection {
         ::core::convert::TryInto::<IXmlText>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for XmlCDataSection {}
+unsafe impl ::core::marker::Sync for XmlCDataSection {}
 #[repr(transparent)]
 pub struct XmlComment(::windows::core::IUnknown);
 impl XmlComment {
@@ -3491,6 +3499,8 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlComment {
         ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for XmlComment {}
+unsafe impl ::core::marker::Sync for XmlComment {}
 #[repr(transparent)]
 pub struct XmlDocument(::windows::core::IUnknown);
 impl XmlDocument {
@@ -4004,6 +4014,8 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlDocument {
         ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for XmlDocument {}
+unsafe impl ::core::marker::Sync for XmlDocument {}
 #[repr(transparent)]
 pub struct XmlDocumentFragment(::windows::core::IUnknown);
 impl XmlDocumentFragment {
@@ -4333,6 +4345,8 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlDocumentFrag
         ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for XmlDocumentFragment {}
+unsafe impl ::core::marker::Sync for XmlDocumentFragment {}
 #[repr(transparent)]
 pub struct XmlDocumentType(::windows::core::IUnknown);
 impl XmlDocumentType {
@@ -4683,6 +4697,8 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlDocumentType
         ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for XmlDocumentType {}
+unsafe impl ::core::marker::Sync for XmlDocumentType {}
 #[repr(transparent)]
 pub struct XmlDomImplementation(::windows::core::IUnknown);
 impl XmlDomImplementation {
@@ -4755,6 +4771,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XmlD
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for XmlDomImplementation {}
+unsafe impl ::core::marker::Sync for XmlDomImplementation {}
 #[repr(transparent)]
 pub struct XmlElement(::windows::core::IUnknown);
 impl XmlElement {
@@ -5163,6 +5181,8 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlElement {
         ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for XmlElement {}
+unsafe impl ::core::marker::Sync for XmlElement {}
 #[repr(transparent)]
 pub struct XmlEntityReference(::windows::core::IUnknown);
 impl XmlEntityReference {
@@ -5492,6 +5512,8 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlEntityRefere
         ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for XmlEntityReference {}
+unsafe impl ::core::marker::Sync for XmlEntityReference {}
 #[repr(transparent)]
 pub struct XmlLoadSettings(::windows::core::IUnknown);
 impl XmlLoadSettings {
@@ -5619,6 +5641,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XmlL
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for XmlLoadSettings {}
+unsafe impl ::core::marker::Sync for XmlLoadSettings {}
 #[repr(transparent)]
 pub struct XmlNamedNodeMap(::windows::core::IUnknown);
 impl XmlNamedNodeMap {
@@ -5848,6 +5872,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for XmlNamedNodeMap {}
+unsafe impl ::core::marker::Sync for XmlNamedNodeMap {}
 #[repr(transparent)]
 pub struct XmlNodeList(::windows::core::IUnknown);
 impl XmlNodeList {
@@ -6035,6 +6061,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for XmlNodeList {}
+unsafe impl ::core::marker::Sync for XmlNodeList {}
 #[repr(transparent)]
 pub struct XmlProcessingInstruction(::windows::core::IUnknown);
 impl XmlProcessingInstruction {
@@ -6382,6 +6410,8 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlProcessingIn
         ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for XmlProcessingInstruction {}
+unsafe impl ::core::marker::Sync for XmlProcessingInstruction {}
 #[repr(transparent)]
 pub struct XmlText(::windows::core::IUnknown);
 impl XmlText {
@@ -6803,3 +6833,5 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlText> for &XmlText {
         ::core::convert::TryInto::<IXmlText>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for XmlText {}
+unsafe impl ::core::marker::Sync for XmlText {}

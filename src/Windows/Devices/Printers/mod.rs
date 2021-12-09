@@ -462,6 +462,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IppA
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for IppAttributeError {}
+unsafe impl ::core::marker::Sync for IppAttributeError {}
 #[repr(transparent)]
 pub struct IppAttributeErrorReason(pub i32);
 impl IppAttributeErrorReason {
@@ -968,6 +970,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IppA
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for IppAttributeValue {}
+unsafe impl ::core::marker::Sync for IppAttributeValue {}
 #[repr(transparent)]
 pub struct IppAttributeValueKind(pub i32);
 impl IppAttributeValueKind {
@@ -1103,6 +1107,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IppI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for IppIntegerRange {}
+unsafe impl ::core::marker::Sync for IppIntegerRange {}
 #[repr(transparent)]
 pub struct IppPrintDevice(::windows::core::IUnknown);
 impl IppPrintDevice {
@@ -1215,6 +1221,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IppP
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for IppPrintDevice {}
+unsafe impl ::core::marker::Sync for IppPrintDevice {}
 #[repr(transparent)]
 pub struct IppResolution(::windows::core::IUnknown);
 impl IppResolution {
@@ -1311,6 +1319,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IppR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for IppResolution {}
+unsafe impl ::core::marker::Sync for IppResolution {}
 #[repr(transparent)]
 pub struct IppResolutionUnit(pub i32);
 impl IppResolutionUnit {
@@ -1418,6 +1428,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IppS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for IppSetAttributesResult {}
+unsafe impl ::core::marker::Sync for IppSetAttributesResult {}
 #[repr(transparent)]
 pub struct IppTextWithLanguage(::windows::core::IUnknown);
 impl IppTextWithLanguage {
@@ -1507,6 +1519,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IppT
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for IppTextWithLanguage {}
+unsafe impl ::core::marker::Sync for IppTextWithLanguage {}
 #[repr(transparent)]
 pub struct Print3DDevice(::windows::core::IUnknown);
 impl Print3DDevice {
@@ -1596,6 +1610,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Print3DDevice {}
+unsafe impl ::core::marker::Sync for Print3DDevice {}
 #[repr(transparent)]
 pub struct PrintSchema(::windows::core::IUnknown);
 impl PrintSchema {
@@ -1685,3 +1701,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintSchema {}
+unsafe impl ::core::marker::Sync for PrintSchema {}

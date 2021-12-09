@@ -147,6 +147,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Colo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ColorHelper {}
+unsafe impl ::core::marker::Sync for ColorHelper {}
 #[repr(transparent)]
 pub struct Colors(::windows::core::IUnknown);
 impl Colors {
@@ -1062,6 +1064,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Colo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Colors {}
+unsafe impl ::core::marker::Sync for Colors {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IColorHelper(::windows::core::IUnknown);
@@ -1397,6 +1401,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UICo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UIContentRoot {}
+unsafe impl ::core::marker::Sync for UIContentRoot {}
 #[repr(transparent)]
 pub struct UIContext(::windows::core::IUnknown);
 impl UIContext {}
@@ -1461,6 +1467,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UICo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UIContext {}
+unsafe impl ::core::marker::Sync for UIContext {}
 #[repr(C)]
 pub struct WindowId {
     pub Value: u64,

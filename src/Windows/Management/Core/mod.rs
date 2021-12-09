@@ -75,6 +75,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appl
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ApplicationDataManager {}
+unsafe impl ::core::marker::Sync for ApplicationDataManager {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IApplicationDataManager(::windows::core::IUnknown);

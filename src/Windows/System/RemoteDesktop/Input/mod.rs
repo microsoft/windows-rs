@@ -168,6 +168,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for RemoteTextConnection {}
+unsafe impl ::core::marker::Sync for RemoteTextConnection {}
 #[repr(transparent)]
 pub struct RemoteTextConnectionDataHandler(pub ::windows::core::IUnknown);
 impl RemoteTextConnectionDataHandler {

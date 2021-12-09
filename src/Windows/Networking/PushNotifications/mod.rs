@@ -349,6 +349,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Push
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PushNotificationChannel {}
+unsafe impl ::core::marker::Sync for PushNotificationChannel {}
 pub struct PushNotificationChannelManager {}
 impl PushNotificationChannelManager {
     #[cfg(feature = "Foundation")]
@@ -529,6 +531,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Push
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PushNotificationChannelManagerForUser {}
+unsafe impl ::core::marker::Sync for PushNotificationChannelManagerForUser {}
 #[repr(transparent)]
 pub struct PushNotificationChannelsRevokedEventArgs(::windows::core::IUnknown);
 impl PushNotificationChannelsRevokedEventArgs {}
@@ -593,6 +597,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Push
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PushNotificationChannelsRevokedEventArgs {}
+unsafe impl ::core::marker::Sync for PushNotificationChannelsRevokedEventArgs {}
 #[repr(transparent)]
 pub struct PushNotificationReceivedEventArgs(::windows::core::IUnknown);
 impl PushNotificationReceivedEventArgs {
@@ -707,6 +713,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Push
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PushNotificationReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for PushNotificationReceivedEventArgs {}
 #[repr(transparent)]
 pub struct PushNotificationType(pub i32);
 impl PushNotificationType {
@@ -832,3 +840,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RawN
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RawNotification {}
+unsafe impl ::core::marker::Sync for RawNotification {}

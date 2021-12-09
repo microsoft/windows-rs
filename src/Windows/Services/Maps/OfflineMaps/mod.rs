@@ -226,6 +226,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Offl
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for OfflineMapPackage {}
+unsafe impl ::core::marker::Sync for OfflineMapPackage {}
 #[repr(transparent)]
 pub struct OfflineMapPackageQueryResult(::windows::core::IUnknown);
 impl OfflineMapPackageQueryResult {
@@ -306,6 +308,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Offl
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for OfflineMapPackageQueryResult {}
+unsafe impl ::core::marker::Sync for OfflineMapPackageQueryResult {}
 #[repr(transparent)]
 pub struct OfflineMapPackageQueryStatus(pub i32);
 impl OfflineMapPackageQueryStatus {
@@ -407,6 +411,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Offl
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for OfflineMapPackageStartDownloadResult {}
+unsafe impl ::core::marker::Sync for OfflineMapPackageStartDownloadResult {}
 #[repr(transparent)]
 pub struct OfflineMapPackageStartDownloadStatus(pub i32);
 impl OfflineMapPackageStartDownloadStatus {

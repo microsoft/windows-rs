@@ -96,6 +96,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Enha
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EnhancedWaypoint {}
+unsafe impl ::core::marker::Sync for EnhancedWaypoint {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IEnhancedWaypoint(::windows::core::IUnknown);
@@ -908,6 +910,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mane
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ManeuverWarning {}
+unsafe impl ::core::marker::Sync for ManeuverWarning {}
 #[repr(transparent)]
 pub struct ManeuverWarningKind(pub i32);
 impl ManeuverWarningKind {
@@ -1176,6 +1180,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapA
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapAddress {}
+unsafe impl ::core::marker::Sync for MapAddress {}
 #[repr(transparent)]
 pub struct MapLocation(::windows::core::IUnknown);
 impl MapLocation {
@@ -1270,6 +1276,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapL
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapLocation {}
+unsafe impl ::core::marker::Sync for MapLocation {}
 #[repr(transparent)]
 pub struct MapLocationDesiredAccuracy(pub i32);
 impl MapLocationDesiredAccuracy {
@@ -1419,6 +1427,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapL
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapLocationFinderResult {}
+unsafe impl ::core::marker::Sync for MapLocationFinderResult {}
 #[repr(transparent)]
 pub struct MapLocationFinderStatus(pub i32);
 impl MapLocationFinderStatus {
@@ -1642,6 +1652,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapRoute {}
+unsafe impl ::core::marker::Sync for MapRoute {}
 #[repr(transparent)]
 pub struct MapRouteDrivingOptions(::windows::core::IUnknown);
 impl MapRouteDrivingOptions {
@@ -1773,6 +1785,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapRouteDrivingOptions {}
+unsafe impl ::core::marker::Sync for MapRouteDrivingOptions {}
 pub struct MapRouteFinder {}
 impl MapRouteFinder {
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
@@ -1969,6 +1983,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapRouteFinderResult {}
+unsafe impl ::core::marker::Sync for MapRouteFinderResult {}
 #[repr(transparent)]
 pub struct MapRouteFinderStatus(pub i32);
 impl MapRouteFinderStatus {
@@ -2123,6 +2139,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapRouteLeg {}
+unsafe impl ::core::marker::Sync for MapRouteLeg {}
 #[repr(transparent)]
 pub struct MapRouteManeuver(::windows::core::IUnknown);
 impl MapRouteManeuver {
@@ -2260,6 +2278,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MapRouteManeuver {}
+unsafe impl ::core::marker::Sync for MapRouteManeuver {}
 #[repr(transparent)]
 pub struct MapRouteManeuverKind(pub i32);
 impl MapRouteManeuverKind {
@@ -2613,6 +2633,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Plac
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PlaceInfo {}
+unsafe impl ::core::marker::Sync for PlaceInfo {}
 #[repr(transparent)]
 pub struct PlaceInfoCreateOptions(::windows::core::IUnknown);
 impl PlaceInfoCreateOptions {
@@ -2707,6 +2729,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Plac
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PlaceInfoCreateOptions {}
+unsafe impl ::core::marker::Sync for PlaceInfoCreateOptions {}
 #[repr(transparent)]
 pub struct TrafficCongestion(pub i32);
 impl TrafficCongestion {

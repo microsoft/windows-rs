@@ -121,3 +121,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Vibr
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VibrationDevice {}
+unsafe impl ::core::marker::Sync for VibrationDevice {}

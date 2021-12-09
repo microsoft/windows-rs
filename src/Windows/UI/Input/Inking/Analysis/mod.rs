@@ -603,6 +603,8 @@ impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisInkBul
         ::core::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for InkAnalysisInkBullet {}
+unsafe impl ::core::marker::Sync for InkAnalysisInkBullet {}
 #[repr(transparent)]
 pub struct InkAnalysisInkDrawing(::windows::core::IUnknown);
 impl InkAnalysisInkDrawing {
@@ -766,6 +768,8 @@ impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisInkDra
         ::core::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for InkAnalysisInkDrawing {}
+unsafe impl ::core::marker::Sync for InkAnalysisInkDrawing {}
 #[repr(transparent)]
 pub struct InkAnalysisInkWord(::windows::core::IUnknown);
 impl InkAnalysisInkWord {
@@ -921,6 +925,8 @@ impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisInkWor
         ::core::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for InkAnalysisInkWord {}
+unsafe impl ::core::marker::Sync for InkAnalysisInkWord {}
 #[repr(transparent)]
 pub struct InkAnalysisLine(::windows::core::IUnknown);
 impl InkAnalysisLine {
@@ -1075,6 +1081,8 @@ impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisLine {
         ::core::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for InkAnalysisLine {}
+unsafe impl ::core::marker::Sync for InkAnalysisLine {}
 #[repr(transparent)]
 pub struct InkAnalysisListItem(::windows::core::IUnknown);
 impl InkAnalysisListItem {
@@ -1222,6 +1230,8 @@ impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisListIt
         ::core::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for InkAnalysisListItem {}
+unsafe impl ::core::marker::Sync for InkAnalysisListItem {}
 #[repr(transparent)]
 pub struct InkAnalysisNode(::windows::core::IUnknown);
 impl InkAnalysisNode {
@@ -1362,6 +1372,8 @@ impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisNode {
         ::core::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for InkAnalysisNode {}
+unsafe impl ::core::marker::Sync for InkAnalysisNode {}
 #[repr(transparent)]
 pub struct InkAnalysisNodeKind(pub i32);
 impl InkAnalysisNodeKind {
@@ -1543,6 +1555,8 @@ impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisParagr
         ::core::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for InkAnalysisParagraph {}
+unsafe impl ::core::marker::Sync for InkAnalysisParagraph {}
 #[repr(transparent)]
 pub struct InkAnalysisResult(::windows::core::IUnknown);
 impl InkAnalysisResult {
@@ -1615,6 +1629,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkA
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InkAnalysisResult {}
+unsafe impl ::core::marker::Sync for InkAnalysisResult {}
 #[repr(transparent)]
 pub struct InkAnalysisRoot(::windows::core::IUnknown);
 impl InkAnalysisRoot {
@@ -1770,6 +1786,8 @@ impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisRoot {
         ::core::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for InkAnalysisRoot {}
+unsafe impl ::core::marker::Sync for InkAnalysisRoot {}
 #[repr(transparent)]
 pub struct InkAnalysisStatus(pub i32);
 impl InkAnalysisStatus {
@@ -1972,6 +1990,8 @@ impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisWritin
         ::core::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for InkAnalysisWritingRegion {}
+unsafe impl ::core::marker::Sync for InkAnalysisWritingRegion {}
 #[repr(transparent)]
 pub struct InkAnalyzer(::windows::core::IUnknown);
 impl InkAnalyzer {
@@ -2096,3 +2116,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkA
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InkAnalyzer {}
+unsafe impl ::core::marker::Sync for InkAnalyzer {}

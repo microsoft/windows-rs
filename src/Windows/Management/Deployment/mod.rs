@@ -280,6 +280,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AddP
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AddPackageOptions {}
+unsafe impl ::core::marker::Sync for AddPackageOptions {}
 #[repr(transparent)]
 pub struct AppInstallerManager(::windows::core::IUnknown);
 impl AppInstallerManager {
@@ -374,6 +376,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppInstallerManager {}
+unsafe impl ::core::marker::Sync for AppInstallerManager {}
 #[repr(transparent)]
 pub struct AutoUpdateSettingsOptions(::windows::core::IUnknown);
 impl AutoUpdateSettingsOptions {
@@ -592,6 +596,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Auto
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AutoUpdateSettingsOptions {}
+unsafe impl ::core::marker::Sync for AutoUpdateSettingsOptions {}
 #[repr(transparent)]
 pub struct CreateSharedPackageContainerOptions(::windows::core::IUnknown);
 impl CreateSharedPackageContainerOptions {
@@ -694,6 +700,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Crea
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CreateSharedPackageContainerOptions {}
+unsafe impl ::core::marker::Sync for CreateSharedPackageContainerOptions {}
 #[repr(transparent)]
 pub struct CreateSharedPackageContainerResult(::windows::core::IUnknown);
 impl CreateSharedPackageContainerResult {
@@ -780,6 +788,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Crea
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CreateSharedPackageContainerResult {}
+unsafe impl ::core::marker::Sync for CreateSharedPackageContainerResult {}
 #[repr(transparent)]
 pub struct DeleteSharedPackageContainerOptions(::windows::core::IUnknown);
 impl DeleteSharedPackageContainerOptions {
@@ -874,6 +884,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dele
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DeleteSharedPackageContainerOptions {}
+unsafe impl ::core::marker::Sync for DeleteSharedPackageContainerOptions {}
 #[repr(transparent)]
 pub struct DeleteSharedPackageContainerResult(::windows::core::IUnknown);
 impl DeleteSharedPackageContainerResult {
@@ -953,6 +965,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dele
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DeleteSharedPackageContainerResult {}
+unsafe impl ::core::marker::Sync for DeleteSharedPackageContainerResult {}
 #[repr(transparent)]
 pub struct DeploymentOptions(pub u32);
 impl DeploymentOptions {
@@ -1138,6 +1152,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Depl
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DeploymentResult {}
+unsafe impl ::core::marker::Sync for DeploymentResult {}
 #[repr(transparent)]
 pub struct FindSharedPackageContainerOptions(::windows::core::IUnknown);
 impl FindSharedPackageContainerOptions {
@@ -1232,6 +1248,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Find
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for FindSharedPackageContainerOptions {}
+unsafe impl ::core::marker::Sync for FindSharedPackageContainerOptions {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAddPackageOptions(::windows::core::IUnknown);
@@ -2270,6 +2288,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PackageAllUserProvisioningOptions {}
+unsafe impl ::core::marker::Sync for PackageAllUserProvisioningOptions {}
 #[repr(transparent)]
 pub struct PackageInstallState(pub i32);
 impl PackageInstallState {
@@ -2894,6 +2914,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PackageManager {}
+unsafe impl ::core::marker::Sync for PackageManager {}
 #[repr(transparent)]
 pub struct PackageManagerDebugSettings(::windows::core::IUnknown);
 impl PackageManagerDebugSettings {
@@ -2975,6 +2997,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PackageManagerDebugSettings {}
+unsafe impl ::core::marker::Sync for PackageManagerDebugSettings {}
 #[repr(transparent)]
 pub struct PackageState(pub i32);
 impl PackageState {
@@ -3173,6 +3197,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PackageUserInformation {}
+unsafe impl ::core::marker::Sync for PackageUserInformation {}
 #[repr(transparent)]
 pub struct PackageVolume(::windows::core::IUnknown);
 impl PackageVolume {
@@ -3414,6 +3440,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PackageVolume {}
+unsafe impl ::core::marker::Sync for PackageVolume {}
 #[repr(transparent)]
 pub struct RegisterPackageOptions(::windows::core::IUnknown);
 impl RegisterPackageOptions {
@@ -3614,6 +3642,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Regi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RegisterPackageOptions {}
+unsafe impl ::core::marker::Sync for RegisterPackageOptions {}
 #[repr(transparent)]
 pub struct RemovalOptions(pub u32);
 impl RemovalOptions {
@@ -3744,6 +3774,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Shar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SharedPackageContainer {}
+unsafe impl ::core::marker::Sync for SharedPackageContainer {}
 #[repr(transparent)]
 pub struct SharedPackageContainerCreationCollisionOptions(pub i32);
 impl SharedPackageContainerCreationCollisionOptions {
@@ -3896,6 +3928,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Shar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SharedPackageContainerManager {}
+unsafe impl ::core::marker::Sync for SharedPackageContainerManager {}
 #[repr(transparent)]
 pub struct SharedPackageContainerMember(::windows::core::IUnknown);
 impl SharedPackageContainerMember {
@@ -3978,6 +4012,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Shar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SharedPackageContainerMember {}
+unsafe impl ::core::marker::Sync for SharedPackageContainerMember {}
 #[repr(transparent)]
 pub struct SharedPackageContainerOperationStatus(pub i32);
 impl SharedPackageContainerOperationStatus {
@@ -4214,6 +4250,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stag
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StagePackageOptions {}
+unsafe impl ::core::marker::Sync for StagePackageOptions {}
 #[repr(transparent)]
 pub struct StubPackageOption(pub i32);
 impl StubPackageOption {
@@ -4337,6 +4375,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Upda
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UpdateSharedPackageContainerOptions {}
+unsafe impl ::core::marker::Sync for UpdateSharedPackageContainerOptions {}
 #[repr(transparent)]
 pub struct UpdateSharedPackageContainerResult(::windows::core::IUnknown);
 impl UpdateSharedPackageContainerResult {
@@ -4416,3 +4456,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Upda
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UpdateSharedPackageContainerResult {}
+unsafe impl ::core::marker::Sync for UpdateSharedPackageContainerResult {}

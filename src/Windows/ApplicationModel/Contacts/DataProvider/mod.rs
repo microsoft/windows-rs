@@ -120,6 +120,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactDataProviderConnection {}
+unsafe impl ::core::marker::Sync for ContactDataProviderConnection {}
 #[repr(transparent)]
 pub struct ContactDataProviderTriggerDetails(::windows::core::IUnknown);
 impl ContactDataProviderTriggerDetails {
@@ -192,6 +194,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactDataProviderTriggerDetails {}
+unsafe impl ::core::marker::Sync for ContactDataProviderTriggerDetails {}
 #[repr(transparent)]
 pub struct ContactListCreateOrUpdateContactRequest(::windows::core::IUnknown);
 impl ContactListCreateOrUpdateContactRequest {
@@ -287,6 +291,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactListCreateOrUpdateContactRequest {}
+unsafe impl ::core::marker::Sync for ContactListCreateOrUpdateContactRequest {}
 #[repr(transparent)]
 pub struct ContactListCreateOrUpdateContactRequestEventArgs(::windows::core::IUnknown);
 impl ContactListCreateOrUpdateContactRequestEventArgs {
@@ -367,6 +373,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactListCreateOrUpdateContactRequestEventArgs {}
+unsafe impl ::core::marker::Sync for ContactListCreateOrUpdateContactRequestEventArgs {}
 #[repr(transparent)]
 pub struct ContactListDeleteContactRequest(::windows::core::IUnknown);
 impl ContactListDeleteContactRequest {
@@ -462,6 +470,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactListDeleteContactRequest {}
+unsafe impl ::core::marker::Sync for ContactListDeleteContactRequest {}
 #[repr(transparent)]
 pub struct ContactListDeleteContactRequestEventArgs(::windows::core::IUnknown);
 impl ContactListDeleteContactRequestEventArgs {
@@ -542,6 +552,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactListDeleteContactRequestEventArgs {}
+unsafe impl ::core::marker::Sync for ContactListDeleteContactRequestEventArgs {}
 #[repr(transparent)]
 pub struct ContactListServerSearchReadBatchRequest(::windows::core::IUnknown);
 impl ContactListServerSearchReadBatchRequest {
@@ -659,6 +671,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactListServerSearchReadBatchRequest {}
+unsafe impl ::core::marker::Sync for ContactListServerSearchReadBatchRequest {}
 #[repr(transparent)]
 pub struct ContactListServerSearchReadBatchRequestEventArgs(::windows::core::IUnknown);
 impl ContactListServerSearchReadBatchRequestEventArgs {
@@ -739,6 +753,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactListServerSearchReadBatchRequestEventArgs {}
+unsafe impl ::core::marker::Sync for ContactListServerSearchReadBatchRequestEventArgs {}
 #[repr(transparent)]
 pub struct ContactListSyncManagerSyncRequest(::windows::core::IUnknown);
 impl ContactListSyncManagerSyncRequest {
@@ -827,6 +843,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactListSyncManagerSyncRequest {}
+unsafe impl ::core::marker::Sync for ContactListSyncManagerSyncRequest {}
 #[repr(transparent)]
 pub struct ContactListSyncManagerSyncRequestEventArgs(::windows::core::IUnknown);
 impl ContactListSyncManagerSyncRequestEventArgs {
@@ -907,6 +925,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContactListSyncManagerSyncRequestEventArgs {}
+unsafe impl ::core::marker::Sync for ContactListSyncManagerSyncRequestEventArgs {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IContactDataProviderConnection(::windows::core::IUnknown);

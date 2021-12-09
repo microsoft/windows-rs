@@ -177,3 +177,5 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
         ::core::convert::TryInto::<super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for InstalledDesktopApp {}
+unsafe impl ::core::marker::Sync for InstalledDesktopApp {}

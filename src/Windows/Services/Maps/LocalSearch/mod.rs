@@ -367,6 +367,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Loca
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LocalLocation {}
+unsafe impl ::core::marker::Sync for LocalLocation {}
 pub struct LocalLocationFinder {}
 impl LocalLocationFinder {
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
@@ -464,6 +466,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Loca
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LocalLocationFinderResult {}
+unsafe impl ::core::marker::Sync for LocalLocationFinderResult {}
 #[repr(transparent)]
 pub struct LocalLocationFinderStatus(pub i32);
 impl LocalLocationFinderStatus {
@@ -586,6 +590,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Loca
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LocalLocationHoursOfOperationItem {}
+unsafe impl ::core::marker::Sync for LocalLocationHoursOfOperationItem {}
 #[repr(transparent)]
 pub struct LocalLocationRatingInfo(::windows::core::IUnknown);
 impl LocalLocationRatingInfo {
@@ -674,6 +680,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Loca
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LocalLocationRatingInfo {}
+unsafe impl ::core::marker::Sync for LocalLocationRatingInfo {}
 pub struct PlaceInfoHelper {}
 impl PlaceInfoHelper {
     pub fn CreateFromLocalLocation<'a, Param0: ::windows::core::IntoParam<'a, LocalLocation>>(location: Param0) -> ::windows::core::Result<super::PlaceInfo> {

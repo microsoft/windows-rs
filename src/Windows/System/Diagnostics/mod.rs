@@ -85,6 +85,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Diag
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DiagnosticActionResult {}
+unsafe impl ::core::marker::Sync for DiagnosticActionResult {}
 #[repr(transparent)]
 pub struct DiagnosticActionState(pub i32);
 impl DiagnosticActionState {
@@ -220,6 +222,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Diag
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DiagnosticInvoker {}
+unsafe impl ::core::marker::Sync for DiagnosticInvoker {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDiagnosticActionResult(::windows::core::IUnknown);
@@ -715,6 +719,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Proc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProcessCpuUsage {}
+unsafe impl ::core::marker::Sync for ProcessCpuUsage {}
 #[repr(transparent)]
 pub struct ProcessCpuUsageReport(::windows::core::IUnknown);
 impl ProcessCpuUsageReport {
@@ -796,6 +802,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Proc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProcessCpuUsageReport {}
+unsafe impl ::core::marker::Sync for ProcessCpuUsageReport {}
 #[repr(transparent)]
 pub struct ProcessDiagnosticInfo(::windows::core::IUnknown);
 impl ProcessDiagnosticInfo {
@@ -953,6 +961,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Proc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProcessDiagnosticInfo {}
+unsafe impl ::core::marker::Sync for ProcessDiagnosticInfo {}
 #[repr(transparent)]
 pub struct ProcessDiskUsage(::windows::core::IUnknown);
 impl ProcessDiskUsage {
@@ -1025,6 +1035,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Proc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProcessDiskUsage {}
+unsafe impl ::core::marker::Sync for ProcessDiskUsage {}
 #[repr(transparent)]
 pub struct ProcessDiskUsageReport(::windows::core::IUnknown);
 impl ProcessDiskUsageReport {
@@ -1132,6 +1144,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Proc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProcessDiskUsageReport {}
+unsafe impl ::core::marker::Sync for ProcessDiskUsageReport {}
 #[repr(transparent)]
 pub struct ProcessMemoryUsage(::windows::core::IUnknown);
 impl ProcessMemoryUsage {
@@ -1204,6 +1218,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Proc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProcessMemoryUsage {}
+unsafe impl ::core::marker::Sync for ProcessMemoryUsage {}
 #[repr(transparent)]
 pub struct ProcessMemoryUsageReport(::windows::core::IUnknown);
 impl ProcessMemoryUsageReport {
@@ -1353,6 +1369,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Proc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProcessMemoryUsageReport {}
+unsafe impl ::core::marker::Sync for ProcessMemoryUsageReport {}
 #[repr(transparent)]
 pub struct SystemCpuUsage(::windows::core::IUnknown);
 impl SystemCpuUsage {
@@ -1425,6 +1443,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemCpuUsage {}
+unsafe impl ::core::marker::Sync for SystemCpuUsage {}
 #[repr(transparent)]
 pub struct SystemCpuUsageReport(::windows::core::IUnknown);
 impl SystemCpuUsageReport {
@@ -1514,6 +1534,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemCpuUsageReport {}
+unsafe impl ::core::marker::Sync for SystemCpuUsageReport {}
 #[repr(transparent)]
 pub struct SystemDiagnosticInfo(::windows::core::IUnknown);
 impl SystemDiagnosticInfo {
@@ -1619,6 +1641,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemDiagnosticInfo {}
+unsafe impl ::core::marker::Sync for SystemDiagnosticInfo {}
 #[repr(transparent)]
 pub struct SystemMemoryUsage(::windows::core::IUnknown);
 impl SystemMemoryUsage {
@@ -1691,6 +1715,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemMemoryUsage {}
+unsafe impl ::core::marker::Sync for SystemMemoryUsage {}
 #[repr(transparent)]
 pub struct SystemMemoryUsageReport(::windows::core::IUnknown);
 impl SystemMemoryUsageReport {
@@ -1777,3 +1803,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemMemoryUsageReport {}
+unsafe impl ::core::marker::Sync for SystemMemoryUsageReport {}

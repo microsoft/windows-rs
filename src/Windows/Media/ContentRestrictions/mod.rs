@@ -116,6 +116,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ContentRestrictionsBrowsePolicy {}
+unsafe impl ::core::marker::Sync for ContentRestrictionsBrowsePolicy {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IContentRestrictionsBrowsePolicy(::windows::core::IUnknown);
@@ -397,6 +399,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rate
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RatedContentDescription {}
+unsafe impl ::core::marker::Sync for RatedContentDescription {}
 #[repr(transparent)]
 pub struct RatedContentRestrictions(::windows::core::IUnknown);
 impl RatedContentRestrictions {
@@ -516,3 +520,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rate
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RatedContentRestrictions {}
+unsafe impl ::core::marker::Sync for RatedContentRestrictions {}

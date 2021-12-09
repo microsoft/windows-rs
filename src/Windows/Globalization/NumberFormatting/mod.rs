@@ -445,6 +445,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISignificantDigitsOption> for &CurrencyF
         ::core::convert::TryInto::<ISignificantDigitsOption>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for CurrencyFormatter {}
+unsafe impl ::core::marker::Sync for CurrencyFormatter {}
 #[repr(transparent)]
 pub struct CurrencyFormatterMode(pub i32);
 impl CurrencyFormatterMode {
@@ -892,6 +894,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISignificantDigitsOption> for &DecimalFo
         ::core::convert::TryInto::<ISignificantDigitsOption>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for DecimalFormatter {}
+unsafe impl ::core::marker::Sync for DecimalFormatter {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICurrencyFormatter(::windows::core::IUnknown);
@@ -2090,6 +2094,8 @@ impl<'a> ::windows::core::IntoParam<'a, INumberRounder> for &IncrementNumberRoun
         ::core::convert::TryInto::<INumberRounder>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for IncrementNumberRounder {}
+unsafe impl ::core::marker::Sync for IncrementNumberRounder {}
 #[repr(transparent)]
 pub struct NumeralSystemTranslator(::windows::core::IUnknown);
 impl NumeralSystemTranslator {
@@ -2206,6 +2212,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Nume
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for NumeralSystemTranslator {}
+unsafe impl ::core::marker::Sync for NumeralSystemTranslator {}
 #[repr(transparent)]
 pub struct PercentFormatter(::windows::core::IUnknown);
 impl PercentFormatter {
@@ -2626,6 +2634,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISignificantDigitsOption> for &PercentFo
         ::core::convert::TryInto::<ISignificantDigitsOption>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PercentFormatter {}
+unsafe impl ::core::marker::Sync for PercentFormatter {}
 #[repr(transparent)]
 pub struct PermilleFormatter(::windows::core::IUnknown);
 impl PermilleFormatter {
@@ -3046,6 +3056,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISignificantDigitsOption> for &PermilleF
         ::core::convert::TryInto::<ISignificantDigitsOption>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PermilleFormatter {}
+unsafe impl ::core::marker::Sync for PermilleFormatter {}
 #[repr(transparent)]
 pub struct RoundingAlgorithm(pub i32);
 impl RoundingAlgorithm {
@@ -3240,3 +3252,5 @@ impl<'a> ::windows::core::IntoParam<'a, INumberRounder> for &SignificantDigitsNu
         ::core::convert::TryInto::<INumberRounder>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SignificantDigitsNumberRounder {}
+unsafe impl ::core::marker::Sync for SignificantDigitsNumberRounder {}

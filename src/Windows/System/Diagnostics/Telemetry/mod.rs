@@ -151,6 +151,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Plat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PlatformTelemetryRegistrationResult {}
+unsafe impl ::core::marker::Sync for PlatformTelemetryRegistrationResult {}
 #[repr(transparent)]
 pub struct PlatformTelemetryRegistrationSettings(::windows::core::IUnknown);
 impl PlatformTelemetryRegistrationSettings {
@@ -245,6 +247,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Plat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PlatformTelemetryRegistrationSettings {}
+unsafe impl ::core::marker::Sync for PlatformTelemetryRegistrationSettings {}
 #[repr(transparent)]
 pub struct PlatformTelemetryRegistrationStatus(pub i32);
 impl PlatformTelemetryRegistrationStatus {

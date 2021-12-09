@@ -118,6 +118,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AdcChannel {}
+unsafe impl ::core::marker::Sync for AdcChannel {}
 #[repr(transparent)]
 pub struct AdcChannelMode(pub i32);
 impl AdcChannelMode {
@@ -285,6 +287,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AdcC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AdcController {}
+unsafe impl ::core::marker::Sync for AdcController {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAdcChannel(::windows::core::IUnknown);

@@ -149,10 +149,10 @@ fn gen_windows_traits(def: &TypeDef, name: &TokenStream, gen: &Gen, arch_cfg: &T
     }
 }
 
-fn gen_compare_traits(name: &TokenStream, gen: &Gen, arch_cfg: &TokenStream, feature_cfg: &TokenStream) -> TokenStream {
+fn gen_compare_traits(def: &TypeDef, name: &TokenStream, gen: &Gen, arch_cfg: &TokenStream, feature_cfg: &TokenStream) -> TokenStream {
     if gen.sys {
         quote! {}
-    } else {
+    } else if def.is_blittable() {
         quote! {
             #arch_cfg
             #feature_cfg
@@ -161,6 +161,28 @@ fn gen_compare_traits(name: &TokenStream, gen: &Gen, arch_cfg: &TokenStream, fea
                     unsafe {
                         ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<#name>()) == 0
                     }
+                }
+            }
+            #arch_cfg
+            #feature_cfg
+            impl ::core::cmp::Eq for #name {}
+        }
+    } else {
+        let fields = def.fields().map(|f| {
+            let name = gen_ident(f.name());
+            if f.is_literal() {
+                quote! {}
+            } else {
+                quote! { self.#name == other.#name && }
+            }
+        });
+
+        quote! {
+            #arch_cfg
+            #feature_cfg
+            impl ::core::cmp::PartialEq for #name {
+                fn eq(&self, other: &Self) -> bool {
+                    #(#fields)*
                 }
             }
             #arch_cfg

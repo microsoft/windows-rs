@@ -380,6 +380,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Core::IMediaSource> for &A
         ::core::convert::TryInto::<super::super::Core::IMediaSource>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AdaptiveMediaSource {}
+unsafe impl ::core::marker::Sync for AdaptiveMediaSource {}
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceAdvancedSettings(::windows::core::IUnknown);
 impl AdaptiveMediaSourceAdvancedSettings {
@@ -482,6 +484,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Adap
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AdaptiveMediaSourceAdvancedSettings {}
+unsafe impl ::core::marker::Sync for AdaptiveMediaSourceAdvancedSettings {}
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceCorrelatedTimes(::windows::core::IUnknown);
 impl AdaptiveMediaSourceCorrelatedTimes {
@@ -571,6 +575,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Adap
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AdaptiveMediaSourceCorrelatedTimes {}
+unsafe impl ::core::marker::Sync for AdaptiveMediaSourceCorrelatedTimes {}
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceCreationResult(::windows::core::IUnknown);
 impl AdaptiveMediaSourceCreationResult {
@@ -665,6 +671,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Adap
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AdaptiveMediaSourceCreationResult {}
+unsafe impl ::core::marker::Sync for AdaptiveMediaSourceCreationResult {}
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceCreationStatus(pub i32);
 impl AdaptiveMediaSourceCreationStatus {
@@ -855,6 +863,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Adap
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AdaptiveMediaSourceDiagnosticAvailableEventArgs {}
+unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDiagnosticAvailableEventArgs {}
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceDiagnosticType(pub i32);
 impl AdaptiveMediaSourceDiagnosticType {
@@ -967,6 +977,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Adap
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AdaptiveMediaSourceDiagnostics {}
+unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDiagnostics {}
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceDownloadBitrateChangedEventArgs(::windows::core::IUnknown);
 impl AdaptiveMediaSourceDownloadBitrateChangedEventArgs {
@@ -1053,6 +1065,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Adap
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {}
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceDownloadBitrateChangedReason(pub i32);
 impl AdaptiveMediaSourceDownloadBitrateChangedReason {
@@ -1226,6 +1240,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Adap
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadCompletedEventArgs {}
+unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadCompletedEventArgs {}
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceDownloadFailedEventArgs(::windows::core::IUnknown);
 impl AdaptiveMediaSourceDownloadFailedEventArgs {
@@ -1374,6 +1390,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Adap
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadFailedEventArgs {}
+unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadFailedEventArgs {}
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceDownloadRequestedDeferral(::windows::core::IUnknown);
 impl AdaptiveMediaSourceDownloadRequestedDeferral {
@@ -1443,6 +1461,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Adap
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadRequestedDeferral {}
+unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadRequestedDeferral {}
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceDownloadRequestedEventArgs(::windows::core::IUnknown);
 impl AdaptiveMediaSourceDownloadRequestedEventArgs {
@@ -1583,6 +1603,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Adap
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadRequestedEventArgs {}
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceDownloadResult(::windows::core::IUnknown);
 impl AdaptiveMediaSourceDownloadResult {
@@ -1735,6 +1757,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Adap
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadResult {}
+unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadResult {}
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceDownloadStatistics(::windows::core::IUnknown);
 impl AdaptiveMediaSourceDownloadStatistics {
@@ -1831,6 +1855,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Adap
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadStatistics {}
+unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadStatistics {}
 #[repr(transparent)]
 pub struct AdaptiveMediaSourcePlaybackBitrateChangedEventArgs(::windows::core::IUnknown);
 impl AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
@@ -1917,6 +1943,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Adap
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {}
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceResourceType(pub i32);
 impl AdaptiveMediaSourceResourceType {

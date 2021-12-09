@@ -213,6 +213,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inde
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for IndexedResourceCandidate {}
+unsafe impl ::core::marker::Sync for IndexedResourceCandidate {}
 #[repr(transparent)]
 pub struct IndexedResourceQualifier(::windows::core::IUnknown);
 impl IndexedResourceQualifier {
@@ -292,6 +294,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inde
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for IndexedResourceQualifier {}
+unsafe impl ::core::marker::Sync for IndexedResourceQualifier {}
 #[repr(transparent)]
 pub struct IndexedResourceType(pub i32);
 impl IndexedResourceType {
@@ -427,3 +431,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Reso
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ResourceIndexer {}
+unsafe impl ::core::marker::Sync for ResourceIndexer {}

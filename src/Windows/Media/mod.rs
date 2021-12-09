@@ -201,6 +201,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::Foundation::IMemoryBuffer> for &A
         ::core::convert::TryInto::<super::Foundation::IMemoryBuffer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AudioBuffer {}
+unsafe impl ::core::marker::Sync for AudioBuffer {}
 #[repr(transparent)]
 pub struct AudioBufferAccessMode(pub i32);
 impl AudioBufferAccessMode {
@@ -436,6 +438,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaFrame> for &AudioFrame {
         ::core::convert::TryInto::<IMediaFrame>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AudioFrame {}
+unsafe impl ::core::marker::Sync for AudioFrame {}
 #[repr(transparent)]
 pub struct AudioProcessing(pub i32);
 impl AudioProcessing {
@@ -535,6 +539,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Auto
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AutoRepeatModeChangeRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for AutoRepeatModeChangeRequestedEventArgs {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAudioBuffer(::windows::core::IUnknown);
@@ -1900,6 +1906,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Imag
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ImageDisplayProperties {}
+unsafe impl ::core::marker::Sync for ImageDisplayProperties {}
 pub struct MediaControl {}
 impl MediaControl {
     #[cfg(feature = "deprecated")]
@@ -2250,6 +2258,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaExtensionManager {}
+unsafe impl ::core::marker::Sync for MediaExtensionManager {}
 pub struct MediaMarkerTypes {}
 impl MediaMarkerTypes {
     pub fn Bookmark() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2426,6 +2436,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaProcessingTriggerDetails {}
+unsafe impl ::core::marker::Sync for MediaProcessingTriggerDetails {}
 #[repr(C)]
 #[cfg(feature = "Foundation")]
 pub struct MediaTimeRange {
@@ -2657,6 +2669,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaTimelineController {}
+unsafe impl ::core::marker::Sync for MediaTimelineController {}
 #[repr(transparent)]
 pub struct MediaTimelineControllerFailedEventArgs(::windows::core::IUnknown);
 impl MediaTimelineControllerFailedEventArgs {
@@ -2729,6 +2743,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaTimelineControllerFailedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaTimelineControllerFailedEventArgs {}
 #[repr(transparent)]
 pub struct MediaTimelineControllerState(pub i32);
 impl MediaTimelineControllerState {
@@ -2897,6 +2913,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Musi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MusicDisplayProperties {}
+unsafe impl ::core::marker::Sync for MusicDisplayProperties {}
 #[repr(transparent)]
 pub struct PlaybackPositionChangeRequestedEventArgs(::windows::core::IUnknown);
 impl PlaybackPositionChangeRequestedEventArgs {
@@ -2970,6 +2988,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PlaybackPositionChangeRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for PlaybackPositionChangeRequestedEventArgs {}
 #[repr(transparent)]
 pub struct PlaybackRateChangeRequestedEventArgs(::windows::core::IUnknown);
 impl PlaybackRateChangeRequestedEventArgs {
@@ -3042,6 +3062,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PlaybackRateChangeRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for PlaybackRateChangeRequestedEventArgs {}
 #[repr(transparent)]
 pub struct ShuffleEnabledChangeRequestedEventArgs(::windows::core::IUnknown);
 impl ShuffleEnabledChangeRequestedEventArgs {
@@ -3114,6 +3136,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Shuf
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ShuffleEnabledChangeRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for ShuffleEnabledChangeRequestedEventArgs {}
 #[repr(transparent)]
 pub struct SoundLevel(pub i32);
 impl SoundLevel {
@@ -3478,6 +3502,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemMediaTransportControls {}
+unsafe impl ::core::marker::Sync for SystemMediaTransportControls {}
 #[repr(transparent)]
 pub struct SystemMediaTransportControlsButton(pub i32);
 impl SystemMediaTransportControlsButton {
@@ -3585,6 +3611,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemMediaTransportControlsButtonPressedEventArgs {}
+unsafe impl ::core::marker::Sync for SystemMediaTransportControlsButtonPressedEventArgs {}
 #[repr(transparent)]
 pub struct SystemMediaTransportControlsDisplayUpdater(::windows::core::IUnknown);
 impl SystemMediaTransportControlsDisplayUpdater {
@@ -3722,6 +3750,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemMediaTransportControlsDisplayUpdater {}
+unsafe impl ::core::marker::Sync for SystemMediaTransportControlsDisplayUpdater {}
 #[repr(transparent)]
 pub struct SystemMediaTransportControlsProperty(pub i32);
 impl SystemMediaTransportControlsProperty {
@@ -3820,6 +3850,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemMediaTransportControlsPropertyChangedEventArgs {}
+unsafe impl ::core::marker::Sync for SystemMediaTransportControlsPropertyChangedEventArgs {}
 #[repr(transparent)]
 pub struct SystemMediaTransportControlsTimelineProperties(::windows::core::IUnknown);
 impl SystemMediaTransportControlsTimelineProperties {
@@ -3957,6 +3989,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemMediaTransportControlsTimelineProperties {}
+unsafe impl ::core::marker::Sync for SystemMediaTransportControlsTimelineProperties {}
 #[repr(transparent)]
 pub struct VideoDisplayProperties(::windows::core::IUnknown);
 impl VideoDisplayProperties {
@@ -4052,6 +4086,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Vide
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VideoDisplayProperties {}
+unsafe impl ::core::marker::Sync for VideoDisplayProperties {}
 pub struct VideoEffects {}
 impl VideoEffects {
     pub fn VideoStabilization() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -4340,3 +4376,5 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaFrame> for &VideoFrame {
         ::core::convert::TryInto::<IMediaFrame>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for VideoFrame {}
+unsafe impl ::core::marker::Sync for VideoFrame {}

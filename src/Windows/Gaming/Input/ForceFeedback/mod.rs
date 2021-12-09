@@ -134,6 +134,8 @@ impl<'a> ::windows::core::IntoParam<'a, IForceFeedbackEffect> for &ConditionForc
         ::core::convert::TryInto::<IForceFeedbackEffect>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ConditionForceEffect {}
+unsafe impl ::core::marker::Sync for ConditionForceEffect {}
 #[repr(transparent)]
 pub struct ConditionForceEffectKind(pub i32);
 impl ConditionForceEffectKind {
@@ -293,6 +295,8 @@ impl<'a> ::windows::core::IntoParam<'a, IForceFeedbackEffect> for &ConstantForce
         ::core::convert::TryInto::<IForceFeedbackEffect>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ConstantForceEffect {}
+unsafe impl ::core::marker::Sync for ConstantForceEffect {}
 #[repr(transparent)]
 pub struct ForceFeedbackEffectAxes(pub u32);
 impl ForceFeedbackEffectAxes {
@@ -528,6 +532,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Forc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ForceFeedbackMotor {}
+unsafe impl ::core::marker::Sync for ForceFeedbackMotor {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IConditionForceEffect(::windows::core::IUnknown);
@@ -926,6 +932,8 @@ impl<'a> ::windows::core::IntoParam<'a, IForceFeedbackEffect> for &PeriodicForce
         ::core::convert::TryInto::<IForceFeedbackEffect>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PeriodicForceEffect {}
+unsafe impl ::core::marker::Sync for PeriodicForceEffect {}
 #[repr(transparent)]
 pub struct PeriodicForceEffectKind(pub i32);
 impl PeriodicForceEffectKind {
@@ -1098,3 +1106,5 @@ impl<'a> ::windows::core::IntoParam<'a, IForceFeedbackEffect> for &RampForceEffe
         ::core::convert::TryInto::<IForceFeedbackEffect>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for RampForceEffect {}
+unsafe impl ::core::marker::Sync for RampForceEffect {}

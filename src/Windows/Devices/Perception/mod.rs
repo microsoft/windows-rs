@@ -1439,6 +1439,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PerceptionColorFrame {}
+unsafe impl ::core::marker::Sync for PerceptionColorFrame {}
 #[repr(transparent)]
 pub struct PerceptionColorFrameArrivedEventArgs(::windows::core::IUnknown);
 impl PerceptionColorFrameArrivedEventArgs {
@@ -1521,6 +1523,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionColorFrameArrivedEventArgs {}
+unsafe impl ::core::marker::Sync for PerceptionColorFrameArrivedEventArgs {}
 #[repr(transparent)]
 pub struct PerceptionColorFrameReader(::windows::core::IUnknown);
 impl PerceptionColorFrameReader {
@@ -1661,6 +1665,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PerceptionColorFrameReader {}
+unsafe impl ::core::marker::Sync for PerceptionColorFrameReader {}
 #[repr(transparent)]
 pub struct PerceptionColorFrameSource(::windows::core::IUnknown);
 impl PerceptionColorFrameSource {
@@ -2004,6 +2010,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionColorFrameSource {}
+unsafe impl ::core::marker::Sync for PerceptionColorFrameSource {}
 #[repr(transparent)]
 pub struct PerceptionColorFrameSourceAddedEventArgs(::windows::core::IUnknown);
 impl PerceptionColorFrameSourceAddedEventArgs {
@@ -2077,6 +2085,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionColorFrameSourceAddedEventArgs {}
+unsafe impl ::core::marker::Sync for PerceptionColorFrameSourceAddedEventArgs {}
 #[repr(transparent)]
 pub struct PerceptionColorFrameSourceRemovedEventArgs(::windows::core::IUnknown);
 impl PerceptionColorFrameSourceRemovedEventArgs {
@@ -2150,6 +2160,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionColorFrameSourceRemovedEventArgs {}
+unsafe impl ::core::marker::Sync for PerceptionColorFrameSourceRemovedEventArgs {}
 #[repr(transparent)]
 pub struct PerceptionColorFrameSourceWatcher(::windows::core::IUnknown);
 impl PerceptionColorFrameSourceWatcher {
@@ -2294,6 +2306,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionColorFrameSourceWatcher {}
+unsafe impl ::core::marker::Sync for PerceptionColorFrameSourceWatcher {}
 #[repr(transparent)]
 pub struct PerceptionControlSession(::windows::core::IUnknown);
 impl PerceptionControlSession {
@@ -2414,6 +2428,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PerceptionControlSession {}
+unsafe impl ::core::marker::Sync for PerceptionControlSession {}
 #[repr(transparent)]
 pub struct PerceptionDepthCorrelatedCameraIntrinsics(::windows::core::IUnknown);
 impl PerceptionDepthCorrelatedCameraIntrinsics {
@@ -2512,6 +2528,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionDepthCorrelatedCameraIntrinsics {}
+unsafe impl ::core::marker::Sync for PerceptionDepthCorrelatedCameraIntrinsics {}
 #[repr(transparent)]
 pub struct PerceptionDepthCorrelatedCoordinateMapper(::windows::core::IUnknown);
 impl PerceptionDepthCorrelatedCoordinateMapper {
@@ -2610,6 +2628,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionDepthCorrelatedCoordinateMapper {}
+unsafe impl ::core::marker::Sync for PerceptionDepthCorrelatedCoordinateMapper {}
 #[repr(transparent)]
 pub struct PerceptionDepthFrame(::windows::core::IUnknown);
 impl PerceptionDepthFrame {
@@ -2715,6 +2735,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PerceptionDepthFrame {}
+unsafe impl ::core::marker::Sync for PerceptionDepthFrame {}
 #[repr(transparent)]
 pub struct PerceptionDepthFrameArrivedEventArgs(::windows::core::IUnknown);
 impl PerceptionDepthFrameArrivedEventArgs {
@@ -2797,6 +2819,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionDepthFrameArrivedEventArgs {}
+unsafe impl ::core::marker::Sync for PerceptionDepthFrameArrivedEventArgs {}
 #[repr(transparent)]
 pub struct PerceptionDepthFrameReader(::windows::core::IUnknown);
 impl PerceptionDepthFrameReader {
@@ -2937,6 +2961,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PerceptionDepthFrameReader {}
+unsafe impl ::core::marker::Sync for PerceptionDepthFrameReader {}
 #[repr(transparent)]
 pub struct PerceptionDepthFrameSource(::windows::core::IUnknown);
 impl PerceptionDepthFrameSource {
@@ -3280,6 +3306,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionDepthFrameSource {}
+unsafe impl ::core::marker::Sync for PerceptionDepthFrameSource {}
 #[repr(transparent)]
 pub struct PerceptionDepthFrameSourceAddedEventArgs(::windows::core::IUnknown);
 impl PerceptionDepthFrameSourceAddedEventArgs {
@@ -3353,6 +3381,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionDepthFrameSourceAddedEventArgs {}
+unsafe impl ::core::marker::Sync for PerceptionDepthFrameSourceAddedEventArgs {}
 #[repr(transparent)]
 pub struct PerceptionDepthFrameSourceRemovedEventArgs(::windows::core::IUnknown);
 impl PerceptionDepthFrameSourceRemovedEventArgs {
@@ -3426,6 +3456,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionDepthFrameSourceRemovedEventArgs {}
+unsafe impl ::core::marker::Sync for PerceptionDepthFrameSourceRemovedEventArgs {}
 #[repr(transparent)]
 pub struct PerceptionDepthFrameSourceWatcher(::windows::core::IUnknown);
 impl PerceptionDepthFrameSourceWatcher {
@@ -3570,6 +3602,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionDepthFrameSourceWatcher {}
+unsafe impl ::core::marker::Sync for PerceptionDepthFrameSourceWatcher {}
 #[repr(transparent)]
 pub struct PerceptionFrameSourceAccessStatus(pub i32);
 impl PerceptionFrameSourceAccessStatus {
@@ -3681,6 +3715,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionFrameSourcePropertiesChangedEventArgs {}
+unsafe impl ::core::marker::Sync for PerceptionFrameSourcePropertiesChangedEventArgs {}
 #[repr(transparent)]
 pub struct PerceptionFrameSourcePropertyChangeResult(::windows::core::IUnknown);
 impl PerceptionFrameSourcePropertyChangeResult {
@@ -3762,6 +3798,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionFrameSourcePropertyChangeResult {}
+unsafe impl ::core::marker::Sync for PerceptionFrameSourcePropertyChangeResult {}
 #[repr(transparent)]
 pub struct PerceptionFrameSourcePropertyChangeStatus(pub i32);
 impl PerceptionFrameSourcePropertyChangeStatus {
@@ -3898,6 +3936,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PerceptionInfraredFrame {}
+unsafe impl ::core::marker::Sync for PerceptionInfraredFrame {}
 #[repr(transparent)]
 pub struct PerceptionInfraredFrameArrivedEventArgs(::windows::core::IUnknown);
 impl PerceptionInfraredFrameArrivedEventArgs {
@@ -3980,6 +4020,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionInfraredFrameArrivedEventArgs {}
+unsafe impl ::core::marker::Sync for PerceptionInfraredFrameArrivedEventArgs {}
 #[repr(transparent)]
 pub struct PerceptionInfraredFrameReader(::windows::core::IUnknown);
 impl PerceptionInfraredFrameReader {
@@ -4120,6 +4162,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PerceptionInfraredFrameReader {}
+unsafe impl ::core::marker::Sync for PerceptionInfraredFrameReader {}
 #[repr(transparent)]
 pub struct PerceptionInfraredFrameSource(::windows::core::IUnknown);
 impl PerceptionInfraredFrameSource {
@@ -4463,6 +4507,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionInfraredFrameSource {}
+unsafe impl ::core::marker::Sync for PerceptionInfraredFrameSource {}
 #[repr(transparent)]
 pub struct PerceptionInfraredFrameSourceAddedEventArgs(::windows::core::IUnknown);
 impl PerceptionInfraredFrameSourceAddedEventArgs {
@@ -4536,6 +4582,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionInfraredFrameSourceAddedEventArgs {}
+unsafe impl ::core::marker::Sync for PerceptionInfraredFrameSourceAddedEventArgs {}
 #[repr(transparent)]
 pub struct PerceptionInfraredFrameSourceRemovedEventArgs(::windows::core::IUnknown);
 impl PerceptionInfraredFrameSourceRemovedEventArgs {
@@ -4609,6 +4657,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionInfraredFrameSourceRemovedEventArgs {}
+unsafe impl ::core::marker::Sync for PerceptionInfraredFrameSourceRemovedEventArgs {}
 #[repr(transparent)]
 pub struct PerceptionInfraredFrameSourceWatcher(::windows::core::IUnknown);
 impl PerceptionInfraredFrameSourceWatcher {
@@ -4753,6 +4803,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionInfraredFrameSourceWatcher {}
+unsafe impl ::core::marker::Sync for PerceptionInfraredFrameSourceWatcher {}
 #[repr(transparent)]
 pub struct PerceptionVideoProfile(::windows::core::IUnknown);
 impl PerceptionVideoProfile {
@@ -4869,3 +4921,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PerceptionVideoProfile {}
+unsafe impl ::core::marker::Sync for PerceptionVideoProfile {}

@@ -138,6 +138,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AudioRoutingManager {}
+unsafe impl ::core::marker::Sync for AudioRoutingManager {}
 #[repr(transparent)]
 pub struct AvailableAudioRoutingEndpoints(pub u32);
 impl AvailableAudioRoutingEndpoints {

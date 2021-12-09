@@ -152,6 +152,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialGraphInteropFrameOfReferencePreview {}
+unsafe impl ::core::marker::Sync for SpatialGraphInteropFrameOfReferencePreview {}
 pub struct SpatialGraphInteropPreview {}
 impl SpatialGraphInteropPreview {
     pub fn CreateCoordinateSystemForNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(nodeid: Param0) -> ::windows::core::Result<super::SpatialCoordinateSystem> {

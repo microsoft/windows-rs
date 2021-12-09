@@ -378,6 +378,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Simp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SimpleHapticsController {}
+unsafe impl ::core::marker::Sync for SimpleHapticsController {}
 #[repr(transparent)]
 pub struct SimpleHapticsControllerFeedback(::windows::core::IUnknown);
 impl SimpleHapticsControllerFeedback {
@@ -458,6 +460,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Simp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SimpleHapticsControllerFeedback {}
+unsafe impl ::core::marker::Sync for SimpleHapticsControllerFeedback {}
 #[repr(transparent)]
 pub struct VibrationAccessStatus(pub i32);
 impl VibrationAccessStatus {
@@ -604,3 +608,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Vibr
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VibrationDevice {}
+unsafe impl ::core::marker::Sync for VibrationDevice {}

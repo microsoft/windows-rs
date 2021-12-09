@@ -986,6 +986,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Print3DManager {}
+unsafe impl ::core::marker::Sync for Print3DManager {}
 #[repr(transparent)]
 pub struct Print3DTask(::windows::core::IUnknown);
 impl Print3DTask {
@@ -1097,6 +1099,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Print3DTask {}
+unsafe impl ::core::marker::Sync for Print3DTask {}
 #[repr(transparent)]
 pub struct Print3DTaskCompletedEventArgs(::windows::core::IUnknown);
 impl Print3DTaskCompletedEventArgs {
@@ -1176,6 +1180,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Print3DTaskCompletedEventArgs {}
+unsafe impl ::core::marker::Sync for Print3DTaskCompletedEventArgs {}
 #[repr(transparent)]
 pub struct Print3DTaskCompletion(pub i32);
 impl Print3DTaskCompletion {
@@ -1310,6 +1316,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Print3DTaskRequest {}
+unsafe impl ::core::marker::Sync for Print3DTaskRequest {}
 #[repr(transparent)]
 pub struct Print3DTaskRequestedEventArgs(::windows::core::IUnknown);
 impl Print3DTaskRequestedEventArgs {
@@ -1382,6 +1390,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Print3DTaskRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for Print3DTaskRequestedEventArgs {}
 #[repr(transparent)]
 pub struct Print3DTaskSourceChangedEventArgs(::windows::core::IUnknown);
 impl Print3DTaskSourceChangedEventArgs {
@@ -1454,6 +1464,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Print3DTaskSourceChangedEventArgs {}
+unsafe impl ::core::marker::Sync for Print3DTaskSourceChangedEventArgs {}
 #[repr(transparent)]
 pub struct Print3DTaskSourceRequestedArgs(::windows::core::IUnknown);
 impl Print3DTaskSourceRequestedArgs {
@@ -1523,6 +1535,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Print3DTaskSourceRequestedArgs {}
+unsafe impl ::core::marker::Sync for Print3DTaskSourceRequestedArgs {}
 #[repr(transparent)]
 pub struct Print3DTaskSourceRequestedHandler(pub ::windows::core::IUnknown);
 impl Print3DTaskSourceRequestedHandler {
@@ -1754,6 +1768,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Printing3D3MFPackage {}
+unsafe impl ::core::marker::Sync for Printing3D3MFPackage {}
 #[repr(transparent)]
 pub struct Printing3DBaseMaterial(::windows::core::IUnknown);
 impl Printing3DBaseMaterial {
@@ -1864,6 +1880,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Printing3DBaseMaterial {}
+unsafe impl ::core::marker::Sync for Printing3DBaseMaterial {}
 #[repr(transparent)]
 pub struct Printing3DBaseMaterialGroup(::windows::core::IUnknown);
 impl Printing3DBaseMaterialGroup {
@@ -1954,6 +1972,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Printing3DBaseMaterialGroup {}
+unsafe impl ::core::marker::Sync for Printing3DBaseMaterialGroup {}
 #[repr(C)]
 pub struct Printing3DBufferDescription {
     pub Format: Printing3DBufferFormat,
@@ -2113,6 +2133,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Printing3DColorMaterial {}
+unsafe impl ::core::marker::Sync for Printing3DColorMaterial {}
 #[repr(transparent)]
 pub struct Printing3DColorMaterialGroup(::windows::core::IUnknown);
 impl Printing3DColorMaterialGroup {
@@ -2203,6 +2225,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Printing3DColorMaterialGroup {}
+unsafe impl ::core::marker::Sync for Printing3DColorMaterialGroup {}
 #[repr(transparent)]
 pub struct Printing3DComponent(::windows::core::IUnknown);
 impl Printing3DComponent {
@@ -2338,6 +2362,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Printing3DComponent {}
+unsafe impl ::core::marker::Sync for Printing3DComponent {}
 #[repr(transparent)]
 pub struct Printing3DComponentWithMatrix(::windows::core::IUnknown);
 impl Printing3DComponentWithMatrix {
@@ -2434,6 +2460,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Printing3DComponentWithMatrix {}
+unsafe impl ::core::marker::Sync for Printing3DComponentWithMatrix {}
 #[repr(transparent)]
 pub struct Printing3DCompositeMaterial(::windows::core::IUnknown);
 impl Printing3DCompositeMaterial {
@@ -2514,6 +2542,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Printing3DCompositeMaterial {}
+unsafe impl ::core::marker::Sync for Printing3DCompositeMaterial {}
 #[repr(transparent)]
 pub struct Printing3DCompositeMaterialGroup(::windows::core::IUnknown);
 impl Printing3DCompositeMaterialGroup {
@@ -2623,6 +2653,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Printing3DCompositeMaterialGroup {}
+unsafe impl ::core::marker::Sync for Printing3DCompositeMaterialGroup {}
 #[repr(transparent)]
 pub struct Printing3DFaceReductionOptions(::windows::core::IUnknown);
 impl Printing3DFaceReductionOptions {
@@ -2728,6 +2760,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Printing3DFaceReductionOptions {}
+unsafe impl ::core::marker::Sync for Printing3DFaceReductionOptions {}
 #[repr(transparent)]
 pub struct Printing3DMaterial(::windows::core::IUnknown);
 impl Printing3DMaterial {
@@ -2840,6 +2874,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Printing3DMaterial {}
+unsafe impl ::core::marker::Sync for Printing3DMaterial {}
 #[repr(transparent)]
 pub struct Printing3DMesh(::windows::core::IUnknown);
 impl Printing3DMesh {
@@ -3050,6 +3086,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Printing3DMesh {}
+unsafe impl ::core::marker::Sync for Printing3DMesh {}
 #[repr(transparent)]
 pub struct Printing3DMeshVerificationMode(pub i32);
 impl Printing3DMeshVerificationMode {
@@ -3165,6 +3203,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Printing3DMeshVerificationResult {}
+unsafe impl ::core::marker::Sync for Printing3DMeshVerificationResult {}
 #[repr(transparent)]
 pub struct Printing3DModel(::windows::core::IUnknown);
 impl Printing3DModel {
@@ -3384,6 +3424,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Printing3DModel {}
+unsafe impl ::core::marker::Sync for Printing3DModel {}
 #[repr(transparent)]
 pub struct Printing3DModelTexture(::windows::core::IUnknown);
 impl Printing3DModelTexture {
@@ -3489,6 +3531,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Printing3DModelTexture {}
+unsafe impl ::core::marker::Sync for Printing3DModelTexture {}
 #[repr(transparent)]
 pub struct Printing3DModelUnit(pub i32);
 impl Printing3DModelUnit {
@@ -3600,6 +3644,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Printing3DMultiplePropertyMaterial {}
+unsafe impl ::core::marker::Sync for Printing3DMultiplePropertyMaterial {}
 #[repr(transparent)]
 pub struct Printing3DMultiplePropertyMaterialGroup(::windows::core::IUnknown);
 impl Printing3DMultiplePropertyMaterialGroup {
@@ -3698,6 +3744,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Printing3DMultiplePropertyMaterialGroup {}
+unsafe impl ::core::marker::Sync for Printing3DMultiplePropertyMaterialGroup {}
 #[repr(transparent)]
 pub struct Printing3DObjectType(pub i32);
 impl Printing3DObjectType {
@@ -3859,6 +3907,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Printing3DTexture2CoordMaterial {}
+unsafe impl ::core::marker::Sync for Printing3DTexture2CoordMaterial {}
 #[repr(transparent)]
 pub struct Printing3DTexture2CoordMaterialGroup(::windows::core::IUnknown);
 impl Printing3DTexture2CoordMaterialGroup {
@@ -3960,6 +4010,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Printing3DTexture2CoordMaterialGroup {}
+unsafe impl ::core::marker::Sync for Printing3DTexture2CoordMaterialGroup {}
 #[repr(transparent)]
 pub struct Printing3DTextureEdgeBehavior(pub i32);
 impl Printing3DTextureEdgeBehavior {
@@ -4085,3 +4137,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Printing3DTextureResource {}
+unsafe impl ::core::marker::Sync for Printing3DTextureResource {}

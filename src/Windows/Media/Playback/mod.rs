@@ -178,6 +178,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Curr
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CurrentMediaPlaybackItemChangedEventArgs {}
+unsafe impl ::core::marker::Sync for CurrentMediaPlaybackItemChangedEventArgs {}
 #[repr(transparent)]
 pub struct FailedMediaStreamKind(pub i32);
 impl FailedMediaStreamKind {
@@ -2118,6 +2120,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaBreak {}
+unsafe impl ::core::marker::Sync for MediaBreak {}
 #[repr(transparent)]
 pub struct MediaBreakEndedEventArgs(::windows::core::IUnknown);
 impl MediaBreakEndedEventArgs {
@@ -2190,6 +2194,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaBreakEndedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaBreakEndedEventArgs {}
 #[repr(transparent)]
 pub struct MediaBreakInsertionMethod(pub i32);
 impl MediaBreakInsertionMethod {
@@ -2356,6 +2362,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaBreakManager {}
+unsafe impl ::core::marker::Sync for MediaBreakManager {}
 #[repr(transparent)]
 pub struct MediaBreakSchedule(::windows::core::IUnknown);
 impl MediaBreakSchedule {
@@ -2479,6 +2487,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaBreakSchedule {}
+unsafe impl ::core::marker::Sync for MediaBreakSchedule {}
 #[repr(transparent)]
 pub struct MediaBreakSeekedOverEventArgs(::windows::core::IUnknown);
 impl MediaBreakSeekedOverEventArgs {
@@ -2568,6 +2578,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaBreakSeekedOverEventArgs {}
+unsafe impl ::core::marker::Sync for MediaBreakSeekedOverEventArgs {}
 #[repr(transparent)]
 pub struct MediaBreakSkippedEventArgs(::windows::core::IUnknown);
 impl MediaBreakSkippedEventArgs {
@@ -2640,6 +2652,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaBreakSkippedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaBreakSkippedEventArgs {}
 #[repr(transparent)]
 pub struct MediaBreakStartedEventArgs(::windows::core::IUnknown);
 impl MediaBreakStartedEventArgs {
@@ -2712,6 +2726,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaBreakStartedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaBreakStartedEventArgs {}
 #[repr(transparent)]
 pub struct MediaCommandEnablingRule(pub i32);
 impl MediaCommandEnablingRule {
@@ -2847,6 +2863,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaItemDisplayProperties {}
+unsafe impl ::core::marker::Sync for MediaItemDisplayProperties {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct MediaPlaybackAudioTrackList(::windows::core::IUnknown);
@@ -3102,6 +3120,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IVectorView<super::Core::AudioTrack>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for MediaPlaybackAudioTrackList {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for MediaPlaybackAudioTrackList {}
 #[repr(transparent)]
 pub struct MediaPlaybackCommandManager(::windows::core::IUnknown);
 impl MediaPlaybackCommandManager {
@@ -3385,6 +3407,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaPlaybackCommandManager {}
+unsafe impl ::core::marker::Sync for MediaPlaybackCommandManager {}
 #[repr(transparent)]
 pub struct MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs(::windows::core::IUnknown);
 impl MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
@@ -3476,6 +3500,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {}
 #[repr(transparent)]
 pub struct MediaPlaybackCommandManagerCommandBehavior(::windows::core::IUnknown);
 impl MediaPlaybackCommandManagerCommandBehavior {
@@ -3579,6 +3605,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerCommandBehavior {}
+unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerCommandBehavior {}
 #[repr(transparent)]
 pub struct MediaPlaybackCommandManagerFastForwardReceivedEventArgs(::windows::core::IUnknown);
 impl MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
@@ -3663,6 +3691,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {}
 #[repr(transparent)]
 pub struct MediaPlaybackCommandManagerNextReceivedEventArgs(::windows::core::IUnknown);
 impl MediaPlaybackCommandManagerNextReceivedEventArgs {
@@ -3747,6 +3777,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerNextReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerNextReceivedEventArgs {}
 #[repr(transparent)]
 pub struct MediaPlaybackCommandManagerPauseReceivedEventArgs(::windows::core::IUnknown);
 impl MediaPlaybackCommandManagerPauseReceivedEventArgs {
@@ -3831,6 +3863,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerPauseReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerPauseReceivedEventArgs {}
 #[repr(transparent)]
 pub struct MediaPlaybackCommandManagerPlayReceivedEventArgs(::windows::core::IUnknown);
 impl MediaPlaybackCommandManagerPlayReceivedEventArgs {
@@ -3915,6 +3949,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerPlayReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerPlayReceivedEventArgs {}
 #[repr(transparent)]
 pub struct MediaPlaybackCommandManagerPositionReceivedEventArgs(::windows::core::IUnknown);
 impl MediaPlaybackCommandManagerPositionReceivedEventArgs {
@@ -4007,6 +4043,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerPositionReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerPositionReceivedEventArgs {}
 #[repr(transparent)]
 pub struct MediaPlaybackCommandManagerPreviousReceivedEventArgs(::windows::core::IUnknown);
 impl MediaPlaybackCommandManagerPreviousReceivedEventArgs {
@@ -4091,6 +4129,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerPreviousReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerPreviousReceivedEventArgs {}
 #[repr(transparent)]
 pub struct MediaPlaybackCommandManagerRateReceivedEventArgs(::windows::core::IUnknown);
 impl MediaPlaybackCommandManagerRateReceivedEventArgs {
@@ -4182,6 +4222,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerRateReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerRateReceivedEventArgs {}
 #[repr(transparent)]
 pub struct MediaPlaybackCommandManagerRewindReceivedEventArgs(::windows::core::IUnknown);
 impl MediaPlaybackCommandManagerRewindReceivedEventArgs {
@@ -4266,6 +4308,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerRewindReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerRewindReceivedEventArgs {}
 #[repr(transparent)]
 pub struct MediaPlaybackCommandManagerShuffleReceivedEventArgs(::windows::core::IUnknown);
 impl MediaPlaybackCommandManagerShuffleReceivedEventArgs {
@@ -4357,6 +4401,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerShuffleReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerShuffleReceivedEventArgs {}
 #[repr(transparent)]
 pub struct MediaPlaybackItem(::windows::core::IUnknown);
 impl MediaPlaybackItem {
@@ -4629,6 +4675,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaPlaybackSource> for &MediaPlayback
         ::core::convert::TryInto::<IMediaPlaybackSource>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MediaPlaybackItem {}
+unsafe impl ::core::marker::Sync for MediaPlaybackItem {}
 #[repr(transparent)]
 pub struct MediaPlaybackItemChangedReason(pub i32);
 impl MediaPlaybackItemChangedReason {
@@ -4737,6 +4785,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaPlaybackItemError {}
+unsafe impl ::core::marker::Sync for MediaPlaybackItemError {}
 #[repr(transparent)]
 pub struct MediaPlaybackItemErrorCode(pub i32);
 impl MediaPlaybackItemErrorCode {
@@ -4847,6 +4897,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaPlaybackItemFailedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaPlaybackItemFailedEventArgs {}
 #[repr(transparent)]
 pub struct MediaPlaybackItemOpenedEventArgs(::windows::core::IUnknown);
 impl MediaPlaybackItemOpenedEventArgs {
@@ -4919,6 +4971,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaPlaybackItemOpenedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaPlaybackItemOpenedEventArgs {}
 #[repr(transparent)]
 pub struct MediaPlaybackList(::windows::core::IUnknown);
 impl MediaPlaybackList {
@@ -5167,6 +5221,8 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaPlaybackSource> for &MediaPlayback
         ::core::convert::TryInto::<IMediaPlaybackSource>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MediaPlaybackList {}
+unsafe impl ::core::marker::Sync for MediaPlaybackList {}
 #[repr(transparent)]
 pub struct MediaPlaybackSession(::windows::core::IUnknown);
 impl MediaPlaybackSession {
@@ -5604,6 +5660,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaPlaybackSession {}
+unsafe impl ::core::marker::Sync for MediaPlaybackSession {}
 #[repr(transparent)]
 pub struct MediaPlaybackSessionBufferingStartedEventArgs(::windows::core::IUnknown);
 impl MediaPlaybackSessionBufferingStartedEventArgs {
@@ -5676,6 +5734,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaPlaybackSessionBufferingStartedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaPlaybackSessionBufferingStartedEventArgs {}
 #[repr(transparent)]
 pub struct MediaPlaybackSessionOutputDegradationPolicyState(::windows::core::IUnknown);
 impl MediaPlaybackSessionOutputDegradationPolicyState {
@@ -5748,6 +5808,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaPlaybackSessionOutputDegradationPolicyState {}
+unsafe impl ::core::marker::Sync for MediaPlaybackSessionOutputDegradationPolicyState {}
 #[repr(transparent)]
 pub struct MediaPlaybackSessionVideoConstrictionReason(pub i32);
 impl MediaPlaybackSessionVideoConstrictionReason {
@@ -5904,6 +5966,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaPlaybackSphericalVideoProjection {}
+unsafe impl ::core::marker::Sync for MediaPlaybackSphericalVideoProjection {}
 #[repr(transparent)]
 pub struct MediaPlaybackState(pub i32);
 impl MediaPlaybackState {
@@ -6157,6 +6221,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IVectorView<super::Core::TimedMetadataTrack>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for MediaPlaybackTimedMetadataTrackList {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for MediaPlaybackTimedMetadataTrackList {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct MediaPlaybackVideoTrackList(::windows::core::IUnknown);
@@ -6412,6 +6480,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IVectorView<super::Core::VideoTrack>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for MediaPlaybackVideoTrackList {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for MediaPlaybackVideoTrackList {}
 #[repr(transparent)]
 pub struct MediaPlayer(::windows::core::IUnknown);
 impl MediaPlayer {
@@ -7107,6 +7179,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MediaPlayer {}
+unsafe impl ::core::marker::Sync for MediaPlayer {}
 #[repr(transparent)]
 pub struct MediaPlayerAudioCategory(pub i32);
 impl MediaPlayerAudioCategory {
@@ -7243,6 +7317,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaPlayerDataReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaPlayerDataReceivedEventArgs {}
 #[repr(transparent)]
 pub struct MediaPlayerError(pub i32);
 impl MediaPlayerError {
@@ -7359,6 +7435,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaPlayerFailedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaPlayerFailedEventArgs {}
 #[repr(transparent)]
 pub struct MediaPlayerRateChangedEventArgs(::windows::core::IUnknown);
 impl MediaPlayerRateChangedEventArgs {
@@ -7431,6 +7509,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaPlayerRateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaPlayerRateChangedEventArgs {}
 #[repr(transparent)]
 pub struct MediaPlayerState(pub i32);
 impl MediaPlayerState {
@@ -7581,6 +7661,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MediaPlayerSurface {}
+unsafe impl ::core::marker::Sync for MediaPlayerSurface {}
 #[repr(transparent)]
 pub struct PlaybackMediaMarker(::windows::core::IUnknown);
 impl PlaybackMediaMarker {
@@ -7686,6 +7768,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PlaybackMediaMarker {}
+unsafe impl ::core::marker::Sync for PlaybackMediaMarker {}
 #[repr(transparent)]
 pub struct PlaybackMediaMarkerReachedEventArgs(::windows::core::IUnknown);
 impl PlaybackMediaMarkerReachedEventArgs {
@@ -7758,6 +7842,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PlaybackMediaMarkerReachedEventArgs {}
+unsafe impl ::core::marker::Sync for PlaybackMediaMarkerReachedEventArgs {}
 #[repr(transparent)]
 pub struct PlaybackMediaMarkerSequence(::windows::core::IUnknown);
 impl PlaybackMediaMarkerSequence {
@@ -7888,6 +7974,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<PlaybackMediaMarker>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PlaybackMediaMarkerSequence {}
+unsafe impl ::core::marker::Sync for PlaybackMediaMarkerSequence {}
 #[repr(transparent)]
 pub struct SphericalVideoProjectionMode(pub i32);
 impl SphericalVideoProjectionMode {
@@ -8029,6 +8117,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Time
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TimedMetadataPresentationModeChangedEventArgs {}
+unsafe impl ::core::marker::Sync for TimedMetadataPresentationModeChangedEventArgs {}
 #[repr(transparent)]
 pub struct TimedMetadataTrackPresentationMode(pub i32);
 impl TimedMetadataTrackPresentationMode {

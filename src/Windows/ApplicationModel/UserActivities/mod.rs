@@ -741,6 +741,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserActivity {}
+unsafe impl ::core::marker::Sync for UserActivity {}
 #[repr(transparent)]
 pub struct UserActivityAttribution(::windows::core::IUnknown);
 impl UserActivityAttribution {
@@ -859,6 +861,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserActivityAttribution {}
+unsafe impl ::core::marker::Sync for UserActivityAttribution {}
 #[repr(transparent)]
 pub struct UserActivityChannel(::windows::core::IUnknown);
 impl UserActivityChannel {
@@ -999,6 +1003,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserActivityChannel {}
+unsafe impl ::core::marker::Sync for UserActivityChannel {}
 #[repr(transparent)]
 pub struct UserActivityContentInfo(::windows::core::IUnknown);
 impl UserActivityContentInfo {
@@ -1103,6 +1109,8 @@ impl<'a> ::windows::core::IntoParam<'a, IUserActivityContentInfo> for &UserActiv
         ::core::convert::TryInto::<IUserActivityContentInfo>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for UserActivityContentInfo {}
+unsafe impl ::core::marker::Sync for UserActivityContentInfo {}
 #[repr(transparent)]
 pub struct UserActivityRequest(::windows::core::IUnknown);
 impl UserActivityRequest {
@@ -1172,6 +1180,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserActivityRequest {}
+unsafe impl ::core::marker::Sync for UserActivityRequest {}
 #[repr(transparent)]
 pub struct UserActivityRequestManager(::windows::core::IUnknown);
 impl UserActivityRequestManager {
@@ -1340,6 +1350,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserActivityRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for UserActivityRequestedEventArgs {}
 #[repr(transparent)]
 pub struct UserActivitySession(::windows::core::IUnknown);
 impl UserActivitySession {
@@ -1443,6 +1455,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for UserActivitySession {}
+unsafe impl ::core::marker::Sync for UserActivitySession {}
 #[repr(transparent)]
 pub struct UserActivitySessionHistoryItem(::windows::core::IUnknown);
 impl UserActivitySessionHistoryItem {
@@ -1531,6 +1545,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserActivitySessionHistoryItem {}
+unsafe impl ::core::marker::Sync for UserActivitySessionHistoryItem {}
 #[repr(transparent)]
 pub struct UserActivityState(pub i32);
 impl UserActivityState {
@@ -1693,3 +1709,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserActivityVisualElements {}
+unsafe impl ::core::marker::Sync for UserActivityVisualElements {}

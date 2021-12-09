@@ -71,6 +71,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Desi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DesignerAppExitedEventArgs {}
+unsafe impl ::core::marker::Sync for DesignerAppExitedEventArgs {}
 #[repr(transparent)]
 pub struct DesignerAppManager(::windows::core::IUnknown);
 impl DesignerAppManager {
@@ -213,6 +215,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for DesignerAppManager {}
+unsafe impl ::core::marker::Sync for DesignerAppManager {}
 #[repr(transparent)]
 pub struct DesignerAppView(::windows::core::IUnknown);
 impl DesignerAppView {
@@ -346,6 +350,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for DesignerAppView {}
+unsafe impl ::core::marker::Sync for DesignerAppView {}
 #[repr(transparent)]
 pub struct DesignerAppViewState(pub i32);
 impl DesignerAppViewState {
@@ -530,6 +536,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for DesktopWindowXamlSource {}
+unsafe impl ::core::marker::Sync for DesktopWindowXamlSource {}
 #[repr(transparent)]
 pub struct DesktopWindowXamlSourceGotFocusEventArgs(::windows::core::IUnknown);
 impl DesktopWindowXamlSourceGotFocusEventArgs {
@@ -602,6 +610,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Desk
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DesktopWindowXamlSourceGotFocusEventArgs {}
+unsafe impl ::core::marker::Sync for DesktopWindowXamlSourceGotFocusEventArgs {}
 #[repr(transparent)]
 pub struct DesktopWindowXamlSourceTakeFocusRequestedEventArgs(::windows::core::IUnknown);
 impl DesktopWindowXamlSourceTakeFocusRequestedEventArgs {
@@ -674,6 +684,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Desk
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DesktopWindowXamlSourceTakeFocusRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for DesktopWindowXamlSourceTakeFocusRequestedEventArgs {}
 #[repr(transparent)]
 pub struct ElementCompositionPreview(::windows::core::IUnknown);
 impl ElementCompositionPreview {
@@ -805,6 +817,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Elem
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ElementCompositionPreview {}
+unsafe impl ::core::marker::Sync for ElementCompositionPreview {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDesignerAppExitedEventArgs(::windows::core::IUnknown);
@@ -1589,6 +1603,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for WindowsXamlManager {}
+unsafe impl ::core::marker::Sync for WindowsXamlManager {}
 #[repr(transparent)]
 pub struct XamlSourceFocusNavigationReason(pub i32);
 impl XamlSourceFocusNavigationReason {
@@ -1733,6 +1749,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xaml
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for XamlSourceFocusNavigationRequest {}
+unsafe impl ::core::marker::Sync for XamlSourceFocusNavigationRequest {}
 #[repr(transparent)]
 pub struct XamlSourceFocusNavigationResult(::windows::core::IUnknown);
 impl XamlSourceFocusNavigationResult {
@@ -1815,6 +1833,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xaml
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for XamlSourceFocusNavigationResult {}
+unsafe impl ::core::marker::Sync for XamlSourceFocusNavigationResult {}
 #[repr(transparent)]
 pub struct XamlUIPresenter(::windows::core::IUnknown);
 impl XamlUIPresenter {
@@ -1962,3 +1982,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xaml
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for XamlUIPresenter {}
+unsafe impl ::core::marker::Sync for XamlUIPresenter {}

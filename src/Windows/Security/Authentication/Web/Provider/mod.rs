@@ -1220,6 +1220,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebA
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WebAccountClientView {}
+unsafe impl ::core::marker::Sync for WebAccountClientView {}
 #[repr(transparent)]
 pub struct WebAccountClientViewType(pub i32);
 impl WebAccountClientViewType {
@@ -1543,6 +1545,8 @@ impl<'a> ::windows::core::IntoParam<'a, IWebAccountProviderOperation> for &WebAc
         ::core::convert::TryInto::<IWebAccountProviderOperation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for WebAccountProviderAddAccountOperation {}
+unsafe impl ::core::marker::Sync for WebAccountProviderAddAccountOperation {}
 #[repr(transparent)]
 pub struct WebAccountProviderDeleteAccountOperation(::windows::core::IUnknown);
 impl WebAccountProviderDeleteAccountOperation {
@@ -1676,6 +1680,8 @@ impl<'a> ::windows::core::IntoParam<'a, IWebAccountProviderOperation> for &WebAc
         ::core::convert::TryInto::<IWebAccountProviderOperation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for WebAccountProviderDeleteAccountOperation {}
+unsafe impl ::core::marker::Sync for WebAccountProviderDeleteAccountOperation {}
 #[repr(transparent)]
 pub struct WebAccountProviderGetTokenSilentOperation(::windows::core::IUnknown);
 impl WebAccountProviderGetTokenSilentOperation {
@@ -1882,6 +1888,8 @@ impl<'a> ::windows::core::IntoParam<'a, IWebAccountProviderTokenOperation> for &
         ::core::convert::TryInto::<IWebAccountProviderTokenOperation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for WebAccountProviderGetTokenSilentOperation {}
+unsafe impl ::core::marker::Sync for WebAccountProviderGetTokenSilentOperation {}
 #[repr(transparent)]
 pub struct WebAccountProviderManageAccountOperation(::windows::core::IUnknown);
 impl WebAccountProviderManageAccountOperation {
@@ -1988,6 +1996,8 @@ impl<'a> ::windows::core::IntoParam<'a, IWebAccountProviderOperation> for &WebAc
         ::core::convert::TryInto::<IWebAccountProviderOperation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for WebAccountProviderManageAccountOperation {}
+unsafe impl ::core::marker::Sync for WebAccountProviderManageAccountOperation {}
 #[repr(transparent)]
 pub struct WebAccountProviderOperationKind(pub i32);
 impl WebAccountProviderOperationKind {
@@ -2221,6 +2231,8 @@ impl<'a> ::windows::core::IntoParam<'a, IWebAccountProviderUIReportOperation> fo
         ::core::convert::TryInto::<IWebAccountProviderUIReportOperation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for WebAccountProviderRequestTokenOperation {}
+unsafe impl ::core::marker::Sync for WebAccountProviderRequestTokenOperation {}
 #[repr(transparent)]
 pub struct WebAccountProviderRetrieveCookiesOperation(::windows::core::IUnknown);
 impl WebAccountProviderRetrieveCookiesOperation {
@@ -2383,6 +2395,8 @@ impl<'a> ::windows::core::IntoParam<'a, IWebAccountProviderOperation> for &WebAc
         ::core::convert::TryInto::<IWebAccountProviderOperation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for WebAccountProviderRetrieveCookiesOperation {}
+unsafe impl ::core::marker::Sync for WebAccountProviderRetrieveCookiesOperation {}
 #[repr(transparent)]
 pub struct WebAccountProviderSignOutAccountOperation(::windows::core::IUnknown);
 impl WebAccountProviderSignOutAccountOperation {
@@ -2531,6 +2545,8 @@ impl<'a> ::windows::core::IntoParam<'a, IWebAccountProviderOperation> for &WebAc
         ::core::convert::TryInto::<IWebAccountProviderOperation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for WebAccountProviderSignOutAccountOperation {}
+unsafe impl ::core::marker::Sync for WebAccountProviderSignOutAccountOperation {}
 #[repr(transparent)]
 pub struct WebAccountProviderTriggerDetails(::windows::core::IUnknown);
 impl WebAccountProviderTriggerDetails {
@@ -2655,6 +2671,8 @@ impl<'a> ::windows::core::IntoParam<'a, IWebAccountProviderTokenObjects2> for &W
         ::core::convert::TryInto::<IWebAccountProviderTokenObjects2>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for WebAccountProviderTriggerDetails {}
+unsafe impl ::core::marker::Sync for WebAccountProviderTriggerDetails {}
 #[repr(transparent)]
 pub struct WebAccountScope(pub i32);
 impl WebAccountScope {
@@ -2843,6 +2861,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebP
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WebProviderTokenRequest {}
+unsafe impl ::core::marker::Sync for WebProviderTokenRequest {}
 #[repr(transparent)]
 pub struct WebProviderTokenResponse(::windows::core::IUnknown);
 impl WebProviderTokenResponse {
@@ -2927,3 +2947,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebP
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WebProviderTokenResponse {}
+unsafe impl ::core::marker::Sync for WebProviderTokenResponse {}

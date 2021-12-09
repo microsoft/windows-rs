@@ -71,6 +71,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Card
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CardAddedEventArgs {}
+unsafe impl ::core::marker::Sync for CardAddedEventArgs {}
 #[repr(transparent)]
 pub struct CardRemovedEventArgs(::windows::core::IUnknown);
 impl CardRemovedEventArgs {
@@ -143,6 +145,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Card
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CardRemovedEventArgs {}
+unsafe impl ::core::marker::Sync for CardRemovedEventArgs {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICardAddedEventArgs(::windows::core::IUnknown);
@@ -1467,6 +1471,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmartCard {}
+unsafe impl ::core::marker::Sync for SmartCard {}
 #[repr(transparent)]
 pub struct SmartCardActivationPolicyChangeResult(pub i32);
 impl SmartCardActivationPolicyChangeResult {
@@ -1682,6 +1688,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmartCardAppletIdGroup {}
+unsafe impl ::core::marker::Sync for SmartCardAppletIdGroup {}
 #[repr(transparent)]
 pub struct SmartCardAppletIdGroupActivationPolicy(pub i32);
 impl SmartCardAppletIdGroupActivationPolicy {
@@ -1827,6 +1835,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmartCardAppletIdGroupRegistration {}
+unsafe impl ::core::marker::Sync for SmartCardAppletIdGroupRegistration {}
 #[repr(transparent)]
 pub struct SmartCardAutomaticResponseApdu(::windows::core::IUnknown);
 impl SmartCardAutomaticResponseApdu {
@@ -2003,6 +2013,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmartCardAutomaticResponseApdu {}
+unsafe impl ::core::marker::Sync for SmartCardAutomaticResponseApdu {}
 #[repr(transparent)]
 pub struct SmartCardAutomaticResponseStatus(pub i32);
 impl SmartCardAutomaticResponseStatus {
@@ -2167,6 +2179,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SmartCardChallengeContext {}
+unsafe impl ::core::marker::Sync for SmartCardChallengeContext {}
 #[repr(transparent)]
 pub struct SmartCardConnection(::windows::core::IUnknown);
 impl SmartCardConnection {
@@ -2271,6 +2285,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SmartCardConnection {}
+unsafe impl ::core::marker::Sync for SmartCardConnection {}
 #[repr(transparent)]
 pub struct SmartCardCryptogramAlgorithm(pub i32);
 impl SmartCardCryptogramAlgorithm {
@@ -2527,6 +2543,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmartCardCryptogramGenerator {}
+unsafe impl ::core::marker::Sync for SmartCardCryptogramGenerator {}
 #[repr(transparent)]
 pub struct SmartCardCryptogramGeneratorOperationStatus(pub i32);
 impl SmartCardCryptogramGeneratorOperationStatus {
@@ -2653,6 +2671,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {}
+unsafe impl ::core::marker::Sync for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {}
 #[repr(transparent)]
 pub struct SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult(::windows::core::IUnknown);
 impl SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
@@ -2740,6 +2760,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {}
+unsafe impl ::core::marker::Sync for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {}
 #[repr(transparent)]
 pub struct SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult(::windows::core::IUnknown);
 impl SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
@@ -2827,6 +2849,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {}
+unsafe impl ::core::marker::Sync for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {}
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialCharacteristics(::windows::core::IUnknown);
 impl SmartCardCryptogramMaterialCharacteristics {
@@ -2958,6 +2982,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmartCardCryptogramMaterialCharacteristics {}
+unsafe impl ::core::marker::Sync for SmartCardCryptogramMaterialCharacteristics {}
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialPackageCharacteristics(::windows::core::IUnknown);
 impl SmartCardCryptogramMaterialPackageCharacteristics {
@@ -3059,6 +3085,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmartCardCryptogramMaterialPackageCharacteristics {}
+unsafe impl ::core::marker::Sync for SmartCardCryptogramMaterialPackageCharacteristics {}
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialPackageConfirmationResponseFormat(pub i32);
 impl SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
@@ -3193,6 +3221,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmartCardCryptogramMaterialPossessionProof {}
+unsafe impl ::core::marker::Sync for SmartCardCryptogramMaterialPossessionProof {}
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialProtectionMethod(pub i32);
 impl SmartCardCryptogramMaterialProtectionMethod {
@@ -3451,6 +3481,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmartCardCryptogramPlacementStep {}
+unsafe impl ::core::marker::Sync for SmartCardCryptogramPlacementStep {}
 #[repr(transparent)]
 pub struct SmartCardCryptogramStorageKeyAlgorithm(pub i32);
 impl SmartCardCryptogramStorageKeyAlgorithm {
@@ -3607,6 +3639,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmartCardCryptogramStorageKeyCharacteristics {}
+unsafe impl ::core::marker::Sync for SmartCardCryptogramStorageKeyCharacteristics {}
 #[repr(transparent)]
 pub struct SmartCardCryptogramStorageKeyInfo(::windows::core::IUnknown);
 impl SmartCardCryptogramStorageKeyInfo {
@@ -3732,6 +3766,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmartCardCryptogramStorageKeyInfo {}
+unsafe impl ::core::marker::Sync for SmartCardCryptogramStorageKeyInfo {}
 #[repr(transparent)]
 pub struct SmartCardCryptographicKeyAttestationStatus(pub i32);
 impl SmartCardCryptographicKeyAttestationStatus {
@@ -3981,6 +4017,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmartCardEmulator {}
+unsafe impl ::core::marker::Sync for SmartCardEmulator {}
 #[repr(transparent)]
 pub struct SmartCardEmulatorApduReceivedEventArgs(::windows::core::IUnknown);
 impl SmartCardEmulatorApduReceivedEventArgs {
@@ -4107,6 +4145,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmartCardEmulatorApduReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for SmartCardEmulatorApduReceivedEventArgs {}
 #[repr(transparent)]
 pub struct SmartCardEmulatorConnectionDeactivatedEventArgs(::windows::core::IUnknown);
 impl SmartCardEmulatorConnectionDeactivatedEventArgs {
@@ -4186,6 +4226,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmartCardEmulatorConnectionDeactivatedEventArgs {}
+unsafe impl ::core::marker::Sync for SmartCardEmulatorConnectionDeactivatedEventArgs {}
 #[repr(transparent)]
 pub struct SmartCardEmulatorConnectionDeactivatedReason(pub i32);
 impl SmartCardEmulatorConnectionDeactivatedReason {
@@ -4292,6 +4334,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmartCardEmulatorConnectionProperties {}
+unsafe impl ::core::marker::Sync for SmartCardEmulatorConnectionProperties {}
 #[repr(transparent)]
 pub struct SmartCardEmulatorConnectionSource(pub i32);
 impl SmartCardEmulatorConnectionSource {
@@ -4541,6 +4585,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmartCardPinPolicy {}
+unsafe impl ::core::marker::Sync for SmartCardPinPolicy {}
 #[repr(transparent)]
 pub struct SmartCardPinResetDeferral(::windows::core::IUnknown);
 impl SmartCardPinResetDeferral {
@@ -4610,6 +4656,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmartCardPinResetDeferral {}
+unsafe impl ::core::marker::Sync for SmartCardPinResetDeferral {}
 #[repr(transparent)]
 pub struct SmartCardPinResetHandler(pub ::windows::core::IUnknown);
 impl SmartCardPinResetHandler {
@@ -4771,6 +4819,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmartCardPinResetRequest {}
+unsafe impl ::core::marker::Sync for SmartCardPinResetRequest {}
 #[repr(transparent)]
 pub struct SmartCardProvisioning(::windows::core::IUnknown);
 impl SmartCardProvisioning {
@@ -4941,6 +4991,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmartCardProvisioning {}
+unsafe impl ::core::marker::Sync for SmartCardProvisioning {}
 #[repr(transparent)]
 pub struct SmartCardReader(::windows::core::IUnknown);
 impl SmartCardReader {
@@ -5092,6 +5144,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmartCardReader {}
+unsafe impl ::core::marker::Sync for SmartCardReader {}
 #[repr(transparent)]
 pub struct SmartCardReaderKind(pub i32);
 impl SmartCardReaderKind {
@@ -5299,6 +5353,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmartCardTriggerDetails {}
+unsafe impl ::core::marker::Sync for SmartCardTriggerDetails {}
 #[repr(transparent)]
 pub struct SmartCardTriggerType(pub i32);
 impl SmartCardTriggerType {

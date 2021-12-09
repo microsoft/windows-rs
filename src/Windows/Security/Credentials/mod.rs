@@ -525,6 +525,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &KeyC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for KeyCredential {}
+unsafe impl ::core::marker::Sync for KeyCredential {}
 #[repr(transparent)]
 pub struct KeyCredentialAttestationResult(::windows::core::IUnknown);
 impl KeyCredentialAttestationResult {
@@ -613,6 +615,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &KeyC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for KeyCredentialAttestationResult {}
+unsafe impl ::core::marker::Sync for KeyCredentialAttestationResult {}
 #[repr(transparent)]
 pub struct KeyCredentialAttestationStatus(pub i32);
 impl KeyCredentialAttestationStatus {
@@ -794,6 +798,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &KeyC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for KeyCredentialOperationResult {}
+unsafe impl ::core::marker::Sync for KeyCredentialOperationResult {}
 #[repr(transparent)]
 pub struct KeyCredentialRetrievalResult(::windows::core::IUnknown);
 impl KeyCredentialRetrievalResult {
@@ -873,6 +879,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &KeyC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for KeyCredentialRetrievalResult {}
+unsafe impl ::core::marker::Sync for KeyCredentialRetrievalResult {}
 #[repr(transparent)]
 pub struct KeyCredentialStatus(pub i32);
 impl KeyCredentialStatus {
@@ -1032,6 +1040,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pass
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PasswordCredential {}
+unsafe impl ::core::marker::Sync for PasswordCredential {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct PasswordCredentialPropertyStore(::windows::core::IUnknown);
@@ -1329,6 +1339,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IPropertySet>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for PasswordCredentialPropertyStore {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for PasswordCredentialPropertyStore {}
 #[repr(transparent)]
 pub struct PasswordVault(::windows::core::IUnknown);
 impl PasswordVault {
@@ -1440,6 +1454,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pass
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PasswordVault {}
+unsafe impl ::core::marker::Sync for PasswordVault {}
 #[repr(transparent)]
 pub struct WebAccount(::windows::core::IUnknown);
 impl WebAccount {
@@ -1597,6 +1613,8 @@ impl<'a> ::windows::core::IntoParam<'a, IWebAccount> for &WebAccount {
         ::core::convert::TryInto::<IWebAccount>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for WebAccount {}
+unsafe impl ::core::marker::Sync for WebAccount {}
 #[repr(transparent)]
 pub struct WebAccountPictureSize(pub i32);
 impl WebAccountPictureSize {
@@ -1754,6 +1772,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebA
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WebAccountProvider {}
+unsafe impl ::core::marker::Sync for WebAccountProvider {}
 #[repr(transparent)]
 pub struct WebAccountState(pub i32);
 impl WebAccountState {

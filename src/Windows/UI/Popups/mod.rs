@@ -667,6 +667,8 @@ impl<'a> ::windows::core::IntoParam<'a, IUICommand> for &UICommand {
         ::core::convert::TryInto::<IUICommand>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for UICommand {}
+unsafe impl ::core::marker::Sync for UICommand {}
 #[repr(transparent)]
 pub struct UICommandInvokedHandler(pub ::windows::core::IUnknown);
 impl UICommandInvokedHandler {
@@ -862,3 +864,5 @@ impl<'a> ::windows::core::IntoParam<'a, IUICommand> for &UICommandSeparator {
         ::core::convert::TryInto::<IUICommand>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for UICommandSeparator {}
+unsafe impl ::core::marker::Sync for UICommandSeparator {}

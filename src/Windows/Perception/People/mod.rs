@@ -103,6 +103,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Eyes
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EyesPose {}
+unsafe impl ::core::marker::Sync for EyesPose {}
 #[repr(transparent)]
 pub struct HandJointKind(pub i32);
 impl HandJointKind {
@@ -273,6 +275,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Hand
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HandMeshObserver {}
+unsafe impl ::core::marker::Sync for HandMeshObserver {}
 #[repr(C)]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct HandMeshVertex {
@@ -398,6 +402,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Hand
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HandMeshVertexState {}
+unsafe impl ::core::marker::Sync for HandMeshVertexState {}
 #[repr(transparent)]
 pub struct HandPose(::windows::core::IUnknown);
 impl HandPose {
@@ -492,6 +498,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Hand
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HandPose {}
+unsafe impl ::core::marker::Sync for HandPose {}
 #[repr(transparent)]
 pub struct HeadPose(::windows::core::IUnknown);
 impl HeadPose {
@@ -581,6 +589,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Head
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HeadPose {}
+unsafe impl ::core::marker::Sync for HeadPose {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IEyesPose(::windows::core::IUnknown);

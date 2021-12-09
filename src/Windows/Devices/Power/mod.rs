@@ -114,6 +114,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Batt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Battery {}
+unsafe impl ::core::marker::Sync for Battery {}
 #[repr(transparent)]
 pub struct BatteryReport(::windows::core::IUnknown);
 impl BatteryReport {
@@ -219,6 +221,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Batt
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BatteryReport {}
+unsafe impl ::core::marker::Sync for BatteryReport {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBattery(::windows::core::IUnknown);

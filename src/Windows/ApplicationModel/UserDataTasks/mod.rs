@@ -585,6 +585,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataTask {}
+unsafe impl ::core::marker::Sync for UserDataTask {}
 #[repr(transparent)]
 pub struct UserDataTaskBatch(::windows::core::IUnknown);
 impl UserDataTaskBatch {
@@ -658,6 +660,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataTaskBatch {}
+unsafe impl ::core::marker::Sync for UserDataTaskBatch {}
 #[repr(transparent)]
 pub struct UserDataTaskDaysOfWeek(pub u32);
 impl UserDataTaskDaysOfWeek {
@@ -941,6 +945,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataTaskList {}
+unsafe impl ::core::marker::Sync for UserDataTaskList {}
 #[repr(transparent)]
 pub struct UserDataTaskListLimitedWriteOperations(::windows::core::IUnknown);
 impl UserDataTaskListLimitedWriteOperations {
@@ -1038,6 +1044,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataTaskListLimitedWriteOperations {}
+unsafe impl ::core::marker::Sync for UserDataTaskListLimitedWriteOperations {}
 #[repr(transparent)]
 pub struct UserDataTaskListOtherAppReadAccess(pub i32);
 impl UserDataTaskListOtherAppReadAccess {
@@ -1216,6 +1224,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataTaskListSyncManager {}
+unsafe impl ::core::marker::Sync for UserDataTaskListSyncManager {}
 #[repr(transparent)]
 pub struct UserDataTaskListSyncStatus(pub i32);
 impl UserDataTaskListSyncStatus {
@@ -1345,6 +1355,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataTaskManager {}
+unsafe impl ::core::marker::Sync for UserDataTaskManager {}
 #[repr(transparent)]
 pub struct UserDataTaskPriority(pub i32);
 impl UserDataTaskPriority {
@@ -1495,6 +1507,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataTaskQueryOptions {}
+unsafe impl ::core::marker::Sync for UserDataTaskQueryOptions {}
 #[repr(transparent)]
 pub struct UserDataTaskQuerySortProperty(pub i32);
 impl UserDataTaskQuerySortProperty {
@@ -1594,6 +1608,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataTaskReader {}
+unsafe impl ::core::marker::Sync for UserDataTaskReader {}
 #[repr(transparent)]
 pub struct UserDataTaskRecurrenceProperties(::windows::core::IUnknown);
 impl UserDataTaskRecurrenceProperties {
@@ -1766,6 +1782,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataTaskRecurrenceProperties {}
+unsafe impl ::core::marker::Sync for UserDataTaskRecurrenceProperties {}
 #[repr(transparent)]
 pub struct UserDataTaskRecurrenceUnit(pub i32);
 impl UserDataTaskRecurrenceUnit {
@@ -1917,6 +1935,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataTaskRegenerationProperties {}
+unsafe impl ::core::marker::Sync for UserDataTaskRegenerationProperties {}
 #[repr(transparent)]
 pub struct UserDataTaskRegenerationUnit(pub i32);
 impl UserDataTaskRegenerationUnit {
@@ -2070,6 +2090,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataTaskStore {}
+unsafe impl ::core::marker::Sync for UserDataTaskStore {}
 #[repr(transparent)]
 pub struct UserDataTaskStoreAccessType(pub i32);
 impl UserDataTaskStoreAccessType {

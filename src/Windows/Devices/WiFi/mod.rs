@@ -372,6 +372,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WiFiAdapter {}
+unsafe impl ::core::marker::Sync for WiFiAdapter {}
 #[repr(transparent)]
 pub struct WiFiAvailableNetwork(::windows::core::IUnknown);
 impl WiFiAvailableNetwork {
@@ -517,6 +519,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WiFiAvailableNetwork {}
+unsafe impl ::core::marker::Sync for WiFiAvailableNetwork {}
 #[repr(transparent)]
 pub struct WiFiConnectionMethod(pub i32);
 impl WiFiConnectionMethod {
@@ -617,6 +621,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WiFiConnectionResult {}
+unsafe impl ::core::marker::Sync for WiFiConnectionResult {}
 #[repr(transparent)]
 pub struct WiFiConnectionStatus(pub i32);
 impl WiFiConnectionStatus {
@@ -758,6 +764,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WiFiNetworkReport {}
+unsafe impl ::core::marker::Sync for WiFiNetworkReport {}
 #[repr(transparent)]
 pub struct WiFiPhyKind(pub i32);
 impl WiFiPhyKind {
@@ -901,6 +909,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WiFiWpsConfigurationResult {}
+unsafe impl ::core::marker::Sync for WiFiWpsConfigurationResult {}
 #[repr(transparent)]
 pub struct WiFiWpsConfigurationStatus(pub i32);
 impl WiFiWpsConfigurationStatus {

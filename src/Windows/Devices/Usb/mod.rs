@@ -729,6 +729,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UsbBulkInEndpointDescriptor {}
+unsafe impl ::core::marker::Sync for UsbBulkInEndpointDescriptor {}
 #[repr(transparent)]
 pub struct UsbBulkInPipe(::windows::core::IUnknown);
 impl UsbBulkInPipe {
@@ -839,6 +841,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UsbBulkInPipe {}
+unsafe impl ::core::marker::Sync for UsbBulkInPipe {}
 #[repr(transparent)]
 pub struct UsbBulkOutEndpointDescriptor(::windows::core::IUnknown);
 impl UsbBulkOutEndpointDescriptor {
@@ -925,6 +929,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UsbBulkOutEndpointDescriptor {}
+unsafe impl ::core::marker::Sync for UsbBulkOutEndpointDescriptor {}
 #[repr(transparent)]
 pub struct UsbBulkOutPipe(::windows::core::IUnknown);
 impl UsbBulkOutPipe {
@@ -1024,6 +1030,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UsbBulkOutPipe {}
+unsafe impl ::core::marker::Sync for UsbBulkOutPipe {}
 #[repr(transparent)]
 pub struct UsbConfiguration(::windows::core::IUnknown);
 impl UsbConfiguration {
@@ -1112,6 +1120,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UsbConfiguration {}
+unsafe impl ::core::marker::Sync for UsbConfiguration {}
 #[repr(transparent)]
 pub struct UsbConfigurationDescriptor(::windows::core::IUnknown);
 impl UsbConfigurationDescriptor {
@@ -1221,6 +1231,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UsbConfigurationDescriptor {}
+unsafe impl ::core::marker::Sync for UsbConfigurationDescriptor {}
 #[repr(transparent)]
 pub struct UsbControlRecipient(pub i32);
 impl UsbControlRecipient {
@@ -1367,6 +1379,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UsbControlRequestType {}
+unsafe impl ::core::marker::Sync for UsbControlRequestType {}
 #[repr(transparent)]
 pub struct UsbControlTransferType(pub i32);
 impl UsbControlTransferType {
@@ -1479,6 +1493,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbD
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UsbDescriptor {}
+unsafe impl ::core::marker::Sync for UsbDescriptor {}
 #[repr(transparent)]
 pub struct UsbDevice(::windows::core::IUnknown);
 impl UsbDevice {
@@ -1663,6 +1679,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for UsbDevice {}
+unsafe impl ::core::marker::Sync for UsbDevice {}
 #[repr(transparent)]
 pub struct UsbDeviceClass(::windows::core::IUnknown);
 impl UsbDeviceClass {
@@ -1772,6 +1790,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbD
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UsbDeviceClass {}
+unsafe impl ::core::marker::Sync for UsbDeviceClass {}
 #[repr(transparent)]
 pub struct UsbDeviceClasses(::windows::core::IUnknown);
 impl UsbDeviceClasses {
@@ -1895,6 +1915,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbD
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UsbDeviceClasses {}
+unsafe impl ::core::marker::Sync for UsbDeviceClasses {}
 #[repr(transparent)]
 pub struct UsbDeviceDescriptor(::windows::core::IUnknown);
 impl UsbDeviceDescriptor {
@@ -2002,6 +2024,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbD
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UsbDeviceDescriptor {}
+unsafe impl ::core::marker::Sync for UsbDeviceDescriptor {}
 #[repr(transparent)]
 pub struct UsbEndpointDescriptor(::windows::core::IUnknown);
 impl UsbEndpointDescriptor {
@@ -2132,6 +2156,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UsbEndpointDescriptor {}
+unsafe impl ::core::marker::Sync for UsbEndpointDescriptor {}
 #[repr(transparent)]
 pub struct UsbEndpointType(pub i32);
 impl UsbEndpointType {
@@ -2281,6 +2307,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UsbInterface {}
+unsafe impl ::core::marker::Sync for UsbInterface {}
 #[repr(transparent)]
 pub struct UsbInterfaceDescriptor(::windows::core::IUnknown);
 impl UsbInterfaceDescriptor {
@@ -2397,6 +2425,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UsbInterfaceDescriptor {}
+unsafe impl ::core::marker::Sync for UsbInterfaceDescriptor {}
 #[repr(transparent)]
 pub struct UsbInterfaceSetting(::windows::core::IUnknown);
 impl UsbInterfaceSetting {
@@ -2524,6 +2554,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UsbInterfaceSetting {}
+unsafe impl ::core::marker::Sync for UsbInterfaceSetting {}
 #[repr(transparent)]
 pub struct UsbInterruptInEndpointDescriptor(::windows::core::IUnknown);
 impl UsbInterruptInEndpointDescriptor {
@@ -2618,6 +2650,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UsbInterruptInEndpointDescriptor {}
+unsafe impl ::core::marker::Sync for UsbInterruptInEndpointDescriptor {}
 #[repr(transparent)]
 pub struct UsbInterruptInEventArgs(::windows::core::IUnknown);
 impl UsbInterruptInEventArgs {
@@ -2691,6 +2725,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UsbInterruptInEventArgs {}
+unsafe impl ::core::marker::Sync for UsbInterruptInEventArgs {}
 #[repr(transparent)]
 pub struct UsbInterruptInPipe(::windows::core::IUnknown);
 impl UsbInterruptInPipe {
@@ -2784,6 +2820,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UsbInterruptInPipe {}
+unsafe impl ::core::marker::Sync for UsbInterruptInPipe {}
 #[repr(transparent)]
 pub struct UsbInterruptOutEndpointDescriptor(::windows::core::IUnknown);
 impl UsbInterruptOutEndpointDescriptor {
@@ -2878,6 +2916,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UsbInterruptOutEndpointDescriptor {}
+unsafe impl ::core::marker::Sync for UsbInterruptOutEndpointDescriptor {}
 #[repr(transparent)]
 pub struct UsbInterruptOutPipe(::windows::core::IUnknown);
 impl UsbInterruptOutPipe {
@@ -2977,6 +3017,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UsbInterruptOutPipe {}
+unsafe impl ::core::marker::Sync for UsbInterruptOutPipe {}
 #[repr(transparent)]
 pub struct UsbReadOptions(pub u32);
 impl UsbReadOptions {
@@ -3145,6 +3187,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UsbSetupPacket {}
+unsafe impl ::core::marker::Sync for UsbSetupPacket {}
 #[repr(transparent)]
 pub struct UsbTransferDirection(pub i32);
 impl UsbTransferDirection {

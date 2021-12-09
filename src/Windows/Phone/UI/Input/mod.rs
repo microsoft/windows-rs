@@ -75,6 +75,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Back
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BackPressedEventArgs {}
+unsafe impl ::core::marker::Sync for BackPressedEventArgs {}
 #[repr(transparent)]
 pub struct CameraEventArgs(::windows::core::IUnknown);
 impl CameraEventArgs {}
@@ -139,6 +141,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Came
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CameraEventArgs {}
+unsafe impl ::core::marker::Sync for CameraEventArgs {}
 pub struct HardwareButtons {}
 impl HardwareButtons {
     #[cfg(feature = "Foundation")]

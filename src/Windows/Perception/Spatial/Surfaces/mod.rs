@@ -293,6 +293,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialSurfaceInfo {}
+unsafe impl ::core::marker::Sync for SpatialSurfaceInfo {}
 #[repr(transparent)]
 pub struct SpatialSurfaceMesh(::windows::core::IUnknown);
 impl SpatialSurfaceMesh {
@@ -401,6 +403,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialSurfaceMesh {}
+unsafe impl ::core::marker::Sync for SpatialSurfaceMesh {}
 #[repr(transparent)]
 pub struct SpatialSurfaceMeshBuffer(::windows::core::IUnknown);
 impl SpatialSurfaceMeshBuffer {
@@ -496,6 +500,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialSurfaceMeshBuffer {}
+unsafe impl ::core::marker::Sync for SpatialSurfaceMeshBuffer {}
 #[repr(transparent)]
 pub struct SpatialSurfaceMeshOptions(::windows::core::IUnknown);
 impl SpatialSurfaceMeshOptions {
@@ -643,6 +649,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialSurfaceMeshOptions {}
+unsafe impl ::core::marker::Sync for SpatialSurfaceMeshOptions {}
 #[repr(transparent)]
 pub struct SpatialSurfaceObserver(::windows::core::IUnknown);
 impl SpatialSurfaceObserver {
@@ -766,3 +774,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialSurfaceObserver {}
+unsafe impl ::core::marker::Sync for SpatialSurfaceObserver {}

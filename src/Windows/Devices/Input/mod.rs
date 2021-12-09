@@ -500,6 +500,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Keyb
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for KeyboardCapabilities {}
+unsafe impl ::core::marker::Sync for KeyboardCapabilities {}
 #[repr(transparent)]
 pub struct MouseCapabilities(::windows::core::IUnknown);
 impl MouseCapabilities {
@@ -607,6 +609,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mous
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MouseCapabilities {}
+unsafe impl ::core::marker::Sync for MouseCapabilities {}
 #[repr(C)]
 pub struct MouseDelta {
     pub X: i32,
@@ -932,6 +936,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PenB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PenButtonListener {}
+unsafe impl ::core::marker::Sync for PenButtonListener {}
 #[repr(transparent)]
 pub struct PenDevice(::windows::core::IUnknown);
 impl PenDevice {
@@ -1022,6 +1028,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PenD
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PenDevice {}
+unsafe impl ::core::marker::Sync for PenDevice {}
 #[repr(transparent)]
 pub struct PenDockListener(::windows::core::IUnknown);
 impl PenDockListener {
@@ -1143,6 +1151,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PenD
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PenDockListener {}
+unsafe impl ::core::marker::Sync for PenDockListener {}
 #[repr(transparent)]
 pub struct PenDockedEventArgs(::windows::core::IUnknown);
 impl PenDockedEventArgs {}
@@ -1207,6 +1217,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PenD
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PenDockedEventArgs {}
+unsafe impl ::core::marker::Sync for PenDockedEventArgs {}
 #[repr(transparent)]
 pub struct PenTailButtonClickedEventArgs(::windows::core::IUnknown);
 impl PenTailButtonClickedEventArgs {}
@@ -1271,6 +1283,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PenT
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PenTailButtonClickedEventArgs {}
+unsafe impl ::core::marker::Sync for PenTailButtonClickedEventArgs {}
 #[repr(transparent)]
 pub struct PenTailButtonDoubleClickedEventArgs(::windows::core::IUnknown);
 impl PenTailButtonDoubleClickedEventArgs {}
@@ -1335,6 +1349,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PenT
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PenTailButtonDoubleClickedEventArgs {}
+unsafe impl ::core::marker::Sync for PenTailButtonDoubleClickedEventArgs {}
 #[repr(transparent)]
 pub struct PenTailButtonLongPressedEventArgs(::windows::core::IUnknown);
 impl PenTailButtonLongPressedEventArgs {}
@@ -1399,6 +1415,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PenT
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PenTailButtonLongPressedEventArgs {}
+unsafe impl ::core::marker::Sync for PenTailButtonLongPressedEventArgs {}
 #[repr(transparent)]
 pub struct PenUndockedEventArgs(::windows::core::IUnknown);
 impl PenUndockedEventArgs {}
@@ -1463,6 +1481,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PenU
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PenUndockedEventArgs {}
+unsafe impl ::core::marker::Sync for PenUndockedEventArgs {}
 #[repr(transparent)]
 pub struct PointerDevice(::windows::core::IUnknown);
 impl PointerDevice {
@@ -1748,3 +1768,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Touc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TouchCapabilities {}
+unsafe impl ::core::marker::Sync for TouchCapabilities {}

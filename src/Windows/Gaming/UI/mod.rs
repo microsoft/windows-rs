@@ -170,6 +170,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GameChatMessageReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for GameChatMessageReceivedEventArgs {}
 #[repr(transparent)]
 pub struct GameChatOverlay(::windows::core::IUnknown);
 impl GameChatOverlay {
@@ -260,6 +262,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GameChatOverlay {}
+unsafe impl ::core::marker::Sync for GameChatOverlay {}
 #[repr(transparent)]
 pub struct GameChatOverlayMessageSource(::windows::core::IUnknown);
 impl GameChatOverlayMessageSource {
@@ -350,6 +354,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GameChatOverlayMessageSource {}
+unsafe impl ::core::marker::Sync for GameChatOverlayMessageSource {}
 #[repr(transparent)]
 pub struct GameChatOverlayPosition(pub i32);
 impl GameChatOverlayPosition {
@@ -511,6 +517,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for GameUIProviderActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for GameUIProviderActivatedEventArgs {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGameBarStatics(::windows::core::IUnknown);

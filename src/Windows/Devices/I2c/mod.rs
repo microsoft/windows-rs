@@ -136,6 +136,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &I2cC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for I2cConnectionSettings {}
+unsafe impl ::core::marker::Sync for I2cConnectionSettings {}
 #[repr(transparent)]
 pub struct I2cController(::windows::core::IUnknown);
 impl I2cController {
@@ -226,6 +228,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &I2cC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for I2cController {}
+unsafe impl ::core::marker::Sync for I2cController {}
 #[repr(transparent)]
 pub struct I2cDevice(::windows::core::IUnknown);
 impl I2cDevice {
@@ -392,6 +396,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for I2cDevice {}
+unsafe impl ::core::marker::Sync for I2cDevice {}
 #[repr(transparent)]
 pub struct I2cSharingMode(pub i32);
 impl I2cSharingMode {

@@ -248,6 +248,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneCallOrigin {}
+unsafe impl ::core::marker::Sync for PhoneCallOrigin {}
 pub struct PhoneCallOriginManager {}
 impl PhoneCallOriginManager {
     pub fn IsCurrentAppActiveCallOriginApp() -> ::windows::core::Result<bool> {

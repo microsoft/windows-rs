@@ -204,6 +204,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer>
         ::core::convert::TryInto::<super::super::Foundation::IMemoryBuffer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for BitmapBuffer {}
+unsafe impl ::core::marker::Sync for BitmapBuffer {}
 #[repr(transparent)]
 pub struct BitmapBufferAccessMode(pub i32);
 impl BitmapBufferAccessMode {
@@ -327,6 +329,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Bitm
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BitmapCodecInformation {}
+unsafe impl ::core::marker::Sync for BitmapCodecInformation {}
 #[repr(transparent)]
 pub struct BitmapDecoder(::windows::core::IUnknown);
 impl BitmapDecoder {
@@ -667,6 +671,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBitmapFrameWithSoftwareBitmap> for &Bit
         ::core::convert::TryInto::<IBitmapFrameWithSoftwareBitmap>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for BitmapDecoder {}
+unsafe impl ::core::marker::Sync for BitmapDecoder {}
 #[repr(transparent)]
 pub struct BitmapEncoder(::windows::core::IUnknown);
 impl BitmapEncoder {
@@ -910,6 +916,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Bitm
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BitmapEncoder {}
+unsafe impl ::core::marker::Sync for BitmapEncoder {}
 #[repr(transparent)]
 pub struct BitmapFlip(pub i32);
 impl BitmapFlip {
@@ -1158,6 +1166,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBitmapFrameWithSoftwareBitmap> for &Bit
         ::core::convert::TryInto::<IBitmapFrameWithSoftwareBitmap>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for BitmapFrame {}
+unsafe impl ::core::marker::Sync for BitmapFrame {}
 #[repr(transparent)]
 pub struct BitmapInterpolationMode(pub i32);
 impl BitmapInterpolationMode {
@@ -1357,6 +1367,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBitmapPropertiesView> for &BitmapProper
         ::core::convert::TryInto::<IBitmapPropertiesView>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for BitmapProperties {}
+unsafe impl ::core::marker::Sync for BitmapProperties {}
 #[repr(transparent)]
 pub struct BitmapPropertiesView(::windows::core::IUnknown);
 impl BitmapPropertiesView {
@@ -1452,6 +1464,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBitmapPropertiesView> for &BitmapProper
         ::core::convert::TryInto::<IBitmapPropertiesView>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for BitmapPropertiesView {}
+unsafe impl ::core::marker::Sync for BitmapPropertiesView {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct BitmapPropertySet(::windows::core::IUnknown);
@@ -1676,6 +1690,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, BitmapTypedValue>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for BitmapPropertySet {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for BitmapPropertySet {}
 #[repr(transparent)]
 pub struct BitmapRotation(pub i32);
 impl BitmapRotation {
@@ -1874,6 +1892,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Bitm
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BitmapTransform {}
+unsafe impl ::core::marker::Sync for BitmapTransform {}
 #[repr(transparent)]
 pub struct BitmapTypedValue(::windows::core::IUnknown);
 impl BitmapTypedValue {
@@ -1965,6 +1985,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Bitm
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BitmapTypedValue {}
+unsafe impl ::core::marker::Sync for BitmapTypedValue {}
 #[repr(transparent)]
 pub struct ColorManagementMode(pub i32);
 impl ColorManagementMode {
@@ -3253,6 +3275,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomA
         ::core::convert::TryInto::<super::super::Storage::Streams::IRandomAccessStreamWithContentType>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Storage_Streams")]
+unsafe impl ::core::marker::Send for ImageStream {}
+#[cfg(feature = "Storage_Streams")]
+unsafe impl ::core::marker::Sync for ImageStream {}
 #[repr(transparent)]
 pub struct JpegSubsamplingMode(pub i32);
 impl JpegSubsamplingMode {
@@ -3354,6 +3380,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pixe
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PixelDataProvider {}
+unsafe impl ::core::marker::Sync for PixelDataProvider {}
 #[repr(transparent)]
 pub struct PngFilterMode(pub i32);
 impl PngFilterMode {
@@ -3633,6 +3661,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SoftwareBitmap {}
+unsafe impl ::core::marker::Sync for SoftwareBitmap {}
 #[repr(transparent)]
 pub struct TiffCompressionMode(pub i32);
 impl TiffCompressionMode {

@@ -307,6 +307,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &AcrylicBru
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for AcrylicBrush {}
+unsafe impl ::core::marker::Sync for AcrylicBrush {}
 #[repr(transparent)]
 pub struct AlignmentX(pub i32);
 impl AlignmentX {
@@ -568,6 +570,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &ArcSegment
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ArcSegment {}
+unsafe impl ::core::marker::Sync for ArcSegment {}
 #[repr(transparent)]
 pub struct AudioCategory(pub i32);
 impl AudioCategory {
@@ -806,6 +810,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &BezierSegm
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for BezierSegment {}
+unsafe impl ::core::marker::Sync for BezierSegment {}
 #[repr(transparent)]
 pub struct BitmapCache(::windows::core::IUnknown);
 impl BitmapCache {
@@ -918,6 +924,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &BitmapCach
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for BitmapCache {}
+unsafe impl ::core::marker::Sync for BitmapCache {}
 #[repr(transparent)]
 pub struct Brush(::windows::core::IUnknown);
 impl Brush {
@@ -1089,6 +1097,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Brush {
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Brush {}
+unsafe impl ::core::marker::Sync for Brush {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct BrushCollection(::windows::core::IUnknown);
@@ -1338,6 +1348,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVector<Brush>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for BrushCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for BrushCollection {}
 #[repr(transparent)]
 pub struct BrushMappingMode(pub i32);
 impl BrushMappingMode {
@@ -1449,6 +1463,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &CacheMode 
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CacheMode {}
+unsafe impl ::core::marker::Sync for CacheMode {}
 #[repr(transparent)]
 pub struct ColorInterpolationMode(pub i32);
 impl ColorInterpolationMode {
@@ -1765,6 +1781,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &CompositeT
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositeTransform {}
+unsafe impl ::core::marker::Sync for CompositeTransform {}
 #[repr(transparent)]
 pub struct CompositionTarget(::windows::core::IUnknown);
 impl CompositionTarget {
@@ -1871,6 +1889,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Comp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CompositionTarget {}
+unsafe impl ::core::marker::Sync for CompositionTarget {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct DoubleCollection(::windows::core::IUnknown);
@@ -2120,6 +2140,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVector<f64>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for DoubleCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for DoubleCollection {}
 #[repr(transparent)]
 pub struct ElementCompositeMode(pub i32);
 impl ElementCompositeMode {
@@ -2317,6 +2341,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &EllipseGeo
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for EllipseGeometry {}
+unsafe impl ::core::marker::Sync for EllipseGeometry {}
 #[repr(transparent)]
 pub struct FastPlayFallbackBehaviour(pub i32);
 impl FastPlayFallbackBehaviour {
@@ -2464,6 +2490,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Font
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for FontFamily {}
+unsafe impl ::core::marker::Sync for FontFamily {}
 #[repr(transparent)]
 pub struct GeneralTransform(::windows::core::IUnknown);
 impl GeneralTransform {
@@ -2580,6 +2608,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &GeneralTra
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for GeneralTransform {}
+unsafe impl ::core::marker::Sync for GeneralTransform {}
 #[repr(transparent)]
 pub struct Geometry(::windows::core::IUnknown);
 impl Geometry {
@@ -2706,6 +2736,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Geometry {
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Geometry {}
+unsafe impl ::core::marker::Sync for Geometry {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct GeometryCollection(::windows::core::IUnknown);
@@ -2955,6 +2987,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVector<Geometry>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for GeometryCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for GeometryCollection {}
 #[repr(transparent)]
 pub struct GeometryGroup(::windows::core::IUnknown);
 impl GeometryGroup {
@@ -3107,6 +3143,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &GeometryGr
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for GeometryGroup {}
+unsafe impl ::core::marker::Sync for GeometryGroup {}
 #[repr(transparent)]
 pub struct GradientBrush(::windows::core::IUnknown);
 impl GradientBrush {
@@ -3312,6 +3350,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &GradientBr
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for GradientBrush {}
+unsafe impl ::core::marker::Sync for GradientBrush {}
 #[repr(transparent)]
 pub struct GradientSpreadMethod(pub i32);
 impl GradientSpreadMethod {
@@ -3470,6 +3510,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &GradientSt
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for GradientStop {}
+unsafe impl ::core::marker::Sync for GradientStop {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct GradientStopCollection(::windows::core::IUnknown);
@@ -3719,6 +3761,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVector<GradientStop>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for GradientStopCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for GradientStopCollection {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAcrylicBrush(::windows::core::IUnknown);
@@ -6625,6 +6671,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &ImageBrush
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ImageBrush {}
+unsafe impl ::core::marker::Sync for ImageBrush {}
 #[repr(transparent)]
 pub struct ImageSource(::windows::core::IUnknown);
 impl ImageSource {}
@@ -6709,6 +6757,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &ImageSourc
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ImageSource {}
+unsafe impl ::core::marker::Sync for ImageSource {}
 #[repr(transparent)]
 pub struct LineGeometry(::windows::core::IUnknown);
 impl LineGeometry {
@@ -6863,6 +6913,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &LineGeomet
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for LineGeometry {}
+unsafe impl ::core::marker::Sync for LineGeometry {}
 #[repr(transparent)]
 pub struct LineSegment(::windows::core::IUnknown);
 impl LineSegment {
@@ -6998,6 +7050,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &LineSegmen
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for LineSegment {}
+unsafe impl ::core::marker::Sync for LineSegment {}
 #[repr(transparent)]
 pub struct LinearGradientBrush(::windows::core::IUnknown);
 impl LinearGradientBrush {
@@ -7209,6 +7263,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &LinearGrad
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for LinearGradientBrush {}
+unsafe impl ::core::marker::Sync for LinearGradientBrush {}
 #[repr(transparent)]
 pub struct LoadedImageSourceLoadCompletedEventArgs(::windows::core::IUnknown);
 impl LoadedImageSourceLoadCompletedEventArgs {
@@ -7281,6 +7337,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Load
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LoadedImageSourceLoadCompletedEventArgs {}
+unsafe impl ::core::marker::Sync for LoadedImageSourceLoadCompletedEventArgs {}
 #[repr(transparent)]
 pub struct LoadedImageSourceLoadStatus(pub i32);
 impl LoadedImageSourceLoadStatus {
@@ -7501,6 +7559,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Composition::ICompositionS
         ::core::convert::TryInto::<super::super::Composition::ICompositionSurface>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for LoadedImageSurface {}
+unsafe impl ::core::marker::Sync for LoadedImageSurface {}
 #[repr(C)]
 pub struct Matrix {
     pub M11: f64,
@@ -7671,6 +7731,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Matrix3DPr
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Matrix3DProjection {}
+unsafe impl ::core::marker::Sync for Matrix3DProjection {}
 #[repr(transparent)]
 pub struct MatrixHelper(::windows::core::IUnknown);
 impl MatrixHelper {
@@ -7765,6 +7827,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Matr
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MatrixHelper {}
+unsafe impl ::core::marker::Sync for MatrixHelper {}
 #[repr(transparent)]
 pub struct MatrixTransform(::windows::core::IUnknown);
 impl MatrixTransform {
@@ -7918,6 +7982,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &MatrixTran
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MatrixTransform {}
+unsafe impl ::core::marker::Sync for MatrixTransform {}
 #[repr(transparent)]
 pub struct MediaCanPlayResponse(pub i32);
 impl MediaCanPlayResponse {
@@ -8055,6 +8121,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaTransportControlsThumbnailRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaTransportControlsThumbnailRequestedEventArgs {}
 #[repr(transparent)]
 pub struct PartialMediaFailureDetectedEventArgs(::windows::core::IUnknown);
 impl PartialMediaFailureDetectedEventArgs {
@@ -8142,6 +8210,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Part
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PartialMediaFailureDetectedEventArgs {}
+unsafe impl ::core::marker::Sync for PartialMediaFailureDetectedEventArgs {}
 #[repr(transparent)]
 pub struct PathFigure(::windows::core::IUnknown);
 impl PathFigure {
@@ -8310,6 +8380,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &PathFigure
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PathFigure {}
+unsafe impl ::core::marker::Sync for PathFigure {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct PathFigureCollection(::windows::core::IUnknown);
@@ -8559,6 +8631,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVector<PathFigure>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for PathFigureCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for PathFigureCollection {}
 #[repr(transparent)]
 pub struct PathGeometry(::windows::core::IUnknown);
 impl PathGeometry {
@@ -8711,6 +8787,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &PathGeomet
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PathGeometry {}
+unsafe impl ::core::marker::Sync for PathGeometry {}
 #[repr(transparent)]
 pub struct PathSegment(::windows::core::IUnknown);
 impl PathSegment {}
@@ -8795,6 +8873,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &PathSegmen
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PathSegment {}
+unsafe impl ::core::marker::Sync for PathSegment {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct PathSegmentCollection(::windows::core::IUnknown);
@@ -9044,6 +9124,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVector<PathSegment>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for PathSegmentCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for PathSegmentCollection {}
 #[repr(transparent)]
 pub struct PenLineCap(pub i32);
 impl PenLineCap {
@@ -9435,6 +9519,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &PlaneProje
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PlaneProjection {}
+unsafe impl ::core::marker::Sync for PlaneProjection {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct PointCollection(::windows::core::IUnknown);
@@ -9684,6 +9770,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVector<super::super::super::Foundation::Point>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for PointCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for PointCollection {}
 #[repr(transparent)]
 pub struct PolyBezierSegment(::windows::core::IUnknown);
 impl PolyBezierSegment {
@@ -9819,6 +9909,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &PolyBezier
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PolyBezierSegment {}
+unsafe impl ::core::marker::Sync for PolyBezierSegment {}
 #[repr(transparent)]
 pub struct PolyLineSegment(::windows::core::IUnknown);
 impl PolyLineSegment {
@@ -9954,6 +10046,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &PolyLineSe
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PolyLineSegment {}
+unsafe impl ::core::marker::Sync for PolyLineSegment {}
 #[repr(transparent)]
 pub struct PolyQuadraticBezierSegment(::windows::core::IUnknown);
 impl PolyQuadraticBezierSegment {
@@ -10089,6 +10183,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &PolyQuadra
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PolyQuadraticBezierSegment {}
+unsafe impl ::core::marker::Sync for PolyQuadraticBezierSegment {}
 #[repr(transparent)]
 pub struct Projection(::windows::core::IUnknown);
 impl Projection {}
@@ -10173,6 +10269,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Projection
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Projection {}
+unsafe impl ::core::marker::Sync for Projection {}
 #[repr(transparent)]
 pub struct QuadraticBezierSegment(::windows::core::IUnknown);
 impl QuadraticBezierSegment {
@@ -10327,6 +10425,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &QuadraticB
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for QuadraticBezierSegment {}
+unsafe impl ::core::marker::Sync for QuadraticBezierSegment {}
 #[repr(transparent)]
 pub struct RateChangedRoutedEventArgs(::windows::core::IUnknown);
 impl RateChangedRoutedEventArgs {
@@ -10419,6 +10519,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &RateChanged
         ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for RateChangedRoutedEventArgs {}
+unsafe impl ::core::marker::Sync for RateChangedRoutedEventArgs {}
 #[repr(transparent)]
 pub struct RateChangedRoutedEventHandler(pub ::windows::core::IUnknown);
 impl RateChangedRoutedEventHandler {
@@ -10622,6 +10724,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &RectangleG
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for RectangleGeometry {}
+unsafe impl ::core::marker::Sync for RectangleGeometry {}
 #[repr(transparent)]
 pub struct RenderedEventArgs(::windows::core::IUnknown);
 impl RenderedEventArgs {
@@ -10695,6 +10799,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rend
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RenderedEventArgs {}
+unsafe impl ::core::marker::Sync for RenderedEventArgs {}
 #[repr(transparent)]
 pub struct RenderingEventArgs(::windows::core::IUnknown);
 impl RenderingEventArgs {
@@ -10768,6 +10874,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rend
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RenderingEventArgs {}
+unsafe impl ::core::marker::Sync for RenderingEventArgs {}
 #[repr(transparent)]
 pub struct RevealBackgroundBrush(::windows::core::IUnknown);
 impl RevealBackgroundBrush {
@@ -10949,6 +11057,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &RevealBack
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for RevealBackgroundBrush {}
+unsafe impl ::core::marker::Sync for RevealBackgroundBrush {}
 #[repr(transparent)]
 pub struct RevealBorderBrush(::windows::core::IUnknown);
 impl RevealBorderBrush {
@@ -11130,6 +11240,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &RevealBord
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for RevealBorderBrush {}
+unsafe impl ::core::marker::Sync for RevealBorderBrush {}
 #[repr(transparent)]
 pub struct RevealBrush(::windows::core::IUnknown);
 impl RevealBrush {
@@ -11351,6 +11463,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &RevealBrus
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for RevealBrush {}
+unsafe impl ::core::marker::Sync for RevealBrush {}
 #[repr(transparent)]
 pub struct RevealBrushState(pub i32);
 impl RevealBrushState {
@@ -11566,6 +11680,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &RotateTran
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for RotateTransform {}
+unsafe impl ::core::marker::Sync for RotateTransform {}
 #[repr(transparent)]
 pub struct ScaleTransform(::windows::core::IUnknown);
 impl ScaleTransform {
@@ -11770,6 +11886,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &ScaleTrans
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ScaleTransform {}
+unsafe impl ::core::marker::Sync for ScaleTransform {}
 #[repr(transparent)]
 pub struct Shadow(::windows::core::IUnknown);
 impl Shadow {}
@@ -11854,6 +11972,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Shadow {
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Shadow {}
+unsafe impl ::core::marker::Sync for Shadow {}
 #[repr(transparent)]
 pub struct SkewTransform(::windows::core::IUnknown);
 impl SkewTransform {
@@ -12058,6 +12178,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &SkewTransf
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SkewTransform {}
+unsafe impl ::core::marker::Sync for SkewTransform {}
 #[repr(transparent)]
 pub struct SolidColorBrush(::windows::core::IUnknown);
 impl SolidColorBrush {
@@ -12227,6 +12349,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &SolidColor
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SolidColorBrush {}
+unsafe impl ::core::marker::Sync for SolidColorBrush {}
 #[repr(transparent)]
 pub struct Stereo3DVideoPackingMode(pub i32);
 impl Stereo3DVideoPackingMode {
@@ -12489,6 +12613,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &ThemeShado
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ThemeShadow {}
+unsafe impl ::core::marker::Sync for ThemeShadow {}
 #[repr(transparent)]
 pub struct TileBrush(::windows::core::IUnknown);
 impl TileBrush {
@@ -12675,6 +12801,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &TileBrush 
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for TileBrush {}
+unsafe impl ::core::marker::Sync for TileBrush {}
 #[repr(transparent)]
 pub struct TimelineMarker(::windows::core::IUnknown);
 impl TimelineMarker {
@@ -12824,6 +12952,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &TimelineMa
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for TimelineMarker {}
+unsafe impl ::core::marker::Sync for TimelineMarker {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct TimelineMarkerCollection(::windows::core::IUnknown);
@@ -13073,6 +13203,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVector<TimelineMarker>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for TimelineMarkerCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for TimelineMarkerCollection {}
 #[repr(transparent)]
 pub struct TimelineMarkerRoutedEventArgs(::windows::core::IUnknown);
 impl TimelineMarkerRoutedEventArgs {
@@ -13176,6 +13310,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &TimelineMar
         ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for TimelineMarkerRoutedEventArgs {}
+unsafe impl ::core::marker::Sync for TimelineMarkerRoutedEventArgs {}
 #[repr(transparent)]
 pub struct TimelineMarkerRoutedEventHandler(pub ::windows::core::IUnknown);
 impl TimelineMarkerRoutedEventHandler {
@@ -13348,6 +13484,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Transform 
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Transform {}
+unsafe impl ::core::marker::Sync for Transform {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct TransformCollection(::windows::core::IUnknown);
@@ -13597,6 +13735,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVector<Transform>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for TransformCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for TransformCollection {}
 #[repr(transparent)]
 pub struct TransformGroup(::windows::core::IUnknown);
 impl TransformGroup {
@@ -13759,6 +13901,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &TransformG
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for TransformGroup {}
+unsafe impl ::core::marker::Sync for TransformGroup {}
 #[repr(transparent)]
 pub struct TranslateTransform(::windows::core::IUnknown);
 impl TranslateTransform {
@@ -13929,6 +14073,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &TranslateT
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for TranslateTransform {}
+unsafe impl ::core::marker::Sync for TranslateTransform {}
 #[repr(transparent)]
 pub struct VisualTreeHelper(::windows::core::IUnknown);
 impl VisualTreeHelper {
@@ -14069,6 +14215,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Visu
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VisualTreeHelper {}
+unsafe impl ::core::marker::Sync for VisualTreeHelper {}
 #[repr(transparent)]
 pub struct XamlCompositionBrushBase(::windows::core::IUnknown);
 impl XamlCompositionBrushBase {
@@ -14234,6 +14382,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &XamlCompos
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for XamlCompositionBrushBase {}
+unsafe impl ::core::marker::Sync for XamlCompositionBrushBase {}
 #[repr(transparent)]
 pub struct XamlLight(::windows::core::IUnknown);
 impl XamlLight {
@@ -14358,3 +14508,5 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &XamlLight 
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for XamlLight {}
+unsafe impl ::core::marker::Sync for XamlLight {}

@@ -113,6 +113,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cust
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CustomDevice {}
+unsafe impl ::core::marker::Sync for CustomDevice {}
 #[repr(transparent)]
 pub struct DeviceAccessMode(pub i32);
 impl DeviceAccessMode {
@@ -551,6 +553,8 @@ impl<'a> ::windows::core::IntoParam<'a, IIOControlCode> for &IOControlCode {
         ::core::convert::TryInto::<IIOControlCode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for IOControlCode {}
+unsafe impl ::core::marker::Sync for IOControlCode {}
 pub struct KnownDeviceTypes {}
 impl KnownDeviceTypes {
     pub fn Unknown() -> ::windows::core::Result<u16> {

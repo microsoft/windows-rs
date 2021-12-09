@@ -671,6 +671,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IVector<IJsonValue>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for JsonArray {}
+unsafe impl ::core::marker::Sync for JsonArray {}
 pub struct JsonError {}
 impl JsonError {
     pub fn GetJsonStatus(hresult: i32) -> ::windows::core::Result<JsonErrorStatus> {
@@ -1124,6 +1126,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
         ::core::convert::TryInto::<super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for JsonObject {}
+unsafe impl ::core::marker::Sync for JsonObject {}
 #[repr(transparent)]
 pub struct JsonValue(::windows::core::IUnknown);
 impl JsonValue {
@@ -1338,6 +1342,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
         ::core::convert::TryInto::<super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for JsonValue {}
+unsafe impl ::core::marker::Sync for JsonValue {}
 #[repr(transparent)]
 pub struct JsonValueType(pub i32);
 impl JsonValueType {

@@ -258,6 +258,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaTranscoder {}
+unsafe impl ::core::marker::Sync for MediaTranscoder {}
 #[repr(transparent)]
 pub struct MediaVideoProcessingAlgorithm(pub i32);
 impl MediaVideoProcessingAlgorithm {
@@ -372,6 +374,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prep
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrepareTranscodeResult {}
+unsafe impl ::core::marker::Sync for PrepareTranscodeResult {}
 #[repr(transparent)]
 pub struct TranscodeFailureReason(pub i32);
 impl TranscodeFailureReason {

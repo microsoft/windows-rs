@@ -270,6 +270,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::Syndication::ISyndicationClient> 
         ::core::convert::TryInto::<super::Syndication::ISyndicationClient>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AtomPubClient {}
+unsafe impl ::core::marker::Sync for AtomPubClient {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAtomPubClient(::windows::core::IUnknown);
@@ -604,6 +606,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::Syndication::ISyndicationNode> fo
         ::core::convert::TryInto::<super::Syndication::ISyndicationNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ResourceCollection {}
+unsafe impl ::core::marker::Sync for ResourceCollection {}
 #[repr(transparent)]
 pub struct ServiceDocument(::windows::core::IUnknown);
 impl ServiceDocument {
@@ -792,6 +796,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::Syndication::ISyndicationNode> fo
         ::core::convert::TryInto::<super::Syndication::ISyndicationNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ServiceDocument {}
+unsafe impl ::core::marker::Sync for ServiceDocument {}
 #[repr(transparent)]
 pub struct Workspace(::windows::core::IUnknown);
 impl Workspace {
@@ -988,3 +994,5 @@ impl<'a> ::windows::core::IntoParam<'a, super::Syndication::ISyndicationNode> fo
         ::core::convert::TryInto::<super::Syndication::ISyndicationNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for Workspace {}
+unsafe impl ::core::marker::Sync for Workspace {}

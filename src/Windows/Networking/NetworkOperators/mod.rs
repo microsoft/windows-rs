@@ -224,6 +224,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ESim
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ESim {}
+unsafe impl ::core::marker::Sync for ESim {}
 #[repr(transparent)]
 pub struct ESimAddedEventArgs(::windows::core::IUnknown);
 impl ESimAddedEventArgs {
@@ -296,6 +298,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ESim
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ESimAddedEventArgs {}
+unsafe impl ::core::marker::Sync for ESimAddedEventArgs {}
 #[repr(transparent)]
 pub struct ESimAuthenticationPreference(pub i32);
 impl ESimAuthenticationPreference {
@@ -403,6 +407,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ESim
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ESimDiscoverEvent {}
+unsafe impl ::core::marker::Sync for ESimDiscoverEvent {}
 #[repr(transparent)]
 pub struct ESimDiscoverResult(::windows::core::IUnknown);
 impl ESimDiscoverResult {
@@ -497,6 +503,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ESim
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ESimDiscoverResult {}
+unsafe impl ::core::marker::Sync for ESimDiscoverResult {}
 #[repr(transparent)]
 pub struct ESimDiscoverResultKind(pub i32);
 impl ESimDiscoverResultKind {
@@ -604,6 +612,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ESim
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ESimDownloadProfileMetadataResult {}
+unsafe impl ::core::marker::Sync for ESimDownloadProfileMetadataResult {}
 pub struct ESimManager {}
 impl ESimManager {
     pub fn ServiceInfo() -> ::windows::core::Result<ESimServiceInfo> {
@@ -709,6 +719,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ESim
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ESimOperationResult {}
+unsafe impl ::core::marker::Sync for ESimOperationResult {}
 #[repr(transparent)]
 pub struct ESimOperationStatus(pub i32);
 impl ESimOperationStatus {
@@ -835,6 +847,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ESim
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ESimPolicy {}
+unsafe impl ::core::marker::Sync for ESimPolicy {}
 #[repr(transparent)]
 pub struct ESimProfile(::windows::core::IUnknown);
 impl ESimProfile {
@@ -981,6 +995,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ESim
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ESimProfile {}
+unsafe impl ::core::marker::Sync for ESimProfile {}
 #[repr(transparent)]
 pub struct ESimProfileClass(pub i32);
 impl ESimProfileClass {
@@ -1200,6 +1216,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ESim
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ESimProfileMetadata {}
+unsafe impl ::core::marker::Sync for ESimProfileMetadata {}
 #[repr(transparent)]
 pub struct ESimProfileMetadataState(pub i32);
 impl ESimProfileMetadataState {
@@ -1319,6 +1337,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ESim
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ESimProfilePolicy {}
+unsafe impl ::core::marker::Sync for ESimProfilePolicy {}
 #[repr(transparent)]
 pub struct ESimProfileState(pub i32);
 impl ESimProfileState {
@@ -1420,6 +1440,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ESim
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ESimRemovedEventArgs {}
+unsafe impl ::core::marker::Sync for ESimRemovedEventArgs {}
 #[repr(transparent)]
 pub struct ESimServiceInfo(::windows::core::IUnknown);
 impl ESimServiceInfo {
@@ -1499,6 +1521,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ESim
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ESimServiceInfo {}
+unsafe impl ::core::marker::Sync for ESimServiceInfo {}
 #[repr(transparent)]
 pub struct ESimState(pub i32);
 impl ESimState {
@@ -1600,6 +1624,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ESim
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ESimUpdatedEventArgs {}
+unsafe impl ::core::marker::Sync for ESimUpdatedEventArgs {}
 #[repr(transparent)]
 pub struct ESimWatcher(::windows::core::IUnknown);
 impl ESimWatcher {
@@ -1745,6 +1771,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ESim
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ESimWatcher {}
+unsafe impl ::core::marker::Sync for ESimWatcher {}
 #[repr(transparent)]
 pub struct ESimWatcherStatus(pub i32);
 impl ESimWatcherStatus {
@@ -5316,6 +5344,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandAntennaSar {}
+unsafe impl ::core::marker::Sync for MobileBroadbandAntennaSar {}
 #[repr(transparent)]
 pub struct MobileBroadbandCellCdma(::windows::core::IUnknown);
 impl MobileBroadbandCellCdma {
@@ -5445,6 +5475,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandCellCdma {}
+unsafe impl ::core::marker::Sync for MobileBroadbandCellCdma {}
 #[repr(transparent)]
 pub struct MobileBroadbandCellGsm(::windows::core::IUnknown);
 impl MobileBroadbandCellGsm {
@@ -5565,6 +5597,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandCellGsm {}
+unsafe impl ::core::marker::Sync for MobileBroadbandCellGsm {}
 #[repr(transparent)]
 pub struct MobileBroadbandCellLte(::windows::core::IUnknown);
 impl MobileBroadbandCellLte {
@@ -5693,6 +5727,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandCellLte {}
+unsafe impl ::core::marker::Sync for MobileBroadbandCellLte {}
 #[repr(transparent)]
 pub struct MobileBroadbandCellNR(::windows::core::IUnknown);
 impl MobileBroadbandCellNR {
@@ -5829,6 +5865,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandCellNR {}
+unsafe impl ::core::marker::Sync for MobileBroadbandCellNR {}
 #[repr(transparent)]
 pub struct MobileBroadbandCellTdscdma(::windows::core::IUnknown);
 impl MobileBroadbandCellTdscdma {
@@ -5957,6 +5995,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandCellTdscdma {}
+unsafe impl ::core::marker::Sync for MobileBroadbandCellTdscdma {}
 #[repr(transparent)]
 pub struct MobileBroadbandCellUmts(::windows::core::IUnknown);
 impl MobileBroadbandCellUmts {
@@ -6085,6 +6125,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandCellUmts {}
+unsafe impl ::core::marker::Sync for MobileBroadbandCellUmts {}
 #[repr(transparent)]
 pub struct MobileBroadbandCellsInfo(::windows::core::IUnknown);
 impl MobileBroadbandCellsInfo {
@@ -6246,6 +6288,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandCellsInfo {}
+unsafe impl ::core::marker::Sync for MobileBroadbandCellsInfo {}
 #[repr(transparent)]
 pub struct MobileBroadbandCurrentSlotIndexChangedEventArgs(::windows::core::IUnknown);
 impl MobileBroadbandCurrentSlotIndexChangedEventArgs {
@@ -6318,6 +6362,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandCurrentSlotIndexChangedEventArgs {}
+unsafe impl ::core::marker::Sync for MobileBroadbandCurrentSlotIndexChangedEventArgs {}
 #[repr(transparent)]
 pub struct MobileBroadbandDeviceInformation(::windows::core::IUnknown);
 impl MobileBroadbandDeviceInformation {
@@ -6626,6 +6672,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandDeviceService {}
+unsafe impl ::core::marker::Sync for MobileBroadbandDeviceService {}
 #[repr(transparent)]
 pub struct MobileBroadbandDeviceServiceCommandResult(::windows::core::IUnknown);
 impl MobileBroadbandDeviceServiceCommandResult {
@@ -6706,6 +6754,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceCommandResult {}
+unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceCommandResult {}
 #[repr(transparent)]
 pub struct MobileBroadbandDeviceServiceCommandSession(::windows::core::IUnknown);
 impl MobileBroadbandDeviceServiceCommandSession {
@@ -6791,6 +6841,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceCommandSession {}
+unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceCommandSession {}
 #[repr(transparent)]
 pub struct MobileBroadbandDeviceServiceDataReceivedEventArgs(::windows::core::IUnknown);
 impl MobileBroadbandDeviceServiceDataReceivedEventArgs {
@@ -6864,6 +6916,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceDataReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceDataReceivedEventArgs {}
 #[repr(transparent)]
 pub struct MobileBroadbandDeviceServiceDataSession(::windows::core::IUnknown);
 impl MobileBroadbandDeviceServiceDataSession {
@@ -6954,6 +7008,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceDataSession {}
+unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceDataSession {}
 #[repr(transparent)]
 pub struct MobileBroadbandDeviceServiceInformation(::windows::core::IUnknown);
 impl MobileBroadbandDeviceServiceInformation {
@@ -7040,6 +7096,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceInformation {}
+unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceInformation {}
 #[repr(transparent)]
 pub struct MobileBroadbandDeviceServiceTriggerDetails(::windows::core::IUnknown);
 impl MobileBroadbandDeviceServiceTriggerDetails {
@@ -7127,6 +7185,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceTriggerDetails {}
+unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceTriggerDetails {}
 #[repr(transparent)]
 pub struct MobileBroadbandDeviceType(pub i32);
 impl MobileBroadbandDeviceType {
@@ -7360,6 +7420,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandModem {}
+unsafe impl ::core::marker::Sync for MobileBroadbandModem {}
 #[repr(transparent)]
 pub struct MobileBroadbandModemConfiguration(::windows::core::IUnknown);
 impl MobileBroadbandModemConfiguration {
@@ -7552,6 +7614,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandModemIsolation {}
+unsafe impl ::core::marker::Sync for MobileBroadbandModemIsolation {}
 #[repr(transparent)]
 pub struct MobileBroadbandModemStatus(pub i32);
 impl MobileBroadbandModemStatus {
@@ -7817,6 +7881,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandNetworkRegistrationStateChange {}
+unsafe impl ::core::marker::Sync for MobileBroadbandNetworkRegistrationStateChange {}
 #[repr(transparent)]
 pub struct MobileBroadbandNetworkRegistrationStateChangeTriggerDetails(::windows::core::IUnknown);
 impl MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
@@ -7890,6 +7956,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {}
+unsafe impl ::core::marker::Sync for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {}
 #[repr(transparent)]
 pub struct MobileBroadbandPco(::windows::core::IUnknown);
 impl MobileBroadbandPco {
@@ -7977,6 +8045,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandPco {}
+unsafe impl ::core::marker::Sync for MobileBroadbandPco {}
 #[repr(transparent)]
 pub struct MobileBroadbandPcoDataChangeTriggerDetails(::windows::core::IUnknown);
 impl MobileBroadbandPcoDataChangeTriggerDetails {
@@ -8049,6 +8119,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandPcoDataChangeTriggerDetails {}
+unsafe impl ::core::marker::Sync for MobileBroadbandPcoDataChangeTriggerDetails {}
 #[repr(transparent)]
 pub struct MobileBroadbandPin(::windows::core::IUnknown);
 impl MobileBroadbandPin {
@@ -8203,6 +8275,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandPin {}
+unsafe impl ::core::marker::Sync for MobileBroadbandPin {}
 #[repr(transparent)]
 pub struct MobileBroadbandPinFormat(pub i32);
 impl MobileBroadbandPinFormat {
@@ -8346,6 +8420,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandPinLockStateChange {}
+unsafe impl ::core::marker::Sync for MobileBroadbandPinLockStateChange {}
 #[repr(transparent)]
 pub struct MobileBroadbandPinLockStateChangeTriggerDetails(::windows::core::IUnknown);
 impl MobileBroadbandPinLockStateChangeTriggerDetails {
@@ -8419,6 +8495,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandPinLockStateChangeTriggerDetails {}
+unsafe impl ::core::marker::Sync for MobileBroadbandPinLockStateChangeTriggerDetails {}
 #[repr(transparent)]
 pub struct MobileBroadbandPinManager(::windows::core::IUnknown);
 impl MobileBroadbandPinManager {
@@ -8499,6 +8577,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandPinManager {}
+unsafe impl ::core::marker::Sync for MobileBroadbandPinManager {}
 #[repr(transparent)]
 pub struct MobileBroadbandPinOperationResult(::windows::core::IUnknown);
 impl MobileBroadbandPinOperationResult {
@@ -8578,6 +8658,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandPinOperationResult {}
+unsafe impl ::core::marker::Sync for MobileBroadbandPinOperationResult {}
 #[repr(transparent)]
 pub struct MobileBroadbandPinType(pub i32);
 impl MobileBroadbandPinType {
@@ -8720,6 +8802,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandRadioStateChange {}
+unsafe impl ::core::marker::Sync for MobileBroadbandRadioStateChange {}
 #[repr(transparent)]
 pub struct MobileBroadbandRadioStateChangeTriggerDetails(::windows::core::IUnknown);
 impl MobileBroadbandRadioStateChangeTriggerDetails {
@@ -8793,6 +8877,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandRadioStateChangeTriggerDetails {}
+unsafe impl ::core::marker::Sync for MobileBroadbandRadioStateChangeTriggerDetails {}
 #[repr(transparent)]
 pub struct MobileBroadbandSarManager(::windows::core::IUnknown);
 impl MobileBroadbandSarManager {
@@ -8964,6 +9050,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandSarManager {}
+unsafe impl ::core::marker::Sync for MobileBroadbandSarManager {}
 #[repr(transparent)]
 pub struct MobileBroadbandSlotInfo(::windows::core::IUnknown);
 impl MobileBroadbandSlotInfo {
@@ -9043,6 +9131,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandSlotInfo {}
+unsafe impl ::core::marker::Sync for MobileBroadbandSlotInfo {}
 #[repr(transparent)]
 pub struct MobileBroadbandSlotInfoChangedEventArgs(::windows::core::IUnknown);
 impl MobileBroadbandSlotInfoChangedEventArgs {
@@ -9115,6 +9205,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandSlotInfoChangedEventArgs {}
+unsafe impl ::core::marker::Sync for MobileBroadbandSlotInfoChangedEventArgs {}
 #[repr(transparent)]
 pub struct MobileBroadbandSlotManager(::windows::core::IUnknown);
 impl MobileBroadbandSlotManager {
@@ -9236,6 +9328,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandSlotManager {}
+unsafe impl ::core::marker::Sync for MobileBroadbandSlotManager {}
 #[repr(transparent)]
 pub struct MobileBroadbandSlotState(pub i32);
 impl MobileBroadbandSlotState {
@@ -9343,6 +9437,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandTransmissionStateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for MobileBroadbandTransmissionStateChangedEventArgs {}
 #[repr(transparent)]
 pub struct MobileBroadbandUicc(::windows::core::IUnknown);
 impl MobileBroadbandUicc {
@@ -9423,6 +9519,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandUicc {}
+unsafe impl ::core::marker::Sync for MobileBroadbandUicc {}
 #[repr(transparent)]
 pub struct MobileBroadbandUiccApp(::windows::core::IUnknown);
 impl MobileBroadbandUiccApp {
@@ -9519,6 +9617,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandUiccApp {}
+unsafe impl ::core::marker::Sync for MobileBroadbandUiccApp {}
 #[repr(transparent)]
 pub struct MobileBroadbandUiccAppOperationStatus(pub i32);
 impl MobileBroadbandUiccAppOperationStatus {
@@ -9628,6 +9728,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandUiccAppReadRecordResult {}
+unsafe impl ::core::marker::Sync for MobileBroadbandUiccAppReadRecordResult {}
 #[repr(transparent)]
 pub struct MobileBroadbandUiccAppRecordDetailsResult(::windows::core::IUnknown);
 impl MobileBroadbandUiccAppRecordDetailsResult {
@@ -9735,6 +9837,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandUiccAppRecordDetailsResult {}
+unsafe impl ::core::marker::Sync for MobileBroadbandUiccAppRecordDetailsResult {}
 #[repr(transparent)]
 pub struct MobileBroadbandUiccAppsResult(::windows::core::IUnknown);
 impl MobileBroadbandUiccAppsResult {
@@ -9815,6 +9919,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MobileBroadbandUiccAppsResult {}
+unsafe impl ::core::marker::Sync for MobileBroadbandUiccAppsResult {}
 #[repr(transparent)]
 pub struct NetworkDeviceStatus(pub i32);
 impl NetworkDeviceStatus {
@@ -9946,6 +10052,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Netw
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for NetworkOperatorDataUsageTriggerDetails {}
+unsafe impl ::core::marker::Sync for NetworkOperatorDataUsageTriggerDetails {}
 #[repr(transparent)]
 pub struct NetworkOperatorEventMessageType(pub i32);
 impl NetworkOperatorEventMessageType {
@@ -10096,6 +10204,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Netw
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for NetworkOperatorNotificationEventDetails {}
+unsafe impl ::core::marker::Sync for NetworkOperatorNotificationEventDetails {}
 #[repr(transparent)]
 pub struct NetworkOperatorTetheringAccessPointConfiguration(::windows::core::IUnknown);
 impl NetworkOperatorTetheringAccessPointConfiguration {
@@ -10216,6 +10326,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Netw
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for NetworkOperatorTetheringAccessPointConfiguration {}
+unsafe impl ::core::marker::Sync for NetworkOperatorTetheringAccessPointConfiguration {}
 #[repr(transparent)]
 pub struct NetworkOperatorTetheringClient(::windows::core::IUnknown);
 impl NetworkOperatorTetheringClient {
@@ -10296,6 +10408,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Netw
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for NetworkOperatorTetheringClient {}
+unsafe impl ::core::marker::Sync for NetworkOperatorTetheringClient {}
 #[repr(transparent)]
 pub struct NetworkOperatorTetheringManager(::windows::core::IUnknown);
 impl NetworkOperatorTetheringManager {
@@ -11038,6 +11152,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Teth
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TetheringEntitlementCheckTriggerDetails {}
+unsafe impl ::core::marker::Sync for TetheringEntitlementCheckTriggerDetails {}
 #[repr(transparent)]
 pub struct TetheringOperationStatus(pub i32);
 impl TetheringOperationStatus {
@@ -11330,6 +11446,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Ussd
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UssdMessage {}
+unsafe impl ::core::marker::Sync for UssdMessage {}
 #[repr(transparent)]
 pub struct UssdReply(::windows::core::IUnknown);
 impl UssdReply {

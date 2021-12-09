@@ -446,6 +446,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Secu
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SecurityAppManager {}
+unsafe impl ::core::marker::Sync for SecurityAppManager {}
 #[repr(transparent)]
 pub struct SecurityAppState(pub i32);
 impl SecurityAppState {
@@ -613,6 +615,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Shar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ShareWindowCommandEventArgs {}
+unsafe impl ::core::marker::Sync for ShareWindowCommandEventArgs {}
 #[repr(transparent)]
 pub struct ShareWindowCommandSource(::windows::core::IUnknown);
 impl ShareWindowCommandSource {
@@ -726,6 +730,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Shar
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ShareWindowCommandSource {}
+unsafe impl ::core::marker::Sync for ShareWindowCommandSource {}
 #[repr(transparent)]
 pub struct TaskbarManager(::windows::core::IUnknown);
 impl TaskbarManager {
@@ -871,3 +877,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Task
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TaskbarManager {}
+unsafe impl ::core::marker::Sync for TaskbarManager {}

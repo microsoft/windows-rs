@@ -319,6 +319,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Com
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CompositeTransform3D {}
+unsafe impl ::core::marker::Sync for CompositeTransform3D {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICompositeTransform3D(::windows::core::IUnknown);
@@ -657,6 +659,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Matr
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Matrix3DHelper {}
+unsafe impl ::core::marker::Sync for Matrix3DHelper {}
 #[repr(transparent)]
 pub struct PerspectiveTransform3D(::windows::core::IUnknown);
 impl PerspectiveTransform3D {
@@ -824,6 +828,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Per
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PerspectiveTransform3D {}
+unsafe impl ::core::marker::Sync for PerspectiveTransform3D {}
 #[repr(transparent)]
 pub struct Transform3D(::windows::core::IUnknown);
 impl Transform3D {}
@@ -908,3 +914,5 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tra
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Transform3D {}
+unsafe impl ::core::marker::Sync for Transform3D {}

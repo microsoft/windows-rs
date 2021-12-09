@@ -188,6 +188,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &OemS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for OemSupportInfo {}
+unsafe impl ::core::marker::Sync for OemSupportInfo {}
 pub struct SmbiosInformation {}
 impl SmbiosInformation {
     pub fn SerialNumber() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -318,6 +320,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemSupportDeviceInfo {}
+unsafe impl ::core::marker::Sync for SystemSupportDeviceInfo {}
 pub struct SystemSupportInfo {}
 impl SystemSupportInfo {
     pub fn LocalSystemEdition() -> ::windows::core::Result<::windows::core::HSTRING> {

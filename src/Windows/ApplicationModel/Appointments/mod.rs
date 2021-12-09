@@ -371,6 +371,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Appointment {}
+unsafe impl ::core::marker::Sync for Appointment {}
 #[repr(transparent)]
 pub struct AppointmentBusyStatus(pub i32);
 impl AppointmentBusyStatus {
@@ -810,6 +812,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppointmentCalendar {}
+unsafe impl ::core::marker::Sync for AppointmentCalendar {}
 #[repr(transparent)]
 pub struct AppointmentCalendarOtherAppReadAccess(pub i32);
 impl AppointmentCalendarOtherAppReadAccess {
@@ -990,6 +994,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppointmentCalendarSyncManager {}
+unsafe impl ::core::marker::Sync for AppointmentCalendarSyncManager {}
 #[repr(transparent)]
 pub struct AppointmentCalendarSyncStatus(pub i32);
 impl AppointmentCalendarSyncStatus {
@@ -1102,6 +1108,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppointmentConflictResult {}
+unsafe impl ::core::marker::Sync for AppointmentConflictResult {}
 #[repr(transparent)]
 pub struct AppointmentConflictType(pub i32);
 impl AppointmentConflictType {
@@ -1277,6 +1285,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppointmentException {}
+unsafe impl ::core::marker::Sync for AppointmentException {}
 #[repr(transparent)]
 pub struct AppointmentInvitee(::windows::core::IUnknown);
 impl AppointmentInvitee {
@@ -1415,6 +1425,8 @@ impl<'a> ::windows::core::IntoParam<'a, IAppointmentParticipant> for &Appointmen
         ::core::convert::TryInto::<IAppointmentParticipant>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AppointmentInvitee {}
+unsafe impl ::core::marker::Sync for AppointmentInvitee {}
 pub struct AppointmentManager {}
 impl AppointmentManager {
     #[cfg(feature = "Foundation")]
@@ -1708,6 +1720,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppointmentManagerForUser {}
+unsafe impl ::core::marker::Sync for AppointmentManagerForUser {}
 #[repr(transparent)]
 pub struct AppointmentOrganizer(::windows::core::IUnknown);
 impl AppointmentOrganizer {
@@ -1824,6 +1838,8 @@ impl<'a> ::windows::core::IntoParam<'a, IAppointmentParticipant> for &Appointmen
         ::core::convert::TryInto::<IAppointmentParticipant>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AppointmentOrganizer {}
+unsafe impl ::core::marker::Sync for AppointmentOrganizer {}
 #[repr(transparent)]
 pub struct AppointmentParticipantResponse(pub i32);
 impl AppointmentParticipantResponse {
@@ -2242,6 +2258,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppointmentRecurrence {}
+unsafe impl ::core::marker::Sync for AppointmentRecurrence {}
 #[repr(transparent)]
 pub struct AppointmentRecurrenceUnit(pub i32);
 impl AppointmentRecurrenceUnit {
@@ -2560,6 +2578,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppointmentStore {}
+unsafe impl ::core::marker::Sync for AppointmentStore {}
 #[repr(transparent)]
 pub struct AppointmentStoreAccessType(pub i32);
 impl AppointmentStoreAccessType {
@@ -2674,6 +2694,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppointmentStoreChange {}
+unsafe impl ::core::marker::Sync for AppointmentStoreChange {}
 #[repr(transparent)]
 pub struct AppointmentStoreChangeReader(::windows::core::IUnknown);
 impl AppointmentStoreChangeReader {
@@ -2755,6 +2777,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppointmentStoreChangeReader {}
+unsafe impl ::core::marker::Sync for AppointmentStoreChangeReader {}
 #[repr(transparent)]
 pub struct AppointmentStoreChangeTracker(::windows::core::IUnknown);
 impl AppointmentStoreChangeTracker {
@@ -2842,6 +2866,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppointmentStoreChangeTracker {}
+unsafe impl ::core::marker::Sync for AppointmentStoreChangeTracker {}
 #[repr(transparent)]
 pub struct AppointmentStoreChangeType(pub i32);
 impl AppointmentStoreChangeType {
@@ -2943,6 +2969,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppointmentStoreChangedDeferral {}
+unsafe impl ::core::marker::Sync for AppointmentStoreChangedDeferral {}
 #[repr(transparent)]
 pub struct AppointmentStoreChangedEventArgs(::windows::core::IUnknown);
 impl AppointmentStoreChangedEventArgs {
@@ -3015,6 +3043,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppointmentStoreChangedEventArgs {}
+unsafe impl ::core::marker::Sync for AppointmentStoreChangedEventArgs {}
 #[repr(transparent)]
 pub struct AppointmentStoreNotificationTriggerDetails(::windows::core::IUnknown);
 impl AppointmentStoreNotificationTriggerDetails {}
@@ -3079,6 +3109,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppointmentStoreNotificationTriggerDetails {}
+unsafe impl ::core::marker::Sync for AppointmentStoreNotificationTriggerDetails {}
 #[repr(transparent)]
 pub struct AppointmentSummaryCardView(pub i32);
 impl AppointmentSummaryCardView {
@@ -3273,6 +3305,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Find
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for FindAppointmentsOptions {}
+unsafe impl ::core::marker::Sync for FindAppointmentsOptions {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppointment(::windows::core::IUnknown);

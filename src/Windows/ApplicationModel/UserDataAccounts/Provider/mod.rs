@@ -244,6 +244,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataAccountPartnerAccountInfo {}
+unsafe impl ::core::marker::Sync for UserDataAccountPartnerAccountInfo {}
 #[repr(transparent)]
 pub struct UserDataAccountProviderAddAccountOperation(::windows::core::IUnknown);
 impl UserDataAccountProviderAddAccountOperation {
@@ -357,6 +359,8 @@ impl<'a> ::windows::core::IntoParam<'a, IUserDataAccountProviderOperation> for &
         ::core::convert::TryInto::<IUserDataAccountProviderOperation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for UserDataAccountProviderAddAccountOperation {}
+unsafe impl ::core::marker::Sync for UserDataAccountProviderAddAccountOperation {}
 #[repr(transparent)]
 pub struct UserDataAccountProviderOperationKind(pub i32);
 impl UserDataAccountProviderOperationKind {
@@ -517,6 +521,8 @@ impl<'a> ::windows::core::IntoParam<'a, IUserDataAccountProviderOperation> for &
         ::core::convert::TryInto::<IUserDataAccountProviderOperation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for UserDataAccountProviderResolveErrorsOperation {}
+unsafe impl ::core::marker::Sync for UserDataAccountProviderResolveErrorsOperation {}
 #[repr(transparent)]
 pub struct UserDataAccountProviderSettingsOperation(::windows::core::IUnknown);
 impl UserDataAccountProviderSettingsOperation {
@@ -622,3 +628,5 @@ impl<'a> ::windows::core::IntoParam<'a, IUserDataAccountProviderOperation> for &
         ::core::convert::TryInto::<IUserDataAccountProviderOperation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for UserDataAccountProviderSettingsOperation {}
+unsafe impl ::core::marker::Sync for UserDataAccountProviderSettingsOperation {}

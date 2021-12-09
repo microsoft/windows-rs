@@ -134,6 +134,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for CompositorController {}
+unsafe impl ::core::marker::Sync for CompositorController {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICompositorController(::windows::core::IUnknown);

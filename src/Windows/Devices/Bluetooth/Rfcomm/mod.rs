@@ -452,6 +452,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for RfcommDeviceService {}
+unsafe impl ::core::marker::Sync for RfcommDeviceService {}
 #[repr(transparent)]
 pub struct RfcommDeviceServicesResult(::windows::core::IUnknown);
 impl RfcommDeviceServicesResult {
@@ -532,6 +534,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rfco
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RfcommDeviceServicesResult {}
+unsafe impl ::core::marker::Sync for RfcommDeviceServicesResult {}
 #[repr(transparent)]
 pub struct RfcommServiceId(::windows::core::IUnknown);
 impl RfcommServiceId {
@@ -670,6 +674,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rfco
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RfcommServiceId {}
+unsafe impl ::core::marker::Sync for RfcommServiceId {}
 #[repr(transparent)]
 pub struct RfcommServiceProvider(::windows::core::IUnknown);
 impl RfcommServiceProvider {
@@ -775,3 +781,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rfco
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RfcommServiceProvider {}
+unsafe impl ::core::marker::Sync for RfcommServiceProvider {}

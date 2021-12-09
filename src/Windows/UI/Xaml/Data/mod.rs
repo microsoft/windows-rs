@@ -235,6 +235,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Binding {
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Binding {}
+unsafe impl ::core::marker::Sync for Binding {}
 #[repr(transparent)]
 pub struct BindingBase(::windows::core::IUnknown);
 impl BindingBase {
@@ -330,6 +332,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &BindingBas
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for BindingBase {}
+unsafe impl ::core::marker::Sync for BindingBase {}
 #[repr(transparent)]
 pub struct BindingExpression(::windows::core::IUnknown);
 impl BindingExpression {
@@ -433,6 +437,8 @@ impl<'a> ::windows::core::IntoParam<'a, BindingExpressionBase> for &BindingExpre
         ::windows::core::Param::Owned(::core::convert::Into::<BindingExpressionBase>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for BindingExpression {}
+unsafe impl ::core::marker::Sync for BindingExpression {}
 #[repr(transparent)]
 pub struct BindingExpressionBase(::windows::core::IUnknown);
 impl BindingExpressionBase {}
@@ -497,6 +503,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Bind
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BindingExpressionBase {}
+unsafe impl ::core::marker::Sync for BindingExpressionBase {}
 #[repr(transparent)]
 pub struct BindingMode(pub i32);
 impl BindingMode {
@@ -597,6 +605,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Bind
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BindingOperations {}
+unsafe impl ::core::marker::Sync for BindingOperations {}
 #[repr(transparent)]
 pub struct CollectionViewSource(::windows::core::IUnknown);
 impl CollectionViewSource {
@@ -757,6 +767,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Collection
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CollectionViewSource {}
+unsafe impl ::core::marker::Sync for CollectionViewSource {}
 #[repr(transparent)]
 pub struct CurrentChangingEventArgs(::windows::core::IUnknown);
 impl CurrentChangingEventArgs {
@@ -856,6 +868,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Curr
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CurrentChangingEventArgs {}
+unsafe impl ::core::marker::Sync for CurrentChangingEventArgs {}
 #[repr(transparent)]
 pub struct CurrentChangingEventHandler(pub ::windows::core::IUnknown);
 impl CurrentChangingEventHandler {
@@ -2725,6 +2739,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Item
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ItemIndexRange {}
+unsafe impl ::core::marker::Sync for ItemIndexRange {}
 #[repr(C)]
 pub struct LoadMoreItemsResult {
     pub Count: u32,
@@ -2837,6 +2853,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prop
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PropertyChangedEventArgs {}
+unsafe impl ::core::marker::Sync for PropertyChangedEventArgs {}
 #[repr(transparent)]
 pub struct PropertyChangedEventHandler(pub ::windows::core::IUnknown);
 impl PropertyChangedEventHandler {
@@ -3011,6 +3029,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &RelativeSo
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for RelativeSource {}
+unsafe impl ::core::marker::Sync for RelativeSource {}
 #[repr(transparent)]
 pub struct RelativeSourceMode(pub i32);
 impl RelativeSourceMode {

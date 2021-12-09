@@ -239,6 +239,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PnpO
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PnpObject {}
+unsafe impl ::core::marker::Sync for PnpObject {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct PnpObjectCollection(::windows::core::IUnknown);
@@ -438,6 +440,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVectorView<PnpObject>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for PnpObjectCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for PnpObjectCollection {}
 #[repr(transparent)]
 pub struct PnpObjectType(pub i32);
 impl PnpObjectType {
@@ -559,6 +565,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PnpO
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PnpObjectUpdate {}
+unsafe impl ::core::marker::Sync for PnpObjectUpdate {}
 #[repr(transparent)]
 pub struct PnpObjectWatcher(::windows::core::IUnknown);
 impl PnpObjectWatcher {
@@ -704,3 +712,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PnpO
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PnpObjectWatcher {}
+unsafe impl ::core::marker::Sync for PnpObjectWatcher {}

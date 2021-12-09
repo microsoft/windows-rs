@@ -79,6 +79,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AddP
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AddPagesEventArgs {}
+unsafe impl ::core::marker::Sync for AddPagesEventArgs {}
 #[repr(transparent)]
 pub struct AddPagesEventHandler(pub ::windows::core::IUnknown);
 impl AddPagesEventHandler {
@@ -226,6 +228,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GetP
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GetPreviewPageEventArgs {}
+unsafe impl ::core::marker::Sync for GetPreviewPageEventArgs {}
 #[repr(transparent)]
 pub struct GetPreviewPageEventHandler(pub ::windows::core::IUnknown);
 impl GetPreviewPageEventHandler {
@@ -510,6 +514,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pagi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PaginateEventArgs {}
+unsafe impl ::core::marker::Sync for PaginateEventArgs {}
 #[repr(transparent)]
 pub struct PaginateEventHandler(pub ::windows::core::IUnknown);
 impl PaginateEventHandler {
@@ -777,3 +783,5 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &PrintDocum
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PrintDocument {}
+unsafe impl ::core::marker::Sync for PrintDocument {}

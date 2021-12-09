@@ -274,6 +274,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Asym
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AsymmetricKeyAlgorithmProvider {}
+unsafe impl ::core::marker::Sync for AsymmetricKeyAlgorithmProvider {}
 #[repr(transparent)]
 pub struct Capi1KdfTargetAlgorithm(pub i32);
 impl Capi1KdfTargetAlgorithm {
@@ -477,6 +479,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cryp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CryptographicHash {}
+unsafe impl ::core::marker::Sync for CryptographicHash {}
 #[repr(transparent)]
 pub struct CryptographicKey(::windows::core::IUnknown);
 impl CryptographicKey {
@@ -581,6 +585,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cryp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CryptographicKey {}
+unsafe impl ::core::marker::Sync for CryptographicKey {}
 #[repr(transparent)]
 pub struct CryptographicPadding(pub i32);
 impl CryptographicPadding {
@@ -1038,6 +1044,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Encr
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EncryptedAndAuthenticatedData {}
+unsafe impl ::core::marker::Sync for EncryptedAndAuthenticatedData {}
 pub struct HashAlgorithmNames {}
 impl HashAlgorithmNames {
     pub fn Md5() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1182,6 +1190,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Hash
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HashAlgorithmProvider {}
+unsafe impl ::core::marker::Sync for HashAlgorithmProvider {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAsymmetricAlgorithmNamesStatics(::windows::core::IUnknown);
@@ -2128,6 +2138,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &KeyD
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for KeyDerivationAlgorithmProvider {}
+unsafe impl ::core::marker::Sync for KeyDerivationAlgorithmProvider {}
 #[repr(transparent)]
 pub struct KeyDerivationParameters(::windows::core::IUnknown);
 impl KeyDerivationParameters {
@@ -2259,6 +2271,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &KeyD
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for KeyDerivationParameters {}
+unsafe impl ::core::marker::Sync for KeyDerivationParameters {}
 pub struct MacAlgorithmNames {}
 impl MacAlgorithmNames {
     pub fn HmacMd5() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2410,6 +2424,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MacA
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MacAlgorithmProvider {}
+unsafe impl ::core::marker::Sync for MacAlgorithmProvider {}
 pub struct PersistedKeyProvider {}
 impl PersistedKeyProvider {
     #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates"))]
@@ -2655,3 +2671,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Symm
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SymmetricKeyAlgorithmProvider {}
+unsafe impl ::core::marker::Sync for SymmetricKeyAlgorithmProvider {}

@@ -220,6 +220,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ControlChannelTrigger {}
+unsafe impl ::core::marker::Sync for ControlChannelTrigger {}
 #[repr(transparent)]
 pub struct ControlChannelTriggerResetReason(pub i32);
 impl ControlChannelTriggerResetReason {
@@ -553,6 +555,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for DatagramSocket {}
+unsafe impl ::core::marker::Sync for DatagramSocket {}
 #[repr(transparent)]
 pub struct DatagramSocketControl(::windows::core::IUnknown);
 impl DatagramSocketControl {
@@ -673,6 +677,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DatagramSocketControl {}
+unsafe impl ::core::marker::Sync for DatagramSocketControl {}
 #[repr(transparent)]
 pub struct DatagramSocketInformation(::windows::core::IUnknown);
 impl DatagramSocketInformation {
@@ -766,6 +772,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DatagramSocketInformation {}
+unsafe impl ::core::marker::Sync for DatagramSocketInformation {}
 #[repr(transparent)]
 pub struct DatagramSocketMessageReceivedEventArgs(::windows::core::IUnknown);
 impl DatagramSocketMessageReceivedEventArgs {
@@ -868,6 +876,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DatagramSocketMessageReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for DatagramSocketMessageReceivedEventArgs {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IControlChannelTrigger(::windows::core::IUnknown);
@@ -3146,6 +3156,8 @@ impl<'a> ::windows::core::IntoParam<'a, IWebSocket> for &MessageWebSocket {
         ::core::convert::TryInto::<IWebSocket>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MessageWebSocket {}
+unsafe impl ::core::marker::Sync for MessageWebSocket {}
 #[repr(transparent)]
 pub struct MessageWebSocketControl(::windows::core::IUnknown);
 impl MessageWebSocketControl {
@@ -3375,6 +3387,8 @@ impl<'a> ::windows::core::IntoParam<'a, IWebSocketControl2> for &MessageWebSocke
         ::core::convert::TryInto::<IWebSocketControl2>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MessageWebSocketControl {}
+unsafe impl ::core::marker::Sync for MessageWebSocketControl {}
 #[repr(transparent)]
 pub struct MessageWebSocketInformation(::windows::core::IUnknown);
 impl MessageWebSocketInformation {
@@ -3536,6 +3550,8 @@ impl<'a> ::windows::core::IntoParam<'a, IWebSocketInformation2> for &MessageWebS
         ::core::convert::TryInto::<IWebSocketInformation2>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MessageWebSocketInformation {}
+unsafe impl ::core::marker::Sync for MessageWebSocketInformation {}
 #[repr(transparent)]
 pub struct MessageWebSocketMessageReceivedEventArgs(::windows::core::IUnknown);
 impl MessageWebSocketMessageReceivedEventArgs {
@@ -3631,6 +3647,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mess
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MessageWebSocketMessageReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for MessageWebSocketMessageReceivedEventArgs {}
 #[repr(transparent)]
 pub struct MessageWebSocketReceiveMode(pub i32);
 impl MessageWebSocketReceiveMode {
@@ -3839,6 +3857,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ServerMessageWebSocket {}
+unsafe impl ::core::marker::Sync for ServerMessageWebSocket {}
 #[repr(transparent)]
 pub struct ServerMessageWebSocketControl(::windows::core::IUnknown);
 impl ServerMessageWebSocketControl {
@@ -3915,6 +3935,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Serv
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ServerMessageWebSocketControl {}
+unsafe impl ::core::marker::Sync for ServerMessageWebSocketControl {}
 #[repr(transparent)]
 pub struct ServerMessageWebSocketInformation(::windows::core::IUnknown);
 impl ServerMessageWebSocketInformation {
@@ -4001,6 +4023,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Serv
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ServerMessageWebSocketInformation {}
+unsafe impl ::core::marker::Sync for ServerMessageWebSocketInformation {}
 #[repr(transparent)]
 pub struct ServerStreamWebSocket(::windows::core::IUnknown);
 impl ServerStreamWebSocket {
@@ -4137,6 +4161,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ServerStreamWebSocket {}
+unsafe impl ::core::marker::Sync for ServerStreamWebSocket {}
 #[repr(transparent)]
 pub struct ServerStreamWebSocketInformation(::windows::core::IUnknown);
 impl ServerStreamWebSocketInformation {
@@ -4223,6 +4249,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Serv
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ServerStreamWebSocketInformation {}
+unsafe impl ::core::marker::Sync for ServerStreamWebSocketInformation {}
 #[repr(transparent)]
 pub struct SocketActivityConnectedStandbyAction(pub i32);
 impl SocketActivityConnectedStandbyAction {
@@ -4334,6 +4362,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sock
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SocketActivityContext {}
+unsafe impl ::core::marker::Sync for SocketActivityContext {}
 #[repr(transparent)]
 pub struct SocketActivityInformation(::windows::core::IUnknown);
 impl SocketActivityInformation {
@@ -4459,6 +4489,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sock
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SocketActivityInformation {}
+unsafe impl ::core::marker::Sync for SocketActivityInformation {}
 #[repr(transparent)]
 pub struct SocketActivityKind(pub i32);
 impl SocketActivityKind {
@@ -4567,6 +4599,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sock
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SocketActivityTriggerDetails {}
+unsafe impl ::core::marker::Sync for SocketActivityTriggerDetails {}
 #[repr(transparent)]
 pub struct SocketActivityTriggerReason(pub i32);
 impl SocketActivityTriggerReason {
@@ -5014,6 +5048,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for StreamSocket {}
+unsafe impl ::core::marker::Sync for StreamSocket {}
 #[repr(transparent)]
 pub struct StreamSocketControl(::windows::core::IUnknown);
 impl StreamSocketControl {
@@ -5177,6 +5213,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stre
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StreamSocketControl {}
+unsafe impl ::core::marker::Sync for StreamSocketControl {}
 #[repr(transparent)]
 pub struct StreamSocketInformation(::windows::core::IUnknown);
 impl StreamSocketInformation {
@@ -5344,6 +5382,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stre
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StreamSocketInformation {}
+unsafe impl ::core::marker::Sync for StreamSocketInformation {}
 #[repr(transparent)]
 pub struct StreamSocketListener(::windows::core::IUnknown);
 impl StreamSocketListener {
@@ -5530,6 +5570,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for StreamSocketListener {}
+unsafe impl ::core::marker::Sync for StreamSocketListener {}
 #[repr(transparent)]
 pub struct StreamSocketListenerConnectionReceivedEventArgs(::windows::core::IUnknown);
 impl StreamSocketListenerConnectionReceivedEventArgs {
@@ -5602,6 +5644,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stre
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StreamSocketListenerConnectionReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for StreamSocketListenerConnectionReceivedEventArgs {}
 #[repr(transparent)]
 pub struct StreamSocketListenerControl(::windows::core::IUnknown);
 impl StreamSocketListenerControl {
@@ -5722,6 +5766,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stre
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StreamSocketListenerControl {}
+unsafe impl ::core::marker::Sync for StreamSocketListenerControl {}
 #[repr(transparent)]
 pub struct StreamSocketListenerInformation(::windows::core::IUnknown);
 impl StreamSocketListenerInformation {
@@ -5794,6 +5840,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stre
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StreamSocketListenerInformation {}
+unsafe impl ::core::marker::Sync for StreamSocketListenerInformation {}
 #[repr(transparent)]
 pub struct StreamWebSocket(::windows::core::IUnknown);
 impl StreamWebSocket {
@@ -5991,6 +6039,8 @@ impl<'a> ::windows::core::IntoParam<'a, IWebSocket> for &StreamWebSocket {
         ::core::convert::TryInto::<IWebSocket>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for StreamWebSocket {}
+unsafe impl ::core::marker::Sync for StreamWebSocket {}
 #[repr(transparent)]
 pub struct StreamWebSocketControl(::windows::core::IUnknown);
 impl StreamWebSocketControl {
@@ -6198,6 +6248,8 @@ impl<'a> ::windows::core::IntoParam<'a, IWebSocketControl2> for &StreamWebSocket
         ::core::convert::TryInto::<IWebSocketControl2>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for StreamWebSocketControl {}
+unsafe impl ::core::marker::Sync for StreamWebSocketControl {}
 #[repr(transparent)]
 pub struct StreamWebSocketInformation(::windows::core::IUnknown);
 impl StreamWebSocketInformation {
@@ -6359,6 +6411,8 @@ impl<'a> ::windows::core::IntoParam<'a, IWebSocketInformation2> for &StreamWebSo
         ::core::convert::TryInto::<IWebSocketInformation2>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for StreamWebSocketInformation {}
+unsafe impl ::core::marker::Sync for StreamWebSocketInformation {}
 #[repr(transparent)]
 pub struct WebSocketClosedEventArgs(::windows::core::IUnknown);
 impl WebSocketClosedEventArgs {
@@ -6438,6 +6492,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WebSocketClosedEventArgs {}
+unsafe impl ::core::marker::Sync for WebSocketClosedEventArgs {}
 pub struct WebSocketError {}
 impl WebSocketError {
     #[cfg(feature = "Web")]
@@ -6578,6 +6634,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Backgrou
         ::core::convert::TryInto::<super::super::ApplicationModel::Background::IBackgroundTask>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "ApplicationModel_Background")]
+unsafe impl ::core::marker::Send for WebSocketKeepAlive {}
+#[cfg(feature = "ApplicationModel_Background")]
+unsafe impl ::core::marker::Sync for WebSocketKeepAlive {}
 #[repr(transparent)]
 pub struct WebSocketServerCustomValidationRequestedEventArgs(::windows::core::IUnknown);
 impl WebSocketServerCustomValidationRequestedEventArgs {
@@ -6686,3 +6746,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WebSocketServerCustomValidationRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for WebSocketServerCustomValidationRequestedEventArgs {}

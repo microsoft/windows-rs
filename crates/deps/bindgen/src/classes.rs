@@ -95,6 +95,7 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
         tokens.combine(&gen_async(def, &cfg, gen));
         tokens.combine(&gen_iterator(def, &cfg, gen));
         tokens.combine(&gen_conversions(def, &cfg, gen));
+        tokens.combine(&gen_agile(def, &cfg, gen));
         tokens
     } else {
         let mut tokens = quote! {
@@ -107,6 +108,20 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
 
         tokens.combine(&gen_runtime_name(def, &quote! {}, gen));
         tokens
+    }
+}
+
+fn gen_agile(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream {
+    if def.is_agile() {
+        let name = gen_type_ident(def, gen);
+        quote! {
+            #cfg
+            unsafe impl ::core::marker::Send for #name {}
+            #cfg
+            unsafe impl ::core::marker::Sync for #name {}
+        }
+    } else {
+        TokenStream::new()
     }
 }
 

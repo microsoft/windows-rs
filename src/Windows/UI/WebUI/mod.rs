@@ -347,6 +347,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl ::core::marker::Send for BackgroundActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl ::core::marker::Sync for BackgroundActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct BackgroundActivatedEventHandler(pub ::windows::core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -550,6 +554,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::IEntered
         ::core::convert::TryInto::<super::super::ApplicationModel::IEnteredBackgroundEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "ApplicationModel")]
+unsafe impl ::core::marker::Send for EnteredBackgroundEventArgs {}
+#[cfg(feature = "ApplicationModel")]
+unsafe impl ::core::marker::Sync for EnteredBackgroundEventArgs {}
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 pub struct EnteredBackgroundEventHandler(pub ::windows::core::IUnknown);
@@ -859,6 +867,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Printing::IPrint
         ::core::convert::TryInto::<super::super::Graphics::Printing::IPrintDocumentSource>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HtmlPrintDocumentSource {}
+unsafe impl ::core::marker::Sync for HtmlPrintDocumentSource {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IActivatedDeferral(::windows::core::IUnknown);
@@ -1525,6 +1535,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::ILeaving
         ::core::convert::TryInto::<super::super::ApplicationModel::ILeavingBackgroundEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "ApplicationModel")]
+unsafe impl ::core::marker::Send for LeavingBackgroundEventArgs {}
+#[cfg(feature = "ApplicationModel")]
+unsafe impl ::core::marker::Sync for LeavingBackgroundEventArgs {}
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 pub struct LeavingBackgroundEventHandler(pub ::windows::core::IUnknown);
@@ -4329,6 +4343,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl ::core::marker::Send for WebUIBarcodeScannerPreviewActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl ::core::marker::Sync for WebUIBarcodeScannerPreviewActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUICachedFileUpdaterActivatedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -5030,6 +5048,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl ::core::marker::Send for WebUICommandLineActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl ::core::marker::Sync for WebUICommandLineActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIContactCallActivatedEventArgs(::windows::core::IUnknown);
@@ -6054,6 +6076,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl ::core::marker::Send for WebUIContactPanelActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl ::core::marker::Sync for WebUIContactPanelActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIContactPickerActivatedEventArgs(::windows::core::IUnknown);
@@ -10977,6 +11003,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl ::core::marker::Send for WebUIPhoneCallActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl ::core::marker::Sync for WebUIPhoneCallActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIPrint3DWorkflowActivatedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -13272,6 +13302,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl ::core::marker::Send for WebUIStartupTaskActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl ::core::marker::Sync for WebUIStartupTaskActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIToastNotificationActivatedEventArgs(::windows::core::IUnknown);

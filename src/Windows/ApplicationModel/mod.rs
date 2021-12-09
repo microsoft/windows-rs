@@ -168,6 +168,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppD
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppDisplayInfo {}
+unsafe impl ::core::marker::Sync for AppDisplayInfo {}
 #[repr(transparent)]
 pub struct AppExecutionContext(pub i32);
 impl AppExecutionContext {
@@ -333,6 +335,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppInfo {}
+unsafe impl ::core::marker::Sync for AppInfo {}
 #[repr(transparent)]
 pub struct AppInstallerInfo(::windows::core::IUnknown);
 impl AppInstallerInfo {
@@ -517,6 +521,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppInstallerInfo {}
+unsafe impl ::core::marker::Sync for AppInstallerInfo {}
 #[repr(transparent)]
 pub struct AppInstallerPolicySource(pub i32);
 impl AppInstallerPolicySource {
@@ -660,6 +666,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppInstance {}
+unsafe impl ::core::marker::Sync for AppInstance {}
 pub struct CameraApplicationManager {}
 impl CameraApplicationManager {
     pub fn ShowInstalledApplicationsUI() -> ::windows::core::Result<()> {
@@ -794,6 +802,8 @@ impl<'a> ::windows::core::IntoParam<'a, IEnteredBackgroundEventArgs> for &Entere
         ::core::convert::TryInto::<IEnteredBackgroundEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for EnteredBackgroundEventArgs {}
+unsafe impl ::core::marker::Sync for EnteredBackgroundEventArgs {}
 #[repr(transparent)]
 pub struct FullTrustLaunchResult(pub i32);
 impl FullTrustLaunchResult {
@@ -902,6 +912,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Full
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for FullTrustProcessLaunchResult {}
+unsafe impl ::core::marker::Sync for FullTrustProcessLaunchResult {}
 pub struct FullTrustProcessLauncher {}
 impl FullTrustProcessLauncher {
     #[cfg(feature = "Foundation")]
@@ -2594,6 +2606,8 @@ impl<'a> ::windows::core::IntoParam<'a, ILeavingBackgroundEventArgs> for &Leavin
         ::core::convert::TryInto::<ILeavingBackgroundEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for LeavingBackgroundEventArgs {}
+unsafe impl ::core::marker::Sync for LeavingBackgroundEventArgs {}
 #[repr(transparent)]
 pub struct LimitedAccessFeatureRequestResult(::windows::core::IUnknown);
 impl LimitedAccessFeatureRequestResult {
@@ -2681,6 +2695,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Limi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LimitedAccessFeatureRequestResult {}
+unsafe impl ::core::marker::Sync for LimitedAccessFeatureRequestResult {}
 #[repr(transparent)]
 pub struct LimitedAccessFeatureStatus(pub i32);
 impl LimitedAccessFeatureStatus {
@@ -3106,6 +3122,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Package {}
+unsafe impl ::core::marker::Sync for Package {}
 #[repr(transparent)]
 pub struct PackageCatalog(::windows::core::IUnknown);
 impl PackageCatalog {
@@ -3462,6 +3480,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PackageCatalogAddResourcePackageResult {}
+unsafe impl ::core::marker::Sync for PackageCatalogAddResourcePackageResult {}
 #[repr(transparent)]
 pub struct PackageCatalogRemoveOptionalPackagesResult(::windows::core::IUnknown);
 impl PackageCatalogRemoveOptionalPackagesResult {
@@ -3622,6 +3642,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PackageCatalogRemoveResourcePackagesResult {}
+unsafe impl ::core::marker::Sync for PackageCatalogRemoveResourcePackagesResult {}
 #[repr(transparent)]
 pub struct PackageContentGroup(::windows::core::IUnknown);
 impl PackageContentGroup {
@@ -3725,6 +3747,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PackageContentGroup {}
+unsafe impl ::core::marker::Sync for PackageContentGroup {}
 #[repr(transparent)]
 pub struct PackageContentGroupStagingEventArgs(::windows::core::IUnknown);
 impl PackageContentGroupStagingEventArgs {
@@ -3839,6 +3863,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PackageContentGroupStagingEventArgs {}
+unsafe impl ::core::marker::Sync for PackageContentGroupStagingEventArgs {}
 #[repr(transparent)]
 pub struct PackageContentGroupState(pub i32);
 impl PackageContentGroupState {
@@ -4004,6 +4030,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PackageId {}
+unsafe impl ::core::marker::Sync for PackageId {}
 #[repr(C)]
 pub struct PackageInstallProgress {
     pub PercentComplete: u32,
@@ -4134,6 +4162,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PackageInstallingEventArgs {}
+unsafe impl ::core::marker::Sync for PackageInstallingEventArgs {}
 #[repr(transparent)]
 pub struct PackageSignatureKind(pub i32);
 impl PackageSignatureKind {
@@ -4264,6 +4294,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PackageStagingEventArgs {}
+unsafe impl ::core::marker::Sync for PackageStagingEventArgs {}
 #[repr(transparent)]
 pub struct PackageStatus(::windows::core::IUnknown);
 impl PackageStatus {
@@ -4420,6 +4452,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PackageStatus {}
+unsafe impl ::core::marker::Sync for PackageStatus {}
 #[repr(transparent)]
 pub struct PackageStatusChangedEventArgs(::windows::core::IUnknown);
 impl PackageStatusChangedEventArgs {
@@ -4492,6 +4526,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PackageStatusChangedEventArgs {}
+unsafe impl ::core::marker::Sync for PackageStatusChangedEventArgs {}
 #[repr(transparent)]
 pub struct PackageUninstallingEventArgs(::windows::core::IUnknown);
 impl PackageUninstallingEventArgs {
@@ -4592,6 +4628,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PackageUninstallingEventArgs {}
+unsafe impl ::core::marker::Sync for PackageUninstallingEventArgs {}
 #[repr(transparent)]
 pub struct PackageUpdateAvailability(pub i32);
 impl PackageUpdateAvailability {
@@ -4701,6 +4739,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PackageUpdateAvailabilityResult {}
+unsafe impl ::core::marker::Sync for PackageUpdateAvailabilityResult {}
 #[repr(transparent)]
 pub struct PackageUpdatingEventArgs(::windows::core::IUnknown);
 impl PackageUpdatingEventArgs {
@@ -4808,6 +4848,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PackageUpdatingEventArgs {}
+unsafe impl ::core::marker::Sync for PackageUpdatingEventArgs {}
 #[repr(C)]
 pub struct PackageVersion {
     pub Major: u16,
@@ -4950,6 +4992,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Star
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StartupTask {}
+unsafe impl ::core::marker::Sync for StartupTask {}
 #[repr(transparent)]
 pub struct StartupTaskState(pub i32);
 impl StartupTaskState {
@@ -5071,6 +5115,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISuspendingDeferral> for &SuspendingDefe
         ::core::convert::TryInto::<ISuspendingDeferral>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SuspendingDeferral {}
+unsafe impl ::core::marker::Sync for SuspendingDeferral {}
 #[repr(transparent)]
 pub struct SuspendingEventArgs(::windows::core::IUnknown);
 impl SuspendingEventArgs {
@@ -5165,6 +5211,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISuspendingEventArgs> for &SuspendingEve
         ::core::convert::TryInto::<ISuspendingEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SuspendingEventArgs {}
+unsafe impl ::core::marker::Sync for SuspendingEventArgs {}
 #[repr(transparent)]
 pub struct SuspendingOperation(::windows::core::IUnknown);
 impl SuspendingOperation {
@@ -5267,3 +5315,5 @@ impl<'a> ::windows::core::IntoParam<'a, ISuspendingOperation> for &SuspendingOpe
         ::core::convert::TryInto::<ISuspendingOperation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SuspendingOperation {}
+unsafe impl ::core::marker::Sync for SuspendingOperation {}

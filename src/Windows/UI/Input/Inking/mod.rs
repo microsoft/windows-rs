@@ -1781,6 +1781,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkD
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InkDrawingAttributes {}
+unsafe impl ::core::marker::Sync for InkDrawingAttributes {}
 #[repr(transparent)]
 pub struct InkDrawingAttributesKind(pub i32);
 impl InkDrawingAttributesKind {
@@ -1884,6 +1886,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkD
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InkDrawingAttributesPencilProperties {}
+unsafe impl ::core::marker::Sync for InkDrawingAttributesPencilProperties {}
 #[repr(transparent)]
 pub struct InkHighContrastAdjustment(pub i32);
 impl InkHighContrastAdjustment {
@@ -2010,6 +2014,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InkInputConfiguration {}
+unsafe impl ::core::marker::Sync for InkInputConfiguration {}
 #[repr(transparent)]
 pub struct InkInputProcessingConfiguration(::windows::core::IUnknown);
 impl InkInputProcessingConfiguration {
@@ -2097,6 +2103,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InkInputProcessingConfiguration {}
+unsafe impl ::core::marker::Sync for InkInputProcessingConfiguration {}
 #[repr(transparent)]
 pub struct InkInputProcessingMode(pub i32);
 impl InkInputProcessingMode {
@@ -2558,6 +2566,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkM
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InkModelerAttributes {}
+unsafe impl ::core::marker::Sync for InkModelerAttributes {}
 #[repr(transparent)]
 pub struct InkPersistenceFormat(pub i32);
 impl InkPersistenceFormat {
@@ -2708,6 +2718,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkP
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InkPoint {}
+unsafe impl ::core::marker::Sync for InkPoint {}
 #[repr(transparent)]
 pub struct InkPresenter(::windows::core::IUnknown);
 impl InkPresenter {
@@ -2895,6 +2907,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkP
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InkPresenter {}
+unsafe impl ::core::marker::Sync for InkPresenter {}
 #[repr(transparent)]
 pub struct InkPresenterPredefinedConfiguration(pub i32);
 impl InkPresenterPredefinedConfiguration {
@@ -3149,6 +3163,8 @@ impl<'a> ::windows::core::IntoParam<'a, IInkPresenterStencil> for &InkPresenterP
         ::core::convert::TryInto::<IInkPresenterStencil>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for InkPresenterProtractor {}
+unsafe impl ::core::marker::Sync for InkPresenterProtractor {}
 #[repr(transparent)]
 pub struct InkPresenterRuler(::windows::core::IUnknown);
 impl InkPresenterRuler {
@@ -3343,6 +3359,8 @@ impl<'a> ::windows::core::IntoParam<'a, IInkPresenterStencil> for &InkPresenterR
         ::core::convert::TryInto::<IInkPresenterStencil>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for InkPresenterRuler {}
+unsafe impl ::core::marker::Sync for InkPresenterRuler {}
 #[repr(transparent)]
 pub struct InkPresenterStencilKind(pub i32);
 impl InkPresenterStencilKind {
@@ -3460,6 +3478,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InkRecognitionResult {}
+unsafe impl ::core::marker::Sync for InkRecognitionResult {}
 #[repr(transparent)]
 pub struct InkRecognitionTarget(pub i32);
 impl InkRecognitionTarget {
@@ -3852,6 +3872,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InkStroke {}
+unsafe impl ::core::marker::Sync for InkStroke {}
 #[repr(transparent)]
 pub struct InkStrokeBuilder(::windows::core::IUnknown);
 impl InkStrokeBuilder {
@@ -4312,6 +4334,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InkStrokeInput {}
+unsafe impl ::core::marker::Sync for InkStrokeInput {}
 #[repr(transparent)]
 pub struct InkStrokeRenderingSegment(::windows::core::IUnknown);
 impl InkStrokeRenderingSegment {
@@ -4429,6 +4453,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InkStrokeRenderingSegment {}
+unsafe impl ::core::marker::Sync for InkStrokeRenderingSegment {}
 #[repr(transparent)]
 pub struct InkStrokesCollectedEventArgs(::windows::core::IUnknown);
 impl InkStrokesCollectedEventArgs {
@@ -4815,6 +4841,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkU
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InkUnprocessedInput {}
+unsafe impl ::core::marker::Sync for InkUnprocessedInput {}
 #[repr(transparent)]
 pub struct PenAndInkSettings(::windows::core::IUnknown);
 impl PenAndInkSettings {
@@ -4936,6 +4964,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PenA
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PenAndInkSettings {}
+unsafe impl ::core::marker::Sync for PenAndInkSettings {}
 #[repr(transparent)]
 pub struct PenHandedness(pub i32);
 impl PenHandedness {

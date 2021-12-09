@@ -2943,6 +2943,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISmsMessageBase> for &SmsAppMessage {
         ::core::convert::TryInto::<ISmsMessageBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SmsAppMessage {}
+unsafe impl ::core::marker::Sync for SmsAppMessage {}
 #[repr(transparent)]
 pub struct SmsBinaryMessage(::windows::core::IUnknown);
 impl SmsBinaryMessage {
@@ -3099,6 +3101,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISmsMessage> for &SmsBinaryMessage {
         ::core::convert::TryInto::<ISmsMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SmsBinaryMessage {}
+unsafe impl ::core::marker::Sync for SmsBinaryMessage {}
 #[repr(transparent)]
 pub struct SmsBroadcastMessage(::windows::core::IUnknown);
 impl SmsBroadcastMessage {
@@ -3292,6 +3296,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISmsMessageBase> for &SmsBroadcastMessag
         ::core::convert::TryInto::<ISmsMessageBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SmsBroadcastMessage {}
+unsafe impl ::core::marker::Sync for SmsBroadcastMessage {}
 #[repr(transparent)]
 pub struct SmsBroadcastType(pub i32);
 impl SmsBroadcastType {
@@ -4225,6 +4231,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmsF
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmsFilterRule {}
+unsafe impl ::core::marker::Sync for SmsFilterRule {}
 #[repr(transparent)]
 pub struct SmsFilterRules(::windows::core::IUnknown);
 impl SmsFilterRules {
@@ -4315,6 +4323,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmsF
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmsFilterRules {}
+unsafe impl ::core::marker::Sync for SmsFilterRules {}
 #[repr(transparent)]
 pub struct SmsGeographicalScope(pub i32);
 impl SmsGeographicalScope {
@@ -4677,6 +4687,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmsM
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmsMessageReceivedTriggerDetails {}
+unsafe impl ::core::marker::Sync for SmsMessageReceivedTriggerDetails {}
 #[repr(transparent)]
 pub struct SmsMessageRegistration(::windows::core::IUnknown);
 impl SmsMessageRegistration {
@@ -4949,6 +4961,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmsR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmsReceivedEventDetails {}
+unsafe impl ::core::marker::Sync for SmsReceivedEventDetails {}
 #[repr(transparent)]
 pub struct SmsSendMessageResult(::windows::core::IUnknown);
 impl SmsSendMessageResult {
@@ -5064,6 +5078,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmsS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SmsSendMessageResult {}
+unsafe impl ::core::marker::Sync for SmsSendMessageResult {}
 #[repr(transparent)]
 pub struct SmsStatusMessage(::windows::core::IUnknown);
 impl SmsStatusMessage {
@@ -5237,6 +5253,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISmsMessageBase> for &SmsStatusMessage {
         ::core::convert::TryInto::<ISmsMessageBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SmsStatusMessage {}
+unsafe impl ::core::marker::Sync for SmsStatusMessage {}
 #[repr(transparent)]
 pub struct SmsTextMessage(::windows::core::IUnknown);
 impl SmsTextMessage {
@@ -5479,6 +5497,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISmsTextMessage> for &SmsTextMessage {
         ::core::convert::TryInto::<ISmsTextMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SmsTextMessage {}
+unsafe impl ::core::marker::Sync for SmsTextMessage {}
 #[repr(transparent)]
 pub struct SmsTextMessage2(::windows::core::IUnknown);
 impl SmsTextMessage2 {
@@ -5703,6 +5723,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISmsMessageBase> for &SmsTextMessage2 {
         ::core::convert::TryInto::<ISmsMessageBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SmsTextMessage2 {}
+unsafe impl ::core::marker::Sync for SmsTextMessage2 {}
 #[repr(transparent)]
 pub struct SmsVoicemailMessage(::windows::core::IUnknown);
 impl SmsVoicemailMessage {
@@ -5855,6 +5877,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISmsMessageBase> for &SmsVoicemailMessag
         ::core::convert::TryInto::<ISmsMessageBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SmsVoicemailMessage {}
+unsafe impl ::core::marker::Sync for SmsVoicemailMessage {}
 #[repr(transparent)]
 pub struct SmsWapMessage(::windows::core::IUnknown);
 impl SmsWapMessage {
@@ -6029,3 +6053,5 @@ impl<'a> ::windows::core::IntoParam<'a, ISmsMessageBase> for &SmsWapMessage {
         ::core::convert::TryInto::<ISmsMessageBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SmsWapMessage {}
+unsafe impl ::core::marker::Sync for SmsWapMessage {}

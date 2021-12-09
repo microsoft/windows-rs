@@ -330,6 +330,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpiB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpiBusInfo {}
+unsafe impl ::core::marker::Sync for SpiBusInfo {}
 #[repr(transparent)]
 pub struct SpiConnectionSettings(::windows::core::IUnknown);
 impl SpiConnectionSettings {
@@ -460,6 +462,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpiC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpiConnectionSettings {}
+unsafe impl ::core::marker::Sync for SpiConnectionSettings {}
 #[repr(transparent)]
 pub struct SpiController(::windows::core::IUnknown);
 impl SpiController {
@@ -550,6 +554,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpiC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpiController {}
+unsafe impl ::core::marker::Sync for SpiController {}
 #[repr(transparent)]
 pub struct SpiDevice(::windows::core::IUnknown);
 impl SpiDevice {
@@ -705,6 +711,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SpiDevice {}
+unsafe impl ::core::marker::Sync for SpiDevice {}
 #[repr(transparent)]
 pub struct SpiMode(pub i32);
 impl SpiMode {

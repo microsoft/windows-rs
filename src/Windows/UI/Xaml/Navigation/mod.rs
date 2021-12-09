@@ -98,6 +98,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Fram
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for FrameNavigationOptions {}
+unsafe impl ::core::marker::Sync for FrameNavigationOptions {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IFrameNavigationOptions(::windows::core::IUnknown);
@@ -549,6 +551,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Navi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for NavigatingCancelEventArgs {}
+unsafe impl ::core::marker::Sync for NavigatingCancelEventArgs {}
 #[repr(transparent)]
 pub struct NavigatingCancelEventHandler(pub ::windows::core::IUnknown);
 impl NavigatingCancelEventHandler {
@@ -760,6 +764,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Navi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for NavigationEventArgs {}
+unsafe impl ::core::marker::Sync for NavigationEventArgs {}
 #[repr(transparent)]
 pub struct NavigationFailedEventArgs(::windows::core::IUnknown);
 impl NavigationFailedEventArgs {
@@ -851,6 +857,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Navi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for NavigationFailedEventArgs {}
+unsafe impl ::core::marker::Sync for NavigationFailedEventArgs {}
 #[repr(transparent)]
 pub struct NavigationFailedEventHandler(pub ::windows::core::IUnknown);
 impl NavigationFailedEventHandler {
@@ -1145,3 +1153,5 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &PageStackE
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PageStackEntry {}
+unsafe impl ::core::marker::Sync for PageStackEntry {}

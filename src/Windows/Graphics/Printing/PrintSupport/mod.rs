@@ -258,6 +258,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintSupportExtensionSession {}
+unsafe impl ::core::marker::Sync for PrintSupportExtensionSession {}
 #[repr(transparent)]
 pub struct PrintSupportExtensionTriggerDetails(::windows::core::IUnknown);
 impl PrintSupportExtensionTriggerDetails {
@@ -330,6 +332,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintSupportExtensionTriggerDetails {}
+unsafe impl ::core::marker::Sync for PrintSupportExtensionTriggerDetails {}
 #[repr(transparent)]
 pub struct PrintSupportPrintDeviceCapabilitiesChangedEventArgs(::windows::core::IUnknown);
 impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
@@ -416,6 +420,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {}
+unsafe impl ::core::marker::Sync for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {}
 #[repr(transparent)]
 pub struct PrintSupportPrintTicketValidationRequestedEventArgs(::windows::core::IUnknown);
 impl PrintSupportPrintTicketValidationRequestedEventArgs {
@@ -501,6 +507,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintSupportPrintTicketValidationRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for PrintSupportPrintTicketValidationRequestedEventArgs {}
 #[repr(transparent)]
 pub struct PrintSupportSessionInfo(::windows::core::IUnknown);
 impl PrintSupportSessionInfo {
@@ -582,6 +590,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintSupportSessionInfo {}
+unsafe impl ::core::marker::Sync for PrintSupportSessionInfo {}
 #[repr(transparent)]
 pub struct PrintSupportSettingsActivatedEventArgs(::windows::core::IUnknown);
 impl PrintSupportSettingsActivatedEventArgs {
@@ -746,6 +756,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::ApplicationModel::A
         ::core::convert::TryInto::<super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PrintSupportSettingsActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for PrintSupportSettingsActivatedEventArgs {}
 #[repr(transparent)]
 pub struct PrintSupportSettingsUISession(::windows::core::IUnknown);
 impl PrintSupportSettingsUISession {
@@ -845,6 +857,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintSupportSettingsUISession {}
+unsafe impl ::core::marker::Sync for PrintSupportSettingsUISession {}
 #[repr(transparent)]
 pub struct SettingsLaunchKind(pub i32);
 impl SettingsLaunchKind {

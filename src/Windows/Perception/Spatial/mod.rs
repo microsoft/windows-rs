@@ -789,6 +789,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialAnchor {}
+unsafe impl ::core::marker::Sync for SpatialAnchor {}
 #[repr(transparent)]
 pub struct SpatialAnchorExportPurpose(pub i32);
 impl SpatialAnchorExportPurpose {
@@ -902,6 +904,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialAnchorExportSufficiency {}
+unsafe impl ::core::marker::Sync for SpatialAnchorExportSufficiency {}
 #[repr(transparent)]
 pub struct SpatialAnchorExporter(::windows::core::IUnknown);
 impl SpatialAnchorExporter {
@@ -1000,6 +1004,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialAnchorExporter {}
+unsafe impl ::core::marker::Sync for SpatialAnchorExporter {}
 pub struct SpatialAnchorManager {}
 impl SpatialAnchorManager {
     #[cfg(feature = "Foundation")]
@@ -1090,6 +1096,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {}
+unsafe impl ::core::marker::Sync for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {}
 #[repr(transparent)]
 pub struct SpatialAnchorStore(::windows::core::IUnknown);
 impl SpatialAnchorStore {
@@ -1178,6 +1186,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialAnchorStore {}
+unsafe impl ::core::marker::Sync for SpatialAnchorStore {}
 pub struct SpatialAnchorTransferManager {}
 impl SpatialAnchorTransferManager {
     #[cfg(feature = "deprecated")]
@@ -1474,6 +1484,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialBoundingVolume {}
+unsafe impl ::core::marker::Sync for SpatialBoundingVolume {}
 #[repr(transparent)]
 pub struct SpatialCoordinateSystem(::windows::core::IUnknown);
 impl SpatialCoordinateSystem {
@@ -1547,6 +1559,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialCoordinateSystem {}
+unsafe impl ::core::marker::Sync for SpatialCoordinateSystem {}
 #[repr(transparent)]
 pub struct SpatialEntity(::windows::core::IUnknown);
 impl SpatialEntity {
@@ -1651,6 +1665,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialEntity {}
+unsafe impl ::core::marker::Sync for SpatialEntity {}
 #[repr(transparent)]
 pub struct SpatialEntityAddedEventArgs(::windows::core::IUnknown);
 impl SpatialEntityAddedEventArgs {
@@ -1723,6 +1739,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialEntityAddedEventArgs {}
+unsafe impl ::core::marker::Sync for SpatialEntityAddedEventArgs {}
 #[repr(transparent)]
 pub struct SpatialEntityRemovedEventArgs(::windows::core::IUnknown);
 impl SpatialEntityRemovedEventArgs {
@@ -1795,6 +1813,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialEntityRemovedEventArgs {}
+unsafe impl ::core::marker::Sync for SpatialEntityRemovedEventArgs {}
 #[repr(transparent)]
 pub struct SpatialEntityStore(::windows::core::IUnknown);
 impl SpatialEntityStore {
@@ -1900,6 +1920,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialEntityStore {}
+unsafe impl ::core::marker::Sync for SpatialEntityStore {}
 #[repr(transparent)]
 pub struct SpatialEntityUpdatedEventArgs(::windows::core::IUnknown);
 impl SpatialEntityUpdatedEventArgs {
@@ -1972,6 +1994,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialEntityUpdatedEventArgs {}
+unsafe impl ::core::marker::Sync for SpatialEntityUpdatedEventArgs {}
 #[repr(transparent)]
 pub struct SpatialEntityWatcher(::windows::core::IUnknown);
 impl SpatialEntityWatcher {
@@ -2104,6 +2128,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialEntityWatcher {}
+unsafe impl ::core::marker::Sync for SpatialEntityWatcher {}
 #[repr(transparent)]
 pub struct SpatialEntityWatcherStatus(pub i32);
 impl SpatialEntityWatcherStatus {
@@ -2296,6 +2322,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialLocation {}
+unsafe impl ::core::marker::Sync for SpatialLocation {}
 #[repr(transparent)]
 pub struct SpatialLocator(::windows::core::IUnknown);
 impl SpatialLocator {
@@ -2473,6 +2501,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialLocator {}
+unsafe impl ::core::marker::Sync for SpatialLocator {}
 #[repr(transparent)]
 pub struct SpatialLocatorAttachedFrameOfReference(::windows::core::IUnknown);
 impl SpatialLocatorAttachedFrameOfReference {
@@ -2583,6 +2613,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialLocatorAttachedFrameOfReference {}
+unsafe impl ::core::marker::Sync for SpatialLocatorAttachedFrameOfReference {}
 #[repr(transparent)]
 pub struct SpatialLocatorPositionalTrackingDeactivatingEventArgs(::windows::core::IUnknown);
 impl SpatialLocatorPositionalTrackingDeactivatingEventArgs {
@@ -2659,6 +2691,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialLocatorPositionalTrackingDeactivatingEventArgs {}
+unsafe impl ::core::marker::Sync for SpatialLocatorPositionalTrackingDeactivatingEventArgs {}
 #[repr(transparent)]
 pub struct SpatialLookDirectionRange(pub i32);
 impl SpatialLookDirectionRange {
@@ -2911,6 +2945,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialStageFrameOfReference {}
+unsafe impl ::core::marker::Sync for SpatialStageFrameOfReference {}
 #[repr(transparent)]
 pub struct SpatialStationaryFrameOfReference(::windows::core::IUnknown);
 impl SpatialStationaryFrameOfReference {
@@ -2983,3 +3019,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialStationaryFrameOfReference {}
+unsafe impl ::core::marker::Sync for SpatialStationaryFrameOfReference {}

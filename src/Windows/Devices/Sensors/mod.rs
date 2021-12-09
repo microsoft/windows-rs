@@ -206,6 +206,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acce
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Accelerometer {}
+unsafe impl ::core::marker::Sync for Accelerometer {}
 #[repr(transparent)]
 pub struct AccelerometerDataThreshold(::windows::core::IUnknown);
 impl AccelerometerDataThreshold {
@@ -304,6 +306,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acce
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AccelerometerDataThreshold {}
+unsafe impl ::core::marker::Sync for AccelerometerDataThreshold {}
 #[repr(transparent)]
 pub struct AccelerometerReading(::windows::core::IUnknown);
 impl AccelerometerReading {
@@ -414,6 +418,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acce
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AccelerometerReading {}
+unsafe impl ::core::marker::Sync for AccelerometerReading {}
 #[repr(transparent)]
 pub struct AccelerometerReadingChangedEventArgs(::windows::core::IUnknown);
 impl AccelerometerReadingChangedEventArgs {
@@ -486,6 +492,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acce
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AccelerometerReadingChangedEventArgs {}
+unsafe impl ::core::marker::Sync for AccelerometerReadingChangedEventArgs {}
 #[repr(transparent)]
 pub struct AccelerometerReadingType(pub i32);
 impl AccelerometerReadingType {
@@ -587,6 +595,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acce
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AccelerometerShakenEventArgs {}
+unsafe impl ::core::marker::Sync for AccelerometerShakenEventArgs {}
 #[repr(transparent)]
 pub struct ActivitySensor(::windows::core::IUnknown);
 impl ActivitySensor {
@@ -748,6 +758,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acti
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ActivitySensor {}
+unsafe impl ::core::marker::Sync for ActivitySensor {}
 #[repr(transparent)]
 pub struct ActivitySensorReading(::windows::core::IUnknown);
 impl ActivitySensorReading {
@@ -835,6 +847,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acti
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ActivitySensorReading {}
+unsafe impl ::core::marker::Sync for ActivitySensorReading {}
 #[repr(transparent)]
 pub struct ActivitySensorReadingChangeReport(::windows::core::IUnknown);
 impl ActivitySensorReadingChangeReport {
@@ -907,6 +921,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acti
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ActivitySensorReadingChangeReport {}
+unsafe impl ::core::marker::Sync for ActivitySensorReadingChangeReport {}
 #[repr(transparent)]
 pub struct ActivitySensorReadingChangedEventArgs(::windows::core::IUnknown);
 impl ActivitySensorReadingChangedEventArgs {
@@ -979,6 +995,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acti
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ActivitySensorReadingChangedEventArgs {}
+unsafe impl ::core::marker::Sync for ActivitySensorReadingChangedEventArgs {}
 #[repr(transparent)]
 pub struct ActivitySensorReadingConfidence(pub i32);
 impl ActivitySensorReadingConfidence {
@@ -1079,6 +1097,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acti
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ActivitySensorTriggerDetails {}
+unsafe impl ::core::marker::Sync for ActivitySensorTriggerDetails {}
 #[repr(transparent)]
 pub struct ActivityType(pub i32);
 impl ActivityType {
@@ -1250,6 +1270,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Alti
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Altimeter {}
+unsafe impl ::core::marker::Sync for Altimeter {}
 #[repr(transparent)]
 pub struct AltimeterReading(::windows::core::IUnknown);
 impl AltimeterReading {
@@ -1346,6 +1368,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Alti
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AltimeterReading {}
+unsafe impl ::core::marker::Sync for AltimeterReading {}
 #[repr(transparent)]
 pub struct AltimeterReadingChangedEventArgs(::windows::core::IUnknown);
 impl AltimeterReadingChangedEventArgs {
@@ -1418,6 +1442,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Alti
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AltimeterReadingChangedEventArgs {}
+unsafe impl ::core::marker::Sync for AltimeterReadingChangedEventArgs {}
 #[repr(transparent)]
 pub struct Barometer(::windows::core::IUnknown);
 impl Barometer {
@@ -1580,6 +1606,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Baro
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Barometer {}
+unsafe impl ::core::marker::Sync for Barometer {}
 #[repr(transparent)]
 pub struct BarometerDataThreshold(::windows::core::IUnknown);
 impl BarometerDataThreshold {
@@ -1656,6 +1684,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Baro
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarometerDataThreshold {}
+unsafe impl ::core::marker::Sync for BarometerDataThreshold {}
 #[repr(transparent)]
 pub struct BarometerReading(::windows::core::IUnknown);
 impl BarometerReading {
@@ -1752,6 +1782,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Baro
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarometerReading {}
+unsafe impl ::core::marker::Sync for BarometerReading {}
 #[repr(transparent)]
 pub struct BarometerReadingChangedEventArgs(::windows::core::IUnknown);
 impl BarometerReadingChangedEventArgs {
@@ -1824,6 +1856,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Baro
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BarometerReadingChangedEventArgs {}
+unsafe impl ::core::marker::Sync for BarometerReadingChangedEventArgs {}
 #[repr(transparent)]
 pub struct Compass(::windows::core::IUnknown);
 impl Compass {
@@ -1999,6 +2033,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Comp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Compass {}
+unsafe impl ::core::marker::Sync for Compass {}
 #[repr(transparent)]
 pub struct CompassDataThreshold(::windows::core::IUnknown);
 impl CompassDataThreshold {
@@ -2075,6 +2111,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Comp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CompassDataThreshold {}
+unsafe impl ::core::marker::Sync for CompassDataThreshold {}
 #[repr(transparent)]
 pub struct CompassReading(::windows::core::IUnknown);
 impl CompassReading {
@@ -2186,6 +2224,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Comp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CompassReading {}
+unsafe impl ::core::marker::Sync for CompassReading {}
 #[repr(transparent)]
 pub struct CompassReadingChangedEventArgs(::windows::core::IUnknown);
 impl CompassReadingChangedEventArgs {
@@ -2258,6 +2298,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Comp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CompassReadingChangedEventArgs {}
+unsafe impl ::core::marker::Sync for CompassReadingChangedEventArgs {}
 #[repr(transparent)]
 pub struct Gyrometer(::windows::core::IUnknown);
 impl Gyrometer {
@@ -2433,6 +2475,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gyro
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Gyrometer {}
+unsafe impl ::core::marker::Sync for Gyrometer {}
 #[repr(transparent)]
 pub struct GyrometerDataThreshold(::windows::core::IUnknown);
 impl GyrometerDataThreshold {
@@ -2531,6 +2575,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gyro
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GyrometerDataThreshold {}
+unsafe impl ::core::marker::Sync for GyrometerDataThreshold {}
 #[repr(transparent)]
 pub struct GyrometerReading(::windows::core::IUnknown);
 impl GyrometerReading {
@@ -2641,6 +2687,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gyro
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GyrometerReading {}
+unsafe impl ::core::marker::Sync for GyrometerReading {}
 #[repr(transparent)]
 pub struct GyrometerReadingChangedEventArgs(::windows::core::IUnknown);
 impl GyrometerReadingChangedEventArgs {
@@ -2713,6 +2761,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gyro
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GyrometerReadingChangedEventArgs {}
+unsafe impl ::core::marker::Sync for GyrometerReadingChangedEventArgs {}
 #[repr(transparent)]
 pub struct HingeAngleReading(::windows::core::IUnknown);
 impl HingeAngleReading {
@@ -2801,6 +2851,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Hing
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HingeAngleReading {}
+unsafe impl ::core::marker::Sync for HingeAngleReading {}
 #[repr(transparent)]
 pub struct HingeAngleSensor(::windows::core::IUnknown);
 impl HingeAngleSensor {
@@ -2943,6 +2995,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Hing
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HingeAngleSensor {}
+unsafe impl ::core::marker::Sync for HingeAngleSensor {}
 #[repr(transparent)]
 pub struct HingeAngleSensorReadingChangedEventArgs(::windows::core::IUnknown);
 impl HingeAngleSensorReadingChangedEventArgs {
@@ -3015,6 +3069,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Hing
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HingeAngleSensorReadingChangedEventArgs {}
+unsafe impl ::core::marker::Sync for HingeAngleSensorReadingChangedEventArgs {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAccelerometer(::windows::core::IUnknown);
@@ -5960,6 +6016,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Incl
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Inclinometer {}
+unsafe impl ::core::marker::Sync for Inclinometer {}
 #[repr(transparent)]
 pub struct InclinometerDataThreshold(::windows::core::IUnknown);
 impl InclinometerDataThreshold {
@@ -6058,6 +6116,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Incl
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InclinometerDataThreshold {}
+unsafe impl ::core::marker::Sync for InclinometerDataThreshold {}
 #[repr(transparent)]
 pub struct InclinometerReading(::windows::core::IUnknown);
 impl InclinometerReading {
@@ -6175,6 +6235,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Incl
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InclinometerReading {}
+unsafe impl ::core::marker::Sync for InclinometerReading {}
 #[repr(transparent)]
 pub struct InclinometerReadingChangedEventArgs(::windows::core::IUnknown);
 impl InclinometerReadingChangedEventArgs {
@@ -6247,6 +6309,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Incl
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InclinometerReadingChangedEventArgs {}
+unsafe impl ::core::marker::Sync for InclinometerReadingChangedEventArgs {}
 #[repr(transparent)]
 pub struct LightSensor(::windows::core::IUnknown);
 impl LightSensor {
@@ -6409,6 +6473,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Ligh
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LightSensor {}
+unsafe impl ::core::marker::Sync for LightSensor {}
 #[repr(transparent)]
 pub struct LightSensorDataThreshold(::windows::core::IUnknown);
 impl LightSensorDataThreshold {
@@ -6496,6 +6562,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Ligh
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LightSensorDataThreshold {}
+unsafe impl ::core::marker::Sync for LightSensorDataThreshold {}
 #[repr(transparent)]
 pub struct LightSensorReading(::windows::core::IUnknown);
 impl LightSensorReading {
@@ -6592,6 +6660,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Ligh
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LightSensorReading {}
+unsafe impl ::core::marker::Sync for LightSensorReading {}
 #[repr(transparent)]
 pub struct LightSensorReadingChangedEventArgs(::windows::core::IUnknown);
 impl LightSensorReadingChangedEventArgs {
@@ -6664,6 +6734,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Ligh
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LightSensorReadingChangedEventArgs {}
+unsafe impl ::core::marker::Sync for LightSensorReadingChangedEventArgs {}
 #[repr(transparent)]
 pub struct Magnetometer(::windows::core::IUnknown);
 impl Magnetometer {
@@ -6839,6 +6911,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Magnetometer {}
+unsafe impl ::core::marker::Sync for Magnetometer {}
 #[repr(transparent)]
 pub struct MagnetometerAccuracy(pub i32);
 impl MagnetometerAccuracy {
@@ -6966,6 +7040,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MagnetometerDataThreshold {}
+unsafe impl ::core::marker::Sync for MagnetometerDataThreshold {}
 #[repr(transparent)]
 pub struct MagnetometerReading(::windows::core::IUnknown);
 impl MagnetometerReading {
@@ -7083,6 +7159,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MagnetometerReading {}
+unsafe impl ::core::marker::Sync for MagnetometerReading {}
 #[repr(transparent)]
 pub struct MagnetometerReadingChangedEventArgs(::windows::core::IUnknown);
 impl MagnetometerReadingChangedEventArgs {
@@ -7155,6 +7233,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MagnetometerReadingChangedEventArgs {}
+unsafe impl ::core::marker::Sync for MagnetometerReadingChangedEventArgs {}
 #[repr(transparent)]
 pub struct OrientationSensor(::windows::core::IUnknown);
 impl OrientationSensor {
@@ -7362,6 +7442,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Orie
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for OrientationSensor {}
+unsafe impl ::core::marker::Sync for OrientationSensor {}
 #[repr(transparent)]
 pub struct OrientationSensorReading(::windows::core::IUnknown);
 impl OrientationSensorReading {
@@ -7472,6 +7554,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Orie
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for OrientationSensorReading {}
+unsafe impl ::core::marker::Sync for OrientationSensorReading {}
 #[repr(transparent)]
 pub struct OrientationSensorReadingChangedEventArgs(::windows::core::IUnknown);
 impl OrientationSensorReadingChangedEventArgs {
@@ -7544,6 +7628,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Orie
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for OrientationSensorReadingChangedEventArgs {}
+unsafe impl ::core::marker::Sync for OrientationSensorReadingChangedEventArgs {}
 #[repr(transparent)]
 pub struct Pedometer(::windows::core::IUnknown);
 impl Pedometer {
@@ -7711,6 +7797,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pedo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Pedometer {}
+unsafe impl ::core::marker::Sync for Pedometer {}
 #[repr(transparent)]
 pub struct PedometerDataThreshold(::windows::core::IUnknown);
 impl PedometerDataThreshold {
@@ -7808,6 +7896,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISensorDataThreshold> for &PedometerData
         ::core::convert::TryInto::<ISensorDataThreshold>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PedometerDataThreshold {}
+unsafe impl ::core::marker::Sync for PedometerDataThreshold {}
 #[repr(transparent)]
 pub struct PedometerReading(::windows::core::IUnknown);
 impl PedometerReading {
@@ -7903,6 +7993,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pedo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PedometerReading {}
+unsafe impl ::core::marker::Sync for PedometerReading {}
 #[repr(transparent)]
 pub struct PedometerReadingChangedEventArgs(::windows::core::IUnknown);
 impl PedometerReadingChangedEventArgs {
@@ -7975,6 +8067,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pedo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PedometerReadingChangedEventArgs {}
+unsafe impl ::core::marker::Sync for PedometerReadingChangedEventArgs {}
 #[repr(transparent)]
 pub struct PedometerStepKind(pub i32);
 impl PedometerStepKind {
@@ -8146,6 +8240,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prox
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProximitySensor {}
+unsafe impl ::core::marker::Sync for ProximitySensor {}
 #[repr(transparent)]
 pub struct ProximitySensorDataThreshold(::windows::core::IUnknown);
 impl ProximitySensorDataThreshold {
@@ -8243,6 +8339,8 @@ impl<'a> ::windows::core::IntoParam<'a, ISensorDataThreshold> for &ProximitySens
         ::core::convert::TryInto::<ISensorDataThreshold>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ProximitySensorDataThreshold {}
+unsafe impl ::core::marker::Sync for ProximitySensorDataThreshold {}
 #[cfg(feature = "Foundation")]
 #[repr(transparent)]
 pub struct ProximitySensorDisplayOnOffController(::windows::core::IUnknown);
@@ -8359,6 +8457,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation")]
+unsafe impl ::core::marker::Send for ProximitySensorDisplayOnOffController {}
+#[cfg(feature = "Foundation")]
+unsafe impl ::core::marker::Sync for ProximitySensorDisplayOnOffController {}
 #[repr(transparent)]
 pub struct ProximitySensorReading(::windows::core::IUnknown);
 impl ProximitySensorReading {
@@ -8447,6 +8549,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prox
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProximitySensorReading {}
+unsafe impl ::core::marker::Sync for ProximitySensorReading {}
 #[repr(transparent)]
 pub struct ProximitySensorReadingChangedEventArgs(::windows::core::IUnknown);
 impl ProximitySensorReadingChangedEventArgs {
@@ -8519,6 +8623,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prox
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProximitySensorReadingChangedEventArgs {}
+unsafe impl ::core::marker::Sync for ProximitySensorReadingChangedEventArgs {}
 #[repr(transparent)]
 pub struct SensorDataThresholdTriggerDetails(::windows::core::IUnknown);
 impl SensorDataThresholdTriggerDetails {
@@ -8598,6 +8704,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sens
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SensorDataThresholdTriggerDetails {}
+unsafe impl ::core::marker::Sync for SensorDataThresholdTriggerDetails {}
 #[repr(transparent)]
 pub struct SensorOptimizationGoal(pub i32);
 impl SensorOptimizationGoal {
@@ -8718,6 +8826,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sens
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SensorQuaternion {}
+unsafe impl ::core::marker::Sync for SensorQuaternion {}
 #[repr(transparent)]
 pub struct SensorReadingType(pub i32);
 impl SensorReadingType {
@@ -8873,6 +8983,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sens
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SensorRotationMatrix {}
+unsafe impl ::core::marker::Sync for SensorRotationMatrix {}
 #[repr(transparent)]
 pub struct SensorType(pub i32);
 impl SensorType {
@@ -9075,6 +9187,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Simp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SimpleOrientationSensor {}
+unsafe impl ::core::marker::Sync for SimpleOrientationSensor {}
 #[repr(transparent)]
 pub struct SimpleOrientationSensorOrientationChangedEventArgs(::windows::core::IUnknown);
 impl SimpleOrientationSensorOrientationChangedEventArgs {
@@ -9155,3 +9269,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Simp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SimpleOrientationSensorOrientationChangedEventArgs {}
+unsafe impl ::core::marker::Sync for SimpleOrientationSensorOrientationChangedEventArgs {}

@@ -246,6 +246,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cert
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Certificate {}
+unsafe impl ::core::marker::Sync for Certificate {}
 #[repr(transparent)]
 pub struct CertificateChain(::windows::core::IUnknown);
 impl CertificateChain {
@@ -333,6 +335,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cert
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CertificateChain {}
+unsafe impl ::core::marker::Sync for CertificateChain {}
 #[repr(transparent)]
 pub struct CertificateChainPolicy(pub i32);
 impl CertificateChainPolicy {
@@ -530,6 +534,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cert
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CertificateExtension {}
+unsafe impl ::core::marker::Sync for CertificateExtension {}
 #[repr(transparent)]
 pub struct CertificateKeyUsages(::windows::core::IUnknown);
 impl CertificateKeyUsages {
@@ -690,6 +696,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cert
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CertificateKeyUsages {}
+unsafe impl ::core::marker::Sync for CertificateKeyUsages {}
 #[repr(transparent)]
 pub struct CertificateQuery(::windows::core::IUnknown);
 impl CertificateQuery {
@@ -847,6 +855,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cert
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CertificateQuery {}
+unsafe impl ::core::marker::Sync for CertificateQuery {}
 #[repr(transparent)]
 pub struct CertificateRequestProperties(::windows::core::IUnknown);
 impl CertificateRequestProperties {
@@ -1129,6 +1139,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cert
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CertificateRequestProperties {}
+unsafe impl ::core::marker::Sync for CertificateRequestProperties {}
 #[repr(transparent)]
 pub struct CertificateStore(::windows::core::IUnknown);
 impl CertificateStore {
@@ -1209,6 +1221,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cert
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CertificateStore {}
+unsafe impl ::core::marker::Sync for CertificateStore {}
 pub struct CertificateStores {}
 impl CertificateStores {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -1406,6 +1420,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ChainBuildingParameters {}
+unsafe impl ::core::marker::Sync for ChainBuildingParameters {}
 #[repr(transparent)]
 pub struct ChainValidationParameters(::windows::core::IUnknown);
 impl ChainValidationParameters {
@@ -1502,6 +1518,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ChainValidationParameters {}
+unsafe impl ::core::marker::Sync for ChainValidationParameters {}
 #[repr(transparent)]
 pub struct ChainValidationResult(pub i32);
 impl ChainValidationResult {
@@ -1658,6 +1676,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CmsA
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CmsAttachedSignature {}
+unsafe impl ::core::marker::Sync for CmsAttachedSignature {}
 #[repr(transparent)]
 pub struct CmsDetachedSignature(::windows::core::IUnknown);
 impl CmsDetachedSignature {
@@ -1769,6 +1789,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CmsD
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CmsDetachedSignature {}
+unsafe impl ::core::marker::Sync for CmsDetachedSignature {}
 #[repr(transparent)]
 pub struct CmsSignerInfo(::windows::core::IUnknown);
 impl CmsSignerInfo {
@@ -1870,6 +1892,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CmsS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CmsSignerInfo {}
+unsafe impl ::core::marker::Sync for CmsSignerInfo {}
 #[repr(transparent)]
 pub struct CmsTimestampInfo(::windows::core::IUnknown);
 impl CmsTimestampInfo {
@@ -1958,6 +1982,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CmsT
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CmsTimestampInfo {}
+unsafe impl ::core::marker::Sync for CmsTimestampInfo {}
 #[repr(transparent)]
 pub struct EnrollKeyUsages(pub u32);
 impl EnrollKeyUsages {
@@ -3389,6 +3415,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PfxI
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PfxImportParameters {}
+unsafe impl ::core::marker::Sync for PfxImportParameters {}
 #[repr(transparent)]
 pub struct SignatureValidationResult(pub i32);
 impl SignatureValidationResult {
@@ -3622,6 +3650,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Subj
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SubjectAlternativeNameInfo {}
+unsafe impl ::core::marker::Sync for SubjectAlternativeNameInfo {}
 #[repr(transparent)]
 pub struct UserCertificateEnrollmentManager(::windows::core::IUnknown);
 impl UserCertificateEnrollmentManager {
@@ -3727,6 +3757,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserCertificateEnrollmentManager {}
+unsafe impl ::core::marker::Sync for UserCertificateEnrollmentManager {}
 #[repr(transparent)]
 pub struct UserCertificateStore(::windows::core::IUnknown);
 impl UserCertificateStore {
@@ -3815,3 +3847,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserCertificateStore {}
+unsafe impl ::core::marker::Sync for UserCertificateStore {}

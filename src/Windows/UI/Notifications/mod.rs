@@ -158,6 +158,8 @@ impl<'a> ::windows::core::IntoParam<'a, IAdaptiveNotificationContent> for &Adapt
         ::core::convert::TryInto::<IAdaptiveNotificationContent>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AdaptiveNotificationText {}
+unsafe impl ::core::marker::Sync for AdaptiveNotificationText {}
 #[repr(transparent)]
 pub struct BadgeNotification(::windows::core::IUnknown);
 impl BadgeNotification {
@@ -255,6 +257,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Badg
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BadgeNotification {}
+unsafe impl ::core::marker::Sync for BadgeNotification {}
 #[repr(transparent)]
 pub struct BadgeTemplateType(pub i32);
 impl BadgeTemplateType {
@@ -422,6 +426,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Badg
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BadgeUpdateManagerForUser {}
+unsafe impl ::core::marker::Sync for BadgeUpdateManagerForUser {}
 #[repr(transparent)]
 pub struct BadgeUpdater(::windows::core::IUnknown);
 impl BadgeUpdater {
@@ -509,6 +515,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Badg
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BadgeUpdater {}
+unsafe impl ::core::marker::Sync for BadgeUpdater {}
 #[repr(transparent)]
 pub struct IAdaptiveNotificationContent(::windows::core::IUnknown);
 impl IAdaptiveNotificationContent {
@@ -2285,6 +2293,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Noti
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Notification {}
+unsafe impl ::core::marker::Sync for Notification {}
 #[repr(transparent)]
 pub struct NotificationBinding(::windows::core::IUnknown);
 impl NotificationBinding {
@@ -2388,6 +2398,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Noti
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for NotificationBinding {}
+unsafe impl ::core::marker::Sync for NotificationBinding {}
 #[repr(transparent)]
 pub struct NotificationData(::windows::core::IUnknown);
 impl NotificationData {
@@ -2497,6 +2509,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Noti
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for NotificationData {}
+unsafe impl ::core::marker::Sync for NotificationData {}
 #[repr(transparent)]
 pub struct NotificationKinds(pub u32);
 impl NotificationKinds {
@@ -2700,6 +2714,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Noti
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for NotificationVisual {}
+unsafe impl ::core::marker::Sync for NotificationVisual {}
 #[repr(transparent)]
 pub struct PeriodicUpdateRecurrence(pub i32);
 impl PeriodicUpdateRecurrence {
@@ -2857,6 +2873,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sche
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ScheduledTileNotification {}
+unsafe impl ::core::marker::Sync for ScheduledTileNotification {}
 #[repr(transparent)]
 pub struct ScheduledToastNotification(::windows::core::IUnknown);
 impl ScheduledToastNotification {
@@ -3050,6 +3068,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sche
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ScheduledToastNotification {}
+unsafe impl ::core::marker::Sync for ScheduledToastNotification {}
 #[repr(transparent)]
 pub struct ScheduledToastNotificationShowingEventArgs(::windows::core::IUnknown);
 impl ScheduledToastNotificationShowingEventArgs {
@@ -3141,6 +3161,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sche
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ScheduledToastNotificationShowingEventArgs {}
+unsafe impl ::core::marker::Sync for ScheduledToastNotificationShowingEventArgs {}
 #[repr(transparent)]
 pub struct ShownTileNotification(::windows::core::IUnknown);
 impl ShownTileNotification {
@@ -3213,6 +3235,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Show
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ShownTileNotification {}
+unsafe impl ::core::marker::Sync for ShownTileNotification {}
 #[repr(transparent)]
 pub struct TileFlyoutNotification(::windows::core::IUnknown);
 impl TileFlyoutNotification {
@@ -3310,6 +3334,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Tile
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TileFlyoutNotification {}
+unsafe impl ::core::marker::Sync for TileFlyoutNotification {}
 #[repr(transparent)]
 pub struct TileFlyoutTemplateType(pub i32);
 impl TileFlyoutTemplateType {
@@ -3573,6 +3599,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Tile
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TileNotification {}
+unsafe impl ::core::marker::Sync for TileNotification {}
 #[repr(transparent)]
 pub struct TileTemplateType(pub i32);
 impl TileTemplateType {
@@ -3864,6 +3892,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Tile
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TileUpdateManagerForUser {}
+unsafe impl ::core::marker::Sync for TileUpdateManagerForUser {}
 #[repr(transparent)]
 pub struct TileUpdater(::windows::core::IUnknown);
 impl TileUpdater {
@@ -4000,6 +4030,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Tile
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TileUpdater {}
+unsafe impl ::core::marker::Sync for TileUpdater {}
 #[repr(transparent)]
 pub struct ToastActivatedEventArgs(::windows::core::IUnknown);
 impl ToastActivatedEventArgs {
@@ -4198,6 +4230,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Toas
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ToastCollection {}
+unsafe impl ::core::marker::Sync for ToastCollection {}
 #[repr(transparent)]
 pub struct ToastCollectionManager(::windows::core::IUnknown);
 impl ToastCollectionManager {
@@ -4318,6 +4352,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Toas
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ToastCollectionManager {}
+unsafe impl ::core::marker::Sync for ToastCollectionManager {}
 #[repr(transparent)]
 pub struct ToastDismissalReason(pub i32);
 impl ToastDismissalReason {
@@ -4418,6 +4454,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Toas
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ToastDismissedEventArgs {}
+unsafe impl ::core::marker::Sync for ToastDismissedEventArgs {}
 #[repr(transparent)]
 pub struct ToastFailedEventArgs(::windows::core::IUnknown);
 impl ToastFailedEventArgs {
@@ -4490,6 +4528,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Toas
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ToastFailedEventArgs {}
+unsafe impl ::core::marker::Sync for ToastFailedEventArgs {}
 #[repr(transparent)]
 pub struct ToastHistoryChangedType(pub i32);
 impl ToastHistoryChangedType {
@@ -4743,6 +4783,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Toas
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ToastNotification {}
+unsafe impl ::core::marker::Sync for ToastNotification {}
 #[repr(transparent)]
 pub struct ToastNotificationActionTriggerDetail(::windows::core::IUnknown);
 impl ToastNotificationActionTriggerDetail {
@@ -5198,6 +5240,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Toas
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ToastNotificationManagerForUser {}
+unsafe impl ::core::marker::Sync for ToastNotificationManagerForUser {}
 #[repr(transparent)]
 pub struct ToastNotificationPriority(pub i32);
 impl ToastNotificationPriority {
@@ -5348,6 +5392,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Toas
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ToastNotifier {}
+unsafe impl ::core::marker::Sync for ToastNotifier {}
 #[repr(transparent)]
 pub struct ToastTemplateType(pub i32);
 impl ToastTemplateType {
@@ -5476,6 +5522,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserNotification {}
+unsafe impl ::core::marker::Sync for UserNotification {}
 #[repr(transparent)]
 pub struct UserNotificationChangedEventArgs(::windows::core::IUnknown);
 impl UserNotificationChangedEventArgs {
@@ -5555,6 +5603,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserNotificationChangedEventArgs {}
+unsafe impl ::core::marker::Sync for UserNotificationChangedEventArgs {}
 #[repr(transparent)]
 pub struct UserNotificationChangedKind(pub i32);
 impl UserNotificationChangedKind {

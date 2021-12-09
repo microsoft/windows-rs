@@ -86,6 +86,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DeviceServicingDetails {}
+unsafe impl ::core::marker::Sync for DeviceServicingDetails {}
 #[repr(transparent)]
 pub struct DeviceUseDetails(::windows::core::IUnknown);
 impl DeviceUseDetails {
@@ -165,6 +167,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DeviceUseDetails {}
+unsafe impl ::core::marker::Sync for DeviceUseDetails {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDeviceServicingDetails(::windows::core::IUnknown);

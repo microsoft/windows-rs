@@ -612,6 +612,8 @@ impl<'a> ::windows::core::IntoParam<'a, ILampArrayEffect> for &LampArrayBitmapEf
         ::core::convert::TryInto::<ILampArrayEffect>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for LampArrayBitmapEffect {}
+unsafe impl ::core::marker::Sync for LampArrayBitmapEffect {}
 #[repr(transparent)]
 pub struct LampArrayBitmapRequestedEventArgs(::windows::core::IUnknown);
 impl LampArrayBitmapRequestedEventArgs {
@@ -690,6 +692,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lamp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LampArrayBitmapRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for LampArrayBitmapRequestedEventArgs {}
 #[repr(transparent)]
 pub struct LampArrayBlinkEffect(::windows::core::IUnknown);
 impl LampArrayBlinkEffect {
@@ -898,6 +902,8 @@ impl<'a> ::windows::core::IntoParam<'a, ILampArrayEffect> for &LampArrayBlinkEff
         ::core::convert::TryInto::<ILampArrayEffect>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for LampArrayBlinkEffect {}
+unsafe impl ::core::marker::Sync for LampArrayBlinkEffect {}
 #[repr(transparent)]
 pub struct LampArrayColorRampEffect(::windows::core::IUnknown);
 impl LampArrayColorRampEffect {
@@ -1056,6 +1062,8 @@ impl<'a> ::windows::core::IntoParam<'a, ILampArrayEffect> for &LampArrayColorRam
         ::core::convert::TryInto::<ILampArrayEffect>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for LampArrayColorRampEffect {}
+unsafe impl ::core::marker::Sync for LampArrayColorRampEffect {}
 #[repr(transparent)]
 pub struct LampArrayCustomEffect(::windows::core::IUnknown);
 impl LampArrayCustomEffect {
@@ -1203,6 +1211,8 @@ impl<'a> ::windows::core::IntoParam<'a, ILampArrayEffect> for &LampArrayCustomEf
         ::core::convert::TryInto::<ILampArrayEffect>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for LampArrayCustomEffect {}
+unsafe impl ::core::marker::Sync for LampArrayCustomEffect {}
 #[repr(transparent)]
 pub struct LampArrayEffectCompletionBehavior(pub i32);
 impl LampArrayEffectCompletionBehavior {
@@ -1479,6 +1489,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for LampArrayEffectPlaylist {}
+unsafe impl ::core::marker::Sync for LampArrayEffectPlaylist {}
 #[repr(transparent)]
 pub struct LampArrayEffectStartMode(pub i32);
 impl LampArrayEffectStartMode {
@@ -1691,6 +1703,8 @@ impl<'a> ::windows::core::IntoParam<'a, ILampArrayEffect> for &LampArraySolidEff
         ::core::convert::TryInto::<ILampArrayEffect>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for LampArraySolidEffect {}
+unsafe impl ::core::marker::Sync for LampArraySolidEffect {}
 #[repr(transparent)]
 pub struct LampArrayUpdateRequestedEventArgs(::windows::core::IUnknown);
 impl LampArrayUpdateRequestedEventArgs {
@@ -1784,3 +1798,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lamp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LampArrayUpdateRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for LampArrayUpdateRequestedEventArgs {}

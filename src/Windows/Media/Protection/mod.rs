@@ -80,6 +80,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Comp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ComponentLoadFailedEventArgs {}
+unsafe impl ::core::marker::Sync for ComponentLoadFailedEventArgs {}
 #[repr(transparent)]
 pub struct ComponentLoadFailedEventHandler(pub ::windows::core::IUnknown);
 impl ComponentLoadFailedEventHandler {
@@ -363,6 +365,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HdcpSession {}
+unsafe impl ::core::marker::Sync for HdcpSession {}
 #[repr(transparent)]
 pub struct HdcpSetProtectionResult(pub i32);
 impl HdcpSetProtectionResult {
@@ -847,6 +851,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaProtectionManager {}
+unsafe impl ::core::marker::Sync for MediaProtectionManager {}
 #[repr(transparent)]
 pub struct MediaProtectionPMPServer(::windows::core::IUnknown);
 impl MediaProtectionPMPServer {
@@ -931,6 +937,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaProtectionPMPServer {}
+unsafe impl ::core::marker::Sync for MediaProtectionPMPServer {}
 #[repr(transparent)]
 pub struct MediaProtectionServiceCompletion(::windows::core::IUnknown);
 impl MediaProtectionServiceCompletion {
@@ -1000,6 +1008,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MediaProtectionServiceCompletion {}
+unsafe impl ::core::marker::Sync for MediaProtectionServiceCompletion {}
 #[repr(transparent)]
 pub struct ProtectionCapabilities(::windows::core::IUnknown);
 impl ProtectionCapabilities {
@@ -1079,6 +1089,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProtectionCapabilities {}
+unsafe impl ::core::marker::Sync for ProtectionCapabilities {}
 #[repr(transparent)]
 pub struct ProtectionCapabilityResult(pub i32);
 impl ProtectionCapabilityResult {
@@ -1278,6 +1290,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Revo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RevocationAndRenewalInformation {}
+unsafe impl ::core::marker::Sync for RevocationAndRenewalInformation {}
 #[repr(transparent)]
 pub struct RevocationAndRenewalItem(::windows::core::IUnknown);
 impl RevocationAndRenewalItem {
@@ -1378,6 +1392,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Revo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RevocationAndRenewalItem {}
+unsafe impl ::core::marker::Sync for RevocationAndRenewalItem {}
 #[repr(transparent)]
 pub struct RevocationAndRenewalReasons(pub u32);
 impl RevocationAndRenewalReasons {
@@ -1505,6 +1521,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Serv
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ServiceRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for ServiceRequestedEventArgs {}
 #[repr(transparent)]
 pub struct ServiceRequestedEventHandler(pub ::windows::core::IUnknown);
 impl ServiceRequestedEventHandler {

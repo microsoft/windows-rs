@@ -120,6 +120,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &App
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for AppBarButtonTemplateSettings {}
+unsafe impl ::core::marker::Sync for AppBarButtonTemplateSettings {}
 #[repr(transparent)]
 pub struct AppBarTemplateSettings(::windows::core::IUnknown);
 impl AppBarTemplateSettings {
@@ -276,6 +278,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &App
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for AppBarTemplateSettings {}
+unsafe impl ::core::marker::Sync for AppBarTemplateSettings {}
 #[repr(transparent)]
 pub struct AppBarToggleButtonTemplateSettings(::windows::core::IUnknown);
 impl AppBarToggleButtonTemplateSettings {
@@ -368,6 +372,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &App
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for AppBarToggleButtonTemplateSettings {}
+unsafe impl ::core::marker::Sync for AppBarToggleButtonTemplateSettings {}
 #[repr(transparent)]
 pub struct ButtonBase(::windows::core::IUnknown);
 impl ButtonBase {
@@ -681,6 +687,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &But
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ButtonBase {}
+unsafe impl ::core::marker::Sync for ButtonBase {}
 #[repr(transparent)]
 pub struct CalendarPanel(::windows::core::IUnknown);
 impl CalendarPanel {
@@ -885,6 +893,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Cal
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CalendarPanel {}
+unsafe impl ::core::marker::Sync for CalendarPanel {}
 #[repr(transparent)]
 pub struct CalendarViewTemplateSettings(::windows::core::IUnknown);
 impl CalendarViewTemplateSettings {
@@ -1076,6 +1086,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Cal
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CalendarViewTemplateSettings {}
+unsafe impl ::core::marker::Sync for CalendarViewTemplateSettings {}
 #[repr(transparent)]
 pub struct CarouselPanel(::windows::core::IUnknown);
 impl CarouselPanel {
@@ -1519,6 +1531,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Car
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CarouselPanel {}
+unsafe impl ::core::marker::Sync for CarouselPanel {}
 #[repr(transparent)]
 pub struct ColorPickerSlider(::windows::core::IUnknown);
 impl ColorPickerSlider {
@@ -1787,6 +1801,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Col
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ColorPickerSlider {}
+unsafe impl ::core::marker::Sync for ColorPickerSlider {}
 #[repr(transparent)]
 pub struct ColorSpectrum(::windows::core::IUnknown);
 impl ColorSpectrum {
@@ -2183,6 +2199,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Col
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ColorSpectrum {}
+unsafe impl ::core::marker::Sync for ColorSpectrum {}
 #[repr(transparent)]
 pub struct ComboBoxTemplateSettings(::windows::core::IUnknown);
 impl ComboBoxTemplateSettings {
@@ -2303,6 +2321,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Com
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ComboBoxTemplateSettings {}
+unsafe impl ::core::marker::Sync for ComboBoxTemplateSettings {}
 #[repr(transparent)]
 pub struct CommandBarFlyoutCommandBar(::windows::core::IUnknown);
 impl CommandBarFlyoutCommandBar {
@@ -2577,6 +2597,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Com
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CommandBarFlyoutCommandBar {}
+unsafe impl ::core::marker::Sync for CommandBarFlyoutCommandBar {}
 #[repr(transparent)]
 pub struct CommandBarFlyoutCommandBarTemplateSettings(::windows::core::IUnknown);
 impl CommandBarFlyoutCommandBarTemplateSettings {
@@ -2804,6 +2826,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Com
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CommandBarFlyoutCommandBarTemplateSettings {}
+unsafe impl ::core::marker::Sync for CommandBarFlyoutCommandBarTemplateSettings {}
 #[repr(transparent)]
 pub struct CommandBarTemplateSettings(::windows::core::IUnknown);
 impl CommandBarTemplateSettings {
@@ -2974,6 +2998,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Com
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CommandBarTemplateSettings {}
+unsafe impl ::core::marker::Sync for CommandBarTemplateSettings {}
 #[repr(transparent)]
 pub struct ComponentResourceLocation(pub i32);
 impl ComponentResourceLocation {
@@ -3117,6 +3143,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::RoutedEventArgs> for &Drag
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DragCompletedEventArgs {}
+unsafe impl ::core::marker::Sync for DragCompletedEventArgs {}
 #[repr(transparent)]
 pub struct DragCompletedEventHandler(pub ::windows::core::IUnknown);
 impl DragCompletedEventHandler {
@@ -3294,6 +3322,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::RoutedEventArgs> for &Drag
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DragDeltaEventArgs {}
+unsafe impl ::core::marker::Sync for DragDeltaEventArgs {}
 #[repr(transparent)]
 pub struct DragDeltaEventHandler(pub ::windows::core::IUnknown);
 impl DragDeltaEventHandler {
@@ -3471,6 +3501,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::RoutedEventArgs> for &Drag
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DragStartedEventArgs {}
+unsafe impl ::core::marker::Sync for DragStartedEventArgs {}
 #[repr(transparent)]
 pub struct DragStartedEventHandler(pub ::windows::core::IUnknown);
 impl DragStartedEventHandler {
@@ -3970,6 +4002,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Fly
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for FlyoutBase {}
+unsafe impl ::core::marker::Sync for FlyoutBase {}
 #[repr(transparent)]
 pub struct FlyoutBaseClosingEventArgs(::windows::core::IUnknown);
 impl FlyoutBaseClosingEventArgs {
@@ -4046,6 +4080,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Flyo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for FlyoutBaseClosingEventArgs {}
+unsafe impl ::core::marker::Sync for FlyoutBaseClosingEventArgs {}
 #[repr(transparent)]
 pub struct FlyoutPlacementMode(pub i32);
 impl FlyoutPlacementMode {
@@ -4237,6 +4273,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Flyo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for FlyoutShowOptions {}
+unsafe impl ::core::marker::Sync for FlyoutShowOptions {}
 #[repr(transparent)]
 pub struct GeneratorDirection(pub i32);
 impl GeneratorDirection {
@@ -4370,6 +4408,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gene
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GeneratorPositionHelper {}
+unsafe impl ::core::marker::Sync for GeneratorPositionHelper {}
 #[repr(transparent)]
 pub struct GridViewItemPresenter(::windows::core::IUnknown);
 impl GridViewItemPresenter {
@@ -4988,6 +5028,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Gri
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for GridViewItemPresenter {}
+unsafe impl ::core::marker::Sync for GridViewItemPresenter {}
 #[repr(transparent)]
 pub struct GridViewItemTemplateSettings(::windows::core::IUnknown);
 impl GridViewItemTemplateSettings {
@@ -5080,6 +5122,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Gri
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for GridViewItemTemplateSettings {}
+unsafe impl ::core::marker::Sync for GridViewItemTemplateSettings {}
 #[repr(transparent)]
 pub struct GroupHeaderPlacement(pub i32);
 impl GroupHeaderPlacement {
@@ -8459,6 +8503,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Item
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ItemsChangedEventArgs {}
+unsafe impl ::core::marker::Sync for ItemsChangedEventArgs {}
 #[repr(transparent)]
 pub struct ItemsChangedEventHandler(pub ::windows::core::IUnknown);
 impl ItemsChangedEventHandler {
@@ -8703,6 +8749,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Jum
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for JumpListItemBackgroundConverter {}
+unsafe impl ::core::marker::Sync for JumpListItemBackgroundConverter {}
 #[repr(transparent)]
 pub struct JumpListItemForegroundConverter(::windows::core::IUnknown);
 impl JumpListItemForegroundConverter {
@@ -8879,6 +8927,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Jum
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for JumpListItemForegroundConverter {}
+unsafe impl ::core::marker::Sync for JumpListItemForegroundConverter {}
 #[repr(transparent)]
 pub struct LayoutInformation(::windows::core::IUnknown);
 impl LayoutInformation {
@@ -8972,6 +9022,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Layo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LayoutInformation {}
+unsafe impl ::core::marker::Sync for LayoutInformation {}
 #[repr(transparent)]
 pub struct ListViewItemPresenter(::windows::core::IUnknown);
 impl ListViewItemPresenter {
@@ -10291,6 +10343,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lis
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ListViewItemPresenter {}
+unsafe impl ::core::marker::Sync for ListViewItemPresenter {}
 #[repr(transparent)]
 pub struct ListViewItemPresenterCheckMode(pub i32);
 impl ListViewItemPresenterCheckMode {
@@ -10437,6 +10491,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lis
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ListViewItemTemplateSettings {}
+unsafe impl ::core::marker::Sync for ListViewItemTemplateSettings {}
 #[repr(transparent)]
 pub struct LoopingSelector(::windows::core::IUnknown);
 impl LoopingSelector {
@@ -10772,6 +10828,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Loo
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for LoopingSelector {}
+unsafe impl ::core::marker::Sync for LoopingSelector {}
 #[repr(transparent)]
 pub struct LoopingSelectorItem(::windows::core::IUnknown);
 impl LoopingSelectorItem {}
@@ -10988,6 +11046,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Loo
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for LoopingSelectorItem {}
+unsafe impl ::core::marker::Sync for LoopingSelectorItem {}
 #[repr(transparent)]
 pub struct LoopingSelectorPanel(::windows::core::IUnknown);
 impl LoopingSelectorPanel {
@@ -11282,6 +11342,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Loo
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for LoopingSelectorPanel {}
+unsafe impl ::core::marker::Sync for LoopingSelectorPanel {}
 #[repr(transparent)]
 pub struct MenuFlyoutItemTemplateSettings(::windows::core::IUnknown);
 impl MenuFlyoutItemTemplateSettings {
@@ -11374,6 +11436,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Men
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MenuFlyoutItemTemplateSettings {}
+unsafe impl ::core::marker::Sync for MenuFlyoutItemTemplateSettings {}
 #[repr(transparent)]
 pub struct MenuFlyoutPresenterTemplateSettings(::windows::core::IUnknown);
 impl MenuFlyoutPresenterTemplateSettings {
@@ -11466,6 +11530,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Men
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MenuFlyoutPresenterTemplateSettings {}
+unsafe impl ::core::marker::Sync for MenuFlyoutPresenterTemplateSettings {}
 #[repr(transparent)]
 pub struct NavigationViewItemPresenter(::windows::core::IUnknown);
 impl NavigationViewItemPresenter {
@@ -11714,6 +11780,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Nav
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for NavigationViewItemPresenter {}
+unsafe impl ::core::marker::Sync for NavigationViewItemPresenter {}
 #[repr(transparent)]
 pub struct OrientedVirtualizingPanel(::windows::core::IUnknown);
 impl OrientedVirtualizingPanel {
@@ -12174,6 +12242,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ori
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for OrientedVirtualizingPanel {}
+unsafe impl ::core::marker::Sync for OrientedVirtualizingPanel {}
 #[repr(transparent)]
 pub struct PickerFlyoutBase(::windows::core::IUnknown);
 impl PickerFlyoutBase {
@@ -12298,6 +12368,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pic
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PickerFlyoutBase {}
+unsafe impl ::core::marker::Sync for PickerFlyoutBase {}
 #[repr(transparent)]
 pub struct PivotHeaderItem(::windows::core::IUnknown);
 impl PivotHeaderItem {
@@ -12525,6 +12597,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Piv
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PivotHeaderItem {}
+unsafe impl ::core::marker::Sync for PivotHeaderItem {}
 #[repr(transparent)]
 pub struct PivotHeaderPanel(::windows::core::IUnknown);
 impl PivotHeaderPanel {
@@ -12749,6 +12823,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Piv
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PivotHeaderPanel {}
+unsafe impl ::core::marker::Sync for PivotHeaderPanel {}
 #[repr(transparent)]
 pub struct PivotPanel(::windows::core::IUnknown);
 impl PivotPanel {
@@ -13030,6 +13106,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Piv
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PivotPanel {}
+unsafe impl ::core::marker::Sync for PivotPanel {}
 #[repr(transparent)]
 pub struct PlacementMode(pub i32);
 impl PlacementMode {
@@ -13485,6 +13563,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pop
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Popup {}
+unsafe impl ::core::marker::Sync for Popup {}
 #[repr(transparent)]
 pub struct PopupPlacementMode(pub i32);
 impl PopupPlacementMode {
@@ -13657,6 +13737,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pro
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ProgressBarTemplateSettings {}
+unsafe impl ::core::marker::Sync for ProgressBarTemplateSettings {}
 #[repr(transparent)]
 pub struct ProgressRingTemplateSettings(::windows::core::IUnknown);
 impl ProgressRingTemplateSettings {
@@ -13763,6 +13845,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pro
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ProgressRingTemplateSettings {}
+unsafe impl ::core::marker::Sync for ProgressRingTemplateSettings {}
 #[repr(transparent)]
 pub struct RangeBase(::windows::core::IUnknown);
 impl RangeBase {
@@ -14062,6 +14146,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ran
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for RangeBase {}
+unsafe impl ::core::marker::Sync for RangeBase {}
 #[repr(transparent)]
 pub struct RangeBaseValueChangedEventArgs(::windows::core::IUnknown);
 impl RangeBaseValueChangedEventArgs {
@@ -14161,6 +14247,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::RoutedEventArgs> for &Rang
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for RangeBaseValueChangedEventArgs {}
+unsafe impl ::core::marker::Sync for RangeBaseValueChangedEventArgs {}
 #[repr(transparent)]
 pub struct RangeBaseValueChangedEventHandler(pub ::windows::core::IUnknown);
 impl RangeBaseValueChangedEventHandler {
@@ -14511,6 +14599,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Rep
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for RepeatButton {}
+unsafe impl ::core::marker::Sync for RepeatButton {}
 #[repr(transparent)]
 pub struct ScrollBar(::windows::core::IUnknown);
 impl ScrollBar {
@@ -14803,6 +14893,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Scr
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ScrollBar {}
+unsafe impl ::core::marker::Sync for ScrollBar {}
 #[repr(transparent)]
 pub struct ScrollEventArgs(::windows::core::IUnknown);
 impl ScrollEventArgs {
@@ -14909,6 +15001,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::RoutedEventArgs> for &Scro
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ScrollEventArgs {}
+unsafe impl ::core::marker::Sync for ScrollEventArgs {}
 #[repr(transparent)]
 pub struct ScrollEventHandler(pub ::windows::core::IUnknown);
 impl ScrollEventHandler {
@@ -15388,6 +15482,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sel
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Selector {}
+unsafe impl ::core::marker::Sync for Selector {}
 #[repr(transparent)]
 pub struct SelectorItem(::windows::core::IUnknown);
 impl SelectorItem {
@@ -15626,6 +15722,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sel
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SelectorItem {}
+unsafe impl ::core::marker::Sync for SelectorItem {}
 #[repr(transparent)]
 pub struct SettingsFlyoutTemplateSettings(::windows::core::IUnknown);
 impl SettingsFlyoutTemplateSettings {
@@ -15758,6 +15856,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Set
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SettingsFlyoutTemplateSettings {}
+unsafe impl ::core::marker::Sync for SettingsFlyoutTemplateSettings {}
 #[repr(transparent)]
 pub struct SliderSnapsTo(pub i32);
 impl SliderSnapsTo {
@@ -15940,6 +16040,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Spl
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SplitViewTemplateSettings {}
+unsafe impl ::core::marker::Sync for SplitViewTemplateSettings {}
 #[repr(transparent)]
 pub struct Thumb(::windows::core::IUnknown);
 impl Thumb {
@@ -16204,6 +16306,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Thu
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for Thumb {}
+unsafe impl ::core::marker::Sync for Thumb {}
 #[repr(transparent)]
 pub struct TickBar(::windows::core::IUnknown);
 impl TickBar {
@@ -16411,6 +16515,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tic
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for TickBar {}
+unsafe impl ::core::marker::Sync for TickBar {}
 #[repr(transparent)]
 pub struct TickPlacement(pub i32);
 impl TickPlacement {
@@ -16767,6 +16873,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tog
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ToggleButton {}
+unsafe impl ::core::marker::Sync for ToggleButton {}
 #[repr(transparent)]
 pub struct ToggleSwitchTemplateSettings(::windows::core::IUnknown);
 impl ToggleSwitchTemplateSettings {
@@ -16908,6 +17016,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tog
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ToggleSwitchTemplateSettings {}
+unsafe impl ::core::marker::Sync for ToggleSwitchTemplateSettings {}
 #[repr(transparent)]
 pub struct ToolTipTemplateSettings(::windows::core::IUnknown);
 impl ToolTipTemplateSettings {
@@ -17007,3 +17117,5 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Too
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ToolTipTemplateSettings {}
+unsafe impl ::core::marker::Sync for ToolTipTemplateSettings {}

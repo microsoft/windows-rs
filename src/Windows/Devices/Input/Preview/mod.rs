@@ -146,6 +146,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GazeDevicePreview {}
+unsafe impl ::core::marker::Sync for GazeDevicePreview {}
 #[repr(transparent)]
 pub struct GazeDeviceWatcherAddedPreviewEventArgs(::windows::core::IUnknown);
 impl GazeDeviceWatcherAddedPreviewEventArgs {
@@ -218,6 +220,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GazeDeviceWatcherAddedPreviewEventArgs {}
+unsafe impl ::core::marker::Sync for GazeDeviceWatcherAddedPreviewEventArgs {}
 #[repr(transparent)]
 pub struct GazeDeviceWatcherPreview(::windows::core::IUnknown);
 impl GazeDeviceWatcherPreview {
@@ -343,6 +347,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GazeDeviceWatcherPreview {}
+unsafe impl ::core::marker::Sync for GazeDeviceWatcherPreview {}
 #[repr(transparent)]
 pub struct GazeDeviceWatcherRemovedPreviewEventArgs(::windows::core::IUnknown);
 impl GazeDeviceWatcherRemovedPreviewEventArgs {
@@ -415,6 +421,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GazeDeviceWatcherRemovedPreviewEventArgs {}
+unsafe impl ::core::marker::Sync for GazeDeviceWatcherRemovedPreviewEventArgs {}
 #[repr(transparent)]
 pub struct GazeDeviceWatcherUpdatedPreviewEventArgs(::windows::core::IUnknown);
 impl GazeDeviceWatcherUpdatedPreviewEventArgs {
@@ -487,6 +495,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GazeDeviceWatcherUpdatedPreviewEventArgs {}
+unsafe impl ::core::marker::Sync for GazeDeviceWatcherUpdatedPreviewEventArgs {}
 #[repr(transparent)]
 pub struct GazeEnteredPreviewEventArgs(::windows::core::IUnknown);
 impl GazeEnteredPreviewEventArgs {
@@ -570,6 +580,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GazeEnteredPreviewEventArgs {}
+unsafe impl ::core::marker::Sync for GazeEnteredPreviewEventArgs {}
 #[repr(transparent)]
 pub struct GazeExitedPreviewEventArgs(::windows::core::IUnknown);
 impl GazeExitedPreviewEventArgs {
@@ -653,6 +665,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GazeExitedPreviewEventArgs {}
+unsafe impl ::core::marker::Sync for GazeExitedPreviewEventArgs {}
 #[repr(transparent)]
 pub struct GazeInputSourcePreview(::windows::core::IUnknown);
 impl GazeInputSourcePreview {
@@ -773,6 +787,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GazeInputSourcePreview {}
+unsafe impl ::core::marker::Sync for GazeInputSourcePreview {}
 #[repr(transparent)]
 pub struct GazeMovedPreviewEventArgs(::windows::core::IUnknown);
 impl GazeMovedPreviewEventArgs {
@@ -864,6 +880,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GazeMovedPreviewEventArgs {}
+unsafe impl ::core::marker::Sync for GazeMovedPreviewEventArgs {}
 #[repr(transparent)]
 pub struct GazePointPreview(::windows::core::IUnknown);
 impl GazePointPreview {
@@ -967,6 +985,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GazePointPreview {}
+unsafe impl ::core::marker::Sync for GazePointPreview {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGazeDevicePreview(::windows::core::IUnknown);

@@ -87,6 +87,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Auto
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AutomationConnection {}
+unsafe impl ::core::marker::Sync for AutomationConnection {}
 #[repr(transparent)]
 pub struct AutomationConnectionBoundObject(::windows::core::IUnknown);
 impl AutomationConnectionBoundObject {
@@ -159,6 +161,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Auto
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AutomationConnectionBoundObject {}
+unsafe impl ::core::marker::Sync for AutomationConnectionBoundObject {}
 #[repr(transparent)]
 pub struct AutomationElement(::windows::core::IUnknown);
 impl AutomationElement {
@@ -245,6 +249,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Auto
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AutomationElement {}
+unsafe impl ::core::marker::Sync for AutomationElement {}
 #[repr(transparent)]
 pub struct AutomationTextRange(::windows::core::IUnknown);
 impl AutomationTextRange {}
@@ -309,6 +315,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Auto
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AutomationTextRange {}
+unsafe impl ::core::marker::Sync for AutomationTextRange {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationConnection(::windows::core::IUnknown);

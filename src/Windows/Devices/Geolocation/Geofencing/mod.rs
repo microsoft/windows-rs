@@ -146,6 +146,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geof
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Geofence {}
+unsafe impl ::core::marker::Sync for Geofence {}
 #[repr(transparent)]
 pub struct GeofenceMonitor(::windows::core::IUnknown);
 impl GeofenceMonitor {
@@ -277,6 +279,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geof
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GeofenceMonitor {}
+unsafe impl ::core::marker::Sync for GeofenceMonitor {}
 #[repr(transparent)]
 pub struct GeofenceMonitorStatus(pub i32);
 impl GeofenceMonitorStatus {
@@ -457,6 +461,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geof
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GeofenceStateChangeReport {}
+unsafe impl ::core::marker::Sync for GeofenceStateChangeReport {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeofence(::windows::core::IUnknown);

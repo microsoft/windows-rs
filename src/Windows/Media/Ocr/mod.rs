@@ -225,6 +225,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &OcrE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for OcrEngine {}
+unsafe impl ::core::marker::Sync for OcrEngine {}
 #[repr(transparent)]
 pub struct OcrLine(::windows::core::IUnknown);
 impl OcrLine {
@@ -305,6 +307,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &OcrL
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for OcrLine {}
+unsafe impl ::core::marker::Sync for OcrLine {}
 #[repr(transparent)]
 pub struct OcrResult(::windows::core::IUnknown);
 impl OcrResult {
@@ -393,6 +397,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &OcrR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for OcrResult {}
+unsafe impl ::core::marker::Sync for OcrResult {}
 #[repr(transparent)]
 pub struct OcrWord(::windows::core::IUnknown);
 impl OcrWord {
@@ -473,3 +479,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &OcrW
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for OcrWord {}
+unsafe impl ::core::marker::Sync for OcrWord {}

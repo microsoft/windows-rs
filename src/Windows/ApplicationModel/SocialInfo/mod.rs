@@ -338,6 +338,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Soci
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SocialFeedChildItem {}
+unsafe impl ::core::marker::Sync for SocialFeedChildItem {}
 #[repr(transparent)]
 pub struct SocialFeedContent(::windows::core::IUnknown);
 impl SocialFeedContent {
@@ -444,6 +446,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Soci
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SocialFeedContent {}
+unsafe impl ::core::marker::Sync for SocialFeedContent {}
 #[repr(transparent)]
 pub struct SocialFeedItem(::windows::core::IUnknown);
 impl SocialFeedItem {
@@ -657,6 +661,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Soci
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SocialFeedItem {}
+unsafe impl ::core::marker::Sync for SocialFeedItem {}
 #[repr(transparent)]
 pub struct SocialFeedItemStyle(pub i32);
 impl SocialFeedItemStyle {
@@ -850,6 +856,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Soci
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SocialFeedSharedItem {}
+unsafe impl ::core::marker::Sync for SocialFeedSharedItem {}
 #[repr(transparent)]
 pub struct SocialFeedUpdateMode(pub i32);
 impl SocialFeedUpdateMode {
@@ -1031,6 +1039,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Soci
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SocialItemThumbnail {}
+unsafe impl ::core::marker::Sync for SocialItemThumbnail {}
 #[repr(transparent)]
 pub struct SocialUserInfo(::windows::core::IUnknown);
 impl SocialUserInfo {
@@ -1150,3 +1160,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Soci
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SocialUserInfo {}
+unsafe impl ::core::marker::Sync for SocialUserInfo {}

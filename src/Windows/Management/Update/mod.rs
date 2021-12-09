@@ -166,6 +166,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prev
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PreviewBuildsManager {}
+unsafe impl ::core::marker::Sync for PreviewBuildsManager {}
 #[repr(transparent)]
 pub struct PreviewBuildsState(::windows::core::IUnknown);
 impl PreviewBuildsState {
@@ -239,3 +241,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prev
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PreviewBuildsState {}
+unsafe impl ::core::marker::Sync for PreviewBuildsState {}

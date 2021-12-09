@@ -98,6 +98,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CoreDragDropManager {}
+unsafe impl ::core::marker::Sync for CoreDragDropManager {}
 #[repr(transparent)]
 pub struct CoreDragInfo(::windows::core::IUnknown);
 impl CoreDragInfo {
@@ -192,6 +194,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CoreDragInfo {}
+unsafe impl ::core::marker::Sync for CoreDragInfo {}
 #[repr(transparent)]
 pub struct CoreDragOperation(::windows::core::IUnknown);
 impl CoreDragOperation {
@@ -315,6 +319,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CoreDragOperation {}
+unsafe impl ::core::marker::Sync for CoreDragOperation {}
 #[repr(transparent)]
 pub struct CoreDragUIContentMode(pub u32);
 impl CoreDragUIContentMode {
@@ -465,6 +471,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CoreDragUIOverride {}
+unsafe impl ::core::marker::Sync for CoreDragUIOverride {}
 #[repr(transparent)]
 pub struct CoreDropOperationTargetRequestedEventArgs(::windows::core::IUnknown);
 impl CoreDropOperationTargetRequestedEventArgs {
@@ -534,6 +542,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CoreDropOperationTargetRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for CoreDropOperationTargetRequestedEventArgs {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICoreDragDropManager(::windows::core::IUnknown);

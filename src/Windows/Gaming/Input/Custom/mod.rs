@@ -178,6 +178,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GipF
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GipFirmwareUpdateResult {}
+unsafe impl ::core::marker::Sync for GipFirmwareUpdateResult {}
 #[repr(transparent)]
 pub struct GipFirmwareUpdateStatus(pub i32);
 impl GipFirmwareUpdateStatus {
@@ -344,6 +346,8 @@ impl<'a> ::windows::core::IntoParam<'a, IGameControllerProvider> for &GipGameCon
         ::core::convert::TryInto::<IGameControllerProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for GipGameControllerProvider {}
+unsafe impl ::core::marker::Sync for GipGameControllerProvider {}
 #[repr(transparent)]
 pub struct GipMessageClass(pub i32);
 impl GipMessageClass {
@@ -520,6 +524,8 @@ impl<'a> ::windows::core::IntoParam<'a, IGameControllerProvider> for &HidGameCon
         ::core::convert::TryInto::<IGameControllerProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HidGameControllerProvider {}
+unsafe impl ::core::marker::Sync for HidGameControllerProvider {}
 #[repr(transparent)]
 pub struct ICustomGameControllerFactory(::windows::core::IUnknown);
 impl ICustomGameControllerFactory {
@@ -1438,3 +1444,5 @@ impl<'a> ::windows::core::IntoParam<'a, IGameControllerProvider> for &XusbGameCo
         ::core::convert::TryInto::<IGameControllerProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for XusbGameControllerProvider {}
+unsafe impl ::core::marker::Sync for XusbGameControllerProvider {}

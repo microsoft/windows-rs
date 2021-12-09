@@ -661,6 +661,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Jump
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for JumpList {}
+unsafe impl ::core::marker::Sync for JumpList {}
 #[repr(transparent)]
 pub struct JumpListItem(::windows::core::IUnknown);
 impl JumpListItem {
@@ -809,6 +811,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Jump
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for JumpListItem {}
+unsafe impl ::core::marker::Sync for JumpListItem {}
 #[repr(transparent)]
 pub struct JumpListItemKind(pub i32);
 impl JumpListItemKind {
@@ -1272,6 +1276,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Seco
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SecondaryTile {}
+unsafe impl ::core::marker::Sync for SecondaryTile {}
 #[repr(transparent)]
 pub struct SecondaryTileVisualElements(::windows::core::IUnknown);
 impl SecondaryTileVisualElements {
@@ -1494,6 +1500,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Seco
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SecondaryTileVisualElements {}
+unsafe impl ::core::marker::Sync for SecondaryTileVisualElements {}
 #[repr(transparent)]
 pub struct StartScreenManager(::windows::core::IUnknown);
 impl StartScreenManager {
@@ -1624,6 +1632,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Star
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StartScreenManager {}
+unsafe impl ::core::marker::Sync for StartScreenManager {}
 #[repr(transparent)]
 pub struct TileMixedRealityModel(::windows::core::IUnknown);
 impl TileMixedRealityModel {
@@ -1726,6 +1736,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Tile
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TileMixedRealityModel {}
+unsafe impl ::core::marker::Sync for TileMixedRealityModel {}
 #[repr(transparent)]
 pub struct TileMixedRealityModelActivationBehavior(pub i32);
 impl TileMixedRealityModelActivationBehavior {
@@ -1910,6 +1922,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Visu
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VisualElementsRequest {}
+unsafe impl ::core::marker::Sync for VisualElementsRequest {}
 #[repr(transparent)]
 pub struct VisualElementsRequestDeferral(::windows::core::IUnknown);
 impl VisualElementsRequestDeferral {
@@ -1979,6 +1993,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Visu
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VisualElementsRequestDeferral {}
+unsafe impl ::core::marker::Sync for VisualElementsRequestDeferral {}
 #[repr(transparent)]
 pub struct VisualElementsRequestedEventArgs(::windows::core::IUnknown);
 impl VisualElementsRequestedEventArgs {
@@ -2051,3 +2067,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Visu
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VisualElementsRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for VisualElementsRequestedEventArgs {}

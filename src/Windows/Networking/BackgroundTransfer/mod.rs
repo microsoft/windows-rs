@@ -338,6 +338,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTransferBase> for &Background
         ::core::convert::TryInto::<IBackgroundTransferBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for BackgroundDownloader {}
+unsafe impl ::core::marker::Sync for BackgroundDownloader {}
 #[repr(transparent)]
 pub struct BackgroundTransferBehavior(pub i32);
 impl BackgroundTransferBehavior {
@@ -456,6 +458,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Back
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BackgroundTransferCompletionGroup {}
+unsafe impl ::core::marker::Sync for BackgroundTransferCompletionGroup {}
 #[repr(transparent)]
 pub struct BackgroundTransferCompletionGroupTriggerDetails(::windows::core::IUnknown);
 impl BackgroundTransferCompletionGroupTriggerDetails {
@@ -537,6 +541,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Back
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BackgroundTransferCompletionGroupTriggerDetails {}
+unsafe impl ::core::marker::Sync for BackgroundTransferCompletionGroupTriggerDetails {}
 #[repr(transparent)]
 pub struct BackgroundTransferContentPart(::windows::core::IUnknown);
 impl BackgroundTransferContentPart {
@@ -638,6 +644,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Back
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BackgroundTransferContentPart {}
+unsafe impl ::core::marker::Sync for BackgroundTransferContentPart {}
 #[repr(transparent)]
 pub struct BackgroundTransferCostPolicy(pub i32);
 impl BackgroundTransferCostPolicy {
@@ -807,6 +815,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Back
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BackgroundTransferGroup {}
+unsafe impl ::core::marker::Sync for BackgroundTransferGroup {}
 #[repr(transparent)]
 pub struct BackgroundTransferPriority(pub i32);
 impl BackgroundTransferPriority {
@@ -923,6 +933,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Back
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BackgroundTransferRangesDownloadedEventArgs {}
+unsafe impl ::core::marker::Sync for BackgroundTransferRangesDownloadedEventArgs {}
 #[repr(transparent)]
 pub struct BackgroundTransferStatus(pub i32);
 impl BackgroundTransferStatus {
@@ -1315,6 +1327,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTransferBase> for &Background
         ::core::convert::TryInto::<IBackgroundTransferBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for BackgroundUploader {}
+unsafe impl ::core::marker::Sync for BackgroundUploader {}
 pub struct ContentPrefetcher {}
 impl ContentPrefetcher {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -1649,6 +1663,8 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTransferOperationPriority> fo
         ::core::convert::TryInto::<IBackgroundTransferOperationPriority>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for DownloadOperation {}
+unsafe impl ::core::marker::Sync for DownloadOperation {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBackgroundDownloader(::windows::core::IUnknown);
@@ -2935,6 +2951,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Resp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ResponseInformation {}
+unsafe impl ::core::marker::Sync for ResponseInformation {}
 #[repr(transparent)]
 pub struct UnconstrainedTransferRequestResult(::windows::core::IUnknown);
 impl UnconstrainedTransferRequestResult {
@@ -3008,6 +3026,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Unco
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UnconstrainedTransferRequestResult {}
+unsafe impl ::core::marker::Sync for UnconstrainedTransferRequestResult {}
 #[repr(transparent)]
 pub struct UploadOperation(::windows::core::IUnknown);
 impl UploadOperation {
@@ -3234,3 +3254,5 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTransferOperationPriority> fo
         ::core::convert::TryInto::<IBackgroundTransferOperationPriority>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for UploadOperation {}
+unsafe impl ::core::marker::Sync for UploadOperation {}

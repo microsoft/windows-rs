@@ -102,6 +102,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppA
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppActivationResult {}
+unsafe impl ::core::marker::Sync for AppActivationResult {}
 #[repr(transparent)]
 pub struct AppDiagnosticInfo(::windows::core::IUnknown);
 impl AppDiagnosticInfo {
@@ -247,6 +249,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppD
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppDiagnosticInfo {}
+unsafe impl ::core::marker::Sync for AppDiagnosticInfo {}
 #[repr(transparent)]
 pub struct AppDiagnosticInfoWatcher(::windows::core::IUnknown);
 impl AppDiagnosticInfoWatcher {
@@ -379,6 +383,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppD
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppDiagnosticInfoWatcher {}
+unsafe impl ::core::marker::Sync for AppDiagnosticInfoWatcher {}
 #[repr(transparent)]
 pub struct AppDiagnosticInfoWatcherEventArgs(::windows::core::IUnknown);
 impl AppDiagnosticInfoWatcherEventArgs {
@@ -451,6 +457,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppD
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppDiagnosticInfoWatcherEventArgs {}
+unsafe impl ::core::marker::Sync for AppDiagnosticInfoWatcherEventArgs {}
 #[repr(transparent)]
 pub struct AppDiagnosticInfoWatcherStatus(pub i32);
 impl AppDiagnosticInfoWatcherStatus {
@@ -554,6 +562,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppExecutionStateChangeResult {}
+unsafe impl ::core::marker::Sync for AppExecutionStateChangeResult {}
 #[repr(transparent)]
 pub struct AppMemoryReport(::windows::core::IUnknown);
 impl AppMemoryReport {
@@ -654,6 +664,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppM
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppMemoryReport {}
+unsafe impl ::core::marker::Sync for AppMemoryReport {}
 #[repr(transparent)]
 pub struct AppMemoryUsageLevel(pub i32);
 impl AppMemoryUsageLevel {
@@ -762,6 +774,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppM
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppMemoryUsageLimitChangingEventArgs {}
+unsafe impl ::core::marker::Sync for AppMemoryUsageLimitChangingEventArgs {}
 #[repr(transparent)]
 pub struct AppResourceGroupBackgroundTaskReport(::windows::core::IUnknown);
 impl AppResourceGroupBackgroundTaskReport {
@@ -855,6 +869,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppResourceGroupBackgroundTaskReport {}
+unsafe impl ::core::marker::Sync for AppResourceGroupBackgroundTaskReport {}
 #[repr(transparent)]
 pub struct AppResourceGroupEnergyQuotaState(pub i32);
 impl AppResourceGroupEnergyQuotaState {
@@ -1046,6 +1062,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppResourceGroupInfo {}
+unsafe impl ::core::marker::Sync for AppResourceGroupInfo {}
 #[repr(transparent)]
 pub struct AppResourceGroupInfoWatcher(::windows::core::IUnknown);
 impl AppResourceGroupInfoWatcher {
@@ -1191,6 +1209,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppResourceGroupInfoWatcher {}
+unsafe impl ::core::marker::Sync for AppResourceGroupInfoWatcher {}
 #[repr(transparent)]
 pub struct AppResourceGroupInfoWatcherEventArgs(::windows::core::IUnknown);
 impl AppResourceGroupInfoWatcherEventArgs {
@@ -1271,6 +1291,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppResourceGroupInfoWatcherEventArgs {}
+unsafe impl ::core::marker::Sync for AppResourceGroupInfoWatcherEventArgs {}
 #[repr(transparent)]
 pub struct AppResourceGroupInfoWatcherExecutionStateChangedEventArgs(::windows::core::IUnknown);
 impl AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
@@ -1351,6 +1373,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {}
 #[repr(transparent)]
 pub struct AppResourceGroupInfoWatcherStatus(pub i32);
 impl AppResourceGroupInfoWatcherStatus {
@@ -1475,6 +1499,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppResourceGroupMemoryReport {}
+unsafe impl ::core::marker::Sync for AppResourceGroupMemoryReport {}
 #[repr(transparent)]
 pub struct AppResourceGroupStateReport(::windows::core::IUnknown);
 impl AppResourceGroupStateReport {
@@ -1554,6 +1580,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppResourceGroupStateReport {}
+unsafe impl ::core::marker::Sync for AppResourceGroupStateReport {}
 #[repr(transparent)]
 pub struct AppUriHandlerHost(::windows::core::IUnknown);
 impl AppUriHandlerHost {
@@ -1658,6 +1686,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppU
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppUriHandlerHost {}
+unsafe impl ::core::marker::Sync for AppUriHandlerHost {}
 #[repr(transparent)]
 pub struct AppUriHandlerRegistration(::windows::core::IUnknown);
 impl AppUriHandlerRegistration {
@@ -1773,6 +1803,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppU
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppUriHandlerRegistration {}
+unsafe impl ::core::marker::Sync for AppUriHandlerRegistration {}
 #[repr(transparent)]
 pub struct AppUriHandlerRegistrationManager(::windows::core::IUnknown);
 impl AppUriHandlerRegistrationManager {
@@ -1891,6 +1923,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppU
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppUriHandlerRegistrationManager {}
+unsafe impl ::core::marker::Sync for AppUriHandlerRegistrationManager {}
 #[repr(transparent)]
 pub struct AutoUpdateTimeZoneStatus(pub i32);
 impl AutoUpdateTimeZoneStatus {
@@ -2091,6 +2125,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DispatcherQueue {}
+unsafe impl ::core::marker::Sync for DispatcherQueue {}
 #[repr(transparent)]
 pub struct DispatcherQueueController(::windows::core::IUnknown);
 impl DispatcherQueueController {
@@ -2181,6 +2217,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DispatcherQueueController {}
+unsafe impl ::core::marker::Sync for DispatcherQueueController {}
 #[repr(transparent)]
 pub struct DispatcherQueueHandler(pub ::windows::core::IUnknown);
 impl DispatcherQueueHandler {
@@ -2350,6 +2388,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DispatcherQueueShutdownStartingEventArgs {}
+unsafe impl ::core::marker::Sync for DispatcherQueueShutdownStartingEventArgs {}
 #[repr(transparent)]
 pub struct DispatcherQueueTimer(::windows::core::IUnknown);
 impl DispatcherQueueTimer {
@@ -2467,6 +2507,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DispatcherQueueTimer {}
+unsafe impl ::core::marker::Sync for DispatcherQueueTimer {}
 #[repr(transparent)]
 pub struct FolderLauncherOptions(::windows::core::IUnknown);
 impl FolderLauncherOptions {
@@ -2582,6 +2624,8 @@ impl<'a> ::windows::core::IntoParam<'a, ILauncherViewOptions> for &FolderLaunche
         ::core::convert::TryInto::<ILauncherViewOptions>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for FolderLauncherOptions {}
+unsafe impl ::core::marker::Sync for FolderLauncherOptions {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppActivationResult(::windows::core::IUnknown);
@@ -4663,6 +4707,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Laun
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LaunchUriResult {}
+unsafe impl ::core::marker::Sync for LaunchUriResult {}
 #[repr(transparent)]
 pub struct LaunchUriStatus(pub i32);
 impl LaunchUriStatus {
@@ -5142,6 +5188,8 @@ impl<'a> ::windows::core::IntoParam<'a, ILauncherViewOptions> for &LauncherOptio
         ::core::convert::TryInto::<ILauncherViewOptions>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for LauncherOptions {}
+unsafe impl ::core::marker::Sync for LauncherOptions {}
 #[repr(transparent)]
 pub struct LauncherUIOptions(::windows::core::IUnknown);
 impl LauncherUIOptions {
@@ -5246,6 +5294,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Laun
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LauncherUIOptions {}
+unsafe impl ::core::marker::Sync for LauncherUIOptions {}
 pub struct MemoryManager {}
 impl MemoryManager {
     pub fn AppMemoryUsage() -> ::windows::core::Result<u64> {
@@ -5516,6 +5566,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Proc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProcessLauncherOptions {}
+unsafe impl ::core::marker::Sync for ProcessLauncherOptions {}
 #[repr(transparent)]
 pub struct ProcessLauncherResult(::windows::core::IUnknown);
 impl ProcessLauncherResult {
@@ -5588,6 +5640,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Proc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProcessLauncherResult {}
+unsafe impl ::core::marker::Sync for ProcessLauncherResult {}
 #[repr(transparent)]
 pub struct ProcessMemoryReport(::windows::core::IUnknown);
 impl ProcessMemoryReport {
@@ -5667,6 +5721,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Proc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProcessMemoryReport {}
+unsafe impl ::core::marker::Sync for ProcessMemoryReport {}
 #[repr(transparent)]
 pub struct ProcessorArchitecture(pub i32);
 impl ProcessorArchitecture {
@@ -5769,6 +5825,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProtocolForResultsOperation {}
+unsafe impl ::core::marker::Sync for ProtocolForResultsOperation {}
 #[repr(transparent)]
 pub struct RemoteLaunchUriStatus(pub i32);
 impl RemoteLaunchUriStatus {
@@ -5926,6 +5984,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RemoteLauncherOptions {}
+unsafe impl ::core::marker::Sync for RemoteLauncherOptions {}
 #[repr(transparent)]
 pub struct ShutdownKind(pub i32);
 impl ShutdownKind {
@@ -6197,6 +6257,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for User {}
+unsafe impl ::core::marker::Sync for User {}
 #[repr(transparent)]
 pub struct UserAgeConsentGroup(pub i32);
 impl UserAgeConsentGroup {
@@ -6352,6 +6414,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserAuthenticationStatusChangeDeferral {}
+unsafe impl ::core::marker::Sync for UserAuthenticationStatusChangeDeferral {}
 #[repr(transparent)]
 pub struct UserAuthenticationStatusChangingEventArgs(::windows::core::IUnknown);
 impl UserAuthenticationStatusChangingEventArgs {
@@ -6445,6 +6509,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserAuthenticationStatusChangingEventArgs {}
+unsafe impl ::core::marker::Sync for UserAuthenticationStatusChangingEventArgs {}
 #[repr(transparent)]
 pub struct UserChangedEventArgs(::windows::core::IUnknown);
 impl UserChangedEventArgs {
@@ -6525,6 +6591,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserChangedEventArgs {}
+unsafe impl ::core::marker::Sync for UserChangedEventArgs {}
 pub struct UserDeviceAssociation {}
 impl UserDeviceAssociation {
     pub fn FindUserFromDeviceId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<User> {
@@ -6638,6 +6706,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDeviceAssociationChangedEventArgs {}
+unsafe impl ::core::marker::Sync for UserDeviceAssociationChangedEventArgs {}
 #[repr(transparent)]
 pub struct UserPicker(::windows::core::IUnknown);
 impl UserPicker {
@@ -6750,6 +6820,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserPicker {}
+unsafe impl ::core::marker::Sync for UserPicker {}
 #[repr(transparent)]
 pub struct UserPictureSize(pub i32);
 impl UserPictureSize {
@@ -6980,6 +7052,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserWatcher {}
+unsafe impl ::core::marker::Sync for UserWatcher {}
 #[repr(transparent)]
 pub struct UserWatcherStatus(pub i32);
 impl UserWatcherStatus {

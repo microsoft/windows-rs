@@ -207,6 +207,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataAvailabilityStateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for UserDataAvailabilityStateChangedEventArgs {}
 #[repr(transparent)]
 pub struct UserDataBufferUnprotectResult(::windows::core::IUnknown);
 impl UserDataBufferUnprotectResult {
@@ -287,6 +289,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataBufferUnprotectResult {}
+unsafe impl ::core::marker::Sync for UserDataBufferUnprotectResult {}
 #[repr(transparent)]
 pub struct UserDataBufferUnprotectStatus(pub i32);
 impl UserDataBufferUnprotectStatus {
@@ -448,6 +452,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataProtectionManager {}
+unsafe impl ::core::marker::Sync for UserDataProtectionManager {}
 #[repr(transparent)]
 pub struct UserDataStorageItemProtectionInfo(::windows::core::IUnknown);
 impl UserDataStorageItemProtectionInfo {
@@ -520,6 +526,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UserDataStorageItemProtectionInfo {}
+unsafe impl ::core::marker::Sync for UserDataStorageItemProtectionInfo {}
 #[repr(transparent)]
 pub struct UserDataStorageItemProtectionStatus(pub i32);
 impl UserDataStorageItemProtectionStatus {

@@ -1332,6 +1332,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &IRa
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for IRawElementProviderSimple {}
+unsafe impl ::core::marker::Sync for IRawElementProviderSimple {}
 #[repr(transparent)]
 pub struct IScrollItemProvider(::windows::core::IUnknown);
 impl IScrollItemProvider {

@@ -764,6 +764,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowBackgroundSession {}
+unsafe impl ::core::marker::Sync for PrintWorkflowBackgroundSession {}
 #[repr(transparent)]
 pub struct PrintWorkflowBackgroundSetupRequestedEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowBackgroundSetupRequestedEventArgs {
@@ -856,6 +858,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowBackgroundSetupRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for PrintWorkflowBackgroundSetupRequestedEventArgs {}
 #[repr(transparent)]
 pub struct PrintWorkflowConfiguration(::windows::core::IUnknown);
 impl PrintWorkflowConfiguration {
@@ -946,6 +950,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowConfiguration {}
+unsafe impl ::core::marker::Sync for PrintWorkflowConfiguration {}
 #[repr(transparent)]
 pub struct PrintWorkflowForegroundSession(::windows::core::IUnknown);
 impl PrintWorkflowForegroundSession {
@@ -1048,6 +1054,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowForegroundSession {}
+unsafe impl ::core::marker::Sync for PrintWorkflowForegroundSession {}
 #[repr(transparent)]
 pub struct PrintWorkflowForegroundSetupRequestedEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowForegroundSetupRequestedEventArgs {
@@ -1136,6 +1144,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowForegroundSetupRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for PrintWorkflowForegroundSetupRequestedEventArgs {}
 #[repr(transparent)]
 pub struct PrintWorkflowJobAbortReason(pub i32);
 impl PrintWorkflowJobAbortReason {
@@ -1319,6 +1329,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::ApplicationModel::A
         ::core::convert::TryInto::<super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowJobActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for PrintWorkflowJobActivatedEventArgs {}
 #[repr(transparent)]
 pub struct PrintWorkflowJobBackgroundSession(::windows::core::IUnknown);
 impl PrintWorkflowJobBackgroundSession {
@@ -1421,6 +1433,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowJobBackgroundSession {}
+unsafe impl ::core::marker::Sync for PrintWorkflowJobBackgroundSession {}
 #[repr(transparent)]
 pub struct PrintWorkflowJobNotificationEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowJobNotificationEventArgs {
@@ -1508,6 +1522,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowJobNotificationEventArgs {}
+unsafe impl ::core::marker::Sync for PrintWorkflowJobNotificationEventArgs {}
 #[repr(transparent)]
 pub struct PrintWorkflowJobStartingEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowJobStartingEventArgs {
@@ -1600,6 +1616,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowJobStartingEventArgs {}
+unsafe impl ::core::marker::Sync for PrintWorkflowJobStartingEventArgs {}
 #[repr(transparent)]
 pub struct PrintWorkflowJobTriggerDetails(::windows::core::IUnknown);
 impl PrintWorkflowJobTriggerDetails {
@@ -1672,6 +1690,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowJobTriggerDetails {}
+unsafe impl ::core::marker::Sync for PrintWorkflowJobTriggerDetails {}
 #[repr(transparent)]
 pub struct PrintWorkflowJobUISession(::windows::core::IUnknown);
 impl PrintWorkflowJobUISession {
@@ -1774,6 +1794,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowJobUISession {}
+unsafe impl ::core::marker::Sync for PrintWorkflowJobUISession {}
 #[repr(transparent)]
 pub struct PrintWorkflowObjectModelSourceFileContent(::windows::core::IUnknown);
 impl PrintWorkflowObjectModelSourceFileContent {
@@ -1850,6 +1872,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowObjectModelSourceFileContent {}
+unsafe impl ::core::marker::Sync for PrintWorkflowObjectModelSourceFileContent {}
 #[repr(transparent)]
 pub struct PrintWorkflowObjectModelTargetPackage(::windows::core::IUnknown);
 impl PrintWorkflowObjectModelTargetPackage {}
@@ -1914,6 +1938,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowObjectModelTargetPackage {}
+unsafe impl ::core::marker::Sync for PrintWorkflowObjectModelTargetPackage {}
 #[repr(transparent)]
 pub struct PrintWorkflowPdlConversionType(pub i32);
 impl PrintWorkflowPdlConversionType {
@@ -2015,6 +2041,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowPdlConverter {}
+unsafe impl ::core::marker::Sync for PrintWorkflowPdlConverter {}
 #[repr(transparent)]
 pub struct PrintWorkflowPdlDataAvailableEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowPdlDataAvailableEventArgs {
@@ -2109,6 +2137,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowPdlDataAvailableEventArgs {}
+unsafe impl ::core::marker::Sync for PrintWorkflowPdlDataAvailableEventArgs {}
 #[repr(transparent)]
 pub struct PrintWorkflowPdlModificationRequestedEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowPdlModificationRequestedEventArgs {
@@ -2240,6 +2270,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowPdlModificationRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for PrintWorkflowPdlModificationRequestedEventArgs {}
 #[repr(transparent)]
 pub struct PrintWorkflowPdlSourceContent(::windows::core::IUnknown);
 impl PrintWorkflowPdlSourceContent {
@@ -2328,6 +2360,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowPdlSourceContent {}
+unsafe impl ::core::marker::Sync for PrintWorkflowPdlSourceContent {}
 #[repr(transparent)]
 pub struct PrintWorkflowPdlTargetStream(::windows::core::IUnknown);
 impl PrintWorkflowPdlTargetStream {
@@ -2405,6 +2439,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowPdlTargetStream {}
+unsafe impl ::core::marker::Sync for PrintWorkflowPdlTargetStream {}
 #[repr(transparent)]
 pub struct PrintWorkflowPrinterJob(::windows::core::IUnknown);
 impl PrintWorkflowPrinterJob {
@@ -2532,6 +2568,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowPrinterJob {}
+unsafe impl ::core::marker::Sync for PrintWorkflowPrinterJob {}
 #[repr(transparent)]
 pub struct PrintWorkflowPrinterJobStatus(pub i32);
 impl PrintWorkflowPrinterJobStatus {
@@ -2678,6 +2716,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowSourceContent {}
+unsafe impl ::core::marker::Sync for PrintWorkflowSourceContent {}
 #[repr(transparent)]
 pub struct PrintWorkflowSpoolStreamContent(::windows::core::IUnknown);
 impl PrintWorkflowSpoolStreamContent {
@@ -2751,6 +2791,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowSpoolStreamContent {}
+unsafe impl ::core::marker::Sync for PrintWorkflowSpoolStreamContent {}
 #[repr(transparent)]
 pub struct PrintWorkflowStreamTarget(::windows::core::IUnknown);
 impl PrintWorkflowStreamTarget {
@@ -2824,6 +2866,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowStreamTarget {}
+unsafe impl ::core::marker::Sync for PrintWorkflowStreamTarget {}
 #[repr(transparent)]
 pub struct PrintWorkflowSubmittedEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowSubmittedEventArgs {
@@ -2912,6 +2956,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowSubmittedEventArgs {}
+unsafe impl ::core::marker::Sync for PrintWorkflowSubmittedEventArgs {}
 #[repr(transparent)]
 pub struct PrintWorkflowSubmittedOperation(::windows::core::IUnknown);
 impl PrintWorkflowSubmittedOperation {
@@ -2995,6 +3041,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowSubmittedOperation {}
+unsafe impl ::core::marker::Sync for PrintWorkflowSubmittedOperation {}
 #[repr(transparent)]
 pub struct PrintWorkflowSubmittedStatus(pub i32);
 impl PrintWorkflowSubmittedStatus {
@@ -3102,6 +3150,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowTarget {}
+unsafe impl ::core::marker::Sync for PrintWorkflowTarget {}
 #[repr(transparent)]
 pub struct PrintWorkflowTriggerDetails(::windows::core::IUnknown);
 impl PrintWorkflowTriggerDetails {
@@ -3174,6 +3224,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowTriggerDetails {}
+unsafe impl ::core::marker::Sync for PrintWorkflowTriggerDetails {}
 #[repr(transparent)]
 pub struct PrintWorkflowUIActivatedEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowUIActivatedEventArgs {
@@ -3330,6 +3382,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::ApplicationModel::A
         ::core::convert::TryInto::<super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowUIActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for PrintWorkflowUIActivatedEventArgs {}
 #[repr(transparent)]
 pub struct PrintWorkflowUICompletionStatus(pub i32);
 impl PrintWorkflowUICompletionStatus {
@@ -3439,6 +3493,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowUILauncher {}
+unsafe impl ::core::marker::Sync for PrintWorkflowUILauncher {}
 #[repr(transparent)]
 pub struct PrintWorkflowXpsDataAvailableEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowXpsDataAvailableEventArgs {
@@ -3519,3 +3575,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PrintWorkflowXpsDataAvailableEventArgs {}
+unsafe impl ::core::marker::Sync for PrintWorkflowXpsDataAvailableEventArgs {}

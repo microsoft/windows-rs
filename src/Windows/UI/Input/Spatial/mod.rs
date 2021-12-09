@@ -1275,6 +1275,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialGestureRecognizer {}
+unsafe impl ::core::marker::Sync for SpatialGestureRecognizer {}
 #[repr(transparent)]
 pub struct SpatialGestureSettings(pub u32);
 impl SpatialGestureSettings {
@@ -1383,6 +1385,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialHoldCanceledEventArgs {}
+unsafe impl ::core::marker::Sync for SpatialHoldCanceledEventArgs {}
 #[repr(transparent)]
 pub struct SpatialHoldCompletedEventArgs(::windows::core::IUnknown);
 impl SpatialHoldCompletedEventArgs {
@@ -1455,6 +1459,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialHoldCompletedEventArgs {}
+unsafe impl ::core::marker::Sync for SpatialHoldCompletedEventArgs {}
 #[repr(transparent)]
 pub struct SpatialHoldStartedEventArgs(::windows::core::IUnknown);
 impl SpatialHoldStartedEventArgs {
@@ -1535,6 +1541,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialHoldStartedEventArgs {}
+unsafe impl ::core::marker::Sync for SpatialHoldStartedEventArgs {}
 #[repr(transparent)]
 pub struct SpatialInteraction(::windows::core::IUnknown);
 impl SpatialInteraction {
@@ -1607,6 +1615,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialInteraction {}
+unsafe impl ::core::marker::Sync for SpatialInteraction {}
 #[repr(transparent)]
 pub struct SpatialInteractionController(::windows::core::IUnknown);
 impl SpatialInteractionController {
@@ -1731,6 +1741,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialInteractionController {}
+unsafe impl ::core::marker::Sync for SpatialInteractionController {}
 #[repr(transparent)]
 pub struct SpatialInteractionControllerProperties(::windows::core::IUnknown);
 impl SpatialInteractionControllerProperties {
@@ -1845,6 +1857,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialInteractionControllerProperties {}
+unsafe impl ::core::marker::Sync for SpatialInteractionControllerProperties {}
 #[repr(transparent)]
 pub struct SpatialInteractionDetectedEventArgs(::windows::core::IUnknown);
 impl SpatialInteractionDetectedEventArgs {
@@ -1939,6 +1953,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialInteractionDetectedEventArgs {}
+unsafe impl ::core::marker::Sync for SpatialInteractionDetectedEventArgs {}
 #[repr(transparent)]
 pub struct SpatialInteractionManager(::windows::core::IUnknown);
 impl SpatialInteractionManager {
@@ -2110,6 +2126,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialInteractionManager {}
+unsafe impl ::core::marker::Sync for SpatialInteractionManager {}
 #[repr(transparent)]
 pub struct SpatialInteractionPressKind(pub i32);
 impl SpatialInteractionPressKind {
@@ -2279,6 +2297,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialInteractionSource {}
+unsafe impl ::core::marker::Sync for SpatialInteractionSource {}
 #[repr(transparent)]
 pub struct SpatialInteractionSourceEventArgs(::windows::core::IUnknown);
 impl SpatialInteractionSourceEventArgs {
@@ -2358,6 +2378,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialInteractionSourceEventArgs {}
+unsafe impl ::core::marker::Sync for SpatialInteractionSourceEventArgs {}
 #[repr(transparent)]
 pub struct SpatialInteractionSourceHandedness(pub i32);
 impl SpatialInteractionSourceHandedness {
@@ -2526,6 +2548,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialInteractionSourceLocation {}
+unsafe impl ::core::marker::Sync for SpatialInteractionSourceLocation {}
 #[repr(transparent)]
 pub struct SpatialInteractionSourcePositionAccuracy(pub i32);
 impl SpatialInteractionSourcePositionAccuracy {
@@ -2641,6 +2665,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialInteractionSourceProperties {}
+unsafe impl ::core::marker::Sync for SpatialInteractionSourceProperties {}
 #[repr(transparent)]
 pub struct SpatialInteractionSourceState(::windows::core::IUnknown);
 impl SpatialInteractionSourceState {
@@ -2786,6 +2812,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialInteractionSourceState {}
+unsafe impl ::core::marker::Sync for SpatialInteractionSourceState {}
 #[repr(transparent)]
 pub struct SpatialManipulationCanceledEventArgs(::windows::core::IUnknown);
 impl SpatialManipulationCanceledEventArgs {
@@ -2858,6 +2886,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialManipulationCanceledEventArgs {}
+unsafe impl ::core::marker::Sync for SpatialManipulationCanceledEventArgs {}
 #[repr(transparent)]
 pub struct SpatialManipulationCompletedEventArgs(::windows::core::IUnknown);
 impl SpatialManipulationCompletedEventArgs {
@@ -2938,6 +2968,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialManipulationCompletedEventArgs {}
+unsafe impl ::core::marker::Sync for SpatialManipulationCompletedEventArgs {}
 #[repr(transparent)]
 pub struct SpatialManipulationDelta(::windows::core::IUnknown);
 impl SpatialManipulationDelta {
@@ -3011,6 +3043,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialManipulationDelta {}
+unsafe impl ::core::marker::Sync for SpatialManipulationDelta {}
 #[repr(transparent)]
 pub struct SpatialManipulationStartedEventArgs(::windows::core::IUnknown);
 impl SpatialManipulationStartedEventArgs {
@@ -3091,6 +3125,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialManipulationStartedEventArgs {}
+unsafe impl ::core::marker::Sync for SpatialManipulationStartedEventArgs {}
 #[repr(transparent)]
 pub struct SpatialManipulationUpdatedEventArgs(::windows::core::IUnknown);
 impl SpatialManipulationUpdatedEventArgs {
@@ -3171,6 +3207,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialManipulationUpdatedEventArgs {}
+unsafe impl ::core::marker::Sync for SpatialManipulationUpdatedEventArgs {}
 #[repr(transparent)]
 pub struct SpatialNavigationCanceledEventArgs(::windows::core::IUnknown);
 impl SpatialNavigationCanceledEventArgs {
@@ -3243,6 +3281,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialNavigationCanceledEventArgs {}
+unsafe impl ::core::marker::Sync for SpatialNavigationCanceledEventArgs {}
 #[repr(transparent)]
 pub struct SpatialNavigationCompletedEventArgs(::windows::core::IUnknown);
 impl SpatialNavigationCompletedEventArgs {
@@ -3323,6 +3363,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialNavigationCompletedEventArgs {}
+unsafe impl ::core::marker::Sync for SpatialNavigationCompletedEventArgs {}
 #[repr(transparent)]
 pub struct SpatialNavigationStartedEventArgs(::windows::core::IUnknown);
 impl SpatialNavigationStartedEventArgs {
@@ -3424,6 +3466,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialNavigationStartedEventArgs {}
+unsafe impl ::core::marker::Sync for SpatialNavigationStartedEventArgs {}
 #[repr(transparent)]
 pub struct SpatialNavigationUpdatedEventArgs(::windows::core::IUnknown);
 impl SpatialNavigationUpdatedEventArgs {
@@ -3504,6 +3548,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialNavigationUpdatedEventArgs {}
+unsafe impl ::core::marker::Sync for SpatialNavigationUpdatedEventArgs {}
 #[repr(transparent)]
 pub struct SpatialPointerInteractionSourcePose(::windows::core::IUnknown);
 impl SpatialPointerInteractionSourcePose {
@@ -3608,6 +3654,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialPointerInteractionSourcePose {}
+unsafe impl ::core::marker::Sync for SpatialPointerInteractionSourcePose {}
 #[repr(transparent)]
 pub struct SpatialPointerPose(::windows::core::IUnknown);
 impl SpatialPointerPose {
@@ -3722,6 +3770,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialPointerPose {}
+unsafe impl ::core::marker::Sync for SpatialPointerPose {}
 #[repr(transparent)]
 pub struct SpatialRecognitionEndedEventArgs(::windows::core::IUnknown);
 impl SpatialRecognitionEndedEventArgs {
@@ -3794,6 +3844,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialRecognitionEndedEventArgs {}
+unsafe impl ::core::marker::Sync for SpatialRecognitionEndedEventArgs {}
 #[repr(transparent)]
 pub struct SpatialRecognitionStartedEventArgs(::windows::core::IUnknown);
 impl SpatialRecognitionStartedEventArgs {
@@ -3881,6 +3933,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialRecognitionStartedEventArgs {}
+unsafe impl ::core::marker::Sync for SpatialRecognitionStartedEventArgs {}
 #[repr(transparent)]
 pub struct SpatialTappedEventArgs(::windows::core::IUnknown);
 impl SpatialTappedEventArgs {
@@ -3968,3 +4022,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpatialTappedEventArgs {}
+unsafe impl ::core::marker::Sync for SpatialTappedEventArgs {}

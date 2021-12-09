@@ -147,6 +147,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Adva
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AdvancedColorInfo {}
+unsafe impl ::core::marker::Sync for AdvancedColorInfo {}
 #[repr(transparent)]
 pub struct AdvancedColorKind(pub i32);
 impl AdvancedColorKind {
@@ -346,6 +348,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Brig
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BrightnessOverride {}
+unsafe impl ::core::marker::Sync for BrightnessOverride {}
 #[repr(transparent)]
 pub struct BrightnessOverrideSettings(::windows::core::IUnknown);
 impl BrightnessOverrideSettings {
@@ -447,6 +451,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Brig
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BrightnessOverrideSettings {}
+unsafe impl ::core::marker::Sync for BrightnessOverrideSettings {}
 #[repr(transparent)]
 pub struct ColorOverrideSettings(::windows::core::IUnknown);
 impl ColorOverrideSettings {
@@ -529,6 +535,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Colo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ColorOverrideSettings {}
+unsafe impl ::core::marker::Sync for ColorOverrideSettings {}
 #[repr(transparent)]
 pub struct DisplayBrightnessOverrideOptions(pub u32);
 impl DisplayBrightnessOverrideOptions {
@@ -804,6 +812,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplayEnhancementOverride {}
+unsafe impl ::core::marker::Sync for DisplayEnhancementOverride {}
 #[repr(transparent)]
 pub struct DisplayEnhancementOverrideCapabilities(::windows::core::IUnknown);
 impl DisplayEnhancementOverrideCapabilities {
@@ -891,6 +901,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplayEnhancementOverrideCapabilities {}
+unsafe impl ::core::marker::Sync for DisplayEnhancementOverrideCapabilities {}
 #[repr(transparent)]
 pub struct DisplayEnhancementOverrideCapabilitiesChangedEventArgs(::windows::core::IUnknown);
 impl DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
@@ -963,6 +975,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {}
+unsafe impl ::core::marker::Sync for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {}
 #[repr(transparent)]
 pub struct DisplayInformation(::windows::core::IUnknown);
 impl DisplayInformation {
@@ -1216,6 +1230,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplayInformation {}
+unsafe impl ::core::marker::Sync for DisplayInformation {}
 #[repr(transparent)]
 pub struct DisplayOrientations(pub u32);
 impl DisplayOrientations {
@@ -1519,6 +1535,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DisplayServices {}
+unsafe impl ::core::marker::Sync for DisplayServices {}
 #[repr(transparent)]
 pub struct HdrMetadataFormat(pub i32);
 impl HdrMetadataFormat {

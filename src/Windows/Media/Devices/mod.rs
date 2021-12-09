@@ -84,6 +84,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Adva
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AdvancedPhotoCaptureSettings {}
+unsafe impl ::core::marker::Sync for AdvancedPhotoCaptureSettings {}
 #[repr(transparent)]
 pub struct AdvancedPhotoControl(::windows::core::IUnknown);
 impl AdvancedPhotoControl {
@@ -175,6 +177,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Adva
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AdvancedPhotoControl {}
+unsafe impl ::core::marker::Sync for AdvancedPhotoControl {}
 #[repr(transparent)]
 pub struct AdvancedPhotoMode(pub i32);
 impl AdvancedPhotoMode {
@@ -525,6 +529,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AudioDeviceModuleNotificationEventArgs {}
+unsafe impl ::core::marker::Sync for AudioDeviceModuleNotificationEventArgs {}
 #[repr(transparent)]
 pub struct AudioDeviceModulesManager(::windows::core::IUnknown);
 impl AudioDeviceModulesManager {
@@ -629,6 +635,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AudioDeviceModulesManager {}
+unsafe impl ::core::marker::Sync for AudioDeviceModulesManager {}
 #[repr(transparent)]
 pub struct AudioDeviceRole(pub i32);
 impl AudioDeviceRole {
@@ -872,6 +880,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Call
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CallControl {}
+unsafe impl ::core::marker::Sync for CallControl {}
 #[repr(transparent)]
 pub struct CallControlEventHandler(pub ::windows::core::IUnknown);
 impl CallControlEventHandler {
@@ -1032,6 +1042,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Came
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CameraOcclusionInfo {}
+unsafe impl ::core::marker::Sync for CameraOcclusionInfo {}
 #[repr(transparent)]
 pub struct CameraOcclusionKind(pub i32);
 impl CameraOcclusionKind {
@@ -1138,6 +1150,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Came
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CameraOcclusionState {}
+unsafe impl ::core::marker::Sync for CameraOcclusionState {}
 #[repr(transparent)]
 pub struct CameraOcclusionStateChangedEventArgs(::windows::core::IUnknown);
 impl CameraOcclusionStateChangedEventArgs {
@@ -1210,6 +1224,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Came
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CameraOcclusionStateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for CameraOcclusionStateChangedEventArgs {}
 #[repr(transparent)]
 pub struct CameraStreamState(pub i32);
 impl CameraStreamState {
@@ -1439,6 +1455,8 @@ impl<'a> ::windows::core::IntoParam<'a, IDefaultAudioDeviceChangedEventArgs> for
         ::core::convert::TryInto::<IDefaultAudioDeviceChangedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for DefaultAudioCaptureDeviceChangedEventArgs {}
+unsafe impl ::core::marker::Sync for DefaultAudioCaptureDeviceChangedEventArgs {}
 #[repr(transparent)]
 pub struct DefaultAudioRenderDeviceChangedEventArgs(::windows::core::IUnknown);
 impl DefaultAudioRenderDeviceChangedEventArgs {
@@ -1540,6 +1558,8 @@ impl<'a> ::windows::core::IntoParam<'a, IDefaultAudioDeviceChangedEventArgs> for
         ::core::convert::TryInto::<IDefaultAudioDeviceChangedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for DefaultAudioRenderDeviceChangedEventArgs {}
+unsafe impl ::core::marker::Sync for DefaultAudioRenderDeviceChangedEventArgs {}
 #[repr(transparent)]
 pub struct DialRequestedEventArgs(::windows::core::IUnknown);
 impl DialRequestedEventArgs {
@@ -1616,6 +1636,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dial
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DialRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for DialRequestedEventArgs {}
 #[repr(transparent)]
 pub struct DialRequestedEventHandler(pub ::windows::core::IUnknown);
 impl DialRequestedEventHandler {
@@ -1789,6 +1811,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Digi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DigitalWindowBounds {}
+unsafe impl ::core::marker::Sync for DigitalWindowBounds {}
 #[repr(transparent)]
 pub struct DigitalWindowCapability(::windows::core::IUnknown);
 impl DigitalWindowCapability {
@@ -1897,6 +1921,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Digi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DigitalWindowCapability {}
+unsafe impl ::core::marker::Sync for DigitalWindowCapability {}
 #[repr(transparent)]
 pub struct DigitalWindowControl(::windows::core::IUnknown);
 impl DigitalWindowControl {
@@ -2013,6 +2039,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Digi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DigitalWindowControl {}
+unsafe impl ::core::marker::Sync for DigitalWindowControl {}
 #[repr(transparent)]
 pub struct DigitalWindowMode(pub i32);
 impl DigitalWindowMode {
@@ -2359,6 +2387,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Expo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ExposurePriorityVideoControl {}
+unsafe impl ::core::marker::Sync for ExposurePriorityVideoControl {}
 #[repr(transparent)]
 pub struct FlashControl(::windows::core::IUnknown);
 impl FlashControl {
@@ -2928,6 +2958,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Focu
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for FocusSettings {}
+unsafe impl ::core::marker::Sync for FocusSettings {}
 #[repr(transparent)]
 pub struct HdrVideoControl(::windows::core::IUnknown);
 impl HdrVideoControl {
@@ -3019,6 +3051,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HdrV
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HdrVideoControl {}
+unsafe impl ::core::marker::Sync for HdrVideoControl {}
 #[repr(transparent)]
 pub struct HdrVideoMode(pub i32);
 impl HdrVideoMode {
@@ -4805,6 +4839,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Infr
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InfraredTorchControl {}
+unsafe impl ::core::marker::Sync for InfraredTorchControl {}
 #[repr(transparent)]
 pub struct InfraredTorchMode(pub i32);
 impl InfraredTorchMode {
@@ -5091,6 +5127,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Keyp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for KeypadPressedEventArgs {}
+unsafe impl ::core::marker::Sync for KeypadPressedEventArgs {}
 #[repr(transparent)]
 pub struct KeypadPressedEventHandler(pub ::windows::core::IUnknown);
 impl KeypadPressedEventHandler {
@@ -6005,6 +6043,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Opti
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for OpticalImageStabilizationControl {}
+unsafe impl ::core::marker::Sync for OpticalImageStabilizationControl {}
 #[repr(transparent)]
 pub struct OpticalImageStabilizationMode(pub i32);
 impl OpticalImageStabilizationMode {
@@ -6118,6 +6158,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pane
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PanelBasedOptimizationControl {}
+unsafe impl ::core::marker::Sync for PanelBasedOptimizationControl {}
 #[repr(transparent)]
 pub struct PhotoConfirmationControl(::windows::core::IUnknown);
 impl PhotoConfirmationControl {
@@ -6283,6 +6325,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Redi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RedialRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for RedialRequestedEventArgs {}
 #[repr(transparent)]
 pub struct RedialRequestedEventHandler(pub ::windows::core::IUnknown);
 impl RedialRequestedEventHandler {
@@ -6502,6 +6546,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Regi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RegionOfInterest {}
+unsafe impl ::core::marker::Sync for RegionOfInterest {}
 #[repr(transparent)]
 pub struct RegionOfInterestType(pub i32);
 impl RegionOfInterestType {
@@ -7418,6 +7464,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Vide
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VideoDeviceControllerGetDevicePropertyResult {}
+unsafe impl ::core::marker::Sync for VideoDeviceControllerGetDevicePropertyResult {}
 #[repr(transparent)]
 pub struct VideoDeviceControllerGetDevicePropertyStatus(pub i32);
 impl VideoDeviceControllerGetDevicePropertyStatus {
@@ -7572,6 +7620,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Vide
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VideoTemporalDenoisingControl {}
+unsafe impl ::core::marker::Sync for VideoTemporalDenoisingControl {}
 #[repr(transparent)]
 pub struct VideoTemporalDenoisingMode(pub i32);
 impl VideoTemporalDenoisingMode {
@@ -7940,6 +7990,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Zoom
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ZoomSettings {}
+unsafe impl ::core::marker::Sync for ZoomSettings {}
 #[repr(transparent)]
 pub struct ZoomTransitionMode(pub i32);
 impl ZoomTransitionMode {

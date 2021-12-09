@@ -118,6 +118,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for Direct3D11CaptureFrame {}
+unsafe impl ::core::marker::Sync for Direct3D11CaptureFrame {}
 #[repr(transparent)]
 pub struct Direct3D11CaptureFramePool(::windows::core::IUnknown);
 impl Direct3D11CaptureFramePool {
@@ -276,6 +278,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for Direct3D11CaptureFramePool {}
+unsafe impl ::core::marker::Sync for Direct3D11CaptureFramePool {}
 pub struct GraphicsCaptureAccess {}
 impl GraphicsCaptureAccess {
     #[cfg(all(feature = "Foundation", feature = "Security_Authorization_AppCapabilityAccess"))]
@@ -440,6 +444,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Grap
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GraphicsCaptureItem {}
+unsafe impl ::core::marker::Sync for GraphicsCaptureItem {}
 #[repr(transparent)]
 pub struct GraphicsCapturePicker(::windows::core::IUnknown);
 impl GraphicsCapturePicker {
@@ -520,6 +526,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Grap
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GraphicsCapturePicker {}
+unsafe impl ::core::marker::Sync for GraphicsCapturePicker {}
 #[repr(transparent)]
 pub struct GraphicsCaptureSession(::windows::core::IUnknown);
 impl GraphicsCaptureSession {
@@ -652,6 +660,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for GraphicsCaptureSession {}
+unsafe impl ::core::marker::Sync for GraphicsCaptureSession {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDirect3D11CaptureFrame(::windows::core::IUnknown);

@@ -130,6 +130,8 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindowEventArgs> for &AcceleratorKe
         ::core::convert::TryInto::<ICoreWindowEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for AcceleratorKeyEventArgs {}
+unsafe impl ::core::marker::Sync for AcceleratorKeyEventArgs {}
 #[repr(transparent)]
 pub struct AppViewBackButtonVisibility(pub i32);
 impl AppViewBackButtonVisibility {
@@ -343,6 +345,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Back
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BackRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for BackRequestedEventArgs {}
 #[repr(transparent)]
 pub struct CharacterReceivedEventArgs(::windows::core::IUnknown);
 impl CharacterReceivedEventArgs {
@@ -683,6 +687,8 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreAcceleratorKeys> for &CoreAccelerat
         ::core::convert::TryInto::<ICoreAcceleratorKeys>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for CoreAcceleratorKeys {}
+unsafe impl ::core::marker::Sync for CoreAcceleratorKeys {}
 #[repr(transparent)]
 pub struct CoreComponentInputSource(::windows::core::IUnknown);
 impl CoreComponentInputSource {
@@ -1091,6 +1097,8 @@ impl<'a> ::windows::core::IntoParam<'a, ICorePointerInputSource2> for &CoreCompo
         ::core::convert::TryInto::<ICorePointerInputSource2>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for CoreComponentInputSource {}
+unsafe impl ::core::marker::Sync for CoreComponentInputSource {}
 #[repr(transparent)]
 pub struct CoreCursor(::windows::core::IUnknown);
 impl CoreCursor {
@@ -1180,6 +1188,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CoreCursor {}
+unsafe impl ::core::marker::Sync for CoreCursor {}
 #[repr(transparent)]
 pub struct CoreCursorType(pub i32);
 impl CoreCursorType {
@@ -1393,6 +1403,8 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreAcceleratorKeys> for &CoreDispatche
         ::core::convert::TryInto::<ICoreAcceleratorKeys>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for CoreDispatcher {}
+unsafe impl ::core::marker::Sync for CoreDispatcher {}
 #[repr(transparent)]
 pub struct CoreDispatcherPriority(pub i32);
 impl CoreDispatcherPriority {
@@ -1809,6 +1821,8 @@ impl<'a> ::windows::core::IntoParam<'a, ICorePointerRedirector> for &CoreIndepen
         ::core::convert::TryInto::<ICorePointerRedirector>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for CoreIndependentInputSource {}
+unsafe impl ::core::marker::Sync for CoreIndependentInputSource {}
 #[repr(transparent)]
 pub struct CoreIndependentInputSourceController(::windows::core::IUnknown);
 impl CoreIndependentInputSourceController {
@@ -1960,6 +1974,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for CoreIndependentInputSourceController {}
+unsafe impl ::core::marker::Sync for CoreIndependentInputSourceController {}
 #[repr(transparent)]
 pub struct CoreInputDeviceTypes(pub u32);
 impl CoreInputDeviceTypes {
@@ -3410,6 +3426,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CoreWindowResizeManager {}
+unsafe impl ::core::marker::Sync for CoreWindowResizeManager {}
 #[repr(transparent)]
 pub struct DispatchedHandler(pub ::windows::core::IUnknown);
 impl DispatchedHandler {
@@ -6443,6 +6461,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SystemNavigationManager {}
+unsafe impl ::core::marker::Sync for SystemNavigationManager {}
 #[repr(transparent)]
 pub struct TouchHitTestingEventArgs(::windows::core::IUnknown);
 impl TouchHitTestingEventArgs {

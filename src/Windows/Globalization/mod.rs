@@ -788,6 +788,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cale
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Calendar {}
+unsafe impl ::core::marker::Sync for Calendar {}
 pub struct CalendarIdentifiers {}
 impl CalendarIdentifiers {
     pub fn Gregorian() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1007,6 +1009,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Curr
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CurrencyAmount {}
+unsafe impl ::core::marker::Sync for CurrencyAmount {}
 pub struct CurrencyIdentifiers {}
 impl CurrencyIdentifiers {
     pub fn AED() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2171,6 +2175,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geog
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GeographicRegion {}
+unsafe impl ::core::marker::Sync for GeographicRegion {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IApplicationLanguagesStatics(::windows::core::IUnknown);
@@ -3334,6 +3340,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lang
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Language {}
+unsafe impl ::core::marker::Sync for Language {}
 #[repr(transparent)]
 pub struct LanguageLayoutDirection(pub i32);
 impl LanguageLayoutDirection {

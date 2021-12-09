@@ -27,7 +27,7 @@ fn test_cpp_failure() -> Result<()> {
     assert_eq!(result.is_err(), true);
 
     // E_NOINTERFACE is returned because IWeakReferenceSource is not implemented.
-    assert_eq!(result.unwrap_err().code(), E_NOINTERFACE);
+    assert_eq!(result.err().unwrap().code(), E_NOINTERFACE);
 
     Ok(())
 }

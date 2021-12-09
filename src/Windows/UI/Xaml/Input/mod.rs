@@ -71,6 +71,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acce
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AccessKeyDisplayDismissedEventArgs {}
+unsafe impl ::core::marker::Sync for AccessKeyDisplayDismissedEventArgs {}
 #[repr(transparent)]
 pub struct AccessKeyDisplayRequestedEventArgs(::windows::core::IUnknown);
 impl AccessKeyDisplayRequestedEventArgs {
@@ -150,6 +152,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acce
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AccessKeyDisplayRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for AccessKeyDisplayRequestedEventArgs {}
 #[repr(transparent)]
 pub struct AccessKeyInvokedEventArgs(::windows::core::IUnknown);
 impl AccessKeyInvokedEventArgs {
@@ -233,6 +237,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acce
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AccessKeyInvokedEventArgs {}
+unsafe impl ::core::marker::Sync for AccessKeyInvokedEventArgs {}
 #[repr(transparent)]
 pub struct AccessKeyManager(::windows::core::IUnknown);
 impl AccessKeyManager {
@@ -335,6 +341,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acce
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AccessKeyManager {}
+unsafe impl ::core::marker::Sync for AccessKeyManager {}
 #[repr(transparent)]
 pub struct CanExecuteRequestedEventArgs(::windows::core::IUnknown);
 impl CanExecuteRequestedEventArgs {
@@ -418,6 +426,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CanE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CanExecuteRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for CanExecuteRequestedEventArgs {}
 #[repr(transparent)]
 pub struct CharacterReceivedRoutedEventArgs(::windows::core::IUnknown);
 impl CharacterReceivedRoutedEventArgs {
@@ -529,6 +539,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &CharacterRe
         ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CharacterReceivedRoutedEventArgs {}
+unsafe impl ::core::marker::Sync for CharacterReceivedRoutedEventArgs {}
 #[repr(transparent)]
 pub struct ContextRequestedEventArgs(::windows::core::IUnknown);
 impl ContextRequestedEventArgs {
@@ -640,6 +652,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &ContextRequ
         ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ContextRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for ContextRequestedEventArgs {}
 #[repr(transparent)]
 pub struct DoubleTappedEventHandler(pub ::windows::core::IUnknown);
 impl DoubleTappedEventHandler {
@@ -827,6 +841,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &DoubleTappe
         ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DoubleTappedRoutedEventArgs {}
+unsafe impl ::core::marker::Sync for DoubleTappedRoutedEventArgs {}
 #[repr(transparent)]
 pub struct ExecuteRequestedEventArgs(::windows::core::IUnknown);
 impl ExecuteRequestedEventArgs {
@@ -899,6 +915,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Exec
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ExecuteRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for ExecuteRequestedEventArgs {}
 #[repr(transparent)]
 pub struct FindNextElementOptions(::windows::core::IUnknown);
 impl FindNextElementOptions {
@@ -1019,6 +1037,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Find
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for FindNextElementOptions {}
+unsafe impl ::core::marker::Sync for FindNextElementOptions {}
 #[repr(transparent)]
 pub struct FocusInputDeviceKind(pub i32);
 impl FocusInputDeviceKind {
@@ -1269,6 +1289,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Focu
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for FocusManager {}
+unsafe impl ::core::marker::Sync for FocusManager {}
 #[repr(transparent)]
 pub struct FocusManagerGotFocusEventArgs(::windows::core::IUnknown);
 impl FocusManagerGotFocusEventArgs {
@@ -1348,6 +1370,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Focu
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for FocusManagerGotFocusEventArgs {}
+unsafe impl ::core::marker::Sync for FocusManagerGotFocusEventArgs {}
 #[repr(transparent)]
 pub struct FocusManagerLostFocusEventArgs(::windows::core::IUnknown);
 impl FocusManagerLostFocusEventArgs {
@@ -1427,6 +1451,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Focu
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for FocusManagerLostFocusEventArgs {}
+unsafe impl ::core::marker::Sync for FocusManagerLostFocusEventArgs {}
 #[repr(transparent)]
 pub struct FocusMovementResult(::windows::core::IUnknown);
 impl FocusMovementResult {
@@ -1499,6 +1525,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Focu
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for FocusMovementResult {}
+unsafe impl ::core::marker::Sync for FocusMovementResult {}
 #[repr(transparent)]
 pub struct FocusNavigationDirection(pub i32);
 impl FocusNavigationDirection {
@@ -1698,6 +1726,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &GettingFocu
         ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for GettingFocusEventArgs {}
+unsafe impl ::core::marker::Sync for GettingFocusEventArgs {}
 #[repr(transparent)]
 pub struct HoldingEventHandler(pub ::windows::core::IUnknown);
 impl HoldingEventHandler {
@@ -1893,6 +1923,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &HoldingRout
         ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for HoldingRoutedEventArgs {}
+unsafe impl ::core::marker::Sync for HoldingRoutedEventArgs {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAccessKeyDisplayDismissedEventArgs(::windows::core::IUnknown);
@@ -3512,6 +3544,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Iner
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InertiaExpansionBehavior {}
+unsafe impl ::core::marker::Sync for InertiaExpansionBehavior {}
 #[repr(transparent)]
 pub struct InertiaRotationBehavior(::windows::core::IUnknown);
 impl InertiaRotationBehavior {
@@ -3599,6 +3633,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Iner
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InertiaRotationBehavior {}
+unsafe impl ::core::marker::Sync for InertiaRotationBehavior {}
 #[repr(transparent)]
 pub struct InertiaTranslationBehavior(::windows::core::IUnknown);
 impl InertiaTranslationBehavior {
@@ -3686,6 +3722,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Iner
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for InertiaTranslationBehavior {}
+unsafe impl ::core::marker::Sync for InertiaTranslationBehavior {}
 #[repr(transparent)]
 pub struct InputScope(::windows::core::IUnknown);
 impl InputScope {
@@ -3786,6 +3824,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &InputScope
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for InputScope {}
+unsafe impl ::core::marker::Sync for InputScope {}
 #[repr(transparent)]
 pub struct InputScopeName(::windows::core::IUnknown);
 impl InputScopeName {
@@ -3899,6 +3939,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &InputScope
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for InputScopeName {}
+unsafe impl ::core::marker::Sync for InputScopeName {}
 #[repr(transparent)]
 pub struct InputScopeNameValue(pub i32);
 impl InputScopeNameValue {
@@ -4163,6 +4205,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &KeyRoutedEv
         ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for KeyRoutedEventArgs {}
+unsafe impl ::core::marker::Sync for KeyRoutedEventArgs {}
 #[repr(transparent)]
 pub struct KeyTipPlacementMode(pub i32);
 impl KeyTipPlacementMode {
@@ -4379,6 +4423,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &KeyboardAc
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for KeyboardAccelerator {}
+unsafe impl ::core::marker::Sync for KeyboardAccelerator {}
 #[repr(transparent)]
 pub struct KeyboardAcceleratorInvokedEventArgs(::windows::core::IUnknown);
 impl KeyboardAcceleratorInvokedEventArgs {
@@ -4469,6 +4515,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Keyb
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for KeyboardAcceleratorInvokedEventArgs {}
+unsafe impl ::core::marker::Sync for KeyboardAcceleratorInvokedEventArgs {}
 #[repr(transparent)]
 pub struct KeyboardAcceleratorPlacementMode(pub i32);
 impl KeyboardAcceleratorPlacementMode {
@@ -4691,6 +4739,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &LosingFocus
         ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for LosingFocusEventArgs {}
+unsafe impl ::core::marker::Sync for LosingFocusEventArgs {}
 #[repr(transparent)]
 pub struct ManipulationCompletedEventHandler(pub ::windows::core::IUnknown);
 impl ManipulationCompletedEventHandler {
@@ -4908,6 +4958,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &Manipulatio
         ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ManipulationCompletedRoutedEventArgs {}
+unsafe impl ::core::marker::Sync for ManipulationCompletedRoutedEventArgs {}
 #[repr(transparent)]
 pub struct ManipulationDeltaEventHandler(pub ::windows::core::IUnknown);
 impl ManipulationDeltaEventHandler {
@@ -5137,6 +5189,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &Manipulatio
         ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ManipulationDeltaRoutedEventArgs {}
+unsafe impl ::core::marker::Sync for ManipulationDeltaRoutedEventArgs {}
 #[repr(transparent)]
 pub struct ManipulationInertiaStartingEventHandler(pub ::windows::core::IUnknown);
 impl ManipulationInertiaStartingEventHandler {
@@ -5380,6 +5434,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &Manipulatio
         ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ManipulationInertiaStartingRoutedEventArgs {}
+unsafe impl ::core::marker::Sync for ManipulationInertiaStartingRoutedEventArgs {}
 #[repr(transparent)]
 pub struct ManipulationModes(pub u32);
 impl ManipulationModes {
@@ -5524,6 +5580,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mani
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ManipulationPivot {}
+unsafe impl ::core::marker::Sync for ManipulationPivot {}
 #[repr(transparent)]
 pub struct ManipulationStartedEventHandler(pub ::windows::core::IUnknown);
 impl ManipulationStartedEventHandler {
@@ -5733,6 +5791,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &Manipulatio
         ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ManipulationStartedRoutedEventArgs {}
+unsafe impl ::core::marker::Sync for ManipulationStartedRoutedEventArgs {}
 #[repr(transparent)]
 pub struct ManipulationStartingEventHandler(pub ::windows::core::IUnknown);
 impl ManipulationStartingEventHandler {
@@ -5937,6 +5997,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &Manipulatio
         ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ManipulationStartingRoutedEventArgs {}
+unsafe impl ::core::marker::Sync for ManipulationStartingRoutedEventArgs {}
 #[repr(transparent)]
 pub struct NoFocusCandidateFoundEventArgs(::windows::core::IUnknown);
 impl NoFocusCandidateFoundEventArgs {
@@ -6047,6 +6109,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &NoFocusCand
         ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for NoFocusCandidateFoundEventArgs {}
+unsafe impl ::core::marker::Sync for NoFocusCandidateFoundEventArgs {}
 #[repr(transparent)]
 pub struct Pointer(::windows::core::IUnknown);
 impl Pointer {
@@ -6141,6 +6205,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Poin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Pointer {}
+unsafe impl ::core::marker::Sync for Pointer {}
 #[repr(transparent)]
 pub struct PointerEventHandler(pub ::windows::core::IUnknown);
 impl PointerEventHandler {
@@ -6343,6 +6409,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &PointerRout
         ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PointerRoutedEventArgs {}
+unsafe impl ::core::marker::Sync for PointerRoutedEventArgs {}
 #[repr(transparent)]
 pub struct ProcessKeyboardAcceleratorEventArgs(::windows::core::IUnknown);
 impl ProcessKeyboardAcceleratorEventArgs {
@@ -6435,6 +6503,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Proc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProcessKeyboardAcceleratorEventArgs {}
+unsafe impl ::core::marker::Sync for ProcessKeyboardAcceleratorEventArgs {}
 #[repr(transparent)]
 pub struct RightTappedEventHandler(pub ::windows::core::IUnknown);
 impl RightTappedEventHandler {
@@ -6622,6 +6692,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &RightTapped
         ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for RightTappedRoutedEventArgs {}
+unsafe impl ::core::marker::Sync for RightTappedRoutedEventArgs {}
 #[repr(transparent)]
 pub struct StandardUICommand(::windows::core::IUnknown);
 impl StandardUICommand {
@@ -6786,6 +6858,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &StandardUI
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for StandardUICommand {}
+unsafe impl ::core::marker::Sync for StandardUICommand {}
 #[repr(transparent)]
 pub struct StandardUICommandKind(pub i32);
 impl StandardUICommandKind {
@@ -7015,6 +7089,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &TappedRoute
         ::windows::core::Param::Owned(::core::convert::Into::<super::RoutedEventArgs>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for TappedRoutedEventArgs {}
+unsafe impl ::core::marker::Sync for TappedRoutedEventArgs {}
 #[repr(transparent)]
 pub struct XYFocusKeyboardNavigationMode(pub i32);
 impl XYFocusKeyboardNavigationMode {
@@ -7378,3 +7454,5 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &XamlUIComm
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for XamlUICommand {}
+unsafe impl ::core::marker::Sync for XamlUICommand {}

@@ -254,6 +254,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &DesktopWi
         ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DesktopWindowTarget {}
+unsafe impl ::core::marker::Sync for DesktopWindowTarget {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDesktopWindowTarget(::windows::core::IUnknown);

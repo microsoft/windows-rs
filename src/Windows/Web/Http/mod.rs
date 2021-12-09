@@ -230,6 +230,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
         ::core::convert::TryInto::<super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpBufferContent {}
+unsafe impl ::core::marker::Sync for HttpBufferContent {}
 #[repr(transparent)]
 pub struct HttpClient(::windows::core::IUnknown);
 impl HttpClient {
@@ -546,6 +548,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
         ::core::convert::TryInto::<super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpClient {}
+unsafe impl ::core::marker::Sync for HttpClient {}
 #[repr(transparent)]
 pub struct HttpCompletionOption(pub i32);
 impl HttpCompletionOption {
@@ -749,6 +753,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
         ::core::convert::TryInto::<super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpCookie {}
+unsafe impl ::core::marker::Sync for HttpCookie {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct HttpCookieCollection(::windows::core::IUnknown);
@@ -948,6 +954,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IVectorView<HttpCookie>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for HttpCookieCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for HttpCookieCollection {}
 #[repr(transparent)]
 pub struct HttpCookieManager(::windows::core::IUnknown);
 impl HttpCookieManager {
@@ -1039,6 +1049,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Http
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for HttpCookieManager {}
+unsafe impl ::core::marker::Sync for HttpCookieManager {}
 #[repr(transparent)]
 pub struct HttpFormUrlEncodedContent(::windows::core::IUnknown);
 impl HttpFormUrlEncodedContent {
@@ -1257,6 +1269,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
         ::core::convert::TryInto::<super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpFormUrlEncodedContent {}
+unsafe impl ::core::marker::Sync for HttpFormUrlEncodedContent {}
 #[repr(transparent)]
 pub struct HttpGetBufferResult(::windows::core::IUnknown);
 impl HttpGetBufferResult {
@@ -1423,6 +1437,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
         ::core::convert::TryInto::<super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpGetBufferResult {}
+unsafe impl ::core::marker::Sync for HttpGetBufferResult {}
 #[repr(transparent)]
 pub struct HttpGetInputStreamResult(::windows::core::IUnknown);
 impl HttpGetInputStreamResult {
@@ -1589,6 +1605,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
         ::core::convert::TryInto::<super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpGetInputStreamResult {}
+unsafe impl ::core::marker::Sync for HttpGetInputStreamResult {}
 #[repr(transparent)]
 pub struct HttpGetStringResult(::windows::core::IUnknown);
 impl HttpGetStringResult {
@@ -1754,6 +1772,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
         ::core::convert::TryInto::<super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpGetStringResult {}
+unsafe impl ::core::marker::Sync for HttpGetStringResult {}
 #[repr(transparent)]
 pub struct HttpMethod(::windows::core::IUnknown);
 impl HttpMethod {
@@ -1916,6 +1936,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
         ::core::convert::TryInto::<super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpMethod {}
+unsafe impl ::core::marker::Sync for HttpMethod {}
 #[repr(transparent)]
 pub struct HttpMultipartContent(::windows::core::IUnknown);
 impl HttpMultipartContent {
@@ -2200,6 +2222,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
         ::core::convert::TryInto::<super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpMultipartContent {}
+unsafe impl ::core::marker::Sync for HttpMultipartContent {}
 #[repr(transparent)]
 pub struct HttpMultipartFormDataContent(::windows::core::IUnknown);
 impl HttpMultipartFormDataContent {
@@ -2486,6 +2510,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
         ::core::convert::TryInto::<super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpMultipartFormDataContent {}
+unsafe impl ::core::marker::Sync for HttpMultipartFormDataContent {}
 #[repr(C)]
 #[cfg(feature = "Foundation")]
 pub struct HttpProgress {
@@ -2776,6 +2802,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
         ::core::convert::TryInto::<super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpRequestMessage {}
+unsafe impl ::core::marker::Sync for HttpRequestMessage {}
 #[repr(transparent)]
 pub struct HttpRequestResult(::windows::core::IUnknown);
 impl HttpRequestResult {
@@ -2934,6 +2962,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
         ::core::convert::TryInto::<super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpRequestResult {}
+unsafe impl ::core::marker::Sync for HttpRequestResult {}
 #[repr(transparent)]
 pub struct HttpResponseMessage(::windows::core::IUnknown);
 impl HttpResponseMessage {
@@ -3169,6 +3199,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
         ::core::convert::TryInto::<super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpResponseMessage {}
+unsafe impl ::core::marker::Sync for HttpResponseMessage {}
 #[repr(transparent)]
 pub struct HttpResponseMessageSource(pub i32);
 impl HttpResponseMessageSource {
@@ -3498,6 +3530,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
         ::core::convert::TryInto::<super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpStreamContent {}
+unsafe impl ::core::marker::Sync for HttpStreamContent {}
 #[repr(transparent)]
 pub struct HttpStringContent(::windows::core::IUnknown);
 impl HttpStringContent {
@@ -3729,6 +3763,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
         ::core::convert::TryInto::<super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpStringContent {}
+unsafe impl ::core::marker::Sync for HttpStringContent {}
 #[repr(transparent)]
 pub struct HttpTransportInformation(::windows::core::IUnknown);
 impl HttpTransportInformation {
@@ -3860,6 +3896,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
         ::core::convert::TryInto::<super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HttpTransportInformation {}
+unsafe impl ::core::marker::Sync for HttpTransportInformation {}
 #[repr(transparent)]
 pub struct HttpVersion(pub i32);
 impl HttpVersion {

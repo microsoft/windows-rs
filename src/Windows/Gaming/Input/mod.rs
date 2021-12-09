@@ -240,6 +240,8 @@ impl<'a> ::windows::core::IntoParam<'a, IGameControllerBatteryInfo> for &ArcadeS
         ::core::convert::TryInto::<IGameControllerBatteryInfo>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ArcadeStick {}
+unsafe impl ::core::marker::Sync for ArcadeStick {}
 #[repr(transparent)]
 pub struct ArcadeStickButtons(pub u32);
 impl ArcadeStickButtons {
@@ -547,6 +549,8 @@ impl<'a> ::windows::core::IntoParam<'a, IGameControllerBatteryInfo> for &FlightS
         ::core::convert::TryInto::<IGameControllerBatteryInfo>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for FlightStick {}
+unsafe impl ::core::marker::Sync for FlightStick {}
 #[repr(transparent)]
 pub struct FlightStickButtons(pub u32);
 impl FlightStickButtons {
@@ -1013,6 +1017,8 @@ impl<'a> ::windows::core::IntoParam<'a, IGameControllerBatteryInfo> for &Gamepad
         ::core::convert::TryInto::<IGameControllerBatteryInfo>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for Gamepad {}
+unsafe impl ::core::marker::Sync for Gamepad {}
 #[repr(transparent)]
 pub struct GamepadButtons(pub u32);
 impl GamepadButtons {
@@ -1236,6 +1242,8 @@ impl<'a> ::windows::core::IntoParam<'a, IGameControllerBatteryInfo> for &Headset
         ::core::convert::TryInto::<IGameControllerBatteryInfo>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for Headset {}
+unsafe impl ::core::marker::Sync for Headset {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IArcadeStick(::windows::core::IUnknown);
@@ -2209,6 +2217,8 @@ impl<'a> ::windows::core::IntoParam<'a, IGameControllerBatteryInfo> for &RacingW
         ::core::convert::TryInto::<IGameControllerBatteryInfo>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for RacingWheel {}
+unsafe impl ::core::marker::Sync for RacingWheel {}
 #[repr(transparent)]
 pub struct RacingWheelButtons(pub u32);
 impl RacingWheelButtons {
@@ -2597,6 +2607,8 @@ impl<'a> ::windows::core::IntoParam<'a, IGameControllerBatteryInfo> for &RawGame
         ::core::convert::TryInto::<IGameControllerBatteryInfo>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for RawGameController {}
+unsafe impl ::core::marker::Sync for RawGameController {}
 #[repr(transparent)]
 pub struct RequiredUINavigationButtons(pub u32);
 impl RequiredUINavigationButtons {
@@ -2873,6 +2885,8 @@ impl<'a> ::windows::core::IntoParam<'a, IGameControllerBatteryInfo> for &UINavig
         ::core::convert::TryInto::<IGameControllerBatteryInfo>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for UINavigationController {}
+unsafe impl ::core::marker::Sync for UINavigationController {}
 #[repr(C)]
 pub struct UINavigationReading {
     pub Timestamp: u64,

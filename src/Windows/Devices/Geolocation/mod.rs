@@ -164,6 +164,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Civi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CivicAddress {}
+unsafe impl ::core::marker::Sync for CivicAddress {}
 #[repr(transparent)]
 pub struct GeoboundingBox(::windows::core::IUnknown);
 impl GeoboundingBox {
@@ -354,6 +356,8 @@ impl<'a> ::windows::core::IntoParam<'a, IGeoshape> for &GeoboundingBox {
         ::core::convert::TryInto::<IGeoshape>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for GeoboundingBox {}
+unsafe impl ::core::marker::Sync for GeoboundingBox {}
 #[repr(transparent)]
 pub struct Geocircle(::windows::core::IUnknown);
 impl Geocircle {
@@ -498,6 +502,8 @@ impl<'a> ::windows::core::IntoParam<'a, IGeoshape> for &Geocircle {
         ::core::convert::TryInto::<IGeoshape>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for Geocircle {}
+unsafe impl ::core::marker::Sync for Geocircle {}
 #[repr(transparent)]
 pub struct Geocoordinate(::windows::core::IUnknown);
 impl Geocoordinate {
@@ -663,6 +669,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geoc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Geocoordinate {}
+unsafe impl ::core::marker::Sync for Geocoordinate {}
 #[repr(transparent)]
 pub struct GeocoordinateSatelliteData(::windows::core::IUnknown);
 impl GeocoordinateSatelliteData {
@@ -768,6 +776,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geoc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GeocoordinateSatelliteData {}
+unsafe impl ::core::marker::Sync for GeocoordinateSatelliteData {}
 #[repr(transparent)]
 pub struct GeolocationAccessStatus(pub i32);
 impl GeolocationAccessStatus {
@@ -1013,6 +1023,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geol
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Geolocator {}
+unsafe impl ::core::marker::Sync for Geolocator {}
 #[repr(transparent)]
 pub struct Geopath(::windows::core::IUnknown);
 impl Geopath {
@@ -1154,6 +1166,8 @@ impl<'a> ::windows::core::IntoParam<'a, IGeoshape> for &Geopath {
         ::core::convert::TryInto::<IGeoshape>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for Geopath {}
+unsafe impl ::core::marker::Sync for Geopath {}
 #[repr(transparent)]
 pub struct Geopoint(::windows::core::IUnknown);
 impl Geopoint {
@@ -1291,6 +1305,8 @@ impl<'a> ::windows::core::IntoParam<'a, IGeoshape> for &Geopoint {
         ::core::convert::TryInto::<IGeoshape>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for Geopoint {}
+unsafe impl ::core::marker::Sync for Geopoint {}
 #[repr(transparent)]
 pub struct Geoposition(::windows::core::IUnknown);
 impl Geoposition {
@@ -1377,6 +1393,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geop
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Geoposition {}
+unsafe impl ::core::marker::Sync for Geoposition {}
 #[repr(transparent)]
 pub struct GeoshapeType(pub i32);
 impl GeoshapeType {
@@ -1493,6 +1511,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geov
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for Geovisit {}
+unsafe impl ::core::marker::Sync for Geovisit {}
 #[repr(transparent)]
 pub struct GeovisitMonitor(::windows::core::IUnknown);
 impl GeovisitMonitor {
@@ -1604,6 +1624,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geov
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GeovisitMonitor {}
+unsafe impl ::core::marker::Sync for GeovisitMonitor {}
 #[repr(transparent)]
 pub struct GeovisitStateChangedEventArgs(::windows::core::IUnknown);
 impl GeovisitStateChangedEventArgs {
@@ -1676,6 +1698,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geov
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GeovisitStateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for GeovisitStateChangedEventArgs {}
 #[repr(transparent)]
 pub struct GeovisitTriggerDetails(::windows::core::IUnknown);
 impl GeovisitTriggerDetails {
@@ -1749,6 +1773,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geov
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GeovisitTriggerDetails {}
+unsafe impl ::core::marker::Sync for GeovisitTriggerDetails {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICivicAddress(::windows::core::IUnknown);
@@ -2612,6 +2638,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Posi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PositionChangedEventArgs {}
+unsafe impl ::core::marker::Sync for PositionChangedEventArgs {}
 #[repr(transparent)]
 pub struct PositionSource(pub i32);
 impl PositionSource {
@@ -2747,6 +2775,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stat
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StatusChangedEventArgs {}
+unsafe impl ::core::marker::Sync for StatusChangedEventArgs {}
 #[repr(transparent)]
 pub struct VenueData(::windows::core::IUnknown);
 impl VenueData {
@@ -2826,6 +2856,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Venu
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for VenueData {}
+unsafe impl ::core::marker::Sync for VenueData {}
 #[repr(transparent)]
 pub struct VisitMonitoringScope(pub i32);
 impl VisitMonitoringScope {

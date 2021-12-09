@@ -338,6 +338,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &App
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for AppBarAutomationPeer {}
+unsafe impl ::core::marker::Sync for AppBarAutomationPeer {}
 #[repr(transparent)]
 pub struct AppBarButtonAutomationPeer(::windows::core::IUnknown);
 impl AppBarButtonAutomationPeer {
@@ -584,6 +586,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &App
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for AppBarButtonAutomationPeer {}
+unsafe impl ::core::marker::Sync for AppBarButtonAutomationPeer {}
 #[repr(transparent)]
 pub struct AppBarToggleButtonAutomationPeer(::windows::core::IUnknown);
 impl AppBarToggleButtonAutomationPeer {
@@ -786,6 +790,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &App
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for AppBarToggleButtonAutomationPeer {}
+unsafe impl ::core::marker::Sync for AppBarToggleButtonAutomationPeer {}
 #[repr(transparent)]
 pub struct AutoSuggestBoxAutomationPeer(::windows::core::IUnknown);
 impl AutoSuggestBoxAutomationPeer {
@@ -953,6 +959,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Aut
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for AutoSuggestBoxAutomationPeer {}
+unsafe impl ::core::marker::Sync for AutoSuggestBoxAutomationPeer {}
 #[repr(transparent)]
 pub struct AutomationControlType(pub i32);
 impl AutomationControlType {
@@ -1765,6 +1773,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Aut
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for AutomationPeer {}
+unsafe impl ::core::marker::Sync for AutomationPeer {}
 #[repr(transparent)]
 pub struct AutomationPeerAnnotation(::windows::core::IUnknown);
 impl AutomationPeerAnnotation {
@@ -1911,6 +1921,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Aut
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for AutomationPeerAnnotation {}
+unsafe impl ::core::marker::Sync for AutomationPeerAnnotation {}
 #[repr(transparent)]
 pub struct AutomationStructureChangeType(pub i32);
 impl AutomationStructureChangeType {
@@ -2129,6 +2141,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &But
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ButtonAutomationPeer {}
+unsafe impl ::core::marker::Sync for ButtonAutomationPeer {}
 #[repr(transparent)]
 pub struct ButtonBaseAutomationPeer(::windows::core::IUnknown);
 impl ButtonBaseAutomationPeer {}
@@ -2253,6 +2267,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &But
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ButtonBaseAutomationPeer {}
+unsafe impl ::core::marker::Sync for ButtonBaseAutomationPeer {}
 #[repr(transparent)]
 pub struct CalendarDatePickerAutomationPeer(::windows::core::IUnknown);
 impl CalendarDatePickerAutomationPeer {
@@ -2467,6 +2483,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Cal
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CalendarDatePickerAutomationPeer {}
+unsafe impl ::core::marker::Sync for CalendarDatePickerAutomationPeer {}
 #[repr(transparent)]
 pub struct CaptureElementAutomationPeer(::windows::core::IUnknown);
 impl CaptureElementAutomationPeer {
@@ -2603,6 +2621,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Cap
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CaptureElementAutomationPeer {}
+unsafe impl ::core::marker::Sync for CaptureElementAutomationPeer {}
 #[repr(transparent)]
 pub struct CheckBoxAutomationPeer(::windows::core::IUnknown);
 impl CheckBoxAutomationPeer {
@@ -2805,6 +2825,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Che
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for CheckBoxAutomationPeer {}
+unsafe impl ::core::marker::Sync for CheckBoxAutomationPeer {}
 #[repr(transparent)]
 pub struct ColorPickerSliderAutomationPeer(::windows::core::IUnknown);
 impl ColorPickerSliderAutomationPeer {
@@ -3007,6 +3029,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Col
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ColorPickerSliderAutomationPeer {}
+unsafe impl ::core::marker::Sync for ColorPickerSliderAutomationPeer {}
 #[repr(transparent)]
 pub struct ColorSpectrumAutomationPeer(::windows::core::IUnknown);
 impl ColorSpectrumAutomationPeer {
@@ -3143,6 +3167,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Col
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ColorSpectrumAutomationPeer {}
+unsafe impl ::core::marker::Sync for ColorSpectrumAutomationPeer {}
 #[repr(transparent)]
 pub struct ComboBoxAutomationPeer(::windows::core::IUnknown);
 impl ComboBoxAutomationPeer {
@@ -3554,6 +3580,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Com
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ComboBoxAutomationPeer {}
+unsafe impl ::core::marker::Sync for ComboBoxAutomationPeer {}
 #[repr(transparent)]
 pub struct ComboBoxItemAutomationPeer(::windows::core::IUnknown);
 impl ComboBoxItemAutomationPeer {
@@ -3690,6 +3718,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Com
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ComboBoxItemAutomationPeer {}
+unsafe impl ::core::marker::Sync for ComboBoxItemAutomationPeer {}
 #[repr(transparent)]
 pub struct ComboBoxItemDataAutomationPeer(::windows::core::IUnknown);
 impl ComboBoxItemDataAutomationPeer {
@@ -3928,6 +3958,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Com
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ComboBoxItemDataAutomationPeer {}
+unsafe impl ::core::marker::Sync for ComboBoxItemDataAutomationPeer {}
 #[repr(transparent)]
 pub struct DatePickerAutomationPeer(::windows::core::IUnknown);
 impl DatePickerAutomationPeer {
@@ -4064,6 +4096,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dat
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DatePickerAutomationPeer {}
+unsafe impl ::core::marker::Sync for DatePickerAutomationPeer {}
 #[repr(transparent)]
 pub struct DatePickerFlyoutPresenterAutomationPeer(::windows::core::IUnknown);
 impl DatePickerFlyoutPresenterAutomationPeer {}
@@ -4188,6 +4222,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dat
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for DatePickerFlyoutPresenterAutomationPeer {}
+unsafe impl ::core::marker::Sync for DatePickerFlyoutPresenterAutomationPeer {}
 #[repr(transparent)]
 pub struct FlipViewAutomationPeer(::windows::core::IUnknown);
 impl FlipViewAutomationPeer {
@@ -4416,6 +4452,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Fli
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for FlipViewAutomationPeer {}
+unsafe impl ::core::marker::Sync for FlipViewAutomationPeer {}
 #[repr(transparent)]
 pub struct FlipViewItemAutomationPeer(::windows::core::IUnknown);
 impl FlipViewItemAutomationPeer {
@@ -4552,6 +4590,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Fli
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for FlipViewItemAutomationPeer {}
+unsafe impl ::core::marker::Sync for FlipViewItemAutomationPeer {}
 #[repr(transparent)]
 pub struct FlipViewItemDataAutomationPeer(::windows::core::IUnknown);
 impl FlipViewItemDataAutomationPeer {
@@ -4790,6 +4830,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Fli
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for FlipViewItemDataAutomationPeer {}
+unsafe impl ::core::marker::Sync for FlipViewItemDataAutomationPeer {}
 #[repr(transparent)]
 pub struct FlyoutPresenterAutomationPeer(::windows::core::IUnknown);
 impl FlyoutPresenterAutomationPeer {
@@ -4926,6 +4968,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Fly
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for FlyoutPresenterAutomationPeer {}
+unsafe impl ::core::marker::Sync for FlyoutPresenterAutomationPeer {}
 #[repr(transparent)]
 pub struct FrameworkElementAutomationPeer(::windows::core::IUnknown);
 impl FrameworkElementAutomationPeer {
@@ -5064,6 +5108,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Fra
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for FrameworkElementAutomationPeer {}
+unsafe impl ::core::marker::Sync for FrameworkElementAutomationPeer {}
 #[repr(transparent)]
 pub struct GridViewAutomationPeer(::windows::core::IUnknown);
 impl GridViewAutomationPeer {
@@ -5338,6 +5384,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Gri
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for GridViewAutomationPeer {}
+unsafe impl ::core::marker::Sync for GridViewAutomationPeer {}
 #[repr(transparent)]
 pub struct GridViewHeaderItemAutomationPeer(::windows::core::IUnknown);
 impl GridViewHeaderItemAutomationPeer {
@@ -5494,6 +5542,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Gri
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for GridViewHeaderItemAutomationPeer {}
+unsafe impl ::core::marker::Sync for GridViewHeaderItemAutomationPeer {}
 #[repr(transparent)]
 pub struct GridViewItemAutomationPeer(::windows::core::IUnknown);
 impl GridViewItemAutomationPeer {
@@ -5630,6 +5680,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Gri
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for GridViewItemAutomationPeer {}
+unsafe impl ::core::marker::Sync for GridViewItemAutomationPeer {}
 #[repr(transparent)]
 pub struct GridViewItemDataAutomationPeer(::windows::core::IUnknown);
 impl GridViewItemDataAutomationPeer {
@@ -5868,6 +5920,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Gri
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for GridViewItemDataAutomationPeer {}
+unsafe impl ::core::marker::Sync for GridViewItemDataAutomationPeer {}
 #[repr(transparent)]
 pub struct GroupItemAutomationPeer(::windows::core::IUnknown);
 impl GroupItemAutomationPeer {
@@ -6004,6 +6058,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Gro
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for GroupItemAutomationPeer {}
+unsafe impl ::core::marker::Sync for GroupItemAutomationPeer {}
 #[repr(transparent)]
 pub struct HubAutomationPeer(::windows::core::IUnknown);
 impl HubAutomationPeer {
@@ -6140,6 +6196,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Hub
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for HubAutomationPeer {}
+unsafe impl ::core::marker::Sync for HubAutomationPeer {}
 #[repr(transparent)]
 pub struct HubSectionAutomationPeer(::windows::core::IUnknown);
 impl HubSectionAutomationPeer {
@@ -6307,6 +6365,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Hub
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for HubSectionAutomationPeer {}
+unsafe impl ::core::marker::Sync for HubSectionAutomationPeer {}
 #[repr(transparent)]
 pub struct HyperlinkButtonAutomationPeer(::windows::core::IUnknown);
 impl HyperlinkButtonAutomationPeer {
@@ -6494,6 +6554,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Hyp
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for HyperlinkButtonAutomationPeer {}
+unsafe impl ::core::marker::Sync for HyperlinkButtonAutomationPeer {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppBarAutomationPeer(::windows::core::IUnknown);
@@ -10218,6 +10280,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ima
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ImageAutomationPeer {}
+unsafe impl ::core::marker::Sync for ImageAutomationPeer {}
 #[repr(transparent)]
 pub struct InkToolbarAutomationPeer(::windows::core::IUnknown);
 impl InkToolbarAutomationPeer {}
@@ -10342,6 +10406,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ink
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for InkToolbarAutomationPeer {}
+unsafe impl ::core::marker::Sync for InkToolbarAutomationPeer {}
 #[repr(transparent)]
 pub struct ItemAutomationPeer(::windows::core::IUnknown);
 impl ItemAutomationPeer {
@@ -10502,6 +10568,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ite
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ItemAutomationPeer {}
+unsafe impl ::core::marker::Sync for ItemAutomationPeer {}
 #[repr(transparent)]
 pub struct ItemsControlAutomationPeer(::windows::core::IUnknown);
 impl ItemsControlAutomationPeer {
@@ -10679,6 +10747,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ite
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ItemsControlAutomationPeer {}
+unsafe impl ::core::marker::Sync for ItemsControlAutomationPeer {}
 #[repr(transparent)]
 pub struct ListBoxAutomationPeer(::windows::core::IUnknown);
 impl ListBoxAutomationPeer {
@@ -10907,6 +10977,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lis
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ListBoxAutomationPeer {}
+unsafe impl ::core::marker::Sync for ListBoxAutomationPeer {}
 #[repr(transparent)]
 pub struct ListBoxItemAutomationPeer(::windows::core::IUnknown);
 impl ListBoxItemAutomationPeer {
@@ -11043,6 +11115,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lis
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ListBoxItemAutomationPeer {}
+unsafe impl ::core::marker::Sync for ListBoxItemAutomationPeer {}
 #[repr(transparent)]
 pub struct ListBoxItemDataAutomationPeer(::windows::core::IUnknown);
 impl ListBoxItemDataAutomationPeer {
@@ -11281,6 +11355,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lis
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ListBoxItemDataAutomationPeer {}
+unsafe impl ::core::marker::Sync for ListBoxItemDataAutomationPeer {}
 #[repr(transparent)]
 pub struct ListPickerFlyoutPresenterAutomationPeer(::windows::core::IUnknown);
 impl ListPickerFlyoutPresenterAutomationPeer {}
@@ -11405,6 +11481,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lis
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ListPickerFlyoutPresenterAutomationPeer {}
+unsafe impl ::core::marker::Sync for ListPickerFlyoutPresenterAutomationPeer {}
 #[repr(transparent)]
 pub struct ListViewAutomationPeer(::windows::core::IUnknown);
 impl ListViewAutomationPeer {
@@ -11679,6 +11757,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lis
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ListViewAutomationPeer {}
+unsafe impl ::core::marker::Sync for ListViewAutomationPeer {}
 #[repr(transparent)]
 pub struct ListViewBaseAutomationPeer(::windows::core::IUnknown);
 impl ListViewBaseAutomationPeer {
@@ -11949,6 +12029,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lis
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ListViewBaseAutomationPeer {}
+unsafe impl ::core::marker::Sync for ListViewBaseAutomationPeer {}
 #[repr(transparent)]
 pub struct ListViewBaseHeaderItemAutomationPeer(::windows::core::IUnknown);
 impl ListViewBaseHeaderItemAutomationPeer {}
@@ -12073,6 +12155,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lis
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ListViewBaseHeaderItemAutomationPeer {}
+unsafe impl ::core::marker::Sync for ListViewBaseHeaderItemAutomationPeer {}
 #[repr(transparent)]
 pub struct ListViewHeaderItemAutomationPeer(::windows::core::IUnknown);
 impl ListViewHeaderItemAutomationPeer {
@@ -12229,6 +12313,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lis
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ListViewHeaderItemAutomationPeer {}
+unsafe impl ::core::marker::Sync for ListViewHeaderItemAutomationPeer {}
 #[repr(transparent)]
 pub struct ListViewItemAutomationPeer(::windows::core::IUnknown);
 impl ListViewItemAutomationPeer {
@@ -12365,6 +12451,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lis
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ListViewItemAutomationPeer {}
+unsafe impl ::core::marker::Sync for ListViewItemAutomationPeer {}
 #[repr(transparent)]
 pub struct ListViewItemDataAutomationPeer(::windows::core::IUnknown);
 impl ListViewItemDataAutomationPeer {
@@ -12603,6 +12691,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lis
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ListViewItemDataAutomationPeer {}
+unsafe impl ::core::marker::Sync for ListViewItemDataAutomationPeer {}
 #[repr(transparent)]
 pub struct LoopingSelectorAutomationPeer(::windows::core::IUnknown);
 impl LoopingSelectorAutomationPeer {
@@ -12940,6 +13030,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Loo
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for LoopingSelectorAutomationPeer {}
+unsafe impl ::core::marker::Sync for LoopingSelectorAutomationPeer {}
 #[repr(transparent)]
 pub struct LoopingSelectorItemAutomationPeer(::windows::core::IUnknown);
 impl LoopingSelectorItemAutomationPeer {
@@ -13153,6 +13245,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Loo
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for LoopingSelectorItemAutomationPeer {}
+unsafe impl ::core::marker::Sync for LoopingSelectorItemAutomationPeer {}
 #[repr(transparent)]
 pub struct LoopingSelectorItemDataAutomationPeer(::windows::core::IUnknown);
 impl LoopingSelectorItemDataAutomationPeer {
@@ -13289,6 +13383,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Loo
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for LoopingSelectorItemDataAutomationPeer {}
+unsafe impl ::core::marker::Sync for LoopingSelectorItemDataAutomationPeer {}
 #[repr(transparent)]
 pub struct MapControlAutomationPeer(::windows::core::IUnknown);
 impl MapControlAutomationPeer {
@@ -13631,6 +13727,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MapControlAutomationPeer {}
+unsafe impl ::core::marker::Sync for MapControlAutomationPeer {}
 #[repr(transparent)]
 pub struct MediaElementAutomationPeer(::windows::core::IUnknown);
 impl MediaElementAutomationPeer {
@@ -13767,6 +13865,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Med
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MediaElementAutomationPeer {}
+unsafe impl ::core::marker::Sync for MediaElementAutomationPeer {}
 #[repr(transparent)]
 pub struct MediaPlayerElementAutomationPeer(::windows::core::IUnknown);
 impl MediaPlayerElementAutomationPeer {
@@ -13903,6 +14003,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Med
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MediaPlayerElementAutomationPeer {}
+unsafe impl ::core::marker::Sync for MediaPlayerElementAutomationPeer {}
 #[repr(transparent)]
 pub struct MediaTransportControlsAutomationPeer(::windows::core::IUnknown);
 impl MediaTransportControlsAutomationPeer {
@@ -14039,6 +14141,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Med
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MediaTransportControlsAutomationPeer {}
+unsafe impl ::core::marker::Sync for MediaTransportControlsAutomationPeer {}
 #[repr(transparent)]
 pub struct MenuBarAutomationPeer(::windows::core::IUnknown);
 impl MenuBarAutomationPeer {
@@ -14175,6 +14279,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Men
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MenuBarAutomationPeer {}
+unsafe impl ::core::marker::Sync for MenuBarAutomationPeer {}
 #[repr(transparent)]
 pub struct MenuBarItemAutomationPeer(::windows::core::IUnknown);
 impl MenuBarItemAutomationPeer {
@@ -14386,6 +14492,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Men
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MenuBarItemAutomationPeer {}
+unsafe impl ::core::marker::Sync for MenuBarItemAutomationPeer {}
 #[repr(transparent)]
 pub struct MenuFlyoutItemAutomationPeer(::windows::core::IUnknown);
 impl MenuFlyoutItemAutomationPeer {
@@ -14553,6 +14661,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Men
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MenuFlyoutItemAutomationPeer {}
+unsafe impl ::core::marker::Sync for MenuFlyoutItemAutomationPeer {}
 #[repr(transparent)]
 pub struct MenuFlyoutPresenterAutomationPeer(::windows::core::IUnknown);
 impl MenuFlyoutPresenterAutomationPeer {
@@ -14735,6 +14845,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Men
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for MenuFlyoutPresenterAutomationPeer {}
+unsafe impl ::core::marker::Sync for MenuFlyoutPresenterAutomationPeer {}
 #[repr(transparent)]
 pub struct NavigationViewItemAutomationPeer(::windows::core::IUnknown);
 impl NavigationViewItemAutomationPeer {
@@ -14891,6 +15003,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Nav
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for NavigationViewItemAutomationPeer {}
+unsafe impl ::core::marker::Sync for NavigationViewItemAutomationPeer {}
 #[repr(transparent)]
 pub struct PasswordBoxAutomationPeer(::windows::core::IUnknown);
 impl PasswordBoxAutomationPeer {
@@ -15027,6 +15141,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pas
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PasswordBoxAutomationPeer {}
+unsafe impl ::core::marker::Sync for PasswordBoxAutomationPeer {}
 #[repr(transparent)]
 pub struct PatternInterface(pub i32);
 impl PatternInterface {
@@ -15222,6 +15338,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Per
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PersonPictureAutomationPeer {}
+unsafe impl ::core::marker::Sync for PersonPictureAutomationPeer {}
 #[repr(transparent)]
 pub struct PickerFlyoutPresenterAutomationPeer(::windows::core::IUnknown);
 impl PickerFlyoutPresenterAutomationPeer {}
@@ -15346,6 +15464,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pic
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PickerFlyoutPresenterAutomationPeer {}
+unsafe impl ::core::marker::Sync for PickerFlyoutPresenterAutomationPeer {}
 #[repr(transparent)]
 pub struct PivotAutomationPeer(::windows::core::IUnknown);
 impl PivotAutomationPeer {
@@ -15662,6 +15782,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Piv
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PivotAutomationPeer {}
+unsafe impl ::core::marker::Sync for PivotAutomationPeer {}
 #[repr(transparent)]
 pub struct PivotItemAutomationPeer(::windows::core::IUnknown);
 impl PivotItemAutomationPeer {
@@ -15798,6 +15920,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Piv
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PivotItemAutomationPeer {}
+unsafe impl ::core::marker::Sync for PivotItemAutomationPeer {}
 #[repr(transparent)]
 pub struct PivotItemDataAutomationPeer(::windows::core::IUnknown);
 impl PivotItemDataAutomationPeer {
@@ -16052,6 +16176,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Piv
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for PivotItemDataAutomationPeer {}
+unsafe impl ::core::marker::Sync for PivotItemDataAutomationPeer {}
 #[repr(transparent)]
 pub struct ProgressBarAutomationPeer(::windows::core::IUnknown);
 impl ProgressBarAutomationPeer {
@@ -16234,6 +16360,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pro
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ProgressBarAutomationPeer {}
+unsafe impl ::core::marker::Sync for ProgressBarAutomationPeer {}
 #[repr(transparent)]
 pub struct ProgressRingAutomationPeer(::windows::core::IUnknown);
 impl ProgressRingAutomationPeer {
@@ -16370,6 +16498,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pro
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ProgressRingAutomationPeer {}
+unsafe impl ::core::marker::Sync for ProgressRingAutomationPeer {}
 #[repr(transparent)]
 pub struct RadioButtonAutomationPeer(::windows::core::IUnknown);
 impl RadioButtonAutomationPeer {
@@ -16629,6 +16759,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Rad
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for RadioButtonAutomationPeer {}
+unsafe impl ::core::marker::Sync for RadioButtonAutomationPeer {}
 #[repr(transparent)]
 pub struct RangeBaseAutomationPeer(::windows::core::IUnknown);
 impl RangeBaseAutomationPeer {
@@ -16844,6 +16976,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ran
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for RangeBaseAutomationPeer {}
+unsafe impl ::core::marker::Sync for RangeBaseAutomationPeer {}
 #[repr(transparent)]
 pub struct RatingControlAutomationPeer(::windows::core::IUnknown);
 impl RatingControlAutomationPeer {
@@ -16980,6 +17114,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Rat
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for RatingControlAutomationPeer {}
+unsafe impl ::core::marker::Sync for RatingControlAutomationPeer {}
 #[repr(C)]
 pub struct RawElementProviderRuntimeId {
     pub Part1: u32,
@@ -17198,6 +17334,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Rep
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for RepeatButtonAutomationPeer {}
+unsafe impl ::core::marker::Sync for RepeatButtonAutomationPeer {}
 #[repr(transparent)]
 pub struct RichEditBoxAutomationPeer(::windows::core::IUnknown);
 impl RichEditBoxAutomationPeer {
@@ -17334,6 +17472,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ric
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for RichEditBoxAutomationPeer {}
+unsafe impl ::core::marker::Sync for RichEditBoxAutomationPeer {}
 #[repr(transparent)]
 pub struct RichTextBlockAutomationPeer(::windows::core::IUnknown);
 impl RichTextBlockAutomationPeer {
@@ -17470,6 +17610,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ric
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for RichTextBlockAutomationPeer {}
+unsafe impl ::core::marker::Sync for RichTextBlockAutomationPeer {}
 #[repr(transparent)]
 pub struct RichTextBlockOverflowAutomationPeer(::windows::core::IUnknown);
 impl RichTextBlockOverflowAutomationPeer {
@@ -17606,6 +17748,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ric
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for RichTextBlockOverflowAutomationPeer {}
+unsafe impl ::core::marker::Sync for RichTextBlockOverflowAutomationPeer {}
 #[repr(transparent)]
 pub struct ScrollBarAutomationPeer(::windows::core::IUnknown);
 impl ScrollBarAutomationPeer {
@@ -17788,6 +17932,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Scr
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ScrollBarAutomationPeer {}
+unsafe impl ::core::marker::Sync for ScrollBarAutomationPeer {}
 #[repr(transparent)]
 pub struct ScrollViewerAutomationPeer(::windows::core::IUnknown);
 impl ScrollViewerAutomationPeer {
@@ -18008,6 +18154,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Scr
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ScrollViewerAutomationPeer {}
+unsafe impl ::core::marker::Sync for ScrollViewerAutomationPeer {}
 #[repr(transparent)]
 pub struct SearchBoxAutomationPeer(::windows::core::IUnknown);
 impl SearchBoxAutomationPeer {
@@ -18144,6 +18292,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sea
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SearchBoxAutomationPeer {}
+unsafe impl ::core::marker::Sync for SearchBoxAutomationPeer {}
 #[repr(transparent)]
 pub struct SelectorAutomationPeer(::windows::core::IUnknown);
 impl SelectorAutomationPeer {
@@ -18376,6 +18526,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sel
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SelectorAutomationPeer {}
+unsafe impl ::core::marker::Sync for SelectorAutomationPeer {}
 #[repr(transparent)]
 pub struct SelectorItemAutomationPeer(::windows::core::IUnknown);
 impl SelectorItemAutomationPeer {
@@ -18594,6 +18746,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sel
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SelectorItemAutomationPeer {}
+unsafe impl ::core::marker::Sync for SelectorItemAutomationPeer {}
 #[repr(transparent)]
 pub struct SemanticZoomAutomationPeer(::windows::core::IUnknown);
 impl SemanticZoomAutomationPeer {
@@ -18769,6 +18923,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sem
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SemanticZoomAutomationPeer {}
+unsafe impl ::core::marker::Sync for SemanticZoomAutomationPeer {}
 #[repr(transparent)]
 pub struct SettingsFlyoutAutomationPeer(::windows::core::IUnknown);
 impl SettingsFlyoutAutomationPeer {
@@ -18905,6 +19061,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Set
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SettingsFlyoutAutomationPeer {}
+unsafe impl ::core::marker::Sync for SettingsFlyoutAutomationPeer {}
 #[repr(transparent)]
 pub struct SliderAutomationPeer(::windows::core::IUnknown);
 impl SliderAutomationPeer {
@@ -19087,6 +19245,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sli
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for SliderAutomationPeer {}
+unsafe impl ::core::marker::Sync for SliderAutomationPeer {}
 #[repr(transparent)]
 pub struct TextBlockAutomationPeer(::windows::core::IUnknown);
 impl TextBlockAutomationPeer {
@@ -19223,6 +19383,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tex
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for TextBlockAutomationPeer {}
+unsafe impl ::core::marker::Sync for TextBlockAutomationPeer {}
 #[repr(transparent)]
 pub struct TextBoxAutomationPeer(::windows::core::IUnknown);
 impl TextBoxAutomationPeer {
@@ -19359,6 +19521,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tex
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for TextBoxAutomationPeer {}
+unsafe impl ::core::marker::Sync for TextBoxAutomationPeer {}
 #[repr(transparent)]
 pub struct ThumbAutomationPeer(::windows::core::IUnknown);
 impl ThumbAutomationPeer {
@@ -19495,6 +19659,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Thu
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ThumbAutomationPeer {}
+unsafe impl ::core::marker::Sync for ThumbAutomationPeer {}
 #[repr(transparent)]
 pub struct TimePickerAutomationPeer(::windows::core::IUnknown);
 impl TimePickerAutomationPeer {
@@ -19631,6 +19797,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tim
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for TimePickerAutomationPeer {}
+unsafe impl ::core::marker::Sync for TimePickerAutomationPeer {}
 #[repr(transparent)]
 pub struct TimePickerFlyoutPresenterAutomationPeer(::windows::core::IUnknown);
 impl TimePickerFlyoutPresenterAutomationPeer {}
@@ -19755,6 +19923,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tim
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for TimePickerFlyoutPresenterAutomationPeer {}
+unsafe impl ::core::marker::Sync for TimePickerFlyoutPresenterAutomationPeer {}
 #[repr(transparent)]
 pub struct ToggleButtonAutomationPeer(::windows::core::IUnknown);
 impl ToggleButtonAutomationPeer {
@@ -19950,6 +20120,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tog
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ToggleButtonAutomationPeer {}
+unsafe impl ::core::marker::Sync for ToggleButtonAutomationPeer {}
 #[repr(transparent)]
 pub struct ToggleMenuFlyoutItemAutomationPeer(::windows::core::IUnknown);
 impl ToggleMenuFlyoutItemAutomationPeer {
@@ -20125,6 +20297,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tog
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ToggleMenuFlyoutItemAutomationPeer {}
+unsafe impl ::core::marker::Sync for ToggleMenuFlyoutItemAutomationPeer {}
 #[repr(transparent)]
 pub struct ToggleSwitchAutomationPeer(::windows::core::IUnknown);
 impl ToggleSwitchAutomationPeer {
@@ -20300,6 +20474,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tog
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for ToggleSwitchAutomationPeer {}
+unsafe impl ::core::marker::Sync for ToggleSwitchAutomationPeer {}
 #[repr(transparent)]
 pub struct TreeViewItemAutomationPeer(::windows::core::IUnknown);
 impl TreeViewItemAutomationPeer {
@@ -20500,6 +20676,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tre
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for TreeViewItemAutomationPeer {}
+unsafe impl ::core::marker::Sync for TreeViewItemAutomationPeer {}
 #[repr(transparent)]
 pub struct TreeViewListAutomationPeer(::windows::core::IUnknown);
 impl TreeViewListAutomationPeer {
@@ -20728,3 +20906,5 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tre
         ::windows::core::Param::Owned(::core::convert::Into::<super::super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for TreeViewListAutomationPeer {}
+unsafe impl ::core::marker::Sync for TreeViewListAutomationPeer {}

@@ -202,6 +202,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::Streams::IOutputStream> for &Comp
         ::core::convert::TryInto::<super::Streams::IOutputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for Compressor {}
+unsafe impl ::core::marker::Sync for Compressor {}
 #[repr(transparent)]
 pub struct Decompressor(::windows::core::IUnknown);
 impl Decompressor {
@@ -351,6 +353,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::Streams::IInputStream> for &Decom
         ::core::convert::TryInto::<super::Streams::IInputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for Decompressor {}
+unsafe impl ::core::marker::Sync for Decompressor {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICompressor(::windows::core::IUnknown);

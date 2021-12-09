@@ -1779,6 +1779,8 @@ impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureDescriptor> for &Im
         ::core::convert::TryInto::<ILearningModelFeatureDescriptor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ImageFeatureDescriptor {}
+unsafe impl ::core::marker::Sync for ImageFeatureDescriptor {}
 #[repr(transparent)]
 pub struct ImageFeatureValue(::windows::core::IUnknown);
 impl ImageFeatureValue {
@@ -1892,6 +1894,8 @@ impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for &ImageFe
         ::core::convert::TryInto::<ILearningModelFeatureValue>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ImageFeatureValue {}
+unsafe impl ::core::marker::Sync for ImageFeatureValue {}
 #[repr(transparent)]
 pub struct LearningModel(::windows::core::IUnknown);
 impl LearningModel {
@@ -2105,6 +2109,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for LearningModel {}
+unsafe impl ::core::marker::Sync for LearningModel {}
 #[repr(transparent)]
 pub struct LearningModelBinding(::windows::core::IUnknown);
 impl LearningModelBinding {
@@ -2298,6 +2304,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for LearningModelBinding {}
+unsafe impl ::core::marker::Sync for LearningModelBinding {}
 #[repr(transparent)]
 pub struct LearningModelDevice(::windows::core::IUnknown);
 impl LearningModelDevice {
@@ -2400,6 +2408,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lear
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LearningModelDevice {}
+unsafe impl ::core::marker::Sync for LearningModelDevice {}
 #[repr(transparent)]
 pub struct LearningModelDeviceKind(pub i32);
 impl LearningModelDeviceKind {
@@ -2524,6 +2534,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lear
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LearningModelEvaluationResult {}
+unsafe impl ::core::marker::Sync for LearningModelEvaluationResult {}
 #[repr(transparent)]
 pub struct LearningModelFeatureKind(pub i32);
 impl LearningModelFeatureKind {
@@ -2756,6 +2768,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for LearningModelSession {}
+unsafe impl ::core::marker::Sync for LearningModelSession {}
 #[repr(transparent)]
 pub struct LearningModelSessionOptions(::windows::core::IUnknown);
 impl LearningModelSessionOptions {
@@ -2854,6 +2868,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lear
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for LearningModelSessionOptions {}
+unsafe impl ::core::marker::Sync for LearningModelSessionOptions {}
 #[repr(transparent)]
 pub struct MapFeatureDescriptor(::windows::core::IUnknown);
 impl MapFeatureDescriptor {
@@ -2983,6 +2999,8 @@ impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureDescriptor> for &Ma
         ::core::convert::TryInto::<ILearningModelFeatureDescriptor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for MapFeatureDescriptor {}
+unsafe impl ::core::marker::Sync for MapFeatureDescriptor {}
 #[repr(transparent)]
 pub struct SequenceFeatureDescriptor(::windows::core::IUnknown);
 impl SequenceFeatureDescriptor {
@@ -3105,6 +3123,8 @@ impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureDescriptor> for &Se
         ::core::convert::TryInto::<ILearningModelFeatureDescriptor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for SequenceFeatureDescriptor {}
+unsafe impl ::core::marker::Sync for SequenceFeatureDescriptor {}
 #[repr(transparent)]
 pub struct TensorBoolean(::windows::core::IUnknown);
 impl TensorBoolean {
@@ -3357,6 +3377,8 @@ impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorBoolean {
         ::core::convert::TryInto::<ITensor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for TensorBoolean {}
+unsafe impl ::core::marker::Sync for TensorBoolean {}
 #[repr(transparent)]
 pub struct TensorDouble(::windows::core::IUnknown);
 impl TensorDouble {
@@ -3609,6 +3631,8 @@ impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorDouble {
         ::core::convert::TryInto::<ITensor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for TensorDouble {}
+unsafe impl ::core::marker::Sync for TensorDouble {}
 #[repr(transparent)]
 pub struct TensorFeatureDescriptor(::windows::core::IUnknown);
 impl TensorFeatureDescriptor {
@@ -3739,6 +3763,8 @@ impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureDescriptor> for &Te
         ::core::convert::TryInto::<ILearningModelFeatureDescriptor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for TensorFeatureDescriptor {}
+unsafe impl ::core::marker::Sync for TensorFeatureDescriptor {}
 #[repr(transparent)]
 pub struct TensorFloat(::windows::core::IUnknown);
 impl TensorFloat {
@@ -3991,6 +4017,8 @@ impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorFloat {
         ::core::convert::TryInto::<ITensor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for TensorFloat {}
+unsafe impl ::core::marker::Sync for TensorFloat {}
 #[repr(transparent)]
 pub struct TensorFloat16Bit(::windows::core::IUnknown);
 impl TensorFloat16Bit {
@@ -4243,6 +4271,8 @@ impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorFloat16Bit {
         ::core::convert::TryInto::<ITensor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for TensorFloat16Bit {}
+unsafe impl ::core::marker::Sync for TensorFloat16Bit {}
 #[repr(transparent)]
 pub struct TensorInt16Bit(::windows::core::IUnknown);
 impl TensorInt16Bit {
@@ -4495,6 +4525,8 @@ impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorInt16Bit {
         ::core::convert::TryInto::<ITensor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for TensorInt16Bit {}
+unsafe impl ::core::marker::Sync for TensorInt16Bit {}
 #[repr(transparent)]
 pub struct TensorInt32Bit(::windows::core::IUnknown);
 impl TensorInt32Bit {
@@ -4747,6 +4779,8 @@ impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorInt32Bit {
         ::core::convert::TryInto::<ITensor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for TensorInt32Bit {}
+unsafe impl ::core::marker::Sync for TensorInt32Bit {}
 #[repr(transparent)]
 pub struct TensorInt64Bit(::windows::core::IUnknown);
 impl TensorInt64Bit {
@@ -4999,6 +5033,8 @@ impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorInt64Bit {
         ::core::convert::TryInto::<ITensor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for TensorInt64Bit {}
+unsafe impl ::core::marker::Sync for TensorInt64Bit {}
 #[repr(transparent)]
 pub struct TensorInt8Bit(::windows::core::IUnknown);
 impl TensorInt8Bit {
@@ -5251,6 +5287,8 @@ impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorInt8Bit {
         ::core::convert::TryInto::<ITensor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for TensorInt8Bit {}
+unsafe impl ::core::marker::Sync for TensorInt8Bit {}
 #[repr(transparent)]
 pub struct TensorKind(pub i32);
 impl TensorKind {
@@ -5537,6 +5575,8 @@ impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorString {
         ::core::convert::TryInto::<ITensor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for TensorString {}
+unsafe impl ::core::marker::Sync for TensorString {}
 #[repr(transparent)]
 pub struct TensorUInt16Bit(::windows::core::IUnknown);
 impl TensorUInt16Bit {
@@ -5789,6 +5829,8 @@ impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorUInt16Bit {
         ::core::convert::TryInto::<ITensor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for TensorUInt16Bit {}
+unsafe impl ::core::marker::Sync for TensorUInt16Bit {}
 #[repr(transparent)]
 pub struct TensorUInt32Bit(::windows::core::IUnknown);
 impl TensorUInt32Bit {
@@ -6041,6 +6083,8 @@ impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorUInt32Bit {
         ::core::convert::TryInto::<ITensor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for TensorUInt32Bit {}
+unsafe impl ::core::marker::Sync for TensorUInt32Bit {}
 #[repr(transparent)]
 pub struct TensorUInt64Bit(::windows::core::IUnknown);
 impl TensorUInt64Bit {
@@ -6293,6 +6337,8 @@ impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorUInt64Bit {
         ::core::convert::TryInto::<ITensor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for TensorUInt64Bit {}
+unsafe impl ::core::marker::Sync for TensorUInt64Bit {}
 #[repr(transparent)]
 pub struct TensorUInt8Bit(::windows::core::IUnknown);
 impl TensorUInt8Bit {
@@ -6545,3 +6591,5 @@ impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorUInt8Bit {
         ::core::convert::TryInto::<ITensor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for TensorUInt8Bit {}
+unsafe impl ::core::marker::Sync for TensorUInt8Bit {}

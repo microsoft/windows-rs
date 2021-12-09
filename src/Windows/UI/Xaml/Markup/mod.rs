@@ -1274,6 +1274,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mark
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MarkupExtension {}
+unsafe impl ::core::marker::Sync for MarkupExtension {}
 #[repr(transparent)]
 pub struct XamlBinaryWriter(::windows::core::IUnknown);
 impl XamlBinaryWriter {
@@ -1350,6 +1352,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xaml
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for XamlBinaryWriter {}
+unsafe impl ::core::marker::Sync for XamlBinaryWriter {}
 #[repr(C)]
 pub struct XamlBinaryWriterErrorInformation {
     pub InputStreamIndex: u32,
@@ -1536,6 +1540,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xaml
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for XamlBindingHelper {}
+unsafe impl ::core::marker::Sync for XamlBindingHelper {}
 #[repr(transparent)]
 pub struct XamlMarkupHelper(::windows::core::IUnknown);
 impl XamlMarkupHelper {
@@ -1608,6 +1614,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xaml
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for XamlMarkupHelper {}
+unsafe impl ::core::marker::Sync for XamlMarkupHelper {}
 #[repr(transparent)]
 pub struct XamlReader(::windows::core::IUnknown);
 impl XamlReader {
@@ -1689,6 +1697,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xaml
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for XamlReader {}
+unsafe impl ::core::marker::Sync for XamlReader {}
 #[repr(C)]
 pub struct XmlnsDefinition {
     pub XmlNamespace: ::windows::core::HSTRING,

@@ -91,6 +91,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppBroadcastingMonitor {}
+unsafe impl ::core::marker::Sync for AppBroadcastingMonitor {}
 #[repr(transparent)]
 pub struct AppBroadcastingStatus(::windows::core::IUnknown);
 impl AppBroadcastingStatus {
@@ -170,6 +172,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppBroadcastingStatus {}
+unsafe impl ::core::marker::Sync for AppBroadcastingStatus {}
 #[repr(transparent)]
 pub struct AppBroadcastingStatusDetails(::windows::core::IUnknown);
 impl AppBroadcastingStatusDetails {
@@ -291,6 +295,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppBroadcastingStatusDetails {}
+unsafe impl ::core::marker::Sync for AppBroadcastingStatusDetails {}
 #[repr(transparent)]
 pub struct AppBroadcastingUI(::windows::core::IUnknown);
 impl AppBroadcastingUI {
@@ -384,6 +390,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AppBroadcastingUI {}
+unsafe impl ::core::marker::Sync for AppBroadcastingUI {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppBroadcastingMonitor(::windows::core::IUnknown);

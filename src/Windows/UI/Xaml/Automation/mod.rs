@@ -104,6 +104,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Anno
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AnnotationPatternIdentifiers {}
+unsafe impl ::core::marker::Sync for AnnotationPatternIdentifiers {}
 #[repr(transparent)]
 pub struct AnnotationType(pub i32);
 impl AnnotationType {
@@ -359,6 +361,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Automation
         ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
+unsafe impl ::core::marker::Send for AutomationAnnotation {}
+unsafe impl ::core::marker::Sync for AutomationAnnotation {}
 #[repr(transparent)]
 pub struct AutomationBulletStyle(pub i32);
 impl AutomationBulletStyle {
@@ -777,6 +781,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Auto
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AutomationElementIdentifiers {}
+unsafe impl ::core::marker::Sync for AutomationElementIdentifiers {}
 #[repr(transparent)]
 pub struct AutomationFlowDirections(pub i32);
 impl AutomationFlowDirections {
@@ -1372,6 +1378,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Auto
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AutomationProperties {}
+unsafe impl ::core::marker::Sync for AutomationProperties {}
 #[repr(transparent)]
 pub struct AutomationProperty(::windows::core::IUnknown);
 impl AutomationProperty {}
@@ -1436,6 +1444,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Auto
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for AutomationProperty {}
+unsafe impl ::core::marker::Sync for AutomationProperty {}
 #[repr(transparent)]
 pub struct AutomationStyleId(pub i32);
 impl AutomationStyleId {
@@ -1624,6 +1634,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dock
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DockPatternIdentifiers {}
+unsafe impl ::core::marker::Sync for DockPatternIdentifiers {}
 #[repr(transparent)]
 pub struct DockPosition(pub i32);
 impl DockPosition {
@@ -1748,6 +1760,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Drag
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DragPatternIdentifiers {}
+unsafe impl ::core::marker::Sync for DragPatternIdentifiers {}
 #[repr(transparent)]
 pub struct DropTargetPatternIdentifiers(::windows::core::IUnknown);
 impl DropTargetPatternIdentifiers {
@@ -1829,6 +1843,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Drop
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DropTargetPatternIdentifiers {}
+unsafe impl ::core::marker::Sync for DropTargetPatternIdentifiers {}
 #[repr(transparent)]
 pub struct ExpandCollapsePatternIdentifiers(::windows::core::IUnknown);
 impl ExpandCollapsePatternIdentifiers {
@@ -1904,6 +1920,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Expa
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ExpandCollapsePatternIdentifiers {}
+unsafe impl ::core::marker::Sync for ExpandCollapsePatternIdentifiers {}
 #[repr(transparent)]
 pub struct ExpandCollapseState(pub i32);
 impl ExpandCollapseState {
@@ -2032,6 +2050,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Grid
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GridItemPatternIdentifiers {}
+unsafe impl ::core::marker::Sync for GridItemPatternIdentifiers {}
 #[repr(transparent)]
 pub struct GridPatternIdentifiers(::windows::core::IUnknown);
 impl GridPatternIdentifiers {
@@ -2113,6 +2133,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Grid
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for GridPatternIdentifiers {}
+unsafe impl ::core::marker::Sync for GridPatternIdentifiers {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAnnotationPatternIdentifiers(::windows::core::IUnknown);
@@ -3512,6 +3534,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mult
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for MultipleViewPatternIdentifiers {}
+unsafe impl ::core::marker::Sync for MultipleViewPatternIdentifiers {}
 #[repr(transparent)]
 pub struct RangeValuePatternIdentifiers(::windows::core::IUnknown);
 impl RangeValuePatternIdentifiers {
@@ -3617,6 +3641,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rang
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for RangeValuePatternIdentifiers {}
+unsafe impl ::core::marker::Sync for RangeValuePatternIdentifiers {}
 #[repr(transparent)]
 pub struct RowOrColumnMajor(pub i32);
 impl RowOrColumnMajor {
@@ -3786,6 +3812,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Scro
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ScrollPatternIdentifiers {}
+unsafe impl ::core::marker::Sync for ScrollPatternIdentifiers {}
 #[repr(transparent)]
 pub struct SelectionItemPatternIdentifiers(::windows::core::IUnknown);
 impl SelectionItemPatternIdentifiers {
@@ -3867,6 +3895,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sele
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SelectionItemPatternIdentifiers {}
+unsafe impl ::core::marker::Sync for SelectionItemPatternIdentifiers {}
 #[repr(transparent)]
 pub struct SelectionPatternIdentifiers(::windows::core::IUnknown);
 impl SelectionPatternIdentifiers {
@@ -3954,6 +3984,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sele
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SelectionPatternIdentifiers {}
+unsafe impl ::core::marker::Sync for SelectionPatternIdentifiers {}
 #[repr(transparent)]
 pub struct SpreadsheetItemPatternIdentifiers(::windows::core::IUnknown);
 impl SpreadsheetItemPatternIdentifiers {
@@ -4029,6 +4061,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spre
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for SpreadsheetItemPatternIdentifiers {}
+unsafe impl ::core::marker::Sync for SpreadsheetItemPatternIdentifiers {}
 #[repr(transparent)]
 pub struct StylesPatternIdentifiers(::windows::core::IUnknown);
 impl StylesPatternIdentifiers {
@@ -4140,6 +4174,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Styl
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for StylesPatternIdentifiers {}
+unsafe impl ::core::marker::Sync for StylesPatternIdentifiers {}
 #[repr(transparent)]
 pub struct SupportedTextSelection(pub i32);
 impl SupportedTextSelection {
@@ -4280,6 +4316,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Tabl
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TableItemPatternIdentifiers {}
+unsafe impl ::core::marker::Sync for TableItemPatternIdentifiers {}
 #[repr(transparent)]
 pub struct TablePatternIdentifiers(::windows::core::IUnknown);
 impl TablePatternIdentifiers {
@@ -4367,6 +4405,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Tabl
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TablePatternIdentifiers {}
+unsafe impl ::core::marker::Sync for TablePatternIdentifiers {}
 #[repr(transparent)]
 pub struct TogglePatternIdentifiers(::windows::core::IUnknown);
 impl TogglePatternIdentifiers {
@@ -4442,6 +4482,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Togg
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TogglePatternIdentifiers {}
+unsafe impl ::core::marker::Sync for TogglePatternIdentifiers {}
 #[repr(transparent)]
 pub struct ToggleState(pub i32);
 impl ToggleState {
@@ -4563,6 +4605,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Tran
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TransformPattern2Identifiers {}
+unsafe impl ::core::marker::Sync for TransformPattern2Identifiers {}
 #[repr(transparent)]
 pub struct TransformPatternIdentifiers(::windows::core::IUnknown);
 impl TransformPatternIdentifiers {
@@ -4650,6 +4694,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Tran
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for TransformPatternIdentifiers {}
+unsafe impl ::core::marker::Sync for TransformPatternIdentifiers {}
 #[repr(transparent)]
 pub struct ValuePatternIdentifiers(::windows::core::IUnknown);
 impl ValuePatternIdentifiers {
@@ -4731,6 +4777,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Valu
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ValuePatternIdentifiers {}
+unsafe impl ::core::marker::Sync for ValuePatternIdentifiers {}
 #[repr(transparent)]
 pub struct WindowInteractionState(pub i32);
 impl WindowInteractionState {
@@ -4866,6 +4914,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wind
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for WindowPatternIdentifiers {}
+unsafe impl ::core::marker::Sync for WindowPatternIdentifiers {}
 #[repr(transparent)]
 pub struct WindowVisualState(pub i32);
 impl WindowVisualState {

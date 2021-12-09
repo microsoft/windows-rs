@@ -72,6 +72,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dete
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DetectedFace {}
+unsafe impl ::core::marker::Sync for DetectedFace {}
 #[repr(transparent)]
 pub struct FaceDetector(::windows::core::IUnknown);
 impl FaceDetector {
@@ -210,6 +212,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Face
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for FaceDetector {}
+unsafe impl ::core::marker::Sync for FaceDetector {}
 #[repr(transparent)]
 pub struct FaceTracker(::windows::core::IUnknown);
 impl FaceTracker {
@@ -340,6 +344,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Face
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for FaceTracker {}
+unsafe impl ::core::marker::Sync for FaceTracker {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDetectedFace(::windows::core::IUnknown);

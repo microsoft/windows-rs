@@ -126,6 +126,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
         ::core::convert::TryInto::<super::super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for DnssdRegistrationResult {}
+unsafe impl ::core::marker::Sync for DnssdRegistrationResult {}
 #[repr(transparent)]
 pub struct DnssdRegistrationStatus(pub i32);
 impl DnssdRegistrationStatus {
@@ -359,6 +361,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
         ::core::convert::TryInto::<super::super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for DnssdServiceInstance {}
+unsafe impl ::core::marker::Sync for DnssdServiceInstance {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct DnssdServiceInstanceCollection(::windows::core::IUnknown);
@@ -558,6 +562,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Send for DnssdServiceInstanceCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::core::marker::Sync for DnssdServiceInstanceCollection {}
 #[repr(transparent)]
 pub struct DnssdServiceWatcher(::windows::core::IUnknown);
 impl DnssdServiceWatcher {
@@ -677,6 +685,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dnss
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DnssdServiceWatcher {}
+unsafe impl ::core::marker::Sync for DnssdServiceWatcher {}
 #[repr(transparent)]
 pub struct DnssdServiceWatcherStatus(pub i32);
 impl DnssdServiceWatcherStatus {

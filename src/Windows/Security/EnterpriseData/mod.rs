@@ -79,6 +79,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Buff
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for BufferProtectUnprotectResult {}
+unsafe impl ::core::marker::Sync for BufferProtectUnprotectResult {}
 #[repr(transparent)]
 pub struct DataProtectionInfo(::windows::core::IUnknown);
 impl DataProtectionInfo {
@@ -158,6 +160,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for DataProtectionInfo {}
+unsafe impl ::core::marker::Sync for DataProtectionInfo {}
 pub struct DataProtectionManager {}
 impl DataProtectionManager {
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -363,6 +367,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &File
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for FileProtectionInfo {}
+unsafe impl ::core::marker::Sync for FileProtectionInfo {}
 pub struct FileProtectionManager {}
 impl FileProtectionManager {
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
@@ -626,6 +632,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &File
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for FileUnprotectOptions {}
+unsafe impl ::core::marker::Sync for FileUnprotectOptions {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBufferProtectUnprotectResult(::windows::core::IUnknown);
@@ -1295,6 +1303,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProtectedAccessResumedEventArgs {}
+unsafe impl ::core::marker::Sync for ProtectedAccessResumedEventArgs {}
 #[repr(transparent)]
 pub struct ProtectedAccessSuspendingEventArgs(::windows::core::IUnknown);
 impl ProtectedAccessSuspendingEventArgs {
@@ -1384,6 +1394,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProtectedAccessSuspendingEventArgs {}
+unsafe impl ::core::marker::Sync for ProtectedAccessSuspendingEventArgs {}
 #[repr(transparent)]
 pub struct ProtectedContainerExportResult(::windows::core::IUnknown);
 impl ProtectedContainerExportResult {
@@ -1464,6 +1476,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProtectedContainerExportResult {}
+unsafe impl ::core::marker::Sync for ProtectedContainerExportResult {}
 #[repr(transparent)]
 pub struct ProtectedContainerImportResult(::windows::core::IUnknown);
 impl ProtectedContainerImportResult {
@@ -1544,6 +1558,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProtectedContainerImportResult {}
+unsafe impl ::core::marker::Sync for ProtectedContainerImportResult {}
 #[repr(transparent)]
 pub struct ProtectedContentRevokedEventArgs(::windows::core::IUnknown);
 impl ProtectedContentRevokedEventArgs {
@@ -1617,6 +1633,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProtectedContentRevokedEventArgs {}
+unsafe impl ::core::marker::Sync for ProtectedContentRevokedEventArgs {}
 #[repr(transparent)]
 pub struct ProtectedFileCreateResult(::windows::core::IUnknown);
 impl ProtectedFileCreateResult {
@@ -1705,6 +1723,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProtectedFileCreateResult {}
+unsafe impl ::core::marker::Sync for ProtectedFileCreateResult {}
 #[repr(transparent)]
 pub struct ProtectedImportExportStatus(pub i32);
 impl ProtectedImportExportStatus {
@@ -1892,6 +1912,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProtectionPolicyAuditInfo {}
+unsafe impl ::core::marker::Sync for ProtectionPolicyAuditInfo {}
 #[repr(transparent)]
 pub struct ProtectionPolicyEvaluationResult(pub i32);
 impl ProtectionPolicyEvaluationResult {
@@ -2266,6 +2288,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for ProtectionPolicyManager {}
+unsafe impl ::core::marker::Sync for ProtectionPolicyManager {}
 #[repr(transparent)]
 pub struct ProtectionPolicyRequestAccessBehavior(pub i32);
 impl ProtectionPolicyRequestAccessBehavior {
@@ -2389,3 +2413,5 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for ThreadNetworkContext {}
+unsafe impl ::core::marker::Sync for ThreadNetworkContext {}

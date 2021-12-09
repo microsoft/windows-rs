@@ -106,6 +106,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CoreFrameworkInputView {}
+unsafe impl ::core::marker::Sync for CoreFrameworkInputView {}
 #[repr(transparent)]
 pub struct CoreFrameworkInputViewAnimationStartingEventArgs(::windows::core::IUnknown);
 impl CoreFrameworkInputViewAnimationStartingEventArgs {
@@ -194,6 +196,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CoreFrameworkInputViewAnimationStartingEventArgs {}
+unsafe impl ::core::marker::Sync for CoreFrameworkInputViewAnimationStartingEventArgs {}
 #[repr(transparent)]
 pub struct CoreFrameworkInputViewOcclusionsChangedEventArgs(::windows::core::IUnknown);
 impl CoreFrameworkInputViewOcclusionsChangedEventArgs {
@@ -274,6 +278,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CoreFrameworkInputViewOcclusionsChangedEventArgs {}
+unsafe impl ::core::marker::Sync for CoreFrameworkInputViewOcclusionsChangedEventArgs {}
 #[repr(transparent)]
 pub struct CoreInputView(::windows::core::IUnknown);
 impl CoreInputView {
@@ -508,6 +514,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CoreInputView {}
+unsafe impl ::core::marker::Sync for CoreInputView {}
 #[repr(transparent)]
 pub struct CoreInputViewAnimationStartingEventArgs(::windows::core::IUnknown);
 impl CoreInputViewAnimationStartingEventArgs {
@@ -600,6 +608,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CoreInputViewAnimationStartingEventArgs {}
+unsafe impl ::core::marker::Sync for CoreInputViewAnimationStartingEventArgs {}
 #[repr(transparent)]
 pub struct CoreInputViewHidingEventArgs(::windows::core::IUnknown);
 impl CoreInputViewHidingEventArgs {
@@ -672,6 +682,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CoreInputViewHidingEventArgs {}
+unsafe impl ::core::marker::Sync for CoreInputViewHidingEventArgs {}
 #[repr(transparent)]
 pub struct CoreInputViewKind(pub i32);
 impl CoreInputViewKind {
@@ -784,6 +796,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CoreInputViewOcclusion {}
+unsafe impl ::core::marker::Sync for CoreInputViewOcclusion {}
 #[repr(transparent)]
 pub struct CoreInputViewOcclusionKind(pub i32);
 impl CoreInputViewOcclusionKind {
@@ -896,6 +910,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CoreInputViewOcclusionsChangedEventArgs {}
+unsafe impl ::core::marker::Sync for CoreInputViewOcclusionsChangedEventArgs {}
 #[repr(transparent)]
 pub struct CoreInputViewShowingEventArgs(::windows::core::IUnknown);
 impl CoreInputViewShowingEventArgs {
@@ -968,6 +984,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CoreInputViewShowingEventArgs {}
+unsafe impl ::core::marker::Sync for CoreInputViewShowingEventArgs {}
 #[repr(transparent)]
 pub struct CoreInputViewTransferringXYFocusEventArgs(::windows::core::IUnknown);
 impl CoreInputViewTransferringXYFocusEventArgs {
@@ -1070,6 +1088,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for CoreInputViewTransferringXYFocusEventArgs {}
+unsafe impl ::core::marker::Sync for CoreInputViewTransferringXYFocusEventArgs {}
 #[repr(transparent)]
 pub struct CoreInputViewXYFocusTransferDirection(pub i32);
 impl CoreInputViewXYFocusTransferDirection {
@@ -1605,3 +1625,5 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UISe
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for UISettingsController {}
+unsafe impl ::core::marker::Sync for UISettingsController {}

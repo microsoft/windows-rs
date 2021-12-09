@@ -265,6 +265,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for PhoneNumberFormatter {}
+unsafe impl ::core::marker::Sync for PhoneNumberFormatter {}
 #[repr(transparent)]
 pub struct PhoneNumberInfo(::windows::core::IUnknown);
 impl PhoneNumberInfo {
@@ -446,6 +448,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
         ::core::convert::TryInto::<super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for PhoneNumberInfo {}
+unsafe impl ::core::marker::Sync for PhoneNumberInfo {}
 #[repr(transparent)]
 pub struct PhoneNumberMatchResult(pub i32);
 impl PhoneNumberMatchResult {

@@ -163,6 +163,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Endp
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+unsafe impl ::core::marker::Send for EndpointPair {}
+unsafe impl ::core::marker::Sync for EndpointPair {}
 #[repr(transparent)]
 pub struct HostName(::windows::core::IUnknown);
 impl HostName {
@@ -325,6 +327,8 @@ impl<'a> ::windows::core::IntoParam<'a, super::Foundation::IStringable> for &Hos
         ::core::convert::TryInto::<super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+unsafe impl ::core::marker::Send for HostName {}
+unsafe impl ::core::marker::Sync for HostName {}
 #[repr(transparent)]
 pub struct HostNameSortOptions(pub u32);
 impl HostNameSortOptions {
