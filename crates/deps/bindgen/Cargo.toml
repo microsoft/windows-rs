@@ -1,5 +1,5 @@
 [package]
-name = "windows_gen2"
+name = "windows-bindgen"
 version = "0.28.0"
 authors = ["Microsoft"]
 edition = "2018"

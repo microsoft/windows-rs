@@ -60,10 +60,10 @@ fn main() -> std::io::Result<()> {
     ];
 
     let mut tokens = "#![allow(non_snake_case, non_upper_case_globals, dead_code, non_camel_case_types)]".to_string();
-    let gen = gen2::Gen { minimal: true, flatten: true, ..Default::default() };
+    let gen = bindgen::Gen { minimal: true, flatten: true, ..Default::default() };
 
     for name in types {
-        tokens += &gen2::gen_type(name, &gen);
+        tokens += &bindgen::gen_type(name, &gen);
     }
 
     let mut path: std::path::PathBuf = reader::workspace_dir().into();
