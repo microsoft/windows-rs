@@ -6,7 +6,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
     let underlying_type = gen_element_name(&underlying_type, gen);
     let is_scoped = def.is_scoped();
 
-    let fields = def.fields().filter_map(|field| {
+    let mut fields: Vec<(TokenStream, TokenStream)> = def.fields().filter_map(|field| {
         if field.is_literal() {
             let field_name = gen_ident(field.name());
             let constant = field.constant().unwrap();
@@ -16,10 +16,14 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
         } else {
             None
         }
-    });
+    }).collect();
+
+    if gen.minimal && fields.len() > 100 {
+        fields.clear();
+    }
 
     let mut tokens = if is_scoped {
-        let fields = fields.map(|(field_name, value)| {
+        let fields = fields.iter().map(|(field_name, value)| {
             quote! {
                 pub const #field_name: Self = Self(#value);
             }
@@ -39,7 +43,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
             }
         }
     } else {
-        let fields = fields.map(|(field_name, value)| {
+        let fields = fields.iter().map(|(field_name, value)| {
             quote! {
                 pub const #field_name: #name = #value;
             }
