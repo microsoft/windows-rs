@@ -14,13 +14,13 @@ fn gen_sys_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     if def.is_exclusive() {
         quote! {}
     } else if def.kind() == TypeKind::Interface || def.default_interface().is_some() {
-            // TODO: should be *const?
-            quote! {
-                pub type #name = *mut ::core::ffi::c_void;
-            }
-        } else {
-            quote! {}
+        // TODO: should be *const?
+        quote! {
+            pub type #name = *mut ::core::ffi::c_void;
         }
+    } else {
+        quote! {}
+    }
 }
 
 fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {

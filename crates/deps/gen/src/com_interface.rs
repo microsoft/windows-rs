@@ -228,7 +228,7 @@ fn gen_method(vtable_offset: usize, method: &MethodDef, method_names: &mut BTree
                 }
             }
         }
-        SignatureKind::PreserveSig => {
+        SignatureKind::PreserveSig | SignatureKind::ReturnVoid => {
             let params = gen_win32_params(&signature.params, gen);
             let args = signature.params.iter().map(gen_win32_abi_arg);
             let return_sig = gen_win32_return_sig(&signature, gen);
