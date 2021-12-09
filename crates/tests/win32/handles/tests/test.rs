@@ -1,6 +1,6 @@
+use windows::core::HRESULT;
 use windows::Win32::Foundation::*;
 use windows::Win32::System::Registry::*;
-use windows::core::HRESULT;
 
 #[test]
 fn handle() {

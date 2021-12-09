@@ -55,7 +55,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
                 pub fn is_invalid(&self) -> bool {
                     *self == unsafe { ::core::mem::zeroed() }
                 }
-            
+
                 pub fn ok(self) -> ::windows::core::Result<Self> {
                     if !self.is_invalid() {
                         Ok(self)
