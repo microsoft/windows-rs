@@ -60,7 +60,7 @@ fn main() -> std::io::Result<()> {
     ];
 
     let mut tokens = "#![allow(non_snake_case, non_upper_case_globals, dead_code, non_camel_case_types)]".to_string();
-    let gen = bindgen::Gen { minimal: true, flatten: true, ..Default::default() };
+    let gen = bindgen::Gen { min_enum: true, min_inherit: true, flatten: true, ..Default::default() };
 
     for name in types {
         tokens += &bindgen::gen_type(name, &gen);

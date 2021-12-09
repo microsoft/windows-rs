@@ -21,7 +21,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
         })
         .collect();
 
-    if gen.minimal && fields.len() > 100 {
+    if gen.min_enum && fields.len() > 100 {
         fields.clear();
     }
 

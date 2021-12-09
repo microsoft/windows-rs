@@ -23,7 +23,6 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
     let mut method_names = BTreeMap::<String, u32>::new();
 
     for (def, kind) in &interfaces {
-        // TODO: if !gen.inherit and is base or not exclusive then omit
         let mut vtable_offset = 6;
         for method in def.methods() {
             methods.combine(&gen_winrt_method(&def, *kind, &method, vtable_offset, &mut method_names, gen));

@@ -4,10 +4,11 @@ use std::collections::*;
 #[derive(Default)]
 pub struct Gen<'a> {
     pub namespace: &'a str,
-    pub minimal: bool, // don't generate inherited methods (both composable and non-composable) and avoid large enums
     pub sys: bool,
     pub flatten: bool,
     pub cfg: bool,
+    pub min_enum: bool,
+    pub min_inherit: bool,
 }
 
 impl Gen<'_> {
