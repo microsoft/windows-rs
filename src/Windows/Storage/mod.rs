@@ -2172,6 +2172,22 @@ impl IStorageFile {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), filetoreplace.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    pub fn OpenSequentialReadAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Streams::IInputStream>> {
+        let this = &::windows::core::Interface::cast::<Streams::IInputStreamReference>(self)?;
+        unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<Streams::IInputStream>>(result__)
+        }
+    }
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    pub fn OpenReadAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Streams::IRandomAccessStreamWithContentType>> {
+        let this = &::windows::core::Interface::cast::<Streams::IRandomAccessStreamReference>(self)?;
+        unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<Streams::IRandomAccessStreamWithContentType>>(result__)
+        }
+    }
     #[cfg(feature = "Foundation")]
     pub fn RenameAsyncOverloadDefaultOptions<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, desiredname: Param0) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IStorageItem>(self)?;
@@ -2287,6 +2303,58 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IStorageF
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IStorageFile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Storage_Streams")]
+impl ::core::convert::TryFrom<IStorageFile> for Streams::IInputStreamReference {
+    type Error = ::windows::core::Error;
+    fn try_from(value: IStorageFile) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+#[cfg(feature = "Storage_Streams")]
+impl ::core::convert::TryFrom<&IStorageFile> for Streams::IInputStreamReference {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IStorageFile) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+#[cfg(feature = "Storage_Streams")]
+impl<'a> ::windows::core::IntoParam<'a, Streams::IInputStreamReference> for IStorageFile {
+    fn into_param(self) -> ::windows::core::Param<'a, Streams::IInputStreamReference> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+#[cfg(feature = "Storage_Streams")]
+impl<'a> ::windows::core::IntoParam<'a, Streams::IInputStreamReference> for &IStorageFile {
+    fn into_param(self) -> ::windows::core::Param<'a, Streams::IInputStreamReference> {
+        ::core::convert::TryInto::<Streams::IInputStreamReference>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+#[cfg(feature = "Storage_Streams")]
+impl ::core::convert::TryFrom<IStorageFile> for Streams::IRandomAccessStreamReference {
+    type Error = ::windows::core::Error;
+    fn try_from(value: IStorageFile) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+#[cfg(feature = "Storage_Streams")]
+impl ::core::convert::TryFrom<&IStorageFile> for Streams::IRandomAccessStreamReference {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IStorageFile) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+#[cfg(feature = "Storage_Streams")]
+impl<'a> ::windows::core::IntoParam<'a, Streams::IRandomAccessStreamReference> for IStorageFile {
+    fn into_param(self) -> ::windows::core::Param<'a, Streams::IRandomAccessStreamReference> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+#[cfg(feature = "Storage_Streams")]
+impl<'a> ::windows::core::IntoParam<'a, Streams::IRandomAccessStreamReference> for &IStorageFile {
+    fn into_param(self) -> ::windows::core::Param<'a, Streams::IRandomAccessStreamReference> {
+        ::core::convert::TryInto::<Streams::IRandomAccessStreamReference>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
 impl ::core::convert::TryFrom<IStorageFile> for IStorageItem {

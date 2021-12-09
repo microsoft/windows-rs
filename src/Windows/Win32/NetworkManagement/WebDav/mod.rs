@@ -252,7 +252,7 @@ pub unsafe fn DavUnregisterAuthCallback(hcallback: u32) {
         extern "system" {
             fn DavUnregisterAuthCallback(hcallback: u32);
         }
-        ::core::mem::transmute(DavUnregisterAuthCallback(::core::mem::transmute(hcallback)))
+        DavUnregisterAuthCallback(::core::mem::transmute(hcallback))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

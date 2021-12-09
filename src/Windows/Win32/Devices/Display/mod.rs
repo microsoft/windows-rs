@@ -3136,7 +3136,7 @@ pub unsafe fn EngAcquireSemaphore<'a, Param0: ::windows::core::IntoParam<'a, HSE
         extern "system" {
             fn EngAcquireSemaphore(hsem: HSEMAPHORE);
         }
-        ::core::mem::transmute(EngAcquireSemaphore(hsem.into_param().abi()))
+        EngAcquireSemaphore(hsem.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3316,7 +3316,7 @@ pub unsafe fn EngDeleteClip(pco: *const CLIPOBJ) {
         extern "system" {
             fn EngDeleteClip(pco: *const CLIPOBJ);
         }
-        ::core::mem::transmute(EngDeleteClip(::core::mem::transmute(pco)))
+        EngDeleteClip(::core::mem::transmute(pco))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3343,7 +3343,7 @@ pub unsafe fn EngDeletePath(ppo: *mut PATHOBJ) {
         extern "system" {
             fn EngDeletePath(ppo: *mut PATHOBJ);
         }
-        ::core::mem::transmute(EngDeletePath(::core::mem::transmute(ppo)))
+        EngDeletePath(::core::mem::transmute(ppo))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3356,7 +3356,7 @@ pub unsafe fn EngDeleteSemaphore<'a, Param0: ::windows::core::IntoParam<'a, HSEM
         extern "system" {
             fn EngDeleteSemaphore(hsem: HSEMAPHORE);
         }
-        ::core::mem::transmute(EngDeleteSemaphore(hsem.into_param().abi()))
+        EngDeleteSemaphore(hsem.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3426,7 +3426,7 @@ pub unsafe fn EngFreeModule<'a, Param0: ::windows::core::IntoParam<'a, super::su
         extern "system" {
             fn EngFreeModule(h: super::super::Foundation::HANDLE);
         }
-        ::core::mem::transmute(EngFreeModule(h.into_param().abi()))
+        EngFreeModule(h.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3439,7 +3439,7 @@ pub unsafe fn EngGetCurrentCodePage(oemcodepage: *mut u16, ansicodepage: *mut u1
         extern "system" {
             fn EngGetCurrentCodePage(oemcodepage: *mut u16, ansicodepage: *mut u16);
         }
-        ::core::mem::transmute(EngGetCurrentCodePage(::core::mem::transmute(oemcodepage), ::core::mem::transmute(ansicodepage)))
+        EngGetCurrentCodePage(::core::mem::transmute(oemcodepage), ::core::mem::transmute(ansicodepage))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3551,7 +3551,7 @@ pub unsafe fn EngMultiByteToUnicodeN<'a, Param3: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn EngMultiByteToUnicodeN(unicodestring: super::super::Foundation::PWSTR, maxbytesinunicodestring: u32, bytesinunicodestring: *mut u32, multibytestring: super::super::Foundation::PSTR, bytesinmultibytestring: u32);
         }
-        ::core::mem::transmute(EngMultiByteToUnicodeN(::core::mem::transmute(unicodestring), ::core::mem::transmute(maxbytesinunicodestring), ::core::mem::transmute(bytesinunicodestring), multibytestring.into_param().abi(), ::core::mem::transmute(bytesinmultibytestring)))
+        EngMultiByteToUnicodeN(::core::mem::transmute(unicodestring), ::core::mem::transmute(maxbytesinunicodestring), ::core::mem::transmute(bytesinunicodestring), multibytestring.into_param().abi(), ::core::mem::transmute(bytesinmultibytestring))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3620,7 +3620,7 @@ pub unsafe fn EngQueryLocalTime(param0: *mut ENG_TIME_FIELDS) {
         extern "system" {
             fn EngQueryLocalTime(param0: *mut ENG_TIME_FIELDS);
         }
-        ::core::mem::transmute(EngQueryLocalTime(::core::mem::transmute(param0)))
+        EngQueryLocalTime(::core::mem::transmute(param0))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3633,7 +3633,7 @@ pub unsafe fn EngReleaseSemaphore<'a, Param0: ::windows::core::IntoParam<'a, HSE
         extern "system" {
             fn EngReleaseSemaphore(hsem: HSEMAPHORE);
         }
-        ::core::mem::transmute(EngReleaseSemaphore(hsem.into_param().abi()))
+        EngReleaseSemaphore(hsem.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3731,7 +3731,7 @@ pub unsafe fn EngUnicodeToMultiByteN<'a, Param3: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn EngUnicodeToMultiByteN(multibytestring: super::super::Foundation::PSTR, maxbytesinmultibytestring: u32, bytesinmultibytestring: *mut u32, unicodestring: super::super::Foundation::PWSTR, bytesinunicodestring: u32);
         }
-        ::core::mem::transmute(EngUnicodeToMultiByteN(::core::mem::transmute(multibytestring), ::core::mem::transmute(maxbytesinmultibytestring), ::core::mem::transmute(bytesinmultibytestring), unicodestring.into_param().abi(), ::core::mem::transmute(bytesinunicodestring)))
+        EngUnicodeToMultiByteN(::core::mem::transmute(multibytestring), ::core::mem::transmute(maxbytesinmultibytestring), ::core::mem::transmute(bytesinmultibytestring), unicodestring.into_param().abi(), ::core::mem::transmute(bytesinunicodestring))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3745,7 +3745,7 @@ pub unsafe fn EngUnlockSurface(pso: *mut SURFOBJ) {
         extern "system" {
             fn EngUnlockSurface(pso: *mut SURFOBJ);
         }
-        ::core::mem::transmute(EngUnlockSurface(::core::mem::transmute(pso)))
+        EngUnlockSurface(::core::mem::transmute(pso))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4443,7 +4443,7 @@ pub unsafe fn FONTOBJ_vGetInfo(pfo: *mut FONTOBJ, cjsize: u32, pfi: *mut FONTINF
         extern "system" {
             fn FONTOBJ_vGetInfo(pfo: *mut FONTOBJ, cjsize: u32, pfi: *mut FONTINFO);
         }
-        ::core::mem::transmute(FONTOBJ_vGetInfo(::core::mem::transmute(pfo), ::core::mem::transmute(cjsize), ::core::mem::transmute(pfi)))
+        FONTOBJ_vGetInfo(::core::mem::transmute(pfo), ::core::mem::transmute(cjsize), ::core::mem::transmute(pfi))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7226,7 +7226,7 @@ pub unsafe fn PATHOBJ_vEnumStart(ppo: *mut PATHOBJ) {
         extern "system" {
             fn PATHOBJ_vEnumStart(ppo: *mut PATHOBJ);
         }
-        ::core::mem::transmute(PATHOBJ_vEnumStart(::core::mem::transmute(ppo)))
+        PATHOBJ_vEnumStart(::core::mem::transmute(ppo))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7240,7 +7240,7 @@ pub unsafe fn PATHOBJ_vEnumStartClipLines(ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, 
         extern "system" {
             fn PATHOBJ_vEnumStartClipLines(ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pso: *mut SURFOBJ, pla: *mut LINEATTRS);
         }
-        ::core::mem::transmute(PATHOBJ_vEnumStartClipLines(::core::mem::transmute(ppo), ::core::mem::transmute(pco), ::core::mem::transmute(pso), ::core::mem::transmute(pla)))
+        PATHOBJ_vEnumStartClipLines(::core::mem::transmute(ppo), ::core::mem::transmute(pco), ::core::mem::transmute(pso), ::core::mem::transmute(pla))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7253,7 +7253,7 @@ pub unsafe fn PATHOBJ_vGetBounds(ppo: *mut PATHOBJ, prectfx: *mut RECTFX) {
         extern "system" {
             fn PATHOBJ_vGetBounds(ppo: *mut PATHOBJ, prectfx: *mut RECTFX);
         }
-        ::core::mem::transmute(PATHOBJ_vGetBounds(::core::mem::transmute(ppo), ::core::mem::transmute(prectfx)))
+        PATHOBJ_vGetBounds(::core::mem::transmute(ppo), ::core::mem::transmute(prectfx))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7920,7 +7920,7 @@ pub unsafe fn STROBJ_vEnumStart(pstro: *mut STROBJ) {
         extern "system" {
             fn STROBJ_vEnumStart(pstro: *mut STROBJ);
         }
-        ::core::mem::transmute(STROBJ_vEnumStart(::core::mem::transmute(pstro)))
+        STROBJ_vEnumStart(::core::mem::transmute(pstro))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

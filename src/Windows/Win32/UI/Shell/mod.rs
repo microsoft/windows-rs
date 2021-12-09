@@ -2398,7 +2398,7 @@ pub unsafe fn ColorRGBToHLS(clrrgb: u32, pwhue: *mut u16, pwluminance: *mut u16,
         extern "system" {
             fn ColorRGBToHLS(clrrgb: u32, pwhue: *mut u16, pwluminance: *mut u16, pwsaturation: *mut u16);
         }
-        ::core::mem::transmute(ColorRGBToHLS(::core::mem::transmute(clrrgb), ::core::mem::transmute(pwhue), ::core::mem::transmute(pwluminance), ::core::mem::transmute(pwsaturation)))
+        ColorRGBToHLS(::core::mem::transmute(clrrgb), ::core::mem::transmute(pwhue), ::core::mem::transmute(pwluminance), ::core::mem::transmute(pwsaturation))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3907,7 +3907,7 @@ pub unsafe fn DragAcceptFiles<'a, Param0: ::windows::core::IntoParam<'a, super::
         extern "system" {
             fn DragAcceptFiles(hwnd: super::super::Foundation::HWND, faccept: super::super::Foundation::BOOL);
         }
-        ::core::mem::transmute(DragAcceptFiles(hwnd.into_param().abi(), faccept.into_param().abi()))
+        DragAcceptFiles(hwnd.into_param().abi(), faccept.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3920,7 +3920,7 @@ pub unsafe fn DragFinish<'a, Param0: ::windows::core::IntoParam<'a, HDROP>>(hdro
         extern "system" {
             fn DragFinish(hdrop: HDROP);
         }
-        ::core::mem::transmute(DragFinish(hdrop.into_param().abi()))
+        DragFinish(hdrop.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7301,7 +7301,7 @@ pub unsafe fn HMONITOR_UserFree(param0: *const u32, param1: *const super::super:
         extern "system" {
             fn HMONITOR_UserFree(param0: *const u32, param1: *const super::super::Graphics::Gdi::HMONITOR);
         }
-        ::core::mem::transmute(HMONITOR_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        HMONITOR_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7315,7 +7315,7 @@ pub unsafe fn HMONITOR_UserFree64(param0: *const u32, param1: *const super::supe
         extern "system" {
             fn HMONITOR_UserFree64(param0: *const u32, param1: *const super::super::Graphics::Gdi::HMONITOR);
         }
-        ::core::mem::transmute(HMONITOR_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        HMONITOR_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -23899,7 +23899,7 @@ pub unsafe fn ILFree(pidl: *const Common::ITEMIDLIST) {
         extern "system" {
             fn ILFree(pidl: *const Common::ITEMIDLIST);
         }
-        ::core::mem::transmute(ILFree(::core::mem::transmute(pidl)))
+        ILFree(::core::mem::transmute(pidl))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -46554,7 +46554,7 @@ pub unsafe fn IUnknown_AtomicRelease(ppunk: *mut *mut ::core::ffi::c_void) {
         extern "system" {
             fn IUnknown_AtomicRelease(ppunk: *mut *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(IUnknown_AtomicRelease(::core::mem::transmute(ppunk)))
+        IUnknown_AtomicRelease(::core::mem::transmute(ppunk))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -46609,7 +46609,7 @@ pub unsafe fn IUnknown_Set<'a, Param1: ::windows::core::IntoParam<'a, ::windows:
         extern "system" {
             fn IUnknown_Set(ppunk: *mut *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(IUnknown_Set(::core::mem::transmute(ppunk), punk.into_param().abi()))
+        IUnknown_Set(::core::mem::transmute(ppunk), punk.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -51702,7 +51702,7 @@ pub unsafe fn PathGetShortPath<'a, Param0: ::windows::core::IntoParam<'a, super:
         extern "system" {
             fn PathGetShortPath(pszlongpath: super::super::Foundation::PWSTR);
         }
-        ::core::mem::transmute(PathGetShortPath(pszlongpath.into_param().abi()))
+        PathGetShortPath(pszlongpath.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -52346,7 +52346,7 @@ pub unsafe fn PathQualify<'a, Param0: ::windows::core::IntoParam<'a, super::supe
         extern "system" {
             fn PathQualify(psz: super::super::Foundation::PWSTR);
         }
-        ::core::mem::transmute(PathQualify(psz.into_param().abi()))
+        PathQualify(psz.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -52416,7 +52416,7 @@ pub unsafe fn PathRemoveArgsA<'a, Param0: ::windows::core::IntoParam<'a, super::
         extern "system" {
             fn PathRemoveArgsA(pszpath: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(PathRemoveArgsA(pszpath.into_param().abi()))
+        PathRemoveArgsA(pszpath.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -52430,7 +52430,7 @@ pub unsafe fn PathRemoveArgsW<'a, Param0: ::windows::core::IntoParam<'a, super::
         extern "system" {
             fn PathRemoveArgsW(pszpath: super::super::Foundation::PWSTR);
         }
-        ::core::mem::transmute(PathRemoveArgsW(pszpath.into_param().abi()))
+        PathRemoveArgsW(pszpath.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -52472,7 +52472,7 @@ pub unsafe fn PathRemoveBlanksA<'a, Param0: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn PathRemoveBlanksA(pszpath: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(PathRemoveBlanksA(pszpath.into_param().abi()))
+        PathRemoveBlanksA(pszpath.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -52486,7 +52486,7 @@ pub unsafe fn PathRemoveBlanksW<'a, Param0: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn PathRemoveBlanksW(pszpath: super::super::Foundation::PWSTR);
         }
-        ::core::mem::transmute(PathRemoveBlanksW(pszpath.into_param().abi()))
+        PathRemoveBlanksW(pszpath.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -52500,7 +52500,7 @@ pub unsafe fn PathRemoveExtensionA<'a, Param0: ::windows::core::IntoParam<'a, su
         extern "system" {
             fn PathRemoveExtensionA(pszpath: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(PathRemoveExtensionA(pszpath.into_param().abi()))
+        PathRemoveExtensionA(pszpath.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -52514,7 +52514,7 @@ pub unsafe fn PathRemoveExtensionW<'a, Param0: ::windows::core::IntoParam<'a, su
         extern "system" {
             fn PathRemoveExtensionW(pszpath: super::super::Foundation::PWSTR);
         }
-        ::core::mem::transmute(PathRemoveExtensionW(pszpath.into_param().abi()))
+        PathRemoveExtensionW(pszpath.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -52626,7 +52626,7 @@ pub unsafe fn PathSetDlgItemPathA<'a, Param0: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn PathSetDlgItemPathA(hdlg: super::super::Foundation::HWND, id: i32, pszpath: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(PathSetDlgItemPathA(hdlg.into_param().abi(), ::core::mem::transmute(id), pszpath.into_param().abi()))
+        PathSetDlgItemPathA(hdlg.into_param().abi(), ::core::mem::transmute(id), pszpath.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -52640,7 +52640,7 @@ pub unsafe fn PathSetDlgItemPathW<'a, Param0: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn PathSetDlgItemPathW(hdlg: super::super::Foundation::HWND, id: i32, pszpath: super::super::Foundation::PWSTR);
         }
-        ::core::mem::transmute(PathSetDlgItemPathW(hdlg.into_param().abi(), ::core::mem::transmute(id), pszpath.into_param().abi()))
+        PathSetDlgItemPathW(hdlg.into_param().abi(), ::core::mem::transmute(id), pszpath.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -52682,7 +52682,7 @@ pub unsafe fn PathStripPathA<'a, Param0: ::windows::core::IntoParam<'a, super::s
         extern "system" {
             fn PathStripPathA(pszpath: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(PathStripPathA(pszpath.into_param().abi()))
+        PathStripPathA(pszpath.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -52696,7 +52696,7 @@ pub unsafe fn PathStripPathW<'a, Param0: ::windows::core::IntoParam<'a, super::s
         extern "system" {
             fn PathStripPathW(pszpath: super::super::Foundation::PWSTR);
         }
-        ::core::mem::transmute(PathStripPathW(pszpath.into_param().abi()))
+        PathStripPathW(pszpath.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -52766,7 +52766,7 @@ pub unsafe fn PathUndecorateA<'a, Param0: ::windows::core::IntoParam<'a, super::
         extern "system" {
             fn PathUndecorateA(pszpath: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(PathUndecorateA(pszpath.into_param().abi()))
+        PathUndecorateA(pszpath.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -52780,7 +52780,7 @@ pub unsafe fn PathUndecorateW<'a, Param0: ::windows::core::IntoParam<'a, super::
         extern "system" {
             fn PathUndecorateW(pszpath: super::super::Foundation::PWSTR);
         }
-        ::core::mem::transmute(PathUndecorateW(pszpath.into_param().abi()))
+        PathUndecorateW(pszpath.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -53754,7 +53754,7 @@ pub unsafe fn SHAddToRecentDocs(uflags: u32, pv: *const ::core::ffi::c_void) {
         extern "system" {
             fn SHAddToRecentDocs(uflags: u32, pv: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(SHAddToRecentDocs(::core::mem::transmute(uflags), ::core::mem::transmute(pv)))
+        SHAddToRecentDocs(::core::mem::transmute(uflags), ::core::mem::transmute(pv))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -54284,7 +54284,7 @@ pub unsafe fn SHChangeNotify(weventid: SHCNE_ID, uflags: SHCNF_FLAGS, dwitem1: *
         extern "system" {
             fn SHChangeNotify(weventid: SHCNE_ID, uflags: SHCNF_FLAGS, dwitem1: *const ::core::ffi::c_void, dwitem2: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(SHChangeNotify(::core::mem::transmute(weventid), ::core::mem::transmute(uflags), ::core::mem::transmute(dwitem1), ::core::mem::transmute(dwitem2)))
+        SHChangeNotify(::core::mem::transmute(weventid), ::core::mem::transmute(uflags), ::core::mem::transmute(dwitem1), ::core::mem::transmute(dwitem2))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -54357,7 +54357,7 @@ pub unsafe fn SHChangeNotifyRegisterThread(status: SCNRT_STATUS) {
         extern "system" {
             fn SHChangeNotifyRegisterThread(status: SCNRT_STATUS);
         }
-        ::core::mem::transmute(SHChangeNotifyRegisterThread(::core::mem::transmute(status)))
+        SHChangeNotifyRegisterThread(::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -55143,7 +55143,7 @@ pub unsafe fn SHDestroyPropSheetExtArray<'a, Param0: ::windows::core::IntoParam<
         extern "system" {
             fn SHDestroyPropSheetExtArray(hpsxa: HPSXA);
         }
-        ::core::mem::transmute(SHDestroyPropSheetExtArray(hpsxa.into_param().abi()))
+        SHDestroyPropSheetExtArray(hpsxa.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -56263,7 +56263,7 @@ pub unsafe fn SHFlushSFCache() {
         extern "system" {
             fn SHFlushSFCache();
         }
-        ::core::mem::transmute(SHFlushSFCache())
+        SHFlushSFCache()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -56318,7 +56318,7 @@ pub unsafe fn SHFree(pv: *const ::core::ffi::c_void) {
         extern "system" {
             fn SHFree(pv: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(SHFree(::core::mem::transmute(pv)))
+        SHFree(::core::mem::transmute(pv))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -56332,7 +56332,7 @@ pub unsafe fn SHFreeNameMappings<'a, Param0: ::windows::core::IntoParam<'a, supe
         extern "system" {
             fn SHFreeNameMappings(hnamemappings: super::super::Foundation::HANDLE);
         }
-        ::core::mem::transmute(SHFreeNameMappings(hnamemappings.into_param().abi()))
+        SHFreeNameMappings(hnamemappings.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -56956,7 +56956,7 @@ pub unsafe fn SHGetSetSettings<'a, Param2: ::windows::core::IntoParam<'a, super:
         extern "system" {
             fn SHGetSetSettings(lpss: *mut SHELLSTATEA, dwmask: SSF_MASK, bset: super::super::Foundation::BOOL);
         }
-        ::core::mem::transmute(SHGetSetSettings(::core::mem::transmute(lpss), ::core::mem::transmute(dwmask), bset.into_param().abi()))
+        SHGetSetSettings(::core::mem::transmute(lpss), ::core::mem::transmute(dwmask), bset.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -56969,7 +56969,7 @@ pub unsafe fn SHGetSettings(psfs: *mut SHELLFLAGSTATE, dwmask: u32) {
         extern "system" {
             fn SHGetSettings(psfs: *mut SHELLFLAGSTATE, dwmask: u32);
         }
-        ::core::mem::transmute(SHGetSettings(::core::mem::transmute(psfs), ::core::mem::transmute(dwmask)))
+        SHGetSettings(::core::mem::transmute(psfs), ::core::mem::transmute(dwmask))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -58689,7 +58689,7 @@ pub unsafe fn SHSetInstanceExplorer<'a, Param0: ::windows::core::IntoParam<'a, :
         extern "system" {
             fn SHSetInstanceExplorer(punk: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(SHSetInstanceExplorer(punk.into_param().abi()))
+        SHSetInstanceExplorer(punk.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -58984,7 +58984,7 @@ pub unsafe fn SHUpdateImageA<'a, Param0: ::windows::core::IntoParam<'a, super::s
         extern "system" {
             fn SHUpdateImageA(pszhashitem: super::super::Foundation::PSTR, iindex: i32, uflags: u32, iimageindex: i32);
         }
-        ::core::mem::transmute(SHUpdateImageA(pszhashitem.into_param().abi(), ::core::mem::transmute(iindex), ::core::mem::transmute(uflags), ::core::mem::transmute(iimageindex)))
+        SHUpdateImageA(pszhashitem.into_param().abi(), ::core::mem::transmute(iindex), ::core::mem::transmute(uflags), ::core::mem::transmute(iimageindex))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -58998,7 +58998,7 @@ pub unsafe fn SHUpdateImageW<'a, Param0: ::windows::core::IntoParam<'a, super::s
         extern "system" {
             fn SHUpdateImageW(pszhashitem: super::super::Foundation::PWSTR, iindex: i32, uflags: u32, iimageindex: i32);
         }
-        ::core::mem::transmute(SHUpdateImageW(pszhashitem.into_param().abi(), ::core::mem::transmute(iindex), ::core::mem::transmute(uflags), ::core::mem::transmute(iimageindex)))
+        SHUpdateImageW(pszhashitem.into_param().abi(), ::core::mem::transmute(iindex), ::core::mem::transmute(uflags), ::core::mem::transmute(iimageindex))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -61582,7 +61582,7 @@ pub unsafe fn UnregisterAppConstrainedChangeNotification(registration: *mut _APP
         extern "system" {
             fn UnregisterAppConstrainedChangeNotification(registration: *mut _APPCONSTRAIN_REGISTRATION);
         }
-        ::core::mem::transmute(UnregisterAppConstrainedChangeNotification(::core::mem::transmute(registration)))
+        UnregisterAppConstrainedChangeNotification(::core::mem::transmute(registration))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -61595,7 +61595,7 @@ pub unsafe fn UnregisterAppStateChangeNotification(registration: *mut _APPSTATE_
         extern "system" {
             fn UnregisterAppStateChangeNotification(registration: *mut _APPSTATE_REGISTRATION);
         }
-        ::core::mem::transmute(UnregisterAppStateChangeNotification(::core::mem::transmute(registration)))
+        UnregisterAppStateChangeNotification(::core::mem::transmute(registration))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

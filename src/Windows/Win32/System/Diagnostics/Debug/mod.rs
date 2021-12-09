@@ -1802,7 +1802,7 @@ pub unsafe fn CloseThreadWaitChainSession(wcthandle: *const ::core::ffi::c_void)
         extern "system" {
             fn CloseThreadWaitChainSession(wcthandle: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(CloseThreadWaitChainSession(::core::mem::transmute(wcthandle)))
+        CloseThreadWaitChainSession(::core::mem::transmute(wcthandle))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4894,7 +4894,7 @@ pub unsafe fn DebugBreak() {
         extern "system" {
             fn DebugBreak();
         }
-        ::core::mem::transmute(DebugBreak())
+        DebugBreak()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6119,7 +6119,7 @@ pub unsafe fn FatalAppExitA<'a, Param1: ::windows::core::IntoParam<'a, super::su
         extern "system" {
             fn FatalAppExitA(uaction: u32, lpmessagetext: super::super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(FatalAppExitA(::core::mem::transmute(uaction), lpmessagetext.into_param().abi()))
+        FatalAppExitA(::core::mem::transmute(uaction), lpmessagetext.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6133,7 +6133,7 @@ pub unsafe fn FatalAppExitW<'a, Param1: ::windows::core::IntoParam<'a, super::su
         extern "system" {
             fn FatalAppExitW(uaction: u32, lpmessagetext: super::super::super::Foundation::PWSTR);
         }
-        ::core::mem::transmute(FatalAppExitW(::core::mem::transmute(uaction), lpmessagetext.into_param().abi()))
+        FatalAppExitW(::core::mem::transmute(uaction), lpmessagetext.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6146,7 +6146,7 @@ pub unsafe fn FatalExit(exitcode: i32) {
         extern "system" {
             fn FatalExit(exitcode: i32);
         }
-        ::core::mem::transmute(FatalExit(::core::mem::transmute(exitcode)))
+        FatalExit(::core::mem::transmute(exitcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10940,13 +10940,13 @@ impl IDataModelScriptDebugBreakpoint {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
     }
     pub unsafe fn Enable(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Disable(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Remove(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPosition(&self, position: *mut ScriptDebugPosition, positionspanend: *mut ScriptDebugPosition, linetext: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
@@ -45048,7 +45048,7 @@ pub unsafe fn OutputDebugStringA<'a, Param0: ::windows::core::IntoParam<'a, supe
         extern "system" {
             fn OutputDebugStringA(lpoutputstring: super::super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(OutputDebugStringA(lpoutputstring.into_param().abi()))
+        OutputDebugStringA(lpoutputstring.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -45062,7 +45062,7 @@ pub unsafe fn OutputDebugStringW<'a, Param0: ::windows::core::IntoParam<'a, supe
         extern "system" {
             fn OutputDebugStringW(lpoutputstring: super::super::super::Foundation::PWSTR);
         }
-        ::core::mem::transmute(OutputDebugStringW(lpoutputstring.into_param().abi()))
+        OutputDebugStringW(lpoutputstring.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -46139,7 +46139,7 @@ pub unsafe fn RaiseException(dwexceptioncode: u32, dwexceptionflags: u32, nnumbe
         extern "system" {
             fn RaiseException(dwexceptioncode: u32, dwexceptionflags: u32, nnumberofarguments: u32, lparguments: *const usize);
         }
-        ::core::mem::transmute(RaiseException(::core::mem::transmute(dwexceptioncode), ::core::mem::transmute(dwexceptionflags), ::core::mem::transmute(nnumberofarguments), ::core::mem::transmute(lparguments)))
+        RaiseException(::core::mem::transmute(dwexceptioncode), ::core::mem::transmute(dwexceptionflags), ::core::mem::transmute(nnumberofarguments), ::core::mem::transmute(lparguments))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -46153,7 +46153,7 @@ pub unsafe fn RaiseFailFastException(pexceptionrecord: *const EXCEPTION_RECORD, 
         extern "system" {
             fn RaiseFailFastException(pexceptionrecord: *const EXCEPTION_RECORD, pcontextrecord: *const CONTEXT, dwflags: u32);
         }
-        ::core::mem::transmute(RaiseFailFastException(::core::mem::transmute(pexceptionrecord), ::core::mem::transmute(pcontextrecord), ::core::mem::transmute(dwflags)))
+        RaiseFailFastException(::core::mem::transmute(pexceptionrecord), ::core::mem::transmute(pcontextrecord), ::core::mem::transmute(dwflags))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -46193,7 +46193,7 @@ pub unsafe fn RangeMapFree(rmaphandle: *const ::core::ffi::c_void) {
         extern "system" {
             fn RangeMapFree(rmaphandle: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(RangeMapFree(::core::mem::transmute(rmaphandle)))
+        RangeMapFree(::core::mem::transmute(rmaphandle))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -46293,7 +46293,7 @@ pub unsafe fn RegisterWaitChainCOMCallback(callstatecallback: PCOGETCALLSTATE, a
         extern "system" {
             fn RegisterWaitChainCOMCallback(callstatecallback: ::windows::core::RawPtr, activationstatecallback: ::windows::core::RawPtr);
         }
-        ::core::mem::transmute(RegisterWaitChainCOMCallback(::core::mem::transmute(callstatecallback), ::core::mem::transmute(activationstatecallback)))
+        RegisterWaitChainCOMCallback(::core::mem::transmute(callstatecallback), ::core::mem::transmute(activationstatecallback))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -46307,7 +46307,7 @@ pub unsafe fn RemoveInvalidModuleList<'a, Param0: ::windows::core::IntoParam<'a,
         extern "system" {
             fn RemoveInvalidModuleList(hprocess: super::super::super::Foundation::HANDLE);
         }
-        ::core::mem::transmute(RemoveInvalidModuleList(hprocess.into_param().abi()))
+        RemoveInvalidModuleList(hprocess.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -46419,7 +46419,7 @@ pub unsafe fn RtlCaptureContext(contextrecord: *mut CONTEXT) {
         extern "system" {
             fn RtlCaptureContext(contextrecord: *mut CONTEXT);
         }
-        ::core::mem::transmute(RtlCaptureContext(::core::mem::transmute(contextrecord)))
+        RtlCaptureContext(::core::mem::transmute(contextrecord))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -46434,7 +46434,7 @@ pub unsafe fn RtlCaptureContext2(contextrecord: *mut CONTEXT) {
         extern "system" {
             fn RtlCaptureContext2(contextrecord: *mut CONTEXT);
         }
-        ::core::mem::transmute(RtlCaptureContext2(::core::mem::transmute(contextrecord)))
+        RtlCaptureContext2(::core::mem::transmute(contextrecord))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -46491,7 +46491,7 @@ pub unsafe fn RtlDeleteGrowableFunctionTable(dynamictable: *const ::core::ffi::c
         extern "system" {
             fn RtlDeleteGrowableFunctionTable(dynamictable: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(RtlDeleteGrowableFunctionTable(::core::mem::transmute(dynamictable)))
+        RtlDeleteGrowableFunctionTable(::core::mem::transmute(dynamictable))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -46505,7 +46505,7 @@ pub unsafe fn RtlGrowFunctionTable(dynamictable: *mut ::core::ffi::c_void, newen
         extern "system" {
             fn RtlGrowFunctionTable(dynamictable: *mut ::core::ffi::c_void, newentrycount: u32);
         }
-        ::core::mem::transmute(RtlGrowFunctionTable(::core::mem::transmute(dynamictable), ::core::mem::transmute(newentrycount)))
+        RtlGrowFunctionTable(::core::mem::transmute(dynamictable), ::core::mem::transmute(newentrycount))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -46575,7 +46575,7 @@ pub unsafe fn RtlRaiseException(exceptionrecord: *const EXCEPTION_RECORD) {
         extern "system" {
             fn RtlRaiseException(exceptionrecord: *const EXCEPTION_RECORD);
         }
-        ::core::mem::transmute(RtlRaiseException(::core::mem::transmute(exceptionrecord)))
+        RtlRaiseException(::core::mem::transmute(exceptionrecord))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -46589,7 +46589,7 @@ pub unsafe fn RtlRestoreContext(contextrecord: *const CONTEXT, exceptionrecord: 
         extern "system" {
             fn RtlRestoreContext(contextrecord: *const CONTEXT, exceptionrecord: *const EXCEPTION_RECORD);
         }
-        ::core::mem::transmute(RtlRestoreContext(::core::mem::transmute(contextrecord), ::core::mem::transmute(exceptionrecord)))
+        RtlRestoreContext(::core::mem::transmute(contextrecord), ::core::mem::transmute(exceptionrecord))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -46603,7 +46603,7 @@ pub unsafe fn RtlUnwind(targetframe: *const ::core::ffi::c_void, targetip: *cons
         extern "system" {
             fn RtlUnwind(targetframe: *const ::core::ffi::c_void, targetip: *const ::core::ffi::c_void, exceptionrecord: *const EXCEPTION_RECORD, returnvalue: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(RtlUnwind(::core::mem::transmute(targetframe), ::core::mem::transmute(targetip), ::core::mem::transmute(exceptionrecord), ::core::mem::transmute(returnvalue)))
+        RtlUnwind(::core::mem::transmute(targetframe), ::core::mem::transmute(targetip), ::core::mem::transmute(exceptionrecord), ::core::mem::transmute(returnvalue))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -46618,7 +46618,7 @@ pub unsafe fn RtlUnwindEx(targetframe: *const ::core::ffi::c_void, targetip: *co
         extern "system" {
             fn RtlUnwindEx(targetframe: *const ::core::ffi::c_void, targetip: *const ::core::ffi::c_void, exceptionrecord: *const EXCEPTION_RECORD, returnvalue: *const ::core::ffi::c_void, contextrecord: *const CONTEXT, historytable: *const UNWIND_HISTORY_TABLE);
         }
-        ::core::mem::transmute(RtlUnwindEx(::core::mem::transmute(targetframe), ::core::mem::transmute(targetip), ::core::mem::transmute(exceptionrecord), ::core::mem::transmute(returnvalue), ::core::mem::transmute(contextrecord), ::core::mem::transmute(historytable)))
+        RtlUnwindEx(::core::mem::transmute(targetframe), ::core::mem::transmute(targetip), ::core::mem::transmute(exceptionrecord), ::core::mem::transmute(returnvalue), ::core::mem::transmute(contextrecord), ::core::mem::transmute(historytable))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -47840,7 +47840,7 @@ pub unsafe fn SetCheckUserInterruptShared(lpstartaddress: LPCALL_BACK_USER_INTER
         extern "system" {
             fn SetCheckUserInterruptShared(lpstartaddress: ::windows::core::RawPtr);
         }
-        ::core::mem::transmute(SetCheckUserInterruptShared(::core::mem::transmute(lpstartaddress)))
+        SetCheckUserInterruptShared(::core::mem::transmute(lpstartaddress))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -47896,7 +47896,7 @@ pub unsafe fn SetSymLoadError(error: u32) {
         extern "system" {
             fn SetSymLoadError(error: u32);
         }
-        ::core::mem::transmute(SetSymLoadError(::core::mem::transmute(error)))
+        SetSymLoadError(::core::mem::transmute(error))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -50511,7 +50511,7 @@ pub unsafe fn TerminateProcessOnMemoryExhaustion(failedallocationsize: usize) {
         extern "system" {
             fn TerminateProcessOnMemoryExhaustion(failedallocationsize: usize);
         }
-        ::core::mem::transmute(TerminateProcessOnMemoryExhaustion(::core::mem::transmute(failedallocationsize)))
+        TerminateProcessOnMemoryExhaustion(::core::mem::transmute(failedallocationsize))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

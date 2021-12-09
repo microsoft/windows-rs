@@ -2468,7 +2468,7 @@ pub unsafe fn D3DPERF_SetMarker<'a, Param1: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn D3DPERF_SetMarker(col: u32, wszname: super::super::Foundation::PWSTR);
         }
-        ::core::mem::transmute(D3DPERF_SetMarker(::core::mem::transmute(col), wszname.into_param().abi()))
+        D3DPERF_SetMarker(::core::mem::transmute(col), wszname.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2481,7 +2481,7 @@ pub unsafe fn D3DPERF_SetOptions(dwoptions: u32) {
         extern "system" {
             fn D3DPERF_SetOptions(dwoptions: u32);
         }
-        ::core::mem::transmute(D3DPERF_SetOptions(::core::mem::transmute(dwoptions)))
+        D3DPERF_SetOptions(::core::mem::transmute(dwoptions))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2495,7 +2495,7 @@ pub unsafe fn D3DPERF_SetRegion<'a, Param1: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn D3DPERF_SetRegion(col: u32, wszname: super::super::Foundation::PWSTR);
         }
-        ::core::mem::transmute(D3DPERF_SetRegion(::core::mem::transmute(col), wszname.into_param().abi()))
+        D3DPERF_SetRegion(::core::mem::transmute(col), wszname.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3956,7 +3956,7 @@ impl IDirect3DBaseTexture9 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)))
     }
     pub unsafe fn PreLoad(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self)))
@@ -3977,7 +3977,7 @@ impl IDirect3DBaseTexture9 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self)))
     }
     pub unsafe fn GenerateMipSubLevels(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self))
     }
 }
 impl ::core::convert::From<IDirect3DBaseTexture9> for IDirect3DResource9 {
@@ -4079,7 +4079,7 @@ impl IDirect3DCubeTexture9 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)))
     }
     pub unsafe fn PreLoad(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self)))
@@ -4100,7 +4100,7 @@ impl IDirect3DCubeTexture9 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self)))
     }
     pub unsafe fn GenerateMipSubLevels(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn GetLevelDesc(&self, level: u32, pdesc: *mut D3DSURFACE_DESC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(level), ::core::mem::transmute(pdesc)).ok()
@@ -4254,7 +4254,7 @@ impl IDirect3DDevice9 {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(xhotspot), ::core::mem::transmute(yhotspot), pcursorbitmap.into_param().abi()).ok()
     }
     pub unsafe fn SetCursorPosition(&self, x: i32, y: i32, flags: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(flags)))
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(flags))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowCursor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bshow: Param0) -> super::super::Foundation::BOOL {
@@ -4292,10 +4292,10 @@ impl IDirect3DDevice9 {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), benabledialogs.into_param().abi()).ok()
     }
     pub unsafe fn SetGammaRamp(&self, iswapchain: u32, flags: u32, pramp: *const D3DGAMMARAMP) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(iswapchain), ::core::mem::transmute(flags), ::core::mem::transmute(pramp)))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(iswapchain), ::core::mem::transmute(flags), ::core::mem::transmute(pramp))
     }
     pub unsafe fn GetGammaRamp(&self, iswapchain: u32, pramp: *mut D3DGAMMARAMP) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(iswapchain), ::core::mem::transmute(pramp)))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(iswapchain), ::core::mem::transmute(pramp))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateTexture(&self, width: u32, height: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, pptexture: *mut ::core::option::Option<IDirect3DTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
@@ -4850,7 +4850,7 @@ impl IDirect3DDevice9Ex {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(xhotspot), ::core::mem::transmute(yhotspot), pcursorbitmap.into_param().abi()).ok()
     }
     pub unsafe fn SetCursorPosition(&self, x: i32, y: i32, flags: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(flags)))
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(flags))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowCursor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bshow: Param0) -> super::super::Foundation::BOOL {
@@ -4888,10 +4888,10 @@ impl IDirect3DDevice9Ex {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), benabledialogs.into_param().abi()).ok()
     }
     pub unsafe fn SetGammaRamp(&self, iswapchain: u32, flags: u32, pramp: *const D3DGAMMARAMP) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(iswapchain), ::core::mem::transmute(flags), ::core::mem::transmute(pramp)))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(iswapchain), ::core::mem::transmute(flags), ::core::mem::transmute(pramp))
     }
     pub unsafe fn GetGammaRamp(&self, iswapchain: u32, pramp: *mut D3DGAMMARAMP) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(iswapchain), ::core::mem::transmute(pramp)))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(iswapchain), ::core::mem::transmute(pramp))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateTexture(&self, width: u32, height: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, pptexture: *mut ::core::option::Option<IDirect3DTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
@@ -5531,7 +5531,7 @@ impl IDirect3DIndexBuffer9 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)))
     }
     pub unsafe fn PreLoad(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self)))
@@ -5764,7 +5764,7 @@ impl IDirect3DResource9 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)))
     }
     pub unsafe fn PreLoad(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self)))
@@ -5902,7 +5902,7 @@ impl IDirect3DSurface9 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)))
     }
     pub unsafe fn PreLoad(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self)))
@@ -6227,7 +6227,7 @@ impl IDirect3DTexture9 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)))
     }
     pub unsafe fn PreLoad(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self)))
@@ -6248,7 +6248,7 @@ impl IDirect3DTexture9 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self)))
     }
     pub unsafe fn GenerateMipSubLevels(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn GetLevelDesc(&self, level: u32, pdesc: *mut D3DSURFACE_DESC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(level), ::core::mem::transmute(pdesc)).ok()
@@ -6395,7 +6395,7 @@ impl IDirect3DVertexBuffer9 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)))
     }
     pub unsafe fn PreLoad(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self)))
@@ -6695,7 +6695,7 @@ impl IDirect3DVolumeTexture9 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)))
     }
     pub unsafe fn PreLoad(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self)))
@@ -6716,7 +6716,7 @@ impl IDirect3DVolumeTexture9 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self)))
     }
     pub unsafe fn GenerateMipSubLevels(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn GetLevelDesc(&self, level: u32, pdesc: *mut D3DVOLUME_DESC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(level), ::core::mem::transmute(pdesc)).ok()

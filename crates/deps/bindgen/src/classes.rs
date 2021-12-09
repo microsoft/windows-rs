@@ -29,7 +29,7 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
 
         let mut vtable_offset = 6;
         for method in def.methods() {
-            methods.combine(&gen_winrt_method(&def, *kind, &method, vtable_offset, &mut method_names, gen));
+            methods.combine(&gen_winrt_method(def, *kind, &method, vtable_offset, &mut method_names, gen));
             vtable_offset += 1;
         }
     }
@@ -38,7 +38,7 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
         InterfaceKind::Static | InterfaceKind::Composable => {
             if def.methods().next().is_some() {
                 let interface_name = format_token!("{}", def.name());
-                let interface_type = gen_type_name(&def, gen);
+                let interface_type = gen_type_name(def, gen);
 
                 Some(quote! {
                     pub fn #interface_name<R, F: FnOnce(&#interface_type) -> ::windows::core::Result<R>>(
@@ -74,7 +74,7 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
             quote! {}
         };
 
-        let cfg = gen.type_cfg(&def);
+        let cfg = gen.type_cfg(def);
 
         let mut tokens = quote! {
             #cfg

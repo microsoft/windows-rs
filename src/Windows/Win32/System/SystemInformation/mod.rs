@@ -324,7 +324,7 @@ pub unsafe fn GetLocalTime(lpsystemtime: *mut super::super::Foundation::SYSTEMTI
         extern "system" {
             fn GetLocalTime(lpsystemtime: *mut super::super::Foundation::SYSTEMTIME);
         }
-        ::core::mem::transmute(GetLocalTime(::core::mem::transmute(lpsystemtime)))
+        GetLocalTime(::core::mem::transmute(lpsystemtime))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -366,7 +366,7 @@ pub unsafe fn GetNativeSystemInfo(lpsysteminfo: *mut SYSTEM_INFO) {
         extern "system" {
             fn GetNativeSystemInfo(lpsysteminfo: *mut SYSTEM_INFO);
         }
-        ::core::mem::transmute(GetNativeSystemInfo(::core::mem::transmute(lpsysteminfo)))
+        GetNativeSystemInfo(::core::mem::transmute(lpsysteminfo))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -518,7 +518,7 @@ pub unsafe fn GetSystemInfo(lpsysteminfo: *mut SYSTEM_INFO) {
         extern "system" {
             fn GetSystemInfo(lpsysteminfo: *mut SYSTEM_INFO);
         }
-        ::core::mem::transmute(GetSystemInfo(::core::mem::transmute(lpsysteminfo)))
+        GetSystemInfo(::core::mem::transmute(lpsysteminfo))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -546,7 +546,7 @@ pub unsafe fn GetSystemTime(lpsystemtime: *mut super::super::Foundation::SYSTEMT
         extern "system" {
             fn GetSystemTime(lpsystemtime: *mut super::super::Foundation::SYSTEMTIME);
         }
-        ::core::mem::transmute(GetSystemTime(::core::mem::transmute(lpsystemtime)))
+        GetSystemTime(::core::mem::transmute(lpsystemtime))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -588,7 +588,7 @@ pub unsafe fn GetSystemTimeAsFileTime(lpsystemtimeasfiletime: *mut super::super:
         extern "system" {
             fn GetSystemTimeAsFileTime(lpsystemtimeasfiletime: *mut super::super::Foundation::FILETIME);
         }
-        ::core::mem::transmute(GetSystemTimeAsFileTime(::core::mem::transmute(lpsystemtimeasfiletime)))
+        GetSystemTimeAsFileTime(::core::mem::transmute(lpsystemtimeasfiletime))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -602,7 +602,7 @@ pub unsafe fn GetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime: *mut super:
         extern "system" {
             fn GetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime: *mut super::super::Foundation::FILETIME);
         }
-        ::core::mem::transmute(GetSystemTimePreciseAsFileTime(::core::mem::transmute(lpsystemtimeasfiletime)))
+        GetSystemTimePreciseAsFileTime(::core::mem::transmute(lpsystemtimeasfiletime))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -794,7 +794,7 @@ pub unsafe fn GlobalMemoryStatus(lpbuffer: *mut MEMORYSTATUS) {
         extern "system" {
             fn GlobalMemoryStatus(lpbuffer: *mut MEMORYSTATUS);
         }
-        ::core::mem::transmute(GlobalMemoryStatus(::core::mem::transmute(lpbuffer)))
+        GlobalMemoryStatus(::core::mem::transmute(lpbuffer))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1357,7 +1357,7 @@ pub unsafe fn RtlGetDeviceFamilyInfoEnum(pulluapinfo: *mut u64, puldevicefamily:
         extern "system" {
             fn RtlGetDeviceFamilyInfoEnum(pulluapinfo: *mut u64, puldevicefamily: *mut DEVICEFAMILYINFOENUM, puldeviceform: *mut DEVICEFAMILYDEVICEFORM);
         }
-        ::core::mem::transmute(RtlGetDeviceFamilyInfoEnum(::core::mem::transmute(pulluapinfo), ::core::mem::transmute(puldevicefamily), ::core::mem::transmute(puldeviceform)))
+        RtlGetDeviceFamilyInfoEnum(::core::mem::transmute(pulluapinfo), ::core::mem::transmute(puldevicefamily), ::core::mem::transmute(puldeviceform))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

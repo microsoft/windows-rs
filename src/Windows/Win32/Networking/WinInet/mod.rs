@@ -214,7 +214,7 @@ pub unsafe fn AppCacheCloseHandle(happcache: *const ::core::ffi::c_void) {
         extern "system" {
             fn AppCacheCloseHandle(happcache: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(AppCacheCloseHandle(::core::mem::transmute(happcache)))
+        AppCacheCloseHandle(::core::mem::transmute(happcache))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -296,7 +296,7 @@ pub unsafe fn AppCacheFreeDownloadList(pdownloadlist: *mut APP_CACHE_DOWNLOAD_LI
         extern "system" {
             fn AppCacheFreeDownloadList(pdownloadlist: *mut APP_CACHE_DOWNLOAD_LIST);
         }
-        ::core::mem::transmute(AppCacheFreeDownloadList(::core::mem::transmute(pdownloadlist)))
+        AppCacheFreeDownloadList(::core::mem::transmute(pdownloadlist))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -310,7 +310,7 @@ pub unsafe fn AppCacheFreeGroupList(pappcachegrouplist: *mut APP_CACHE_GROUP_LIS
         extern "system" {
             fn AppCacheFreeGroupList(pappcachegrouplist: *mut APP_CACHE_GROUP_LIST);
         }
-        ::core::mem::transmute(AppCacheFreeGroupList(::core::mem::transmute(pappcachegrouplist)))
+        AppCacheFreeGroupList(::core::mem::transmute(pappcachegrouplist))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3017,7 +3017,7 @@ pub unsafe fn HttpCloseDependencyHandle(hdependencyhandle: *const ::core::ffi::c
         extern "system" {
             fn HttpCloseDependencyHandle(hdependencyhandle: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(HttpCloseDependencyHandle(::core::mem::transmute(hdependencyhandle)))
+        HttpCloseDependencyHandle(::core::mem::transmute(hdependencyhandle))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3154,7 +3154,7 @@ pub unsafe fn HttpPushClose<'a, Param0: ::windows::core::IntoParam<'a, HTTP_PUSH
         extern "system" {
             fn HttpPushClose(hwait: HTTP_PUSH_WAIT_HANDLE);
         }
-        ::core::mem::transmute(HttpPushClose(hwait.into_param().abi()))
+        HttpPushClose(hwait.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6176,7 +6176,7 @@ pub unsafe fn InternetFreeCookies(pcookies: *mut INTERNET_COOKIE2, dwcookiecount
         extern "system" {
             fn InternetFreeCookies(pcookies: *mut INTERNET_COOKIE2, dwcookiecount: u32);
         }
-        ::core::mem::transmute(InternetFreeCookies(::core::mem::transmute(pcookies), ::core::mem::transmute(dwcookiecount)))
+        InternetFreeCookies(::core::mem::transmute(pcookies), ::core::mem::transmute(dwcookiecount))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6190,7 +6190,7 @@ pub unsafe fn InternetFreeProxyInfoList(pproxyinfolist: *mut WININET_PROXY_INFO_
         extern "system" {
             fn InternetFreeProxyInfoList(pproxyinfolist: *mut WININET_PROXY_INFO_LIST);
         }
-        ::core::mem::transmute(InternetFreeProxyInfoList(::core::mem::transmute(pproxyinfolist)))
+        InternetFreeProxyInfoList(::core::mem::transmute(pproxyinfolist))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7976,7 +7976,7 @@ pub unsafe fn UrlCacheCloseEntryHandle(hentryfile: *const ::core::ffi::c_void) {
         extern "system" {
             fn UrlCacheCloseEntryHandle(hentryfile: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(UrlCacheCloseEntryHandle(::core::mem::transmute(hentryfile)))
+        UrlCacheCloseEntryHandle(::core::mem::transmute(hentryfile))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8046,7 +8046,7 @@ pub unsafe fn UrlCacheFreeEntryInfo(pcacheentryinfo: *mut URLCACHE_ENTRY_INFO) {
         extern "system" {
             fn UrlCacheFreeEntryInfo(pcacheentryinfo: *mut URLCACHE_ENTRY_INFO);
         }
-        ::core::mem::transmute(UrlCacheFreeEntryInfo(::core::mem::transmute(pcacheentryinfo)))
+        UrlCacheFreeEntryInfo(::core::mem::transmute(pcacheentryinfo))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

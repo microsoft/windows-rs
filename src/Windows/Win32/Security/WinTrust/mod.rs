@@ -2220,7 +2220,7 @@ pub unsafe fn WintrustGetRegPolicyFlags(pdwpolicyflags: *mut WINTRUST_POLICY_FLA
         extern "system" {
             fn WintrustGetRegPolicyFlags(pdwpolicyflags: *mut WINTRUST_POLICY_FLAGS);
         }
-        ::core::mem::transmute(WintrustGetRegPolicyFlags(::core::mem::transmute(pdwpolicyflags)))
+        WintrustGetRegPolicyFlags(::core::mem::transmute(pdwpolicyflags))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2262,7 +2262,7 @@ pub unsafe fn WintrustSetDefaultIncludePEPageHashes<'a, Param0: ::windows::core:
         extern "system" {
             fn WintrustSetDefaultIncludePEPageHashes(fincludepepagehashes: super::super::Foundation::BOOL);
         }
-        ::core::mem::transmute(WintrustSetDefaultIncludePEPageHashes(fincludepepagehashes.into_param().abi()))
+        WintrustSetDefaultIncludePEPageHashes(fincludepepagehashes.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

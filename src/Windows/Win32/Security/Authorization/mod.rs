@@ -1993,7 +1993,7 @@ pub unsafe fn BuildExplicitAccessWithNameA<'a, Param1: ::windows::core::IntoPara
         extern "system" {
             fn BuildExplicitAccessWithNameA(pexplicitaccess: *mut EXPLICIT_ACCESS_A, ptrusteename: super::super::Foundation::PSTR, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: super::ACE_FLAGS);
         }
-        ::core::mem::transmute(BuildExplicitAccessWithNameA(::core::mem::transmute(pexplicitaccess), ptrusteename.into_param().abi(), ::core::mem::transmute(accesspermissions), ::core::mem::transmute(accessmode), ::core::mem::transmute(inheritance)))
+        BuildExplicitAccessWithNameA(::core::mem::transmute(pexplicitaccess), ptrusteename.into_param().abi(), ::core::mem::transmute(accesspermissions), ::core::mem::transmute(accessmode), ::core::mem::transmute(inheritance))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2007,7 +2007,7 @@ pub unsafe fn BuildExplicitAccessWithNameW<'a, Param1: ::windows::core::IntoPara
         extern "system" {
             fn BuildExplicitAccessWithNameW(pexplicitaccess: *mut EXPLICIT_ACCESS_W, ptrusteename: super::super::Foundation::PWSTR, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: super::ACE_FLAGS);
         }
-        ::core::mem::transmute(BuildExplicitAccessWithNameW(::core::mem::transmute(pexplicitaccess), ptrusteename.into_param().abi(), ::core::mem::transmute(accesspermissions), ::core::mem::transmute(accessmode), ::core::mem::transmute(inheritance)))
+        BuildExplicitAccessWithNameW(::core::mem::transmute(pexplicitaccess), ptrusteename.into_param().abi(), ::core::mem::transmute(accesspermissions), ::core::mem::transmute(accessmode), ::core::mem::transmute(inheritance))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2021,7 +2021,7 @@ pub unsafe fn BuildImpersonateExplicitAccessWithNameA<'a, Param1: ::windows::cor
         extern "system" {
             fn BuildImpersonateExplicitAccessWithNameA(pexplicitaccess: *mut EXPLICIT_ACCESS_A, ptrusteename: super::super::Foundation::PSTR, ptrustee: *const TRUSTEE_A, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: u32);
         }
-        ::core::mem::transmute(BuildImpersonateExplicitAccessWithNameA(::core::mem::transmute(pexplicitaccess), ptrusteename.into_param().abi(), ::core::mem::transmute(ptrustee), ::core::mem::transmute(accesspermissions), ::core::mem::transmute(accessmode), ::core::mem::transmute(inheritance)))
+        BuildImpersonateExplicitAccessWithNameA(::core::mem::transmute(pexplicitaccess), ptrusteename.into_param().abi(), ::core::mem::transmute(ptrustee), ::core::mem::transmute(accesspermissions), ::core::mem::transmute(accessmode), ::core::mem::transmute(inheritance))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2035,7 +2035,7 @@ pub unsafe fn BuildImpersonateExplicitAccessWithNameW<'a, Param1: ::windows::cor
         extern "system" {
             fn BuildImpersonateExplicitAccessWithNameW(pexplicitaccess: *mut EXPLICIT_ACCESS_W, ptrusteename: super::super::Foundation::PWSTR, ptrustee: *const TRUSTEE_W, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: u32);
         }
-        ::core::mem::transmute(BuildImpersonateExplicitAccessWithNameW(::core::mem::transmute(pexplicitaccess), ptrusteename.into_param().abi(), ::core::mem::transmute(ptrustee), ::core::mem::transmute(accesspermissions), ::core::mem::transmute(accessmode), ::core::mem::transmute(inheritance)))
+        BuildImpersonateExplicitAccessWithNameW(::core::mem::transmute(pexplicitaccess), ptrusteename.into_param().abi(), ::core::mem::transmute(ptrustee), ::core::mem::transmute(accesspermissions), ::core::mem::transmute(accessmode), ::core::mem::transmute(inheritance))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2049,7 +2049,7 @@ pub unsafe fn BuildImpersonateTrusteeA(ptrustee: *mut TRUSTEE_A, pimpersonatetru
         extern "system" {
             fn BuildImpersonateTrusteeA(ptrustee: *mut TRUSTEE_A, pimpersonatetrustee: *const TRUSTEE_A);
         }
-        ::core::mem::transmute(BuildImpersonateTrusteeA(::core::mem::transmute(ptrustee), ::core::mem::transmute(pimpersonatetrustee)))
+        BuildImpersonateTrusteeA(::core::mem::transmute(ptrustee), ::core::mem::transmute(pimpersonatetrustee))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2063,7 +2063,7 @@ pub unsafe fn BuildImpersonateTrusteeW(ptrustee: *mut TRUSTEE_W, pimpersonatetru
         extern "system" {
             fn BuildImpersonateTrusteeW(ptrustee: *mut TRUSTEE_W, pimpersonatetrustee: *const TRUSTEE_W);
         }
-        ::core::mem::transmute(BuildImpersonateTrusteeW(::core::mem::transmute(ptrustee), ::core::mem::transmute(pimpersonatetrustee)))
+        BuildImpersonateTrusteeW(::core::mem::transmute(ptrustee), ::core::mem::transmute(pimpersonatetrustee))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2105,7 +2105,7 @@ pub unsafe fn BuildTrusteeWithNameA<'a, Param1: ::windows::core::IntoParam<'a, s
         extern "system" {
             fn BuildTrusteeWithNameA(ptrustee: *mut TRUSTEE_A, pname: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(BuildTrusteeWithNameA(::core::mem::transmute(ptrustee), pname.into_param().abi()))
+        BuildTrusteeWithNameA(::core::mem::transmute(ptrustee), pname.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2119,7 +2119,7 @@ pub unsafe fn BuildTrusteeWithNameW<'a, Param1: ::windows::core::IntoParam<'a, s
         extern "system" {
             fn BuildTrusteeWithNameW(ptrustee: *mut TRUSTEE_W, pname: super::super::Foundation::PWSTR);
         }
-        ::core::mem::transmute(BuildTrusteeWithNameW(::core::mem::transmute(ptrustee), pname.into_param().abi()))
+        BuildTrusteeWithNameW(::core::mem::transmute(ptrustee), pname.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2133,7 +2133,7 @@ pub unsafe fn BuildTrusteeWithObjectsAndNameA<'a, Param3: ::windows::core::IntoP
         extern "system" {
             fn BuildTrusteeWithObjectsAndNameA(ptrustee: *mut TRUSTEE_A, pobjname: *const OBJECTS_AND_NAME_A, objecttype: SE_OBJECT_TYPE, objecttypename: super::super::Foundation::PSTR, inheritedobjecttypename: super::super::Foundation::PSTR, name: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(BuildTrusteeWithObjectsAndNameA(::core::mem::transmute(ptrustee), ::core::mem::transmute(pobjname), ::core::mem::transmute(objecttype), objecttypename.into_param().abi(), inheritedobjecttypename.into_param().abi(), name.into_param().abi()))
+        BuildTrusteeWithObjectsAndNameA(::core::mem::transmute(ptrustee), ::core::mem::transmute(pobjname), ::core::mem::transmute(objecttype), objecttypename.into_param().abi(), inheritedobjecttypename.into_param().abi(), name.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2147,7 +2147,7 @@ pub unsafe fn BuildTrusteeWithObjectsAndNameW<'a, Param3: ::windows::core::IntoP
         extern "system" {
             fn BuildTrusteeWithObjectsAndNameW(ptrustee: *mut TRUSTEE_W, pobjname: *const OBJECTS_AND_NAME_W, objecttype: SE_OBJECT_TYPE, objecttypename: super::super::Foundation::PWSTR, inheritedobjecttypename: super::super::Foundation::PWSTR, name: super::super::Foundation::PWSTR);
         }
-        ::core::mem::transmute(BuildTrusteeWithObjectsAndNameW(::core::mem::transmute(ptrustee), ::core::mem::transmute(pobjname), ::core::mem::transmute(objecttype), objecttypename.into_param().abi(), inheritedobjecttypename.into_param().abi(), name.into_param().abi()))
+        BuildTrusteeWithObjectsAndNameW(::core::mem::transmute(ptrustee), ::core::mem::transmute(pobjname), ::core::mem::transmute(objecttype), objecttypename.into_param().abi(), inheritedobjecttypename.into_param().abi(), name.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2161,7 +2161,7 @@ pub unsafe fn BuildTrusteeWithObjectsAndSidA<'a, Param4: ::windows::core::IntoPa
         extern "system" {
             fn BuildTrusteeWithObjectsAndSidA(ptrustee: *mut TRUSTEE_A, pobjsid: *const OBJECTS_AND_SID, pobjectguid: *const ::windows::core::GUID, pinheritedobjectguid: *const ::windows::core::GUID, psid: super::super::Foundation::PSID);
         }
-        ::core::mem::transmute(BuildTrusteeWithObjectsAndSidA(::core::mem::transmute(ptrustee), ::core::mem::transmute(pobjsid), ::core::mem::transmute(pobjectguid), ::core::mem::transmute(pinheritedobjectguid), psid.into_param().abi()))
+        BuildTrusteeWithObjectsAndSidA(::core::mem::transmute(ptrustee), ::core::mem::transmute(pobjsid), ::core::mem::transmute(pobjectguid), ::core::mem::transmute(pinheritedobjectguid), psid.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2175,7 +2175,7 @@ pub unsafe fn BuildTrusteeWithObjectsAndSidW<'a, Param4: ::windows::core::IntoPa
         extern "system" {
             fn BuildTrusteeWithObjectsAndSidW(ptrustee: *mut TRUSTEE_W, pobjsid: *const OBJECTS_AND_SID, pobjectguid: *const ::windows::core::GUID, pinheritedobjectguid: *const ::windows::core::GUID, psid: super::super::Foundation::PSID);
         }
-        ::core::mem::transmute(BuildTrusteeWithObjectsAndSidW(::core::mem::transmute(ptrustee), ::core::mem::transmute(pobjsid), ::core::mem::transmute(pobjectguid), ::core::mem::transmute(pinheritedobjectguid), psid.into_param().abi()))
+        BuildTrusteeWithObjectsAndSidW(::core::mem::transmute(ptrustee), ::core::mem::transmute(pobjsid), ::core::mem::transmute(pobjectguid), ::core::mem::transmute(pinheritedobjectguid), psid.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2189,7 +2189,7 @@ pub unsafe fn BuildTrusteeWithSidA<'a, Param1: ::windows::core::IntoParam<'a, su
         extern "system" {
             fn BuildTrusteeWithSidA(ptrustee: *mut TRUSTEE_A, psid: super::super::Foundation::PSID);
         }
-        ::core::mem::transmute(BuildTrusteeWithSidA(::core::mem::transmute(ptrustee), psid.into_param().abi()))
+        BuildTrusteeWithSidA(::core::mem::transmute(ptrustee), psid.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2203,7 +2203,7 @@ pub unsafe fn BuildTrusteeWithSidW<'a, Param1: ::windows::core::IntoParam<'a, su
         extern "system" {
             fn BuildTrusteeWithSidW(ptrustee: *mut TRUSTEE_W, psid: super::super::Foundation::PSID);
         }
-        ::core::mem::transmute(BuildTrusteeWithSidW(::core::mem::transmute(ptrustee), psid.into_param().abi()))
+        BuildTrusteeWithSidW(::core::mem::transmute(ptrustee), psid.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

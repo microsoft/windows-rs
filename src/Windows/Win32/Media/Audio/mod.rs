@@ -3931,7 +3931,7 @@ impl IAudioStateMonitor {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(&mut result__)).from_abi::<i64>(result__)
     }
     pub unsafe fn UnregisterCallback(&self, registration: i64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(registration)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(registration))
     }
     pub unsafe fn GetSoundLevel(&self) -> AudioStateMonitorSoundLevel {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)))

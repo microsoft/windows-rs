@@ -1538,7 +1538,7 @@ pub unsafe fn WNetSetLastErrorA<'a, Param1: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn WNetSetLastErrorA(err: u32, lperror: super::super::Foundation::PSTR, lpproviders: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(WNetSetLastErrorA(::core::mem::transmute(err), lperror.into_param().abi(), lpproviders.into_param().abi()))
+        WNetSetLastErrorA(::core::mem::transmute(err), lperror.into_param().abi(), lpproviders.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1552,7 +1552,7 @@ pub unsafe fn WNetSetLastErrorW<'a, Param1: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn WNetSetLastErrorW(err: u32, lperror: super::super::Foundation::PWSTR, lpproviders: super::super::Foundation::PWSTR);
         }
-        ::core::mem::transmute(WNetSetLastErrorW(::core::mem::transmute(err), lperror.into_param().abi(), lpproviders.into_param().abi()))
+        WNetSetLastErrorW(::core::mem::transmute(err), lperror.into_param().abi(), lpproviders.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

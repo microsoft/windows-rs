@@ -531,7 +531,7 @@ pub unsafe fn CryptCATFreeSortedMemberInfo<'a, Param0: ::windows::core::IntoPara
         extern "system" {
             fn CryptCATFreeSortedMemberInfo(hcatalog: super::super::super::Foundation::HANDLE, pcatmember: *mut CRYPTCATMEMBER);
         }
-        ::core::mem::transmute(CryptCATFreeSortedMemberInfo(hcatalog.into_param().abi(), ::core::mem::transmute(pcatmember)))
+        CryptCATFreeSortedMemberInfo(hcatalog.into_param().abi(), ::core::mem::transmute(pcatmember))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

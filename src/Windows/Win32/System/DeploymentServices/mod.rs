@@ -5863,7 +5863,7 @@ pub unsafe fn WdsCliSetTransferBufferSize(ulsizeinbytes: u32) {
         extern "system" {
             fn WdsCliSetTransferBufferSize(ulsizeinbytes: u32);
         }
-        ::core::mem::transmute(WdsCliSetTransferBufferSize(::core::mem::transmute(ulsizeinbytes)))
+        WdsCliSetTransferBufferSize(::core::mem::transmute(ulsizeinbytes))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -597,15 +597,15 @@ pub struct IWSDEventingStatus(::windows::core::IUnknown);
 impl IWSDEventingStatus {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SubscriptionRenewed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszsubscriptionaction: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszsubscriptionaction.into_param().abi()))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszsubscriptionaction.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SubscriptionRenewalFailed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszsubscriptionaction: Param0, hr: ::windows::core::HRESULT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszsubscriptionaction.into_param().abi(), ::core::mem::transmute(hr)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszsubscriptionaction.into_param().abi(), ::core::mem::transmute(hr))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SubscriptionEnded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszsubscriptionaction: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pszsubscriptionaction.into_param().abi()))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pszsubscriptionaction.into_param().abi())
     }
 }
 impl ::core::convert::From<IWSDEventingStatus> for ::windows::core::IUnknown {
@@ -3120,7 +3120,7 @@ pub unsafe fn WSDAttachLinkedMemory(pparent: *mut ::core::ffi::c_void, pchild: *
         extern "system" {
             fn WSDAttachLinkedMemory(pparent: *mut ::core::ffi::c_void, pchild: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(WSDAttachLinkedMemory(::core::mem::transmute(pparent), ::core::mem::transmute(pchild)))
+        WSDAttachLinkedMemory(::core::mem::transmute(pparent), ::core::mem::transmute(pchild))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3349,7 +3349,7 @@ pub unsafe fn WSDDetachLinkedMemory(pvoid: *mut ::core::ffi::c_void) {
         extern "system" {
             fn WSDDetachLinkedMemory(pvoid: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(WSDDetachLinkedMemory(::core::mem::transmute(pvoid)))
+        WSDDetachLinkedMemory(::core::mem::transmute(pvoid))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3368,7 +3368,7 @@ pub unsafe fn WSDFreeLinkedMemory(pvoid: *mut ::core::ffi::c_void) {
         extern "system" {
             fn WSDFreeLinkedMemory(pvoid: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(WSDFreeLinkedMemory(::core::mem::transmute(pvoid)))
+        WSDFreeLinkedMemory(::core::mem::transmute(pvoid))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

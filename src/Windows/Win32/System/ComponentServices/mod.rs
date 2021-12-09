@@ -701,7 +701,7 @@ pub unsafe fn CoLeaveServiceDomain<'a, Param0: ::windows::core::IntoParam<'a, ::
         extern "system" {
             fn CoLeaveServiceDomain(punkstatus: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(CoLeaveServiceDomain(punkstatus.into_param().abi()))
+        CoLeaveServiceDomain(punkstatus.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6564,7 +6564,7 @@ impl IMTSActivity {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pcall.into_param().abi()).ok()
     }
     pub unsafe fn Reserved1(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn BindToCurrentThread(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
@@ -7490,25 +7490,25 @@ pub struct IMtsGrpVtbl(
 pub struct IObjPool(::windows::core::IUnknown);
 impl IObjPool {
     pub unsafe fn Reserved1(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Reserved2(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Reserved3(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Reserved4(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn PutEndTx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pobj: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pobj.into_param().abi()))
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pobj.into_param().abi())
     }
     pub unsafe fn Reserved5(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Reserved6(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self))
     }
 }
 impl ::core::convert::From<IObjPool> for ::windows::core::IUnknown {
@@ -8072,7 +8072,7 @@ impl IObjectControl {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
     }
     pub unsafe fn Deactivate(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanBePooled(&self) -> super::super::Foundation::BOOL {
@@ -10479,59 +10479,59 @@ pub struct ITransactionContextExVtbl(
 pub struct ITransactionProperty(::windows::core::IUnknown);
 impl ITransactionProperty {
     pub unsafe fn Reserved1(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Reserved2(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Reserved3(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Reserved4(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Reserved5(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Reserved6(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Reserved7(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Reserved8(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Reserved9(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn GetTransactionResourcePool(&self) -> ::windows::core::Result<ITransactionResourcePool> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ITransactionResourcePool>(result__)
     }
     pub unsafe fn Reserved10(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Reserved11(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Reserved12(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Reserved13(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Reserved14(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Reserved15(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Reserved16(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Reserved17(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self))
     }
 }
 impl ::core::convert::From<ITransactionProperty> for ::windows::core::IUnknown {
@@ -10789,7 +10789,7 @@ pub struct ITransactionStatusVtbl(
 pub struct ITxProxyHolder(::windows::core::IUnknown);
 impl ITxProxyHolder {
     pub unsafe fn GetIdentifier(&self, pguidltx: *mut ::windows::core::GUID) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidltx)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidltx))
     }
 }
 impl ::core::convert::From<ITxProxyHolder> for ::windows::core::IUnknown {

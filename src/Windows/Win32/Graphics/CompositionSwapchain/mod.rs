@@ -71,7 +71,7 @@ impl ICompositionFramePresentStatistics {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn GetDisplayInstanceArray(&self, displayinstancearraycount: *mut u32, displayinstancearray: *mut *mut CompositionFrameDisplayInstance) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(displayinstancearraycount), ::core::mem::transmute(displayinstancearray)))
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(displayinstancearraycount), ::core::mem::transmute(displayinstancearray))
     }
 }
 impl ::core::convert::From<ICompositionFramePresentStatistics> for IPresentStatistics {
@@ -436,7 +436,7 @@ pub struct IPresentationBufferVtbl(
 pub struct IPresentationContent(::windows::core::IUnknown);
 impl IPresentationContent {
     pub unsafe fn SetTag(&self, tag: usize) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(tag)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(tag))
     }
 }
 impl ::core::convert::From<IPresentationContent> for ::windows::core::IUnknown {
@@ -649,7 +649,7 @@ pub struct IPresentationManagerVtbl(
 pub struct IPresentationSurface(::windows::core::IUnknown);
 impl IPresentationSurface {
     pub unsafe fn SetTag(&self, tag: usize) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(tag)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(tag))
     }
     pub unsafe fn SetBuffer<'a, Param0: ::windows::core::IntoParam<'a, IPresentationBuffer>>(&self, presentationbuffer: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), presentationbuffer.into_param().abi()).ok()

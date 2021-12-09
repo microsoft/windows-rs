@@ -433,7 +433,7 @@ pub unsafe fn AVIFileExit() {
         extern "system" {
             fn AVIFileExit();
         }
-        ::core::mem::transmute(AVIFileExit())
+        AVIFileExit()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -486,7 +486,7 @@ pub unsafe fn AVIFileInit() {
         extern "system" {
             fn AVIFileInit();
         }
-        ::core::mem::transmute(AVIFileInit())
+        AVIFileInit()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3305,7 +3305,7 @@ pub unsafe fn ICCompressorFree(pc: *const COMPVARS) {
         extern "system" {
             fn ICCompressorFree(pc: *const COMPVARS);
         }
-        ::core::mem::transmute(ICCompressorFree(::core::mem::transmute(pc)))
+        ICCompressorFree(::core::mem::transmute(pc))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3996,7 +3996,7 @@ pub unsafe fn ICSeqCompressFrameEnd(pc: *const COMPVARS) {
         extern "system" {
             fn ICSeqCompressFrameEnd(pc: *const COMPVARS);
         }
-        ::core::mem::transmute(ICSeqCompressFrameEnd(::core::mem::transmute(pc)))
+        ICSeqCompressFrameEnd(::core::mem::transmute(pc))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12622,7 +12622,7 @@ pub unsafe fn mmTaskBlock(h: u32) {
         extern "system" {
             fn mmTaskBlock(h: u32);
         }
-        ::core::mem::transmute(mmTaskBlock(::core::mem::transmute(h)))
+        mmTaskBlock(::core::mem::transmute(h))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12663,7 +12663,7 @@ pub unsafe fn mmTaskYield() {
         extern "system" {
             fn mmTaskYield();
         }
-        ::core::mem::transmute(mmTaskYield())
+        mmTaskYield()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

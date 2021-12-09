@@ -1429,7 +1429,7 @@ pub unsafe fn ADsSetLastError<'a, Param1: ::windows::core::IntoParam<'a, super::
         extern "system" {
             fn ADsSetLastError(dwerr: u32, pszerror: super::super::Foundation::PWSTR, pszprovider: super::super::Foundation::PWSTR);
         }
-        ::core::mem::transmute(ADsSetLastError(::core::mem::transmute(dwerr), pszerror.into_param().abi(), pszprovider.into_param().abi()))
+        ADsSetLastError(::core::mem::transmute(dwerr), pszerror.into_param().abi(), pszprovider.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1445,7 +1445,7 @@ pub unsafe fn AdsFreeAdsValues(padsvalues: *mut ADSVALUE, dwnumvalues: u32) {
         extern "system" {
             fn AdsFreeAdsValues(padsvalues: *mut ADSVALUE, dwnumvalues: u32);
         }
-        ::core::mem::transmute(AdsFreeAdsValues(::core::mem::transmute(padsvalues), ::core::mem::transmute(dwnumvalues)))
+        AdsFreeAdsValues(::core::mem::transmute(padsvalues), ::core::mem::transmute(dwnumvalues))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5288,7 +5288,7 @@ pub unsafe fn DsFreeDomainControllerInfoA(infolevel: u32, cinfo: u32, pinfo: *co
         extern "system" {
             fn DsFreeDomainControllerInfoA(infolevel: u32, cinfo: u32, pinfo: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(DsFreeDomainControllerInfoA(::core::mem::transmute(infolevel), ::core::mem::transmute(cinfo), ::core::mem::transmute(pinfo)))
+        DsFreeDomainControllerInfoA(::core::mem::transmute(infolevel), ::core::mem::transmute(cinfo), ::core::mem::transmute(pinfo))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5301,7 +5301,7 @@ pub unsafe fn DsFreeDomainControllerInfoW(infolevel: u32, cinfo: u32, pinfo: *co
         extern "system" {
             fn DsFreeDomainControllerInfoW(infolevel: u32, cinfo: u32, pinfo: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(DsFreeDomainControllerInfoW(::core::mem::transmute(infolevel), ::core::mem::transmute(cinfo), ::core::mem::transmute(pinfo)))
+        DsFreeDomainControllerInfoW(::core::mem::transmute(infolevel), ::core::mem::transmute(cinfo), ::core::mem::transmute(pinfo))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5315,7 +5315,7 @@ pub unsafe fn DsFreeNameResultA(presult: *const DS_NAME_RESULTA) {
         extern "system" {
             fn DsFreeNameResultA(presult: *const DS_NAME_RESULTA);
         }
-        ::core::mem::transmute(DsFreeNameResultA(::core::mem::transmute(presult)))
+        DsFreeNameResultA(::core::mem::transmute(presult))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5329,7 +5329,7 @@ pub unsafe fn DsFreeNameResultW(presult: *const DS_NAME_RESULTW) {
         extern "system" {
             fn DsFreeNameResultW(presult: *const DS_NAME_RESULTW);
         }
-        ::core::mem::transmute(DsFreeNameResultW(::core::mem::transmute(presult)))
+        DsFreeNameResultW(::core::mem::transmute(presult))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5342,7 +5342,7 @@ pub unsafe fn DsFreePasswordCredentials(authidentity: *const ::core::ffi::c_void
         extern "system" {
             fn DsFreePasswordCredentials(authidentity: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(DsFreePasswordCredentials(::core::mem::transmute(authidentity)))
+        DsFreePasswordCredentials(::core::mem::transmute(authidentity))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5356,7 +5356,7 @@ pub unsafe fn DsFreeSchemaGuidMapA(pguidmap: *const DS_SCHEMA_GUID_MAPA) {
         extern "system" {
             fn DsFreeSchemaGuidMapA(pguidmap: *const DS_SCHEMA_GUID_MAPA);
         }
-        ::core::mem::transmute(DsFreeSchemaGuidMapA(::core::mem::transmute(pguidmap)))
+        DsFreeSchemaGuidMapA(::core::mem::transmute(pguidmap))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5370,7 +5370,7 @@ pub unsafe fn DsFreeSchemaGuidMapW(pguidmap: *const DS_SCHEMA_GUID_MAPW) {
         extern "system" {
             fn DsFreeSchemaGuidMapW(pguidmap: *const DS_SCHEMA_GUID_MAPW);
         }
-        ::core::mem::transmute(DsFreeSchemaGuidMapW(::core::mem::transmute(pguidmap)))
+        DsFreeSchemaGuidMapW(::core::mem::transmute(pguidmap))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5384,7 +5384,7 @@ pub unsafe fn DsFreeSpnArrayA(cspn: u32, rpszspn: *mut super::super::Foundation:
         extern "system" {
             fn DsFreeSpnArrayA(cspn: u32, rpszspn: *mut super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(DsFreeSpnArrayA(::core::mem::transmute(cspn), ::core::mem::transmute(rpszspn)))
+        DsFreeSpnArrayA(::core::mem::transmute(cspn), ::core::mem::transmute(rpszspn))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5398,7 +5398,7 @@ pub unsafe fn DsFreeSpnArrayW(cspn: u32, rpszspn: *mut super::super::Foundation:
         extern "system" {
             fn DsFreeSpnArrayW(cspn: u32, rpszspn: *mut super::super::Foundation::PWSTR);
         }
-        ::core::mem::transmute(DsFreeSpnArrayW(::core::mem::transmute(cspn), ::core::mem::transmute(rpszspn)))
+        DsFreeSpnArrayW(::core::mem::transmute(cspn), ::core::mem::transmute(rpszspn))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5411,7 +5411,7 @@ pub unsafe fn DsGetDcCloseW<'a, Param0: ::windows::core::IntoParam<'a, GetDcCont
         extern "system" {
             fn DsGetDcCloseW(getdccontexthandle: GetDcContextHandle);
         }
-        ::core::mem::transmute(DsGetDcCloseW(getdccontexthandle.into_param().abi()))
+        DsGetDcCloseW(getdccontexthandle.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6054,7 +6054,7 @@ pub unsafe fn DsQuerySitesFree(rgsiteinfo: *const DS_SITE_COST_INFO) {
         extern "system" {
             fn DsQuerySitesFree(rgsiteinfo: *const DS_SITE_COST_INFO);
         }
-        ::core::mem::transmute(DsQuerySitesFree(::core::mem::transmute(rgsiteinfo)))
+        DsQuerySitesFree(::core::mem::transmute(rgsiteinfo))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6221,7 +6221,7 @@ pub unsafe fn DsReplicaFreeInfo(infotype: DS_REPL_INFO_TYPE, pinfo: *const ::cor
         extern "system" {
             fn DsReplicaFreeInfo(infotype: DS_REPL_INFO_TYPE, pinfo: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(DsReplicaFreeInfo(::core::mem::transmute(infotype), ::core::mem::transmute(pinfo)))
+        DsReplicaFreeInfo(::core::mem::transmute(infotype), ::core::mem::transmute(pinfo))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6402,7 +6402,7 @@ pub unsafe fn DsRoleFreeMemory(buffer: *mut ::core::ffi::c_void) {
         extern "system" {
             fn DsRoleFreeMemory(buffer: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(DsRoleFreeMemory(::core::mem::transmute(buffer)))
+        DsRoleFreeMemory(::core::mem::transmute(buffer))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

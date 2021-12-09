@@ -86,34 +86,34 @@ pub struct AsyncIAdviseSink(::windows::core::IUnknown);
 impl AsyncIAdviseSink {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn Begin_OnDataChange(&self, pformatetc: *const FORMATETC, pstgmed: *const STGMEDIUM) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pformatetc), ::core::mem::transmute(pstgmed)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pformatetc), ::core::mem::transmute(pstgmed))
     }
     pub unsafe fn Finish_OnDataChange(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Begin_OnViewChange(&self, dwaspect: u32, lindex: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaspect), ::core::mem::transmute(lindex)))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaspect), ::core::mem::transmute(lindex))
     }
     pub unsafe fn Finish_OnViewChange(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Begin_OnRename<'a, Param0: ::windows::core::IntoParam<'a, IMoniker>>(&self, pmk: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pmk.into_param().abi()))
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pmk.into_param().abi())
     }
     pub unsafe fn Finish_OnRename(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Begin_OnSave(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Finish_OnSave(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Begin_OnClose(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Finish_OnClose(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self))
     }
 }
 impl ::core::convert::From<AsyncIAdviseSink> for ::windows::core::IUnknown {
@@ -174,40 +174,40 @@ pub struct AsyncIAdviseSink2(::windows::core::IUnknown);
 impl AsyncIAdviseSink2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn Begin_OnDataChange(&self, pformatetc: *const FORMATETC, pstgmed: *const STGMEDIUM) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pformatetc), ::core::mem::transmute(pstgmed)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pformatetc), ::core::mem::transmute(pstgmed))
     }
     pub unsafe fn Finish_OnDataChange(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Begin_OnViewChange(&self, dwaspect: u32, lindex: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaspect), ::core::mem::transmute(lindex)))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaspect), ::core::mem::transmute(lindex))
     }
     pub unsafe fn Finish_OnViewChange(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Begin_OnRename<'a, Param0: ::windows::core::IntoParam<'a, IMoniker>>(&self, pmk: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pmk.into_param().abi()))
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pmk.into_param().abi())
     }
     pub unsafe fn Finish_OnRename(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Begin_OnSave(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Finish_OnSave(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Begin_OnClose(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Finish_OnClose(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Begin_OnLinkSrcChange<'a, Param0: ::windows::core::IntoParam<'a, IMoniker>>(&self, pmk: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), pmk.into_param().abi()))
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), pmk.into_param().abi())
     }
     pub unsafe fn Finish_OnLinkSrcChange(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self))
     }
 }
 impl ::core::convert::From<AsyncIAdviseSink2> for AsyncIAdviseSink {
@@ -1571,7 +1571,7 @@ pub unsafe fn CoFreeAllLibraries() {
         extern "system" {
             fn CoFreeAllLibraries();
         }
-        ::core::mem::transmute(CoFreeAllLibraries())
+        CoFreeAllLibraries()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1585,7 +1585,7 @@ pub unsafe fn CoFreeLibrary<'a, Param0: ::windows::core::IntoParam<'a, super::su
         extern "system" {
             fn CoFreeLibrary(hinst: super::super::Foundation::HINSTANCE);
         }
-        ::core::mem::transmute(CoFreeLibrary(hinst.into_param().abi()))
+        CoFreeLibrary(hinst.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1598,7 +1598,7 @@ pub unsafe fn CoFreeUnusedLibraries() {
         extern "system" {
             fn CoFreeUnusedLibraries();
         }
-        ::core::mem::transmute(CoFreeUnusedLibraries())
+        CoFreeUnusedLibraries()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1611,7 +1611,7 @@ pub unsafe fn CoFreeUnusedLibrariesEx(dwunloaddelay: u32, dwreserved: u32) {
         extern "system" {
             fn CoFreeUnusedLibrariesEx(dwunloaddelay: u32, dwreserved: u32);
         }
-        ::core::mem::transmute(CoFreeUnusedLibrariesEx(::core::mem::transmute(dwunloaddelay), ::core::mem::transmute(dwreserved)))
+        CoFreeUnusedLibrariesEx(::core::mem::transmute(dwunloaddelay), ::core::mem::transmute(dwreserved))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2273,7 +2273,7 @@ pub unsafe fn CoTaskMemFree(pv: *const ::core::ffi::c_void) {
         extern "system" {
             fn CoTaskMemFree(pv: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(CoTaskMemFree(::core::mem::transmute(pv)))
+        CoTaskMemFree(::core::mem::transmute(pv))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2325,7 +2325,7 @@ pub unsafe fn CoUninitialize() {
         extern "system" {
             fn CoUninitialize();
         }
-        ::core::mem::transmute(CoUninitialize())
+        CoUninitialize()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3349,19 +3349,19 @@ pub struct IAdviseSink(::windows::core::IUnknown);
 impl IAdviseSink {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn OnDataChange(&self, pformatetc: *const FORMATETC, pstgmed: *const STGMEDIUM) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pformatetc), ::core::mem::transmute(pstgmed)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pformatetc), ::core::mem::transmute(pstgmed))
     }
     pub unsafe fn OnViewChange(&self, dwaspect: u32, lindex: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaspect), ::core::mem::transmute(lindex)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaspect), ::core::mem::transmute(lindex))
     }
     pub unsafe fn OnRename<'a, Param0: ::windows::core::IntoParam<'a, IMoniker>>(&self, pmk: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pmk.into_param().abi()))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pmk.into_param().abi())
     }
     pub unsafe fn OnSave(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn OnClose(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self))
     }
 }
 impl ::core::convert::From<IAdviseSink> for ::windows::core::IUnknown {
@@ -3417,22 +3417,22 @@ pub struct IAdviseSink2(::windows::core::IUnknown);
 impl IAdviseSink2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn OnDataChange(&self, pformatetc: *const FORMATETC, pstgmed: *const STGMEDIUM) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pformatetc), ::core::mem::transmute(pstgmed)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pformatetc), ::core::mem::transmute(pstgmed))
     }
     pub unsafe fn OnViewChange(&self, dwaspect: u32, lindex: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaspect), ::core::mem::transmute(lindex)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaspect), ::core::mem::transmute(lindex))
     }
     pub unsafe fn OnRename<'a, Param0: ::windows::core::IntoParam<'a, IMoniker>>(&self, pmk: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pmk.into_param().abi()))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pmk.into_param().abi())
     }
     pub unsafe fn OnSave(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn OnClose(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn OnLinkSrcChange<'a, Param0: ::windows::core::IntoParam<'a, IMoniker>>(&self, pmk: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), pmk.into_param().abi()))
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), pmk.into_param().abi())
     }
 }
 impl ::core::convert::From<IAdviseSink2> for IAdviseSink {
@@ -4595,22 +4595,22 @@ pub struct ICatRegisterVtbl(
 pub struct IChannelHook(::windows::core::IUnknown);
 impl IChannelHook {
     pub unsafe fn ClientGetSize(&self, uextent: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pdatasize: *mut u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(uextent), ::core::mem::transmute(riid), ::core::mem::transmute(pdatasize)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(uextent), ::core::mem::transmute(riid), ::core::mem::transmute(pdatasize))
     }
     pub unsafe fn ClientFillBuffer(&self, uextent: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pdatasize: *mut u32, pdatabuffer: *const ::core::ffi::c_void) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(uextent), ::core::mem::transmute(riid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdatabuffer)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(uextent), ::core::mem::transmute(riid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdatabuffer))
     }
     pub unsafe fn ClientNotify(&self, uextent: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, cbdatasize: u32, pdatabuffer: *const ::core::ffi::c_void, ldatarep: u32, hrfault: ::windows::core::HRESULT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(uextent), ::core::mem::transmute(riid), ::core::mem::transmute(cbdatasize), ::core::mem::transmute(pdatabuffer), ::core::mem::transmute(ldatarep), ::core::mem::transmute(hrfault)))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(uextent), ::core::mem::transmute(riid), ::core::mem::transmute(cbdatasize), ::core::mem::transmute(pdatabuffer), ::core::mem::transmute(ldatarep), ::core::mem::transmute(hrfault))
     }
     pub unsafe fn ServerNotify(&self, uextent: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, cbdatasize: u32, pdatabuffer: *const ::core::ffi::c_void, ldatarep: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(uextent), ::core::mem::transmute(riid), ::core::mem::transmute(cbdatasize), ::core::mem::transmute(pdatabuffer), ::core::mem::transmute(ldatarep)))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(uextent), ::core::mem::transmute(riid), ::core::mem::transmute(cbdatasize), ::core::mem::transmute(pdatabuffer), ::core::mem::transmute(ldatarep))
     }
     pub unsafe fn ServerGetSize(&self, uextent: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, hrfault: ::windows::core::HRESULT, pdatasize: *mut u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(uextent), ::core::mem::transmute(riid), ::core::mem::transmute(hrfault), ::core::mem::transmute(pdatasize)))
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(uextent), ::core::mem::transmute(riid), ::core::mem::transmute(hrfault), ::core::mem::transmute(pdatasize))
     }
     pub unsafe fn ServerFillBuffer(&self, uextent: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pdatasize: *mut u32, pdatabuffer: *const ::core::ffi::c_void, hrfault: ::windows::core::HRESULT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(uextent), ::core::mem::transmute(riid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdatabuffer), ::core::mem::transmute(hrfault)))
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(uextent), ::core::mem::transmute(riid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdatabuffer), ::core::mem::transmute(hrfault))
     }
 }
 impl ::core::convert::From<IChannelHook> for ::windows::core::IUnknown {
@@ -6475,7 +6475,7 @@ impl IMalloc {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb)))
     }
     pub unsafe fn Free(&self, pv: *const ::core::ffi::c_void) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv)))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv))
     }
     pub unsafe fn GetSize(&self, pv: *const ::core::ffi::c_void) -> usize {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv)))
@@ -6484,7 +6484,7 @@ impl IMalloc {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv)))
     }
     pub unsafe fn HeapMinimize(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self))
     }
 }
 impl ::core::convert::From<IMalloc> for ::windows::core::IUnknown {
@@ -6550,7 +6550,7 @@ impl IMallocSpy {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PostFree<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fspyed: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), fspyed.into_param().abi()))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), fspyed.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PreRealloc<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, prequest: *const ::core::ffi::c_void, cbrequest: usize, ppnewrequest: *mut *mut ::core::ffi::c_void, fspyed: Param3) -> usize {
@@ -6577,10 +6577,10 @@ impl IMallocSpy {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(prequest), fspyed.into_param().abi(), ::core::mem::transmute(factual)))
     }
     pub unsafe fn PreHeapMinimize(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn PostHeapMinimize(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self))
     }
 }
 impl ::core::convert::From<IMallocSpy> for ::windows::core::IUnknown {
@@ -8301,7 +8301,7 @@ impl IRpcProxyBuffer {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), prpcchannelbuffer.into_param().abi()).ok()
     }
     pub unsafe fn Disconnect(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self))
     }
 }
 impl ::core::convert::From<IRpcProxyBuffer> for ::windows::core::IUnknown {
@@ -8355,7 +8355,7 @@ impl IRpcStubBuffer {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), punkserver.into_param().abi()).ok()
     }
     pub unsafe fn Disconnect(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Invoke<'a, Param1: ::windows::core::IntoParam<'a, IRpcChannelBuffer>>(&self, _prpcmsg: *mut RPCOLEMESSAGE, _prpcchannelbuffer: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(_prpcmsg), _prpcchannelbuffer.into_param().abi()).ok()
@@ -8370,7 +8370,7 @@ impl IRpcStubBuffer {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppv)).ok()
     }
     pub unsafe fn DebugServerRelease(&self, pv: *const ::core::ffi::c_void) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv)))
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv))
     }
 }
 impl ::core::convert::From<IRpcStubBuffer> for ::windows::core::IUnknown {
@@ -9625,15 +9625,15 @@ impl ITypeInfo {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn ReleaseTypeAttr(&self, ptypeattr: *const TYPEATTR) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptypeattr)))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptypeattr))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn ReleaseFuncDesc(&self, pfuncdesc: *const FUNCDESC) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfuncdesc)))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfuncdesc))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn ReleaseVarDesc(&self, pvardesc: *const VARDESC) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvardesc)))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvardesc))
     }
 }
 impl ::core::convert::From<ITypeInfo> for ::windows::core::IUnknown {
@@ -9780,15 +9780,15 @@ impl ITypeInfo2 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn ReleaseTypeAttr(&self, ptypeattr: *const TYPEATTR) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptypeattr)))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptypeattr))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn ReleaseFuncDesc(&self, pfuncdesc: *const FUNCDESC) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfuncdesc)))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfuncdesc))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn ReleaseVarDesc(&self, pvardesc: *const VARDESC) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvardesc)))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvardesc))
     }
     pub unsafe fn GetTypeKind(&self) -> ::windows::core::Result<TYPEKIND> {
         let mut result__: TYPEKIND = ::core::mem::zeroed();
@@ -10019,7 +10019,7 @@ impl ITypeLib {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), sznamebuf.into_param().abi(), ::core::mem::transmute(lhashval), ::core::mem::transmute(pptinfo), ::core::mem::transmute(rgmemid), ::core::mem::transmute(pcfound)).ok()
     }
     pub unsafe fn ReleaseTLibAttr(&self, ptlibattr: *const TLIBATTR) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptlibattr)))
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptlibattr))
     }
 }
 impl ::core::convert::From<ITypeLib> for ::windows::core::IUnknown {
@@ -10116,7 +10116,7 @@ impl ITypeLib2 {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), sznamebuf.into_param().abi(), ::core::mem::transmute(lhashval), ::core::mem::transmute(pptinfo), ::core::mem::transmute(rgmemid), ::core::mem::transmute(pcfound)).ok()
     }
     pub unsafe fn ReleaseTLibAttr(&self, ptlibattr: *const TLIBATTR) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptlibattr)))
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptlibattr))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn GetCustData(&self, guid: *const ::windows::core::GUID) -> ::windows::core::Result<VARIANT> {

@@ -1794,7 +1794,7 @@ pub unsafe fn FaxFreeBuffer(buffer: *mut ::core::ffi::c_void) {
         extern "system" {
             fn FaxFreeBuffer(buffer: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(FaxFreeBuffer(::core::mem::transmute(buffer)))
+        FaxFreeBuffer(::core::mem::transmute(buffer))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

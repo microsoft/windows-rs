@@ -63,7 +63,7 @@ pub unsafe fn FreeMemoryJobObject(buffer: *const ::core::ffi::c_void) {
         extern "system" {
             fn FreeMemoryJobObject(buffer: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(FreeMemoryJobObject(::core::mem::transmute(buffer)))
+        FreeMemoryJobObject(::core::mem::transmute(buffer))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

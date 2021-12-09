@@ -9372,7 +9372,7 @@ pub unsafe fn WebAuthNFreeAssertion(pwebauthnassertion: *const WEBAUTHN_ASSERTIO
         extern "system" {
             fn WebAuthNFreeAssertion(pwebauthnassertion: *const WEBAUTHN_ASSERTION);
         }
-        ::core::mem::transmute(WebAuthNFreeAssertion(::core::mem::transmute(pwebauthnassertion)))
+        WebAuthNFreeAssertion(::core::mem::transmute(pwebauthnassertion))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9386,7 +9386,7 @@ pub unsafe fn WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation: 
         extern "system" {
             fn WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation: *const WEBAUTHN_CREDENTIAL_ATTESTATION);
         }
-        ::core::mem::transmute(WebAuthNFreeCredentialAttestation(::core::mem::transmute(pwebauthncredentialattestation)))
+        WebAuthNFreeCredentialAttestation(::core::mem::transmute(pwebauthncredentialattestation))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10150,7 +10150,7 @@ pub unsafe fn WsFreeChannel(channel: *const WS_CHANNEL) {
         extern "system" {
             fn WsFreeChannel(channel: *const WS_CHANNEL);
         }
-        ::core::mem::transmute(WsFreeChannel(::core::mem::transmute(channel)))
+        WsFreeChannel(::core::mem::transmute(channel))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10163,7 +10163,7 @@ pub unsafe fn WsFreeError(error: *const WS_ERROR) {
         extern "system" {
             fn WsFreeError(error: *const WS_ERROR);
         }
-        ::core::mem::transmute(WsFreeError(::core::mem::transmute(error)))
+        WsFreeError(::core::mem::transmute(error))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10176,7 +10176,7 @@ pub unsafe fn WsFreeHeap(heap: *const WS_HEAP) {
         extern "system" {
             fn WsFreeHeap(heap: *const WS_HEAP);
         }
-        ::core::mem::transmute(WsFreeHeap(::core::mem::transmute(heap)))
+        WsFreeHeap(::core::mem::transmute(heap))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10189,7 +10189,7 @@ pub unsafe fn WsFreeListener(listener: *const WS_LISTENER) {
         extern "system" {
             fn WsFreeListener(listener: *const WS_LISTENER);
         }
-        ::core::mem::transmute(WsFreeListener(::core::mem::transmute(listener)))
+        WsFreeListener(::core::mem::transmute(listener))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10202,7 +10202,7 @@ pub unsafe fn WsFreeMessage(message: *const WS_MESSAGE) {
         extern "system" {
             fn WsFreeMessage(message: *const WS_MESSAGE);
         }
-        ::core::mem::transmute(WsFreeMessage(::core::mem::transmute(message)))
+        WsFreeMessage(::core::mem::transmute(message))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10215,7 +10215,7 @@ pub unsafe fn WsFreeMetadata(metadata: *const WS_METADATA) {
         extern "system" {
             fn WsFreeMetadata(metadata: *const WS_METADATA);
         }
-        ::core::mem::transmute(WsFreeMetadata(::core::mem::transmute(metadata)))
+        WsFreeMetadata(::core::mem::transmute(metadata))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10228,7 +10228,7 @@ pub unsafe fn WsFreeReader(reader: *const WS_XML_READER) {
         extern "system" {
             fn WsFreeReader(reader: *const WS_XML_READER);
         }
-        ::core::mem::transmute(WsFreeReader(::core::mem::transmute(reader)))
+        WsFreeReader(::core::mem::transmute(reader))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10241,7 +10241,7 @@ pub unsafe fn WsFreeSecurityToken(token: *const WS_SECURITY_TOKEN) {
         extern "system" {
             fn WsFreeSecurityToken(token: *const WS_SECURITY_TOKEN);
         }
-        ::core::mem::transmute(WsFreeSecurityToken(::core::mem::transmute(token)))
+        WsFreeSecurityToken(::core::mem::transmute(token))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10254,7 +10254,7 @@ pub unsafe fn WsFreeServiceHost(servicehost: *const WS_SERVICE_HOST) {
         extern "system" {
             fn WsFreeServiceHost(servicehost: *const WS_SERVICE_HOST);
         }
-        ::core::mem::transmute(WsFreeServiceHost(::core::mem::transmute(servicehost)))
+        WsFreeServiceHost(::core::mem::transmute(servicehost))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10267,7 +10267,7 @@ pub unsafe fn WsFreeServiceProxy(serviceproxy: *const WS_SERVICE_PROXY) {
         extern "system" {
             fn WsFreeServiceProxy(serviceproxy: *const WS_SERVICE_PROXY);
         }
-        ::core::mem::transmute(WsFreeServiceProxy(::core::mem::transmute(serviceproxy)))
+        WsFreeServiceProxy(::core::mem::transmute(serviceproxy))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10280,7 +10280,7 @@ pub unsafe fn WsFreeWriter(writer: *const WS_XML_WRITER) {
         extern "system" {
             fn WsFreeWriter(writer: *const WS_XML_WRITER);
         }
-        ::core::mem::transmute(WsFreeWriter(::core::mem::transmute(writer)))
+        WsFreeWriter(::core::mem::transmute(writer))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

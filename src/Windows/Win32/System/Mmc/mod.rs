@@ -7586,10 +7586,10 @@ impl _Application {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     pub unsafe fn Help(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Quit(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Document(&self) -> ::windows::core::Result<Document> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

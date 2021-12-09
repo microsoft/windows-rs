@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_upper_case_globals, dead_code, non_camel_case_types)]
+#![allow(non_snake_case, non_upper_case_globals, dead_code, non_camel_case_types, clippy::upper_case_acronyms, clippy::derivable_impls)]
 #[repr(transparent)]
 pub struct IReference<T>(::windows::core::IUnknown, ::core::marker::PhantomData<T>)
 where
@@ -1097,7 +1097,7 @@ impl BSTR {
         }
     }
     pub fn from_wide(value: &[u16]) -> Self {
-        if value.len() == 0 {
+        if value.is_empty() {
             return Self(::core::ptr::null_mut());
         }
         unsafe { SysAllocStringLen(PWSTR(value.as_ptr() as *mut _), value.len() as u32) }
@@ -1249,7 +1249,7 @@ pub struct BOOL(pub i32);
 impl BOOL {
     #[inline]
     pub fn as_bool(self) -> bool {
-        !(self.0 == 0)
+        self.0 != 0
     }
     #[inline]
     pub fn ok(self) -> ::windows::core::Result<()> {
@@ -1373,7 +1373,7 @@ pub unsafe fn SysFreeString<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(bs
         extern "system" {
             fn SysFreeString(bstrstring: ::core::mem::ManuallyDrop<BSTR>);
         }
-        ::core::mem::transmute(SysFreeString(bstrstring.into_param().abi()))
+        SysFreeString(bstrstring.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1401,6 +1401,7 @@ impl ::core::cmp::PartialEq for PWSTR {
         self.0 == other.0
     }
 }
+impl ::core::cmp::Eq for PWSTR {}
 unsafe impl ::windows::core::Abi for PWSTR {
     type Abi = Self;
     #[cfg(feature = "alloc")]
@@ -1460,6 +1461,7 @@ impl ::core::cmp::PartialEq for PSTR {
         self.0 == other.0
     }
 }
+impl ::core::cmp::Eq for PSTR {}
 unsafe impl ::windows::core::Abi for PSTR {
     type Abi = Self;
     #[cfg(feature = "alloc")]
@@ -1547,7 +1549,7 @@ pub unsafe fn CoTaskMemFree(pv: *const ::core::ffi::c_void) {
         extern "system" {
             fn CoTaskMemFree(pv: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(CoTaskMemFree(::core::mem::transmute(pv)))
+        CoTaskMemFree(::core::mem::transmute(pv))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -8,7 +8,7 @@ pub unsafe fn ApplicationRecoveryFinished<'a, Param0: ::windows::core::IntoParam
         extern "system" {
             fn ApplicationRecoveryFinished(bsuccess: super::super::Foundation::BOOL);
         }
-        ::core::mem::transmute(ApplicationRecoveryFinished(bsuccess.into_param().abi()))
+        ApplicationRecoveryFinished(bsuccess.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -372,7 +372,7 @@ pub unsafe fn FreeLibraryAndExitThread<'a, Param0: ::windows::core::IntoParam<'a
         extern "system" {
             fn FreeLibraryAndExitThread(hlibmodule: super::super::Foundation::HINSTANCE, dwexitcode: u32);
         }
-        ::core::mem::transmute(FreeLibraryAndExitThread(hlibmodule.into_param().abi(), ::core::mem::transmute(dwexitcode)))
+        FreeLibraryAndExitThread(hlibmodule.into_param().abi(), ::core::mem::transmute(dwexitcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

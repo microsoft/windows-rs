@@ -1111,7 +1111,7 @@ pub unsafe fn SnmpSvcSetLogLevel(nloglevel: SNMP_LOG) {
         extern "system" {
             fn SnmpSvcSetLogLevel(nloglevel: SNMP_LOG);
         }
-        ::core::mem::transmute(SnmpSvcSetLogLevel(::core::mem::transmute(nloglevel)))
+        SnmpSvcSetLogLevel(::core::mem::transmute(nloglevel))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1124,7 +1124,7 @@ pub unsafe fn SnmpSvcSetLogType(nlogtype: SNMP_OUTPUT_LOG_TYPE) {
         extern "system" {
             fn SnmpSvcSetLogType(nlogtype: SNMP_OUTPUT_LOG_TYPE);
         }
-        ::core::mem::transmute(SnmpSvcSetLogType(::core::mem::transmute(nlogtype)))
+        SnmpSvcSetLogType(::core::mem::transmute(nlogtype))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1152,7 +1152,7 @@ pub unsafe fn SnmpUtilAsnAnyFree(pany: *mut AsnAny) {
         extern "system" {
             fn SnmpUtilAsnAnyFree(pany: *mut AsnAny);
         }
-        ::core::mem::transmute(SnmpUtilAsnAnyFree(::core::mem::transmute(pany)))
+        SnmpUtilAsnAnyFree(::core::mem::transmute(pany))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1166,7 +1166,7 @@ pub unsafe fn SnmpUtilDbgPrint<'a, Param1: ::windows::core::IntoParam<'a, super:
         extern "system" {
             fn SnmpUtilDbgPrint(nloglevel: SNMP_LOG, szformat: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(SnmpUtilDbgPrint(::core::mem::transmute(nloglevel), szformat.into_param().abi()))
+        SnmpUtilDbgPrint(::core::mem::transmute(nloglevel), szformat.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1206,7 +1206,7 @@ pub unsafe fn SnmpUtilMemFree(pmem: *mut ::core::ffi::c_void) {
         extern "system" {
             fn SnmpUtilMemFree(pmem: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(SnmpUtilMemFree(::core::mem::transmute(pmem)))
+        SnmpUtilMemFree(::core::mem::transmute(pmem))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1261,7 +1261,7 @@ pub unsafe fn SnmpUtilOctetsFree(poctets: *mut AsnOctetString) {
         extern "system" {
             fn SnmpUtilOctetsFree(poctets: *mut AsnOctetString);
         }
-        ::core::mem::transmute(SnmpUtilOctetsFree(::core::mem::transmute(poctets)))
+        SnmpUtilOctetsFree(::core::mem::transmute(poctets))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1327,7 +1327,7 @@ pub unsafe fn SnmpUtilOidFree(poid: *mut AsnObjectIdentifier) {
         extern "system" {
             fn SnmpUtilOidFree(poid: *mut AsnObjectIdentifier);
         }
-        ::core::mem::transmute(SnmpUtilOidFree(::core::mem::transmute(poid)))
+        SnmpUtilOidFree(::core::mem::transmute(poid))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1368,7 +1368,7 @@ pub unsafe fn SnmpUtilPrintAsnAny(pany: *mut AsnAny) {
         extern "system" {
             fn SnmpUtilPrintAsnAny(pany: *mut AsnAny);
         }
-        ::core::mem::transmute(SnmpUtilPrintAsnAny(::core::mem::transmute(pany)))
+        SnmpUtilPrintAsnAny(::core::mem::transmute(pany))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1381,7 +1381,7 @@ pub unsafe fn SnmpUtilPrintOid(oid: *mut AsnObjectIdentifier) {
         extern "system" {
             fn SnmpUtilPrintOid(oid: *mut AsnObjectIdentifier);
         }
-        ::core::mem::transmute(SnmpUtilPrintOid(::core::mem::transmute(oid)))
+        SnmpUtilPrintOid(::core::mem::transmute(oid))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1409,7 +1409,7 @@ pub unsafe fn SnmpUtilVarBindFree(pvb: *mut SnmpVarBind) {
         extern "system" {
             fn SnmpUtilVarBindFree(pvb: *mut SnmpVarBind);
         }
-        ::core::mem::transmute(SnmpUtilVarBindFree(::core::mem::transmute(pvb)))
+        SnmpUtilVarBindFree(::core::mem::transmute(pvb))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1437,7 +1437,7 @@ pub unsafe fn SnmpUtilVarBindListFree(pvbl: *mut SnmpVarBindList) {
         extern "system" {
             fn SnmpUtilVarBindListFree(pvbl: *mut SnmpVarBindList);
         }
-        ::core::mem::transmute(SnmpUtilVarBindListFree(::core::mem::transmute(pvbl)))
+        SnmpUtilVarBindListFree(::core::mem::transmute(pvbl))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

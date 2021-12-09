@@ -276,7 +276,7 @@ pub unsafe fn HSTRING_UserFree(param0: *const u32, param1: *const ::windows::cor
         extern "system" {
             fn HSTRING_UserFree(param0: *const u32, param1: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>);
         }
-        ::core::mem::transmute(HSTRING_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        HSTRING_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -289,7 +289,7 @@ pub unsafe fn HSTRING_UserFree64(param0: *const u32, param1: *const ::windows::c
         extern "system" {
             fn HSTRING_UserFree64(param0: *const u32, param1: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>);
         }
-        ::core::mem::transmute(HSTRING_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        HSTRING_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -585,7 +585,7 @@ pub struct IAgileReferenceVtbl(pub unsafe extern "system" fn(this: *mut ::core::
 pub struct IApartmentShutdown(::windows::core::IUnknown);
 impl IApartmentShutdown {
     pub unsafe fn OnUninitialize(&self, ui64apartmentidentifier: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(ui64apartmentidentifier)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(ui64apartmentidentifier))
     }
 }
 impl ::core::convert::From<IApartmentShutdown> for ::windows::core::IUnknown {
@@ -2726,7 +2726,7 @@ pub unsafe fn RoClearError() {
         extern "system" {
             fn RoClearError();
         }
-        ::core::mem::transmute(RoClearError())
+        RoClearError()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2739,7 +2739,7 @@ pub unsafe fn RoFailFastWithErrorContext(hrerror: ::windows::core::HRESULT) {
         extern "system" {
             fn RoFailFastWithErrorContext(hrerror: ::windows::core::HRESULT);
         }
-        ::core::mem::transmute(RoFailFastWithErrorContext(::core::mem::transmute(hrerror)))
+        RoFailFastWithErrorContext(::core::mem::transmute(hrerror))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2752,7 +2752,7 @@ pub unsafe fn RoFreeParameterizedTypeExtra<'a, Param0: ::windows::core::IntoPara
         extern "system" {
             fn RoFreeParameterizedTypeExtra(extra: ROPARAMIIDHANDLE);
         }
-        ::core::mem::transmute(RoFreeParameterizedTypeExtra(extra.into_param().abi()))
+        RoFreeParameterizedTypeExtra(extra.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3041,7 +3041,7 @@ pub unsafe fn RoRevokeActivationFactories(cookie: isize) {
         extern "system" {
             fn RoRevokeActivationFactories(cookie: isize);
         }
-        ::core::mem::transmute(RoRevokeActivationFactories(::core::mem::transmute(cookie)))
+        RoRevokeActivationFactories(::core::mem::transmute(cookie))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3095,7 +3095,7 @@ pub unsafe fn RoUninitialize() {
         extern "system" {
             fn RoUninitialize();
         }
-        ::core::mem::transmute(RoUninitialize())
+        RoUninitialize()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

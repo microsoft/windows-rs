@@ -3370,7 +3370,7 @@ pub unsafe fn DnsConnectionFreeNameList(pnamelist: *mut DNS_CONNECTION_NAME_LIST
         extern "system" {
             fn DnsConnectionFreeNameList(pnamelist: *mut DNS_CONNECTION_NAME_LIST);
         }
-        ::core::mem::transmute(DnsConnectionFreeNameList(::core::mem::transmute(pnamelist)))
+        DnsConnectionFreeNameList(::core::mem::transmute(pnamelist))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3384,7 +3384,7 @@ pub unsafe fn DnsConnectionFreeProxyInfo(pproxyinfo: *mut DNS_CONNECTION_PROXY_I
         extern "system" {
             fn DnsConnectionFreeProxyInfo(pproxyinfo: *mut DNS_CONNECTION_PROXY_INFO);
         }
-        ::core::mem::transmute(DnsConnectionFreeProxyInfo(::core::mem::transmute(pproxyinfo)))
+        DnsConnectionFreeProxyInfo(::core::mem::transmute(pproxyinfo))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3398,7 +3398,7 @@ pub unsafe fn DnsConnectionFreeProxyInfoEx(pproxyinfoex: *mut DNS_CONNECTION_PRO
         extern "system" {
             fn DnsConnectionFreeProxyInfoEx(pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX);
         }
-        ::core::mem::transmute(DnsConnectionFreeProxyInfoEx(::core::mem::transmute(pproxyinfoex)))
+        DnsConnectionFreeProxyInfoEx(::core::mem::transmute(pproxyinfoex))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3412,7 +3412,7 @@ pub unsafe fn DnsConnectionFreeProxyList(pproxylist: *mut DNS_CONNECTION_PROXY_L
         extern "system" {
             fn DnsConnectionFreeProxyList(pproxylist: *mut DNS_CONNECTION_PROXY_LIST);
         }
-        ::core::mem::transmute(DnsConnectionFreeProxyList(::core::mem::transmute(pproxylist)))
+        DnsConnectionFreeProxyList(::core::mem::transmute(pproxylist))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3551,7 +3551,7 @@ pub unsafe fn DnsFree(pdata: *const ::core::ffi::c_void, freetype: DNS_FREE_TYPE
         extern "system" {
             fn DnsFree(pdata: *const ::core::ffi::c_void, freetype: DNS_FREE_TYPE);
         }
-        ::core::mem::transmute(DnsFree(::core::mem::transmute(pdata), ::core::mem::transmute(freetype)))
+        DnsFree(::core::mem::transmute(pdata), ::core::mem::transmute(freetype))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3565,7 +3565,7 @@ pub unsafe fn DnsFreeCustomServers(pcservers: *mut u32, ppservers: *mut *mut DNS
         extern "system" {
             fn DnsFreeCustomServers(pcservers: *mut u32, ppservers: *mut *mut DNS_CUSTOM_SERVER);
         }
-        ::core::mem::transmute(DnsFreeCustomServers(::core::mem::transmute(pcservers), ::core::mem::transmute(ppservers)))
+        DnsFreeCustomServers(::core::mem::transmute(pcservers), ::core::mem::transmute(ppservers))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3579,7 +3579,7 @@ pub unsafe fn DnsFreeProxyName(proxyname: super::super::Foundation::PWSTR) {
         extern "system" {
             fn DnsFreeProxyName(proxyname: super::super::Foundation::PWSTR);
         }
-        ::core::mem::transmute(DnsFreeProxyName(::core::mem::transmute(proxyname)))
+        DnsFreeProxyName(::core::mem::transmute(proxyname))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3831,7 +3831,7 @@ pub unsafe fn DnsReleaseContextHandle<'a, Param0: ::windows::core::IntoParam<'a,
         extern "system" {
             fn DnsReleaseContextHandle(hcontext: super::super::Foundation::HANDLE);
         }
-        ::core::mem::transmute(DnsReleaseContextHandle(hcontext.into_param().abi()))
+        DnsReleaseContextHandle(hcontext.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3956,7 +3956,7 @@ pub unsafe fn DnsServiceFreeInstance(pinstance: *const DNS_SERVICE_INSTANCE) {
         extern "system" {
             fn DnsServiceFreeInstance(pinstance: *const DNS_SERVICE_INSTANCE);
         }
-        ::core::mem::transmute(DnsServiceFreeInstance(::core::mem::transmute(pinstance)))
+        DnsServiceFreeInstance(::core::mem::transmute(pinstance))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

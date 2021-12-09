@@ -22,7 +22,7 @@ pub fn gen() -> TokenStream {
             }
 
             pub fn from_wide(value: &[u16]) -> Self {
-                if value.len() == 0 {
+                if value.is_empty() {
                     return Self(::core::ptr::null_mut());
                 }
 

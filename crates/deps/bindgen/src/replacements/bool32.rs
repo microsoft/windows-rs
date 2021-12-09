@@ -8,7 +8,7 @@ pub fn gen() -> TokenStream {
         impl BOOL {
             #[inline]
             pub fn as_bool(self) -> bool {
-                !(self.0 == 0)
+                self.0 != 0
             }
 
             #[inline]

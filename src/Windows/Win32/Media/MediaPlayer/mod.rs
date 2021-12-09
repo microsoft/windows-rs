@@ -6593,156 +6593,156 @@ pub struct IWMPErrorItem2Vtbl(
 pub struct IWMPEvents(::windows::core::IUnknown);
 impl IWMPEvents {
     pub unsafe fn OpenStateChange(&self, newstate: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate))
     }
     pub unsafe fn PlayStateChange(&self, newstate: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate))
     }
     pub unsafe fn AudioLanguageChange(&self, langid: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(langid)))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(langid))
     }
     pub unsafe fn StatusChange(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ScriptCommand<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, sctype: Param0, param: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), sctype.into_param().abi(), param.into_param().abi()))
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), sctype.into_param().abi(), param.into_param().abi())
     }
     pub unsafe fn NewStream(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Disconnect(&self, result: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(result)))
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(result))
     }
     pub unsafe fn Buffering(&self, start: i16) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(start)))
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(start))
     }
     pub unsafe fn Error(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Warning<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, warningtype: i32, param: i32, description: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(warningtype), ::core::mem::transmute(param), description.into_param().abi()))
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(warningtype), ::core::mem::transmute(param), description.into_param().abi())
     }
     pub unsafe fn EndOfStream(&self, result: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(result)))
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(result))
     }
     pub unsafe fn PositionChange(&self, oldposition: f64, newposition: f64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(oldposition), ::core::mem::transmute(newposition)))
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(oldposition), ::core::mem::transmute(newposition))
     }
     pub unsafe fn MarkerHit(&self, markernum: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(markernum)))
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(markernum))
     }
     pub unsafe fn DurationUnitChange(&self, newdurationunit: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(newdurationunit)))
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(newdurationunit))
     }
     pub unsafe fn CdromMediaChange(&self, cdromnum: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(cdromnum)))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(cdromnum))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PlaylistChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, playlist: Param0, change: WMPPlaylistChangeEventType) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), playlist.into_param().abi(), ::core::mem::transmute(change)))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), playlist.into_param().abi(), ::core::mem::transmute(change))
     }
     pub unsafe fn CurrentPlaylistChange(&self, change: WMPPlaylistChangeEventType) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(change)))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(change))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentPlaylistItemAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), bstritemname.into_param().abi()))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), bstritemname.into_param().abi())
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, item: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), item.into_param().abi()))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), item.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentMediaItemAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), bstritemname.into_param().abi()))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), bstritemname.into_param().abi())
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentItemChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispmedia: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), pdispmedia.into_param().abi()))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), pdispmedia.into_param().abi())
     }
     pub unsafe fn MediaCollectionChange(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaCollectionAttributeStringAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi()))
+        (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaCollectionAttributeStringRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi()))
+        (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaCollectionAttributeStringChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstroldattribval: Param1, bstrnewattribval: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstroldattribval.into_param().abi(), bstrnewattribval.into_param().abi()))
+        (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstroldattribval.into_param().abi(), bstrnewattribval.into_param().abi())
     }
     pub unsafe fn PlaylistCollectionChange(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlaylistCollectionPlaylistAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi()))
+        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlaylistCollectionPlaylistRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi()))
+        (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlaylistCollectionPlaylistSetAsDeleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0, varfisdeleted: i16) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi(), ::core::mem::transmute(varfisdeleted)))
+        (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi(), ::core::mem::transmute(varfisdeleted))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ModeChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, modename: Param0, newvalue: i16) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), modename.into_param().abi(), ::core::mem::transmute(newvalue)))
+        (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), modename.into_param().abi(), ::core::mem::transmute(newvalue))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaError<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pmediaobject: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), pmediaobject.into_param().abi()))
+        (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), pmediaobject.into_param().abi())
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenPlaylistSwitch<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pitem: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), pitem.into_param().abi()))
+        (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), pitem.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DomainChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strdomain: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), strdomain.into_param().abi()))
+        (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), strdomain.into_param().abi())
     }
     pub unsafe fn SwitchedToPlayerApplication(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn SwitchedToControl(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn PlayerDockedStateChange(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn PlayerReconnect(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Click(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy)))
+        (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     pub unsafe fn DoubleClick(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy)))
+        (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     pub unsafe fn KeyDown(&self, nkeycode: i16, nshiftstate: i16) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate)))
+        (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate))
     }
     pub unsafe fn KeyPress(&self, nkeyascii: i16) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeyascii)))
+        (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeyascii))
     }
     pub unsafe fn KeyUp(&self, nkeycode: i16, nshiftstate: i16) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate)))
+        (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate))
     }
     pub unsafe fn MouseDown(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy)))
+        (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     pub unsafe fn MouseMove(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy)))
+        (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     pub unsafe fn MouseUp(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy)))
+        (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
 }
 impl ::core::convert::From<IWMPEvents> for ::windows::core::IUnknown {
@@ -6853,175 +6853,175 @@ pub struct IWMPEventsVtbl(
 pub struct IWMPEvents2(::windows::core::IUnknown);
 impl IWMPEvents2 {
     pub unsafe fn OpenStateChange(&self, newstate: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate))
     }
     pub unsafe fn PlayStateChange(&self, newstate: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate))
     }
     pub unsafe fn AudioLanguageChange(&self, langid: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(langid)))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(langid))
     }
     pub unsafe fn StatusChange(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ScriptCommand<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, sctype: Param0, param: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), sctype.into_param().abi(), param.into_param().abi()))
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), sctype.into_param().abi(), param.into_param().abi())
     }
     pub unsafe fn NewStream(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Disconnect(&self, result: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(result)))
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(result))
     }
     pub unsafe fn Buffering(&self, start: i16) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(start)))
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(start))
     }
     pub unsafe fn Error(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Warning<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, warningtype: i32, param: i32, description: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(warningtype), ::core::mem::transmute(param), description.into_param().abi()))
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(warningtype), ::core::mem::transmute(param), description.into_param().abi())
     }
     pub unsafe fn EndOfStream(&self, result: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(result)))
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(result))
     }
     pub unsafe fn PositionChange(&self, oldposition: f64, newposition: f64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(oldposition), ::core::mem::transmute(newposition)))
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(oldposition), ::core::mem::transmute(newposition))
     }
     pub unsafe fn MarkerHit(&self, markernum: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(markernum)))
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(markernum))
     }
     pub unsafe fn DurationUnitChange(&self, newdurationunit: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(newdurationunit)))
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(newdurationunit))
     }
     pub unsafe fn CdromMediaChange(&self, cdromnum: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(cdromnum)))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(cdromnum))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PlaylistChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, playlist: Param0, change: WMPPlaylistChangeEventType) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), playlist.into_param().abi(), ::core::mem::transmute(change)))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), playlist.into_param().abi(), ::core::mem::transmute(change))
     }
     pub unsafe fn CurrentPlaylistChange(&self, change: WMPPlaylistChangeEventType) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(change)))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(change))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentPlaylistItemAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), bstritemname.into_param().abi()))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), bstritemname.into_param().abi())
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, item: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), item.into_param().abi()))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), item.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentMediaItemAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), bstritemname.into_param().abi()))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), bstritemname.into_param().abi())
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentItemChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispmedia: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), pdispmedia.into_param().abi()))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), pdispmedia.into_param().abi())
     }
     pub unsafe fn MediaCollectionChange(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaCollectionAttributeStringAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi()))
+        (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaCollectionAttributeStringRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi()))
+        (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaCollectionAttributeStringChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstroldattribval: Param1, bstrnewattribval: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstroldattribval.into_param().abi(), bstrnewattribval.into_param().abi()))
+        (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstroldattribval.into_param().abi(), bstrnewattribval.into_param().abi())
     }
     pub unsafe fn PlaylistCollectionChange(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlaylistCollectionPlaylistAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi()))
+        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlaylistCollectionPlaylistRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi()))
+        (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlaylistCollectionPlaylistSetAsDeleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0, varfisdeleted: i16) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi(), ::core::mem::transmute(varfisdeleted)))
+        (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi(), ::core::mem::transmute(varfisdeleted))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ModeChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, modename: Param0, newvalue: i16) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), modename.into_param().abi(), ::core::mem::transmute(newvalue)))
+        (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), modename.into_param().abi(), ::core::mem::transmute(newvalue))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaError<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pmediaobject: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), pmediaobject.into_param().abi()))
+        (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), pmediaobject.into_param().abi())
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenPlaylistSwitch<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pitem: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), pitem.into_param().abi()))
+        (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), pitem.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DomainChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strdomain: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), strdomain.into_param().abi()))
+        (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), strdomain.into_param().abi())
     }
     pub unsafe fn SwitchedToPlayerApplication(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn SwitchedToControl(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn PlayerDockedStateChange(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn PlayerReconnect(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Click(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy)))
+        (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     pub unsafe fn DoubleClick(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy)))
+        (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     pub unsafe fn KeyDown(&self, nkeycode: i16, nshiftstate: i16) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate)))
+        (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate))
     }
     pub unsafe fn KeyPress(&self, nkeyascii: i16) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeyascii)))
+        (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeyascii))
     }
     pub unsafe fn KeyUp(&self, nkeycode: i16, nshiftstate: i16) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate)))
+        (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate))
     }
     pub unsafe fn MouseDown(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy)))
+        (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     pub unsafe fn MouseMove(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy)))
+        (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     pub unsafe fn MouseUp(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy)))
+        (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     pub unsafe fn DeviceConnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), pdevice.into_param().abi()))
+        (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), pdevice.into_param().abi())
     }
     pub unsafe fn DeviceDisconnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), pdevice.into_param().abi()))
+        (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), pdevice.into_param().abi())
     }
     pub unsafe fn DeviceStatusChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, newstatus: WMPDeviceStatus) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(newstatus)))
+        (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(newstatus))
     }
     pub unsafe fn DeviceSyncStateChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, newstate: WMPSyncState) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(newstate)))
+        (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(newstate))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DeviceSyncError<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdevice: Param0, pmedia: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), pmedia.into_param().abi()))
+        (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), pmedia.into_param().abi())
     }
     pub unsafe fn CreatePartnershipComplete<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, hrresult: ::windows::core::HRESULT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(hrresult)))
+        (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(hrresult))
     }
 }
 impl ::core::convert::From<IWMPEvents2> for IWMPEvents {
@@ -7159,213 +7159,213 @@ pub struct IWMPEvents2Vtbl(
 pub struct IWMPEvents3(::windows::core::IUnknown);
 impl IWMPEvents3 {
     pub unsafe fn OpenStateChange(&self, newstate: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate))
     }
     pub unsafe fn PlayStateChange(&self, newstate: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate))
     }
     pub unsafe fn AudioLanguageChange(&self, langid: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(langid)))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(langid))
     }
     pub unsafe fn StatusChange(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ScriptCommand<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, sctype: Param0, param: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), sctype.into_param().abi(), param.into_param().abi()))
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), sctype.into_param().abi(), param.into_param().abi())
     }
     pub unsafe fn NewStream(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Disconnect(&self, result: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(result)))
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(result))
     }
     pub unsafe fn Buffering(&self, start: i16) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(start)))
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(start))
     }
     pub unsafe fn Error(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Warning<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, warningtype: i32, param: i32, description: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(warningtype), ::core::mem::transmute(param), description.into_param().abi()))
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(warningtype), ::core::mem::transmute(param), description.into_param().abi())
     }
     pub unsafe fn EndOfStream(&self, result: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(result)))
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(result))
     }
     pub unsafe fn PositionChange(&self, oldposition: f64, newposition: f64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(oldposition), ::core::mem::transmute(newposition)))
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(oldposition), ::core::mem::transmute(newposition))
     }
     pub unsafe fn MarkerHit(&self, markernum: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(markernum)))
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(markernum))
     }
     pub unsafe fn DurationUnitChange(&self, newdurationunit: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(newdurationunit)))
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(newdurationunit))
     }
     pub unsafe fn CdromMediaChange(&self, cdromnum: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(cdromnum)))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(cdromnum))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PlaylistChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, playlist: Param0, change: WMPPlaylistChangeEventType) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), playlist.into_param().abi(), ::core::mem::transmute(change)))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), playlist.into_param().abi(), ::core::mem::transmute(change))
     }
     pub unsafe fn CurrentPlaylistChange(&self, change: WMPPlaylistChangeEventType) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(change)))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(change))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentPlaylistItemAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), bstritemname.into_param().abi()))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), bstritemname.into_param().abi())
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, item: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), item.into_param().abi()))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), item.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentMediaItemAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), bstritemname.into_param().abi()))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), bstritemname.into_param().abi())
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentItemChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispmedia: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), pdispmedia.into_param().abi()))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), pdispmedia.into_param().abi())
     }
     pub unsafe fn MediaCollectionChange(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaCollectionAttributeStringAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi()))
+        (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaCollectionAttributeStringRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi()))
+        (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaCollectionAttributeStringChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstroldattribval: Param1, bstrnewattribval: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstroldattribval.into_param().abi(), bstrnewattribval.into_param().abi()))
+        (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstroldattribval.into_param().abi(), bstrnewattribval.into_param().abi())
     }
     pub unsafe fn PlaylistCollectionChange(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlaylistCollectionPlaylistAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi()))
+        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlaylistCollectionPlaylistRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi()))
+        (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlaylistCollectionPlaylistSetAsDeleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0, varfisdeleted: i16) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi(), ::core::mem::transmute(varfisdeleted)))
+        (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi(), ::core::mem::transmute(varfisdeleted))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ModeChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, modename: Param0, newvalue: i16) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), modename.into_param().abi(), ::core::mem::transmute(newvalue)))
+        (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), modename.into_param().abi(), ::core::mem::transmute(newvalue))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaError<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pmediaobject: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), pmediaobject.into_param().abi()))
+        (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), pmediaobject.into_param().abi())
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenPlaylistSwitch<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pitem: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), pitem.into_param().abi()))
+        (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), pitem.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DomainChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strdomain: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), strdomain.into_param().abi()))
+        (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), strdomain.into_param().abi())
     }
     pub unsafe fn SwitchedToPlayerApplication(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn SwitchedToControl(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn PlayerDockedStateChange(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn PlayerReconnect(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Click(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy)))
+        (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     pub unsafe fn DoubleClick(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy)))
+        (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     pub unsafe fn KeyDown(&self, nkeycode: i16, nshiftstate: i16) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate)))
+        (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate))
     }
     pub unsafe fn KeyPress(&self, nkeyascii: i16) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeyascii)))
+        (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeyascii))
     }
     pub unsafe fn KeyUp(&self, nkeycode: i16, nshiftstate: i16) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate)))
+        (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate))
     }
     pub unsafe fn MouseDown(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy)))
+        (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     pub unsafe fn MouseMove(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy)))
+        (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     pub unsafe fn MouseUp(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy)))
+        (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     pub unsafe fn DeviceConnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), pdevice.into_param().abi()))
+        (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), pdevice.into_param().abi())
     }
     pub unsafe fn DeviceDisconnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), pdevice.into_param().abi()))
+        (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), pdevice.into_param().abi())
     }
     pub unsafe fn DeviceStatusChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, newstatus: WMPDeviceStatus) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(newstatus)))
+        (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(newstatus))
     }
     pub unsafe fn DeviceSyncStateChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, newstate: WMPSyncState) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(newstate)))
+        (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(newstate))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DeviceSyncError<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdevice: Param0, pmedia: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), pmedia.into_param().abi()))
+        (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), pmedia.into_param().abi())
     }
     pub unsafe fn CreatePartnershipComplete<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, hrresult: ::windows::core::HRESULT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(hrresult)))
+        (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(hrresult))
     }
     pub unsafe fn CdromRipStateChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromRip>>(&self, pcdromrip: Param0, wmprs: WMPRipState) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), pcdromrip.into_param().abi(), ::core::mem::transmute(wmprs)))
+        (::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), pcdromrip.into_param().abi(), ::core::mem::transmute(wmprs))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CdromRipMediaError<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromRip>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pcdromrip: Param0, pmedia: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), pcdromrip.into_param().abi(), pmedia.into_param().abi()))
+        (::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), pcdromrip.into_param().abi(), pmedia.into_param().abi())
     }
     pub unsafe fn CdromBurnStateChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromBurn>>(&self, pcdromburn: Param0, wmpbs: WMPBurnState) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), pcdromburn.into_param().abi(), ::core::mem::transmute(wmpbs)))
+        (::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), pcdromburn.into_param().abi(), ::core::mem::transmute(wmpbs))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CdromBurnMediaError<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromBurn>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pcdromburn: Param0, pmedia: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), pcdromburn.into_param().abi(), pmedia.into_param().abi()))
+        (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), pcdromburn.into_param().abi(), pmedia.into_param().abi())
     }
     pub unsafe fn CdromBurnError<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromBurn>>(&self, pcdromburn: Param0, hrerror: ::windows::core::HRESULT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self), pcdromburn.into_param().abi(), ::core::mem::transmute(hrerror)))
+        (::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self), pcdromburn.into_param().abi(), ::core::mem::transmute(hrerror))
     }
     pub unsafe fn LibraryConnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPLibrary>>(&self, plibrary: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), plibrary.into_param().abi()))
+        (::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), plibrary.into_param().abi())
     }
     pub unsafe fn LibraryDisconnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPLibrary>>(&self, plibrary: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self), plibrary.into_param().abi()))
+        (::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self), plibrary.into_param().abi())
     }
     pub unsafe fn FolderScanStateChange(&self, wmpfss: WMPFolderScanState) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self), ::core::mem::transmute(wmpfss)))
+        (::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self), ::core::mem::transmute(wmpfss))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StringCollectionChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispstringcollection: Param0, change: WMPStringCollectionChangeEventType, lcollectionindex: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).62)(::core::mem::transmute_copy(self), pdispstringcollection.into_param().abi(), ::core::mem::transmute(change), ::core::mem::transmute(lcollectionindex)))
+        (::windows::core::Interface::vtable(self).62)(::core::mem::transmute_copy(self), pdispstringcollection.into_param().abi(), ::core::mem::transmute(change), ::core::mem::transmute(lcollectionindex))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaCollectionMediaAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispmedia: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), pdispmedia.into_param().abi()))
+        (::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), pdispmedia.into_param().abi())
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaCollectionMediaRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispmedia: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), pdispmedia.into_param().abi()))
+        (::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), pdispmedia.into_param().abi())
     }
 }
 impl ::core::convert::From<IWMPEvents3> for IWMPEvents2 {
@@ -7539,216 +7539,216 @@ pub struct IWMPEvents3Vtbl(
 pub struct IWMPEvents4(::windows::core::IUnknown);
 impl IWMPEvents4 {
     pub unsafe fn OpenStateChange(&self, newstate: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate))
     }
     pub unsafe fn PlayStateChange(&self, newstate: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate))
     }
     pub unsafe fn AudioLanguageChange(&self, langid: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(langid)))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(langid))
     }
     pub unsafe fn StatusChange(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ScriptCommand<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, sctype: Param0, param: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), sctype.into_param().abi(), param.into_param().abi()))
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), sctype.into_param().abi(), param.into_param().abi())
     }
     pub unsafe fn NewStream(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Disconnect(&self, result: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(result)))
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(result))
     }
     pub unsafe fn Buffering(&self, start: i16) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(start)))
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(start))
     }
     pub unsafe fn Error(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Warning<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, warningtype: i32, param: i32, description: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(warningtype), ::core::mem::transmute(param), description.into_param().abi()))
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(warningtype), ::core::mem::transmute(param), description.into_param().abi())
     }
     pub unsafe fn EndOfStream(&self, result: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(result)))
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(result))
     }
     pub unsafe fn PositionChange(&self, oldposition: f64, newposition: f64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(oldposition), ::core::mem::transmute(newposition)))
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(oldposition), ::core::mem::transmute(newposition))
     }
     pub unsafe fn MarkerHit(&self, markernum: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(markernum)))
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(markernum))
     }
     pub unsafe fn DurationUnitChange(&self, newdurationunit: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(newdurationunit)))
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(newdurationunit))
     }
     pub unsafe fn CdromMediaChange(&self, cdromnum: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(cdromnum)))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(cdromnum))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PlaylistChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, playlist: Param0, change: WMPPlaylistChangeEventType) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), playlist.into_param().abi(), ::core::mem::transmute(change)))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), playlist.into_param().abi(), ::core::mem::transmute(change))
     }
     pub unsafe fn CurrentPlaylistChange(&self, change: WMPPlaylistChangeEventType) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(change)))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(change))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentPlaylistItemAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), bstritemname.into_param().abi()))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), bstritemname.into_param().abi())
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, item: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), item.into_param().abi()))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), item.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentMediaItemAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), bstritemname.into_param().abi()))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), bstritemname.into_param().abi())
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentItemChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispmedia: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), pdispmedia.into_param().abi()))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), pdispmedia.into_param().abi())
     }
     pub unsafe fn MediaCollectionChange(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaCollectionAttributeStringAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi()))
+        (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaCollectionAttributeStringRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi()))
+        (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaCollectionAttributeStringChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstroldattribval: Param1, bstrnewattribval: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstroldattribval.into_param().abi(), bstrnewattribval.into_param().abi()))
+        (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstroldattribval.into_param().abi(), bstrnewattribval.into_param().abi())
     }
     pub unsafe fn PlaylistCollectionChange(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlaylistCollectionPlaylistAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi()))
+        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlaylistCollectionPlaylistRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi()))
+        (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlaylistCollectionPlaylistSetAsDeleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0, varfisdeleted: i16) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi(), ::core::mem::transmute(varfisdeleted)))
+        (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi(), ::core::mem::transmute(varfisdeleted))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ModeChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, modename: Param0, newvalue: i16) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), modename.into_param().abi(), ::core::mem::transmute(newvalue)))
+        (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), modename.into_param().abi(), ::core::mem::transmute(newvalue))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaError<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pmediaobject: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), pmediaobject.into_param().abi()))
+        (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), pmediaobject.into_param().abi())
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenPlaylistSwitch<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pitem: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), pitem.into_param().abi()))
+        (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), pitem.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DomainChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strdomain: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), strdomain.into_param().abi()))
+        (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), strdomain.into_param().abi())
     }
     pub unsafe fn SwitchedToPlayerApplication(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn SwitchedToControl(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn PlayerDockedStateChange(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn PlayerReconnect(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Click(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy)))
+        (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     pub unsafe fn DoubleClick(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy)))
+        (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     pub unsafe fn KeyDown(&self, nkeycode: i16, nshiftstate: i16) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate)))
+        (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate))
     }
     pub unsafe fn KeyPress(&self, nkeyascii: i16) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeyascii)))
+        (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeyascii))
     }
     pub unsafe fn KeyUp(&self, nkeycode: i16, nshiftstate: i16) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate)))
+        (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate))
     }
     pub unsafe fn MouseDown(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy)))
+        (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     pub unsafe fn MouseMove(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy)))
+        (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     pub unsafe fn MouseUp(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy)))
+        (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     pub unsafe fn DeviceConnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), pdevice.into_param().abi()))
+        (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), pdevice.into_param().abi())
     }
     pub unsafe fn DeviceDisconnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), pdevice.into_param().abi()))
+        (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), pdevice.into_param().abi())
     }
     pub unsafe fn DeviceStatusChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, newstatus: WMPDeviceStatus) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(newstatus)))
+        (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(newstatus))
     }
     pub unsafe fn DeviceSyncStateChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, newstate: WMPSyncState) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(newstate)))
+        (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(newstate))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DeviceSyncError<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdevice: Param0, pmedia: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), pmedia.into_param().abi()))
+        (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), pmedia.into_param().abi())
     }
     pub unsafe fn CreatePartnershipComplete<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, hrresult: ::windows::core::HRESULT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(hrresult)))
+        (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(hrresult))
     }
     pub unsafe fn CdromRipStateChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromRip>>(&self, pcdromrip: Param0, wmprs: WMPRipState) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), pcdromrip.into_param().abi(), ::core::mem::transmute(wmprs)))
+        (::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), pcdromrip.into_param().abi(), ::core::mem::transmute(wmprs))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CdromRipMediaError<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromRip>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pcdromrip: Param0, pmedia: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), pcdromrip.into_param().abi(), pmedia.into_param().abi()))
+        (::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), pcdromrip.into_param().abi(), pmedia.into_param().abi())
     }
     pub unsafe fn CdromBurnStateChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromBurn>>(&self, pcdromburn: Param0, wmpbs: WMPBurnState) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), pcdromburn.into_param().abi(), ::core::mem::transmute(wmpbs)))
+        (::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), pcdromburn.into_param().abi(), ::core::mem::transmute(wmpbs))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CdromBurnMediaError<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromBurn>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pcdromburn: Param0, pmedia: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), pcdromburn.into_param().abi(), pmedia.into_param().abi()))
+        (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), pcdromburn.into_param().abi(), pmedia.into_param().abi())
     }
     pub unsafe fn CdromBurnError<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromBurn>>(&self, pcdromburn: Param0, hrerror: ::windows::core::HRESULT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self), pcdromburn.into_param().abi(), ::core::mem::transmute(hrerror)))
+        (::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self), pcdromburn.into_param().abi(), ::core::mem::transmute(hrerror))
     }
     pub unsafe fn LibraryConnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPLibrary>>(&self, plibrary: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), plibrary.into_param().abi()))
+        (::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), plibrary.into_param().abi())
     }
     pub unsafe fn LibraryDisconnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPLibrary>>(&self, plibrary: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self), plibrary.into_param().abi()))
+        (::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self), plibrary.into_param().abi())
     }
     pub unsafe fn FolderScanStateChange(&self, wmpfss: WMPFolderScanState) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self), ::core::mem::transmute(wmpfss)))
+        (::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self), ::core::mem::transmute(wmpfss))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StringCollectionChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispstringcollection: Param0, change: WMPStringCollectionChangeEventType, lcollectionindex: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).62)(::core::mem::transmute_copy(self), pdispstringcollection.into_param().abi(), ::core::mem::transmute(change), ::core::mem::transmute(lcollectionindex)))
+        (::windows::core::Interface::vtable(self).62)(::core::mem::transmute_copy(self), pdispstringcollection.into_param().abi(), ::core::mem::transmute(change), ::core::mem::transmute(lcollectionindex))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaCollectionMediaAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispmedia: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), pdispmedia.into_param().abi()))
+        (::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), pdispmedia.into_param().abi())
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaCollectionMediaRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispmedia: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), pdispmedia.into_param().abi()))
+        (::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), pdispmedia.into_param().abi())
     }
     pub unsafe fn DeviceEstimation<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, hrresult: ::windows::core::HRESULT, qwestimatedusedspace: i64, qwestimatedspace: i64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).65)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(hrresult), ::core::mem::transmute(qwestimatedusedspace), ::core::mem::transmute(qwestimatedspace)))
+        (::windows::core::Interface::vtable(self).65)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(hrresult), ::core::mem::transmute(qwestimatedusedspace), ::core::mem::transmute(qwestimatedspace))
     }
 }
 impl ::core::convert::From<IWMPEvents4> for IWMPEvents3 {

@@ -2460,7 +2460,7 @@ pub unsafe fn MapGenericMask(accessmask: *mut u32, genericmapping: *const GENERI
         extern "system" {
             fn MapGenericMask(accessmask: *mut u32, genericmapping: *const GENERIC_MAPPING);
         }
-        ::core::mem::transmute(MapGenericMask(::core::mem::transmute(accessmask), ::core::mem::transmute(genericmapping)))
+        MapGenericMask(::core::mem::transmute(accessmask), ::core::mem::transmute(genericmapping))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2732,7 +2732,7 @@ pub unsafe fn QuerySecurityAccessMask(securityinformation: u32, desiredaccess: *
         extern "system" {
             fn QuerySecurityAccessMask(securityinformation: u32, desiredaccess: *mut u32);
         }
-        ::core::mem::transmute(QuerySecurityAccessMask(::core::mem::transmute(securityinformation), ::core::mem::transmute(desiredaccess)))
+        QuerySecurityAccessMask(::core::mem::transmute(securityinformation), ::core::mem::transmute(desiredaccess))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3690,7 +3690,7 @@ pub unsafe fn SetSecurityAccessMask(securityinformation: u32, desiredaccess: *mu
         extern "system" {
             fn SetSecurityAccessMask(securityinformation: u32, desiredaccess: *mut u32);
         }
-        ::core::mem::transmute(SetSecurityAccessMask(::core::mem::transmute(securityinformation), ::core::mem::transmute(desiredaccess)))
+        SetSecurityAccessMask(::core::mem::transmute(securityinformation), ::core::mem::transmute(desiredaccess))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

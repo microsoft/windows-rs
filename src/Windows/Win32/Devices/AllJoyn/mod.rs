@@ -647,7 +647,7 @@ pub unsafe fn alljoyn_aboutdata_destroy<'a, Param0: ::windows::core::IntoParam<'
         extern "system" {
             fn alljoyn_aboutdata_destroy(data: alljoyn_aboutdata);
         }
-        ::core::mem::transmute(alljoyn_aboutdata_destroy(data.into_param().abi()))
+        alljoyn_aboutdata_destroy(data.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1226,7 +1226,7 @@ pub unsafe fn alljoyn_aboutdatalistener_destroy<'a, Param0: ::windows::core::Int
         extern "system" {
             fn alljoyn_aboutdatalistener_destroy(listener: alljoyn_aboutdatalistener);
         }
-        ::core::mem::transmute(alljoyn_aboutdatalistener_destroy(listener.into_param().abi()))
+        alljoyn_aboutdatalistener_destroy(listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1242,7 +1242,7 @@ pub unsafe fn alljoyn_abouticon_clear(icon: *mut _alljoyn_abouticon_handle) {
         extern "system" {
             fn alljoyn_abouticon_clear(icon: *mut _alljoyn_abouticon_handle);
         }
-        ::core::mem::transmute(alljoyn_abouticon_clear(::core::mem::transmute(icon)))
+        alljoyn_abouticon_clear(::core::mem::transmute(icon))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1268,7 +1268,7 @@ pub unsafe fn alljoyn_abouticon_destroy(icon: *mut _alljoyn_abouticon_handle) {
         extern "system" {
             fn alljoyn_abouticon_destroy(icon: *mut _alljoyn_abouticon_handle);
         }
-        ::core::mem::transmute(alljoyn_abouticon_destroy(::core::mem::transmute(icon)))
+        alljoyn_abouticon_destroy(::core::mem::transmute(icon))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1281,7 +1281,7 @@ pub unsafe fn alljoyn_abouticon_getcontent(icon: *mut _alljoyn_abouticon_handle,
         extern "system" {
             fn alljoyn_abouticon_getcontent(icon: *mut _alljoyn_abouticon_handle, data: *const *const u8, size: *mut usize);
         }
-        ::core::mem::transmute(alljoyn_abouticon_getcontent(::core::mem::transmute(icon), ::core::mem::transmute(data), ::core::mem::transmute(size)))
+        alljoyn_abouticon_getcontent(::core::mem::transmute(icon), ::core::mem::transmute(data), ::core::mem::transmute(size))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1294,7 +1294,7 @@ pub unsafe fn alljoyn_abouticon_geturl(icon: *mut _alljoyn_abouticon_handle, r#t
         extern "system" {
             fn alljoyn_abouticon_geturl(icon: *mut _alljoyn_abouticon_handle, r#type: *const *const i8, url: *const *const i8);
         }
-        ::core::mem::transmute(alljoyn_abouticon_geturl(::core::mem::transmute(icon), ::core::mem::transmute(r#type), ::core::mem::transmute(url)))
+        alljoyn_abouticon_geturl(::core::mem::transmute(icon), ::core::mem::transmute(r#type), ::core::mem::transmute(url))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1361,7 +1361,7 @@ pub unsafe fn alljoyn_abouticonobj_destroy(icon: *mut _alljoyn_abouticonobj_hand
         extern "system" {
             fn alljoyn_abouticonobj_destroy(icon: *mut _alljoyn_abouticonobj_handle);
         }
-        ::core::mem::transmute(alljoyn_abouticonobj_destroy(::core::mem::transmute(icon)))
+        alljoyn_abouticonobj_destroy(::core::mem::transmute(icon))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1388,7 +1388,7 @@ pub unsafe fn alljoyn_abouticonproxy_destroy(proxy: *mut _alljoyn_abouticonproxy
         extern "system" {
             fn alljoyn_abouticonproxy_destroy(proxy: *mut _alljoyn_abouticonproxy_handle);
         }
-        ::core::mem::transmute(alljoyn_abouticonproxy_destroy(::core::mem::transmute(proxy)))
+        alljoyn_abouticonproxy_destroy(::core::mem::transmute(proxy))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1473,7 +1473,7 @@ pub unsafe fn alljoyn_aboutlistener_destroy<'a, Param0: ::windows::core::IntoPar
         extern "system" {
             fn alljoyn_aboutlistener_destroy(listener: alljoyn_aboutlistener);
         }
-        ::core::mem::transmute(alljoyn_aboutlistener_destroy(listener.into_param().abi()))
+        alljoyn_aboutlistener_destroy(listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1526,7 +1526,7 @@ pub unsafe fn alljoyn_aboutobj_destroy<'a, Param0: ::windows::core::IntoParam<'a
         extern "system" {
             fn alljoyn_aboutobj_destroy(obj: alljoyn_aboutobj);
         }
-        ::core::mem::transmute(alljoyn_aboutobj_destroy(obj.into_param().abi()))
+        alljoyn_aboutobj_destroy(obj.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1553,7 +1553,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_clear<'a, Param0: ::windows::core::
         extern "system" {
             fn alljoyn_aboutobjectdescription_clear(description: alljoyn_aboutobjectdescription);
         }
-        ::core::mem::transmute(alljoyn_aboutobjectdescription_clear(description.into_param().abi()))
+        alljoyn_aboutobjectdescription_clear(description.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1605,7 +1605,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_destroy<'a, Param0: ::windows::core
         extern "system" {
             fn alljoyn_aboutobjectdescription_destroy(description: alljoyn_aboutobjectdescription);
         }
-        ::core::mem::transmute(alljoyn_aboutobjectdescription_destroy(description.into_param().abi()))
+        alljoyn_aboutobjectdescription_destroy(description.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1729,7 +1729,7 @@ pub unsafe fn alljoyn_aboutproxy_destroy<'a, Param0: ::windows::core::IntoParam<
         extern "system" {
             fn alljoyn_aboutproxy_destroy(proxy: alljoyn_aboutproxy);
         }
-        ::core::mem::transmute(alljoyn_aboutproxy_destroy(proxy.into_param().abi()))
+        alljoyn_aboutproxy_destroy(proxy.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1825,7 +1825,7 @@ pub unsafe fn alljoyn_applicationstatelistener_destroy<'a, Param0: ::windows::co
         extern "system" {
             fn alljoyn_applicationstatelistener_destroy(listener: alljoyn_applicationstatelistener);
         }
-        ::core::mem::transmute(alljoyn_applicationstatelistener_destroy(listener.into_param().abi()))
+        alljoyn_applicationstatelistener_destroy(listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1890,7 +1890,7 @@ pub unsafe fn alljoyn_authlistener_destroy<'a, Param0: ::windows::core::IntoPara
         extern "system" {
             fn alljoyn_authlistener_destroy(listener: alljoyn_authlistener);
         }
-        ::core::mem::transmute(alljoyn_authlistener_destroy(listener.into_param().abi()))
+        alljoyn_authlistener_destroy(listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1999,7 +1999,7 @@ pub unsafe fn alljoyn_authlistenerasync_destroy<'a, Param0: ::windows::core::Int
         extern "system" {
             fn alljoyn_authlistenerasync_destroy(listener: alljoyn_authlistener);
         }
-        ::core::mem::transmute(alljoyn_authlistenerasync_destroy(listener.into_param().abi()))
+        alljoyn_authlistenerasync_destroy(listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2028,7 +2028,7 @@ pub unsafe fn alljoyn_autopinger_addpinggroup<'a, Param0: ::windows::core::IntoP
         extern "system" {
             fn alljoyn_autopinger_addpinggroup(autopinger: alljoyn_autopinger, group: super::super::Foundation::PSTR, listener: alljoyn_pinglistener, pinginterval: u32);
         }
-        ::core::mem::transmute(alljoyn_autopinger_addpinggroup(autopinger.into_param().abi(), group.into_param().abi(), listener.into_param().abi(), ::core::mem::transmute(pinginterval)))
+        alljoyn_autopinger_addpinggroup(autopinger.into_param().abi(), group.into_param().abi(), listener.into_param().abi(), ::core::mem::transmute(pinginterval))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2058,7 +2058,7 @@ pub unsafe fn alljoyn_autopinger_destroy<'a, Param0: ::windows::core::IntoParam<
         extern "system" {
             fn alljoyn_autopinger_destroy(autopinger: alljoyn_autopinger);
         }
-        ::core::mem::transmute(alljoyn_autopinger_destroy(autopinger.into_param().abi()))
+        alljoyn_autopinger_destroy(autopinger.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2071,7 +2071,7 @@ pub unsafe fn alljoyn_autopinger_pause<'a, Param0: ::windows::core::IntoParam<'a
         extern "system" {
             fn alljoyn_autopinger_pause(autopinger: alljoyn_autopinger);
         }
-        ::core::mem::transmute(alljoyn_autopinger_pause(autopinger.into_param().abi()))
+        alljoyn_autopinger_pause(autopinger.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2099,7 +2099,7 @@ pub unsafe fn alljoyn_autopinger_removepinggroup<'a, Param0: ::windows::core::In
         extern "system" {
             fn alljoyn_autopinger_removepinggroup(autopinger: alljoyn_autopinger, group: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(alljoyn_autopinger_removepinggroup(autopinger.into_param().abi(), group.into_param().abi()))
+        alljoyn_autopinger_removepinggroup(autopinger.into_param().abi(), group.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2112,7 +2112,7 @@ pub unsafe fn alljoyn_autopinger_resume<'a, Param0: ::windows::core::IntoParam<'
         extern "system" {
             fn alljoyn_autopinger_resume(autopinger: alljoyn_autopinger);
         }
-        ::core::mem::transmute(alljoyn_autopinger_resume(autopinger.into_param().abi()))
+        alljoyn_autopinger_resume(autopinger.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2278,7 +2278,7 @@ pub unsafe fn alljoyn_busattachment_clearkeystore<'a, Param0: ::windows::core::I
         extern "system" {
             fn alljoyn_busattachment_clearkeystore(bus: alljoyn_busattachment);
         }
-        ::core::mem::transmute(alljoyn_busattachment_clearkeystore(bus.into_param().abi()))
+        alljoyn_busattachment_clearkeystore(bus.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2402,7 +2402,7 @@ pub unsafe fn alljoyn_busattachment_destroy<'a, Param0: ::windows::core::IntoPar
         extern "system" {
             fn alljoyn_busattachment_destroy(bus: alljoyn_busattachment);
         }
-        ::core::mem::transmute(alljoyn_busattachment_destroy(bus.into_param().abi()))
+        alljoyn_busattachment_destroy(bus.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2429,7 +2429,7 @@ pub unsafe fn alljoyn_busattachment_enableconcurrentcallbacks<'a, Param0: ::wind
         extern "system" {
             fn alljoyn_busattachment_enableconcurrentcallbacks(bus: alljoyn_busattachment);
         }
-        ::core::mem::transmute(alljoyn_busattachment_enableconcurrentcallbacks(bus.into_param().abi()))
+        alljoyn_busattachment_enableconcurrentcallbacks(bus.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2808,7 +2808,7 @@ pub unsafe fn alljoyn_busattachment_registeraboutlistener<'a, Param0: ::windows:
         extern "system" {
             fn alljoyn_busattachment_registeraboutlistener(bus: alljoyn_busattachment, aboutlistener: alljoyn_aboutlistener);
         }
-        ::core::mem::transmute(alljoyn_busattachment_registeraboutlistener(bus.into_param().abi(), aboutlistener.into_param().abi()))
+        alljoyn_busattachment_registeraboutlistener(bus.into_param().abi(), aboutlistener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2834,7 +2834,7 @@ pub unsafe fn alljoyn_busattachment_registerbuslistener<'a, Param0: ::windows::c
         extern "system" {
             fn alljoyn_busattachment_registerbuslistener(bus: alljoyn_busattachment, listener: alljoyn_buslistener);
         }
-        ::core::mem::transmute(alljoyn_busattachment_registerbuslistener(bus.into_param().abi(), listener.into_param().abi()))
+        alljoyn_busattachment_registerbuslistener(bus.into_param().abi(), listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3118,7 +3118,7 @@ pub unsafe fn alljoyn_busattachment_unregisteraboutlistener<'a, Param0: ::window
         extern "system" {
             fn alljoyn_busattachment_unregisteraboutlistener(bus: alljoyn_busattachment, aboutlistener: alljoyn_aboutlistener);
         }
-        ::core::mem::transmute(alljoyn_busattachment_unregisteraboutlistener(bus.into_param().abi(), aboutlistener.into_param().abi()))
+        alljoyn_busattachment_unregisteraboutlistener(bus.into_param().abi(), aboutlistener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3131,7 +3131,7 @@ pub unsafe fn alljoyn_busattachment_unregisterallaboutlisteners<'a, Param0: ::wi
         extern "system" {
             fn alljoyn_busattachment_unregisterallaboutlisteners(bus: alljoyn_busattachment);
         }
-        ::core::mem::transmute(alljoyn_busattachment_unregisterallaboutlisteners(bus.into_param().abi()))
+        alljoyn_busattachment_unregisterallaboutlisteners(bus.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3170,7 +3170,7 @@ pub unsafe fn alljoyn_busattachment_unregisterbuslistener<'a, Param0: ::windows:
         extern "system" {
             fn alljoyn_busattachment_unregisterbuslistener(bus: alljoyn_busattachment, listener: alljoyn_buslistener);
         }
-        ::core::mem::transmute(alljoyn_busattachment_unregisterbuslistener(bus.into_param().abi(), listener.into_param().abi()))
+        alljoyn_busattachment_unregisterbuslistener(bus.into_param().abi(), listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3183,7 +3183,7 @@ pub unsafe fn alljoyn_busattachment_unregisterbusobject<'a, Param0: ::windows::c
         extern "system" {
             fn alljoyn_busattachment_unregisterbusobject(bus: alljoyn_busattachment, object: alljoyn_busobject);
         }
-        ::core::mem::transmute(alljoyn_busattachment_unregisterbusobject(bus.into_param().abi(), object.into_param().abi()))
+        alljoyn_busattachment_unregisterbusobject(bus.into_param().abi(), object.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3308,7 +3308,7 @@ pub unsafe fn alljoyn_buslistener_destroy<'a, Param0: ::windows::core::IntoParam
         extern "system" {
             fn alljoyn_buslistener_destroy(listener: alljoyn_buslistener);
         }
-        ::core::mem::transmute(alljoyn_buslistener_destroy(listener.into_param().abi()))
+        alljoyn_buslistener_destroy(listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3458,7 +3458,7 @@ pub unsafe fn alljoyn_busobject_destroy<'a, Param0: ::windows::core::IntoParam<'
         extern "system" {
             fn alljoyn_busobject_destroy(bus: alljoyn_busobject);
         }
-        ::core::mem::transmute(alljoyn_busobject_destroy(bus.into_param().abi()))
+        alljoyn_busobject_destroy(bus.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3472,7 +3472,7 @@ pub unsafe fn alljoyn_busobject_emitpropertieschanged<'a, Param0: ::windows::cor
         extern "system" {
             fn alljoyn_busobject_emitpropertieschanged(bus: alljoyn_busobject, ifcname: super::super::Foundation::PSTR, propnames: *const *const i8, numprops: usize, id: u32);
         }
-        ::core::mem::transmute(alljoyn_busobject_emitpropertieschanged(bus.into_param().abi(), ifcname.into_param().abi(), ::core::mem::transmute(propnames), ::core::mem::transmute(numprops), ::core::mem::transmute(id)))
+        alljoyn_busobject_emitpropertieschanged(bus.into_param().abi(), ifcname.into_param().abi(), ::core::mem::transmute(propnames), ::core::mem::transmute(numprops), ::core::mem::transmute(id))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3486,7 +3486,7 @@ pub unsafe fn alljoyn_busobject_emitpropertychanged<'a, Param0: ::windows::core:
         extern "system" {
             fn alljoyn_busobject_emitpropertychanged(bus: alljoyn_busobject, ifcname: super::super::Foundation::PSTR, propname: super::super::Foundation::PSTR, val: alljoyn_msgarg, id: u32);
         }
-        ::core::mem::transmute(alljoyn_busobject_emitpropertychanged(bus.into_param().abi(), ifcname.into_param().abi(), propname.into_param().abi(), val.into_param().abi(), ::core::mem::transmute(id)))
+        alljoyn_busobject_emitpropertychanged(bus.into_param().abi(), ifcname.into_param().abi(), propname.into_param().abi(), val.into_param().abi(), ::core::mem::transmute(id))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3731,7 +3731,7 @@ pub unsafe fn alljoyn_credentials_clear<'a, Param0: ::windows::core::IntoParam<'
         extern "system" {
             fn alljoyn_credentials_clear(cred: alljoyn_credentials);
         }
-        ::core::mem::transmute(alljoyn_credentials_clear(cred.into_param().abi()))
+        alljoyn_credentials_clear(cred.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3757,7 +3757,7 @@ pub unsafe fn alljoyn_credentials_destroy<'a, Param0: ::windows::core::IntoParam
         extern "system" {
             fn alljoyn_credentials_destroy(cred: alljoyn_credentials);
         }
-        ::core::mem::transmute(alljoyn_credentials_destroy(cred.into_param().abi()))
+        alljoyn_credentials_destroy(cred.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3867,7 +3867,7 @@ pub unsafe fn alljoyn_credentials_setcertchain<'a, Param0: ::windows::core::Into
         extern "system" {
             fn alljoyn_credentials_setcertchain(cred: alljoyn_credentials, certchain: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(alljoyn_credentials_setcertchain(cred.into_param().abi(), certchain.into_param().abi()))
+        alljoyn_credentials_setcertchain(cred.into_param().abi(), certchain.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3880,7 +3880,7 @@ pub unsafe fn alljoyn_credentials_setexpiration<'a, Param0: ::windows::core::Int
         extern "system" {
             fn alljoyn_credentials_setexpiration(cred: alljoyn_credentials, expiration: u32);
         }
-        ::core::mem::transmute(alljoyn_credentials_setexpiration(cred.into_param().abi(), ::core::mem::transmute(expiration)))
+        alljoyn_credentials_setexpiration(cred.into_param().abi(), ::core::mem::transmute(expiration))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3894,7 +3894,7 @@ pub unsafe fn alljoyn_credentials_setlogonentry<'a, Param0: ::windows::core::Int
         extern "system" {
             fn alljoyn_credentials_setlogonentry(cred: alljoyn_credentials, logonentry: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(alljoyn_credentials_setlogonentry(cred.into_param().abi(), logonentry.into_param().abi()))
+        alljoyn_credentials_setlogonentry(cred.into_param().abi(), logonentry.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3908,7 +3908,7 @@ pub unsafe fn alljoyn_credentials_setpassword<'a, Param0: ::windows::core::IntoP
         extern "system" {
             fn alljoyn_credentials_setpassword(cred: alljoyn_credentials, pwd: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(alljoyn_credentials_setpassword(cred.into_param().abi(), pwd.into_param().abi()))
+        alljoyn_credentials_setpassword(cred.into_param().abi(), pwd.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3922,7 +3922,7 @@ pub unsafe fn alljoyn_credentials_setprivatekey<'a, Param0: ::windows::core::Int
         extern "system" {
             fn alljoyn_credentials_setprivatekey(cred: alljoyn_credentials, pk: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(alljoyn_credentials_setprivatekey(cred.into_param().abi(), pk.into_param().abi()))
+        alljoyn_credentials_setprivatekey(cred.into_param().abi(), pk.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3936,7 +3936,7 @@ pub unsafe fn alljoyn_credentials_setusername<'a, Param0: ::windows::core::IntoP
         extern "system" {
             fn alljoyn_credentials_setusername(cred: alljoyn_credentials, username: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(alljoyn_credentials_setusername(cred.into_param().abi(), username.into_param().abi()))
+        alljoyn_credentials_setusername(cred.into_param().abi(), username.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4004,7 +4004,7 @@ pub unsafe fn alljoyn_interfacedescription_activate<'a, Param0: ::windows::core:
         extern "system" {
             fn alljoyn_interfacedescription_activate(iface: alljoyn_interfacedescription);
         }
-        ::core::mem::transmute(alljoyn_interfacedescription_activate(iface.into_param().abi()))
+        alljoyn_interfacedescription_activate(iface.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4157,7 +4157,7 @@ pub unsafe fn alljoyn_interfacedescription_getannotationatindex<'a, Param0: ::wi
         extern "system" {
             fn alljoyn_interfacedescription_getannotationatindex(iface: alljoyn_interfacedescription, index: usize, name: super::super::Foundation::PSTR, name_size: *mut usize, value: super::super::Foundation::PSTR, value_size: *mut usize);
         }
-        ::core::mem::transmute(alljoyn_interfacedescription_getannotationatindex(iface.into_param().abi(), ::core::mem::transmute(index), name.into_param().abi(), ::core::mem::transmute(name_size), value.into_param().abi(), ::core::mem::transmute(value_size)))
+        alljoyn_interfacedescription_getannotationatindex(iface.into_param().abi(), ::core::mem::transmute(index), name.into_param().abi(), ::core::mem::transmute(name_size), value.into_param().abi(), ::core::mem::transmute(value_size))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4580,7 +4580,7 @@ pub unsafe fn alljoyn_interfacedescription_member_getannotationatindex<'a, Param
         extern "system" {
             fn alljoyn_interfacedescription_member_getannotationatindex(member: alljoyn_interfacedescription_member, index: usize, name: super::super::Foundation::PSTR, name_size: *mut usize, value: super::super::Foundation::PSTR, value_size: *mut usize);
         }
-        ::core::mem::transmute(alljoyn_interfacedescription_member_getannotationatindex(member.into_param().abi(), ::core::mem::transmute(index), name.into_param().abi(), ::core::mem::transmute(name_size), value.into_param().abi(), ::core::mem::transmute(value_size)))
+        alljoyn_interfacedescription_member_getannotationatindex(member.into_param().abi(), ::core::mem::transmute(index), name.into_param().abi(), ::core::mem::transmute(name_size), value.into_param().abi(), ::core::mem::transmute(value_size))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4622,7 +4622,7 @@ pub unsafe fn alljoyn_interfacedescription_member_getargannotationatindex<'a, Pa
         extern "system" {
             fn alljoyn_interfacedescription_member_getargannotationatindex(member: alljoyn_interfacedescription_member, argname: super::super::Foundation::PSTR, index: usize, name: super::super::Foundation::PSTR, name_size: *mut usize, value: super::super::Foundation::PSTR, value_size: *mut usize);
         }
-        ::core::mem::transmute(alljoyn_interfacedescription_member_getargannotationatindex(member.into_param().abi(), argname.into_param().abi(), ::core::mem::transmute(index), name.into_param().abi(), ::core::mem::transmute(name_size), value.into_param().abi(), ::core::mem::transmute(value_size)))
+        alljoyn_interfacedescription_member_getargannotationatindex(member.into_param().abi(), argname.into_param().abi(), ::core::mem::transmute(index), name.into_param().abi(), ::core::mem::transmute(name_size), value.into_param().abi(), ::core::mem::transmute(value_size))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4712,7 +4712,7 @@ pub unsafe fn alljoyn_interfacedescription_property_getannotationatindex<'a, Par
         extern "system" {
             fn alljoyn_interfacedescription_property_getannotationatindex(property: alljoyn_interfacedescription_property, index: usize, name: super::super::Foundation::PSTR, name_size: *mut usize, value: super::super::Foundation::PSTR, value_size: *mut usize);
         }
-        ::core::mem::transmute(alljoyn_interfacedescription_property_getannotationatindex(property.into_param().abi(), ::core::mem::transmute(index), name.into_param().abi(), ::core::mem::transmute(name_size), value.into_param().abi(), ::core::mem::transmute(value_size)))
+        alljoyn_interfacedescription_property_getannotationatindex(property.into_param().abi(), ::core::mem::transmute(index), name.into_param().abi(), ::core::mem::transmute(name_size), value.into_param().abi(), ::core::mem::transmute(value_size))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4772,7 +4772,7 @@ pub unsafe fn alljoyn_interfacedescription_setdescription<'a, Param0: ::windows:
         extern "system" {
             fn alljoyn_interfacedescription_setdescription(iface: alljoyn_interfacedescription, description: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(alljoyn_interfacedescription_setdescription(iface.into_param().abi(), description.into_param().abi()))
+        alljoyn_interfacedescription_setdescription(iface.into_param().abi(), description.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4800,7 +4800,7 @@ pub unsafe fn alljoyn_interfacedescription_setdescriptionlanguage<'a, Param0: ::
         extern "system" {
             fn alljoyn_interfacedescription_setdescriptionlanguage(iface: alljoyn_interfacedescription, language: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(alljoyn_interfacedescription_setdescriptionlanguage(iface.into_param().abi(), language.into_param().abi()))
+        alljoyn_interfacedescription_setdescriptionlanguage(iface.into_param().abi(), language.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4814,7 +4814,7 @@ pub unsafe fn alljoyn_interfacedescription_setdescriptiontranslationcallback<'a,
         extern "system" {
             fn alljoyn_interfacedescription_setdescriptiontranslationcallback(iface: alljoyn_interfacedescription, translationcallback: ::windows::core::RawPtr);
         }
-        ::core::mem::transmute(alljoyn_interfacedescription_setdescriptiontranslationcallback(iface.into_param().abi(), ::core::mem::transmute(translationcallback)))
+        alljoyn_interfacedescription_setdescriptiontranslationcallback(iface.into_param().abi(), ::core::mem::transmute(translationcallback))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4926,7 +4926,7 @@ pub unsafe fn alljoyn_keystorelistener_destroy<'a, Param0: ::windows::core::Into
         extern "system" {
             fn alljoyn_keystorelistener_destroy(listener: alljoyn_keystorelistener);
         }
-        ::core::mem::transmute(alljoyn_keystorelistener_destroy(listener.into_param().abi()))
+        alljoyn_keystorelistener_destroy(listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5063,7 +5063,7 @@ pub unsafe fn alljoyn_message_destroy<'a, Param0: ::windows::core::IntoParam<'a,
         extern "system" {
             fn alljoyn_message_destroy(msg: alljoyn_message);
         }
-        ::core::mem::transmute(alljoyn_message_destroy(msg.into_param().abi()))
+        alljoyn_message_destroy(msg.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5102,7 +5102,7 @@ pub unsafe fn alljoyn_message_getargs<'a, Param0: ::windows::core::IntoParam<'a,
         extern "system" {
             fn alljoyn_message_getargs(msg: alljoyn_message, numargs: *mut usize, args: *mut alljoyn_msgarg);
         }
-        ::core::mem::transmute(alljoyn_message_getargs(msg.into_param().abi(), ::core::mem::transmute(numargs), ::core::mem::transmute(args)))
+        alljoyn_message_getargs(msg.into_param().abi(), ::core::mem::transmute(numargs), ::core::mem::transmute(args))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5424,7 +5424,7 @@ pub unsafe fn alljoyn_message_setendianess(endian: i8) {
         extern "system" {
             fn alljoyn_message_setendianess(endian: i8);
         }
-        ::core::mem::transmute(alljoyn_message_setendianess(::core::mem::transmute(endian)))
+        alljoyn_message_setendianess(::core::mem::transmute(endian))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5559,7 +5559,7 @@ pub unsafe fn alljoyn_msgarg_clear<'a, Param0: ::windows::core::IntoParam<'a, al
         extern "system" {
             fn alljoyn_msgarg_clear(arg: alljoyn_msgarg);
         }
-        ::core::mem::transmute(alljoyn_msgarg_clear(arg.into_param().abi()))
+        alljoyn_msgarg_clear(arg.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5572,7 +5572,7 @@ pub unsafe fn alljoyn_msgarg_clone<'a, Param0: ::windows::core::IntoParam<'a, al
         extern "system" {
             fn alljoyn_msgarg_clone(destination: alljoyn_msgarg, source: alljoyn_msgarg);
         }
-        ::core::mem::transmute(alljoyn_msgarg_clone(destination.into_param().abi(), source.into_param().abi()))
+        alljoyn_msgarg_clone(destination.into_param().abi(), source.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5625,7 +5625,7 @@ pub unsafe fn alljoyn_msgarg_destroy<'a, Param0: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn alljoyn_msgarg_destroy(arg: alljoyn_msgarg);
         }
-        ::core::mem::transmute(alljoyn_msgarg_destroy(arg.into_param().abi()))
+        alljoyn_msgarg_destroy(arg.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5665,7 +5665,7 @@ pub unsafe fn alljoyn_msgarg_get_array_element<'a, Param0: ::windows::core::Into
         extern "system" {
             fn alljoyn_msgarg_get_array_element(arg: alljoyn_msgarg, index: usize, element: *mut alljoyn_msgarg);
         }
-        ::core::mem::transmute(alljoyn_msgarg_get_array_element(arg.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(element)))
+        alljoyn_msgarg_get_array_element(arg.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(element))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6481,7 +6481,7 @@ pub unsafe fn alljoyn_msgarg_stabilize<'a, Param0: ::windows::core::IntoParam<'a
         extern "system" {
             fn alljoyn_msgarg_stabilize(arg: alljoyn_msgarg);
         }
-        ::core::mem::transmute(alljoyn_msgarg_stabilize(arg.into_param().abi()))
+        alljoyn_msgarg_stabilize(arg.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6522,7 +6522,7 @@ pub unsafe fn alljoyn_observer_destroy<'a, Param0: ::windows::core::IntoParam<'a
         extern "system" {
             fn alljoyn_observer_destroy(observer: alljoyn_observer);
         }
-        ::core::mem::transmute(alljoyn_observer_destroy(observer.into_param().abi()))
+        alljoyn_observer_destroy(observer.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6577,7 +6577,7 @@ pub unsafe fn alljoyn_observer_registerlistener<'a, Param0: ::windows::core::Int
         extern "system" {
             fn alljoyn_observer_registerlistener(observer: alljoyn_observer, listener: alljoyn_observerlistener, triggeronexisting: i32);
         }
-        ::core::mem::transmute(alljoyn_observer_registerlistener(observer.into_param().abi(), listener.into_param().abi(), ::core::mem::transmute(triggeronexisting)))
+        alljoyn_observer_registerlistener(observer.into_param().abi(), listener.into_param().abi(), ::core::mem::transmute(triggeronexisting))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6590,7 +6590,7 @@ pub unsafe fn alljoyn_observer_unregisteralllisteners<'a, Param0: ::windows::cor
         extern "system" {
             fn alljoyn_observer_unregisteralllisteners(observer: alljoyn_observer);
         }
-        ::core::mem::transmute(alljoyn_observer_unregisteralllisteners(observer.into_param().abi()))
+        alljoyn_observer_unregisteralllisteners(observer.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6603,7 +6603,7 @@ pub unsafe fn alljoyn_observer_unregisterlistener<'a, Param0: ::windows::core::I
         extern "system" {
             fn alljoyn_observer_unregisterlistener(observer: alljoyn_observer, listener: alljoyn_observerlistener);
         }
-        ::core::mem::transmute(alljoyn_observer_unregisterlistener(observer.into_param().abi(), listener.into_param().abi()))
+        alljoyn_observer_unregisterlistener(observer.into_param().abi(), listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6655,7 +6655,7 @@ pub unsafe fn alljoyn_observerlistener_destroy<'a, Param0: ::windows::core::Into
         extern "system" {
             fn alljoyn_observerlistener_destroy(listener: alljoyn_observerlistener);
         }
-        ::core::mem::transmute(alljoyn_observerlistener_destroy(listener.into_param().abi()))
+        alljoyn_observerlistener_destroy(listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6723,7 +6723,7 @@ pub unsafe fn alljoyn_permissionconfigurationlistener_destroy<'a, Param0: ::wind
         extern "system" {
             fn alljoyn_permissionconfigurationlistener_destroy(listener: alljoyn_permissionconfigurationlistener);
         }
-        ::core::mem::transmute(alljoyn_permissionconfigurationlistener_destroy(listener.into_param().abi()))
+        alljoyn_permissionconfigurationlistener_destroy(listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6741,7 +6741,7 @@ pub unsafe fn alljoyn_permissionconfigurator_certificatechain_destroy(certificat
         extern "system" {
             fn alljoyn_permissionconfigurator_certificatechain_destroy(certificatechain: *mut i8);
         }
-        ::core::mem::transmute(alljoyn_permissionconfigurator_certificatechain_destroy(::core::mem::transmute(certificatechain)))
+        alljoyn_permissionconfigurator_certificatechain_destroy(::core::mem::transmute(certificatechain))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6754,7 +6754,7 @@ pub unsafe fn alljoyn_permissionconfigurator_certificateid_cleanup(certificateid
         extern "system" {
             fn alljoyn_permissionconfigurator_certificateid_cleanup(certificateid: *mut alljoyn_certificateid);
         }
-        ::core::mem::transmute(alljoyn_permissionconfigurator_certificateid_cleanup(::core::mem::transmute(certificateid)))
+        alljoyn_permissionconfigurator_certificateid_cleanup(::core::mem::transmute(certificateid))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6767,7 +6767,7 @@ pub unsafe fn alljoyn_permissionconfigurator_certificateidarray_cleanup(certific
         extern "system" {
             fn alljoyn_permissionconfigurator_certificateidarray_cleanup(certificateidarray: *mut alljoyn_certificateidarray);
         }
-        ::core::mem::transmute(alljoyn_permissionconfigurator_certificateidarray_cleanup(::core::mem::transmute(certificateidarray)))
+        alljoyn_permissionconfigurator_certificateidarray_cleanup(::core::mem::transmute(certificateidarray))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6988,7 +6988,7 @@ pub unsafe fn alljoyn_permissionconfigurator_manifestarray_cleanup(manifestarray
         extern "system" {
             fn alljoyn_permissionconfigurator_manifestarray_cleanup(manifestarray: *mut alljoyn_manifestarray);
         }
-        ::core::mem::transmute(alljoyn_permissionconfigurator_manifestarray_cleanup(::core::mem::transmute(manifestarray)))
+        alljoyn_permissionconfigurator_manifestarray_cleanup(::core::mem::transmute(manifestarray))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7001,7 +7001,7 @@ pub unsafe fn alljoyn_permissionconfigurator_manifesttemplate_destroy(manifestte
         extern "system" {
             fn alljoyn_permissionconfigurator_manifesttemplate_destroy(manifesttemplatexml: *mut i8);
         }
-        ::core::mem::transmute(alljoyn_permissionconfigurator_manifesttemplate_destroy(::core::mem::transmute(manifesttemplatexml)))
+        alljoyn_permissionconfigurator_manifesttemplate_destroy(::core::mem::transmute(manifesttemplatexml))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7014,7 +7014,7 @@ pub unsafe fn alljoyn_permissionconfigurator_policy_destroy(policyxml: *mut i8) 
         extern "system" {
             fn alljoyn_permissionconfigurator_policy_destroy(policyxml: *mut i8);
         }
-        ::core::mem::transmute(alljoyn_permissionconfigurator_policy_destroy(::core::mem::transmute(policyxml)))
+        alljoyn_permissionconfigurator_policy_destroy(::core::mem::transmute(policyxml))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7027,7 +7027,7 @@ pub unsafe fn alljoyn_permissionconfigurator_publickey_destroy(publickey: *mut i
         extern "system" {
             fn alljoyn_permissionconfigurator_publickey_destroy(publickey: *mut i8);
         }
-        ::core::mem::transmute(alljoyn_permissionconfigurator_publickey_destroy(::core::mem::transmute(publickey)))
+        alljoyn_permissionconfigurator_publickey_destroy(::core::mem::transmute(publickey))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7217,7 +7217,7 @@ pub unsafe fn alljoyn_pinglistener_destroy<'a, Param0: ::windows::core::IntoPara
         extern "system" {
             fn alljoyn_pinglistener_destroy(listener: alljoyn_pinglistener);
         }
-        ::core::mem::transmute(alljoyn_pinglistener_destroy(listener.into_param().abi()))
+        alljoyn_pinglistener_destroy(listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7312,7 +7312,7 @@ pub unsafe fn alljoyn_proxybusobject_destroy<'a, Param0: ::windows::core::IntoPa
         extern "system" {
             fn alljoyn_proxybusobject_destroy(proxyobj: alljoyn_proxybusobject);
         }
-        ::core::mem::transmute(alljoyn_proxybusobject_destroy(proxyobj.into_param().abi()))
+        alljoyn_proxybusobject_destroy(proxyobj.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7325,7 +7325,7 @@ pub unsafe fn alljoyn_proxybusobject_enablepropertycaching<'a, Param0: ::windows
         extern "system" {
             fn alljoyn_proxybusobject_enablepropertycaching(proxyobj: alljoyn_proxybusobject);
         }
-        ::core::mem::transmute(alljoyn_proxybusobject_enablepropertycaching(proxyobj.into_param().abi()))
+        alljoyn_proxybusobject_enablepropertycaching(proxyobj.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7687,7 +7687,7 @@ pub unsafe fn alljoyn_proxybusobject_ref_decref<'a, Param0: ::windows::core::Int
         extern "system" {
             fn alljoyn_proxybusobject_ref_decref(r#ref: alljoyn_proxybusobject_ref);
         }
-        ::core::mem::transmute(alljoyn_proxybusobject_ref_decref(r#ref.into_param().abi()))
+        alljoyn_proxybusobject_ref_decref(r#ref.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7713,7 +7713,7 @@ pub unsafe fn alljoyn_proxybusobject_ref_incref<'a, Param0: ::windows::core::Int
         extern "system" {
             fn alljoyn_proxybusobject_ref_incref(r#ref: alljoyn_proxybusobject_ref);
         }
-        ::core::mem::transmute(alljoyn_proxybusobject_ref_incref(r#ref.into_param().abi()))
+        alljoyn_proxybusobject_ref_incref(r#ref.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7901,7 +7901,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_destroy<'a, Param0: ::windows::co
         extern "system" {
             fn alljoyn_securityapplicationproxy_destroy(proxy: alljoyn_securityapplicationproxy);
         }
-        ::core::mem::transmute(alljoyn_securityapplicationproxy_destroy(proxy.into_param().abi()))
+        alljoyn_securityapplicationproxy_destroy(proxy.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7914,7 +7914,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_digest_destroy(digest: *mut u8) {
         extern "system" {
             fn alljoyn_securityapplicationproxy_digest_destroy(digest: *mut u8);
         }
-        ::core::mem::transmute(alljoyn_securityapplicationproxy_digest_destroy(::core::mem::transmute(digest)))
+        alljoyn_securityapplicationproxy_digest_destroy(::core::mem::transmute(digest))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7927,7 +7927,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_eccpublickey_destroy(eccpublickey
         extern "system" {
             fn alljoyn_securityapplicationproxy_eccpublickey_destroy(eccpublickey: *mut i8);
         }
-        ::core::mem::transmute(alljoyn_securityapplicationproxy_eccpublickey_destroy(::core::mem::transmute(eccpublickey)))
+        alljoyn_securityapplicationproxy_eccpublickey_destroy(::core::mem::transmute(eccpublickey))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8070,7 +8070,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_manifest_destroy(signedmanifestxm
         extern "system" {
             fn alljoyn_securityapplicationproxy_manifest_destroy(signedmanifestxml: *mut i8);
         }
-        ::core::mem::transmute(alljoyn_securityapplicationproxy_manifest_destroy(::core::mem::transmute(signedmanifestxml)))
+        alljoyn_securityapplicationproxy_manifest_destroy(::core::mem::transmute(signedmanifestxml))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8083,7 +8083,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_manifesttemplate_destroy(manifest
         extern "system" {
             fn alljoyn_securityapplicationproxy_manifesttemplate_destroy(manifesttemplatexml: *mut i8);
         }
-        ::core::mem::transmute(alljoyn_securityapplicationproxy_manifesttemplate_destroy(::core::mem::transmute(manifesttemplatexml)))
+        alljoyn_securityapplicationproxy_manifesttemplate_destroy(::core::mem::transmute(manifesttemplatexml))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8096,7 +8096,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_policy_destroy(policyxml: *mut i8
         extern "system" {
             fn alljoyn_securityapplicationproxy_policy_destroy(policyxml: *mut i8);
         }
-        ::core::mem::transmute(alljoyn_securityapplicationproxy_policy_destroy(::core::mem::transmute(policyxml)))
+        alljoyn_securityapplicationproxy_policy_destroy(::core::mem::transmute(policyxml))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8248,7 +8248,7 @@ pub unsafe fn alljoyn_sessionlistener_destroy<'a, Param0: ::windows::core::IntoP
         extern "system" {
             fn alljoyn_sessionlistener_destroy(listener: alljoyn_sessionlistener);
         }
-        ::core::mem::transmute(alljoyn_sessionlistener_destroy(listener.into_param().abi()))
+        alljoyn_sessionlistener_destroy(listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8300,7 +8300,7 @@ pub unsafe fn alljoyn_sessionopts_destroy<'a, Param0: ::windows::core::IntoParam
         extern "system" {
             fn alljoyn_sessionopts_destroy(opts: alljoyn_sessionopts);
         }
-        ::core::mem::transmute(alljoyn_sessionopts_destroy(opts.into_param().abi()))
+        alljoyn_sessionopts_destroy(opts.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8378,7 +8378,7 @@ pub unsafe fn alljoyn_sessionopts_set_multipoint<'a, Param0: ::windows::core::In
         extern "system" {
             fn alljoyn_sessionopts_set_multipoint(opts: alljoyn_sessionopts, ismultipoint: i32);
         }
-        ::core::mem::transmute(alljoyn_sessionopts_set_multipoint(opts.into_param().abi(), ::core::mem::transmute(ismultipoint)))
+        alljoyn_sessionopts_set_multipoint(opts.into_param().abi(), ::core::mem::transmute(ismultipoint))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8391,7 +8391,7 @@ pub unsafe fn alljoyn_sessionopts_set_proximity<'a, Param0: ::windows::core::Int
         extern "system" {
             fn alljoyn_sessionopts_set_proximity(opts: alljoyn_sessionopts, proximity: u8);
         }
-        ::core::mem::transmute(alljoyn_sessionopts_set_proximity(opts.into_param().abi(), ::core::mem::transmute(proximity)))
+        alljoyn_sessionopts_set_proximity(opts.into_param().abi(), ::core::mem::transmute(proximity))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8404,7 +8404,7 @@ pub unsafe fn alljoyn_sessionopts_set_traffic<'a, Param0: ::windows::core::IntoP
         extern "system" {
             fn alljoyn_sessionopts_set_traffic(opts: alljoyn_sessionopts, traffic: u8);
         }
-        ::core::mem::transmute(alljoyn_sessionopts_set_traffic(opts.into_param().abi(), ::core::mem::transmute(traffic)))
+        alljoyn_sessionopts_set_traffic(opts.into_param().abi(), ::core::mem::transmute(traffic))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8417,7 +8417,7 @@ pub unsafe fn alljoyn_sessionopts_set_transports<'a, Param0: ::windows::core::In
         extern "system" {
             fn alljoyn_sessionopts_set_transports(opts: alljoyn_sessionopts, transports: u16);
         }
-        ::core::mem::transmute(alljoyn_sessionopts_set_transports(opts.into_param().abi(), ::core::mem::transmute(transports)))
+        alljoyn_sessionopts_set_transports(opts.into_param().abi(), ::core::mem::transmute(transports))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8479,7 +8479,7 @@ pub unsafe fn alljoyn_sessionportlistener_destroy<'a, Param0: ::windows::core::I
         extern "system" {
             fn alljoyn_sessionportlistener_destroy(listener: alljoyn_sessionportlistener);
         }
-        ::core::mem::transmute(alljoyn_sessionportlistener_destroy(listener.into_param().abi()))
+        alljoyn_sessionportlistener_destroy(listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8553,7 +8553,7 @@ pub unsafe fn alljoyn_unity_set_deferred_callback_mainthread_only(mainthread_onl
         extern "system" {
             fn alljoyn_unity_set_deferred_callback_mainthread_only(mainthread_only: i32);
         }
-        ::core::mem::transmute(alljoyn_unity_set_deferred_callback_mainthread_only(::core::mem::transmute(mainthread_only)))
+        alljoyn_unity_set_deferred_callback_mainthread_only(::core::mem::transmute(mainthread_only))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

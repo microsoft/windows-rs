@@ -8,7 +8,7 @@ pub unsafe fn BSTR_UserFree(param0: *const u32, param1: *const super::super::sup
         extern "system" {
             fn BSTR_UserFree(param0: *const u32, param1: *const super::super::super::Foundation::BSTR);
         }
-        ::core::mem::transmute(BSTR_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        BSTR_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22,7 +22,7 @@ pub unsafe fn BSTR_UserFree64(param0: *const u32, param1: *const super::super::s
         extern "system" {
             fn BSTR_UserFree64(param0: *const u32, param1: *const super::super::super::Foundation::BSTR);
         }
-        ::core::mem::transmute(BSTR_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        BSTR_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -119,7 +119,7 @@ pub unsafe fn CLIPFORMAT_UserFree(param0: *const u32, param1: *const u16) {
         extern "system" {
             fn CLIPFORMAT_UserFree(param0: *const u32, param1: *const u16);
         }
-        ::core::mem::transmute(CLIPFORMAT_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        CLIPFORMAT_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -132,7 +132,7 @@ pub unsafe fn CLIPFORMAT_UserFree64(param0: *const u32, param1: *const u16) {
         extern "system" {
             fn CLIPFORMAT_UserFree64(param0: *const u32, param1: *const u16);
         }
-        ::core::mem::transmute(CLIPFORMAT_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        CLIPFORMAT_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -346,7 +346,7 @@ pub unsafe fn HACCEL_UserFree(param0: *const u32, param1: *const super::super::s
         extern "system" {
             fn HACCEL_UserFree(param0: *const u32, param1: *const super::super::super::UI::WindowsAndMessaging::HACCEL);
         }
-        ::core::mem::transmute(HACCEL_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        HACCEL_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -360,7 +360,7 @@ pub unsafe fn HACCEL_UserFree64(param0: *const u32, param1: *const super::super:
         extern "system" {
             fn HACCEL_UserFree64(param0: *const u32, param1: *const super::super::super::UI::WindowsAndMessaging::HACCEL);
         }
-        ::core::mem::transmute(HACCEL_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        HACCEL_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -458,7 +458,7 @@ pub unsafe fn HBITMAP_UserFree(param0: *const u32, param1: *const super::super::
         extern "system" {
             fn HBITMAP_UserFree(param0: *const u32, param1: *const super::super::super::Graphics::Gdi::HBITMAP);
         }
-        ::core::mem::transmute(HBITMAP_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        HBITMAP_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -472,7 +472,7 @@ pub unsafe fn HBITMAP_UserFree64(param0: *const u32, param1: *const super::super
         extern "system" {
             fn HBITMAP_UserFree64(param0: *const u32, param1: *const super::super::super::Graphics::Gdi::HBITMAP);
         }
-        ::core::mem::transmute(HBITMAP_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        HBITMAP_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -570,7 +570,7 @@ pub unsafe fn HDC_UserFree(param0: *const u32, param1: *const super::super::supe
         extern "system" {
             fn HDC_UserFree(param0: *const u32, param1: *const super::super::super::Graphics::Gdi::HDC);
         }
-        ::core::mem::transmute(HDC_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        HDC_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -584,7 +584,7 @@ pub unsafe fn HDC_UserFree64(param0: *const u32, param1: *const super::super::su
         extern "system" {
             fn HDC_UserFree64(param0: *const u32, param1: *const super::super::super::Graphics::Gdi::HDC);
         }
-        ::core::mem::transmute(HDC_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        HDC_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -681,7 +681,7 @@ pub unsafe fn HGLOBAL_UserFree(param0: *const u32, param1: *const isize) {
         extern "system" {
             fn HGLOBAL_UserFree(param0: *const u32, param1: *const isize);
         }
-        ::core::mem::transmute(HGLOBAL_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        HGLOBAL_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -694,7 +694,7 @@ pub unsafe fn HGLOBAL_UserFree64(param0: *const u32, param1: *const isize) {
         extern "system" {
             fn HGLOBAL_UserFree64(param0: *const u32, param1: *const isize);
         }
-        ::core::mem::transmute(HGLOBAL_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        HGLOBAL_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -786,7 +786,7 @@ pub unsafe fn HICON_UserFree(param0: *const u32, param1: *const super::super::su
         extern "system" {
             fn HICON_UserFree(param0: *const u32, param1: *const super::super::super::UI::WindowsAndMessaging::HICON);
         }
-        ::core::mem::transmute(HICON_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        HICON_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -800,7 +800,7 @@ pub unsafe fn HICON_UserFree64(param0: *const u32, param1: *const super::super::
         extern "system" {
             fn HICON_UserFree64(param0: *const u32, param1: *const super::super::super::UI::WindowsAndMessaging::HICON);
         }
-        ::core::mem::transmute(HICON_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        HICON_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -898,7 +898,7 @@ pub unsafe fn HMENU_UserFree(param0: *const u32, param1: *const super::super::su
         extern "system" {
             fn HMENU_UserFree(param0: *const u32, param1: *const super::super::super::UI::WindowsAndMessaging::HMENU);
         }
-        ::core::mem::transmute(HMENU_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        HMENU_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -912,7 +912,7 @@ pub unsafe fn HMENU_UserFree64(param0: *const u32, param1: *const super::super::
         extern "system" {
             fn HMENU_UserFree64(param0: *const u32, param1: *const super::super::super::UI::WindowsAndMessaging::HMENU);
         }
-        ::core::mem::transmute(HMENU_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        HMENU_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1010,7 +1010,7 @@ pub unsafe fn HPALETTE_UserFree(param0: *const u32, param1: *const super::super:
         extern "system" {
             fn HPALETTE_UserFree(param0: *const u32, param1: *const super::super::super::Graphics::Gdi::HPALETTE);
         }
-        ::core::mem::transmute(HPALETTE_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        HPALETTE_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1024,7 +1024,7 @@ pub unsafe fn HPALETTE_UserFree64(param0: *const u32, param1: *const super::supe
         extern "system" {
             fn HPALETTE_UserFree64(param0: *const u32, param1: *const super::super::super::Graphics::Gdi::HPALETTE);
         }
-        ::core::mem::transmute(HPALETTE_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        HPALETTE_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1122,7 +1122,7 @@ pub unsafe fn HWND_UserFree(param0: *const u32, param1: *const super::super::sup
         extern "system" {
             fn HWND_UserFree(param0: *const u32, param1: *const super::super::super::Foundation::HWND);
         }
-        ::core::mem::transmute(HWND_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        HWND_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1136,7 +1136,7 @@ pub unsafe fn HWND_UserFree64(param0: *const u32, param1: *const super::super::s
         extern "system" {
             fn HWND_UserFree64(param0: *const u32, param1: *const super::super::super::Foundation::HWND);
         }
-        ::core::mem::transmute(HWND_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        HWND_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1533,7 +1533,7 @@ pub unsafe fn LPSAFEARRAY_UserFree(param0: *const u32, param1: *const *const sup
         extern "system" {
             fn LPSAFEARRAY_UserFree(param0: *const u32, param1: *const *const super::SAFEARRAY);
         }
-        ::core::mem::transmute(LPSAFEARRAY_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        LPSAFEARRAY_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1546,7 +1546,7 @@ pub unsafe fn LPSAFEARRAY_UserFree64(param0: *const u32, param1: *const *const s
         extern "system" {
             fn LPSAFEARRAY_UserFree64(param0: *const u32, param1: *const *const super::SAFEARRAY);
         }
-        ::core::mem::transmute(LPSAFEARRAY_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        LPSAFEARRAY_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1637,7 +1637,7 @@ pub unsafe fn SNB_UserFree(param0: *const u32, param1: *const *const *const u16)
         extern "system" {
             fn SNB_UserFree(param0: *const u32, param1: *const *const *const u16);
         }
-        ::core::mem::transmute(SNB_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        SNB_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1650,7 +1650,7 @@ pub unsafe fn SNB_UserFree64(param0: *const u32, param1: *const *const *const u1
         extern "system" {
             fn SNB_UserFree64(param0: *const u32, param1: *const *const *const u16);
         }
-        ::core::mem::transmute(SNB_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        SNB_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1745,7 +1745,7 @@ pub unsafe fn STGMEDIUM_UserFree(param0: *const u32, param1: *const super::STGME
         extern "system" {
             fn STGMEDIUM_UserFree(param0: *const u32, param1: *const super::STGMEDIUM);
         }
-        ::core::mem::transmute(STGMEDIUM_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        STGMEDIUM_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1759,7 +1759,7 @@ pub unsafe fn STGMEDIUM_UserFree64(param0: *const u32, param1: *const super::STG
         extern "system" {
             fn STGMEDIUM_UserFree64(param0: *const u32, param1: *const super::STGMEDIUM);
         }
-        ::core::mem::transmute(STGMEDIUM_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        STGMEDIUM_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1857,7 +1857,7 @@ pub unsafe fn VARIANT_UserFree(param0: *const u32, param1: *const super::VARIANT
         extern "system" {
             fn VARIANT_UserFree(param0: *const u32, param1: *const super::VARIANT);
         }
-        ::core::mem::transmute(VARIANT_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        VARIANT_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1871,7 +1871,7 @@ pub unsafe fn VARIANT_UserFree64(param0: *const u32, param1: *const super::VARIA
         extern "system" {
             fn VARIANT_UserFree64(param0: *const u32, param1: *const super::VARIANT);
         }
-        ::core::mem::transmute(VARIANT_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        VARIANT_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

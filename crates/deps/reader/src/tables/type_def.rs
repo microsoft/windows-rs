@@ -61,7 +61,7 @@ impl TypeDef {
         fn walk(result: &mut Vec<TypeDef>, parent: &TypeDef) {
             for child in parent.interface_impls() {
                 if let ElementType::TypeDef(def) = child.generic_interface(&parent.generics) {
-                    if !result.iter().any(|def| def == def) {
+                    if !result.iter().any(|element| element == &def) {
                         walk(result, &def);
                         result.push(def);
                     }
@@ -71,7 +71,7 @@ impl TypeDef {
 
         let mut result = vec![];
         walk(&mut result, self);
-        result.sort_by(|a, b| a.name().cmp(&b.name()));
+        result.sort_by(|a, b| a.name().cmp(b.name()));
         result
     }
 
@@ -136,7 +136,7 @@ impl TypeDef {
         }
 
         // TODO: need to sort by hierarchy as well?
-        result.sort_by(|a, b| a.0.name().cmp(&b.0.name()));
+        result.sort_by(|a, b| a.0.name().cmp(b.0.name()));
         result
     }
 

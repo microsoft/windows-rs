@@ -1819,7 +1819,7 @@ pub unsafe fn SerializationBufferFree(buffer: *const u8) {
         extern "system" {
             fn SerializationBufferFree(buffer: *const u8);
         }
-        ::core::mem::transmute(SerializationBufferFree(::core::mem::transmute(buffer)))
+        SerializationBufferFree(::core::mem::transmute(buffer))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

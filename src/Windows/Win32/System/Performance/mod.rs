@@ -5155,19 +5155,19 @@ pub struct ISystemMonitor2Vtbl(
 pub struct ISystemMonitorEvents(::windows::core::IUnknown);
 impl ISystemMonitorEvents {
     pub unsafe fn OnCounterSelected(&self, index: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(index))
     }
     pub unsafe fn OnCounterAdded(&self, index: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(index))
     }
     pub unsafe fn OnCounterDeleted(&self, index: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(index))
     }
     pub unsafe fn OnSampleCollected(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn OnDblClick(&self, index: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(index))
     }
 }
 impl ::core::convert::From<ISystemMonitorEvents> for ::windows::core::IUnknown {

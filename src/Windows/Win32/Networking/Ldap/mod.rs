@@ -510,7 +510,7 @@ pub unsafe fn ber_bvecfree(pberval: *mut *mut LDAP_BERVAL) {
         extern "system" {
             fn ber_bvecfree(pberval: *mut *mut LDAP_BERVAL);
         }
-        ::core::mem::transmute(ber_bvecfree(::core::mem::transmute(pberval)))
+        ber_bvecfree(::core::mem::transmute(pberval))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -524,7 +524,7 @@ pub unsafe fn ber_bvfree(bv: *mut LDAP_BERVAL) {
         extern "system" {
             fn ber_bvfree(bv: *mut LDAP_BERVAL);
         }
-        ::core::mem::transmute(ber_bvfree(::core::mem::transmute(bv)))
+        ber_bvfree(::core::mem::transmute(bv))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -566,7 +566,7 @@ pub unsafe fn ber_free(pberelement: *mut berelement, fbuf: i32) {
         extern "system" {
             fn ber_free(pberelement: *mut berelement, fbuf: i32);
         }
-        ::core::mem::transmute(ber_free(::core::mem::transmute(pberelement), ::core::mem::transmute(fbuf)))
+        ber_free(::core::mem::transmute(pberelement), ::core::mem::transmute(fbuf))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2399,7 +2399,7 @@ pub unsafe fn ldap_memfree<'a, Param0: ::windows::core::IntoParam<'a, super::sup
         extern "system" {
             fn ldap_memfree(block: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(ldap_memfree(block.into_param().abi()))
+        ldap_memfree(block.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2413,7 +2413,7 @@ pub unsafe fn ldap_memfreeA<'a, Param0: ::windows::core::IntoParam<'a, super::su
         extern "system" {
             fn ldap_memfreeA(block: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(ldap_memfreeA(block.into_param().abi()))
+        ldap_memfreeA(block.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2427,7 +2427,7 @@ pub unsafe fn ldap_memfreeW<'a, Param0: ::windows::core::IntoParam<'a, super::su
         extern "system" {
             fn ldap_memfreeW(block: super::super::Foundation::PWSTR);
         }
-        ::core::mem::transmute(ldap_memfreeW(block.into_param().abi()))
+        ldap_memfreeW(block.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3127,7 +3127,7 @@ pub unsafe fn ldap_perror<'a, Param1: ::windows::core::IntoParam<'a, super::supe
         extern "system" {
             fn ldap_perror(ld: *mut ldap, msg: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(ldap_perror(::core::mem::transmute(ld), msg.into_param().abi()))
+        ldap_perror(::core::mem::transmute(ld), msg.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3588,7 +3588,7 @@ pub unsafe fn ldap_set_dbg_routine(debugprintroutine: DBGPRINT) {
         extern "system" {
             fn ldap_set_dbg_routine(debugprintroutine: ::windows::core::RawPtr);
         }
-        ::core::mem::transmute(ldap_set_dbg_routine(::core::mem::transmute(debugprintroutine)))
+        ldap_set_dbg_routine(::core::mem::transmute(debugprintroutine))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -2663,7 +2663,7 @@ impl IVssWriterImpl {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     pub unsafe fn Uninitialize(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCurrentVolumeArray(&self) -> *mut super::super::Foundation::PWSTR {

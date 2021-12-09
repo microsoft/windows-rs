@@ -1562,7 +1562,7 @@ pub unsafe fn CloseEncryptedFileRaw(pvcontext: *const ::core::ffi::c_void) {
         extern "system" {
             fn CloseEncryptedFileRaw(pvcontext: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(CloseEncryptedFileRaw(::core::mem::transmute(pvcontext)))
+        CloseEncryptedFileRaw(::core::mem::transmute(pvcontext))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4753,7 +4753,7 @@ pub unsafe fn FreeEncryptedFileMetadata(pbmetadata: *const u8) {
         extern "system" {
             fn FreeEncryptedFileMetadata(pbmetadata: *const u8);
         }
-        ::core::mem::transmute(FreeEncryptedFileMetadata(::core::mem::transmute(pbmetadata)))
+        FreeEncryptedFileMetadata(::core::mem::transmute(pbmetadata))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4767,7 +4767,7 @@ pub unsafe fn FreeEncryptionCertificateHashList(pusers: *const ENCRYPTION_CERTIF
         extern "system" {
             fn FreeEncryptionCertificateHashList(pusers: *const ENCRYPTION_CERTIFICATE_HASH_LIST);
         }
-        ::core::mem::transmute(FreeEncryptionCertificateHashList(::core::mem::transmute(pusers)))
+        FreeEncryptionCertificateHashList(::core::mem::transmute(pusers))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7004,7 +7004,7 @@ pub unsafe fn LZClose(hfile: i32) {
         extern "system" {
             fn LZClose(hfile: i32);
         }
-        ::core::mem::transmute(LZClose(::core::mem::transmute(hfile)))
+        LZClose(::core::mem::transmute(hfile))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7030,7 +7030,7 @@ pub unsafe fn LZDone() {
         extern "system" {
             fn LZDone();
         }
-        ::core::mem::transmute(LZDone())
+        LZDone()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11706,7 +11706,7 @@ pub unsafe fn SetFileApisToANSI() {
         extern "system" {
             fn SetFileApisToANSI();
         }
-        ::core::mem::transmute(SetFileApisToANSI())
+        SetFileApisToANSI()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11719,7 +11719,7 @@ pub unsafe fn SetFileApisToOEM() {
         extern "system" {
             fn SetFileApisToOEM();
         }
-        ::core::mem::transmute(SetFileApisToOEM())
+        SetFileApisToOEM()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12778,7 +12778,7 @@ pub unsafe fn TxfGetThreadMiniVersionForCreate(miniversion: *mut u16) {
         extern "system" {
             fn TxfGetThreadMiniVersionForCreate(miniversion: *mut u16);
         }
-        ::core::mem::transmute(TxfGetThreadMiniVersionForCreate(::core::mem::transmute(miniversion)))
+        TxfGetThreadMiniVersionForCreate(::core::mem::transmute(miniversion))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12889,7 +12889,7 @@ pub unsafe fn TxfSetThreadMiniVersionForCreate(miniversion: u16) {
         extern "system" {
             fn TxfSetThreadMiniVersionForCreate(miniversion: u16);
         }
-        ::core::mem::transmute(TxfSetThreadMiniVersionForCreate(::core::mem::transmute(miniversion)))
+        TxfSetThreadMiniVersionForCreate(::core::mem::transmute(miniversion))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

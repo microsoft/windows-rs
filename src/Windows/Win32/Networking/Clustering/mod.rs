@@ -4581,7 +4581,7 @@ pub unsafe fn ClusWorkerTerminate(lpworker: *const CLUS_WORKER) {
         extern "system" {
             fn ClusWorkerTerminate(lpworker: *const CLUS_WORKER);
         }
-        ::core::mem::transmute(ClusWorkerTerminate(::core::mem::transmute(lpworker)))
+        ClusWorkerTerminate(::core::mem::transmute(lpworker))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15476,7 +15476,7 @@ pub unsafe fn ResUtilFreeParameterBlock(poutparams: *mut u8, pinparams: *const u
         extern "system" {
             fn ResUtilFreeParameterBlock(poutparams: *mut u8, pinparams: *const u8, ppropertytable: *const RESUTIL_PROPERTY_ITEM);
         }
-        ::core::mem::transmute(ResUtilFreeParameterBlock(::core::mem::transmute(poutparams), ::core::mem::transmute(pinparams), ::core::mem::transmute(ppropertytable)))
+        ResUtilFreeParameterBlock(::core::mem::transmute(poutparams), ::core::mem::transmute(pinparams), ::core::mem::transmute(ppropertytable))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

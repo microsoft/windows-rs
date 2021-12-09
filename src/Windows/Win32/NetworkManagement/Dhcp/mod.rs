@@ -4872,7 +4872,7 @@ pub unsafe fn DhcpCApiCleanup() {
         extern "system" {
             fn DhcpCApiCleanup();
         }
-        ::core::mem::transmute(DhcpCApiCleanup())
+        DhcpCApiCleanup()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5191,7 +5191,7 @@ pub unsafe fn DhcpDsCleanup() {
         extern "system" {
             fn DhcpDsCleanup();
         }
-        ::core::mem::transmute(DhcpDsCleanup())
+        DhcpDsCleanup()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6043,7 +6043,7 @@ pub unsafe fn DhcpHlprFreeV4DhcpProperty(property: *mut DHCP_PROPERTY) {
         extern "system" {
             fn DhcpHlprFreeV4DhcpProperty(property: *mut DHCP_PROPERTY);
         }
-        ::core::mem::transmute(DhcpHlprFreeV4DhcpProperty(::core::mem::transmute(property)))
+        DhcpHlprFreeV4DhcpProperty(::core::mem::transmute(property))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6057,7 +6057,7 @@ pub unsafe fn DhcpHlprFreeV4DhcpPropertyArray(propertyarray: *mut DHCP_PROPERTY_
         extern "system" {
             fn DhcpHlprFreeV4DhcpPropertyArray(propertyarray: *mut DHCP_PROPERTY_ARRAY);
         }
-        ::core::mem::transmute(DhcpHlprFreeV4DhcpPropertyArray(::core::mem::transmute(propertyarray)))
+        DhcpHlprFreeV4DhcpPropertyArray(::core::mem::transmute(propertyarray))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6071,7 +6071,7 @@ pub unsafe fn DhcpHlprFreeV4Policy(policy: *mut DHCP_POLICY) {
         extern "system" {
             fn DhcpHlprFreeV4Policy(policy: *mut DHCP_POLICY);
         }
-        ::core::mem::transmute(DhcpHlprFreeV4Policy(::core::mem::transmute(policy)))
+        DhcpHlprFreeV4Policy(::core::mem::transmute(policy))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6085,7 +6085,7 @@ pub unsafe fn DhcpHlprFreeV4PolicyArray(policyarray: *mut DHCP_POLICY_ARRAY) {
         extern "system" {
             fn DhcpHlprFreeV4PolicyArray(policyarray: *mut DHCP_POLICY_ARRAY);
         }
-        ::core::mem::transmute(DhcpHlprFreeV4PolicyArray(::core::mem::transmute(policyarray)))
+        DhcpHlprFreeV4PolicyArray(::core::mem::transmute(policyarray))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6099,7 +6099,7 @@ pub unsafe fn DhcpHlprFreeV4PolicyEx(policyex: *mut DHCP_POLICY_EX) {
         extern "system" {
             fn DhcpHlprFreeV4PolicyEx(policyex: *mut DHCP_POLICY_EX);
         }
-        ::core::mem::transmute(DhcpHlprFreeV4PolicyEx(::core::mem::transmute(policyex)))
+        DhcpHlprFreeV4PolicyEx(::core::mem::transmute(policyex))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6113,7 +6113,7 @@ pub unsafe fn DhcpHlprFreeV4PolicyExArray(policyexarray: *mut DHCP_POLICY_EX_ARR
         extern "system" {
             fn DhcpHlprFreeV4PolicyExArray(policyexarray: *mut DHCP_POLICY_EX_ARRAY);
         }
-        ::core::mem::transmute(DhcpHlprFreeV4PolicyExArray(::core::mem::transmute(policyexarray)))
+        DhcpHlprFreeV4PolicyExArray(::core::mem::transmute(policyexarray))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6405,7 +6405,7 @@ pub unsafe fn DhcpRpcFreeMemory(bufferpointer: *mut ::core::ffi::c_void) {
         extern "system" {
             fn DhcpRpcFreeMemory(bufferpointer: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(DhcpRpcFreeMemory(::core::mem::transmute(bufferpointer)))
+        DhcpRpcFreeMemory(::core::mem::transmute(bufferpointer))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6433,7 +6433,7 @@ pub unsafe fn DhcpServerAuditlogParamsFree(configinfo: *mut DHCP_SERVER_CONFIG_I
         extern "system" {
             fn DhcpServerAuditlogParamsFree(configinfo: *mut DHCP_SERVER_CONFIG_INFO_VQ);
         }
-        ::core::mem::transmute(DhcpServerAuditlogParamsFree(::core::mem::transmute(configinfo)))
+        DhcpServerAuditlogParamsFree(::core::mem::transmute(configinfo))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7593,7 +7593,7 @@ pub unsafe fn Dhcpv6CApiCleanup() {
         extern "system" {
             fn Dhcpv6CApiCleanup();
         }
-        ::core::mem::transmute(Dhcpv6CApiCleanup())
+        Dhcpv6CApiCleanup()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7606,7 +7606,7 @@ pub unsafe fn Dhcpv6CApiInitialize(version: *mut u32) {
         extern "system" {
             fn Dhcpv6CApiInitialize(version: *mut u32);
         }
-        ::core::mem::transmute(Dhcpv6CApiInitialize(::core::mem::transmute(version)))
+        Dhcpv6CApiInitialize(::core::mem::transmute(version))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -243,7 +243,7 @@ pub unsafe fn DevCloseObjectQuery(hdevquery: *const HDEVQUERY__) {
         extern "system" {
             fn DevCloseObjectQuery(hdevquery: *const HDEVQUERY__);
         }
-        ::core::mem::transmute(DevCloseObjectQuery(::core::mem::transmute(hdevquery)))
+        DevCloseObjectQuery(::core::mem::transmute(hdevquery))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -361,7 +361,7 @@ pub unsafe fn DevFreeObjectProperties(cpropertycount: u32, pproperties: *const s
         extern "system" {
             fn DevFreeObjectProperties(cpropertycount: u32, pproperties: *const super::Properties::DEVPROPERTY);
         }
-        ::core::mem::transmute(DevFreeObjectProperties(::core::mem::transmute(cpropertycount), ::core::mem::transmute(pproperties)))
+        DevFreeObjectProperties(::core::mem::transmute(cpropertycount), ::core::mem::transmute(pproperties))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -375,7 +375,7 @@ pub unsafe fn DevFreeObjects(cobjectcount: u32, pobjects: *const DEV_OBJECT) {
         extern "system" {
             fn DevFreeObjects(cobjectcount: u32, pobjects: *const DEV_OBJECT);
         }
-        ::core::mem::transmute(DevFreeObjects(::core::mem::transmute(cobjectcount), ::core::mem::transmute(pobjects)))
+        DevFreeObjects(::core::mem::transmute(cobjectcount), ::core::mem::transmute(pobjects))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

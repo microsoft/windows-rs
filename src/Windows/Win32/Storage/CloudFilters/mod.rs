@@ -1773,7 +1773,7 @@ pub unsafe fn CfCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, super::su
         extern "system" {
             fn CfCloseHandle(filehandle: super::super::Foundation::HANDLE);
         }
-        ::core::mem::transmute(CfCloseHandle(filehandle.into_param().abi()))
+        CfCloseHandle(filehandle.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2097,7 +2097,7 @@ pub unsafe fn CfReleaseProtectedHandle<'a, Param0: ::windows::core::IntoParam<'a
         extern "system" {
             fn CfReleaseProtectedHandle(protectedhandle: super::super::Foundation::HANDLE);
         }
-        ::core::mem::transmute(CfReleaseProtectedHandle(protectedhandle.into_param().abi()))
+        CfReleaseProtectedHandle(protectedhandle.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2111,7 +2111,7 @@ pub unsafe fn CfReleaseTransferKey<'a, Param0: ::windows::core::IntoParam<'a, su
         extern "system" {
             fn CfReleaseTransferKey(filehandle: super::super::Foundation::HANDLE, transferkey: *mut i64);
         }
-        ::core::mem::transmute(CfReleaseTransferKey(filehandle.into_param().abi(), ::core::mem::transmute(transferkey)))
+        CfReleaseTransferKey(filehandle.into_param().abi(), ::core::mem::transmute(transferkey))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

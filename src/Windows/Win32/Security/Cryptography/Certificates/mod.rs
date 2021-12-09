@@ -1134,7 +1134,7 @@ pub unsafe fn CertSrvBackupFree(pv: *mut ::core::ffi::c_void) {
         extern "system" {
             fn CertSrvBackupFree(pv: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(CertSrvBackupFree(::core::mem::transmute(pv)))
+        CertSrvBackupFree(::core::mem::transmute(pv))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

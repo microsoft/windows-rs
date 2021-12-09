@@ -753,7 +753,7 @@ pub unsafe fn WerFreeString<'a, Param0: ::windows::core::IntoParam<'a, super::su
         extern "system" {
             fn WerFreeString(pwszstr: super::super::Foundation::PWSTR);
         }
-        ::core::mem::transmute(WerFreeString(pwszstr.into_param().abi()))
+        WerFreeString(pwszstr.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1015,7 +1015,7 @@ pub unsafe fn WerStoreClose<'a, Param0: ::windows::core::IntoParam<'a, HREPORTST
         extern "system" {
             fn WerStoreClose(hreportstore: HREPORTSTORE);
         }
-        ::core::mem::transmute(WerStoreClose(hreportstore.into_param().abi()))
+        WerStoreClose(hreportstore.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

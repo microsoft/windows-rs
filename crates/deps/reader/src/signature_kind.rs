@@ -5,5 +5,6 @@ pub enum SignatureKind {
     ResultValue,
     ResultVoid,
     ReturnStruct,
+    ReturnVoid,
     PreserveSig,
 }

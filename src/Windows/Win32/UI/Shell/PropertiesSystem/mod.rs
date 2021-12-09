@@ -8,7 +8,7 @@ pub unsafe fn ClearPropVariantArray(rgpropvar: *mut super::super::super::System:
         extern "system" {
             fn ClearPropVariantArray(rgpropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, cvars: u32);
         }
-        ::core::mem::transmute(ClearPropVariantArray(::core::mem::transmute(rgpropvar), ::core::mem::transmute(cvars)))
+        ClearPropVariantArray(::core::mem::transmute(rgpropvar), ::core::mem::transmute(cvars))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22,7 +22,7 @@ pub unsafe fn ClearVariantArray(pvars: *mut super::super::super::System::Com::VA
         extern "system" {
             fn ClearVariantArray(pvars: *mut super::super::super::System::Com::VARIANT, cvars: u32);
         }
-        ::core::mem::transmute(ClearVariantArray(::core::mem::transmute(pvars), ::core::mem::transmute(cvars)))
+        ClearVariantArray(::core::mem::transmute(pvars), ::core::mem::transmute(cvars))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -3100,6 +3100,30 @@ impl IRandomAccessStream {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[cfg(feature = "Foundation")]
+    pub fn ReadAsync<'a, Param0: ::windows::core::IntoParam<'a, IBuffer>>(&self, buffer: Param0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>> {
+        let this = &::windows::core::Interface::cast::<IInputStream>(self)?;
+        unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), buffer.into_param().abi(), count, options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>(result__)
+        }
+    }
+    #[cfg(feature = "Foundation")]
+    pub fn WriteAsync<'a, Param0: ::windows::core::IntoParam<'a, IBuffer>>(&self, buffer: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
+        let this = &::windows::core::Interface::cast::<IOutputStream>(self)?;
+        unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), buffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
+        }
+    }
+    #[cfg(feature = "Foundation")]
+    pub fn FlushAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+        let this = &::windows::core::Interface::cast::<IOutputStream>(self)?;
+        unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+        }
+    }
 }
 impl ::core::convert::From<IRandomAccessStream> for ::windows::core::IInspectable {
     fn from(value: IRandomAccessStream) -> Self {
@@ -3165,6 +3189,50 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &IRandomAccessStream {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::TryFrom<IRandomAccessStream> for IInputStream {
+    type Error = ::windows::core::Error;
+    fn try_from(value: IRandomAccessStream) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&IRandomAccessStream> for IInputStream {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IRandomAccessStream) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IInputStream> for IRandomAccessStream {
+    fn into_param(self) -> ::windows::core::Param<'a, IInputStream> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IInputStream> for &IRandomAccessStream {
+    fn into_param(self) -> ::windows::core::Param<'a, IInputStream> {
+        ::core::convert::TryInto::<IInputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::TryFrom<IRandomAccessStream> for IOutputStream {
+    type Error = ::windows::core::Error;
+    fn try_from(value: IRandomAccessStream) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&IRandomAccessStream> for IOutputStream {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IRandomAccessStream) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IOutputStream> for IRandomAccessStream {
+    fn into_param(self) -> ::windows::core::Param<'a, IOutputStream> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IOutputStream> for &IRandomAccessStream {
+    fn into_param(self) -> ::windows::core::Param<'a, IOutputStream> {
+        ::core::convert::TryInto::<IOutputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
 impl ::core::clone::Clone for IRandomAccessStream {
@@ -3338,6 +3406,37 @@ impl IRandomAccessStreamWithContentType {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    pub fn ContentType(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IContentTypeProvider>(self)?;
+        unsafe {
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    #[cfg(feature = "Foundation")]
+    pub fn ReadAsync<'a, Param0: ::windows::core::IntoParam<'a, IBuffer>>(&self, buffer: Param0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>> {
+        let this = &::windows::core::Interface::cast::<IInputStream>(self)?;
+        unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), buffer.into_param().abi(), count, options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>(result__)
+        }
+    }
+    #[cfg(feature = "Foundation")]
+    pub fn WriteAsync<'a, Param0: ::windows::core::IntoParam<'a, IBuffer>>(&self, buffer: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
+        let this = &::windows::core::Interface::cast::<IOutputStream>(self)?;
+        unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), buffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
+        }
+    }
+    #[cfg(feature = "Foundation")]
+    pub fn FlushAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+        let this = &::windows::core::Interface::cast::<IOutputStream>(self)?;
+        unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+        }
+    }
     pub fn Size(&self) -> ::windows::core::Result<u64> {
         let this = &::windows::core::Interface::cast::<IRandomAccessStream>(self)?;
         unsafe {
@@ -3460,6 +3559,72 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &IRandomAccessStreamWithContentType {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::TryFrom<IRandomAccessStreamWithContentType> for IContentTypeProvider {
+    type Error = ::windows::core::Error;
+    fn try_from(value: IRandomAccessStreamWithContentType) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for IContentTypeProvider {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IRandomAccessStreamWithContentType) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IContentTypeProvider> for IRandomAccessStreamWithContentType {
+    fn into_param(self) -> ::windows::core::Param<'a, IContentTypeProvider> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IContentTypeProvider> for &IRandomAccessStreamWithContentType {
+    fn into_param(self) -> ::windows::core::Param<'a, IContentTypeProvider> {
+        ::core::convert::TryInto::<IContentTypeProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::TryFrom<IRandomAccessStreamWithContentType> for IInputStream {
+    type Error = ::windows::core::Error;
+    fn try_from(value: IRandomAccessStreamWithContentType) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for IInputStream {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IRandomAccessStreamWithContentType) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IInputStream> for IRandomAccessStreamWithContentType {
+    fn into_param(self) -> ::windows::core::Param<'a, IInputStream> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IInputStream> for &IRandomAccessStreamWithContentType {
+    fn into_param(self) -> ::windows::core::Param<'a, IInputStream> {
+        ::core::convert::TryInto::<IInputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::TryFrom<IRandomAccessStreamWithContentType> for IOutputStream {
+    type Error = ::windows::core::Error;
+    fn try_from(value: IRandomAccessStreamWithContentType) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for IOutputStream {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IRandomAccessStreamWithContentType) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IOutputStream> for IRandomAccessStreamWithContentType {
+    fn into_param(self) -> ::windows::core::Param<'a, IOutputStream> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IOutputStream> for &IRandomAccessStreamWithContentType {
+    fn into_param(self) -> ::windows::core::Param<'a, IOutputStream> {
+        ::core::convert::TryInto::<IOutputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
 impl ::core::convert::TryFrom<IRandomAccessStreamWithContentType> for IRandomAccessStream {

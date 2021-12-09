@@ -997,6 +997,24 @@ impl IXmlCharacterData {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
+        unsafe {
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
+        unsafe {
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+    }
 }
 impl ::core::convert::From<IXmlCharacterData> for ::windows::core::IInspectable {
     fn from(value: IXmlCharacterData) -> Self {
@@ -1080,6 +1098,28 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for IXmlCharacterData 
 impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for &IXmlCharacterData {
     fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
         ::core::convert::TryInto::<IXmlNodeSelector>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::TryFrom<IXmlCharacterData> for IXmlNodeSerializer {
+    type Error = ::windows::core::Error;
+    fn try_from(value: IXmlCharacterData) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&IXmlCharacterData> for IXmlNodeSerializer {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IXmlCharacterData) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for IXmlCharacterData {
+    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &IXmlCharacterData {
+    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
+        ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
 impl ::core::clone::Clone for IXmlCharacterData {
@@ -1573,6 +1613,24 @@ impl IXmlNode {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
+        unsafe {
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
+        unsafe {
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+    }
 }
 impl ::core::convert::From<IXmlNode> for ::windows::core::IInspectable {
     fn from(value: IXmlNode) -> Self {
@@ -1634,6 +1692,28 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for IXmlNode {
 impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for &IXmlNode {
     fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
         ::core::convert::TryInto::<IXmlNodeSelector>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::TryFrom<IXmlNode> for IXmlNodeSerializer {
+    type Error = ::windows::core::Error;
+    fn try_from(value: IXmlNode) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&IXmlNode> for IXmlNodeSerializer {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IXmlNode) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for IXmlNode {
+    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &IXmlNode {
+    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
+        ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
 impl ::core::clone::Clone for IXmlNode {
@@ -2154,6 +2234,24 @@ impl IXmlText {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
+        unsafe {
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
+        unsafe {
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+    }
 }
 impl ::core::convert::From<IXmlText> for ::windows::core::IInspectable {
     fn from(value: IXmlText) -> Self {
@@ -2259,6 +2357,28 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for IXmlText {
 impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for &IXmlText {
     fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
         ::core::convert::TryInto::<IXmlNodeSelector>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl ::core::convert::TryFrom<IXmlText> for IXmlNodeSerializer {
+    type Error = ::windows::core::Error;
+    fn try_from(value: IXmlText) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&IXmlText> for IXmlNodeSerializer {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IXmlText) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for IXmlText {
+    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &IXmlText {
+    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
+        ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
 impl ::core::clone::Clone for IXmlText {

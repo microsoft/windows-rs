@@ -1320,7 +1320,7 @@ pub unsafe fn EapHostPeerFreeEapError(peaperror: *mut EAP_ERROR) {
         extern "system" {
             fn EapHostPeerFreeEapError(peaperror: *mut EAP_ERROR);
         }
-        ::core::mem::transmute(EapHostPeerFreeEapError(::core::mem::transmute(peaperror)))
+        EapHostPeerFreeEapError(::core::mem::transmute(peaperror))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1334,7 +1334,7 @@ pub unsafe fn EapHostPeerFreeErrorMemory(peaperror: *mut EAP_ERROR) {
         extern "system" {
             fn EapHostPeerFreeErrorMemory(peaperror: *mut EAP_ERROR);
         }
-        ::core::mem::transmute(EapHostPeerFreeErrorMemory(::core::mem::transmute(peaperror)))
+        EapHostPeerFreeErrorMemory(::core::mem::transmute(peaperror))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1347,7 +1347,7 @@ pub unsafe fn EapHostPeerFreeMemory(pdata: *mut u8) {
         extern "system" {
             fn EapHostPeerFreeMemory(pdata: *mut u8);
         }
-        ::core::mem::transmute(EapHostPeerFreeMemory(::core::mem::transmute(pdata)))
+        EapHostPeerFreeMemory(::core::mem::transmute(pdata))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1360,7 +1360,7 @@ pub unsafe fn EapHostPeerFreeRuntimeMemory(pdata: *mut u8) {
         extern "system" {
             fn EapHostPeerFreeRuntimeMemory(pdata: *mut u8);
         }
-        ::core::mem::transmute(EapHostPeerFreeRuntimeMemory(::core::mem::transmute(pdata)))
+        EapHostPeerFreeRuntimeMemory(::core::mem::transmute(pdata))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1749,7 +1749,7 @@ pub unsafe fn EapHostPeerUninitialize() {
         extern "system" {
             fn EapHostPeerUninitialize();
         }
-        ::core::mem::transmute(EapHostPeerUninitialize())
+        EapHostPeerUninitialize()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

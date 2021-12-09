@@ -8,7 +8,7 @@ pub unsafe fn FreeInterfaceContextTable(interfacecontexttable: *const NET_INTERF
         extern "system" {
             fn FreeInterfaceContextTable(interfacecontexttable: *const NET_INTERFACE_CONTEXT_TABLE);
         }
-        ::core::mem::transmute(FreeInterfaceContextTable(::core::mem::transmute(interfacecontexttable)))
+        FreeInterfaceContextTable(::core::mem::transmute(interfacecontexttable))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -421,7 +421,7 @@ pub unsafe fn WcmFreeMemory(pmemory: *mut ::core::ffi::c_void) {
         extern "system" {
             fn WcmFreeMemory(pmemory: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(WcmFreeMemory(::core::mem::transmute(pmemory)))
+        WcmFreeMemory(::core::mem::transmute(pmemory))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

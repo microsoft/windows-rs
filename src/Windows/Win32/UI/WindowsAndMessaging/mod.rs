@@ -2042,7 +2042,7 @@ pub unsafe fn DestroyIndexedResults<'a, Param0: ::windows::core::IntoParam<'a, s
         extern "system" {
             fn DestroyIndexedResults(resourceuri: super::super::Foundation::PWSTR, qualifiercount: u32, qualifiers: *const IndexedResourceQualifier);
         }
-        ::core::mem::transmute(DestroyIndexedResults(resourceuri.into_param().abi(), ::core::mem::transmute(qualifiercount), ::core::mem::transmute(qualifiers)))
+        DestroyIndexedResults(resourceuri.into_param().abi(), ::core::mem::transmute(qualifiercount), ::core::mem::transmute(qualifiers))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2069,7 +2069,7 @@ pub unsafe fn DestroyResourceIndexer(resourceindexer: *const ::core::ffi::c_void
         extern "system" {
             fn DestroyResourceIndexer(resourceindexer: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(DestroyResourceIndexer(::core::mem::transmute(resourceindexer)))
+        DestroyResourceIndexer(::core::mem::transmute(resourceindexer))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2152,7 +2152,7 @@ pub unsafe fn DisableProcessWindowsGhosting() {
         extern "system" {
             fn DisableProcessWindowsGhosting();
         }
-        ::core::mem::transmute(DisableProcessWindowsGhosting())
+        DisableProcessWindowsGhosting()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7336,7 +7336,7 @@ pub unsafe fn PostQuitMessage(nexitcode: i32) {
         extern "system" {
             fn PostQuitMessage(nexitcode: i32);
         }
-        ::core::mem::transmute(PostQuitMessage(::core::mem::transmute(nexitcode)))
+        PostQuitMessage(::core::mem::transmute(nexitcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8782,7 +8782,7 @@ pub unsafe fn SetDebugErrorLevel(dwlevel: u32) {
         extern "system" {
             fn SetDebugErrorLevel(dwlevel: u32);
         }
-        ::core::mem::transmute(SetDebugErrorLevel(::core::mem::transmute(dwlevel)))
+        SetDebugErrorLevel(::core::mem::transmute(dwlevel))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9386,7 +9386,7 @@ pub unsafe fn SwitchToThisWindow<'a, Param0: ::windows::core::IntoParam<'a, supe
         extern "system" {
             fn SwitchToThisWindow(hwnd: super::super::Foundation::HWND, funknown: super::super::Foundation::BOOL);
         }
-        ::core::mem::transmute(SwitchToThisWindow(hwnd.into_param().abi(), funknown.into_param().abi()))
+        SwitchToThisWindow(hwnd.into_param().abi(), funknown.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

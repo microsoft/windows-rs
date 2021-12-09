@@ -13,8 +13,7 @@ fn gen_sys_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
 
     if def.is_exclusive() {
         quote! {}
-    } else {
-        if def.kind() == TypeKind::Interface || def.default_interface().is_some() {
+    } else if def.kind() == TypeKind::Interface || def.default_interface().is_some() {
             // TODO: should be *const?
             quote! {
                 pub type #name = *mut ::core::ffi::c_void;
@@ -22,7 +21,6 @@ fn gen_sys_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
         } else {
             quote! {}
         }
-    }
 }
 
 fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
@@ -108,7 +106,7 @@ fn gen_conversions(def: &TypeDef, gen: &Gen) -> TokenStream {
     // vtable_types includes self at the end so reverse and skip it
     for def in def.vtable_types().iter().rev().skip(1) {
         let into = gen_element_name(def, gen);
-        let cfg = gen.element_cfg(&def);
+        let cfg = gen.element_cfg(def);
         tokens.combine(&quote! {
             #cfg
             impl<#(#constraints)*> ::core::convert::From<#name> for #into {

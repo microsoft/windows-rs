@@ -2256,13 +2256,13 @@ pub struct IRDPSRAPITransportStreamBufferVtbl(
 pub struct IRDPSRAPITransportStreamEvents(::windows::core::IUnknown);
 impl IRDPSRAPITransportStreamEvents {
     pub unsafe fn OnWriteCompleted<'a, Param0: ::windows::core::IntoParam<'a, IRDPSRAPITransportStreamBuffer>>(&self, pbuffer: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pbuffer.into_param().abi()))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pbuffer.into_param().abi())
     }
     pub unsafe fn OnReadCompleted<'a, Param0: ::windows::core::IntoParam<'a, IRDPSRAPITransportStreamBuffer>>(&self, pbuffer: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pbuffer.into_param().abi()))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pbuffer.into_param().abi())
     }
     pub unsafe fn OnStreamClosed(&self, hrreason: ::windows::core::HRESULT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrreason)))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrreason))
     }
 }
 impl ::core::convert::From<IRDPSRAPITransportStreamEvents> for ::windows::core::IUnknown {

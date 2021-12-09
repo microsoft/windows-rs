@@ -80,7 +80,7 @@ impl MethodSignature {
             }
         }
 
-        SignatureKind::PreserveSig
+        SignatureKind::ReturnVoid
     }
 
     pub fn size(&self) -> usize {

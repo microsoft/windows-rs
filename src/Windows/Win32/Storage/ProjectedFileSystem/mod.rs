@@ -897,7 +897,7 @@ pub unsafe fn PrjFreeAlignedBuffer(buffer: *const ::core::ffi::c_void) {
         extern "system" {
             fn PrjFreeAlignedBuffer(buffer: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(PrjFreeAlignedBuffer(::core::mem::transmute(buffer)))
+        PrjFreeAlignedBuffer(::core::mem::transmute(buffer))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -968,7 +968,7 @@ pub unsafe fn PrjStopVirtualizing<'a, Param0: ::windows::core::IntoParam<'a, PRJ
         extern "system" {
             fn PrjStopVirtualizing(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT);
         }
-        ::core::mem::transmute(PrjStopVirtualizing(namespacevirtualizationcontext.into_param().abi()))
+        PrjStopVirtualizing(namespacevirtualizationcontext.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

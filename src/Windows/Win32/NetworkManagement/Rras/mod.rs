@@ -2708,7 +2708,7 @@ pub unsafe fn MprAdminMIBServerDisconnect(hmibserver: isize) {
         extern "system" {
             fn MprAdminMIBServerDisconnect(hmibserver: isize);
         }
-        ::core::mem::transmute(MprAdminMIBServerDisconnect(::core::mem::transmute(hmibserver)))
+        MprAdminMIBServerDisconnect(::core::mem::transmute(hmibserver))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2833,7 +2833,7 @@ pub unsafe fn MprAdminServerDisconnect(hmprserver: isize) {
         extern "system" {
             fn MprAdminServerDisconnect(hmprserver: isize);
         }
-        ::core::mem::transmute(MprAdminServerDisconnect(::core::mem::transmute(hmprserver)))
+        MprAdminServerDisconnect(::core::mem::transmute(hmprserver))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3302,7 +3302,7 @@ pub unsafe fn MprConfigServerDisconnect<'a, Param0: ::windows::core::IntoParam<'
         extern "system" {
             fn MprConfigServerDisconnect(hmprconfig: super::super::Foundation::HANDLE);
         }
-        ::core::mem::transmute(MprConfigServerDisconnect(hmprconfig.into_param().abi()))
+        MprConfigServerDisconnect(hmprconfig.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8120,7 +8120,7 @@ pub unsafe fn RasFreeEapUserIdentityA(praseapuseridentity: *const RASEAPUSERIDEN
         extern "system" {
             fn RasFreeEapUserIdentityA(praseapuseridentity: *const RASEAPUSERIDENTITYA);
         }
-        ::core::mem::transmute(RasFreeEapUserIdentityA(::core::mem::transmute(praseapuseridentity)))
+        RasFreeEapUserIdentityA(::core::mem::transmute(praseapuseridentity))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8133,7 +8133,7 @@ pub unsafe fn RasFreeEapUserIdentityW(praseapuseridentity: *const RASEAPUSERIDEN
         extern "system" {
             fn RasFreeEapUserIdentityW(praseapuseridentity: *const RASEAPUSERIDENTITYW);
         }
-        ::core::mem::transmute(RasFreeEapUserIdentityW(::core::mem::transmute(praseapuseridentity)))
+        RasFreeEapUserIdentityW(::core::mem::transmute(praseapuseridentity))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

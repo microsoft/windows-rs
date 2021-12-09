@@ -368,7 +368,7 @@ pub unsafe fn HcnFreeGuestNetworkPortReservations(portentries: *mut HCN_PORT_RAN
         extern "system" {
             fn HcnFreeGuestNetworkPortReservations(portentries: *mut HCN_PORT_RANGE_ENTRY);
         }
-        ::core::mem::transmute(HcnFreeGuestNetworkPortReservations(::core::mem::transmute(portentries)))
+        HcnFreeGuestNetworkPortReservations(::core::mem::transmute(portentries))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

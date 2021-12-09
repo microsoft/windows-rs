@@ -4912,7 +4912,7 @@ pub unsafe fn ReleaseBindInfo(pbindinfo: *mut super::BINDINFO) {
         extern "system" {
             fn ReleaseBindInfo(pbindinfo: *mut super::BINDINFO);
         }
-        ::core::mem::transmute(ReleaseBindInfo(::core::mem::transmute(pbindinfo)))
+        ReleaseBindInfo(::core::mem::transmute(pbindinfo))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

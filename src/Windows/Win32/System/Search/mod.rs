@@ -15962,16 +15962,16 @@ pub struct ITrusteeGroupAdminVtbl(
 pub struct IUMS(::windows::core::IUnknown);
 impl IUMS {
     pub unsafe fn SqlUmsSuspend(&self, ticks: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).0)(::core::mem::transmute_copy(self), ::core::mem::transmute(ticks)))
+        (::windows::core::Interface::vtable(self).0)(::core::mem::transmute_copy(self), ::core::mem::transmute(ticks))
     }
     pub unsafe fn SqlUmsYield(&self, ticks: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).1)(::core::mem::transmute_copy(self), ::core::mem::transmute(ticks)))
+        (::windows::core::Interface::vtable(self).1)(::core::mem::transmute_copy(self), ::core::mem::transmute(ticks))
     }
     pub unsafe fn SqlUmsSwitchPremptive(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).2)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).2)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn SqlUmsSwitchNonPremptive(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SqlUmsFIsPremptive(&self) -> super::super::Foundation::BOOL {

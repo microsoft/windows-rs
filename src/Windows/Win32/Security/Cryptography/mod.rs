@@ -1476,7 +1476,7 @@ pub unsafe fn BCryptFreeBuffer(pvbuffer: *const ::core::ffi::c_void) {
         extern "system" {
             fn BCryptFreeBuffer(pvbuffer: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(BCryptFreeBuffer(::core::mem::transmute(pvbuffer)))
+        BCryptFreeBuffer(::core::mem::transmute(pvbuffer))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13428,7 +13428,7 @@ pub unsafe fn CertAddRefServerOcspResponse(hserverocspresponse: *const ::core::f
         extern "system" {
             fn CertAddRefServerOcspResponse(hserverocspresponse: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(CertAddRefServerOcspResponse(::core::mem::transmute(hserverocspresponse)))
+        CertAddRefServerOcspResponse(::core::mem::transmute(hserverocspresponse))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13441,7 +13441,7 @@ pub unsafe fn CertAddRefServerOcspResponseContext(pserverocspresponsecontext: *c
         extern "system" {
             fn CertAddRefServerOcspResponseContext(pserverocspresponsecontext: *const CERT_SERVER_OCSP_RESPONSE_CONTEXT);
         }
-        ::core::mem::transmute(CertAddRefServerOcspResponseContext(::core::mem::transmute(pserverocspresponsecontext)))
+        CertAddRefServerOcspResponseContext(::core::mem::transmute(pserverocspresponsecontext))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13496,7 +13496,7 @@ pub unsafe fn CertCloseServerOcspResponse(hserverocspresponse: *const ::core::ff
         extern "system" {
             fn CertCloseServerOcspResponse(hserverocspresponse: *const ::core::ffi::c_void, dwflags: u32);
         }
-        ::core::mem::transmute(CertCloseServerOcspResponse(::core::mem::transmute(hserverocspresponse), ::core::mem::transmute(dwflags)))
+        CertCloseServerOcspResponse(::core::mem::transmute(hserverocspresponse), ::core::mem::transmute(dwflags))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14111,7 +14111,7 @@ pub unsafe fn CertFreeCertificateChain(pchaincontext: *const CERT_CHAIN_CONTEXT)
         extern "system" {
             fn CertFreeCertificateChain(pchaincontext: *const CERT_CHAIN_CONTEXT);
         }
-        ::core::mem::transmute(CertFreeCertificateChain(::core::mem::transmute(pchaincontext)))
+        CertFreeCertificateChain(::core::mem::transmute(pchaincontext))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14124,7 +14124,7 @@ pub unsafe fn CertFreeCertificateChainEngine<'a, Param0: ::windows::core::IntoPa
         extern "system" {
             fn CertFreeCertificateChainEngine(hchainengine: HCERTCHAINENGINE);
         }
-        ::core::mem::transmute(CertFreeCertificateChainEngine(hchainengine.into_param().abi()))
+        CertFreeCertificateChainEngine(hchainengine.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14138,7 +14138,7 @@ pub unsafe fn CertFreeCertificateChainList(prgpselection: *const *const CERT_CHA
         extern "system" {
             fn CertFreeCertificateChainList(prgpselection: *const *const CERT_CHAIN_CONTEXT);
         }
-        ::core::mem::transmute(CertFreeCertificateChainList(::core::mem::transmute(prgpselection)))
+        CertFreeCertificateChainList(::core::mem::transmute(prgpselection))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14165,7 +14165,7 @@ pub unsafe fn CertFreeServerOcspResponseContext(pserverocspresponsecontext: *con
         extern "system" {
             fn CertFreeServerOcspResponseContext(pserverocspresponsecontext: *const CERT_SERVER_OCSP_RESPONSE_CONTEXT);
         }
-        ::core::mem::transmute(CertFreeServerOcspResponseContext(::core::mem::transmute(pserverocspresponsecontext)))
+        CertFreeServerOcspResponseContext(::core::mem::transmute(pserverocspresponsecontext))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14621,7 +14621,7 @@ pub unsafe fn CertRemoveStoreFromCollection(hcollectionstore: *const ::core::ffi
         extern "system" {
             fn CertRemoveStoreFromCollection(hcollectionstore: *const ::core::ffi::c_void, hsiblingstore: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(CertRemoveStoreFromCollection(::core::mem::transmute(hcollectionstore), ::core::mem::transmute(hsiblingstore)))
+        CertRemoveStoreFromCollection(::core::mem::transmute(hcollectionstore), ::core::mem::transmute(hsiblingstore))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16072,7 +16072,7 @@ pub unsafe fn CryptMemFree(pv: *const ::core::ffi::c_void) {
         extern "system" {
             fn CryptMemFree(pv: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(CryptMemFree(::core::mem::transmute(pv)))
+        CryptMemFree(::core::mem::transmute(pv))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

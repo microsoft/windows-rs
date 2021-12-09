@@ -180,7 +180,7 @@ pub unsafe fn McastApiCleanup() {
         extern "system" {
             fn McastApiCleanup();
         }
-        ::core::mem::transmute(McastApiCleanup())
+        McastApiCleanup()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

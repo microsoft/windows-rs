@@ -779,7 +779,7 @@ pub unsafe fn DCICloseProvider<'a, Param0: ::windows::core::IntoParam<'a, super:
         extern "system" {
             fn DCICloseProvider(hdc: super::super::Graphics::Gdi::HDC);
         }
-        ::core::mem::transmute(DCICloseProvider(hdc.into_param().abi()))
+        DCICloseProvider(hdc.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -834,7 +834,7 @@ pub unsafe fn DCIDestroy(pdci: *mut DCISURFACEINFO) {
         extern "system" {
             fn DCIDestroy(pdci: *mut DCISURFACEINFO);
         }
-        ::core::mem::transmute(DCIDestroy(::core::mem::transmute(pdci)))
+        DCIDestroy(::core::mem::transmute(pdci))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -897,7 +897,7 @@ pub unsafe fn DCIEndAccess(pdci: *mut DCISURFACEINFO) {
         extern "system" {
             fn DCIEndAccess(pdci: *mut DCISURFACEINFO);
         }
-        ::core::mem::transmute(DCIEndAccess(::core::mem::transmute(pdci)))
+        DCIEndAccess(::core::mem::transmute(pdci))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2276,7 +2276,7 @@ pub unsafe fn GlobalFix(hmem: isize) {
         extern "system" {
             fn GlobalFix(hmem: isize);
         }
-        ::core::mem::transmute(GlobalFix(::core::mem::transmute(hmem)))
+        GlobalFix(::core::mem::transmute(hmem))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2303,7 +2303,7 @@ pub unsafe fn GlobalUnfix(hmem: isize) {
         extern "system" {
             fn GlobalUnfix(hmem: isize);
         }
-        ::core::mem::transmute(GlobalUnfix(::core::mem::transmute(hmem)))
+        GlobalUnfix(::core::mem::transmute(hmem))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2480,21 +2480,21 @@ pub struct ICameraUIControlVtbl(
 pub struct ICameraUIControlEventCallback(::windows::core::IUnknown);
 impl ICameraUIControlEventCallback {
     pub unsafe fn OnStartupComplete(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn OnSuspendComplete(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnItemCaptured<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszpath: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pszpath.into_param().abi()))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pszpath.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnItemDeleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszpath: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pszpath.into_param().abi()))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pszpath.into_param().abi())
     }
     pub unsafe fn OnClosed(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self))
     }
 }
 impl ::core::convert::From<ICameraUIControlEventCallback> for ::windows::core::IUnknown {
@@ -4393,7 +4393,7 @@ pub unsafe fn QueryInterruptTime(lpinterrupttime: *mut u64) {
         extern "system" {
             fn QueryInterruptTime(lpinterrupttime: *mut u64);
         }
-        ::core::mem::transmute(QueryInterruptTime(::core::mem::transmute(lpinterrupttime)))
+        QueryInterruptTime(::core::mem::transmute(lpinterrupttime))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4406,7 +4406,7 @@ pub unsafe fn QueryInterruptTimePrecise(lpinterrupttimeprecise: *mut u64) {
         extern "system" {
             fn QueryInterruptTimePrecise(lpinterrupttimeprecise: *mut u64);
         }
-        ::core::mem::transmute(QueryInterruptTimePrecise(::core::mem::transmute(lpinterrupttimeprecise)))
+        QueryInterruptTimePrecise(::core::mem::transmute(lpinterrupttimeprecise))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4461,7 +4461,7 @@ pub unsafe fn QueryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise: 
         extern "system" {
             fn QueryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise: *mut u64);
         }
-        ::core::mem::transmute(QueryUnbiasedInterruptTimePrecise(::core::mem::transmute(lpunbiasedinterrupttimeprecise)))
+        QueryUnbiasedInterruptTimePrecise(::core::mem::transmute(lpunbiasedinterrupttimeprecise))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4550,7 +4550,7 @@ pub unsafe fn RecordFeatureError(featureid: u32, error: *const FEATURE_ERROR) {
         extern "system" {
             fn RecordFeatureError(featureid: u32, error: *const FEATURE_ERROR);
         }
-        ::core::mem::transmute(RecordFeatureError(::core::mem::transmute(featureid), ::core::mem::transmute(error)))
+        RecordFeatureError(::core::mem::transmute(featureid), ::core::mem::transmute(error))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4564,7 +4564,7 @@ pub unsafe fn RecordFeatureUsage<'a, Param3: ::windows::core::IntoParam<'a, supe
         extern "system" {
             fn RecordFeatureUsage(featureid: u32, kind: u32, addend: u32, originname: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(RecordFeatureUsage(::core::mem::transmute(featureid), ::core::mem::transmute(kind), ::core::mem::transmute(addend), originname.into_param().abi()))
+        RecordFeatureUsage(::core::mem::transmute(featureid), ::core::mem::transmute(kind), ::core::mem::transmute(addend), originname.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4746,7 +4746,7 @@ pub unsafe fn RtlFreeAnsiString(ansistring: *mut super::Kernel::STRING) {
         extern "system" {
             fn RtlFreeAnsiString(ansistring: *mut super::Kernel::STRING);
         }
-        ::core::mem::transmute(RtlFreeAnsiString(::core::mem::transmute(ansistring)))
+        RtlFreeAnsiString(::core::mem::transmute(ansistring))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4760,7 +4760,7 @@ pub unsafe fn RtlFreeOemString(oemstring: *mut super::Kernel::STRING) {
         extern "system" {
             fn RtlFreeOemString(oemstring: *mut super::Kernel::STRING);
         }
-        ::core::mem::transmute(RtlFreeOemString(::core::mem::transmute(oemstring)))
+        RtlFreeOemString(::core::mem::transmute(oemstring))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4774,7 +4774,7 @@ pub unsafe fn RtlFreeUnicodeString(unicodestring: *mut super::super::Foundation:
         extern "system" {
             fn RtlFreeUnicodeString(unicodestring: *mut super::super::Foundation::UNICODE_STRING);
         }
-        ::core::mem::transmute(RtlFreeUnicodeString(::core::mem::transmute(unicodestring)))
+        RtlFreeUnicodeString(::core::mem::transmute(unicodestring))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4801,7 +4801,7 @@ pub unsafe fn RtlInitAnsiString(destinationstring: *mut super::Kernel::STRING, s
         extern "system" {
             fn RtlInitAnsiString(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut i8);
         }
-        ::core::mem::transmute(RtlInitAnsiString(::core::mem::transmute(destinationstring), ::core::mem::transmute(sourcestring)))
+        RtlInitAnsiString(::core::mem::transmute(destinationstring), ::core::mem::transmute(sourcestring))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4829,7 +4829,7 @@ pub unsafe fn RtlInitString(destinationstring: *mut super::Kernel::STRING, sourc
         extern "system" {
             fn RtlInitString(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut i8);
         }
-        ::core::mem::transmute(RtlInitString(::core::mem::transmute(destinationstring), ::core::mem::transmute(sourcestring)))
+        RtlInitString(::core::mem::transmute(destinationstring), ::core::mem::transmute(sourcestring))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4857,7 +4857,7 @@ pub unsafe fn RtlInitUnicodeString<'a, Param1: ::windows::core::IntoParam<'a, su
         extern "system" {
             fn RtlInitUnicodeString(destinationstring: *mut super::super::Foundation::UNICODE_STRING, sourcestring: super::super::Foundation::PWSTR);
         }
-        ::core::mem::transmute(RtlInitUnicodeString(::core::mem::transmute(destinationstring), sourcestring.into_param().abi()))
+        RtlInitUnicodeString(::core::mem::transmute(destinationstring), sourcestring.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5736,7 +5736,7 @@ pub unsafe fn SubscribeFeatureStateChangeNotification(subscription: *mut FEATURE
         extern "system" {
             fn SubscribeFeatureStateChangeNotification(subscription: *mut FEATURE_STATE_CHANGE_SUBSCRIPTION, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(SubscribeFeatureStateChangeNotification(::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context)))
+        SubscribeFeatureStateChangeNotification(::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6001,7 +6001,7 @@ pub unsafe fn UnsubscribeFeatureStateChangeNotification<'a, Param0: ::windows::c
         extern "system" {
             fn UnsubscribeFeatureStateChangeNotification(subscription: FEATURE_STATE_CHANGE_SUBSCRIPTION);
         }
-        ::core::mem::transmute(UnsubscribeFeatureStateChangeNotification(subscription.into_param().abi()))
+        UnsubscribeFeatureStateChangeNotification(subscription.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6270,7 +6270,7 @@ pub unsafe fn WinWatchClose<'a, Param0: ::windows::core::IntoParam<'a, HWINWATCH
         extern "system" {
             fn WinWatchClose(hww: HWINWATCH);
         }
-        ::core::mem::transmute(WinWatchClose(hww.into_param().abi()))
+        WinWatchClose(hww.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

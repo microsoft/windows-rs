@@ -599,7 +599,7 @@ pub unsafe fn RtlInitializeSListHead(listhead: *mut SLIST_HEADER) {
         extern "system" {
             fn RtlInitializeSListHead(listhead: *mut SLIST_HEADER);
         }
-        ::core::mem::transmute(RtlInitializeSListHead(::core::mem::transmute(listhead)))
+        RtlInitializeSListHead(::core::mem::transmute(listhead))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -503,7 +503,7 @@ pub unsafe fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32) {
         extern "system" {
             fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32);
         }
-        ::core::mem::transmute(GetOleaccVersionInfo(::core::mem::transmute(pver), ::core::mem::transmute(pbuild)))
+        GetOleaccVersionInfo(::core::mem::transmute(pver), ::core::mem::transmute(pbuild))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20084,7 +20084,7 @@ pub unsafe fn NotifyWinEvent<'a, Param1: ::windows::core::IntoParam<'a, super::s
         extern "system" {
             fn NotifyWinEvent(event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32);
         }
-        ::core::mem::transmute(NotifyWinEvent(::core::mem::transmute(event), hwnd.into_param().abi(), ::core::mem::transmute(idobject), ::core::mem::transmute(idchild)))
+        NotifyWinEvent(::core::mem::transmute(event), hwnd.into_param().abi(), ::core::mem::transmute(idobject), ::core::mem::transmute(idchild))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22804,7 +22804,7 @@ pub unsafe fn UiaRegisterProviderCallback(pcallback: *mut UiaProviderCallback) {
         extern "system" {
             fn UiaRegisterProviderCallback(pcallback: *mut ::windows::core::RawPtr);
         }
-        ::core::mem::transmute(UiaRegisterProviderCallback(::core::mem::transmute(pcallback)))
+        UiaRegisterProviderCallback(::core::mem::transmute(pcallback))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

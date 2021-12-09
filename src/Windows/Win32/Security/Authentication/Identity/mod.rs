@@ -304,7 +304,7 @@ pub unsafe fn AuditFree(buffer: *const ::core::ffi::c_void) {
         extern "system" {
             fn AuditFree(buffer: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(AuditFree(::core::mem::transmute(buffer)))
+        AuditFree(::core::mem::transmute(buffer))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14452,7 +14452,7 @@ pub unsafe fn SslFreeCertificate(pcertificate: *mut X509Certificate) {
         extern "system" {
             fn SslFreeCertificate(pcertificate: *mut X509Certificate);
         }
-        ::core::mem::transmute(SslFreeCertificate(::core::mem::transmute(pcertificate)))
+        SslFreeCertificate(::core::mem::transmute(pcertificate))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14465,7 +14465,7 @@ pub unsafe fn SslGenerateRandomBits(prandomdata: *mut u8, crandomdata: i32) {
         extern "system" {
             fn SslGenerateRandomBits(prandomdata: *mut u8, crandomdata: i32);
         }
-        ::core::mem::transmute(SslGenerateRandomBits(::core::mem::transmute(prandomdata), ::core::mem::transmute(crandomdata)))
+        SslGenerateRandomBits(::core::mem::transmute(prandomdata), ::core::mem::transmute(crandomdata))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14640,7 +14640,7 @@ pub unsafe fn SspiFreeAuthIdentity(authdata: *const ::core::ffi::c_void) {
         extern "system" {
             fn SspiFreeAuthIdentity(authdata: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(SspiFreeAuthIdentity(::core::mem::transmute(authdata)))
+        SspiFreeAuthIdentity(::core::mem::transmute(authdata))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14695,7 +14695,7 @@ pub unsafe fn SspiLocalFree(databuffer: *const ::core::ffi::c_void) {
         extern "system" {
             fn SspiLocalFree(databuffer: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(SspiLocalFree(::core::mem::transmute(databuffer)))
+        SspiLocalFree(::core::mem::transmute(databuffer))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14804,7 +14804,7 @@ pub unsafe fn SspiZeroAuthIdentity(authdata: *const ::core::ffi::c_void) {
         extern "system" {
             fn SspiZeroAuthIdentity(authdata: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(SspiZeroAuthIdentity(::core::mem::transmute(authdata)))
+        SspiZeroAuthIdentity(::core::mem::transmute(authdata))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -447,7 +447,7 @@ pub unsafe fn AddRefActCtx<'a, Param0: ::windows::core::IntoParam<'a, super::sup
         extern "system" {
             fn AddRefActCtx(hactctx: super::super::Foundation::HANDLE);
         }
-        ::core::mem::transmute(AddRefActCtx(hactctx.into_param().abi()))
+        AddRefActCtx(hactctx.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10355,7 +10355,7 @@ pub unsafe fn ReleaseActCtx<'a, Param0: ::windows::core::IntoParam<'a, super::su
         extern "system" {
             fn ReleaseActCtx(hactctx: super::super::Foundation::HANDLE);
         }
-        ::core::mem::transmute(ReleaseActCtx(hactctx.into_param().abi()))
+        ReleaseActCtx(hactctx.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

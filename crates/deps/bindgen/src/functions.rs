@@ -215,5 +215,27 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
                 }
             }
         }
+        SignatureKind::ReturnVoid => {
+            let params = gen_win32_params(&signature.params, gen);
+            let args = signature.params.iter().map(gen_win32_abi_arg);
+
+            quote! {
+                #arch_cfg
+                #feature_cfg
+                #[inline]
+                pub unsafe fn #name<#constraints>(#params) {
+                    #[cfg(windows)]
+                    {
+                        #link_attr
+                        extern "system" {
+                            fn #name(#(#abi_params),*);
+                        }
+                        #name(#(#args),*)
+                    }
+                    #[cfg(not(windows))]
+                    unimplemented!("Unsupported target OS");
+                }
+            }
+        }
     }
 }

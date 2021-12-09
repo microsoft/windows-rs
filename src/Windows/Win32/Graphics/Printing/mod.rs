@@ -4483,7 +4483,7 @@ pub unsafe fn FreePrintNamedPropertyArray(cproperties: u32, ppproperties: *mut *
         extern "system" {
             fn FreePrintNamedPropertyArray(cproperties: u32, ppproperties: *mut *mut PrintNamedProperty);
         }
-        ::core::mem::transmute(FreePrintNamedPropertyArray(::core::mem::transmute(cproperties), ::core::mem::transmute(ppproperties)))
+        FreePrintNamedPropertyArray(::core::mem::transmute(cproperties), ::core::mem::transmute(ppproperties))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4497,7 +4497,7 @@ pub unsafe fn FreePrintPropertyValue(pvalue: *mut PrintPropertyValue) {
         extern "system" {
             fn FreePrintPropertyValue(pvalue: *mut PrintPropertyValue);
         }
-        ::core::mem::transmute(FreePrintPropertyValue(::core::mem::transmute(pvalue)))
+        FreePrintPropertyValue(::core::mem::transmute(pvalue))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19575,7 +19575,7 @@ pub unsafe fn RouterFreeBidiMem(pmempointer: *const ::core::ffi::c_void) {
         extern "system" {
             fn RouterFreeBidiMem(pmempointer: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(RouterFreeBidiMem(::core::mem::transmute(pmempointer)))
+        RouterFreeBidiMem(::core::mem::transmute(pmempointer))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20134,7 +20134,7 @@ pub unsafe fn SpoolerFreePrinterNotifyInfo(pinfo: *const PRINTER_NOTIFY_INFO) {
         extern "system" {
             fn SpoolerFreePrinterNotifyInfo(pinfo: *const PRINTER_NOTIFY_INFO);
         }
-        ::core::mem::transmute(SpoolerFreePrinterNotifyInfo(::core::mem::transmute(pinfo)))
+        SpoolerFreePrinterNotifyInfo(::core::mem::transmute(pinfo))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

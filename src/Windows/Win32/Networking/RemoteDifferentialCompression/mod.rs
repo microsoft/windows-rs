@@ -950,7 +950,7 @@ impl ISimilarityTraitsMappedView {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), dirty.into_param().abi(), ::core::mem::transmute(numelements), ::core::mem::transmute(&mut result__)).from_abi::<SimilarityMappedViewInfo>(result__)
     }
     pub unsafe fn GetView(&self, mappedpagebegin: *mut *mut u8, mappedpageend: *mut *mut u8) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(mappedpagebegin), ::core::mem::transmute(mappedpageend)))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(mappedpagebegin), ::core::mem::transmute(mappedpageend))
     }
 }
 impl ::core::convert::From<ISimilarityTraitsMappedView> for ::windows::core::IUnknown {
@@ -1004,7 +1004,7 @@ pub struct ISimilarityTraitsMappedViewVtbl(
 pub struct ISimilarityTraitsMapping(::windows::core::IUnknown);
 impl ISimilarityTraitsMapping {
     pub unsafe fn CloseMapping(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn SetFileSize(&self, filesize: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(filesize)).ok()
@@ -1022,7 +1022,7 @@ impl ISimilarityTraitsMapping {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(accessmode), ::core::mem::transmute(begin), ::core::mem::transmute(end), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     pub unsafe fn GetPageSize(&self, pagesize: *mut u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pagesize)))
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pagesize))
     }
     pub unsafe fn CreateView(&self, minimummappedpages: u32, accessmode: RdcMappingAccessMode) -> ::windows::core::Result<ISimilarityTraitsMappedView> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

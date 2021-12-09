@@ -1843,7 +1843,7 @@ pub unsafe fn WinHttpFreeProxyResult(pproxyresult: *mut WINHTTP_PROXY_RESULT) {
         extern "system" {
             fn WinHttpFreeProxyResult(pproxyresult: *mut WINHTTP_PROXY_RESULT);
         }
-        ::core::mem::transmute(WinHttpFreeProxyResult(::core::mem::transmute(pproxyresult)))
+        WinHttpFreeProxyResult(::core::mem::transmute(pproxyresult))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1857,7 +1857,7 @@ pub unsafe fn WinHttpFreeProxyResultEx(pproxyresultex: *mut WINHTTP_PROXY_RESULT
         extern "system" {
             fn WinHttpFreeProxyResultEx(pproxyresultex: *mut WINHTTP_PROXY_RESULT_EX);
         }
-        ::core::mem::transmute(WinHttpFreeProxyResultEx(::core::mem::transmute(pproxyresultex)))
+        WinHttpFreeProxyResultEx(::core::mem::transmute(pproxyresultex))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1871,7 +1871,7 @@ pub unsafe fn WinHttpFreeProxySettings(pwinhttpproxysettings: *const WINHTTP_PRO
         extern "system" {
             fn WinHttpFreeProxySettings(pwinhttpproxysettings: *const WINHTTP_PROXY_SETTINGS);
         }
-        ::core::mem::transmute(WinHttpFreeProxySettings(::core::mem::transmute(pwinhttpproxysettings)))
+        WinHttpFreeProxySettings(::core::mem::transmute(pwinhttpproxysettings))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1885,7 +1885,7 @@ pub unsafe fn WinHttpFreeQueryConnectionGroupResult(presult: *mut WINHTTP_QUERY_
         extern "system" {
             fn WinHttpFreeQueryConnectionGroupResult(presult: *mut WINHTTP_QUERY_CONNECTION_GROUP_RESULT);
         }
-        ::core::mem::transmute(WinHttpFreeQueryConnectionGroupResult(::core::mem::transmute(presult)))
+        WinHttpFreeQueryConnectionGroupResult(::core::mem::transmute(presult))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -608,7 +608,7 @@ pub unsafe fn CredFree(buffer: *const ::core::ffi::c_void) {
         extern "system" {
             fn CredFree(buffer: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(CredFree(::core::mem::transmute(buffer)))
+        CredFree(::core::mem::transmute(buffer))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1225,7 +1225,7 @@ pub unsafe fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo: *con
         extern "system" {
             fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo: *const KeyCredentialManagerInfo);
         }
-        ::core::mem::transmute(KeyCredentialManagerFreeInformation(::core::mem::transmute(keycredentialmanagerinfo)))
+        KeyCredentialManagerFreeInformation(::core::mem::transmute(keycredentialmanagerinfo))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2876,7 +2876,7 @@ pub unsafe fn SCardReleaseStartedEvent() {
         extern "system" {
             fn SCardReleaseStartedEvent();
         }
-        ::core::mem::transmute(SCardReleaseStartedEvent())
+        SCardReleaseStartedEvent()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

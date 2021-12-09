@@ -1628,7 +1628,7 @@ impl IDtcToXaHelperSinglePipe {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReleaseRMCookie<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, i_dwrmcookie: u32, i_fnormal: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(i_dwrmcookie), i_fnormal.into_param().abi()))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(i_dwrmcookie), i_fnormal.into_param().abi())
     }
 }
 impl ::core::convert::From<IDtcToXaHelperSinglePipe> for ::windows::core::IUnknown {

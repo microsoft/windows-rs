@@ -136,7 +136,7 @@ pub unsafe fn ChangeIdleRoutine(ftg: *mut ::core::ffi::c_void, lpfnidle: PFNIDLE
         extern "system" {
             fn ChangeIdleRoutine(ftg: *mut ::core::ffi::c_void, lpfnidle: ::windows::core::RawPtr, lpvidleparam: *mut ::core::ffi::c_void, priidle: i16, csecidle: u32, iroidle: u16, ircidle: u16);
         }
-        ::core::mem::transmute(ChangeIdleRoutine(::core::mem::transmute(ftg), ::core::mem::transmute(lpfnidle), ::core::mem::transmute(lpvidleparam), ::core::mem::transmute(priidle), ::core::mem::transmute(csecidle), ::core::mem::transmute(iroidle), ::core::mem::transmute(ircidle)))
+        ChangeIdleRoutine(::core::mem::transmute(ftg), ::core::mem::transmute(lpfnidle), ::core::mem::transmute(lpvidleparam), ::core::mem::transmute(priidle), ::core::mem::transmute(csecidle), ::core::mem::transmute(iroidle), ::core::mem::transmute(ircidle))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -608,7 +608,7 @@ pub unsafe fn DeinitMapiUtil() {
         extern "system" {
             fn DeinitMapiUtil();
         }
-        ::core::mem::transmute(DeinitMapiUtil())
+        DeinitMapiUtil()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -621,7 +621,7 @@ pub unsafe fn DeregisterIdleRoutine(ftg: *mut ::core::ffi::c_void) {
         extern "system" {
             fn DeregisterIdleRoutine(ftg: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(DeregisterIdleRoutine(::core::mem::transmute(ftg)))
+        DeregisterIdleRoutine(::core::mem::transmute(ftg))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -798,7 +798,7 @@ pub unsafe fn EnableIdleRoutine<'a, Param1: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn EnableIdleRoutine(ftg: *mut ::core::ffi::c_void, fenable: super::super::Foundation::BOOL);
         }
-        ::core::mem::transmute(EnableIdleRoutine(::core::mem::transmute(ftg), fenable.into_param().abi()))
+        EnableIdleRoutine(::core::mem::transmute(ftg), fenable.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -948,7 +948,7 @@ pub unsafe fn FreePadrlist(lpadrlist: *mut ADRLIST) {
         extern "system" {
             fn FreePadrlist(lpadrlist: *mut ADRLIST);
         }
-        ::core::mem::transmute(FreePadrlist(::core::mem::transmute(lpadrlist)))
+        FreePadrlist(::core::mem::transmute(lpadrlist))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -962,7 +962,7 @@ pub unsafe fn FreeProws(lprows: *mut SRowSet) {
         extern "system" {
             fn FreeProws(lprows: *mut SRowSet);
         }
-        ::core::mem::transmute(FreeProws(::core::mem::transmute(lprows)))
+        FreeProws(::core::mem::transmute(lprows))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4069,7 +4069,7 @@ pub unsafe fn MAPIDeinitIdle() {
         extern "system" {
             fn MAPIDeinitIdle();
         }
-        ::core::mem::transmute(MAPIDeinitIdle())
+        MAPIDeinitIdle()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

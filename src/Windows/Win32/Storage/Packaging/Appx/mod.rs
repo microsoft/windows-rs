@@ -500,7 +500,7 @@ pub unsafe fn DeactivatePackageVirtualizationContext(cookie: usize) {
         extern "system" {
             fn DeactivatePackageVirtualizationContext(cookie: usize);
         }
-        ::core::mem::transmute(DeactivatePackageVirtualizationContext(::core::mem::transmute(cookie)))
+        DeactivatePackageVirtualizationContext(::core::mem::transmute(cookie))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6774,7 +6774,7 @@ pub unsafe fn ReleasePackageVirtualizationContext(context: *const PACKAGE_VIRTUA
         extern "system" {
             fn ReleasePackageVirtualizationContext(context: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__);
         }
-        ::core::mem::transmute(ReleasePackageVirtualizationContext(::core::mem::transmute(context)))
+        ReleasePackageVirtualizationContext(::core::mem::transmute(context))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

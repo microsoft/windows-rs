@@ -91,8 +91,7 @@ pub fn gen_vtbl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
         } else {
             (quote! {}, quote! { -> #hresult }, quote! {})
         }
-    } else {
-        if let Some(return_sig) = &signature.return_sig {
+    } else if let Some(return_sig) = &signature.return_sig {
             if return_sig.is_udt() {
                 let tokens = gen_abi_sig(return_sig, gen);
                 (quote! {}, quote! {}, quote! { result__: *mut #tokens, })
@@ -102,7 +101,6 @@ pub fn gen_vtbl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
             }
         } else {
             (quote! {}, quote! {}, quote! {})
-        }
     };
 
     let params = signature.params.iter().map(|p| {

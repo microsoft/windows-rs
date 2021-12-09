@@ -293,7 +293,7 @@ pub struct IUIEventLogger(::windows::core::IUnknown);
 impl IUIEventLogger {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnUIEvent(&self, peventparams: *const UI_EVENTPARAMS) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(peventparams)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(peventparams))
     }
 }
 impl ::core::convert::From<IUIEventLogger> for ::windows::core::IUnknown {

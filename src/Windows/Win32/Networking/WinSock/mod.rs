@@ -873,7 +873,7 @@ pub unsafe fn FreeAddrInfoEx(paddrinfoex: *const addrinfoexA) {
         extern "system" {
             fn FreeAddrInfoEx(paddrinfoex: *const addrinfoexA);
         }
-        ::core::mem::transmute(FreeAddrInfoEx(::core::mem::transmute(paddrinfoex)))
+        FreeAddrInfoEx(::core::mem::transmute(paddrinfoex))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -887,7 +887,7 @@ pub unsafe fn FreeAddrInfoExW(paddrinfoex: *const addrinfoexW) {
         extern "system" {
             fn FreeAddrInfoExW(paddrinfoex: *const addrinfoexW);
         }
-        ::core::mem::transmute(FreeAddrInfoExW(::core::mem::transmute(paddrinfoex)))
+        FreeAddrInfoExW(::core::mem::transmute(paddrinfoex))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -901,7 +901,7 @@ pub unsafe fn FreeAddrInfoW(paddrinfo: *const addrinfoW) {
         extern "system" {
             fn FreeAddrInfoW(paddrinfo: *const addrinfoW);
         }
-        ::core::mem::transmute(FreeAddrInfoW(::core::mem::transmute(paddrinfo)))
+        FreeAddrInfoW(::core::mem::transmute(paddrinfo))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1016,7 +1016,7 @@ pub unsafe fn GetAcceptExSockaddrs(lpoutputbuffer: *const ::core::ffi::c_void, d
         extern "system" {
             fn GetAcceptExSockaddrs(lpoutputbuffer: *const ::core::ffi::c_void, dwreceivedatalength: u32, dwlocaladdresslength: u32, dwremoteaddresslength: u32, localsockaddr: *mut *mut SOCKADDR, localsockaddrlength: *mut i32, remotesockaddr: *mut *mut SOCKADDR, remotesockaddrlength: *mut i32);
         }
-        ::core::mem::transmute(GetAcceptExSockaddrs(::core::mem::transmute(lpoutputbuffer), ::core::mem::transmute(dwreceivedatalength), ::core::mem::transmute(dwlocaladdresslength), ::core::mem::transmute(dwremoteaddresslength), ::core::mem::transmute(localsockaddr), ::core::mem::transmute(localsockaddrlength), ::core::mem::transmute(remotesockaddr), ::core::mem::transmute(remotesockaddrlength)))
+        GetAcceptExSockaddrs(::core::mem::transmute(lpoutputbuffer), ::core::mem::transmute(dwreceivedatalength), ::core::mem::transmute(dwlocaladdresslength), ::core::mem::transmute(dwremoteaddresslength), ::core::mem::transmute(localsockaddr), ::core::mem::transmute(localsockaddrlength), ::core::mem::transmute(remotesockaddr), ::core::mem::transmute(remotesockaddrlength))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8790,7 +8790,7 @@ pub unsafe fn WSASetLastError(ierror: i32) {
         extern "system" {
             fn WSASetLastError(ierror: i32);
         }
-        ::core::mem::transmute(WSASetLastError(::core::mem::transmute(ierror)))
+        WSASetLastError(::core::mem::transmute(ierror))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10378,7 +10378,7 @@ pub unsafe fn freeaddrinfo(paddrinfo: *const ADDRINFOA) {
         extern "system" {
             fn freeaddrinfo(paddrinfo: *const ADDRINFOA);
         }
-        ::core::mem::transmute(freeaddrinfo(::core::mem::transmute(paddrinfo)))
+        freeaddrinfo(::core::mem::transmute(paddrinfo))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

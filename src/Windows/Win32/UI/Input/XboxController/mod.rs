@@ -251,7 +251,7 @@ pub unsafe fn XInputEnable<'a, Param0: ::windows::core::IntoParam<'a, super::sup
         extern "system" {
             fn XInputEnable(enable: super::super::super::Foundation::BOOL);
         }
-        ::core::mem::transmute(XInputEnable(enable.into_param().abi()))
+        XInputEnable(enable.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

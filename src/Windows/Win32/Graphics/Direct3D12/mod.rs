@@ -10117,23 +10117,23 @@ impl ID3D12CommandQueue {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateTileMappings<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param4: ::windows::core::IntoParam<'a, ID3D12Heap>>(&self, presource: Param0, numresourceregions: u32, presourceregionstartcoordinates: *const D3D12_TILED_RESOURCE_COORDINATE, presourceregionsizes: *const D3D12_TILE_REGION_SIZE, pheap: Param4, numranges: u32, prangeflags: *const D3D12_TILE_RANGE_FLAGS, pheaprangestartoffsets: *const u32, prangetilecounts: *const u32, flags: D3D12_TILE_MAPPING_FLAGS) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(numresourceregions), ::core::mem::transmute(presourceregionstartcoordinates), ::core::mem::transmute(presourceregionsizes), pheap.into_param().abi(), ::core::mem::transmute(numranges), ::core::mem::transmute(prangeflags), ::core::mem::transmute(pheaprangestartoffsets), ::core::mem::transmute(prangetilecounts), ::core::mem::transmute(flags)))
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(numresourceregions), ::core::mem::transmute(presourceregionstartcoordinates), ::core::mem::transmute(presourceregionsizes), pheap.into_param().abi(), ::core::mem::transmute(numranges), ::core::mem::transmute(prangeflags), ::core::mem::transmute(pheaprangestartoffsets), ::core::mem::transmute(prangetilecounts), ::core::mem::transmute(flags))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CopyTileMappings<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, pdstregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, psrcresource: Param2, psrcregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, pregionsize: *const D3D12_TILE_REGION_SIZE, flags: D3D12_TILE_MAPPING_FLAGS) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(pdstregionstartcoordinate), psrcresource.into_param().abi(), ::core::mem::transmute(psrcregionstartcoordinate), ::core::mem::transmute(pregionsize), ::core::mem::transmute(flags)))
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(pdstregionstartcoordinate), psrcresource.into_param().abi(), ::core::mem::transmute(psrcregionstartcoordinate), ::core::mem::transmute(pregionsize), ::core::mem::transmute(flags))
     }
     pub unsafe fn ExecuteCommandLists(&self, numcommandlists: u32, ppcommandlists: *const ::core::option::Option<ID3D12CommandList>) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(numcommandlists), ::core::mem::transmute(ppcommandlists)))
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(numcommandlists), ::core::mem::transmute(ppcommandlists))
     }
     pub unsafe fn SetMarker(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn BeginEvent(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn EndEvent(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn Signal<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Fence>>(&self, pfence: Param0, value: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), pfence.into_param().abi(), ::core::mem::transmute(value)).ok()
@@ -10407,7 +10407,7 @@ pub struct ID3D12CommandSignatureVtbl(
 pub struct ID3D12Debug(::windows::core::IUnknown);
 impl ID3D12Debug {
     pub unsafe fn EnableDebugLayer(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self))
     }
 }
 impl ::core::convert::From<ID3D12Debug> for ::windows::core::IUnknown {
@@ -10452,15 +10452,15 @@ pub struct ID3D12DebugVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi:
 pub struct ID3D12Debug1(::windows::core::IUnknown);
 impl ID3D12Debug1 {
     pub unsafe fn EnableDebugLayer(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableGPUBasedValidation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, enable: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), enable.into_param().abi()))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), enable.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableSynchronizedCommandQueueValidation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, enable: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), enable.into_param().abi()))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), enable.into_param().abi())
     }
 }
 impl ::core::convert::From<ID3D12Debug1> for ::windows::core::IUnknown {
@@ -10514,7 +10514,7 @@ pub struct ID3D12Debug1Vtbl(
 pub struct ID3D12Debug2(::windows::core::IUnknown);
 impl ID3D12Debug2 {
     pub unsafe fn SetGPUBasedValidationFlags(&self, flags: D3D12_GPU_BASED_VALIDATION_FLAGS) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags))
     }
 }
 impl ::core::convert::From<ID3D12Debug2> for ::windows::core::IUnknown {
@@ -10559,18 +10559,18 @@ pub struct ID3D12Debug2Vtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi
 pub struct ID3D12Debug3(::windows::core::IUnknown);
 impl ID3D12Debug3 {
     pub unsafe fn EnableDebugLayer(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableGPUBasedValidation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, enable: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), enable.into_param().abi()))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), enable.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableSynchronizedCommandQueueValidation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, enable: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), enable.into_param().abi()))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), enable.into_param().abi())
     }
     pub unsafe fn SetGPUBasedValidationFlags(&self, flags: D3D12_GPU_BASED_VALIDATION_FLAGS) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags)))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags))
     }
 }
 impl ::core::convert::From<ID3D12Debug3> for ID3D12Debug {
@@ -10645,21 +10645,21 @@ pub struct ID3D12Debug3Vtbl(
 pub struct ID3D12Debug4(::windows::core::IUnknown);
 impl ID3D12Debug4 {
     pub unsafe fn EnableDebugLayer(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableGPUBasedValidation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, enable: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), enable.into_param().abi()))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), enable.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableSynchronizedCommandQueueValidation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, enable: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), enable.into_param().abi()))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), enable.into_param().abi())
     }
     pub unsafe fn SetGPUBasedValidationFlags(&self, flags: D3D12_GPU_BASED_VALIDATION_FLAGS) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags)))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags))
     }
     pub unsafe fn DisableDebugLayer(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self))
     }
 }
 impl ::core::convert::From<ID3D12Debug4> for ID3D12Debug3 {
@@ -10755,25 +10755,25 @@ pub struct ID3D12Debug4Vtbl(
 pub struct ID3D12Debug5(::windows::core::IUnknown);
 impl ID3D12Debug5 {
     pub unsafe fn EnableDebugLayer(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableGPUBasedValidation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, enable: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), enable.into_param().abi()))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), enable.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableSynchronizedCommandQueueValidation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, enable: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), enable.into_param().abi()))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), enable.into_param().abi())
     }
     pub unsafe fn SetGPUBasedValidationFlags(&self, flags: D3D12_GPU_BASED_VALIDATION_FLAGS) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags)))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags))
     }
     pub unsafe fn DisableDebugLayer(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableAutoName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, enable: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), enable.into_param().abi()))
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), enable.into_param().abi())
     }
 }
 impl ::core::convert::From<ID3D12Debug5> for ID3D12Debug4 {
@@ -11550,32 +11550,32 @@ impl ID3D12Device {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodemask), ::core::mem::transmute(pblobwithrootsignature), ::core::mem::transmute(bloblengthinbytes), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn CreateConstantBufferView<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateShaderResourceView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateUnorderedAccessView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param1: ::windows::core::IntoParam<'a, ID3D12Resource>, Param3: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pcounterresource: Param1, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: Param3) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateRenderTargetView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateDepthStencilView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     pub unsafe fn CreateSampler<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_SAMPLER_DESC, destdescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     pub unsafe fn CopyDescriptors(&self, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype)))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype))
     }
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype)))
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetResourceAllocationInfo(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC) -> D3D12_RESOURCE_ALLOCATION_INFO {
@@ -11632,7 +11632,7 @@ impl ID3D12Device {
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes)))
+        (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes))
     }
     pub unsafe fn CreateQueryHeap<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_QUERY_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
@@ -11645,7 +11645,7 @@ impl ID3D12Device {
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), prootsignature.into_param().abi(), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetResourceTiling<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, ptiledresource: Param0, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D12_PACKED_MIP_INFO, pstandardtileshapefornonpackedmips: *mut D3D12_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips)))
+        (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAdapterLuid(&self) -> super::super::Foundation::LUID {
@@ -11828,32 +11828,32 @@ impl ID3D12Device1 {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodemask), ::core::mem::transmute(pblobwithrootsignature), ::core::mem::transmute(bloblengthinbytes), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn CreateConstantBufferView<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateShaderResourceView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateUnorderedAccessView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param1: ::windows::core::IntoParam<'a, ID3D12Resource>, Param3: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pcounterresource: Param1, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: Param3) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateRenderTargetView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateDepthStencilView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     pub unsafe fn CreateSampler<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_SAMPLER_DESC, destdescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     pub unsafe fn CopyDescriptors(&self, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype)))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype))
     }
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype)))
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetResourceAllocationInfo(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC) -> D3D12_RESOURCE_ALLOCATION_INFO {
@@ -11910,7 +11910,7 @@ impl ID3D12Device1 {
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes)))
+        (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes))
     }
     pub unsafe fn CreateQueryHeap<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_QUERY_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
@@ -11923,7 +11923,7 @@ impl ID3D12Device1 {
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), prootsignature.into_param().abi(), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetResourceTiling<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, ptiledresource: Param0, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D12_PACKED_MIP_INFO, pstandardtileshapefornonpackedmips: *mut D3D12_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips)))
+        (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAdapterLuid(&self) -> super::super::Foundation::LUID {
@@ -12141,32 +12141,32 @@ impl ID3D12Device2 {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodemask), ::core::mem::transmute(pblobwithrootsignature), ::core::mem::transmute(bloblengthinbytes), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn CreateConstantBufferView<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateShaderResourceView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateUnorderedAccessView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param1: ::windows::core::IntoParam<'a, ID3D12Resource>, Param3: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pcounterresource: Param1, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: Param3) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateRenderTargetView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateDepthStencilView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     pub unsafe fn CreateSampler<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_SAMPLER_DESC, destdescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     pub unsafe fn CopyDescriptors(&self, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype)))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype))
     }
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype)))
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetResourceAllocationInfo(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC) -> D3D12_RESOURCE_ALLOCATION_INFO {
@@ -12223,7 +12223,7 @@ impl ID3D12Device2 {
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes)))
+        (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes))
     }
     pub unsafe fn CreateQueryHeap<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_QUERY_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
@@ -12236,7 +12236,7 @@ impl ID3D12Device2 {
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), prootsignature.into_param().abi(), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetResourceTiling<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, ptiledresource: Param0, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D12_PACKED_MIP_INFO, pstandardtileshapefornonpackedmips: *mut D3D12_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips)))
+        (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAdapterLuid(&self) -> super::super::Foundation::LUID {
@@ -12479,32 +12479,32 @@ impl ID3D12Device3 {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodemask), ::core::mem::transmute(pblobwithrootsignature), ::core::mem::transmute(bloblengthinbytes), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn CreateConstantBufferView<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateShaderResourceView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateUnorderedAccessView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param1: ::windows::core::IntoParam<'a, ID3D12Resource>, Param3: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pcounterresource: Param1, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: Param3) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateRenderTargetView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateDepthStencilView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     pub unsafe fn CreateSampler<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_SAMPLER_DESC, destdescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     pub unsafe fn CopyDescriptors(&self, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype)))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype))
     }
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype)))
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetResourceAllocationInfo(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC) -> D3D12_RESOURCE_ALLOCATION_INFO {
@@ -12561,7 +12561,7 @@ impl ID3D12Device3 {
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes)))
+        (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes))
     }
     pub unsafe fn CreateQueryHeap<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_QUERY_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
@@ -12574,7 +12574,7 @@ impl ID3D12Device3 {
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), prootsignature.into_param().abi(), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetResourceTiling<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, ptiledresource: Param0, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D12_PACKED_MIP_INFO, pstandardtileshapefornonpackedmips: *mut D3D12_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips)))
+        (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAdapterLuid(&self) -> super::super::Foundation::LUID {
@@ -12853,32 +12853,32 @@ impl ID3D12Device4 {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodemask), ::core::mem::transmute(pblobwithrootsignature), ::core::mem::transmute(bloblengthinbytes), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn CreateConstantBufferView<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateShaderResourceView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateUnorderedAccessView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param1: ::windows::core::IntoParam<'a, ID3D12Resource>, Param3: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pcounterresource: Param1, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: Param3) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateRenderTargetView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateDepthStencilView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     pub unsafe fn CreateSampler<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_SAMPLER_DESC, destdescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     pub unsafe fn CopyDescriptors(&self, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype)))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype))
     }
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype)))
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetResourceAllocationInfo(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC) -> D3D12_RESOURCE_ALLOCATION_INFO {
@@ -12935,7 +12935,7 @@ impl ID3D12Device4 {
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes)))
+        (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes))
     }
     pub unsafe fn CreateQueryHeap<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_QUERY_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
@@ -12948,7 +12948,7 @@ impl ID3D12Device4 {
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), prootsignature.into_param().abi(), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetResourceTiling<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, ptiledresource: Param0, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D12_PACKED_MIP_INFO, pstandardtileshapefornonpackedmips: *mut D3D12_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips)))
+        (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAdapterLuid(&self) -> super::super::Foundation::LUID {
@@ -13281,32 +13281,32 @@ impl ID3D12Device5 {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodemask), ::core::mem::transmute(pblobwithrootsignature), ::core::mem::transmute(bloblengthinbytes), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn CreateConstantBufferView<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateShaderResourceView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateUnorderedAccessView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param1: ::windows::core::IntoParam<'a, ID3D12Resource>, Param3: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pcounterresource: Param1, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: Param3) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateRenderTargetView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateDepthStencilView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     pub unsafe fn CreateSampler<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_SAMPLER_DESC, destdescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     pub unsafe fn CopyDescriptors(&self, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype)))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype))
     }
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype)))
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetResourceAllocationInfo(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC) -> D3D12_RESOURCE_ALLOCATION_INFO {
@@ -13363,7 +13363,7 @@ impl ID3D12Device5 {
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes)))
+        (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes))
     }
     pub unsafe fn CreateQueryHeap<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_QUERY_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
@@ -13376,7 +13376,7 @@ impl ID3D12Device5 {
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), prootsignature.into_param().abi(), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetResourceTiling<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, ptiledresource: Param0, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D12_PACKED_MIP_INFO, pstandardtileshapefornonpackedmips: *mut D3D12_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips)))
+        (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAdapterLuid(&self) -> super::super::Foundation::LUID {
@@ -13441,7 +13441,7 @@ impl ID3D12Device5 {
         (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), powner.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn RemoveDevice(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumerateMetaCommands(&self, pnummetacommands: *mut u32, pdescs: *mut D3D12_META_COMMAND_DESC) -> ::windows::core::Result<()> {
@@ -13461,7 +13461,7 @@ impl ID3D12Device5 {
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetRaytracingAccelerationStructurePrebuildInfo(&self, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS, pinfo: *mut D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pinfo)))
+        (::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pinfo))
     }
     pub unsafe fn CheckDriverMatchingIdentifier(&self, serializeddatatype: D3D12_SERIALIZED_DATA_TYPE, pidentifiertocheck: *const D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER) -> D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), ::core::mem::transmute(serializeddatatype), ::core::mem::transmute(pidentifiertocheck)))
@@ -13770,32 +13770,32 @@ impl ID3D12Device6 {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodemask), ::core::mem::transmute(pblobwithrootsignature), ::core::mem::transmute(bloblengthinbytes), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn CreateConstantBufferView<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateShaderResourceView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateUnorderedAccessView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param1: ::windows::core::IntoParam<'a, ID3D12Resource>, Param3: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pcounterresource: Param1, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: Param3) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateRenderTargetView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateDepthStencilView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     pub unsafe fn CreateSampler<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_SAMPLER_DESC, destdescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     pub unsafe fn CopyDescriptors(&self, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype)))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype))
     }
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype)))
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetResourceAllocationInfo(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC) -> D3D12_RESOURCE_ALLOCATION_INFO {
@@ -13852,7 +13852,7 @@ impl ID3D12Device6 {
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes)))
+        (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes))
     }
     pub unsafe fn CreateQueryHeap<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_QUERY_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
@@ -13865,7 +13865,7 @@ impl ID3D12Device6 {
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), prootsignature.into_param().abi(), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetResourceTiling<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, ptiledresource: Param0, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D12_PACKED_MIP_INFO, pstandardtileshapefornonpackedmips: *mut D3D12_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips)))
+        (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAdapterLuid(&self) -> super::super::Foundation::LUID {
@@ -13930,7 +13930,7 @@ impl ID3D12Device6 {
         (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), powner.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn RemoveDevice(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumerateMetaCommands(&self, pnummetacommands: *mut u32, pdescs: *mut D3D12_META_COMMAND_DESC) -> ::windows::core::Result<()> {
@@ -13950,7 +13950,7 @@ impl ID3D12Device6 {
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetRaytracingAccelerationStructurePrebuildInfo(&self, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS, pinfo: *mut D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pinfo)))
+        (::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pinfo))
     }
     pub unsafe fn CheckDriverMatchingIdentifier(&self, serializeddatatype: D3D12_SERIALIZED_DATA_TYPE, pidentifiertocheck: *const D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER) -> D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), ::core::mem::transmute(serializeddatatype), ::core::mem::transmute(pidentifiertocheck)))
@@ -14286,32 +14286,32 @@ impl ID3D12Device7 {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodemask), ::core::mem::transmute(pblobwithrootsignature), ::core::mem::transmute(bloblengthinbytes), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn CreateConstantBufferView<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateShaderResourceView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateUnorderedAccessView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param1: ::windows::core::IntoParam<'a, ID3D12Resource>, Param3: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pcounterresource: Param1, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: Param3) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateRenderTargetView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateDepthStencilView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     pub unsafe fn CreateSampler<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_SAMPLER_DESC, destdescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     pub unsafe fn CopyDescriptors(&self, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype)))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype))
     }
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype)))
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetResourceAllocationInfo(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC) -> D3D12_RESOURCE_ALLOCATION_INFO {
@@ -14368,7 +14368,7 @@ impl ID3D12Device7 {
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes)))
+        (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes))
     }
     pub unsafe fn CreateQueryHeap<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_QUERY_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
@@ -14381,7 +14381,7 @@ impl ID3D12Device7 {
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), prootsignature.into_param().abi(), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetResourceTiling<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, ptiledresource: Param0, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D12_PACKED_MIP_INFO, pstandardtileshapefornonpackedmips: *mut D3D12_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips)))
+        (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAdapterLuid(&self) -> super::super::Foundation::LUID {
@@ -14446,7 +14446,7 @@ impl ID3D12Device7 {
         (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), powner.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn RemoveDevice(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumerateMetaCommands(&self, pnummetacommands: *mut u32, pdescs: *mut D3D12_META_COMMAND_DESC) -> ::windows::core::Result<()> {
@@ -14466,7 +14466,7 @@ impl ID3D12Device7 {
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetRaytracingAccelerationStructurePrebuildInfo(&self, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS, pinfo: *mut D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pinfo)))
+        (::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pinfo))
     }
     pub unsafe fn CheckDriverMatchingIdentifier(&self, serializeddatatype: D3D12_SERIALIZED_DATA_TYPE, pidentifiertocheck: *const D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER) -> D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), ::core::mem::transmute(serializeddatatype), ::core::mem::transmute(pidentifiertocheck)))
@@ -14832,32 +14832,32 @@ impl ID3D12Device8 {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodemask), ::core::mem::transmute(pblobwithrootsignature), ::core::mem::transmute(bloblengthinbytes), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn CreateConstantBufferView<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateShaderResourceView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateUnorderedAccessView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param1: ::windows::core::IntoParam<'a, ID3D12Resource>, Param3: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pcounterresource: Param1, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: Param3) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateRenderTargetView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateDepthStencilView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     pub unsafe fn CreateSampler<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_SAMPLER_DESC, destdescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     pub unsafe fn CopyDescriptors(&self, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype)))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype))
     }
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype)))
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetResourceAllocationInfo(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC) -> D3D12_RESOURCE_ALLOCATION_INFO {
@@ -14914,7 +14914,7 @@ impl ID3D12Device8 {
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes)))
+        (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes))
     }
     pub unsafe fn CreateQueryHeap<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_QUERY_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
@@ -14927,7 +14927,7 @@ impl ID3D12Device8 {
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), prootsignature.into_param().abi(), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetResourceTiling<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, ptiledresource: Param0, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D12_PACKED_MIP_INFO, pstandardtileshapefornonpackedmips: *mut D3D12_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips)))
+        (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAdapterLuid(&self) -> super::super::Foundation::LUID {
@@ -14992,7 +14992,7 @@ impl ID3D12Device8 {
         (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), powner.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn RemoveDevice(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumerateMetaCommands(&self, pnummetacommands: *mut u32, pdescs: *mut D3D12_META_COMMAND_DESC) -> ::windows::core::Result<()> {
@@ -15012,7 +15012,7 @@ impl ID3D12Device8 {
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetRaytracingAccelerationStructurePrebuildInfo(&self, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS, pinfo: *mut D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pinfo)))
+        (::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pinfo))
     }
     pub unsafe fn CheckDriverMatchingIdentifier(&self, serializeddatatype: D3D12_SERIALIZED_DATA_TYPE, pidentifiertocheck: *const D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER) -> D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), ::core::mem::transmute(serializeddatatype), ::core::mem::transmute(pidentifiertocheck)))
@@ -15045,11 +15045,11 @@ impl ID3D12Device8 {
         (::windows::core::Interface::vtable(self).70)(::core::mem::transmute_copy(self), pheap.into_param().abi(), ::core::mem::transmute(heapoffset), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn CreateSamplerFeedbackUnorderedAccessView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param1: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, ptargetedresource: Param0, pfeedbackresource: Param1, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).71)(::core::mem::transmute_copy(self), ptargetedresource.into_param().abi(), pfeedbackresource.into_param().abi(), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).71)(::core::mem::transmute_copy(self), ptargetedresource.into_param().abi(), pfeedbackresource.into_param().abi(), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetCopyableFootprints1(&self, presourcedesc: *const D3D12_RESOURCE_DESC1, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).72)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes)))
+        (::windows::core::Interface::vtable(self).72)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes))
     }
 }
 impl ::core::convert::From<ID3D12Device8> for ID3D12Device7 {
@@ -15428,32 +15428,32 @@ impl ID3D12Device9 {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodemask), ::core::mem::transmute(pblobwithrootsignature), ::core::mem::transmute(bloblengthinbytes), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn CreateConstantBufferView<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateShaderResourceView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateUnorderedAccessView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param1: ::windows::core::IntoParam<'a, ID3D12Resource>, Param3: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pcounterresource: Param1, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: Param3) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), presource.into_param().abi(), pcounterresource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateRenderTargetView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateDepthStencilView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, presource: Param0, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     pub unsafe fn CreateSampler<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, pdesc: *const D3D12_SAMPLER_DESC, destdescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     pub unsafe fn CopyDescriptors(&self, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype)))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype))
     }
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype)))
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptors), destdescriptorrangestart.into_param().abi(), srcdescriptorrangestart.into_param().abi(), ::core::mem::transmute(descriptorheapstype))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetResourceAllocationInfo(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC) -> D3D12_RESOURCE_ALLOCATION_INFO {
@@ -15510,7 +15510,7 @@ impl ID3D12Device9 {
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes)))
+        (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes))
     }
     pub unsafe fn CreateQueryHeap<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_QUERY_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
@@ -15523,7 +15523,7 @@ impl ID3D12Device9 {
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), prootsignature.into_param().abi(), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetResourceTiling<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, ptiledresource: Param0, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D12_PACKED_MIP_INFO, pstandardtileshapefornonpackedmips: *mut D3D12_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips)))
+        (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAdapterLuid(&self) -> super::super::Foundation::LUID {
@@ -15588,7 +15588,7 @@ impl ID3D12Device9 {
         (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), powner.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn RemoveDevice(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumerateMetaCommands(&self, pnummetacommands: *mut u32, pdescs: *mut D3D12_META_COMMAND_DESC) -> ::windows::core::Result<()> {
@@ -15608,7 +15608,7 @@ impl ID3D12Device9 {
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetRaytracingAccelerationStructurePrebuildInfo(&self, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS, pinfo: *mut D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pinfo)))
+        (::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pinfo))
     }
     pub unsafe fn CheckDriverMatchingIdentifier(&self, serializeddatatype: D3D12_SERIALIZED_DATA_TYPE, pidentifiertocheck: *const D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER) -> D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), ::core::mem::transmute(serializeddatatype), ::core::mem::transmute(pidentifiertocheck)))
@@ -15641,11 +15641,11 @@ impl ID3D12Device9 {
         (::windows::core::Interface::vtable(self).70)(::core::mem::transmute_copy(self), pheap.into_param().abi(), ::core::mem::transmute(heapoffset), ::core::mem::transmute(pdesc), ::core::mem::transmute(initialstate), ::core::mem::transmute(poptimizedclearvalue), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn CreateSamplerFeedbackUnorderedAccessView<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param1: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, ptargetedresource: Param0, pfeedbackresource: Param1, destdescriptor: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).71)(::core::mem::transmute_copy(self), ptargetedresource.into_param().abi(), pfeedbackresource.into_param().abi(), destdescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).71)(::core::mem::transmute_copy(self), ptargetedresource.into_param().abi(), pfeedbackresource.into_param().abi(), destdescriptor.into_param().abi())
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetCopyableFootprints1(&self, presourcedesc: *const D3D12_RESOURCE_DESC1, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).72)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes)))
+        (::windows::core::Interface::vtable(self).72)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes))
     }
     pub unsafe fn CreateShaderCacheSession<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_SHADER_CACHE_SESSION_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).73)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
@@ -16373,13 +16373,13 @@ pub struct ID3D12DeviceRemovedExtendedData2Vtbl(
 pub struct ID3D12DeviceRemovedExtendedDataSettings(::windows::core::IUnknown);
 impl ID3D12DeviceRemovedExtendedDataSettings {
     pub unsafe fn SetAutoBreadcrumbsEnablement(&self, enablement: D3D12_DRED_ENABLEMENT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(enablement)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(enablement))
     }
     pub unsafe fn SetPageFaultEnablement(&self, enablement: D3D12_DRED_ENABLEMENT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(enablement)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(enablement))
     }
     pub unsafe fn SetWatsonDumpEnablement(&self, enablement: D3D12_DRED_ENABLEMENT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(enablement)))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(enablement))
     }
 }
 impl ::core::convert::From<ID3D12DeviceRemovedExtendedDataSettings> for ::windows::core::IUnknown {
@@ -16431,16 +16431,16 @@ pub struct ID3D12DeviceRemovedExtendedDataSettingsVtbl(
 pub struct ID3D12DeviceRemovedExtendedDataSettings1(::windows::core::IUnknown);
 impl ID3D12DeviceRemovedExtendedDataSettings1 {
     pub unsafe fn SetAutoBreadcrumbsEnablement(&self, enablement: D3D12_DRED_ENABLEMENT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(enablement)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(enablement))
     }
     pub unsafe fn SetPageFaultEnablement(&self, enablement: D3D12_DRED_ENABLEMENT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(enablement)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(enablement))
     }
     pub unsafe fn SetWatsonDumpEnablement(&self, enablement: D3D12_DRED_ENABLEMENT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(enablement)))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(enablement))
     }
     pub unsafe fn SetBreadcrumbContextEnablement(&self, enablement: D3D12_DRED_ENABLEMENT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(enablement)))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(enablement))
     }
 }
 impl ::core::convert::From<ID3D12DeviceRemovedExtendedDataSettings1> for ID3D12DeviceRemovedExtendedDataSettings {
@@ -16937,163 +16937,163 @@ impl ID3D12GraphicsCommandList {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pallocator.into_param().abi(), pinitialstate.into_param().abi()).ok()
     }
     pub unsafe fn ClearState<'a, Param0: ::windows::core::IntoParam<'a, ID3D12PipelineState>>(&self, ppipelinestate: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi()))
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi())
     }
     pub unsafe fn DrawInstanced(&self, vertexcountperinstance: u32, instancecount: u32, startvertexlocation: u32, startinstancelocation: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(vertexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startvertexlocation), ::core::mem::transmute(startinstancelocation)))
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(vertexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startvertexlocation), ::core::mem::transmute(startinstancelocation))
     }
     pub unsafe fn DrawIndexedInstanced(&self, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(indexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startindexlocation), ::core::mem::transmute(basevertexlocation), ::core::mem::transmute(startinstancelocation)))
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(indexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startindexlocation), ::core::mem::transmute(basevertexlocation), ::core::mem::transmute(startinstancelocation))
     }
     pub unsafe fn Dispatch(&self, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(threadgroupcountx), ::core::mem::transmute(threadgroupcounty), ::core::mem::transmute(threadgroupcountz)))
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(threadgroupcountx), ::core::mem::transmute(threadgroupcounty), ::core::mem::transmute(threadgroupcountz))
     }
     pub unsafe fn CopyBufferRegion<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, numbytes: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(numbytes)))
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(numbytes))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CopyTextureRegion(&self, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: *const D3D12_BOX) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdst), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox)))
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdst), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox))
     }
     pub unsafe fn CopyResource<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param1: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, psrcresource: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), psrcresource.into_param().abi()))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), psrcresource.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CopyTiles<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param3: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, ptiledresource: Param0, ptileregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D12_TILE_REGION_SIZE, pbuffer: Param3, bufferstartoffsetinbytes: u64, flags: D3D12_TILE_COPY_FLAGS) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(ptileregionstartcoordinate), ::core::mem::transmute(ptileregionsize), pbuffer.into_param().abi(), ::core::mem::transmute(bufferstartoffsetinbytes), ::core::mem::transmute(flags)))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(ptileregionstartcoordinate), ::core::mem::transmute(ptileregionsize), pbuffer.into_param().abi(), ::core::mem::transmute(bufferstartoffsetinbytes), ::core::mem::transmute(flags))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn ResolveSubresource<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, psrcresource: Param2, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(format)))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(format))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn IASetPrimitiveTopology(&self, primitivetopology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(primitivetopology)))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(primitivetopology))
     }
     pub unsafe fn RSSetViewports(&self, numviewports: u32, pviewports: *const D3D12_VIEWPORT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(numviewports), ::core::mem::transmute(pviewports)))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(numviewports), ::core::mem::transmute(pviewports))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RSSetScissorRects(&self, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     pub unsafe fn OMSetBlendFactor(&self, blendfactor: *const f32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(blendfactor)))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(blendfactor))
     }
     pub unsafe fn OMSetStencilRef(&self, stencilref: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(stencilref)))
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(stencilref))
     }
     pub unsafe fn SetPipelineState<'a, Param0: ::windows::core::IntoParam<'a, ID3D12PipelineState>>(&self, ppipelinestate: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi()))
+        (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi())
     }
     pub unsafe fn ResourceBarrier(&self, numbarriers: u32, pbarriers: *const D3D12_RESOURCE_BARRIER) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers)))
+        (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers))
     }
     pub unsafe fn ExecuteBundle<'a, Param0: ::windows::core::IntoParam<'a, ID3D12GraphicsCommandList>>(&self, pcommandlist: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), pcommandlist.into_param().abi()))
+        (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), pcommandlist.into_param().abi())
     }
     pub unsafe fn SetDescriptorHeaps(&self, numdescriptorheaps: u32, ppdescriptorheaps: *const ::core::option::Option<ID3D12DescriptorHeap>) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptorheaps), ::core::mem::transmute(ppdescriptorheaps)))
+        (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptorheaps), ::core::mem::transmute(ppdescriptorheaps))
     }
     pub unsafe fn SetComputeRootSignature<'a, Param0: ::windows::core::IntoParam<'a, ID3D12RootSignature>>(&self, prootsignature: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), prootsignature.into_param().abi()))
+        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), prootsignature.into_param().abi())
     }
     pub unsafe fn SetGraphicsRootSignature<'a, Param0: ::windows::core::IntoParam<'a, ID3D12RootSignature>>(&self, prootsignature: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), prootsignature.into_param().abi()))
+        (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), prootsignature.into_param().abi())
     }
     pub unsafe fn SetComputeRootDescriptorTable<'a, Param1: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>>(&self, rootparameterindex: u32, basedescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi())
     }
     pub unsafe fn SetGraphicsRootDescriptorTable<'a, Param1: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>>(&self, rootparameterindex: u32, basedescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi())
     }
     pub unsafe fn SetComputeRoot32BitConstant(&self, rootparameterindex: u32, srcdata: u32, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetGraphicsRoot32BitConstant(&self, rootparameterindex: u32, srcdata: u32, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetComputeRoot32BitConstants(&self, rootparameterindex: u32, num32bitvaluestoset: u32, psrcdata: *const ::core::ffi::c_void, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetGraphicsRoot32BitConstants(&self, rootparameterindex: u32, num32bitvaluestoset: u32, psrcdata: *const ::core::ffi::c_void, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetComputeRootConstantBufferView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetGraphicsRootConstantBufferView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetComputeRootShaderResourceView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetGraphicsRootShaderResourceView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetComputeRootUnorderedAccessView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetGraphicsRootUnorderedAccessView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn IASetIndexBuffer(&self, pview: *const D3D12_INDEX_BUFFER_VIEW) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(pview)))
+        (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(pview))
     }
     pub unsafe fn IASetVertexBuffers(&self, startslot: u32, numviews: u32, pviews: *const D3D12_VERTEX_BUFFER_VIEW) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews)))
+        (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews))
     }
     pub unsafe fn SOSetTargets(&self, startslot: u32, numviews: u32, pviews: *const D3D12_STREAM_OUTPUT_BUFFER_VIEW) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews)))
+        (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OMSetRenderTargets<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, numrendertargetdescriptors: u32, prendertargetdescriptors: *const D3D12_CPU_DESCRIPTOR_HANDLE, rtssinglehandletodescriptorrange: Param2, pdepthstencildescriptor: *const D3D12_CPU_DESCRIPTOR_HANDLE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrendertargetdescriptors), ::core::mem::transmute(prendertargetdescriptors), rtssinglehandletodescriptorrange.into_param().abi(), ::core::mem::transmute(pdepthstencildescriptor)))
+        (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrendertargetdescriptors), ::core::mem::transmute(prendertargetdescriptors), rtssinglehandletodescriptorrange.into_param().abi(), ::core::mem::transmute(pdepthstencildescriptor))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearDepthStencilView<'a, Param0: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, depthstencilview: Param0, clearflags: D3D12_CLEAR_FLAGS, depth: f32, stencil: u8, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), depthstencilview.into_param().abi(), ::core::mem::transmute(clearflags), ::core::mem::transmute(depth), ::core::mem::transmute(stencil), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), depthstencilview.into_param().abi(), ::core::mem::transmute(clearflags), ::core::mem::transmute(depth), ::core::mem::transmute(stencil), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearRenderTargetView<'a, Param0: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, rendertargetview: Param0, colorrgba: *const f32, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), rendertargetview.into_param().abi(), ::core::mem::transmute(colorrgba), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), rendertargetview.into_param().abi(), ::core::mem::transmute(colorrgba), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearUnorderedAccessViewUint<'a, Param0: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, viewgpuhandleincurrentheap: Param0, viewcpuhandle: Param1, presource: Param2, values: *const u32, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearUnorderedAccessViewFloat<'a, Param0: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, viewgpuhandleincurrentheap: Param0, viewcpuhandle: Param1, presource: Param2, values: *const f32, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DiscardResource<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, presource: Param0, pregion: *const D3D12_DISCARD_REGION) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion)))
+        (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion))
     }
     pub unsafe fn BeginQuery<'a, Param0: ::windows::core::IntoParam<'a, ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     pub unsafe fn EndQuery<'a, Param0: ::windows::core::IntoParam<'a, ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     pub unsafe fn ResolveQueryData<'a, Param0: ::windows::core::IntoParam<'a, ID3D12QueryHeap>, Param4: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pqueryheap: Param0, r#type: D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: Param4, aligneddestinationbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset)))
+        (::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset))
     }
     pub unsafe fn SetPredication<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pbuffer: Param0, alignedbufferoffset: u64, operation: D3D12_PREDICATION_OP) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation)))
+        (::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation))
     }
     pub unsafe fn SetMarker(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn BeginEvent(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn EndEvent(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn ExecuteIndirect<'a, Param0: ::windows::core::IntoParam<'a, ID3D12CommandSignature>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>, Param4: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pcommandsignature: Param0, maxcommandcount: u32, pargumentbuffer: Param2, argumentbufferoffset: u64, pcountbuffer: Param4, countbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), pcommandsignature.into_param().abi(), ::core::mem::transmute(maxcommandcount), pargumentbuffer.into_param().abi(), ::core::mem::transmute(argumentbufferoffset), pcountbuffer.into_param().abi(), ::core::mem::transmute(countbufferoffset)))
+        (::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), pcommandsignature.into_param().abi(), ::core::mem::transmute(maxcommandcount), pargumentbuffer.into_param().abi(), ::core::mem::transmute(argumentbufferoffset), pcountbuffer.into_param().abi(), ::core::mem::transmute(countbufferoffset))
     }
 }
 impl ::core::convert::From<ID3D12GraphicsCommandList> for ID3D12CommandList {
@@ -17297,182 +17297,182 @@ impl ID3D12GraphicsCommandList1 {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pallocator.into_param().abi(), pinitialstate.into_param().abi()).ok()
     }
     pub unsafe fn ClearState<'a, Param0: ::windows::core::IntoParam<'a, ID3D12PipelineState>>(&self, ppipelinestate: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi()))
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi())
     }
     pub unsafe fn DrawInstanced(&self, vertexcountperinstance: u32, instancecount: u32, startvertexlocation: u32, startinstancelocation: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(vertexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startvertexlocation), ::core::mem::transmute(startinstancelocation)))
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(vertexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startvertexlocation), ::core::mem::transmute(startinstancelocation))
     }
     pub unsafe fn DrawIndexedInstanced(&self, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(indexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startindexlocation), ::core::mem::transmute(basevertexlocation), ::core::mem::transmute(startinstancelocation)))
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(indexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startindexlocation), ::core::mem::transmute(basevertexlocation), ::core::mem::transmute(startinstancelocation))
     }
     pub unsafe fn Dispatch(&self, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(threadgroupcountx), ::core::mem::transmute(threadgroupcounty), ::core::mem::transmute(threadgroupcountz)))
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(threadgroupcountx), ::core::mem::transmute(threadgroupcounty), ::core::mem::transmute(threadgroupcountz))
     }
     pub unsafe fn CopyBufferRegion<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, numbytes: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(numbytes)))
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(numbytes))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CopyTextureRegion(&self, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: *const D3D12_BOX) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdst), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox)))
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdst), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox))
     }
     pub unsafe fn CopyResource<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param1: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, psrcresource: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), psrcresource.into_param().abi()))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), psrcresource.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CopyTiles<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param3: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, ptiledresource: Param0, ptileregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D12_TILE_REGION_SIZE, pbuffer: Param3, bufferstartoffsetinbytes: u64, flags: D3D12_TILE_COPY_FLAGS) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(ptileregionstartcoordinate), ::core::mem::transmute(ptileregionsize), pbuffer.into_param().abi(), ::core::mem::transmute(bufferstartoffsetinbytes), ::core::mem::transmute(flags)))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(ptileregionstartcoordinate), ::core::mem::transmute(ptileregionsize), pbuffer.into_param().abi(), ::core::mem::transmute(bufferstartoffsetinbytes), ::core::mem::transmute(flags))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn ResolveSubresource<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, psrcresource: Param2, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(format)))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(format))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn IASetPrimitiveTopology(&self, primitivetopology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(primitivetopology)))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(primitivetopology))
     }
     pub unsafe fn RSSetViewports(&self, numviewports: u32, pviewports: *const D3D12_VIEWPORT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(numviewports), ::core::mem::transmute(pviewports)))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(numviewports), ::core::mem::transmute(pviewports))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RSSetScissorRects(&self, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     pub unsafe fn OMSetBlendFactor(&self, blendfactor: *const f32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(blendfactor)))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(blendfactor))
     }
     pub unsafe fn OMSetStencilRef(&self, stencilref: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(stencilref)))
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(stencilref))
     }
     pub unsafe fn SetPipelineState<'a, Param0: ::windows::core::IntoParam<'a, ID3D12PipelineState>>(&self, ppipelinestate: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi()))
+        (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi())
     }
     pub unsafe fn ResourceBarrier(&self, numbarriers: u32, pbarriers: *const D3D12_RESOURCE_BARRIER) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers)))
+        (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers))
     }
     pub unsafe fn ExecuteBundle<'a, Param0: ::windows::core::IntoParam<'a, ID3D12GraphicsCommandList>>(&self, pcommandlist: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), pcommandlist.into_param().abi()))
+        (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), pcommandlist.into_param().abi())
     }
     pub unsafe fn SetDescriptorHeaps(&self, numdescriptorheaps: u32, ppdescriptorheaps: *const ::core::option::Option<ID3D12DescriptorHeap>) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptorheaps), ::core::mem::transmute(ppdescriptorheaps)))
+        (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptorheaps), ::core::mem::transmute(ppdescriptorheaps))
     }
     pub unsafe fn SetComputeRootSignature<'a, Param0: ::windows::core::IntoParam<'a, ID3D12RootSignature>>(&self, prootsignature: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), prootsignature.into_param().abi()))
+        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), prootsignature.into_param().abi())
     }
     pub unsafe fn SetGraphicsRootSignature<'a, Param0: ::windows::core::IntoParam<'a, ID3D12RootSignature>>(&self, prootsignature: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), prootsignature.into_param().abi()))
+        (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), prootsignature.into_param().abi())
     }
     pub unsafe fn SetComputeRootDescriptorTable<'a, Param1: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>>(&self, rootparameterindex: u32, basedescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi())
     }
     pub unsafe fn SetGraphicsRootDescriptorTable<'a, Param1: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>>(&self, rootparameterindex: u32, basedescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi())
     }
     pub unsafe fn SetComputeRoot32BitConstant(&self, rootparameterindex: u32, srcdata: u32, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetGraphicsRoot32BitConstant(&self, rootparameterindex: u32, srcdata: u32, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetComputeRoot32BitConstants(&self, rootparameterindex: u32, num32bitvaluestoset: u32, psrcdata: *const ::core::ffi::c_void, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetGraphicsRoot32BitConstants(&self, rootparameterindex: u32, num32bitvaluestoset: u32, psrcdata: *const ::core::ffi::c_void, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetComputeRootConstantBufferView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetGraphicsRootConstantBufferView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetComputeRootShaderResourceView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetGraphicsRootShaderResourceView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetComputeRootUnorderedAccessView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetGraphicsRootUnorderedAccessView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn IASetIndexBuffer(&self, pview: *const D3D12_INDEX_BUFFER_VIEW) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(pview)))
+        (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(pview))
     }
     pub unsafe fn IASetVertexBuffers(&self, startslot: u32, numviews: u32, pviews: *const D3D12_VERTEX_BUFFER_VIEW) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews)))
+        (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews))
     }
     pub unsafe fn SOSetTargets(&self, startslot: u32, numviews: u32, pviews: *const D3D12_STREAM_OUTPUT_BUFFER_VIEW) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews)))
+        (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OMSetRenderTargets<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, numrendertargetdescriptors: u32, prendertargetdescriptors: *const D3D12_CPU_DESCRIPTOR_HANDLE, rtssinglehandletodescriptorrange: Param2, pdepthstencildescriptor: *const D3D12_CPU_DESCRIPTOR_HANDLE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrendertargetdescriptors), ::core::mem::transmute(prendertargetdescriptors), rtssinglehandletodescriptorrange.into_param().abi(), ::core::mem::transmute(pdepthstencildescriptor)))
+        (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrendertargetdescriptors), ::core::mem::transmute(prendertargetdescriptors), rtssinglehandletodescriptorrange.into_param().abi(), ::core::mem::transmute(pdepthstencildescriptor))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearDepthStencilView<'a, Param0: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, depthstencilview: Param0, clearflags: D3D12_CLEAR_FLAGS, depth: f32, stencil: u8, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), depthstencilview.into_param().abi(), ::core::mem::transmute(clearflags), ::core::mem::transmute(depth), ::core::mem::transmute(stencil), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), depthstencilview.into_param().abi(), ::core::mem::transmute(clearflags), ::core::mem::transmute(depth), ::core::mem::transmute(stencil), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearRenderTargetView<'a, Param0: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, rendertargetview: Param0, colorrgba: *const f32, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), rendertargetview.into_param().abi(), ::core::mem::transmute(colorrgba), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), rendertargetview.into_param().abi(), ::core::mem::transmute(colorrgba), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearUnorderedAccessViewUint<'a, Param0: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, viewgpuhandleincurrentheap: Param0, viewcpuhandle: Param1, presource: Param2, values: *const u32, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearUnorderedAccessViewFloat<'a, Param0: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, viewgpuhandleincurrentheap: Param0, viewcpuhandle: Param1, presource: Param2, values: *const f32, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DiscardResource<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, presource: Param0, pregion: *const D3D12_DISCARD_REGION) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion)))
+        (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion))
     }
     pub unsafe fn BeginQuery<'a, Param0: ::windows::core::IntoParam<'a, ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     pub unsafe fn EndQuery<'a, Param0: ::windows::core::IntoParam<'a, ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     pub unsafe fn ResolveQueryData<'a, Param0: ::windows::core::IntoParam<'a, ID3D12QueryHeap>, Param4: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pqueryheap: Param0, r#type: D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: Param4, aligneddestinationbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset)))
+        (::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset))
     }
     pub unsafe fn SetPredication<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pbuffer: Param0, alignedbufferoffset: u64, operation: D3D12_PREDICATION_OP) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation)))
+        (::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation))
     }
     pub unsafe fn SetMarker(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn BeginEvent(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn EndEvent(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn ExecuteIndirect<'a, Param0: ::windows::core::IntoParam<'a, ID3D12CommandSignature>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>, Param4: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pcommandsignature: Param0, maxcommandcount: u32, pargumentbuffer: Param2, argumentbufferoffset: u64, pcountbuffer: Param4, countbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), pcommandsignature.into_param().abi(), ::core::mem::transmute(maxcommandcount), pargumentbuffer.into_param().abi(), ::core::mem::transmute(argumentbufferoffset), pcountbuffer.into_param().abi(), ::core::mem::transmute(countbufferoffset)))
+        (::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), pcommandsignature.into_param().abi(), ::core::mem::transmute(maxcommandcount), pargumentbuffer.into_param().abi(), ::core::mem::transmute(argumentbufferoffset), pcountbuffer.into_param().abi(), ::core::mem::transmute(countbufferoffset))
     }
     pub unsafe fn AtomicCopyBufferUINT<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges)))
+        (::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges))
     }
     pub unsafe fn AtomicCopyBufferUINT64<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges)))
+        (::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges))
     }
     pub unsafe fn OMSetDepthBounds(&self, min: f32, max: f32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).62)(::core::mem::transmute_copy(self), ::core::mem::transmute(min), ::core::mem::transmute(max)))
+        (::windows::core::Interface::vtable(self).62)(::core::mem::transmute_copy(self), ::core::mem::transmute(min), ::core::mem::transmute(max))
     }
     pub unsafe fn SetSamplePositions(&self, numsamplesperpixel: u32, numpixels: u32, psamplepositions: *const D3D12_SAMPLE_POSITION) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(numsamplesperpixel), ::core::mem::transmute(numpixels), ::core::mem::transmute(psamplepositions)))
+        (::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(numsamplesperpixel), ::core::mem::transmute(numpixels), ::core::mem::transmute(psamplepositions))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn ResolveSubresourceRegion<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param4: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: Param4, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::Common::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcrect), ::core::mem::transmute(format), ::core::mem::transmute(resolvemode)))
+        (::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcrect), ::core::mem::transmute(format), ::core::mem::transmute(resolvemode))
     }
     pub unsafe fn SetViewInstanceMask(&self, mask: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).65)(::core::mem::transmute_copy(self), ::core::mem::transmute(mask)))
+        (::windows::core::Interface::vtable(self).65)(::core::mem::transmute_copy(self), ::core::mem::transmute(mask))
     }
 }
 impl ::core::convert::From<ID3D12GraphicsCommandList1> for ID3D12GraphicsCommandList {
@@ -17703,185 +17703,185 @@ impl ID3D12GraphicsCommandList2 {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pallocator.into_param().abi(), pinitialstate.into_param().abi()).ok()
     }
     pub unsafe fn ClearState<'a, Param0: ::windows::core::IntoParam<'a, ID3D12PipelineState>>(&self, ppipelinestate: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi()))
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi())
     }
     pub unsafe fn DrawInstanced(&self, vertexcountperinstance: u32, instancecount: u32, startvertexlocation: u32, startinstancelocation: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(vertexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startvertexlocation), ::core::mem::transmute(startinstancelocation)))
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(vertexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startvertexlocation), ::core::mem::transmute(startinstancelocation))
     }
     pub unsafe fn DrawIndexedInstanced(&self, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(indexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startindexlocation), ::core::mem::transmute(basevertexlocation), ::core::mem::transmute(startinstancelocation)))
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(indexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startindexlocation), ::core::mem::transmute(basevertexlocation), ::core::mem::transmute(startinstancelocation))
     }
     pub unsafe fn Dispatch(&self, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(threadgroupcountx), ::core::mem::transmute(threadgroupcounty), ::core::mem::transmute(threadgroupcountz)))
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(threadgroupcountx), ::core::mem::transmute(threadgroupcounty), ::core::mem::transmute(threadgroupcountz))
     }
     pub unsafe fn CopyBufferRegion<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, numbytes: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(numbytes)))
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(numbytes))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CopyTextureRegion(&self, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: *const D3D12_BOX) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdst), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox)))
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdst), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox))
     }
     pub unsafe fn CopyResource<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param1: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, psrcresource: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), psrcresource.into_param().abi()))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), psrcresource.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CopyTiles<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param3: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, ptiledresource: Param0, ptileregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D12_TILE_REGION_SIZE, pbuffer: Param3, bufferstartoffsetinbytes: u64, flags: D3D12_TILE_COPY_FLAGS) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(ptileregionstartcoordinate), ::core::mem::transmute(ptileregionsize), pbuffer.into_param().abi(), ::core::mem::transmute(bufferstartoffsetinbytes), ::core::mem::transmute(flags)))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(ptileregionstartcoordinate), ::core::mem::transmute(ptileregionsize), pbuffer.into_param().abi(), ::core::mem::transmute(bufferstartoffsetinbytes), ::core::mem::transmute(flags))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn ResolveSubresource<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, psrcresource: Param2, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(format)))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(format))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn IASetPrimitiveTopology(&self, primitivetopology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(primitivetopology)))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(primitivetopology))
     }
     pub unsafe fn RSSetViewports(&self, numviewports: u32, pviewports: *const D3D12_VIEWPORT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(numviewports), ::core::mem::transmute(pviewports)))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(numviewports), ::core::mem::transmute(pviewports))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RSSetScissorRects(&self, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     pub unsafe fn OMSetBlendFactor(&self, blendfactor: *const f32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(blendfactor)))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(blendfactor))
     }
     pub unsafe fn OMSetStencilRef(&self, stencilref: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(stencilref)))
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(stencilref))
     }
     pub unsafe fn SetPipelineState<'a, Param0: ::windows::core::IntoParam<'a, ID3D12PipelineState>>(&self, ppipelinestate: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi()))
+        (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi())
     }
     pub unsafe fn ResourceBarrier(&self, numbarriers: u32, pbarriers: *const D3D12_RESOURCE_BARRIER) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers)))
+        (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers))
     }
     pub unsafe fn ExecuteBundle<'a, Param0: ::windows::core::IntoParam<'a, ID3D12GraphicsCommandList>>(&self, pcommandlist: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), pcommandlist.into_param().abi()))
+        (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), pcommandlist.into_param().abi())
     }
     pub unsafe fn SetDescriptorHeaps(&self, numdescriptorheaps: u32, ppdescriptorheaps: *const ::core::option::Option<ID3D12DescriptorHeap>) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptorheaps), ::core::mem::transmute(ppdescriptorheaps)))
+        (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptorheaps), ::core::mem::transmute(ppdescriptorheaps))
     }
     pub unsafe fn SetComputeRootSignature<'a, Param0: ::windows::core::IntoParam<'a, ID3D12RootSignature>>(&self, prootsignature: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), prootsignature.into_param().abi()))
+        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), prootsignature.into_param().abi())
     }
     pub unsafe fn SetGraphicsRootSignature<'a, Param0: ::windows::core::IntoParam<'a, ID3D12RootSignature>>(&self, prootsignature: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), prootsignature.into_param().abi()))
+        (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), prootsignature.into_param().abi())
     }
     pub unsafe fn SetComputeRootDescriptorTable<'a, Param1: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>>(&self, rootparameterindex: u32, basedescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi())
     }
     pub unsafe fn SetGraphicsRootDescriptorTable<'a, Param1: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>>(&self, rootparameterindex: u32, basedescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi())
     }
     pub unsafe fn SetComputeRoot32BitConstant(&self, rootparameterindex: u32, srcdata: u32, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetGraphicsRoot32BitConstant(&self, rootparameterindex: u32, srcdata: u32, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetComputeRoot32BitConstants(&self, rootparameterindex: u32, num32bitvaluestoset: u32, psrcdata: *const ::core::ffi::c_void, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetGraphicsRoot32BitConstants(&self, rootparameterindex: u32, num32bitvaluestoset: u32, psrcdata: *const ::core::ffi::c_void, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetComputeRootConstantBufferView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetGraphicsRootConstantBufferView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetComputeRootShaderResourceView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetGraphicsRootShaderResourceView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetComputeRootUnorderedAccessView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetGraphicsRootUnorderedAccessView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn IASetIndexBuffer(&self, pview: *const D3D12_INDEX_BUFFER_VIEW) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(pview)))
+        (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(pview))
     }
     pub unsafe fn IASetVertexBuffers(&self, startslot: u32, numviews: u32, pviews: *const D3D12_VERTEX_BUFFER_VIEW) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews)))
+        (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews))
     }
     pub unsafe fn SOSetTargets(&self, startslot: u32, numviews: u32, pviews: *const D3D12_STREAM_OUTPUT_BUFFER_VIEW) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews)))
+        (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OMSetRenderTargets<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, numrendertargetdescriptors: u32, prendertargetdescriptors: *const D3D12_CPU_DESCRIPTOR_HANDLE, rtssinglehandletodescriptorrange: Param2, pdepthstencildescriptor: *const D3D12_CPU_DESCRIPTOR_HANDLE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrendertargetdescriptors), ::core::mem::transmute(prendertargetdescriptors), rtssinglehandletodescriptorrange.into_param().abi(), ::core::mem::transmute(pdepthstencildescriptor)))
+        (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrendertargetdescriptors), ::core::mem::transmute(prendertargetdescriptors), rtssinglehandletodescriptorrange.into_param().abi(), ::core::mem::transmute(pdepthstencildescriptor))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearDepthStencilView<'a, Param0: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, depthstencilview: Param0, clearflags: D3D12_CLEAR_FLAGS, depth: f32, stencil: u8, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), depthstencilview.into_param().abi(), ::core::mem::transmute(clearflags), ::core::mem::transmute(depth), ::core::mem::transmute(stencil), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), depthstencilview.into_param().abi(), ::core::mem::transmute(clearflags), ::core::mem::transmute(depth), ::core::mem::transmute(stencil), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearRenderTargetView<'a, Param0: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, rendertargetview: Param0, colorrgba: *const f32, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), rendertargetview.into_param().abi(), ::core::mem::transmute(colorrgba), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), rendertargetview.into_param().abi(), ::core::mem::transmute(colorrgba), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearUnorderedAccessViewUint<'a, Param0: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, viewgpuhandleincurrentheap: Param0, viewcpuhandle: Param1, presource: Param2, values: *const u32, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearUnorderedAccessViewFloat<'a, Param0: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, viewgpuhandleincurrentheap: Param0, viewcpuhandle: Param1, presource: Param2, values: *const f32, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DiscardResource<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, presource: Param0, pregion: *const D3D12_DISCARD_REGION) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion)))
+        (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion))
     }
     pub unsafe fn BeginQuery<'a, Param0: ::windows::core::IntoParam<'a, ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     pub unsafe fn EndQuery<'a, Param0: ::windows::core::IntoParam<'a, ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     pub unsafe fn ResolveQueryData<'a, Param0: ::windows::core::IntoParam<'a, ID3D12QueryHeap>, Param4: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pqueryheap: Param0, r#type: D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: Param4, aligneddestinationbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset)))
+        (::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset))
     }
     pub unsafe fn SetPredication<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pbuffer: Param0, alignedbufferoffset: u64, operation: D3D12_PREDICATION_OP) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation)))
+        (::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation))
     }
     pub unsafe fn SetMarker(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn BeginEvent(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn EndEvent(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn ExecuteIndirect<'a, Param0: ::windows::core::IntoParam<'a, ID3D12CommandSignature>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>, Param4: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pcommandsignature: Param0, maxcommandcount: u32, pargumentbuffer: Param2, argumentbufferoffset: u64, pcountbuffer: Param4, countbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), pcommandsignature.into_param().abi(), ::core::mem::transmute(maxcommandcount), pargumentbuffer.into_param().abi(), ::core::mem::transmute(argumentbufferoffset), pcountbuffer.into_param().abi(), ::core::mem::transmute(countbufferoffset)))
+        (::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), pcommandsignature.into_param().abi(), ::core::mem::transmute(maxcommandcount), pargumentbuffer.into_param().abi(), ::core::mem::transmute(argumentbufferoffset), pcountbuffer.into_param().abi(), ::core::mem::transmute(countbufferoffset))
     }
     pub unsafe fn AtomicCopyBufferUINT<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges)))
+        (::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges))
     }
     pub unsafe fn AtomicCopyBufferUINT64<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges)))
+        (::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges))
     }
     pub unsafe fn OMSetDepthBounds(&self, min: f32, max: f32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).62)(::core::mem::transmute_copy(self), ::core::mem::transmute(min), ::core::mem::transmute(max)))
+        (::windows::core::Interface::vtable(self).62)(::core::mem::transmute_copy(self), ::core::mem::transmute(min), ::core::mem::transmute(max))
     }
     pub unsafe fn SetSamplePositions(&self, numsamplesperpixel: u32, numpixels: u32, psamplepositions: *const D3D12_SAMPLE_POSITION) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(numsamplesperpixel), ::core::mem::transmute(numpixels), ::core::mem::transmute(psamplepositions)))
+        (::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(numsamplesperpixel), ::core::mem::transmute(numpixels), ::core::mem::transmute(psamplepositions))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn ResolveSubresourceRegion<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param4: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: Param4, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::Common::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcrect), ::core::mem::transmute(format), ::core::mem::transmute(resolvemode)))
+        (::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcrect), ::core::mem::transmute(format), ::core::mem::transmute(resolvemode))
     }
     pub unsafe fn SetViewInstanceMask(&self, mask: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).65)(::core::mem::transmute_copy(self), ::core::mem::transmute(mask)))
+        (::windows::core::Interface::vtable(self).65)(::core::mem::transmute_copy(self), ::core::mem::transmute(mask))
     }
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).66)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes)))
+        (::windows::core::Interface::vtable(self).66)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
 }
 impl ::core::convert::From<ID3D12GraphicsCommandList2> for ID3D12GraphicsCommandList1 {
@@ -18133,188 +18133,188 @@ impl ID3D12GraphicsCommandList3 {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pallocator.into_param().abi(), pinitialstate.into_param().abi()).ok()
     }
     pub unsafe fn ClearState<'a, Param0: ::windows::core::IntoParam<'a, ID3D12PipelineState>>(&self, ppipelinestate: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi()))
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi())
     }
     pub unsafe fn DrawInstanced(&self, vertexcountperinstance: u32, instancecount: u32, startvertexlocation: u32, startinstancelocation: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(vertexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startvertexlocation), ::core::mem::transmute(startinstancelocation)))
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(vertexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startvertexlocation), ::core::mem::transmute(startinstancelocation))
     }
     pub unsafe fn DrawIndexedInstanced(&self, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(indexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startindexlocation), ::core::mem::transmute(basevertexlocation), ::core::mem::transmute(startinstancelocation)))
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(indexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startindexlocation), ::core::mem::transmute(basevertexlocation), ::core::mem::transmute(startinstancelocation))
     }
     pub unsafe fn Dispatch(&self, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(threadgroupcountx), ::core::mem::transmute(threadgroupcounty), ::core::mem::transmute(threadgroupcountz)))
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(threadgroupcountx), ::core::mem::transmute(threadgroupcounty), ::core::mem::transmute(threadgroupcountz))
     }
     pub unsafe fn CopyBufferRegion<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, numbytes: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(numbytes)))
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(numbytes))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CopyTextureRegion(&self, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: *const D3D12_BOX) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdst), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox)))
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdst), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox))
     }
     pub unsafe fn CopyResource<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param1: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, psrcresource: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), psrcresource.into_param().abi()))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), psrcresource.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CopyTiles<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param3: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, ptiledresource: Param0, ptileregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D12_TILE_REGION_SIZE, pbuffer: Param3, bufferstartoffsetinbytes: u64, flags: D3D12_TILE_COPY_FLAGS) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(ptileregionstartcoordinate), ::core::mem::transmute(ptileregionsize), pbuffer.into_param().abi(), ::core::mem::transmute(bufferstartoffsetinbytes), ::core::mem::transmute(flags)))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(ptileregionstartcoordinate), ::core::mem::transmute(ptileregionsize), pbuffer.into_param().abi(), ::core::mem::transmute(bufferstartoffsetinbytes), ::core::mem::transmute(flags))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn ResolveSubresource<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, psrcresource: Param2, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(format)))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(format))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn IASetPrimitiveTopology(&self, primitivetopology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(primitivetopology)))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(primitivetopology))
     }
     pub unsafe fn RSSetViewports(&self, numviewports: u32, pviewports: *const D3D12_VIEWPORT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(numviewports), ::core::mem::transmute(pviewports)))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(numviewports), ::core::mem::transmute(pviewports))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RSSetScissorRects(&self, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     pub unsafe fn OMSetBlendFactor(&self, blendfactor: *const f32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(blendfactor)))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(blendfactor))
     }
     pub unsafe fn OMSetStencilRef(&self, stencilref: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(stencilref)))
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(stencilref))
     }
     pub unsafe fn SetPipelineState<'a, Param0: ::windows::core::IntoParam<'a, ID3D12PipelineState>>(&self, ppipelinestate: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi()))
+        (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi())
     }
     pub unsafe fn ResourceBarrier(&self, numbarriers: u32, pbarriers: *const D3D12_RESOURCE_BARRIER) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers)))
+        (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers))
     }
     pub unsafe fn ExecuteBundle<'a, Param0: ::windows::core::IntoParam<'a, ID3D12GraphicsCommandList>>(&self, pcommandlist: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), pcommandlist.into_param().abi()))
+        (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), pcommandlist.into_param().abi())
     }
     pub unsafe fn SetDescriptorHeaps(&self, numdescriptorheaps: u32, ppdescriptorheaps: *const ::core::option::Option<ID3D12DescriptorHeap>) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptorheaps), ::core::mem::transmute(ppdescriptorheaps)))
+        (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptorheaps), ::core::mem::transmute(ppdescriptorheaps))
     }
     pub unsafe fn SetComputeRootSignature<'a, Param0: ::windows::core::IntoParam<'a, ID3D12RootSignature>>(&self, prootsignature: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), prootsignature.into_param().abi()))
+        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), prootsignature.into_param().abi())
     }
     pub unsafe fn SetGraphicsRootSignature<'a, Param0: ::windows::core::IntoParam<'a, ID3D12RootSignature>>(&self, prootsignature: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), prootsignature.into_param().abi()))
+        (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), prootsignature.into_param().abi())
     }
     pub unsafe fn SetComputeRootDescriptorTable<'a, Param1: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>>(&self, rootparameterindex: u32, basedescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi())
     }
     pub unsafe fn SetGraphicsRootDescriptorTable<'a, Param1: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>>(&self, rootparameterindex: u32, basedescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi())
     }
     pub unsafe fn SetComputeRoot32BitConstant(&self, rootparameterindex: u32, srcdata: u32, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetGraphicsRoot32BitConstant(&self, rootparameterindex: u32, srcdata: u32, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetComputeRoot32BitConstants(&self, rootparameterindex: u32, num32bitvaluestoset: u32, psrcdata: *const ::core::ffi::c_void, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetGraphicsRoot32BitConstants(&self, rootparameterindex: u32, num32bitvaluestoset: u32, psrcdata: *const ::core::ffi::c_void, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetComputeRootConstantBufferView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetGraphicsRootConstantBufferView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetComputeRootShaderResourceView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetGraphicsRootShaderResourceView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetComputeRootUnorderedAccessView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetGraphicsRootUnorderedAccessView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn IASetIndexBuffer(&self, pview: *const D3D12_INDEX_BUFFER_VIEW) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(pview)))
+        (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(pview))
     }
     pub unsafe fn IASetVertexBuffers(&self, startslot: u32, numviews: u32, pviews: *const D3D12_VERTEX_BUFFER_VIEW) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews)))
+        (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews))
     }
     pub unsafe fn SOSetTargets(&self, startslot: u32, numviews: u32, pviews: *const D3D12_STREAM_OUTPUT_BUFFER_VIEW) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews)))
+        (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OMSetRenderTargets<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, numrendertargetdescriptors: u32, prendertargetdescriptors: *const D3D12_CPU_DESCRIPTOR_HANDLE, rtssinglehandletodescriptorrange: Param2, pdepthstencildescriptor: *const D3D12_CPU_DESCRIPTOR_HANDLE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrendertargetdescriptors), ::core::mem::transmute(prendertargetdescriptors), rtssinglehandletodescriptorrange.into_param().abi(), ::core::mem::transmute(pdepthstencildescriptor)))
+        (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrendertargetdescriptors), ::core::mem::transmute(prendertargetdescriptors), rtssinglehandletodescriptorrange.into_param().abi(), ::core::mem::transmute(pdepthstencildescriptor))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearDepthStencilView<'a, Param0: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, depthstencilview: Param0, clearflags: D3D12_CLEAR_FLAGS, depth: f32, stencil: u8, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), depthstencilview.into_param().abi(), ::core::mem::transmute(clearflags), ::core::mem::transmute(depth), ::core::mem::transmute(stencil), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), depthstencilview.into_param().abi(), ::core::mem::transmute(clearflags), ::core::mem::transmute(depth), ::core::mem::transmute(stencil), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearRenderTargetView<'a, Param0: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, rendertargetview: Param0, colorrgba: *const f32, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), rendertargetview.into_param().abi(), ::core::mem::transmute(colorrgba), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), rendertargetview.into_param().abi(), ::core::mem::transmute(colorrgba), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearUnorderedAccessViewUint<'a, Param0: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, viewgpuhandleincurrentheap: Param0, viewcpuhandle: Param1, presource: Param2, values: *const u32, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearUnorderedAccessViewFloat<'a, Param0: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, viewgpuhandleincurrentheap: Param0, viewcpuhandle: Param1, presource: Param2, values: *const f32, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DiscardResource<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, presource: Param0, pregion: *const D3D12_DISCARD_REGION) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion)))
+        (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion))
     }
     pub unsafe fn BeginQuery<'a, Param0: ::windows::core::IntoParam<'a, ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     pub unsafe fn EndQuery<'a, Param0: ::windows::core::IntoParam<'a, ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     pub unsafe fn ResolveQueryData<'a, Param0: ::windows::core::IntoParam<'a, ID3D12QueryHeap>, Param4: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pqueryheap: Param0, r#type: D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: Param4, aligneddestinationbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset)))
+        (::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset))
     }
     pub unsafe fn SetPredication<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pbuffer: Param0, alignedbufferoffset: u64, operation: D3D12_PREDICATION_OP) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation)))
+        (::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation))
     }
     pub unsafe fn SetMarker(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn BeginEvent(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn EndEvent(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn ExecuteIndirect<'a, Param0: ::windows::core::IntoParam<'a, ID3D12CommandSignature>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>, Param4: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pcommandsignature: Param0, maxcommandcount: u32, pargumentbuffer: Param2, argumentbufferoffset: u64, pcountbuffer: Param4, countbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), pcommandsignature.into_param().abi(), ::core::mem::transmute(maxcommandcount), pargumentbuffer.into_param().abi(), ::core::mem::transmute(argumentbufferoffset), pcountbuffer.into_param().abi(), ::core::mem::transmute(countbufferoffset)))
+        (::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), pcommandsignature.into_param().abi(), ::core::mem::transmute(maxcommandcount), pargumentbuffer.into_param().abi(), ::core::mem::transmute(argumentbufferoffset), pcountbuffer.into_param().abi(), ::core::mem::transmute(countbufferoffset))
     }
     pub unsafe fn AtomicCopyBufferUINT<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges)))
+        (::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges))
     }
     pub unsafe fn AtomicCopyBufferUINT64<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges)))
+        (::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges))
     }
     pub unsafe fn OMSetDepthBounds(&self, min: f32, max: f32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).62)(::core::mem::transmute_copy(self), ::core::mem::transmute(min), ::core::mem::transmute(max)))
+        (::windows::core::Interface::vtable(self).62)(::core::mem::transmute_copy(self), ::core::mem::transmute(min), ::core::mem::transmute(max))
     }
     pub unsafe fn SetSamplePositions(&self, numsamplesperpixel: u32, numpixels: u32, psamplepositions: *const D3D12_SAMPLE_POSITION) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(numsamplesperpixel), ::core::mem::transmute(numpixels), ::core::mem::transmute(psamplepositions)))
+        (::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(numsamplesperpixel), ::core::mem::transmute(numpixels), ::core::mem::transmute(psamplepositions))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn ResolveSubresourceRegion<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param4: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: Param4, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::Common::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcrect), ::core::mem::transmute(format), ::core::mem::transmute(resolvemode)))
+        (::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcrect), ::core::mem::transmute(format), ::core::mem::transmute(resolvemode))
     }
     pub unsafe fn SetViewInstanceMask(&self, mask: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).65)(::core::mem::transmute_copy(self), ::core::mem::transmute(mask)))
+        (::windows::core::Interface::vtable(self).65)(::core::mem::transmute_copy(self), ::core::mem::transmute(mask))
     }
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).66)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes)))
+        (::windows::core::Interface::vtable(self).66)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
     pub unsafe fn SetProtectedResourceSession<'a, Param0: ::windows::core::IntoParam<'a, ID3D12ProtectedResourceSession>>(&self, pprotectedresourcesession: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).67)(::core::mem::transmute_copy(self), pprotectedresourcesession.into_param().abi()))
+        (::windows::core::Interface::vtable(self).67)(::core::mem::transmute_copy(self), pprotectedresourcesession.into_param().abi())
     }
 }
 impl ::core::convert::From<ID3D12GraphicsCommandList3> for ID3D12GraphicsCommandList2 {
@@ -18587,217 +18587,217 @@ impl ID3D12GraphicsCommandList4 {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pallocator.into_param().abi(), pinitialstate.into_param().abi()).ok()
     }
     pub unsafe fn ClearState<'a, Param0: ::windows::core::IntoParam<'a, ID3D12PipelineState>>(&self, ppipelinestate: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi()))
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi())
     }
     pub unsafe fn DrawInstanced(&self, vertexcountperinstance: u32, instancecount: u32, startvertexlocation: u32, startinstancelocation: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(vertexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startvertexlocation), ::core::mem::transmute(startinstancelocation)))
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(vertexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startvertexlocation), ::core::mem::transmute(startinstancelocation))
     }
     pub unsafe fn DrawIndexedInstanced(&self, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(indexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startindexlocation), ::core::mem::transmute(basevertexlocation), ::core::mem::transmute(startinstancelocation)))
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(indexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startindexlocation), ::core::mem::transmute(basevertexlocation), ::core::mem::transmute(startinstancelocation))
     }
     pub unsafe fn Dispatch(&self, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(threadgroupcountx), ::core::mem::transmute(threadgroupcounty), ::core::mem::transmute(threadgroupcountz)))
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(threadgroupcountx), ::core::mem::transmute(threadgroupcounty), ::core::mem::transmute(threadgroupcountz))
     }
     pub unsafe fn CopyBufferRegion<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, numbytes: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(numbytes)))
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(numbytes))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CopyTextureRegion(&self, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: *const D3D12_BOX) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdst), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox)))
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdst), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox))
     }
     pub unsafe fn CopyResource<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param1: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, psrcresource: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), psrcresource.into_param().abi()))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), psrcresource.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CopyTiles<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param3: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, ptiledresource: Param0, ptileregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D12_TILE_REGION_SIZE, pbuffer: Param3, bufferstartoffsetinbytes: u64, flags: D3D12_TILE_COPY_FLAGS) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(ptileregionstartcoordinate), ::core::mem::transmute(ptileregionsize), pbuffer.into_param().abi(), ::core::mem::transmute(bufferstartoffsetinbytes), ::core::mem::transmute(flags)))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(ptileregionstartcoordinate), ::core::mem::transmute(ptileregionsize), pbuffer.into_param().abi(), ::core::mem::transmute(bufferstartoffsetinbytes), ::core::mem::transmute(flags))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn ResolveSubresource<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, psrcresource: Param2, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(format)))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(format))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn IASetPrimitiveTopology(&self, primitivetopology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(primitivetopology)))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(primitivetopology))
     }
     pub unsafe fn RSSetViewports(&self, numviewports: u32, pviewports: *const D3D12_VIEWPORT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(numviewports), ::core::mem::transmute(pviewports)))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(numviewports), ::core::mem::transmute(pviewports))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RSSetScissorRects(&self, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     pub unsafe fn OMSetBlendFactor(&self, blendfactor: *const f32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(blendfactor)))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(blendfactor))
     }
     pub unsafe fn OMSetStencilRef(&self, stencilref: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(stencilref)))
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(stencilref))
     }
     pub unsafe fn SetPipelineState<'a, Param0: ::windows::core::IntoParam<'a, ID3D12PipelineState>>(&self, ppipelinestate: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi()))
+        (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi())
     }
     pub unsafe fn ResourceBarrier(&self, numbarriers: u32, pbarriers: *const D3D12_RESOURCE_BARRIER) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers)))
+        (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers))
     }
     pub unsafe fn ExecuteBundle<'a, Param0: ::windows::core::IntoParam<'a, ID3D12GraphicsCommandList>>(&self, pcommandlist: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), pcommandlist.into_param().abi()))
+        (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), pcommandlist.into_param().abi())
     }
     pub unsafe fn SetDescriptorHeaps(&self, numdescriptorheaps: u32, ppdescriptorheaps: *const ::core::option::Option<ID3D12DescriptorHeap>) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptorheaps), ::core::mem::transmute(ppdescriptorheaps)))
+        (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptorheaps), ::core::mem::transmute(ppdescriptorheaps))
     }
     pub unsafe fn SetComputeRootSignature<'a, Param0: ::windows::core::IntoParam<'a, ID3D12RootSignature>>(&self, prootsignature: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), prootsignature.into_param().abi()))
+        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), prootsignature.into_param().abi())
     }
     pub unsafe fn SetGraphicsRootSignature<'a, Param0: ::windows::core::IntoParam<'a, ID3D12RootSignature>>(&self, prootsignature: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), prootsignature.into_param().abi()))
+        (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), prootsignature.into_param().abi())
     }
     pub unsafe fn SetComputeRootDescriptorTable<'a, Param1: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>>(&self, rootparameterindex: u32, basedescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi())
     }
     pub unsafe fn SetGraphicsRootDescriptorTable<'a, Param1: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>>(&self, rootparameterindex: u32, basedescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi())
     }
     pub unsafe fn SetComputeRoot32BitConstant(&self, rootparameterindex: u32, srcdata: u32, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetGraphicsRoot32BitConstant(&self, rootparameterindex: u32, srcdata: u32, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetComputeRoot32BitConstants(&self, rootparameterindex: u32, num32bitvaluestoset: u32, psrcdata: *const ::core::ffi::c_void, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetGraphicsRoot32BitConstants(&self, rootparameterindex: u32, num32bitvaluestoset: u32, psrcdata: *const ::core::ffi::c_void, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetComputeRootConstantBufferView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetGraphicsRootConstantBufferView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetComputeRootShaderResourceView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetGraphicsRootShaderResourceView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetComputeRootUnorderedAccessView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetGraphicsRootUnorderedAccessView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn IASetIndexBuffer(&self, pview: *const D3D12_INDEX_BUFFER_VIEW) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(pview)))
+        (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(pview))
     }
     pub unsafe fn IASetVertexBuffers(&self, startslot: u32, numviews: u32, pviews: *const D3D12_VERTEX_BUFFER_VIEW) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews)))
+        (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews))
     }
     pub unsafe fn SOSetTargets(&self, startslot: u32, numviews: u32, pviews: *const D3D12_STREAM_OUTPUT_BUFFER_VIEW) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews)))
+        (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OMSetRenderTargets<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, numrendertargetdescriptors: u32, prendertargetdescriptors: *const D3D12_CPU_DESCRIPTOR_HANDLE, rtssinglehandletodescriptorrange: Param2, pdepthstencildescriptor: *const D3D12_CPU_DESCRIPTOR_HANDLE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrendertargetdescriptors), ::core::mem::transmute(prendertargetdescriptors), rtssinglehandletodescriptorrange.into_param().abi(), ::core::mem::transmute(pdepthstencildescriptor)))
+        (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrendertargetdescriptors), ::core::mem::transmute(prendertargetdescriptors), rtssinglehandletodescriptorrange.into_param().abi(), ::core::mem::transmute(pdepthstencildescriptor))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearDepthStencilView<'a, Param0: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, depthstencilview: Param0, clearflags: D3D12_CLEAR_FLAGS, depth: f32, stencil: u8, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), depthstencilview.into_param().abi(), ::core::mem::transmute(clearflags), ::core::mem::transmute(depth), ::core::mem::transmute(stencil), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), depthstencilview.into_param().abi(), ::core::mem::transmute(clearflags), ::core::mem::transmute(depth), ::core::mem::transmute(stencil), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearRenderTargetView<'a, Param0: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, rendertargetview: Param0, colorrgba: *const f32, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), rendertargetview.into_param().abi(), ::core::mem::transmute(colorrgba), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), rendertargetview.into_param().abi(), ::core::mem::transmute(colorrgba), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearUnorderedAccessViewUint<'a, Param0: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, viewgpuhandleincurrentheap: Param0, viewcpuhandle: Param1, presource: Param2, values: *const u32, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearUnorderedAccessViewFloat<'a, Param0: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, viewgpuhandleincurrentheap: Param0, viewcpuhandle: Param1, presource: Param2, values: *const f32, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DiscardResource<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, presource: Param0, pregion: *const D3D12_DISCARD_REGION) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion)))
+        (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion))
     }
     pub unsafe fn BeginQuery<'a, Param0: ::windows::core::IntoParam<'a, ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     pub unsafe fn EndQuery<'a, Param0: ::windows::core::IntoParam<'a, ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     pub unsafe fn ResolveQueryData<'a, Param0: ::windows::core::IntoParam<'a, ID3D12QueryHeap>, Param4: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pqueryheap: Param0, r#type: D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: Param4, aligneddestinationbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset)))
+        (::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset))
     }
     pub unsafe fn SetPredication<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pbuffer: Param0, alignedbufferoffset: u64, operation: D3D12_PREDICATION_OP) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation)))
+        (::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation))
     }
     pub unsafe fn SetMarker(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn BeginEvent(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn EndEvent(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn ExecuteIndirect<'a, Param0: ::windows::core::IntoParam<'a, ID3D12CommandSignature>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>, Param4: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pcommandsignature: Param0, maxcommandcount: u32, pargumentbuffer: Param2, argumentbufferoffset: u64, pcountbuffer: Param4, countbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), pcommandsignature.into_param().abi(), ::core::mem::transmute(maxcommandcount), pargumentbuffer.into_param().abi(), ::core::mem::transmute(argumentbufferoffset), pcountbuffer.into_param().abi(), ::core::mem::transmute(countbufferoffset)))
+        (::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), pcommandsignature.into_param().abi(), ::core::mem::transmute(maxcommandcount), pargumentbuffer.into_param().abi(), ::core::mem::transmute(argumentbufferoffset), pcountbuffer.into_param().abi(), ::core::mem::transmute(countbufferoffset))
     }
     pub unsafe fn AtomicCopyBufferUINT<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges)))
+        (::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges))
     }
     pub unsafe fn AtomicCopyBufferUINT64<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges)))
+        (::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges))
     }
     pub unsafe fn OMSetDepthBounds(&self, min: f32, max: f32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).62)(::core::mem::transmute_copy(self), ::core::mem::transmute(min), ::core::mem::transmute(max)))
+        (::windows::core::Interface::vtable(self).62)(::core::mem::transmute_copy(self), ::core::mem::transmute(min), ::core::mem::transmute(max))
     }
     pub unsafe fn SetSamplePositions(&self, numsamplesperpixel: u32, numpixels: u32, psamplepositions: *const D3D12_SAMPLE_POSITION) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(numsamplesperpixel), ::core::mem::transmute(numpixels), ::core::mem::transmute(psamplepositions)))
+        (::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(numsamplesperpixel), ::core::mem::transmute(numpixels), ::core::mem::transmute(psamplepositions))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn ResolveSubresourceRegion<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param4: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: Param4, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::Common::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcrect), ::core::mem::transmute(format), ::core::mem::transmute(resolvemode)))
+        (::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcrect), ::core::mem::transmute(format), ::core::mem::transmute(resolvemode))
     }
     pub unsafe fn SetViewInstanceMask(&self, mask: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).65)(::core::mem::transmute_copy(self), ::core::mem::transmute(mask)))
+        (::windows::core::Interface::vtable(self).65)(::core::mem::transmute_copy(self), ::core::mem::transmute(mask))
     }
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).66)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes)))
+        (::windows::core::Interface::vtable(self).66)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
     pub unsafe fn SetProtectedResourceSession<'a, Param0: ::windows::core::IntoParam<'a, ID3D12ProtectedResourceSession>>(&self, pprotectedresourcesession: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).67)(::core::mem::transmute_copy(self), pprotectedresourcesession.into_param().abi()))
+        (::windows::core::Interface::vtable(self).67)(::core::mem::transmute_copy(self), pprotectedresourcesession.into_param().abi())
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn BeginRenderPass(&self, numrendertargets: u32, prendertargets: *const D3D12_RENDER_PASS_RENDER_TARGET_DESC, pdepthstencil: *const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC, flags: D3D12_RENDER_PASS_FLAGS) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).68)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrendertargets), ::core::mem::transmute(prendertargets), ::core::mem::transmute(pdepthstencil), ::core::mem::transmute(flags)))
+        (::windows::core::Interface::vtable(self).68)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrendertargets), ::core::mem::transmute(prendertargets), ::core::mem::transmute(pdepthstencil), ::core::mem::transmute(flags))
     }
     pub unsafe fn EndRenderPass(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).69)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).69)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn InitializeMetaCommand<'a, Param0: ::windows::core::IntoParam<'a, ID3D12MetaCommand>>(&self, pmetacommand: Param0, pinitializationparametersdata: *const ::core::ffi::c_void, initializationparametersdatasizeinbytes: usize) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).70)(::core::mem::transmute_copy(self), pmetacommand.into_param().abi(), ::core::mem::transmute(pinitializationparametersdata), ::core::mem::transmute(initializationparametersdatasizeinbytes)))
+        (::windows::core::Interface::vtable(self).70)(::core::mem::transmute_copy(self), pmetacommand.into_param().abi(), ::core::mem::transmute(pinitializationparametersdata), ::core::mem::transmute(initializationparametersdatasizeinbytes))
     }
     pub unsafe fn ExecuteMetaCommand<'a, Param0: ::windows::core::IntoParam<'a, ID3D12MetaCommand>>(&self, pmetacommand: Param0, pexecutionparametersdata: *const ::core::ffi::c_void, executionparametersdatasizeinbytes: usize) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).71)(::core::mem::transmute_copy(self), pmetacommand.into_param().abi(), ::core::mem::transmute(pexecutionparametersdata), ::core::mem::transmute(executionparametersdatasizeinbytes)))
+        (::windows::core::Interface::vtable(self).71)(::core::mem::transmute_copy(self), pmetacommand.into_param().abi(), ::core::mem::transmute(pexecutionparametersdata), ::core::mem::transmute(executionparametersdatasizeinbytes))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn BuildRaytracingAccelerationStructure(&self, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC, numpostbuildinfodescs: u32, ppostbuildinfodescs: *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).72)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numpostbuildinfodescs), ::core::mem::transmute(ppostbuildinfodescs)))
+        (::windows::core::Interface::vtable(self).72)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numpostbuildinfodescs), ::core::mem::transmute(ppostbuildinfodescs))
     }
     pub unsafe fn EmitRaytracingAccelerationStructurePostbuildInfo(&self, pdesc: *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC, numsourceaccelerationstructures: u32, psourceaccelerationstructuredata: *const u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).73)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numsourceaccelerationstructures), ::core::mem::transmute(psourceaccelerationstructuredata)))
+        (::windows::core::Interface::vtable(self).73)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numsourceaccelerationstructures), ::core::mem::transmute(psourceaccelerationstructuredata))
     }
     pub unsafe fn CopyRaytracingAccelerationStructure(&self, destaccelerationstructuredata: u64, sourceaccelerationstructuredata: u64, mode: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).74)(::core::mem::transmute_copy(self), ::core::mem::transmute(destaccelerationstructuredata), ::core::mem::transmute(sourceaccelerationstructuredata), ::core::mem::transmute(mode)))
+        (::windows::core::Interface::vtable(self).74)(::core::mem::transmute_copy(self), ::core::mem::transmute(destaccelerationstructuredata), ::core::mem::transmute(sourceaccelerationstructuredata), ::core::mem::transmute(mode))
     }
     pub unsafe fn SetPipelineState1<'a, Param0: ::windows::core::IntoParam<'a, ID3D12StateObject>>(&self, pstateobject: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).75)(::core::mem::transmute_copy(self), pstateobject.into_param().abi()))
+        (::windows::core::Interface::vtable(self).75)(::core::mem::transmute_copy(self), pstateobject.into_param().abi())
     }
     pub unsafe fn DispatchRays(&self, pdesc: *const D3D12_DISPATCH_RAYS_DESC) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).76)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc)))
+        (::windows::core::Interface::vtable(self).76)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
     }
 }
 impl ::core::convert::From<ID3D12GraphicsCommandList4> for ID3D12GraphicsCommandList3 {
@@ -19101,223 +19101,223 @@ impl ID3D12GraphicsCommandList5 {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pallocator.into_param().abi(), pinitialstate.into_param().abi()).ok()
     }
     pub unsafe fn ClearState<'a, Param0: ::windows::core::IntoParam<'a, ID3D12PipelineState>>(&self, ppipelinestate: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi()))
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi())
     }
     pub unsafe fn DrawInstanced(&self, vertexcountperinstance: u32, instancecount: u32, startvertexlocation: u32, startinstancelocation: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(vertexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startvertexlocation), ::core::mem::transmute(startinstancelocation)))
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(vertexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startvertexlocation), ::core::mem::transmute(startinstancelocation))
     }
     pub unsafe fn DrawIndexedInstanced(&self, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(indexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startindexlocation), ::core::mem::transmute(basevertexlocation), ::core::mem::transmute(startinstancelocation)))
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(indexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startindexlocation), ::core::mem::transmute(basevertexlocation), ::core::mem::transmute(startinstancelocation))
     }
     pub unsafe fn Dispatch(&self, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(threadgroupcountx), ::core::mem::transmute(threadgroupcounty), ::core::mem::transmute(threadgroupcountz)))
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(threadgroupcountx), ::core::mem::transmute(threadgroupcounty), ::core::mem::transmute(threadgroupcountz))
     }
     pub unsafe fn CopyBufferRegion<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, numbytes: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(numbytes)))
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(numbytes))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CopyTextureRegion(&self, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: *const D3D12_BOX) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdst), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox)))
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdst), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox))
     }
     pub unsafe fn CopyResource<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param1: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, psrcresource: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), psrcresource.into_param().abi()))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), psrcresource.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CopyTiles<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param3: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, ptiledresource: Param0, ptileregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D12_TILE_REGION_SIZE, pbuffer: Param3, bufferstartoffsetinbytes: u64, flags: D3D12_TILE_COPY_FLAGS) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(ptileregionstartcoordinate), ::core::mem::transmute(ptileregionsize), pbuffer.into_param().abi(), ::core::mem::transmute(bufferstartoffsetinbytes), ::core::mem::transmute(flags)))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(ptileregionstartcoordinate), ::core::mem::transmute(ptileregionsize), pbuffer.into_param().abi(), ::core::mem::transmute(bufferstartoffsetinbytes), ::core::mem::transmute(flags))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn ResolveSubresource<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, psrcresource: Param2, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(format)))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(format))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn IASetPrimitiveTopology(&self, primitivetopology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(primitivetopology)))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(primitivetopology))
     }
     pub unsafe fn RSSetViewports(&self, numviewports: u32, pviewports: *const D3D12_VIEWPORT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(numviewports), ::core::mem::transmute(pviewports)))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(numviewports), ::core::mem::transmute(pviewports))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RSSetScissorRects(&self, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     pub unsafe fn OMSetBlendFactor(&self, blendfactor: *const f32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(blendfactor)))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(blendfactor))
     }
     pub unsafe fn OMSetStencilRef(&self, stencilref: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(stencilref)))
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(stencilref))
     }
     pub unsafe fn SetPipelineState<'a, Param0: ::windows::core::IntoParam<'a, ID3D12PipelineState>>(&self, ppipelinestate: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi()))
+        (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi())
     }
     pub unsafe fn ResourceBarrier(&self, numbarriers: u32, pbarriers: *const D3D12_RESOURCE_BARRIER) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers)))
+        (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers))
     }
     pub unsafe fn ExecuteBundle<'a, Param0: ::windows::core::IntoParam<'a, ID3D12GraphicsCommandList>>(&self, pcommandlist: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), pcommandlist.into_param().abi()))
+        (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), pcommandlist.into_param().abi())
     }
     pub unsafe fn SetDescriptorHeaps(&self, numdescriptorheaps: u32, ppdescriptorheaps: *const ::core::option::Option<ID3D12DescriptorHeap>) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptorheaps), ::core::mem::transmute(ppdescriptorheaps)))
+        (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptorheaps), ::core::mem::transmute(ppdescriptorheaps))
     }
     pub unsafe fn SetComputeRootSignature<'a, Param0: ::windows::core::IntoParam<'a, ID3D12RootSignature>>(&self, prootsignature: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), prootsignature.into_param().abi()))
+        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), prootsignature.into_param().abi())
     }
     pub unsafe fn SetGraphicsRootSignature<'a, Param0: ::windows::core::IntoParam<'a, ID3D12RootSignature>>(&self, prootsignature: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), prootsignature.into_param().abi()))
+        (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), prootsignature.into_param().abi())
     }
     pub unsafe fn SetComputeRootDescriptorTable<'a, Param1: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>>(&self, rootparameterindex: u32, basedescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi())
     }
     pub unsafe fn SetGraphicsRootDescriptorTable<'a, Param1: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>>(&self, rootparameterindex: u32, basedescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi())
     }
     pub unsafe fn SetComputeRoot32BitConstant(&self, rootparameterindex: u32, srcdata: u32, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetGraphicsRoot32BitConstant(&self, rootparameterindex: u32, srcdata: u32, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetComputeRoot32BitConstants(&self, rootparameterindex: u32, num32bitvaluestoset: u32, psrcdata: *const ::core::ffi::c_void, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetGraphicsRoot32BitConstants(&self, rootparameterindex: u32, num32bitvaluestoset: u32, psrcdata: *const ::core::ffi::c_void, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetComputeRootConstantBufferView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetGraphicsRootConstantBufferView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetComputeRootShaderResourceView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetGraphicsRootShaderResourceView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetComputeRootUnorderedAccessView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetGraphicsRootUnorderedAccessView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn IASetIndexBuffer(&self, pview: *const D3D12_INDEX_BUFFER_VIEW) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(pview)))
+        (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(pview))
     }
     pub unsafe fn IASetVertexBuffers(&self, startslot: u32, numviews: u32, pviews: *const D3D12_VERTEX_BUFFER_VIEW) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews)))
+        (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews))
     }
     pub unsafe fn SOSetTargets(&self, startslot: u32, numviews: u32, pviews: *const D3D12_STREAM_OUTPUT_BUFFER_VIEW) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews)))
+        (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OMSetRenderTargets<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, numrendertargetdescriptors: u32, prendertargetdescriptors: *const D3D12_CPU_DESCRIPTOR_HANDLE, rtssinglehandletodescriptorrange: Param2, pdepthstencildescriptor: *const D3D12_CPU_DESCRIPTOR_HANDLE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrendertargetdescriptors), ::core::mem::transmute(prendertargetdescriptors), rtssinglehandletodescriptorrange.into_param().abi(), ::core::mem::transmute(pdepthstencildescriptor)))
+        (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrendertargetdescriptors), ::core::mem::transmute(prendertargetdescriptors), rtssinglehandletodescriptorrange.into_param().abi(), ::core::mem::transmute(pdepthstencildescriptor))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearDepthStencilView<'a, Param0: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, depthstencilview: Param0, clearflags: D3D12_CLEAR_FLAGS, depth: f32, stencil: u8, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), depthstencilview.into_param().abi(), ::core::mem::transmute(clearflags), ::core::mem::transmute(depth), ::core::mem::transmute(stencil), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), depthstencilview.into_param().abi(), ::core::mem::transmute(clearflags), ::core::mem::transmute(depth), ::core::mem::transmute(stencil), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearRenderTargetView<'a, Param0: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, rendertargetview: Param0, colorrgba: *const f32, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), rendertargetview.into_param().abi(), ::core::mem::transmute(colorrgba), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), rendertargetview.into_param().abi(), ::core::mem::transmute(colorrgba), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearUnorderedAccessViewUint<'a, Param0: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, viewgpuhandleincurrentheap: Param0, viewcpuhandle: Param1, presource: Param2, values: *const u32, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearUnorderedAccessViewFloat<'a, Param0: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, viewgpuhandleincurrentheap: Param0, viewcpuhandle: Param1, presource: Param2, values: *const f32, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DiscardResource<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, presource: Param0, pregion: *const D3D12_DISCARD_REGION) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion)))
+        (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion))
     }
     pub unsafe fn BeginQuery<'a, Param0: ::windows::core::IntoParam<'a, ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     pub unsafe fn EndQuery<'a, Param0: ::windows::core::IntoParam<'a, ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     pub unsafe fn ResolveQueryData<'a, Param0: ::windows::core::IntoParam<'a, ID3D12QueryHeap>, Param4: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pqueryheap: Param0, r#type: D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: Param4, aligneddestinationbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset)))
+        (::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset))
     }
     pub unsafe fn SetPredication<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pbuffer: Param0, alignedbufferoffset: u64, operation: D3D12_PREDICATION_OP) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation)))
+        (::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation))
     }
     pub unsafe fn SetMarker(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn BeginEvent(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn EndEvent(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn ExecuteIndirect<'a, Param0: ::windows::core::IntoParam<'a, ID3D12CommandSignature>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>, Param4: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pcommandsignature: Param0, maxcommandcount: u32, pargumentbuffer: Param2, argumentbufferoffset: u64, pcountbuffer: Param4, countbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), pcommandsignature.into_param().abi(), ::core::mem::transmute(maxcommandcount), pargumentbuffer.into_param().abi(), ::core::mem::transmute(argumentbufferoffset), pcountbuffer.into_param().abi(), ::core::mem::transmute(countbufferoffset)))
+        (::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), pcommandsignature.into_param().abi(), ::core::mem::transmute(maxcommandcount), pargumentbuffer.into_param().abi(), ::core::mem::transmute(argumentbufferoffset), pcountbuffer.into_param().abi(), ::core::mem::transmute(countbufferoffset))
     }
     pub unsafe fn AtomicCopyBufferUINT<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges)))
+        (::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges))
     }
     pub unsafe fn AtomicCopyBufferUINT64<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges)))
+        (::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges))
     }
     pub unsafe fn OMSetDepthBounds(&self, min: f32, max: f32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).62)(::core::mem::transmute_copy(self), ::core::mem::transmute(min), ::core::mem::transmute(max)))
+        (::windows::core::Interface::vtable(self).62)(::core::mem::transmute_copy(self), ::core::mem::transmute(min), ::core::mem::transmute(max))
     }
     pub unsafe fn SetSamplePositions(&self, numsamplesperpixel: u32, numpixels: u32, psamplepositions: *const D3D12_SAMPLE_POSITION) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(numsamplesperpixel), ::core::mem::transmute(numpixels), ::core::mem::transmute(psamplepositions)))
+        (::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(numsamplesperpixel), ::core::mem::transmute(numpixels), ::core::mem::transmute(psamplepositions))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn ResolveSubresourceRegion<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param4: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: Param4, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::Common::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcrect), ::core::mem::transmute(format), ::core::mem::transmute(resolvemode)))
+        (::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcrect), ::core::mem::transmute(format), ::core::mem::transmute(resolvemode))
     }
     pub unsafe fn SetViewInstanceMask(&self, mask: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).65)(::core::mem::transmute_copy(self), ::core::mem::transmute(mask)))
+        (::windows::core::Interface::vtable(self).65)(::core::mem::transmute_copy(self), ::core::mem::transmute(mask))
     }
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).66)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes)))
+        (::windows::core::Interface::vtable(self).66)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
     pub unsafe fn SetProtectedResourceSession<'a, Param0: ::windows::core::IntoParam<'a, ID3D12ProtectedResourceSession>>(&self, pprotectedresourcesession: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).67)(::core::mem::transmute_copy(self), pprotectedresourcesession.into_param().abi()))
+        (::windows::core::Interface::vtable(self).67)(::core::mem::transmute_copy(self), pprotectedresourcesession.into_param().abi())
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn BeginRenderPass(&self, numrendertargets: u32, prendertargets: *const D3D12_RENDER_PASS_RENDER_TARGET_DESC, pdepthstencil: *const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC, flags: D3D12_RENDER_PASS_FLAGS) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).68)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrendertargets), ::core::mem::transmute(prendertargets), ::core::mem::transmute(pdepthstencil), ::core::mem::transmute(flags)))
+        (::windows::core::Interface::vtable(self).68)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrendertargets), ::core::mem::transmute(prendertargets), ::core::mem::transmute(pdepthstencil), ::core::mem::transmute(flags))
     }
     pub unsafe fn EndRenderPass(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).69)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).69)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn InitializeMetaCommand<'a, Param0: ::windows::core::IntoParam<'a, ID3D12MetaCommand>>(&self, pmetacommand: Param0, pinitializationparametersdata: *const ::core::ffi::c_void, initializationparametersdatasizeinbytes: usize) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).70)(::core::mem::transmute_copy(self), pmetacommand.into_param().abi(), ::core::mem::transmute(pinitializationparametersdata), ::core::mem::transmute(initializationparametersdatasizeinbytes)))
+        (::windows::core::Interface::vtable(self).70)(::core::mem::transmute_copy(self), pmetacommand.into_param().abi(), ::core::mem::transmute(pinitializationparametersdata), ::core::mem::transmute(initializationparametersdatasizeinbytes))
     }
     pub unsafe fn ExecuteMetaCommand<'a, Param0: ::windows::core::IntoParam<'a, ID3D12MetaCommand>>(&self, pmetacommand: Param0, pexecutionparametersdata: *const ::core::ffi::c_void, executionparametersdatasizeinbytes: usize) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).71)(::core::mem::transmute_copy(self), pmetacommand.into_param().abi(), ::core::mem::transmute(pexecutionparametersdata), ::core::mem::transmute(executionparametersdatasizeinbytes)))
+        (::windows::core::Interface::vtable(self).71)(::core::mem::transmute_copy(self), pmetacommand.into_param().abi(), ::core::mem::transmute(pexecutionparametersdata), ::core::mem::transmute(executionparametersdatasizeinbytes))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn BuildRaytracingAccelerationStructure(&self, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC, numpostbuildinfodescs: u32, ppostbuildinfodescs: *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).72)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numpostbuildinfodescs), ::core::mem::transmute(ppostbuildinfodescs)))
+        (::windows::core::Interface::vtable(self).72)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numpostbuildinfodescs), ::core::mem::transmute(ppostbuildinfodescs))
     }
     pub unsafe fn EmitRaytracingAccelerationStructurePostbuildInfo(&self, pdesc: *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC, numsourceaccelerationstructures: u32, psourceaccelerationstructuredata: *const u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).73)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numsourceaccelerationstructures), ::core::mem::transmute(psourceaccelerationstructuredata)))
+        (::windows::core::Interface::vtable(self).73)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numsourceaccelerationstructures), ::core::mem::transmute(psourceaccelerationstructuredata))
     }
     pub unsafe fn CopyRaytracingAccelerationStructure(&self, destaccelerationstructuredata: u64, sourceaccelerationstructuredata: u64, mode: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).74)(::core::mem::transmute_copy(self), ::core::mem::transmute(destaccelerationstructuredata), ::core::mem::transmute(sourceaccelerationstructuredata), ::core::mem::transmute(mode)))
+        (::windows::core::Interface::vtable(self).74)(::core::mem::transmute_copy(self), ::core::mem::transmute(destaccelerationstructuredata), ::core::mem::transmute(sourceaccelerationstructuredata), ::core::mem::transmute(mode))
     }
     pub unsafe fn SetPipelineState1<'a, Param0: ::windows::core::IntoParam<'a, ID3D12StateObject>>(&self, pstateobject: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).75)(::core::mem::transmute_copy(self), pstateobject.into_param().abi()))
+        (::windows::core::Interface::vtable(self).75)(::core::mem::transmute_copy(self), pstateobject.into_param().abi())
     }
     pub unsafe fn DispatchRays(&self, pdesc: *const D3D12_DISPATCH_RAYS_DESC) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).76)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc)))
+        (::windows::core::Interface::vtable(self).76)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
     }
     pub unsafe fn RSSetShadingRate(&self, baseshadingrate: D3D12_SHADING_RATE, combiners: *const D3D12_SHADING_RATE_COMBINER) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).77)(::core::mem::transmute_copy(self), ::core::mem::transmute(baseshadingrate), ::core::mem::transmute(combiners)))
+        (::windows::core::Interface::vtable(self).77)(::core::mem::transmute_copy(self), ::core::mem::transmute(baseshadingrate), ::core::mem::transmute(combiners))
     }
     pub unsafe fn RSSetShadingRateImage<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, shadingrateimage: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).78)(::core::mem::transmute_copy(self), shadingrateimage.into_param().abi()))
+        (::windows::core::Interface::vtable(self).78)(::core::mem::transmute_copy(self), shadingrateimage.into_param().abi())
     }
 }
 impl ::core::convert::From<ID3D12GraphicsCommandList5> for ID3D12GraphicsCommandList4 {
@@ -19643,226 +19643,226 @@ impl ID3D12GraphicsCommandList6 {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pallocator.into_param().abi(), pinitialstate.into_param().abi()).ok()
     }
     pub unsafe fn ClearState<'a, Param0: ::windows::core::IntoParam<'a, ID3D12PipelineState>>(&self, ppipelinestate: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi()))
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi())
     }
     pub unsafe fn DrawInstanced(&self, vertexcountperinstance: u32, instancecount: u32, startvertexlocation: u32, startinstancelocation: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(vertexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startvertexlocation), ::core::mem::transmute(startinstancelocation)))
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(vertexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startvertexlocation), ::core::mem::transmute(startinstancelocation))
     }
     pub unsafe fn DrawIndexedInstanced(&self, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(indexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startindexlocation), ::core::mem::transmute(basevertexlocation), ::core::mem::transmute(startinstancelocation)))
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(indexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startindexlocation), ::core::mem::transmute(basevertexlocation), ::core::mem::transmute(startinstancelocation))
     }
     pub unsafe fn Dispatch(&self, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(threadgroupcountx), ::core::mem::transmute(threadgroupcounty), ::core::mem::transmute(threadgroupcountz)))
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(threadgroupcountx), ::core::mem::transmute(threadgroupcounty), ::core::mem::transmute(threadgroupcountz))
     }
     pub unsafe fn CopyBufferRegion<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, numbytes: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(numbytes)))
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(numbytes))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CopyTextureRegion(&self, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: *const D3D12_BOX) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdst), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox)))
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdst), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), ::core::mem::transmute(psrc), ::core::mem::transmute(psrcbox))
     }
     pub unsafe fn CopyResource<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param1: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, psrcresource: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), psrcresource.into_param().abi()))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), psrcresource.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CopyTiles<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param3: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, ptiledresource: Param0, ptileregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D12_TILE_REGION_SIZE, pbuffer: Param3, bufferstartoffsetinbytes: u64, flags: D3D12_TILE_COPY_FLAGS) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(ptileregionstartcoordinate), ::core::mem::transmute(ptileregionsize), pbuffer.into_param().abi(), ::core::mem::transmute(bufferstartoffsetinbytes), ::core::mem::transmute(flags)))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(ptileregionstartcoordinate), ::core::mem::transmute(ptileregionsize), pbuffer.into_param().abi(), ::core::mem::transmute(bufferstartoffsetinbytes), ::core::mem::transmute(flags))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn ResolveSubresource<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, psrcresource: Param2, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(format)))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(format))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn IASetPrimitiveTopology(&self, primitivetopology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(primitivetopology)))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(primitivetopology))
     }
     pub unsafe fn RSSetViewports(&self, numviewports: u32, pviewports: *const D3D12_VIEWPORT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(numviewports), ::core::mem::transmute(pviewports)))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(numviewports), ::core::mem::transmute(pviewports))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RSSetScissorRects(&self, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     pub unsafe fn OMSetBlendFactor(&self, blendfactor: *const f32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(blendfactor)))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(blendfactor))
     }
     pub unsafe fn OMSetStencilRef(&self, stencilref: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(stencilref)))
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(stencilref))
     }
     pub unsafe fn SetPipelineState<'a, Param0: ::windows::core::IntoParam<'a, ID3D12PipelineState>>(&self, ppipelinestate: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi()))
+        (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ppipelinestate.into_param().abi())
     }
     pub unsafe fn ResourceBarrier(&self, numbarriers: u32, pbarriers: *const D3D12_RESOURCE_BARRIER) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers)))
+        (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers))
     }
     pub unsafe fn ExecuteBundle<'a, Param0: ::windows::core::IntoParam<'a, ID3D12GraphicsCommandList>>(&self, pcommandlist: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), pcommandlist.into_param().abi()))
+        (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), pcommandlist.into_param().abi())
     }
     pub unsafe fn SetDescriptorHeaps(&self, numdescriptorheaps: u32, ppdescriptorheaps: *const ::core::option::Option<ID3D12DescriptorHeap>) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptorheaps), ::core::mem::transmute(ppdescriptorheaps)))
+        (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdescriptorheaps), ::core::mem::transmute(ppdescriptorheaps))
     }
     pub unsafe fn SetComputeRootSignature<'a, Param0: ::windows::core::IntoParam<'a, ID3D12RootSignature>>(&self, prootsignature: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), prootsignature.into_param().abi()))
+        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), prootsignature.into_param().abi())
     }
     pub unsafe fn SetGraphicsRootSignature<'a, Param0: ::windows::core::IntoParam<'a, ID3D12RootSignature>>(&self, prootsignature: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), prootsignature.into_param().abi()))
+        (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), prootsignature.into_param().abi())
     }
     pub unsafe fn SetComputeRootDescriptorTable<'a, Param1: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>>(&self, rootparameterindex: u32, basedescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi())
     }
     pub unsafe fn SetGraphicsRootDescriptorTable<'a, Param1: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>>(&self, rootparameterindex: u32, basedescriptor: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi()))
+        (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), basedescriptor.into_param().abi())
     }
     pub unsafe fn SetComputeRoot32BitConstant(&self, rootparameterindex: u32, srcdata: u32, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetGraphicsRoot32BitConstant(&self, rootparameterindex: u32, srcdata: u32, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(srcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetComputeRoot32BitConstants(&self, rootparameterindex: u32, num32bitvaluestoset: u32, psrcdata: *const ::core::ffi::c_void, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetGraphicsRoot32BitConstants(&self, rootparameterindex: u32, num32bitvaluestoset: u32, psrcdata: *const ::core::ffi::c_void, destoffsetin32bitvalues: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues)))
+        (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(num32bitvaluestoset), ::core::mem::transmute(psrcdata), ::core::mem::transmute(destoffsetin32bitvalues))
     }
     pub unsafe fn SetComputeRootConstantBufferView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetGraphicsRootConstantBufferView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetComputeRootShaderResourceView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetGraphicsRootShaderResourceView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetComputeRootUnorderedAccessView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     pub unsafe fn SetGraphicsRootUnorderedAccessView(&self, rootparameterindex: u32, bufferlocation: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation)))
+        (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), ::core::mem::transmute(rootparameterindex), ::core::mem::transmute(bufferlocation))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn IASetIndexBuffer(&self, pview: *const D3D12_INDEX_BUFFER_VIEW) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(pview)))
+        (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(pview))
     }
     pub unsafe fn IASetVertexBuffers(&self, startslot: u32, numviews: u32, pviews: *const D3D12_VERTEX_BUFFER_VIEW) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews)))
+        (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews))
     }
     pub unsafe fn SOSetTargets(&self, startslot: u32, numviews: u32, pviews: *const D3D12_STREAM_OUTPUT_BUFFER_VIEW) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews)))
+        (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numviews), ::core::mem::transmute(pviews))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OMSetRenderTargets<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, numrendertargetdescriptors: u32, prendertargetdescriptors: *const D3D12_CPU_DESCRIPTOR_HANDLE, rtssinglehandletodescriptorrange: Param2, pdepthstencildescriptor: *const D3D12_CPU_DESCRIPTOR_HANDLE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrendertargetdescriptors), ::core::mem::transmute(prendertargetdescriptors), rtssinglehandletodescriptorrange.into_param().abi(), ::core::mem::transmute(pdepthstencildescriptor)))
+        (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrendertargetdescriptors), ::core::mem::transmute(prendertargetdescriptors), rtssinglehandletodescriptorrange.into_param().abi(), ::core::mem::transmute(pdepthstencildescriptor))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearDepthStencilView<'a, Param0: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, depthstencilview: Param0, clearflags: D3D12_CLEAR_FLAGS, depth: f32, stencil: u8, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), depthstencilview.into_param().abi(), ::core::mem::transmute(clearflags), ::core::mem::transmute(depth), ::core::mem::transmute(stencil), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), depthstencilview.into_param().abi(), ::core::mem::transmute(clearflags), ::core::mem::transmute(depth), ::core::mem::transmute(stencil), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearRenderTargetView<'a, Param0: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, rendertargetview: Param0, colorrgba: *const f32, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), rendertargetview.into_param().abi(), ::core::mem::transmute(colorrgba), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), rendertargetview.into_param().abi(), ::core::mem::transmute(colorrgba), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearUnorderedAccessViewUint<'a, Param0: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, viewgpuhandleincurrentheap: Param0, viewcpuhandle: Param1, presource: Param2, values: *const u32, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearUnorderedAccessViewFloat<'a, Param0: ::windows::core::IntoParam<'a, D3D12_GPU_DESCRIPTOR_HANDLE>, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, viewgpuhandleincurrentheap: Param0, viewcpuhandle: Param1, presource: Param2, values: *const f32, numrects: u32, prects: *const super::super::Foundation::RECT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
+        (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), viewgpuhandleincurrentheap.into_param().abi(), viewcpuhandle.into_param().abi(), presource.into_param().abi(), ::core::mem::transmute(values), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DiscardResource<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, presource: Param0, pregion: *const D3D12_DISCARD_REGION) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion)))
+        (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion))
     }
     pub unsafe fn BeginQuery<'a, Param0: ::windows::core::IntoParam<'a, ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     pub unsafe fn EndQuery<'a, Param0: ::windows::core::IntoParam<'a, ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     pub unsafe fn ResolveQueryData<'a, Param0: ::windows::core::IntoParam<'a, ID3D12QueryHeap>, Param4: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pqueryheap: Param0, r#type: D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: Param4, aligneddestinationbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset)))
+        (::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset))
     }
     pub unsafe fn SetPredication<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pbuffer: Param0, alignedbufferoffset: u64, operation: D3D12_PREDICATION_OP) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation)))
+        (::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation))
     }
     pub unsafe fn SetMarker(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn BeginEvent(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn EndEvent(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn ExecuteIndirect<'a, Param0: ::windows::core::IntoParam<'a, ID3D12CommandSignature>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>, Param4: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pcommandsignature: Param0, maxcommandcount: u32, pargumentbuffer: Param2, argumentbufferoffset: u64, pcountbuffer: Param4, countbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), pcommandsignature.into_param().abi(), ::core::mem::transmute(maxcommandcount), pargumentbuffer.into_param().abi(), ::core::mem::transmute(argumentbufferoffset), pcountbuffer.into_param().abi(), ::core::mem::transmute(countbufferoffset)))
+        (::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), pcommandsignature.into_param().abi(), ::core::mem::transmute(maxcommandcount), pargumentbuffer.into_param().abi(), ::core::mem::transmute(argumentbufferoffset), pcountbuffer.into_param().abi(), ::core::mem::transmute(countbufferoffset))
     }
     pub unsafe fn AtomicCopyBufferUINT<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges)))
+        (::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges))
     }
     pub unsafe fn AtomicCopyBufferUINT64<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstbuffer: Param0, dstoffset: u64, psrcbuffer: Param2, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges)))
+        (::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self), pdstbuffer.into_param().abi(), ::core::mem::transmute(dstoffset), psrcbuffer.into_param().abi(), ::core::mem::transmute(srcoffset), ::core::mem::transmute(dependencies), ::core::mem::transmute(ppdependentresources), ::core::mem::transmute(pdependentsubresourceranges))
     }
     pub unsafe fn OMSetDepthBounds(&self, min: f32, max: f32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).62)(::core::mem::transmute_copy(self), ::core::mem::transmute(min), ::core::mem::transmute(max)))
+        (::windows::core::Interface::vtable(self).62)(::core::mem::transmute_copy(self), ::core::mem::transmute(min), ::core::mem::transmute(max))
     }
     pub unsafe fn SetSamplePositions(&self, numsamplesperpixel: u32, numpixels: u32, psamplepositions: *const D3D12_SAMPLE_POSITION) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(numsamplesperpixel), ::core::mem::transmute(numpixels), ::core::mem::transmute(psamplepositions)))
+        (::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), ::core::mem::transmute(numsamplesperpixel), ::core::mem::transmute(numpixels), ::core::mem::transmute(psamplepositions))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn ResolveSubresourceRegion<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param4: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: Param4, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::Common::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcrect), ::core::mem::transmute(format), ::core::mem::transmute(resolvemode)))
+        (::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcrect), ::core::mem::transmute(format), ::core::mem::transmute(resolvemode))
     }
     pub unsafe fn SetViewInstanceMask(&self, mask: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).65)(::core::mem::transmute_copy(self), ::core::mem::transmute(mask)))
+        (::windows::core::Interface::vtable(self).65)(::core::mem::transmute_copy(self), ::core::mem::transmute(mask))
     }
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).66)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes)))
+        (::windows::core::Interface::vtable(self).66)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
     pub unsafe fn SetProtectedResourceSession<'a, Param0: ::windows::core::IntoParam<'a, ID3D12ProtectedResourceSession>>(&self, pprotectedresourcesession: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).67)(::core::mem::transmute_copy(self), pprotectedresourcesession.into_param().abi()))
+        (::windows::core::Interface::vtable(self).67)(::core::mem::transmute_copy(self), pprotectedresourcesession.into_param().abi())
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn BeginRenderPass(&self, numrendertargets: u32, prendertargets: *const D3D12_RENDER_PASS_RENDER_TARGET_DESC, pdepthstencil: *const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC, flags: D3D12_RENDER_PASS_FLAGS) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).68)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrendertargets), ::core::mem::transmute(prendertargets), ::core::mem::transmute(pdepthstencil), ::core::mem::transmute(flags)))
+        (::windows::core::Interface::vtable(self).68)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrendertargets), ::core::mem::transmute(prendertargets), ::core::mem::transmute(pdepthstencil), ::core::mem::transmute(flags))
     }
     pub unsafe fn EndRenderPass(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).69)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).69)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn InitializeMetaCommand<'a, Param0: ::windows::core::IntoParam<'a, ID3D12MetaCommand>>(&self, pmetacommand: Param0, pinitializationparametersdata: *const ::core::ffi::c_void, initializationparametersdatasizeinbytes: usize) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).70)(::core::mem::transmute_copy(self), pmetacommand.into_param().abi(), ::core::mem::transmute(pinitializationparametersdata), ::core::mem::transmute(initializationparametersdatasizeinbytes)))
+        (::windows::core::Interface::vtable(self).70)(::core::mem::transmute_copy(self), pmetacommand.into_param().abi(), ::core::mem::transmute(pinitializationparametersdata), ::core::mem::transmute(initializationparametersdatasizeinbytes))
     }
     pub unsafe fn ExecuteMetaCommand<'a, Param0: ::windows::core::IntoParam<'a, ID3D12MetaCommand>>(&self, pmetacommand: Param0, pexecutionparametersdata: *const ::core::ffi::c_void, executionparametersdatasizeinbytes: usize) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).71)(::core::mem::transmute_copy(self), pmetacommand.into_param().abi(), ::core::mem::transmute(pexecutionparametersdata), ::core::mem::transmute(executionparametersdatasizeinbytes)))
+        (::windows::core::Interface::vtable(self).71)(::core::mem::transmute_copy(self), pmetacommand.into_param().abi(), ::core::mem::transmute(pexecutionparametersdata), ::core::mem::transmute(executionparametersdatasizeinbytes))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn BuildRaytracingAccelerationStructure(&self, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC, numpostbuildinfodescs: u32, ppostbuildinfodescs: *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).72)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numpostbuildinfodescs), ::core::mem::transmute(ppostbuildinfodescs)))
+        (::windows::core::Interface::vtable(self).72)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numpostbuildinfodescs), ::core::mem::transmute(ppostbuildinfodescs))
     }
     pub unsafe fn EmitRaytracingAccelerationStructurePostbuildInfo(&self, pdesc: *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC, numsourceaccelerationstructures: u32, psourceaccelerationstructuredata: *const u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).73)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numsourceaccelerationstructures), ::core::mem::transmute(psourceaccelerationstructuredata)))
+        (::windows::core::Interface::vtable(self).73)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numsourceaccelerationstructures), ::core::mem::transmute(psourceaccelerationstructuredata))
     }
     pub unsafe fn CopyRaytracingAccelerationStructure(&self, destaccelerationstructuredata: u64, sourceaccelerationstructuredata: u64, mode: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).74)(::core::mem::transmute_copy(self), ::core::mem::transmute(destaccelerationstructuredata), ::core::mem::transmute(sourceaccelerationstructuredata), ::core::mem::transmute(mode)))
+        (::windows::core::Interface::vtable(self).74)(::core::mem::transmute_copy(self), ::core::mem::transmute(destaccelerationstructuredata), ::core::mem::transmute(sourceaccelerationstructuredata), ::core::mem::transmute(mode))
     }
     pub unsafe fn SetPipelineState1<'a, Param0: ::windows::core::IntoParam<'a, ID3D12StateObject>>(&self, pstateobject: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).75)(::core::mem::transmute_copy(self), pstateobject.into_param().abi()))
+        (::windows::core::Interface::vtable(self).75)(::core::mem::transmute_copy(self), pstateobject.into_param().abi())
     }
     pub unsafe fn DispatchRays(&self, pdesc: *const D3D12_DISPATCH_RAYS_DESC) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).76)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc)))
+        (::windows::core::Interface::vtable(self).76)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
     }
     pub unsafe fn RSSetShadingRate(&self, baseshadingrate: D3D12_SHADING_RATE, combiners: *const D3D12_SHADING_RATE_COMBINER) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).77)(::core::mem::transmute_copy(self), ::core::mem::transmute(baseshadingrate), ::core::mem::transmute(combiners)))
+        (::windows::core::Interface::vtable(self).77)(::core::mem::transmute_copy(self), ::core::mem::transmute(baseshadingrate), ::core::mem::transmute(combiners))
     }
     pub unsafe fn RSSetShadingRateImage<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>>(&self, shadingrateimage: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).78)(::core::mem::transmute_copy(self), shadingrateimage.into_param().abi()))
+        (::windows::core::Interface::vtable(self).78)(::core::mem::transmute_copy(self), shadingrateimage.into_param().abi())
     }
     pub unsafe fn DispatchMesh(&self, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).79)(::core::mem::transmute_copy(self), ::core::mem::transmute(threadgroupcountx), ::core::mem::transmute(threadgroupcounty), ::core::mem::transmute(threadgroupcountz)))
+        (::windows::core::Interface::vtable(self).79)(::core::mem::transmute_copy(self), ::core::mem::transmute(threadgroupcountx), ::core::mem::transmute(threadgroupcounty), ::core::mem::transmute(threadgroupcountz))
     }
 }
 impl ::core::convert::From<ID3D12GraphicsCommandList6> for ID3D12GraphicsCommandList5 {
@@ -20479,7 +20479,7 @@ impl ID3D12InfoQueue {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(messagecountlimit)).ok()
     }
     pub unsafe fn ClearStoredMessages(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn GetMessage(&self, messageindex: u64, pmessage: *mut D3D12_MESSAGE, pmessagebytelength: *mut usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(messageindex), ::core::mem::transmute(pmessage), ::core::mem::transmute(pmessagebytelength)).ok()
@@ -20509,7 +20509,7 @@ impl ID3D12InfoQueue {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfilter), ::core::mem::transmute(pfilterbytelength)).ok()
     }
     pub unsafe fn ClearStorageFilter(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn PushEmptyStorageFilter(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self)).ok()
@@ -20521,7 +20521,7 @@ impl ID3D12InfoQueue {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfilter)).ok()
     }
     pub unsafe fn PopStorageFilter(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn GetStorageFilterStackSize(&self) -> u32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self)))
@@ -20533,7 +20533,7 @@ impl ID3D12InfoQueue {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfilter), ::core::mem::transmute(pfilterbytelength)).ok()
     }
     pub unsafe fn ClearRetrievalFilter(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn PushEmptyRetrievalFilter(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self)).ok()
@@ -20545,7 +20545,7 @@ impl ID3D12InfoQueue {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfilter)).ok()
     }
     pub unsafe fn PopRetrievalFilter(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn GetRetrievalFilterStackSize(&self) -> u32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self)))
@@ -20584,7 +20584,7 @@ impl ID3D12InfoQueue {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMuteDebugOutput<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bmute: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), bmute.into_param().abi()))
+        (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), bmute.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMuteDebugOutput(&self) -> super::super::Foundation::BOOL {
@@ -20685,7 +20685,7 @@ impl ID3D12InfoQueue1 {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(messagecountlimit)).ok()
     }
     pub unsafe fn ClearStoredMessages(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn GetMessage(&self, messageindex: u64, pmessage: *mut D3D12_MESSAGE, pmessagebytelength: *mut usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(messageindex), ::core::mem::transmute(pmessage), ::core::mem::transmute(pmessagebytelength)).ok()
@@ -20715,7 +20715,7 @@ impl ID3D12InfoQueue1 {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfilter), ::core::mem::transmute(pfilterbytelength)).ok()
     }
     pub unsafe fn ClearStorageFilter(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn PushEmptyStorageFilter(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self)).ok()
@@ -20727,7 +20727,7 @@ impl ID3D12InfoQueue1 {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfilter)).ok()
     }
     pub unsafe fn PopStorageFilter(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn GetStorageFilterStackSize(&self) -> u32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self)))
@@ -20739,7 +20739,7 @@ impl ID3D12InfoQueue1 {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfilter), ::core::mem::transmute(pfilterbytelength)).ok()
     }
     pub unsafe fn ClearRetrievalFilter(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn PushEmptyRetrievalFilter(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self)).ok()
@@ -20751,7 +20751,7 @@ impl ID3D12InfoQueue1 {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfilter)).ok()
     }
     pub unsafe fn PopRetrievalFilter(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn GetRetrievalFilterStackSize(&self) -> u32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self)))
@@ -20790,7 +20790,7 @@ impl ID3D12InfoQueue1 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMuteDebugOutput<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bmute: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), bmute.into_param().abi()))
+        (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), bmute.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMuteDebugOutput(&self) -> super::super::Foundation::BOOL {
@@ -20975,7 +20975,7 @@ pub struct ID3D12LibraryReflectionVtbl(
 pub struct ID3D12LifetimeOwner(::windows::core::IUnknown);
 impl ID3D12LifetimeOwner {
     pub unsafe fn LifetimeStateUpdated(&self, newstate: D3D12_LIFETIME_STATE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate))
     }
 }
 impl ::core::convert::From<ID3D12LifetimeOwner> for ::windows::core::IUnknown {
@@ -22443,7 +22443,7 @@ impl ID3D12Resource {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(subresource), ::core::mem::transmute(preadrange), ::core::mem::transmute(ppdata)).ok()
     }
     pub unsafe fn Unmap(&self, subresource: u32, pwrittenrange: *const D3D12_RANGE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(subresource), ::core::mem::transmute(pwrittenrange)))
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(subresource), ::core::mem::transmute(pwrittenrange))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetDesc(&self) -> D3D12_RESOURCE_DESC {
@@ -22603,7 +22603,7 @@ impl ID3D12Resource1 {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(subresource), ::core::mem::transmute(preadrange), ::core::mem::transmute(ppdata)).ok()
     }
     pub unsafe fn Unmap(&self, subresource: u32, pwrittenrange: *const D3D12_RANGE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(subresource), ::core::mem::transmute(pwrittenrange)))
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(subresource), ::core::mem::transmute(pwrittenrange))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetDesc(&self) -> D3D12_RESOURCE_DESC {
@@ -22787,7 +22787,7 @@ impl ID3D12Resource2 {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(subresource), ::core::mem::transmute(preadrange), ::core::mem::transmute(ppdata)).ok()
     }
     pub unsafe fn Unmap(&self, subresource: u32, pwrittenrange: *const D3D12_RANGE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(subresource), ::core::mem::transmute(pwrittenrange)))
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(subresource), ::core::mem::transmute(pwrittenrange))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetDesc(&self) -> D3D12_RESOURCE_DESC {
@@ -23207,7 +23207,7 @@ impl ID3D12ShaderCacheSession {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pkey), ::core::mem::transmute(keysize), ::core::mem::transmute(pvalue), ::core::mem::transmute(valuesize)).ok()
     }
     pub unsafe fn SetDeleteOnDestroy(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn GetDesc(&self) -> D3D12_SHADER_CACHE_SESSION_DESC {
         let mut result__: D3D12_SHADER_CACHE_SESSION_DESC = ::core::mem::zeroed();
@@ -23618,16 +23618,16 @@ pub struct ID3D12SharingContract(::windows::core::IUnknown);
 impl ID3D12SharingContract {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Present<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, presource: Param0, subresource: u32, window: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(subresource), window.into_param().abi()))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(subresource), window.into_param().abi())
     }
     pub unsafe fn SharedFenceSignal<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Fence>>(&self, pfence: Param0, fencevalue: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pfence.into_param().abi(), ::core::mem::transmute(fencevalue)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pfence.into_param().abi(), ::core::mem::transmute(fencevalue))
     }
     pub unsafe fn BeginCapturableWork(&self, guid: *const ::windows::core::GUID) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid)))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid))
     }
     pub unsafe fn EndCapturableWork(&self, guid: *const ::windows::core::GUID) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid)))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid))
     }
 }
 impl ::core::convert::From<ID3D12SharingContract> for ::windows::core::IUnknown {
@@ -23820,7 +23820,7 @@ impl ID3D12StateObjectProperties {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)))
     }
     pub unsafe fn SetPipelineStackSize(&self, pipelinestacksizeinbytes: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pipelinestacksizeinbytes)))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pipelinestacksizeinbytes))
     }
 }
 impl ::core::convert::From<ID3D12StateObjectProperties> for ::windows::core::IUnknown {
@@ -23944,7 +23944,7 @@ pub struct ID3D12Tools(::windows::core::IUnknown);
 impl ID3D12Tools {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableShaderInstrumentation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, benable: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), benable.into_param().abi()))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), benable.into_param().abi())
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShaderInstrumentationEnabled(&self) -> super::super::Foundation::BOOL {

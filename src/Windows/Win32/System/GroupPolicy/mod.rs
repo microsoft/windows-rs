@@ -517,7 +517,7 @@ pub unsafe fn GetLocalManagedApplicationData<'a, Param0: ::windows::core::IntoPa
         extern "system" {
             fn GetLocalManagedApplicationData(productcode: super::super::Foundation::PWSTR, displayname: *mut super::super::Foundation::PWSTR, supporturl: *mut super::super::Foundation::PWSTR);
         }
-        ::core::mem::transmute(GetLocalManagedApplicationData(productcode.into_param().abi(), ::core::mem::transmute(displayname), ::core::mem::transmute(supporturl)))
+        GetLocalManagedApplicationData(productcode.into_param().abi(), ::core::mem::transmute(displayname), ::core::mem::transmute(supporturl))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -499,7 +499,7 @@ pub unsafe fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE) {
         extern "system" {
             fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE);
         }
-        ::core::mem::transmute(SrpHostingTerminate(::core::mem::transmute(r#type)))
+        SrpHostingTerminate(::core::mem::transmute(r#type))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -30,7 +30,7 @@ pub unsafe fn CloseIMsgSession(lpmsgsess: *mut _MSGSESS) {
         extern "system" {
             fn CloseIMsgSession(lpmsgsess: *mut _MSGSESS);
         }
-        ::core::mem::transmute(CloseIMsgSession(::core::mem::transmute(lpmsgsess)))
+        CloseIMsgSession(::core::mem::transmute(lpmsgsess))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

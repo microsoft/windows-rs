@@ -431,7 +431,7 @@ pub unsafe fn ClosePseudoConsole<'a, Param0: ::windows::core::IntoParam<'a, HPCO
         extern "system" {
             fn ClosePseudoConsole(hpc: HPCON);
         }
-        ::core::mem::transmute(ClosePseudoConsole(hpc.into_param().abi()))
+        ClosePseudoConsole(hpc.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -476,7 +476,7 @@ pub unsafe fn ExpungeConsoleCommandHistoryA<'a, Param0: ::windows::core::IntoPar
         extern "system" {
             fn ExpungeConsoleCommandHistoryA(exename: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(ExpungeConsoleCommandHistoryA(exename.into_param().abi()))
+        ExpungeConsoleCommandHistoryA(exename.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -490,7 +490,7 @@ pub unsafe fn ExpungeConsoleCommandHistoryW<'a, Param0: ::windows::core::IntoPar
         extern "system" {
             fn ExpungeConsoleCommandHistoryW(exename: super::super::Foundation::PWSTR);
         }
-        ::core::mem::transmute(ExpungeConsoleCommandHistoryW(exename.into_param().abi()))
+        ExpungeConsoleCommandHistoryW(exename.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

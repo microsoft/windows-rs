@@ -18,12 +18,12 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
         }
     };
 
-    let constraints = gen_param_constraints(&params, gen);
+    let constraints = gen_param_constraints(params, gen);
     let arch_cfg = gen.arch_cfg(method.attributes());
-    let feature_cfg = gen.method_cfg(def, &method).0;
+    let feature_cfg = gen.method_cfg(def, method).0;
     let vtable_offset = Literal::usize_unsuffixed(vtable_offset);
     let args = params.iter().map(gen_winrt_abi_arg);
-    let params = gen_winrt_params(&params, gen);
+    let params = gen_winrt_params(params, gen);
     let interface_name = gen_type_name(def, gen);
 
     let deprecated = if method.is_deprecated() {
@@ -73,7 +73,7 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
                     .and_then(|| result__ )
             }
         } else {
-            let abi_type_name = gen_abi_element_name(&return_sig, gen);
+            let abi_type_name = gen_abi_element_name(return_sig, gen);
 
             quote! {
                 let mut result__: #abi_type_name = ::core::mem::zeroed();
@@ -136,7 +136,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, vtable_offset: usize, m
 
     let constraints = gen_param_constraints(&signature.params, gen);
     let arch_cfg = gen.arch_cfg(method.attributes());
-    let feature_cfg = gen.method_cfg(def, &method).0;
+    let feature_cfg = gen.method_cfg(def, method).0;
     let vtable_offset = Literal::usize_unsuffixed(vtable_offset);
 
     match signature.kind() {
@@ -224,6 +224,18 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, vtable_offset: usize, m
                 #feature_cfg
                 pub unsafe fn #name<#constraints>(&self, #params) #return_sig {
                     ::core::mem::transmute((::windows::core::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)*))
+                }
+            }
+        }
+        SignatureKind::ReturnVoid => {
+            let params = gen_win32_params(&signature.params, gen);
+            let args = signature.params.iter().map(gen_win32_abi_arg);
+
+            quote! {
+                #arch_cfg
+                #feature_cfg
+                pub unsafe fn #name<#constraints>(&self, #params) {
+                    (::windows::core::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)*)
                 }
             }
         }

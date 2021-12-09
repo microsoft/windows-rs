@@ -5148,16 +5148,16 @@ impl IDMLBindingTable {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn BindInputs(&self, bindingcount: u32, bindings: *const DML_BINDING_DESC) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(bindingcount), ::core::mem::transmute(bindings)))
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(bindingcount), ::core::mem::transmute(bindings))
     }
     pub unsafe fn BindOutputs(&self, bindingcount: u32, bindings: *const DML_BINDING_DESC) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(bindingcount), ::core::mem::transmute(bindings)))
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(bindingcount), ::core::mem::transmute(bindings))
     }
     pub unsafe fn BindTemporaryResource(&self, binding: *const DML_BINDING_DESC) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(binding)))
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(binding))
     }
     pub unsafe fn BindPersistentResource(&self, binding: *const DML_BINDING_DESC) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(binding)))
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(binding))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn Reset(&self, desc: *const DML_BINDING_TABLE_DESC) -> ::windows::core::Result<()> {
@@ -5280,7 +5280,7 @@ impl IDMLCommandRecorder {
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn RecordDispatch<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12CommandList>, Param1: ::windows::core::IntoParam<'a, IDMLDispatchable>, Param2: ::windows::core::IntoParam<'a, IDMLBindingTable>>(&self, commandlist: Param0, dispatchable: Param1, bindings: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), commandlist.into_param().abi(), dispatchable.into_param().abi(), bindings.into_param().abi()))
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), commandlist.into_param().abi(), dispatchable.into_param().abi(), bindings.into_param().abi())
     }
 }
 impl ::core::convert::From<IDMLCommandRecorder> for IDMLDeviceChild {
@@ -5533,7 +5533,7 @@ pub struct IDMLDebugDevice(::windows::core::IUnknown);
 impl IDMLDebugDevice {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMuteDebugOutput<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, mute: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), mute.into_param().abi()))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), mute.into_param().abi())
     }
 }
 impl ::core::convert::From<IDMLDebugDevice> for ::windows::core::IUnknown {

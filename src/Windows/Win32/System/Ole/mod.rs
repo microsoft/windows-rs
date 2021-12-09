@@ -282,7 +282,7 @@ pub unsafe fn ClearCustData(pcustdata: *mut super::Com::CUSTDATA) {
         extern "system" {
             fn ClearCustData(pcustdata: *mut super::Com::CUSTDATA);
         }
-        ::core::mem::transmute(ClearCustData(::core::mem::transmute(pcustdata)))
+        ClearCustData(::core::mem::transmute(pcustdata))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -812,7 +812,7 @@ pub unsafe fn HRGN_UserFree(param0: *const u32, param1: *const super::super::Gra
         extern "system" {
             fn HRGN_UserFree(param0: *const u32, param1: *const super::super::Graphics::Gdi::HRGN);
         }
-        ::core::mem::transmute(HRGN_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        HRGN_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -826,7 +826,7 @@ pub unsafe fn HRGN_UserFree64(param0: *const u32, param1: *const super::super::G
         extern "system" {
             fn HRGN_UserFree64(param0: *const u32, param1: *const super::super::Graphics::Gdi::HRGN);
         }
-        ::core::mem::transmute(HRGN_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        HRGN_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -920,26 +920,26 @@ pub struct IAdviseSinkEx(::windows::core::IUnknown);
 impl IAdviseSinkEx {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn OnDataChange(&self, pformatetc: *const super::Com::FORMATETC, pstgmed: *const super::Com::STGMEDIUM) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pformatetc), ::core::mem::transmute(pstgmed)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pformatetc), ::core::mem::transmute(pstgmed))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnViewChange(&self, dwaspect: u32, lindex: i32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaspect), ::core::mem::transmute(lindex)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaspect), ::core::mem::transmute(lindex))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnRename<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IMoniker>>(&self, pmk: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pmk.into_param().abi()))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pmk.into_param().abi())
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnSave(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnClose(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn OnViewStatusChange(&self, dwviewstatus: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwviewstatus)))
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwviewstatus))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11436,7 +11436,7 @@ pub unsafe fn OaEnablePerUserTLibRegistration() {
         extern "system" {
             fn OaEnablePerUserTLibRegistration();
         }
-        ::core::mem::transmute(OaEnablePerUserTLibRegistration())
+        OaEnablePerUserTLibRegistration()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12645,7 +12645,7 @@ pub unsafe fn OleUninitialize() {
         extern "system" {
             fn OleUninitialize();
         }
-        ::core::mem::transmute(OleUninitialize())
+        OleUninitialize()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13306,7 +13306,7 @@ pub unsafe fn ReleaseStgMedium(param0: *mut super::Com::STGMEDIUM) {
         extern "system" {
             fn ReleaseStgMedium(param0: *mut super::Com::STGMEDIUM);
         }
-        ::core::mem::transmute(ReleaseStgMedium(::core::mem::transmute(param0)))
+        ReleaseStgMedium(::core::mem::transmute(param0))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13745,7 +13745,7 @@ pub unsafe fn SafeArrayReleaseData(pdata: *const ::core::ffi::c_void) {
         extern "system" {
             fn SafeArrayReleaseData(pdata: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(SafeArrayReleaseData(::core::mem::transmute(pdata)))
+        SafeArrayReleaseData(::core::mem::transmute(pdata))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13759,7 +13759,7 @@ pub unsafe fn SafeArrayReleaseDescriptor(psa: *const super::Com::SAFEARRAY) {
         extern "system" {
             fn SafeArrayReleaseDescriptor(psa: *const super::Com::SAFEARRAY);
         }
-        ::core::mem::transmute(SafeArrayReleaseDescriptor(::core::mem::transmute(psa)))
+        SafeArrayReleaseDescriptor(::core::mem::transmute(psa))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18238,7 +18238,7 @@ pub unsafe fn VariantInit(pvarg: *mut super::Com::VARIANT) {
         extern "system" {
             fn VariantInit(pvarg: *mut super::Com::VARIANT);
         }
-        ::core::mem::transmute(VariantInit(::core::mem::transmute(pvarg)))
+        VariantInit(::core::mem::transmute(pvarg))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

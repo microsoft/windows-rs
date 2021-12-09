@@ -5778,7 +5778,7 @@ pub unsafe fn RestoreThreadPreferredUILanguages<'a, Param0: ::windows::core::Int
         extern "system" {
             fn RestoreThreadPreferredUILanguages(snapshot: HSAVEDUILANGUAGES);
         }
-        ::core::mem::transmute(RestoreThreadPreferredUILanguages(snapshot.into_param().abi()))
+        RestoreThreadPreferredUILanguages(snapshot.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7348,7 +7348,7 @@ pub unsafe fn UCNV_FROM_U_CALLBACK_ESCAPE(context: *const ::core::ffi::c_void, f
         extern "system" {
             fn UCNV_FROM_U_CALLBACK_ESCAPE(context: *const ::core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode);
         }
-        ::core::mem::transmute(UCNV_FROM_U_CALLBACK_ESCAPE(::core::mem::transmute(context), ::core::mem::transmute(fromuargs), ::core::mem::transmute(codeunits), ::core::mem::transmute(length), ::core::mem::transmute(codepoint), ::core::mem::transmute(reason), ::core::mem::transmute(err)))
+        UCNV_FROM_U_CALLBACK_ESCAPE(::core::mem::transmute(context), ::core::mem::transmute(fromuargs), ::core::mem::transmute(codeunits), ::core::mem::transmute(length), ::core::mem::transmute(codepoint), ::core::mem::transmute(reason), ::core::mem::transmute(err))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7362,7 +7362,7 @@ pub unsafe fn UCNV_FROM_U_CALLBACK_SKIP(context: *const ::core::ffi::c_void, fro
         extern "system" {
             fn UCNV_FROM_U_CALLBACK_SKIP(context: *const ::core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode);
         }
-        ::core::mem::transmute(UCNV_FROM_U_CALLBACK_SKIP(::core::mem::transmute(context), ::core::mem::transmute(fromuargs), ::core::mem::transmute(codeunits), ::core::mem::transmute(length), ::core::mem::transmute(codepoint), ::core::mem::transmute(reason), ::core::mem::transmute(err)))
+        UCNV_FROM_U_CALLBACK_SKIP(::core::mem::transmute(context), ::core::mem::transmute(fromuargs), ::core::mem::transmute(codeunits), ::core::mem::transmute(length), ::core::mem::transmute(codepoint), ::core::mem::transmute(reason), ::core::mem::transmute(err))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7376,7 +7376,7 @@ pub unsafe fn UCNV_FROM_U_CALLBACK_STOP(context: *const ::core::ffi::c_void, fro
         extern "system" {
             fn UCNV_FROM_U_CALLBACK_STOP(context: *const ::core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode);
         }
-        ::core::mem::transmute(UCNV_FROM_U_CALLBACK_STOP(::core::mem::transmute(context), ::core::mem::transmute(fromuargs), ::core::mem::transmute(codeunits), ::core::mem::transmute(length), ::core::mem::transmute(codepoint), ::core::mem::transmute(reason), ::core::mem::transmute(err)))
+        UCNV_FROM_U_CALLBACK_STOP(::core::mem::transmute(context), ::core::mem::transmute(fromuargs), ::core::mem::transmute(codeunits), ::core::mem::transmute(length), ::core::mem::transmute(codepoint), ::core::mem::transmute(reason), ::core::mem::transmute(err))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7390,7 +7390,7 @@ pub unsafe fn UCNV_FROM_U_CALLBACK_SUBSTITUTE(context: *const ::core::ffi::c_voi
         extern "system" {
             fn UCNV_FROM_U_CALLBACK_SUBSTITUTE(context: *const ::core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode);
         }
-        ::core::mem::transmute(UCNV_FROM_U_CALLBACK_SUBSTITUTE(::core::mem::transmute(context), ::core::mem::transmute(fromuargs), ::core::mem::transmute(codeunits), ::core::mem::transmute(length), ::core::mem::transmute(codepoint), ::core::mem::transmute(reason), ::core::mem::transmute(err)))
+        UCNV_FROM_U_CALLBACK_SUBSTITUTE(::core::mem::transmute(context), ::core::mem::transmute(fromuargs), ::core::mem::transmute(codeunits), ::core::mem::transmute(length), ::core::mem::transmute(codepoint), ::core::mem::transmute(reason), ::core::mem::transmute(err))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7407,7 +7407,7 @@ pub unsafe fn UCNV_TO_U_CALLBACK_ESCAPE<'a, Param2: ::windows::core::IntoParam<'
         extern "system" {
             fn UCNV_TO_U_CALLBACK_ESCAPE(context: *const ::core::ffi::c_void, touargs: *mut UConverterToUnicodeArgs, codeunits: super::Foundation::PSTR, length: i32, reason: UConverterCallbackReason, err: *mut UErrorCode);
         }
-        ::core::mem::transmute(UCNV_TO_U_CALLBACK_ESCAPE(::core::mem::transmute(context), ::core::mem::transmute(touargs), codeunits.into_param().abi(), ::core::mem::transmute(length), ::core::mem::transmute(reason), ::core::mem::transmute(err)))
+        UCNV_TO_U_CALLBACK_ESCAPE(::core::mem::transmute(context), ::core::mem::transmute(touargs), codeunits.into_param().abi(), ::core::mem::transmute(length), ::core::mem::transmute(reason), ::core::mem::transmute(err))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7421,7 +7421,7 @@ pub unsafe fn UCNV_TO_U_CALLBACK_SKIP<'a, Param2: ::windows::core::IntoParam<'a,
         extern "system" {
             fn UCNV_TO_U_CALLBACK_SKIP(context: *const ::core::ffi::c_void, touargs: *mut UConverterToUnicodeArgs, codeunits: super::Foundation::PSTR, length: i32, reason: UConverterCallbackReason, err: *mut UErrorCode);
         }
-        ::core::mem::transmute(UCNV_TO_U_CALLBACK_SKIP(::core::mem::transmute(context), ::core::mem::transmute(touargs), codeunits.into_param().abi(), ::core::mem::transmute(length), ::core::mem::transmute(reason), ::core::mem::transmute(err)))
+        UCNV_TO_U_CALLBACK_SKIP(::core::mem::transmute(context), ::core::mem::transmute(touargs), codeunits.into_param().abi(), ::core::mem::transmute(length), ::core::mem::transmute(reason), ::core::mem::transmute(err))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7435,7 +7435,7 @@ pub unsafe fn UCNV_TO_U_CALLBACK_STOP<'a, Param2: ::windows::core::IntoParam<'a,
         extern "system" {
             fn UCNV_TO_U_CALLBACK_STOP(context: *const ::core::ffi::c_void, touargs: *mut UConverterToUnicodeArgs, codeunits: super::Foundation::PSTR, length: i32, reason: UConverterCallbackReason, err: *mut UErrorCode);
         }
-        ::core::mem::transmute(UCNV_TO_U_CALLBACK_STOP(::core::mem::transmute(context), ::core::mem::transmute(touargs), codeunits.into_param().abi(), ::core::mem::transmute(length), ::core::mem::transmute(reason), ::core::mem::transmute(err)))
+        UCNV_TO_U_CALLBACK_STOP(::core::mem::transmute(context), ::core::mem::transmute(touargs), codeunits.into_param().abi(), ::core::mem::transmute(length), ::core::mem::transmute(reason), ::core::mem::transmute(err))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7449,7 +7449,7 @@ pub unsafe fn UCNV_TO_U_CALLBACK_SUBSTITUTE<'a, Param2: ::windows::core::IntoPar
         extern "system" {
             fn UCNV_TO_U_CALLBACK_SUBSTITUTE(context: *const ::core::ffi::c_void, touargs: *mut UConverterToUnicodeArgs, codeunits: super::Foundation::PSTR, length: i32, reason: UConverterCallbackReason, err: *mut UErrorCode);
         }
-        ::core::mem::transmute(UCNV_TO_U_CALLBACK_SUBSTITUTE(::core::mem::transmute(context), ::core::mem::transmute(touargs), codeunits.into_param().abi(), ::core::mem::transmute(length), ::core::mem::transmute(reason), ::core::mem::transmute(err)))
+        UCNV_TO_U_CALLBACK_SUBSTITUTE(::core::mem::transmute(context), ::core::mem::transmute(touargs), codeunits.into_param().abi(), ::core::mem::transmute(length), ::core::mem::transmute(reason), ::core::mem::transmute(err))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10305,7 +10305,7 @@ pub unsafe fn u_UCharsToChars<'a, Param1: ::windows::core::IntoParam<'a, super::
         extern "system" {
             fn u_UCharsToChars(us: *const u16, cs: super::Foundation::PSTR, length: i32);
         }
-        ::core::mem::transmute(u_UCharsToChars(::core::mem::transmute(us), cs.into_param().abi(), ::core::mem::transmute(length)))
+        u_UCharsToChars(::core::mem::transmute(us), cs.into_param().abi(), ::core::mem::transmute(length))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10346,7 +10346,7 @@ pub unsafe fn u_catclose(catd: *mut UResourceBundle) {
         extern "system" {
             fn u_catclose(catd: *mut UResourceBundle);
         }
-        ::core::mem::transmute(u_catclose(::core::mem::transmute(catd)))
+        u_catclose(::core::mem::transmute(catd))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10386,7 +10386,7 @@ pub unsafe fn u_charAge(c: i32, versionarray: *mut u8) {
         extern "system" {
             fn u_charAge(c: i32, versionarray: *mut u8);
         }
-        ::core::mem::transmute(u_charAge(::core::mem::transmute(c), ::core::mem::transmute(versionarray)))
+        u_charAge(::core::mem::transmute(c), ::core::mem::transmute(versionarray))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10480,7 +10480,7 @@ pub unsafe fn u_charsToUChars<'a, Param0: ::windows::core::IntoParam<'a, super::
         extern "system" {
             fn u_charsToUChars(cs: super::Foundation::PSTR, us: *mut u16, length: i32);
         }
-        ::core::mem::transmute(u_charsToUChars(cs.into_param().abi(), ::core::mem::transmute(us), ::core::mem::transmute(length)))
+        u_charsToUChars(cs.into_param().abi(), ::core::mem::transmute(us), ::core::mem::transmute(length))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10493,7 +10493,7 @@ pub unsafe fn u_cleanup() {
         extern "system" {
             fn u_cleanup();
         }
-        ::core::mem::transmute(u_cleanup())
+        u_cleanup()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10533,7 +10533,7 @@ pub unsafe fn u_enumCharNames(start: i32, limit: i32, r#fn: *mut UEnumCharNamesF
         extern "system" {
             fn u_enumCharNames(start: i32, limit: i32, r#fn: *mut ::windows::core::RawPtr, context: *mut ::core::ffi::c_void, namechoice: UCharNameChoice, perrorcode: *mut UErrorCode);
         }
-        ::core::mem::transmute(u_enumCharNames(::core::mem::transmute(start), ::core::mem::transmute(limit), ::core::mem::transmute(r#fn), ::core::mem::transmute(context), ::core::mem::transmute(namechoice), ::core::mem::transmute(perrorcode)))
+        u_enumCharNames(::core::mem::transmute(start), ::core::mem::transmute(limit), ::core::mem::transmute(r#fn), ::core::mem::transmute(context), ::core::mem::transmute(namechoice), ::core::mem::transmute(perrorcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10546,7 +10546,7 @@ pub unsafe fn u_enumCharTypes(enumrange: *mut UCharEnumTypeRange, context: *cons
         extern "system" {
             fn u_enumCharTypes(enumrange: *mut ::windows::core::RawPtr, context: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(u_enumCharTypes(::core::mem::transmute(enumrange), ::core::mem::transmute(context)))
+        u_enumCharTypes(::core::mem::transmute(enumrange), ::core::mem::transmute(context))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10666,7 +10666,7 @@ pub unsafe fn u_getDataVersion(dataversionfillin: *mut u8, status: *mut UErrorCo
         extern "system" {
             fn u_getDataVersion(dataversionfillin: *mut u8, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(u_getDataVersion(::core::mem::transmute(dataversionfillin), ::core::mem::transmute(status)))
+        u_getDataVersion(::core::mem::transmute(dataversionfillin), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10813,7 +10813,7 @@ pub unsafe fn u_getUnicodeVersion(versionarray: *mut u8) {
         extern "system" {
             fn u_getUnicodeVersion(versionarray: *mut u8);
         }
-        ::core::mem::transmute(u_getUnicodeVersion(::core::mem::transmute(versionarray)))
+        u_getUnicodeVersion(::core::mem::transmute(versionarray))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10826,7 +10826,7 @@ pub unsafe fn u_getVersion(versionarray: *mut u8) {
         extern "system" {
             fn u_getVersion(versionarray: *mut u8);
         }
-        ::core::mem::transmute(u_getVersion(::core::mem::transmute(versionarray)))
+        u_getVersion(::core::mem::transmute(versionarray))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10852,7 +10852,7 @@ pub unsafe fn u_init(status: *mut UErrorCode) {
         extern "system" {
             fn u_init(status: *mut UErrorCode);
         }
-        ::core::mem::transmute(u_init(::core::mem::transmute(status)))
+        u_init(::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11360,7 +11360,7 @@ pub unsafe fn u_parseMessage<'a, Param0: ::windows::core::IntoParam<'a, super::F
         extern "system" {
             fn u_parseMessage(locale: super::Foundation::PSTR, pattern: *const u16, patternlength: i32, source: *const u16, sourcelength: i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(u_parseMessage(locale.into_param().abi(), ::core::mem::transmute(pattern), ::core::mem::transmute(patternlength), ::core::mem::transmute(source), ::core::mem::transmute(sourcelength), ::core::mem::transmute(status)))
+        u_parseMessage(locale.into_param().abi(), ::core::mem::transmute(pattern), ::core::mem::transmute(patternlength), ::core::mem::transmute(source), ::core::mem::transmute(sourcelength), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11374,7 +11374,7 @@ pub unsafe fn u_parseMessageWithError<'a, Param0: ::windows::core::IntoParam<'a,
         extern "system" {
             fn u_parseMessageWithError(locale: super::Foundation::PSTR, pattern: *const u16, patternlength: i32, source: *const u16, sourcelength: i32, parseerror: *mut UParseError, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(u_parseMessageWithError(locale.into_param().abi(), ::core::mem::transmute(pattern), ::core::mem::transmute(patternlength), ::core::mem::transmute(source), ::core::mem::transmute(sourcelength), ::core::mem::transmute(parseerror), ::core::mem::transmute(status)))
+        u_parseMessageWithError(locale.into_param().abi(), ::core::mem::transmute(pattern), ::core::mem::transmute(patternlength), ::core::mem::transmute(source), ::core::mem::transmute(sourcelength), ::core::mem::transmute(parseerror), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11387,7 +11387,7 @@ pub unsafe fn u_setMemoryFunctions(context: *const ::core::ffi::c_void, a: *mut 
         extern "system" {
             fn u_setMemoryFunctions(context: *const ::core::ffi::c_void, a: *mut ::windows::core::RawPtr, r: *mut ::windows::core::RawPtr, f: *mut ::windows::core::RawPtr, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(u_setMemoryFunctions(::core::mem::transmute(context), ::core::mem::transmute(a), ::core::mem::transmute(r), ::core::mem::transmute(f), ::core::mem::transmute(status)))
+        u_setMemoryFunctions(::core::mem::transmute(context), ::core::mem::transmute(a), ::core::mem::transmute(r), ::core::mem::transmute(f), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12092,7 +12092,7 @@ pub unsafe fn u_versionFromString<'a, Param1: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn u_versionFromString(versionarray: *mut u8, versionstring: super::Foundation::PSTR);
         }
-        ::core::mem::transmute(u_versionFromString(::core::mem::transmute(versionarray), versionstring.into_param().abi()))
+        u_versionFromString(::core::mem::transmute(versionarray), versionstring.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12105,7 +12105,7 @@ pub unsafe fn u_versionFromUString(versionarray: *mut u8, versionstring: *const 
         extern "system" {
             fn u_versionFromUString(versionarray: *mut u8, versionstring: *const u16);
         }
-        ::core::mem::transmute(u_versionFromUString(::core::mem::transmute(versionarray), ::core::mem::transmute(versionstring)))
+        u_versionFromUString(::core::mem::transmute(versionarray), ::core::mem::transmute(versionstring))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12119,7 +12119,7 @@ pub unsafe fn u_versionToString<'a, Param1: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn u_versionToString(versionarray: *const u8, versionstring: super::Foundation::PSTR);
         }
-        ::core::mem::transmute(u_versionToString(::core::mem::transmute(versionarray), versionstring.into_param().abi()))
+        u_versionToString(::core::mem::transmute(versionarray), versionstring.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12161,7 +12161,7 @@ pub unsafe fn u_vparseMessage<'a, Param0: ::windows::core::IntoParam<'a, super::
         extern "system" {
             fn u_vparseMessage(locale: super::Foundation::PSTR, pattern: *const u16, patternlength: i32, source: *const u16, sourcelength: i32, ap: *mut i8, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(u_vparseMessage(locale.into_param().abi(), ::core::mem::transmute(pattern), ::core::mem::transmute(patternlength), ::core::mem::transmute(source), ::core::mem::transmute(sourcelength), ::core::mem::transmute(ap), ::core::mem::transmute(status)))
+        u_vparseMessage(locale.into_param().abi(), ::core::mem::transmute(pattern), ::core::mem::transmute(patternlength), ::core::mem::transmute(source), ::core::mem::transmute(sourcelength), ::core::mem::transmute(ap), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12175,7 +12175,7 @@ pub unsafe fn u_vparseMessageWithError<'a, Param0: ::windows::core::IntoParam<'a
         extern "system" {
             fn u_vparseMessageWithError(locale: super::Foundation::PSTR, pattern: *const u16, patternlength: i32, source: *const u16, sourcelength: i32, ap: *mut i8, parseerror: *mut UParseError, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(u_vparseMessageWithError(locale.into_param().abi(), ::core::mem::transmute(pattern), ::core::mem::transmute(patternlength), ::core::mem::transmute(source), ::core::mem::transmute(sourcelength), ::core::mem::transmute(ap), ::core::mem::transmute(parseerror), ::core::mem::transmute(status)))
+        u_vparseMessageWithError(locale.into_param().abi(), ::core::mem::transmute(pattern), ::core::mem::transmute(patternlength), ::core::mem::transmute(source), ::core::mem::transmute(sourcelength), ::core::mem::transmute(ap), ::core::mem::transmute(parseerror), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12188,7 +12188,7 @@ pub unsafe fn ubidi_close(pbidi: *mut UBiDi) {
         extern "system" {
             fn ubidi_close(pbidi: *mut UBiDi);
         }
-        ::core::mem::transmute(ubidi_close(::core::mem::transmute(pbidi)))
+        ubidi_close(::core::mem::transmute(pbidi))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12240,7 +12240,7 @@ pub unsafe fn ubidi_getClassCallback(pbidi: *mut UBiDi, r#fn: *mut UBiDiClassCal
         extern "system" {
             fn ubidi_getClassCallback(pbidi: *mut UBiDi, r#fn: *mut ::windows::core::RawPtr, context: *const *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(ubidi_getClassCallback(::core::mem::transmute(pbidi), ::core::mem::transmute(r#fn), ::core::mem::transmute(context)))
+        ubidi_getClassCallback(::core::mem::transmute(pbidi), ::core::mem::transmute(r#fn), ::core::mem::transmute(context))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12331,7 +12331,7 @@ pub unsafe fn ubidi_getLogicalMap(pbidi: *mut UBiDi, indexmap: *mut i32, perrorc
         extern "system" {
             fn ubidi_getLogicalMap(pbidi: *mut UBiDi, indexmap: *mut i32, perrorcode: *mut UErrorCode);
         }
-        ::core::mem::transmute(ubidi_getLogicalMap(::core::mem::transmute(pbidi), ::core::mem::transmute(indexmap), ::core::mem::transmute(perrorcode)))
+        ubidi_getLogicalMap(::core::mem::transmute(pbidi), ::core::mem::transmute(indexmap), ::core::mem::transmute(perrorcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12344,7 +12344,7 @@ pub unsafe fn ubidi_getLogicalRun(pbidi: *const UBiDi, logicalposition: i32, plo
         extern "system" {
             fn ubidi_getLogicalRun(pbidi: *const UBiDi, logicalposition: i32, plogicallimit: *mut i32, plevel: *mut u8);
         }
-        ::core::mem::transmute(ubidi_getLogicalRun(::core::mem::transmute(pbidi), ::core::mem::transmute(logicalposition), ::core::mem::transmute(plogicallimit), ::core::mem::transmute(plevel)))
+        ubidi_getLogicalRun(::core::mem::transmute(pbidi), ::core::mem::transmute(logicalposition), ::core::mem::transmute(plogicallimit), ::core::mem::transmute(plevel))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12383,7 +12383,7 @@ pub unsafe fn ubidi_getParagraphByIndex(pbidi: *const UBiDi, paraindex: i32, ppa
         extern "system" {
             fn ubidi_getParagraphByIndex(pbidi: *const UBiDi, paraindex: i32, pparastart: *mut i32, pparalimit: *mut i32, pparalevel: *mut u8, perrorcode: *mut UErrorCode);
         }
-        ::core::mem::transmute(ubidi_getParagraphByIndex(::core::mem::transmute(pbidi), ::core::mem::transmute(paraindex), ::core::mem::transmute(pparastart), ::core::mem::transmute(pparalimit), ::core::mem::transmute(pparalevel), ::core::mem::transmute(perrorcode)))
+        ubidi_getParagraphByIndex(::core::mem::transmute(pbidi), ::core::mem::transmute(paraindex), ::core::mem::transmute(pparastart), ::core::mem::transmute(pparalimit), ::core::mem::transmute(pparalevel), ::core::mem::transmute(perrorcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12474,7 +12474,7 @@ pub unsafe fn ubidi_getVisualMap(pbidi: *mut UBiDi, indexmap: *mut i32, perrorco
         extern "system" {
             fn ubidi_getVisualMap(pbidi: *mut UBiDi, indexmap: *mut i32, perrorcode: *mut UErrorCode);
         }
-        ::core::mem::transmute(ubidi_getVisualMap(::core::mem::transmute(pbidi), ::core::mem::transmute(indexmap), ::core::mem::transmute(perrorcode)))
+        ubidi_getVisualMap(::core::mem::transmute(pbidi), ::core::mem::transmute(indexmap), ::core::mem::transmute(perrorcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12500,7 +12500,7 @@ pub unsafe fn ubidi_invertMap(srcmap: *const i32, destmap: *mut i32, length: i32
         extern "system" {
             fn ubidi_invertMap(srcmap: *const i32, destmap: *mut i32, length: i32);
         }
-        ::core::mem::transmute(ubidi_invertMap(::core::mem::transmute(srcmap), ::core::mem::transmute(destmap), ::core::mem::transmute(length)))
+        ubidi_invertMap(::core::mem::transmute(srcmap), ::core::mem::transmute(destmap), ::core::mem::transmute(length))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12565,7 +12565,7 @@ pub unsafe fn ubidi_orderParagraphsLTR(pbidi: *mut UBiDi, orderparagraphsltr: i8
         extern "system" {
             fn ubidi_orderParagraphsLTR(pbidi: *mut UBiDi, orderparagraphsltr: i8);
         }
-        ::core::mem::transmute(ubidi_orderParagraphsLTR(::core::mem::transmute(pbidi), ::core::mem::transmute(orderparagraphsltr)))
+        ubidi_orderParagraphsLTR(::core::mem::transmute(pbidi), ::core::mem::transmute(orderparagraphsltr))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12578,7 +12578,7 @@ pub unsafe fn ubidi_reorderLogical(levels: *const u8, length: i32, indexmap: *mu
         extern "system" {
             fn ubidi_reorderLogical(levels: *const u8, length: i32, indexmap: *mut i32);
         }
-        ::core::mem::transmute(ubidi_reorderLogical(::core::mem::transmute(levels), ::core::mem::transmute(length), ::core::mem::transmute(indexmap)))
+        ubidi_reorderLogical(::core::mem::transmute(levels), ::core::mem::transmute(length), ::core::mem::transmute(indexmap))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12591,7 +12591,7 @@ pub unsafe fn ubidi_reorderVisual(levels: *const u8, length: i32, indexmap: *mut
         extern "system" {
             fn ubidi_reorderVisual(levels: *const u8, length: i32, indexmap: *mut i32);
         }
-        ::core::mem::transmute(ubidi_reorderVisual(::core::mem::transmute(levels), ::core::mem::transmute(length), ::core::mem::transmute(indexmap)))
+        ubidi_reorderVisual(::core::mem::transmute(levels), ::core::mem::transmute(length), ::core::mem::transmute(indexmap))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12604,7 +12604,7 @@ pub unsafe fn ubidi_setClassCallback(pbidi: *mut UBiDi, newfn: UBiDiClassCallbac
         extern "system" {
             fn ubidi_setClassCallback(pbidi: *mut UBiDi, newfn: ::windows::core::RawPtr, newcontext: *const ::core::ffi::c_void, oldfn: *mut ::windows::core::RawPtr, oldcontext: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode);
         }
-        ::core::mem::transmute(ubidi_setClassCallback(::core::mem::transmute(pbidi), ::core::mem::transmute(newfn), ::core::mem::transmute(newcontext), ::core::mem::transmute(oldfn), ::core::mem::transmute(oldcontext), ::core::mem::transmute(perrorcode)))
+        ubidi_setClassCallback(::core::mem::transmute(pbidi), ::core::mem::transmute(newfn), ::core::mem::transmute(newcontext), ::core::mem::transmute(oldfn), ::core::mem::transmute(oldcontext), ::core::mem::transmute(perrorcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12617,7 +12617,7 @@ pub unsafe fn ubidi_setContext(pbidi: *mut UBiDi, prologue: *const u16, prolengt
         extern "system" {
             fn ubidi_setContext(pbidi: *mut UBiDi, prologue: *const u16, prolength: i32, epilogue: *const u16, epilength: i32, perrorcode: *mut UErrorCode);
         }
-        ::core::mem::transmute(ubidi_setContext(::core::mem::transmute(pbidi), ::core::mem::transmute(prologue), ::core::mem::transmute(prolength), ::core::mem::transmute(epilogue), ::core::mem::transmute(epilength), ::core::mem::transmute(perrorcode)))
+        ubidi_setContext(::core::mem::transmute(pbidi), ::core::mem::transmute(prologue), ::core::mem::transmute(prolength), ::core::mem::transmute(epilogue), ::core::mem::transmute(epilength), ::core::mem::transmute(perrorcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12630,7 +12630,7 @@ pub unsafe fn ubidi_setInverse(pbidi: *mut UBiDi, isinverse: i8) {
         extern "system" {
             fn ubidi_setInverse(pbidi: *mut UBiDi, isinverse: i8);
         }
-        ::core::mem::transmute(ubidi_setInverse(::core::mem::transmute(pbidi), ::core::mem::transmute(isinverse)))
+        ubidi_setInverse(::core::mem::transmute(pbidi), ::core::mem::transmute(isinverse))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12643,7 +12643,7 @@ pub unsafe fn ubidi_setLine(pparabidi: *const UBiDi, start: i32, limit: i32, pli
         extern "system" {
             fn ubidi_setLine(pparabidi: *const UBiDi, start: i32, limit: i32, plinebidi: *mut UBiDi, perrorcode: *mut UErrorCode);
         }
-        ::core::mem::transmute(ubidi_setLine(::core::mem::transmute(pparabidi), ::core::mem::transmute(start), ::core::mem::transmute(limit), ::core::mem::transmute(plinebidi), ::core::mem::transmute(perrorcode)))
+        ubidi_setLine(::core::mem::transmute(pparabidi), ::core::mem::transmute(start), ::core::mem::transmute(limit), ::core::mem::transmute(plinebidi), ::core::mem::transmute(perrorcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12656,7 +12656,7 @@ pub unsafe fn ubidi_setPara(pbidi: *mut UBiDi, text: *const u16, length: i32, pa
         extern "system" {
             fn ubidi_setPara(pbidi: *mut UBiDi, text: *const u16, length: i32, paralevel: u8, embeddinglevels: *mut u8, perrorcode: *mut UErrorCode);
         }
-        ::core::mem::transmute(ubidi_setPara(::core::mem::transmute(pbidi), ::core::mem::transmute(text), ::core::mem::transmute(length), ::core::mem::transmute(paralevel), ::core::mem::transmute(embeddinglevels), ::core::mem::transmute(perrorcode)))
+        ubidi_setPara(::core::mem::transmute(pbidi), ::core::mem::transmute(text), ::core::mem::transmute(length), ::core::mem::transmute(paralevel), ::core::mem::transmute(embeddinglevels), ::core::mem::transmute(perrorcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12669,7 +12669,7 @@ pub unsafe fn ubidi_setReorderingMode(pbidi: *mut UBiDi, reorderingmode: UBiDiRe
         extern "system" {
             fn ubidi_setReorderingMode(pbidi: *mut UBiDi, reorderingmode: UBiDiReorderingMode);
         }
-        ::core::mem::transmute(ubidi_setReorderingMode(::core::mem::transmute(pbidi), ::core::mem::transmute(reorderingmode)))
+        ubidi_setReorderingMode(::core::mem::transmute(pbidi), ::core::mem::transmute(reorderingmode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12682,7 +12682,7 @@ pub unsafe fn ubidi_setReorderingOptions(pbidi: *mut UBiDi, reorderingoptions: u
         extern "system" {
             fn ubidi_setReorderingOptions(pbidi: *mut UBiDi, reorderingoptions: u32);
         }
-        ::core::mem::transmute(ubidi_setReorderingOptions(::core::mem::transmute(pbidi), ::core::mem::transmute(reorderingoptions)))
+        ubidi_setReorderingOptions(::core::mem::transmute(pbidi), ::core::mem::transmute(reorderingoptions))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12721,7 +12721,7 @@ pub unsafe fn ubiditransform_close(pbiditransform: *mut UBiDiTransform) {
         extern "system" {
             fn ubiditransform_close(pbiditransform: *mut UBiDiTransform);
         }
-        ::core::mem::transmute(ubiditransform_close(::core::mem::transmute(pbiditransform)))
+        ubiditransform_close(::core::mem::transmute(pbiditransform))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12773,7 +12773,7 @@ pub unsafe fn ubrk_close(bi: *mut UBreakIterator) {
         extern "system" {
             fn ubrk_close(bi: *mut UBreakIterator);
         }
-        ::core::mem::transmute(ubrk_close(::core::mem::transmute(bi)))
+        ubrk_close(::core::mem::transmute(bi))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13010,7 +13010,7 @@ pub unsafe fn ubrk_refreshUText(bi: *mut UBreakIterator, text: *mut UText, statu
         extern "system" {
             fn ubrk_refreshUText(bi: *mut UBreakIterator, text: *mut UText, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(ubrk_refreshUText(::core::mem::transmute(bi), ::core::mem::transmute(text), ::core::mem::transmute(status)))
+        ubrk_refreshUText(::core::mem::transmute(bi), ::core::mem::transmute(text), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13036,7 +13036,7 @@ pub unsafe fn ubrk_setText(bi: *mut UBreakIterator, text: *const u16, textlength
         extern "system" {
             fn ubrk_setText(bi: *mut UBreakIterator, text: *const u16, textlength: i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(ubrk_setText(::core::mem::transmute(bi), ::core::mem::transmute(text), ::core::mem::transmute(textlength), ::core::mem::transmute(status)))
+        ubrk_setText(::core::mem::transmute(bi), ::core::mem::transmute(text), ::core::mem::transmute(textlength), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13049,7 +13049,7 @@ pub unsafe fn ubrk_setUText(bi: *mut UBreakIterator, text: *mut UText, status: *
         extern "system" {
             fn ubrk_setUText(bi: *mut UBreakIterator, text: *mut UText, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(ubrk_setUText(::core::mem::transmute(bi), ::core::mem::transmute(text), ::core::mem::transmute(status)))
+        ubrk_setUText(::core::mem::transmute(bi), ::core::mem::transmute(text), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13062,7 +13062,7 @@ pub unsafe fn ucal_add(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateF
         extern "system" {
             fn ucal_add(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateFields, amount: i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucal_add(::core::mem::transmute(cal), ::core::mem::transmute(field), ::core::mem::transmute(amount), ::core::mem::transmute(status)))
+        ucal_add(::core::mem::transmute(cal), ::core::mem::transmute(field), ::core::mem::transmute(amount), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13075,7 +13075,7 @@ pub unsafe fn ucal_clear(calendar: *mut *mut ::core::ffi::c_void) {
         extern "system" {
             fn ucal_clear(calendar: *mut *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(ucal_clear(::core::mem::transmute(calendar)))
+        ucal_clear(::core::mem::transmute(calendar))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13088,7 +13088,7 @@ pub unsafe fn ucal_clearField(cal: *mut *mut ::core::ffi::c_void, field: UCalend
         extern "system" {
             fn ucal_clearField(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateFields);
         }
-        ::core::mem::transmute(ucal_clearField(::core::mem::transmute(cal), ::core::mem::transmute(field)))
+        ucal_clearField(::core::mem::transmute(cal), ::core::mem::transmute(field))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13114,7 +13114,7 @@ pub unsafe fn ucal_close(cal: *mut *mut ::core::ffi::c_void) {
         extern "system" {
             fn ucal_close(cal: *mut *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(ucal_close(::core::mem::transmute(cal)))
+        ucal_close(::core::mem::transmute(cal))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13553,7 +13553,7 @@ pub unsafe fn ucal_roll(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDate
         extern "system" {
             fn ucal_roll(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateFields, amount: i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucal_roll(::core::mem::transmute(cal), ::core::mem::transmute(field), ::core::mem::transmute(amount), ::core::mem::transmute(status)))
+        ucal_roll(::core::mem::transmute(cal), ::core::mem::transmute(field), ::core::mem::transmute(amount), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13566,7 +13566,7 @@ pub unsafe fn ucal_set(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateF
         extern "system" {
             fn ucal_set(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateFields, value: i32);
         }
-        ::core::mem::transmute(ucal_set(::core::mem::transmute(cal), ::core::mem::transmute(field), ::core::mem::transmute(value)))
+        ucal_set(::core::mem::transmute(cal), ::core::mem::transmute(field), ::core::mem::transmute(value))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13579,7 +13579,7 @@ pub unsafe fn ucal_setAttribute(cal: *mut *mut ::core::ffi::c_void, attr: UCalen
         extern "system" {
             fn ucal_setAttribute(cal: *mut *mut ::core::ffi::c_void, attr: UCalendarAttribute, newvalue: i32);
         }
-        ::core::mem::transmute(ucal_setAttribute(::core::mem::transmute(cal), ::core::mem::transmute(attr), ::core::mem::transmute(newvalue)))
+        ucal_setAttribute(::core::mem::transmute(cal), ::core::mem::transmute(attr), ::core::mem::transmute(newvalue))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13592,7 +13592,7 @@ pub unsafe fn ucal_setDate(cal: *mut *mut ::core::ffi::c_void, year: i32, month:
         extern "system" {
             fn ucal_setDate(cal: *mut *mut ::core::ffi::c_void, year: i32, month: i32, date: i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucal_setDate(::core::mem::transmute(cal), ::core::mem::transmute(year), ::core::mem::transmute(month), ::core::mem::transmute(date), ::core::mem::transmute(status)))
+        ucal_setDate(::core::mem::transmute(cal), ::core::mem::transmute(year), ::core::mem::transmute(month), ::core::mem::transmute(date), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13605,7 +13605,7 @@ pub unsafe fn ucal_setDateTime(cal: *mut *mut ::core::ffi::c_void, year: i32, mo
         extern "system" {
             fn ucal_setDateTime(cal: *mut *mut ::core::ffi::c_void, year: i32, month: i32, date: i32, hour: i32, minute: i32, second: i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucal_setDateTime(::core::mem::transmute(cal), ::core::mem::transmute(year), ::core::mem::transmute(month), ::core::mem::transmute(date), ::core::mem::transmute(hour), ::core::mem::transmute(minute), ::core::mem::transmute(second), ::core::mem::transmute(status)))
+        ucal_setDateTime(::core::mem::transmute(cal), ::core::mem::transmute(year), ::core::mem::transmute(month), ::core::mem::transmute(date), ::core::mem::transmute(hour), ::core::mem::transmute(minute), ::core::mem::transmute(second), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13618,7 +13618,7 @@ pub unsafe fn ucal_setDefaultTimeZone(zoneid: *const u16, ec: *mut UErrorCode) {
         extern "system" {
             fn ucal_setDefaultTimeZone(zoneid: *const u16, ec: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucal_setDefaultTimeZone(::core::mem::transmute(zoneid), ::core::mem::transmute(ec)))
+        ucal_setDefaultTimeZone(::core::mem::transmute(zoneid), ::core::mem::transmute(ec))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13631,7 +13631,7 @@ pub unsafe fn ucal_setGregorianChange(cal: *mut *mut ::core::ffi::c_void, date: 
         extern "system" {
             fn ucal_setGregorianChange(cal: *mut *mut ::core::ffi::c_void, date: f64, perrorcode: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucal_setGregorianChange(::core::mem::transmute(cal), ::core::mem::transmute(date), ::core::mem::transmute(perrorcode)))
+        ucal_setGregorianChange(::core::mem::transmute(cal), ::core::mem::transmute(date), ::core::mem::transmute(perrorcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13644,7 +13644,7 @@ pub unsafe fn ucal_setMillis(cal: *mut *mut ::core::ffi::c_void, datetime: f64, 
         extern "system" {
             fn ucal_setMillis(cal: *mut *mut ::core::ffi::c_void, datetime: f64, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucal_setMillis(::core::mem::transmute(cal), ::core::mem::transmute(datetime), ::core::mem::transmute(status)))
+        ucal_setMillis(::core::mem::transmute(cal), ::core::mem::transmute(datetime), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13657,7 +13657,7 @@ pub unsafe fn ucal_setTimeZone(cal: *mut *mut ::core::ffi::c_void, zoneid: *cons
         extern "system" {
             fn ucal_setTimeZone(cal: *mut *mut ::core::ffi::c_void, zoneid: *const u16, len: i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucal_setTimeZone(::core::mem::transmute(cal), ::core::mem::transmute(zoneid), ::core::mem::transmute(len), ::core::mem::transmute(status)))
+        ucal_setTimeZone(::core::mem::transmute(cal), ::core::mem::transmute(zoneid), ::core::mem::transmute(len), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13670,7 +13670,7 @@ pub unsafe fn ucasemap_close(csm: *mut UCaseMap) {
         extern "system" {
             fn ucasemap_close(csm: *mut UCaseMap);
         }
-        ::core::mem::transmute(ucasemap_close(::core::mem::transmute(csm)))
+        ucasemap_close(::core::mem::transmute(csm))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13737,7 +13737,7 @@ pub unsafe fn ucasemap_setBreakIterator(csm: *mut UCaseMap, itertoadopt: *mut UB
         extern "system" {
             fn ucasemap_setBreakIterator(csm: *mut UCaseMap, itertoadopt: *mut UBreakIterator, perrorcode: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucasemap_setBreakIterator(::core::mem::transmute(csm), ::core::mem::transmute(itertoadopt), ::core::mem::transmute(perrorcode)))
+        ucasemap_setBreakIterator(::core::mem::transmute(csm), ::core::mem::transmute(itertoadopt), ::core::mem::transmute(perrorcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13751,7 +13751,7 @@ pub unsafe fn ucasemap_setLocale<'a, Param1: ::windows::core::IntoParam<'a, supe
         extern "system" {
             fn ucasemap_setLocale(csm: *mut UCaseMap, locale: super::Foundation::PSTR, perrorcode: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucasemap_setLocale(::core::mem::transmute(csm), locale.into_param().abi(), ::core::mem::transmute(perrorcode)))
+        ucasemap_setLocale(::core::mem::transmute(csm), locale.into_param().abi(), ::core::mem::transmute(perrorcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13764,7 +13764,7 @@ pub unsafe fn ucasemap_setOptions(csm: *mut UCaseMap, options: u32, perrorcode: 
         extern "system" {
             fn ucasemap_setOptions(csm: *mut UCaseMap, options: u32, perrorcode: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucasemap_setOptions(::core::mem::transmute(csm), ::core::mem::transmute(options), ::core::mem::transmute(perrorcode)))
+        ucasemap_setOptions(::core::mem::transmute(csm), ::core::mem::transmute(options), ::core::mem::transmute(perrorcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13846,7 +13846,7 @@ pub unsafe fn ucfpos_close(ucfpos: *mut UConstrainedFieldPosition) {
         extern "system" {
             fn ucfpos_close(ucfpos: *mut UConstrainedFieldPosition);
         }
-        ::core::mem::transmute(ucfpos_close(::core::mem::transmute(ucfpos)))
+        ucfpos_close(::core::mem::transmute(ucfpos))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13859,7 +13859,7 @@ pub unsafe fn ucfpos_constrainCategory(ucfpos: *mut UConstrainedFieldPosition, c
         extern "system" {
             fn ucfpos_constrainCategory(ucfpos: *mut UConstrainedFieldPosition, category: i32, ec: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucfpos_constrainCategory(::core::mem::transmute(ucfpos), ::core::mem::transmute(category), ::core::mem::transmute(ec)))
+        ucfpos_constrainCategory(::core::mem::transmute(ucfpos), ::core::mem::transmute(category), ::core::mem::transmute(ec))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13872,7 +13872,7 @@ pub unsafe fn ucfpos_constrainField(ucfpos: *mut UConstrainedFieldPosition, cate
         extern "system" {
             fn ucfpos_constrainField(ucfpos: *mut UConstrainedFieldPosition, category: i32, field: i32, ec: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucfpos_constrainField(::core::mem::transmute(ucfpos), ::core::mem::transmute(category), ::core::mem::transmute(field), ::core::mem::transmute(ec)))
+        ucfpos_constrainField(::core::mem::transmute(ucfpos), ::core::mem::transmute(category), ::core::mem::transmute(field), ::core::mem::transmute(ec))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13911,7 +13911,7 @@ pub unsafe fn ucfpos_getIndexes(ucfpos: *const UConstrainedFieldPosition, pstart
         extern "system" {
             fn ucfpos_getIndexes(ucfpos: *const UConstrainedFieldPosition, pstart: *mut i32, plimit: *mut i32, ec: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucfpos_getIndexes(::core::mem::transmute(ucfpos), ::core::mem::transmute(pstart), ::core::mem::transmute(plimit), ::core::mem::transmute(ec)))
+        ucfpos_getIndexes(::core::mem::transmute(ucfpos), ::core::mem::transmute(pstart), ::core::mem::transmute(plimit), ::core::mem::transmute(ec))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13963,7 +13963,7 @@ pub unsafe fn ucfpos_reset(ucfpos: *mut UConstrainedFieldPosition, ec: *mut UErr
         extern "system" {
             fn ucfpos_reset(ucfpos: *mut UConstrainedFieldPosition, ec: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucfpos_reset(::core::mem::transmute(ucfpos), ::core::mem::transmute(ec)))
+        ucfpos_reset(::core::mem::transmute(ucfpos), ::core::mem::transmute(ec))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13976,7 +13976,7 @@ pub unsafe fn ucfpos_setInt64IterationContext(ucfpos: *mut UConstrainedFieldPosi
         extern "system" {
             fn ucfpos_setInt64IterationContext(ucfpos: *mut UConstrainedFieldPosition, context: i64, ec: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucfpos_setInt64IterationContext(::core::mem::transmute(ucfpos), ::core::mem::transmute(context), ::core::mem::transmute(ec)))
+        ucfpos_setInt64IterationContext(::core::mem::transmute(ucfpos), ::core::mem::transmute(context), ::core::mem::transmute(ec))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13989,7 +13989,7 @@ pub unsafe fn ucfpos_setState(ucfpos: *mut UConstrainedFieldPosition, category: 
         extern "system" {
             fn ucfpos_setState(ucfpos: *mut UConstrainedFieldPosition, category: i32, field: i32, start: i32, limit: i32, ec: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucfpos_setState(::core::mem::transmute(ucfpos), ::core::mem::transmute(category), ::core::mem::transmute(field), ::core::mem::transmute(start), ::core::mem::transmute(limit), ::core::mem::transmute(ec)))
+        ucfpos_setState(::core::mem::transmute(ucfpos), ::core::mem::transmute(category), ::core::mem::transmute(field), ::core::mem::transmute(start), ::core::mem::transmute(limit), ::core::mem::transmute(ec))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14003,7 +14003,7 @@ pub unsafe fn ucnv_cbFromUWriteBytes<'a, Param1: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn ucnv_cbFromUWriteBytes(args: *mut UConverterFromUnicodeArgs, source: super::Foundation::PSTR, length: i32, offsetindex: i32, err: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucnv_cbFromUWriteBytes(::core::mem::transmute(args), source.into_param().abi(), ::core::mem::transmute(length), ::core::mem::transmute(offsetindex), ::core::mem::transmute(err)))
+        ucnv_cbFromUWriteBytes(::core::mem::transmute(args), source.into_param().abi(), ::core::mem::transmute(length), ::core::mem::transmute(offsetindex), ::core::mem::transmute(err))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14017,7 +14017,7 @@ pub unsafe fn ucnv_cbFromUWriteSub(args: *mut UConverterFromUnicodeArgs, offseti
         extern "system" {
             fn ucnv_cbFromUWriteSub(args: *mut UConverterFromUnicodeArgs, offsetindex: i32, err: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucnv_cbFromUWriteSub(::core::mem::transmute(args), ::core::mem::transmute(offsetindex), ::core::mem::transmute(err)))
+        ucnv_cbFromUWriteSub(::core::mem::transmute(args), ::core::mem::transmute(offsetindex), ::core::mem::transmute(err))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14031,7 +14031,7 @@ pub unsafe fn ucnv_cbFromUWriteUChars(args: *mut UConverterFromUnicodeArgs, sour
         extern "system" {
             fn ucnv_cbFromUWriteUChars(args: *mut UConverterFromUnicodeArgs, source: *const *const u16, sourcelimit: *const u16, offsetindex: i32, err: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucnv_cbFromUWriteUChars(::core::mem::transmute(args), ::core::mem::transmute(source), ::core::mem::transmute(sourcelimit), ::core::mem::transmute(offsetindex), ::core::mem::transmute(err)))
+        ucnv_cbFromUWriteUChars(::core::mem::transmute(args), ::core::mem::transmute(source), ::core::mem::transmute(sourcelimit), ::core::mem::transmute(offsetindex), ::core::mem::transmute(err))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14045,7 +14045,7 @@ pub unsafe fn ucnv_cbToUWriteSub(args: *mut UConverterToUnicodeArgs, offsetindex
         extern "system" {
             fn ucnv_cbToUWriteSub(args: *mut UConverterToUnicodeArgs, offsetindex: i32, err: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucnv_cbToUWriteSub(::core::mem::transmute(args), ::core::mem::transmute(offsetindex), ::core::mem::transmute(err)))
+        ucnv_cbToUWriteSub(::core::mem::transmute(args), ::core::mem::transmute(offsetindex), ::core::mem::transmute(err))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14059,7 +14059,7 @@ pub unsafe fn ucnv_cbToUWriteUChars(args: *mut UConverterToUnicodeArgs, source: 
         extern "system" {
             fn ucnv_cbToUWriteUChars(args: *mut UConverterToUnicodeArgs, source: *const u16, length: i32, offsetindex: i32, err: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucnv_cbToUWriteUChars(::core::mem::transmute(args), ::core::mem::transmute(source), ::core::mem::transmute(length), ::core::mem::transmute(offsetindex), ::core::mem::transmute(err)))
+        ucnv_cbToUWriteUChars(::core::mem::transmute(args), ::core::mem::transmute(source), ::core::mem::transmute(length), ::core::mem::transmute(offsetindex), ::core::mem::transmute(err))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14072,7 +14072,7 @@ pub unsafe fn ucnv_close(converter: *mut UConverter) {
         extern "system" {
             fn ucnv_close(converter: *mut UConverter);
         }
-        ::core::mem::transmute(ucnv_close(::core::mem::transmute(converter)))
+        ucnv_close(::core::mem::transmute(converter))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14114,7 +14114,7 @@ pub unsafe fn ucnv_convertEx<'a, Param3: ::windows::core::IntoParam<'a, super::F
         extern "system" {
             fn ucnv_convertEx(targetcnv: *mut UConverter, sourcecnv: *mut UConverter, target: *mut *mut i8, targetlimit: super::Foundation::PSTR, source: *const *const i8, sourcelimit: super::Foundation::PSTR, pivotstart: *mut u16, pivotsource: *mut *mut u16, pivottarget: *mut *mut u16, pivotlimit: *const u16, reset: i8, flush: i8, perrorcode: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucnv_convertEx(::core::mem::transmute(targetcnv), ::core::mem::transmute(sourcecnv), ::core::mem::transmute(target), targetlimit.into_param().abi(), ::core::mem::transmute(source), sourcelimit.into_param().abi(), ::core::mem::transmute(pivotstart), ::core::mem::transmute(pivotsource), ::core::mem::transmute(pivottarget), ::core::mem::transmute(pivotlimit), ::core::mem::transmute(reset), ::core::mem::transmute(flush), ::core::mem::transmute(perrorcode)))
+        ucnv_convertEx(::core::mem::transmute(targetcnv), ::core::mem::transmute(sourcecnv), ::core::mem::transmute(target), targetlimit.into_param().abi(), ::core::mem::transmute(source), sourcelimit.into_param().abi(), ::core::mem::transmute(pivotstart), ::core::mem::transmute(pivotsource), ::core::mem::transmute(pivottarget), ::core::mem::transmute(pivotlimit), ::core::mem::transmute(reset), ::core::mem::transmute(flush), ::core::mem::transmute(perrorcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14181,7 +14181,7 @@ pub unsafe fn ucnv_fixFileSeparator(cnv: *const UConverter, source: *mut u16, so
         extern "system" {
             fn ucnv_fixFileSeparator(cnv: *const UConverter, source: *mut u16, sourcelen: i32);
         }
-        ::core::mem::transmute(ucnv_fixFileSeparator(::core::mem::transmute(cnv), ::core::mem::transmute(source), ::core::mem::transmute(sourcelen)))
+        ucnv_fixFileSeparator(::core::mem::transmute(cnv), ::core::mem::transmute(source), ::core::mem::transmute(sourcelen))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14249,7 +14249,7 @@ pub unsafe fn ucnv_fromUnicode<'a, Param2: ::windows::core::IntoParam<'a, super:
         extern "system" {
             fn ucnv_fromUnicode(converter: *mut UConverter, target: *mut *mut i8, targetlimit: super::Foundation::PSTR, source: *const *const u16, sourcelimit: *const u16, offsets: *mut i32, flush: i8, err: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucnv_fromUnicode(::core::mem::transmute(converter), ::core::mem::transmute(target), targetlimit.into_param().abi(), ::core::mem::transmute(source), ::core::mem::transmute(sourcelimit), ::core::mem::transmute(offsets), ::core::mem::transmute(flush), ::core::mem::transmute(err)))
+        ucnv_fromUnicode(::core::mem::transmute(converter), ::core::mem::transmute(target), targetlimit.into_param().abi(), ::core::mem::transmute(source), ::core::mem::transmute(sourcelimit), ::core::mem::transmute(offsets), ::core::mem::transmute(flush), ::core::mem::transmute(err))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14277,7 +14277,7 @@ pub unsafe fn ucnv_getAliases<'a, Param0: ::windows::core::IntoParam<'a, super::
         extern "system" {
             fn ucnv_getAliases(alias: super::Foundation::PSTR, aliases: *const *const i8, perrorcode: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucnv_getAliases(alias.into_param().abi(), ::core::mem::transmute(aliases), ::core::mem::transmute(perrorcode)))
+        ucnv_getAliases(alias.into_param().abi(), ::core::mem::transmute(aliases), ::core::mem::transmute(perrorcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14360,7 +14360,7 @@ pub unsafe fn ucnv_getFromUCallBack(converter: *const UConverter, action: *mut U
         extern "system" {
             fn ucnv_getFromUCallBack(converter: *const UConverter, action: *mut ::windows::core::RawPtr, context: *const *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(ucnv_getFromUCallBack(::core::mem::transmute(converter), ::core::mem::transmute(action), ::core::mem::transmute(context)))
+        ucnv_getFromUCallBack(::core::mem::transmute(converter), ::core::mem::transmute(action), ::core::mem::transmute(context))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14374,7 +14374,7 @@ pub unsafe fn ucnv_getInvalidChars<'a, Param1: ::windows::core::IntoParam<'a, su
         extern "system" {
             fn ucnv_getInvalidChars(converter: *const UConverter, errbytes: super::Foundation::PSTR, len: *mut i8, err: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucnv_getInvalidChars(::core::mem::transmute(converter), errbytes.into_param().abi(), ::core::mem::transmute(len), ::core::mem::transmute(err)))
+        ucnv_getInvalidChars(::core::mem::transmute(converter), errbytes.into_param().abi(), ::core::mem::transmute(len), ::core::mem::transmute(err))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14387,7 +14387,7 @@ pub unsafe fn ucnv_getInvalidUChars(converter: *const UConverter, erruchars: *mu
         extern "system" {
             fn ucnv_getInvalidUChars(converter: *const UConverter, erruchars: *mut u16, len: *mut i8, err: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucnv_getInvalidUChars(::core::mem::transmute(converter), ::core::mem::transmute(erruchars), ::core::mem::transmute(len), ::core::mem::transmute(err)))
+        ucnv_getInvalidUChars(::core::mem::transmute(converter), ::core::mem::transmute(erruchars), ::core::mem::transmute(len), ::core::mem::transmute(err))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14495,7 +14495,7 @@ pub unsafe fn ucnv_getStarters(converter: *const UConverter, starters: *mut i8, 
         extern "system" {
             fn ucnv_getStarters(converter: *const UConverter, starters: *mut i8, err: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucnv_getStarters(::core::mem::transmute(converter), ::core::mem::transmute(starters), ::core::mem::transmute(err)))
+        ucnv_getStarters(::core::mem::transmute(converter), ::core::mem::transmute(starters), ::core::mem::transmute(err))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14509,7 +14509,7 @@ pub unsafe fn ucnv_getSubstChars<'a, Param1: ::windows::core::IntoParam<'a, supe
         extern "system" {
             fn ucnv_getSubstChars(converter: *const UConverter, subchars: super::Foundation::PSTR, len: *mut i8, err: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucnv_getSubstChars(::core::mem::transmute(converter), subchars.into_param().abi(), ::core::mem::transmute(len), ::core::mem::transmute(err)))
+        ucnv_getSubstChars(::core::mem::transmute(converter), subchars.into_param().abi(), ::core::mem::transmute(len), ::core::mem::transmute(err))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14523,7 +14523,7 @@ pub unsafe fn ucnv_getToUCallBack(converter: *const UConverter, action: *mut UCo
         extern "system" {
             fn ucnv_getToUCallBack(converter: *const UConverter, action: *mut ::windows::core::RawPtr, context: *const *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(ucnv_getToUCallBack(::core::mem::transmute(converter), ::core::mem::transmute(action), ::core::mem::transmute(context)))
+        ucnv_getToUCallBack(::core::mem::transmute(converter), ::core::mem::transmute(action), ::core::mem::transmute(context))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14549,7 +14549,7 @@ pub unsafe fn ucnv_getUnicodeSet(cnv: *const UConverter, setfillin: *mut USet, w
         extern "system" {
             fn ucnv_getUnicodeSet(cnv: *const UConverter, setfillin: *mut USet, whichset: UConverterUnicodeSet, perrorcode: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucnv_getUnicodeSet(::core::mem::transmute(cnv), ::core::mem::transmute(setfillin), ::core::mem::transmute(whichset), ::core::mem::transmute(perrorcode)))
+        ucnv_getUnicodeSet(::core::mem::transmute(cnv), ::core::mem::transmute(setfillin), ::core::mem::transmute(whichset), ::core::mem::transmute(perrorcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14669,7 +14669,7 @@ pub unsafe fn ucnv_reset(converter: *mut UConverter) {
         extern "system" {
             fn ucnv_reset(converter: *mut UConverter);
         }
-        ::core::mem::transmute(ucnv_reset(::core::mem::transmute(converter)))
+        ucnv_reset(::core::mem::transmute(converter))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14682,7 +14682,7 @@ pub unsafe fn ucnv_resetFromUnicode(converter: *mut UConverter) {
         extern "system" {
             fn ucnv_resetFromUnicode(converter: *mut UConverter);
         }
-        ::core::mem::transmute(ucnv_resetFromUnicode(::core::mem::transmute(converter)))
+        ucnv_resetFromUnicode(::core::mem::transmute(converter))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14695,7 +14695,7 @@ pub unsafe fn ucnv_resetToUnicode(converter: *mut UConverter) {
         extern "system" {
             fn ucnv_resetToUnicode(converter: *mut UConverter);
         }
-        ::core::mem::transmute(ucnv_resetToUnicode(::core::mem::transmute(converter)))
+        ucnv_resetToUnicode(::core::mem::transmute(converter))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14722,7 +14722,7 @@ pub unsafe fn ucnv_setDefaultName<'a, Param0: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn ucnv_setDefaultName(name: super::Foundation::PSTR);
         }
-        ::core::mem::transmute(ucnv_setDefaultName(name.into_param().abi()))
+        ucnv_setDefaultName(name.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14735,7 +14735,7 @@ pub unsafe fn ucnv_setFallback(cnv: *mut UConverter, usesfallback: i8) {
         extern "system" {
             fn ucnv_setFallback(cnv: *mut UConverter, usesfallback: i8);
         }
-        ::core::mem::transmute(ucnv_setFallback(::core::mem::transmute(cnv), ::core::mem::transmute(usesfallback)))
+        ucnv_setFallback(::core::mem::transmute(cnv), ::core::mem::transmute(usesfallback))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14749,7 +14749,7 @@ pub unsafe fn ucnv_setFromUCallBack(converter: *mut UConverter, newaction: UConv
         extern "system" {
             fn ucnv_setFromUCallBack(converter: *mut UConverter, newaction: ::windows::core::RawPtr, newcontext: *const ::core::ffi::c_void, oldaction: *mut ::windows::core::RawPtr, oldcontext: *const *const ::core::ffi::c_void, err: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucnv_setFromUCallBack(::core::mem::transmute(converter), ::core::mem::transmute(newaction), ::core::mem::transmute(newcontext), ::core::mem::transmute(oldaction), ::core::mem::transmute(oldcontext), ::core::mem::transmute(err)))
+        ucnv_setFromUCallBack(::core::mem::transmute(converter), ::core::mem::transmute(newaction), ::core::mem::transmute(newcontext), ::core::mem::transmute(oldaction), ::core::mem::transmute(oldcontext), ::core::mem::transmute(err))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14763,7 +14763,7 @@ pub unsafe fn ucnv_setSubstChars<'a, Param1: ::windows::core::IntoParam<'a, supe
         extern "system" {
             fn ucnv_setSubstChars(converter: *mut UConverter, subchars: super::Foundation::PSTR, len: i8, err: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucnv_setSubstChars(::core::mem::transmute(converter), subchars.into_param().abi(), ::core::mem::transmute(len), ::core::mem::transmute(err)))
+        ucnv_setSubstChars(::core::mem::transmute(converter), subchars.into_param().abi(), ::core::mem::transmute(len), ::core::mem::transmute(err))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14776,7 +14776,7 @@ pub unsafe fn ucnv_setSubstString(cnv: *mut UConverter, s: *const u16, length: i
         extern "system" {
             fn ucnv_setSubstString(cnv: *mut UConverter, s: *const u16, length: i32, err: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucnv_setSubstString(::core::mem::transmute(cnv), ::core::mem::transmute(s), ::core::mem::transmute(length), ::core::mem::transmute(err)))
+        ucnv_setSubstString(::core::mem::transmute(cnv), ::core::mem::transmute(s), ::core::mem::transmute(length), ::core::mem::transmute(err))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14790,7 +14790,7 @@ pub unsafe fn ucnv_setToUCallBack(converter: *mut UConverter, newaction: UConver
         extern "system" {
             fn ucnv_setToUCallBack(converter: *mut UConverter, newaction: ::windows::core::RawPtr, newcontext: *const ::core::ffi::c_void, oldaction: *mut ::windows::core::RawPtr, oldcontext: *const *const ::core::ffi::c_void, err: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucnv_setToUCallBack(::core::mem::transmute(converter), ::core::mem::transmute(newaction), ::core::mem::transmute(newcontext), ::core::mem::transmute(oldaction), ::core::mem::transmute(oldcontext), ::core::mem::transmute(err)))
+        ucnv_setToUCallBack(::core::mem::transmute(converter), ::core::mem::transmute(newaction), ::core::mem::transmute(newcontext), ::core::mem::transmute(oldaction), ::core::mem::transmute(oldcontext), ::core::mem::transmute(err))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14845,7 +14845,7 @@ pub unsafe fn ucnv_toUnicode<'a, Param4: ::windows::core::IntoParam<'a, super::F
         extern "system" {
             fn ucnv_toUnicode(converter: *mut UConverter, target: *mut *mut u16, targetlimit: *const u16, source: *const *const i8, sourcelimit: super::Foundation::PSTR, offsets: *mut i32, flush: i8, err: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucnv_toUnicode(::core::mem::transmute(converter), ::core::mem::transmute(target), ::core::mem::transmute(targetlimit), ::core::mem::transmute(source), sourcelimit.into_param().abi(), ::core::mem::transmute(offsets), ::core::mem::transmute(flush), ::core::mem::transmute(err)))
+        ucnv_toUnicode(::core::mem::transmute(converter), ::core::mem::transmute(target), ::core::mem::transmute(targetlimit), ::core::mem::transmute(source), sourcelimit.into_param().abi(), ::core::mem::transmute(offsets), ::core::mem::transmute(flush), ::core::mem::transmute(err))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14871,7 +14871,7 @@ pub unsafe fn ucnvsel_close(sel: *mut UConverterSelector) {
         extern "system" {
             fn ucnvsel_close(sel: *mut UConverterSelector);
         }
-        ::core::mem::transmute(ucnvsel_close(::core::mem::transmute(sel)))
+        ucnvsel_close(::core::mem::transmute(sel))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14963,7 +14963,7 @@ pub unsafe fn ucol_close(coll: *mut UCollator) {
         extern "system" {
             fn ucol_close(coll: *mut UCollator);
         }
-        ::core::mem::transmute(ucol_close(::core::mem::transmute(coll)))
+        ucol_close(::core::mem::transmute(coll))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14976,7 +14976,7 @@ pub unsafe fn ucol_closeElements(elems: *mut UCollationElements) {
         extern "system" {
             fn ucol_closeElements(elems: *mut UCollationElements);
         }
-        ::core::mem::transmute(ucol_closeElements(::core::mem::transmute(elems)))
+        ucol_closeElements(::core::mem::transmute(elems))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15055,7 +15055,7 @@ pub unsafe fn ucol_getContractionsAndExpansions(coll: *const UCollator, contract
         extern "system" {
             fn ucol_getContractionsAndExpansions(coll: *const UCollator, contractions: *mut USet, expansions: *mut USet, addprefixes: i8, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucol_getContractionsAndExpansions(::core::mem::transmute(coll), ::core::mem::transmute(contractions), ::core::mem::transmute(expansions), ::core::mem::transmute(addprefixes), ::core::mem::transmute(status)))
+        ucol_getContractionsAndExpansions(::core::mem::transmute(coll), ::core::mem::transmute(contractions), ::core::mem::transmute(expansions), ::core::mem::transmute(addprefixes), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15281,7 +15281,7 @@ pub unsafe fn ucol_getUCAVersion(coll: *const UCollator, info: *mut u8) {
         extern "system" {
             fn ucol_getUCAVersion(coll: *const UCollator, info: *mut u8);
         }
-        ::core::mem::transmute(ucol_getUCAVersion(::core::mem::transmute(coll), ::core::mem::transmute(info)))
+        ucol_getUCAVersion(::core::mem::transmute(coll), ::core::mem::transmute(info))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15307,7 +15307,7 @@ pub unsafe fn ucol_getVersion(coll: *const UCollator, info: *mut u8) {
         extern "system" {
             fn ucol_getVersion(coll: *const UCollator, info: *mut u8);
         }
-        ::core::mem::transmute(ucol_getVersion(::core::mem::transmute(coll), ::core::mem::transmute(info)))
+        ucol_getVersion(::core::mem::transmute(coll), ::core::mem::transmute(info))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15490,7 +15490,7 @@ pub unsafe fn ucol_reset(elems: *mut UCollationElements) {
         extern "system" {
             fn ucol_reset(elems: *mut UCollationElements);
         }
-        ::core::mem::transmute(ucol_reset(::core::mem::transmute(elems)))
+        ucol_reset(::core::mem::transmute(elems))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15529,7 +15529,7 @@ pub unsafe fn ucol_setAttribute(coll: *mut UCollator, attr: UColAttribute, value
         extern "system" {
             fn ucol_setAttribute(coll: *mut UCollator, attr: UColAttribute, value: UColAttributeValue, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucol_setAttribute(::core::mem::transmute(coll), ::core::mem::transmute(attr), ::core::mem::transmute(value), ::core::mem::transmute(status)))
+        ucol_setAttribute(::core::mem::transmute(coll), ::core::mem::transmute(attr), ::core::mem::transmute(value), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15542,7 +15542,7 @@ pub unsafe fn ucol_setMaxVariable(coll: *mut UCollator, group: UColReorderCode, 
         extern "system" {
             fn ucol_setMaxVariable(coll: *mut UCollator, group: UColReorderCode, perrorcode: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucol_setMaxVariable(::core::mem::transmute(coll), ::core::mem::transmute(group), ::core::mem::transmute(perrorcode)))
+        ucol_setMaxVariable(::core::mem::transmute(coll), ::core::mem::transmute(group), ::core::mem::transmute(perrorcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15555,7 +15555,7 @@ pub unsafe fn ucol_setOffset(elems: *mut UCollationElements, offset: i32, status
         extern "system" {
             fn ucol_setOffset(elems: *mut UCollationElements, offset: i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucol_setOffset(::core::mem::transmute(elems), ::core::mem::transmute(offset), ::core::mem::transmute(status)))
+        ucol_setOffset(::core::mem::transmute(elems), ::core::mem::transmute(offset), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15568,7 +15568,7 @@ pub unsafe fn ucol_setReorderCodes(coll: *mut UCollator, reordercodes: *const i3
         extern "system" {
             fn ucol_setReorderCodes(coll: *mut UCollator, reordercodes: *const i32, reordercodeslength: i32, perrorcode: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucol_setReorderCodes(::core::mem::transmute(coll), ::core::mem::transmute(reordercodes), ::core::mem::transmute(reordercodeslength), ::core::mem::transmute(perrorcode)))
+        ucol_setReorderCodes(::core::mem::transmute(coll), ::core::mem::transmute(reordercodes), ::core::mem::transmute(reordercodeslength), ::core::mem::transmute(perrorcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15581,7 +15581,7 @@ pub unsafe fn ucol_setStrength(coll: *mut UCollator, strength: UColAttributeValu
         extern "system" {
             fn ucol_setStrength(coll: *mut UCollator, strength: UColAttributeValue);
         }
-        ::core::mem::transmute(ucol_setStrength(::core::mem::transmute(coll), ::core::mem::transmute(strength)))
+        ucol_setStrength(::core::mem::transmute(coll), ::core::mem::transmute(strength))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15594,7 +15594,7 @@ pub unsafe fn ucol_setText(elems: *mut UCollationElements, text: *const u16, tex
         extern "system" {
             fn ucol_setText(elems: *mut UCollationElements, text: *const u16, textlength: i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucol_setText(::core::mem::transmute(elems), ::core::mem::transmute(text), ::core::mem::transmute(textlength), ::core::mem::transmute(status)))
+        ucol_setText(::core::mem::transmute(elems), ::core::mem::transmute(text), ::core::mem::transmute(textlength), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15686,7 +15686,7 @@ pub unsafe fn ucptrie_close(trie: *mut UCPTrie) {
         extern "system" {
             fn ucptrie_close(trie: *mut UCPTrie);
         }
-        ::core::mem::transmute(ucptrie_close(::core::mem::transmute(trie)))
+        ucptrie_close(::core::mem::transmute(trie))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15816,7 +15816,7 @@ pub unsafe fn ucsdet_close(ucsd: *mut UCharsetDetector) {
         extern "system" {
             fn ucsdet_close(ucsd: *mut UCharsetDetector);
         }
-        ::core::mem::transmute(ucsdet_close(::core::mem::transmute(ucsd)))
+        ucsdet_close(::core::mem::transmute(ucsd))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15962,7 +15962,7 @@ pub unsafe fn ucsdet_setDeclaredEncoding<'a, Param1: ::windows::core::IntoParam<
         extern "system" {
             fn ucsdet_setDeclaredEncoding(ucsd: *mut UCharsetDetector, encoding: super::Foundation::PSTR, length: i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucsdet_setDeclaredEncoding(::core::mem::transmute(ucsd), encoding.into_param().abi(), ::core::mem::transmute(length), ::core::mem::transmute(status)))
+        ucsdet_setDeclaredEncoding(::core::mem::transmute(ucsd), encoding.into_param().abi(), ::core::mem::transmute(length), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15976,7 +15976,7 @@ pub unsafe fn ucsdet_setText<'a, Param1: ::windows::core::IntoParam<'a, super::F
         extern "system" {
             fn ucsdet_setText(ucsd: *mut UCharsetDetector, textin: super::Foundation::PSTR, len: i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(ucsdet_setText(::core::mem::transmute(ucsd), textin.into_param().abi(), ::core::mem::transmute(len), ::core::mem::transmute(status)))
+        ucsdet_setText(::core::mem::transmute(ucsd), textin.into_param().abi(), ::core::mem::transmute(len), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16191,7 +16191,7 @@ pub unsafe fn udat_adoptNumberFormat(fmt: *mut *mut ::core::ffi::c_void, numberf
         extern "system" {
             fn udat_adoptNumberFormat(fmt: *mut *mut ::core::ffi::c_void, numberformattoadopt: *mut *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(udat_adoptNumberFormat(::core::mem::transmute(fmt), ::core::mem::transmute(numberformattoadopt)))
+        udat_adoptNumberFormat(::core::mem::transmute(fmt), ::core::mem::transmute(numberformattoadopt))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16204,7 +16204,7 @@ pub unsafe fn udat_adoptNumberFormatForFields(fmt: *mut *mut ::core::ffi::c_void
         extern "system" {
             fn udat_adoptNumberFormatForFields(fmt: *mut *mut ::core::ffi::c_void, fields: *const u16, numberformattoset: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(udat_adoptNumberFormatForFields(::core::mem::transmute(fmt), ::core::mem::transmute(fields), ::core::mem::transmute(numberformattoset), ::core::mem::transmute(status)))
+        udat_adoptNumberFormatForFields(::core::mem::transmute(fmt), ::core::mem::transmute(fields), ::core::mem::transmute(numberformattoset), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16217,7 +16217,7 @@ pub unsafe fn udat_applyPattern(format: *mut *mut ::core::ffi::c_void, localized
         extern "system" {
             fn udat_applyPattern(format: *mut *mut ::core::ffi::c_void, localized: i8, pattern: *const u16, patternlength: i32);
         }
-        ::core::mem::transmute(udat_applyPattern(::core::mem::transmute(format), ::core::mem::transmute(localized), ::core::mem::transmute(pattern), ::core::mem::transmute(patternlength)))
+        udat_applyPattern(::core::mem::transmute(format), ::core::mem::transmute(localized), ::core::mem::transmute(pattern), ::core::mem::transmute(patternlength))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16243,7 +16243,7 @@ pub unsafe fn udat_close(format: *mut *mut ::core::ffi::c_void) {
         extern "system" {
             fn udat_close(format: *mut *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(udat_close(::core::mem::transmute(format)))
+        udat_close(::core::mem::transmute(format))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16493,7 +16493,7 @@ pub unsafe fn udat_parseCalendar(format: *const *const ::core::ffi::c_void, cale
         extern "system" {
             fn udat_parseCalendar(format: *const *const ::core::ffi::c_void, calendar: *mut *mut ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(udat_parseCalendar(::core::mem::transmute(format), ::core::mem::transmute(calendar), ::core::mem::transmute(text), ::core::mem::transmute(textlength), ::core::mem::transmute(parsepos), ::core::mem::transmute(status)))
+        udat_parseCalendar(::core::mem::transmute(format), ::core::mem::transmute(calendar), ::core::mem::transmute(text), ::core::mem::transmute(textlength), ::core::mem::transmute(parsepos), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16506,7 +16506,7 @@ pub unsafe fn udat_set2DigitYearStart(fmt: *mut *mut ::core::ffi::c_void, d: f64
         extern "system" {
             fn udat_set2DigitYearStart(fmt: *mut *mut ::core::ffi::c_void, d: f64, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(udat_set2DigitYearStart(::core::mem::transmute(fmt), ::core::mem::transmute(d), ::core::mem::transmute(status)))
+        udat_set2DigitYearStart(::core::mem::transmute(fmt), ::core::mem::transmute(d), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16519,7 +16519,7 @@ pub unsafe fn udat_setBooleanAttribute(fmt: *mut *mut ::core::ffi::c_void, attr:
         extern "system" {
             fn udat_setBooleanAttribute(fmt: *mut *mut ::core::ffi::c_void, attr: UDateFormatBooleanAttribute, newvalue: i8, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(udat_setBooleanAttribute(::core::mem::transmute(fmt), ::core::mem::transmute(attr), ::core::mem::transmute(newvalue), ::core::mem::transmute(status)))
+        udat_setBooleanAttribute(::core::mem::transmute(fmt), ::core::mem::transmute(attr), ::core::mem::transmute(newvalue), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16532,7 +16532,7 @@ pub unsafe fn udat_setCalendar(fmt: *mut *mut ::core::ffi::c_void, calendartoset
         extern "system" {
             fn udat_setCalendar(fmt: *mut *mut ::core::ffi::c_void, calendartoset: *const *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(udat_setCalendar(::core::mem::transmute(fmt), ::core::mem::transmute(calendartoset)))
+        udat_setCalendar(::core::mem::transmute(fmt), ::core::mem::transmute(calendartoset))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16545,7 +16545,7 @@ pub unsafe fn udat_setContext(fmt: *mut *mut ::core::ffi::c_void, value: UDispla
         extern "system" {
             fn udat_setContext(fmt: *mut *mut ::core::ffi::c_void, value: UDisplayContext, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(udat_setContext(::core::mem::transmute(fmt), ::core::mem::transmute(value), ::core::mem::transmute(status)))
+        udat_setContext(::core::mem::transmute(fmt), ::core::mem::transmute(value), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16558,7 +16558,7 @@ pub unsafe fn udat_setLenient(fmt: *mut *mut ::core::ffi::c_void, islenient: i8)
         extern "system" {
             fn udat_setLenient(fmt: *mut *mut ::core::ffi::c_void, islenient: i8);
         }
-        ::core::mem::transmute(udat_setLenient(::core::mem::transmute(fmt), ::core::mem::transmute(islenient)))
+        udat_setLenient(::core::mem::transmute(fmt), ::core::mem::transmute(islenient))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16571,7 +16571,7 @@ pub unsafe fn udat_setNumberFormat(fmt: *mut *mut ::core::ffi::c_void, numberfor
         extern "system" {
             fn udat_setNumberFormat(fmt: *mut *mut ::core::ffi::c_void, numberformattoset: *const *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(udat_setNumberFormat(::core::mem::transmute(fmt), ::core::mem::transmute(numberformattoset)))
+        udat_setNumberFormat(::core::mem::transmute(fmt), ::core::mem::transmute(numberformattoset))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16584,7 +16584,7 @@ pub unsafe fn udat_setSymbols(format: *mut *mut ::core::ffi::c_void, r#type: UDa
         extern "system" {
             fn udat_setSymbols(format: *mut *mut ::core::ffi::c_void, r#type: UDateFormatSymbolType, symbolindex: i32, value: *mut u16, valuelength: i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(udat_setSymbols(::core::mem::transmute(format), ::core::mem::transmute(r#type), ::core::mem::transmute(symbolindex), ::core::mem::transmute(value), ::core::mem::transmute(valuelength), ::core::mem::transmute(status)))
+        udat_setSymbols(::core::mem::transmute(format), ::core::mem::transmute(r#type), ::core::mem::transmute(symbolindex), ::core::mem::transmute(value), ::core::mem::transmute(valuelength), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16649,7 +16649,7 @@ pub unsafe fn udatpg_close(dtpg: *mut *mut ::core::ffi::c_void) {
         extern "system" {
             fn udatpg_close(dtpg: *mut *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(udatpg_close(::core::mem::transmute(dtpg)))
+        udatpg_close(::core::mem::transmute(dtpg))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16871,7 +16871,7 @@ pub unsafe fn udatpg_setAppendItemFormat(dtpg: *mut *mut ::core::ffi::c_void, fi
         extern "system" {
             fn udatpg_setAppendItemFormat(dtpg: *mut *mut ::core::ffi::c_void, field: UDateTimePatternField, value: *const u16, length: i32);
         }
-        ::core::mem::transmute(udatpg_setAppendItemFormat(::core::mem::transmute(dtpg), ::core::mem::transmute(field), ::core::mem::transmute(value), ::core::mem::transmute(length)))
+        udatpg_setAppendItemFormat(::core::mem::transmute(dtpg), ::core::mem::transmute(field), ::core::mem::transmute(value), ::core::mem::transmute(length))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16884,7 +16884,7 @@ pub unsafe fn udatpg_setAppendItemName(dtpg: *mut *mut ::core::ffi::c_void, fiel
         extern "system" {
             fn udatpg_setAppendItemName(dtpg: *mut *mut ::core::ffi::c_void, field: UDateTimePatternField, value: *const u16, length: i32);
         }
-        ::core::mem::transmute(udatpg_setAppendItemName(::core::mem::transmute(dtpg), ::core::mem::transmute(field), ::core::mem::transmute(value), ::core::mem::transmute(length)))
+        udatpg_setAppendItemName(::core::mem::transmute(dtpg), ::core::mem::transmute(field), ::core::mem::transmute(value), ::core::mem::transmute(length))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16897,7 +16897,7 @@ pub unsafe fn udatpg_setDateTimeFormat(dtpg: *const *const ::core::ffi::c_void, 
         extern "system" {
             fn udatpg_setDateTimeFormat(dtpg: *const *const ::core::ffi::c_void, dtformat: *const u16, length: i32);
         }
-        ::core::mem::transmute(udatpg_setDateTimeFormat(::core::mem::transmute(dtpg), ::core::mem::transmute(dtformat), ::core::mem::transmute(length)))
+        udatpg_setDateTimeFormat(::core::mem::transmute(dtpg), ::core::mem::transmute(dtformat), ::core::mem::transmute(length))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16910,7 +16910,7 @@ pub unsafe fn udatpg_setDecimal(dtpg: *mut *mut ::core::ffi::c_void, decimal: *c
         extern "system" {
             fn udatpg_setDecimal(dtpg: *mut *mut ::core::ffi::c_void, decimal: *const u16, length: i32);
         }
-        ::core::mem::transmute(udatpg_setDecimal(::core::mem::transmute(dtpg), ::core::mem::transmute(decimal), ::core::mem::transmute(length)))
+        udatpg_setDecimal(::core::mem::transmute(dtpg), ::core::mem::transmute(decimal), ::core::mem::transmute(length))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16923,7 +16923,7 @@ pub unsafe fn udtitvfmt_close(formatter: *mut UDateIntervalFormat) {
         extern "system" {
             fn udtitvfmt_close(formatter: *mut UDateIntervalFormat);
         }
-        ::core::mem::transmute(udtitvfmt_close(::core::mem::transmute(formatter)))
+        udtitvfmt_close(::core::mem::transmute(formatter))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16936,7 +16936,7 @@ pub unsafe fn udtitvfmt_closeResult(uresult: *mut UFormattedDateInterval) {
         extern "system" {
             fn udtitvfmt_closeResult(uresult: *mut UFormattedDateInterval);
         }
-        ::core::mem::transmute(udtitvfmt_closeResult(::core::mem::transmute(uresult)))
+        udtitvfmt_closeResult(::core::mem::transmute(uresult))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17002,7 +17002,7 @@ pub unsafe fn uenum_close(en: *mut UEnumeration) {
         extern "system" {
             fn uenum_close(en: *mut UEnumeration);
         }
-        ::core::mem::transmute(uenum_close(::core::mem::transmute(en)))
+        uenum_close(::core::mem::transmute(en))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17068,7 +17068,7 @@ pub unsafe fn uenum_reset(en: *mut UEnumeration, status: *mut UErrorCode) {
         extern "system" {
             fn uenum_reset(en: *mut UEnumeration, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(uenum_reset(::core::mem::transmute(en), ::core::mem::transmute(status)))
+        uenum_reset(::core::mem::transmute(en), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17094,7 +17094,7 @@ pub unsafe fn ufieldpositer_close(fpositer: *mut UFieldPositionIterator) {
         extern "system" {
             fn ufieldpositer_close(fpositer: *mut UFieldPositionIterator);
         }
-        ::core::mem::transmute(ufieldpositer_close(::core::mem::transmute(fpositer)))
+        ufieldpositer_close(::core::mem::transmute(fpositer))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17133,7 +17133,7 @@ pub unsafe fn ufmt_close(fmt: *mut *mut ::core::ffi::c_void) {
         extern "system" {
             fn ufmt_close(fmt: *mut *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(ufmt_close(::core::mem::transmute(fmt)))
+        ufmt_close(::core::mem::transmute(fmt))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17356,7 +17356,7 @@ pub unsafe fn uidna_close(idna: *mut UIDNA) {
         extern "system" {
             fn uidna_close(idna: *mut UIDNA);
         }
-        ::core::mem::transmute(uidna_close(::core::mem::transmute(idna)))
+        uidna_close(::core::mem::transmute(idna))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17542,7 +17542,7 @@ pub unsafe fn uiter_setState(iter: *mut UCharIterator, state: u32, perrorcode: *
         extern "system" {
             fn uiter_setState(iter: *mut UCharIterator, state: u32, perrorcode: *mut UErrorCode);
         }
-        ::core::mem::transmute(uiter_setState(::core::mem::transmute(iter), ::core::mem::transmute(state), ::core::mem::transmute(perrorcode)))
+        uiter_setState(::core::mem::transmute(iter), ::core::mem::transmute(state), ::core::mem::transmute(perrorcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17555,7 +17555,7 @@ pub unsafe fn uiter_setString(iter: *mut UCharIterator, s: *const u16, length: i
         extern "system" {
             fn uiter_setString(iter: *mut UCharIterator, s: *const u16, length: i32);
         }
-        ::core::mem::transmute(uiter_setString(::core::mem::transmute(iter), ::core::mem::transmute(s), ::core::mem::transmute(length)))
+        uiter_setString(::core::mem::transmute(iter), ::core::mem::transmute(s), ::core::mem::transmute(length))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17569,7 +17569,7 @@ pub unsafe fn uiter_setUTF16BE<'a, Param1: ::windows::core::IntoParam<'a, super:
         extern "system" {
             fn uiter_setUTF16BE(iter: *mut UCharIterator, s: super::Foundation::PSTR, length: i32);
         }
-        ::core::mem::transmute(uiter_setUTF16BE(::core::mem::transmute(iter), s.into_param().abi(), ::core::mem::transmute(length)))
+        uiter_setUTF16BE(::core::mem::transmute(iter), s.into_param().abi(), ::core::mem::transmute(length))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17583,7 +17583,7 @@ pub unsafe fn uiter_setUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Fo
         extern "system" {
             fn uiter_setUTF8(iter: *mut UCharIterator, s: super::Foundation::PSTR, length: i32);
         }
-        ::core::mem::transmute(uiter_setUTF8(::core::mem::transmute(iter), s.into_param().abi(), ::core::mem::transmute(length)))
+        uiter_setUTF8(::core::mem::transmute(iter), s.into_param().abi(), ::core::mem::transmute(length))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17596,7 +17596,7 @@ pub unsafe fn uldn_close(ldn: *mut ULocaleDisplayNames) {
         extern "system" {
             fn uldn_close(ldn: *mut ULocaleDisplayNames);
         }
-        ::core::mem::transmute(uldn_close(::core::mem::transmute(ldn)))
+        uldn_close(::core::mem::transmute(ldn))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17788,7 +17788,7 @@ pub unsafe fn ulistfmt_close(listfmt: *mut UListFormatter) {
         extern "system" {
             fn ulistfmt_close(listfmt: *mut UListFormatter);
         }
-        ::core::mem::transmute(ulistfmt_close(::core::mem::transmute(listfmt)))
+        ulistfmt_close(::core::mem::transmute(listfmt))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17801,7 +17801,7 @@ pub unsafe fn ulistfmt_closeResult(uresult: *mut UFormattedList) {
         extern "system" {
             fn ulistfmt_closeResult(uresult: *mut UFormattedList);
         }
-        ::core::mem::transmute(ulistfmt_closeResult(::core::mem::transmute(uresult)))
+        ulistfmt_closeResult(::core::mem::transmute(uresult))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17827,7 +17827,7 @@ pub unsafe fn ulistfmt_formatStringsToResult(listfmt: *const UListFormatter, str
         extern "system" {
             fn ulistfmt_formatStringsToResult(listfmt: *const UListFormatter, strings: *const *const u16, stringlengths: *const i32, stringcount: i32, uresult: *mut UFormattedList, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(ulistfmt_formatStringsToResult(::core::mem::transmute(listfmt), ::core::mem::transmute(strings), ::core::mem::transmute(stringlengths), ::core::mem::transmute(stringcount), ::core::mem::transmute(uresult), ::core::mem::transmute(status)))
+        ulistfmt_formatStringsToResult(::core::mem::transmute(listfmt), ::core::mem::transmute(strings), ::core::mem::transmute(stringlengths), ::core::mem::transmute(stringcount), ::core::mem::transmute(uresult), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18381,7 +18381,7 @@ pub unsafe fn uloc_setDefault<'a, Param0: ::windows::core::IntoParam<'a, super::
         extern "system" {
             fn uloc_setDefault(localeid: super::Foundation::PSTR, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(uloc_setDefault(localeid.into_param().abi(), ::core::mem::transmute(status)))
+        uloc_setDefault(localeid.into_param().abi(), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18478,7 +18478,7 @@ pub unsafe fn ulocdata_close(uld: *mut ULocaleData) {
         extern "system" {
             fn ulocdata_close(uld: *mut ULocaleData);
         }
-        ::core::mem::transmute(ulocdata_close(::core::mem::transmute(uld)))
+        ulocdata_close(::core::mem::transmute(uld))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18491,7 +18491,7 @@ pub unsafe fn ulocdata_getCLDRVersion(versionarray: *mut u8, status: *mut UError
         extern "system" {
             fn ulocdata_getCLDRVersion(versionarray: *mut u8, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(ulocdata_getCLDRVersion(::core::mem::transmute(versionarray), ::core::mem::transmute(status)))
+        ulocdata_getCLDRVersion(::core::mem::transmute(versionarray), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18584,7 +18584,7 @@ pub unsafe fn ulocdata_getPaperSize<'a, Param0: ::windows::core::IntoParam<'a, s
         extern "system" {
             fn ulocdata_getPaperSize(localeid: super::Foundation::PSTR, height: *mut i32, width: *mut i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(ulocdata_getPaperSize(localeid.into_param().abi(), ::core::mem::transmute(height), ::core::mem::transmute(width), ::core::mem::transmute(status)))
+        ulocdata_getPaperSize(localeid.into_param().abi(), ::core::mem::transmute(height), ::core::mem::transmute(width), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18611,7 +18611,7 @@ pub unsafe fn ulocdata_setNoSubstitute(uld: *mut ULocaleData, setting: i8) {
         extern "system" {
             fn ulocdata_setNoSubstitute(uld: *mut ULocaleData, setting: i8);
         }
-        ::core::mem::transmute(ulocdata_setNoSubstitute(::core::mem::transmute(uld), ::core::mem::transmute(setting)))
+        ulocdata_setNoSubstitute(::core::mem::transmute(uld), ::core::mem::transmute(setting))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18624,7 +18624,7 @@ pub unsafe fn umsg_applyPattern(fmt: *mut *mut ::core::ffi::c_void, pattern: *co
         extern "system" {
             fn umsg_applyPattern(fmt: *mut *mut ::core::ffi::c_void, pattern: *const u16, patternlength: i32, parseerror: *mut UParseError, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(umsg_applyPattern(::core::mem::transmute(fmt), ::core::mem::transmute(pattern), ::core::mem::transmute(patternlength), ::core::mem::transmute(parseerror), ::core::mem::transmute(status)))
+        umsg_applyPattern(::core::mem::transmute(fmt), ::core::mem::transmute(pattern), ::core::mem::transmute(patternlength), ::core::mem::transmute(parseerror), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18663,7 +18663,7 @@ pub unsafe fn umsg_close(format: *mut *mut ::core::ffi::c_void) {
         extern "system" {
             fn umsg_close(format: *mut *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(umsg_close(::core::mem::transmute(format)))
+        umsg_close(::core::mem::transmute(format))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18717,7 +18717,7 @@ pub unsafe fn umsg_parse(fmt: *const *const ::core::ffi::c_void, source: *const 
         extern "system" {
             fn umsg_parse(fmt: *const *const ::core::ffi::c_void, source: *const u16, sourcelength: i32, count: *mut i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(umsg_parse(::core::mem::transmute(fmt), ::core::mem::transmute(source), ::core::mem::transmute(sourcelength), ::core::mem::transmute(count), ::core::mem::transmute(status)))
+        umsg_parse(::core::mem::transmute(fmt), ::core::mem::transmute(source), ::core::mem::transmute(sourcelength), ::core::mem::transmute(count), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18731,7 +18731,7 @@ pub unsafe fn umsg_setLocale<'a, Param1: ::windows::core::IntoParam<'a, super::F
         extern "system" {
             fn umsg_setLocale(fmt: *mut *mut ::core::ffi::c_void, locale: super::Foundation::PSTR);
         }
-        ::core::mem::transmute(umsg_setLocale(::core::mem::transmute(fmt), locale.into_param().abi()))
+        umsg_setLocale(::core::mem::transmute(fmt), locale.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18770,7 +18770,7 @@ pub unsafe fn umsg_vparse(fmt: *const *const ::core::ffi::c_void, source: *const
         extern "system" {
             fn umsg_vparse(fmt: *const *const ::core::ffi::c_void, source: *const u16, sourcelength: i32, count: *mut i32, ap: *mut i8, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(umsg_vparse(::core::mem::transmute(fmt), ::core::mem::transmute(source), ::core::mem::transmute(sourcelength), ::core::mem::transmute(count), ::core::mem::transmute(ap), ::core::mem::transmute(status)))
+        umsg_vparse(::core::mem::transmute(fmt), ::core::mem::transmute(source), ::core::mem::transmute(sourcelength), ::core::mem::transmute(count), ::core::mem::transmute(ap), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18809,7 +18809,7 @@ pub unsafe fn umutablecptrie_close(trie: *mut UMutableCPTrie) {
         extern "system" {
             fn umutablecptrie_close(trie: *mut UMutableCPTrie);
         }
-        ::core::mem::transmute(umutablecptrie_close(::core::mem::transmute(trie)))
+        umutablecptrie_close(::core::mem::transmute(trie))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18887,7 +18887,7 @@ pub unsafe fn umutablecptrie_set(trie: *mut UMutableCPTrie, c: i32, value: u32, 
         extern "system" {
             fn umutablecptrie_set(trie: *mut UMutableCPTrie, c: i32, value: u32, perrorcode: *mut UErrorCode);
         }
-        ::core::mem::transmute(umutablecptrie_set(::core::mem::transmute(trie), ::core::mem::transmute(c), ::core::mem::transmute(value), ::core::mem::transmute(perrorcode)))
+        umutablecptrie_set(::core::mem::transmute(trie), ::core::mem::transmute(c), ::core::mem::transmute(value), ::core::mem::transmute(perrorcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18900,7 +18900,7 @@ pub unsafe fn umutablecptrie_setRange(trie: *mut UMutableCPTrie, start: i32, end
         extern "system" {
             fn umutablecptrie_setRange(trie: *mut UMutableCPTrie, start: i32, end: i32, value: u32, perrorcode: *mut UErrorCode);
         }
-        ::core::mem::transmute(umutablecptrie_setRange(::core::mem::transmute(trie), ::core::mem::transmute(start), ::core::mem::transmute(end), ::core::mem::transmute(value), ::core::mem::transmute(perrorcode)))
+        umutablecptrie_setRange(::core::mem::transmute(trie), ::core::mem::transmute(start), ::core::mem::transmute(end), ::core::mem::transmute(value), ::core::mem::transmute(perrorcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18926,7 +18926,7 @@ pub unsafe fn unorm2_close(norm2: *mut UNormalizer2) {
         extern "system" {
             fn unorm2_close(norm2: *mut UNormalizer2);
         }
-        ::core::mem::transmute(unorm2_close(::core::mem::transmute(norm2)))
+        unorm2_close(::core::mem::transmute(norm2))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19200,7 +19200,7 @@ pub unsafe fn unum_applyPattern(format: *mut *mut ::core::ffi::c_void, localized
         extern "system" {
             fn unum_applyPattern(format: *mut *mut ::core::ffi::c_void, localized: i8, pattern: *const u16, patternlength: i32, parseerror: *mut UParseError, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(unum_applyPattern(::core::mem::transmute(format), ::core::mem::transmute(localized), ::core::mem::transmute(pattern), ::core::mem::transmute(patternlength), ::core::mem::transmute(parseerror), ::core::mem::transmute(status)))
+        unum_applyPattern(::core::mem::transmute(format), ::core::mem::transmute(localized), ::core::mem::transmute(pattern), ::core::mem::transmute(patternlength), ::core::mem::transmute(parseerror), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19226,7 +19226,7 @@ pub unsafe fn unum_close(fmt: *mut *mut ::core::ffi::c_void) {
         extern "system" {
             fn unum_close(fmt: *mut *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(unum_close(::core::mem::transmute(fmt)))
+        unum_close(::core::mem::transmute(fmt))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19530,7 +19530,7 @@ pub unsafe fn unum_setAttribute(fmt: *mut *mut ::core::ffi::c_void, attr: UNumbe
         extern "system" {
             fn unum_setAttribute(fmt: *mut *mut ::core::ffi::c_void, attr: UNumberFormatAttribute, newvalue: i32);
         }
-        ::core::mem::transmute(unum_setAttribute(::core::mem::transmute(fmt), ::core::mem::transmute(attr), ::core::mem::transmute(newvalue)))
+        unum_setAttribute(::core::mem::transmute(fmt), ::core::mem::transmute(attr), ::core::mem::transmute(newvalue))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19543,7 +19543,7 @@ pub unsafe fn unum_setContext(fmt: *mut *mut ::core::ffi::c_void, value: UDispla
         extern "system" {
             fn unum_setContext(fmt: *mut *mut ::core::ffi::c_void, value: UDisplayContext, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(unum_setContext(::core::mem::transmute(fmt), ::core::mem::transmute(value), ::core::mem::transmute(status)))
+        unum_setContext(::core::mem::transmute(fmt), ::core::mem::transmute(value), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19556,7 +19556,7 @@ pub unsafe fn unum_setDoubleAttribute(fmt: *mut *mut ::core::ffi::c_void, attr: 
         extern "system" {
             fn unum_setDoubleAttribute(fmt: *mut *mut ::core::ffi::c_void, attr: UNumberFormatAttribute, newvalue: f64);
         }
-        ::core::mem::transmute(unum_setDoubleAttribute(::core::mem::transmute(fmt), ::core::mem::transmute(attr), ::core::mem::transmute(newvalue)))
+        unum_setDoubleAttribute(::core::mem::transmute(fmt), ::core::mem::transmute(attr), ::core::mem::transmute(newvalue))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19569,7 +19569,7 @@ pub unsafe fn unum_setSymbol(fmt: *mut *mut ::core::ffi::c_void, symbol: UNumber
         extern "system" {
             fn unum_setSymbol(fmt: *mut *mut ::core::ffi::c_void, symbol: UNumberFormatSymbol, value: *const u16, length: i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(unum_setSymbol(::core::mem::transmute(fmt), ::core::mem::transmute(symbol), ::core::mem::transmute(value), ::core::mem::transmute(length), ::core::mem::transmute(status)))
+        unum_setSymbol(::core::mem::transmute(fmt), ::core::mem::transmute(symbol), ::core::mem::transmute(value), ::core::mem::transmute(length), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19582,7 +19582,7 @@ pub unsafe fn unum_setTextAttribute(fmt: *mut *mut ::core::ffi::c_void, tag: UNu
         extern "system" {
             fn unum_setTextAttribute(fmt: *mut *mut ::core::ffi::c_void, tag: UNumberFormatTextAttribute, newvalue: *const u16, newvaluelength: i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(unum_setTextAttribute(::core::mem::transmute(fmt), ::core::mem::transmute(tag), ::core::mem::transmute(newvalue), ::core::mem::transmute(newvaluelength), ::core::mem::transmute(status)))
+        unum_setTextAttribute(::core::mem::transmute(fmt), ::core::mem::transmute(tag), ::core::mem::transmute(newvalue), ::core::mem::transmute(newvaluelength), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19608,7 +19608,7 @@ pub unsafe fn unumf_close(uformatter: *mut UNumberFormatter) {
         extern "system" {
             fn unumf_close(uformatter: *mut UNumberFormatter);
         }
-        ::core::mem::transmute(unumf_close(::core::mem::transmute(uformatter)))
+        unumf_close(::core::mem::transmute(uformatter))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19621,7 +19621,7 @@ pub unsafe fn unumf_closeResult(uresult: *mut UFormattedNumber) {
         extern "system" {
             fn unumf_closeResult(uresult: *mut UFormattedNumber);
         }
-        ::core::mem::transmute(unumf_closeResult(::core::mem::transmute(uresult)))
+        unumf_closeResult(::core::mem::transmute(uresult))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19635,7 +19635,7 @@ pub unsafe fn unumf_formatDecimal<'a, Param1: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn unumf_formatDecimal(uformatter: *const UNumberFormatter, value: super::Foundation::PSTR, valuelen: i32, uresult: *mut UFormattedNumber, ec: *mut UErrorCode);
         }
-        ::core::mem::transmute(unumf_formatDecimal(::core::mem::transmute(uformatter), value.into_param().abi(), ::core::mem::transmute(valuelen), ::core::mem::transmute(uresult), ::core::mem::transmute(ec)))
+        unumf_formatDecimal(::core::mem::transmute(uformatter), value.into_param().abi(), ::core::mem::transmute(valuelen), ::core::mem::transmute(uresult), ::core::mem::transmute(ec))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19648,7 +19648,7 @@ pub unsafe fn unumf_formatDouble(uformatter: *const UNumberFormatter, value: f64
         extern "system" {
             fn unumf_formatDouble(uformatter: *const UNumberFormatter, value: f64, uresult: *mut UFormattedNumber, ec: *mut UErrorCode);
         }
-        ::core::mem::transmute(unumf_formatDouble(::core::mem::transmute(uformatter), ::core::mem::transmute(value), ::core::mem::transmute(uresult), ::core::mem::transmute(ec)))
+        unumf_formatDouble(::core::mem::transmute(uformatter), ::core::mem::transmute(value), ::core::mem::transmute(uresult), ::core::mem::transmute(ec))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19661,7 +19661,7 @@ pub unsafe fn unumf_formatInt(uformatter: *const UNumberFormatter, value: i64, u
         extern "system" {
             fn unumf_formatInt(uformatter: *const UNumberFormatter, value: i64, uresult: *mut UFormattedNumber, ec: *mut UErrorCode);
         }
-        ::core::mem::transmute(unumf_formatInt(::core::mem::transmute(uformatter), ::core::mem::transmute(value), ::core::mem::transmute(uresult), ::core::mem::transmute(ec)))
+        unumf_formatInt(::core::mem::transmute(uformatter), ::core::mem::transmute(value), ::core::mem::transmute(uresult), ::core::mem::transmute(ec))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19728,7 +19728,7 @@ pub unsafe fn unumf_resultGetAllFieldPositions(uresult: *const UFormattedNumber,
         extern "system" {
             fn unumf_resultGetAllFieldPositions(uresult: *const UFormattedNumber, ufpositer: *mut UFieldPositionIterator, ec: *mut UErrorCode);
         }
-        ::core::mem::transmute(unumf_resultGetAllFieldPositions(::core::mem::transmute(uresult), ::core::mem::transmute(ufpositer), ::core::mem::transmute(ec)))
+        unumf_resultGetAllFieldPositions(::core::mem::transmute(uresult), ::core::mem::transmute(ufpositer), ::core::mem::transmute(ec))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19767,7 +19767,7 @@ pub unsafe fn unumsys_close(unumsys: *mut UNumberingSystem) {
         extern "system" {
             fn unumsys_close(unumsys: *mut UNumberingSystem);
         }
-        ::core::mem::transmute(unumsys_close(::core::mem::transmute(unumsys)))
+        unumsys_close(::core::mem::transmute(unumsys))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19874,7 +19874,7 @@ pub unsafe fn uplrules_close(uplrules: *mut UPluralRules) {
         extern "system" {
             fn uplrules_close(uplrules: *mut UPluralRules);
         }
-        ::core::mem::transmute(uplrules_close(::core::mem::transmute(uplrules)))
+        uplrules_close(::core::mem::transmute(uplrules))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19967,7 +19967,7 @@ pub unsafe fn uregex_appendReplacementUText(regexp: *mut URegularExpression, rep
         extern "system" {
             fn uregex_appendReplacementUText(regexp: *mut URegularExpression, replacementtext: *mut UText, dest: *mut UText, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(uregex_appendReplacementUText(::core::mem::transmute(regexp), ::core::mem::transmute(replacementtext), ::core::mem::transmute(dest), ::core::mem::transmute(status)))
+        uregex_appendReplacementUText(::core::mem::transmute(regexp), ::core::mem::transmute(replacementtext), ::core::mem::transmute(dest), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20019,7 +20019,7 @@ pub unsafe fn uregex_close(regexp: *mut URegularExpression) {
         extern "system" {
             fn uregex_close(regexp: *mut URegularExpression);
         }
-        ::core::mem::transmute(uregex_close(::core::mem::transmute(regexp)))
+        uregex_close(::core::mem::transmute(regexp))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20110,7 +20110,7 @@ pub unsafe fn uregex_getFindProgressCallback(regexp: *const URegularExpression, 
         extern "system" {
             fn uregex_getFindProgressCallback(regexp: *const URegularExpression, callback: *mut ::windows::core::RawPtr, context: *const *const ::core::ffi::c_void, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(uregex_getFindProgressCallback(::core::mem::transmute(regexp), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(status)))
+        uregex_getFindProgressCallback(::core::mem::transmute(regexp), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20123,7 +20123,7 @@ pub unsafe fn uregex_getMatchCallback(regexp: *const URegularExpression, callbac
         extern "system" {
             fn uregex_getMatchCallback(regexp: *const URegularExpression, callback: *mut ::windows::core::RawPtr, context: *const *const ::core::ffi::c_void, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(uregex_getMatchCallback(::core::mem::transmute(regexp), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(status)))
+        uregex_getMatchCallback(::core::mem::transmute(regexp), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20411,7 +20411,7 @@ pub unsafe fn uregex_refreshUText(regexp: *mut URegularExpression, text: *mut UT
         extern "system" {
             fn uregex_refreshUText(regexp: *mut URegularExpression, text: *mut UText, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(uregex_refreshUText(::core::mem::transmute(regexp), ::core::mem::transmute(text), ::core::mem::transmute(status)))
+        uregex_refreshUText(::core::mem::transmute(regexp), ::core::mem::transmute(text), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20541,7 +20541,7 @@ pub unsafe fn uregex_reset(regexp: *mut URegularExpression, index: i32, status: 
         extern "system" {
             fn uregex_reset(regexp: *mut URegularExpression, index: i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(uregex_reset(::core::mem::transmute(regexp), ::core::mem::transmute(index), ::core::mem::transmute(status)))
+        uregex_reset(::core::mem::transmute(regexp), ::core::mem::transmute(index), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20554,7 +20554,7 @@ pub unsafe fn uregex_reset64(regexp: *mut URegularExpression, index: i64, status
         extern "system" {
             fn uregex_reset64(regexp: *mut URegularExpression, index: i64, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(uregex_reset64(::core::mem::transmute(regexp), ::core::mem::transmute(index), ::core::mem::transmute(status)))
+        uregex_reset64(::core::mem::transmute(regexp), ::core::mem::transmute(index), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20567,7 +20567,7 @@ pub unsafe fn uregex_setFindProgressCallback(regexp: *mut URegularExpression, ca
         extern "system" {
             fn uregex_setFindProgressCallback(regexp: *mut URegularExpression, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(uregex_setFindProgressCallback(::core::mem::transmute(regexp), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(status)))
+        uregex_setFindProgressCallback(::core::mem::transmute(regexp), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20580,7 +20580,7 @@ pub unsafe fn uregex_setMatchCallback(regexp: *mut URegularExpression, callback:
         extern "system" {
             fn uregex_setMatchCallback(regexp: *mut URegularExpression, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(uregex_setMatchCallback(::core::mem::transmute(regexp), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(status)))
+        uregex_setMatchCallback(::core::mem::transmute(regexp), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20593,7 +20593,7 @@ pub unsafe fn uregex_setRegion(regexp: *mut URegularExpression, regionstart: i32
         extern "system" {
             fn uregex_setRegion(regexp: *mut URegularExpression, regionstart: i32, regionlimit: i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(uregex_setRegion(::core::mem::transmute(regexp), ::core::mem::transmute(regionstart), ::core::mem::transmute(regionlimit), ::core::mem::transmute(status)))
+        uregex_setRegion(::core::mem::transmute(regexp), ::core::mem::transmute(regionstart), ::core::mem::transmute(regionlimit), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20606,7 +20606,7 @@ pub unsafe fn uregex_setRegion64(regexp: *mut URegularExpression, regionstart: i
         extern "system" {
             fn uregex_setRegion64(regexp: *mut URegularExpression, regionstart: i64, regionlimit: i64, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(uregex_setRegion64(::core::mem::transmute(regexp), ::core::mem::transmute(regionstart), ::core::mem::transmute(regionlimit), ::core::mem::transmute(status)))
+        uregex_setRegion64(::core::mem::transmute(regexp), ::core::mem::transmute(regionstart), ::core::mem::transmute(regionlimit), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20619,7 +20619,7 @@ pub unsafe fn uregex_setRegionAndStart(regexp: *mut URegularExpression, regionst
         extern "system" {
             fn uregex_setRegionAndStart(regexp: *mut URegularExpression, regionstart: i64, regionlimit: i64, startindex: i64, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(uregex_setRegionAndStart(::core::mem::transmute(regexp), ::core::mem::transmute(regionstart), ::core::mem::transmute(regionlimit), ::core::mem::transmute(startindex), ::core::mem::transmute(status)))
+        uregex_setRegionAndStart(::core::mem::transmute(regexp), ::core::mem::transmute(regionstart), ::core::mem::transmute(regionlimit), ::core::mem::transmute(startindex), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20632,7 +20632,7 @@ pub unsafe fn uregex_setStackLimit(regexp: *mut URegularExpression, limit: i32, 
         extern "system" {
             fn uregex_setStackLimit(regexp: *mut URegularExpression, limit: i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(uregex_setStackLimit(::core::mem::transmute(regexp), ::core::mem::transmute(limit), ::core::mem::transmute(status)))
+        uregex_setStackLimit(::core::mem::transmute(regexp), ::core::mem::transmute(limit), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20645,7 +20645,7 @@ pub unsafe fn uregex_setText(regexp: *mut URegularExpression, text: *const u16, 
         extern "system" {
             fn uregex_setText(regexp: *mut URegularExpression, text: *const u16, textlength: i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(uregex_setText(::core::mem::transmute(regexp), ::core::mem::transmute(text), ::core::mem::transmute(textlength), ::core::mem::transmute(status)))
+        uregex_setText(::core::mem::transmute(regexp), ::core::mem::transmute(text), ::core::mem::transmute(textlength), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20658,7 +20658,7 @@ pub unsafe fn uregex_setTimeLimit(regexp: *mut URegularExpression, limit: i32, s
         extern "system" {
             fn uregex_setTimeLimit(regexp: *mut URegularExpression, limit: i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(uregex_setTimeLimit(::core::mem::transmute(regexp), ::core::mem::transmute(limit), ::core::mem::transmute(status)))
+        uregex_setTimeLimit(::core::mem::transmute(regexp), ::core::mem::transmute(limit), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20671,7 +20671,7 @@ pub unsafe fn uregex_setUText(regexp: *mut URegularExpression, text: *mut UText,
         extern "system" {
             fn uregex_setUText(regexp: *mut URegularExpression, text: *mut UText, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(uregex_setUText(::core::mem::transmute(regexp), ::core::mem::transmute(text), ::core::mem::transmute(status)))
+        uregex_setUText(::core::mem::transmute(regexp), ::core::mem::transmute(text), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20736,7 +20736,7 @@ pub unsafe fn uregex_useAnchoringBounds(regexp: *mut URegularExpression, b: i8, 
         extern "system" {
             fn uregex_useAnchoringBounds(regexp: *mut URegularExpression, b: i8, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(uregex_useAnchoringBounds(::core::mem::transmute(regexp), ::core::mem::transmute(b), ::core::mem::transmute(status)))
+        uregex_useAnchoringBounds(::core::mem::transmute(regexp), ::core::mem::transmute(b), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20749,7 +20749,7 @@ pub unsafe fn uregex_useTransparentBounds(regexp: *mut URegularExpression, b: i8
         extern "system" {
             fn uregex_useTransparentBounds(regexp: *mut URegularExpression, b: i8, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(uregex_useTransparentBounds(::core::mem::transmute(regexp), ::core::mem::transmute(b), ::core::mem::transmute(status)))
+        uregex_useTransparentBounds(::core::mem::transmute(regexp), ::core::mem::transmute(b), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20933,7 +20933,7 @@ pub unsafe fn ureldatefmt_close(reldatefmt: *mut URelativeDateTimeFormatter) {
         extern "system" {
             fn ureldatefmt_close(reldatefmt: *mut URelativeDateTimeFormatter);
         }
-        ::core::mem::transmute(ureldatefmt_close(::core::mem::transmute(reldatefmt)))
+        ureldatefmt_close(::core::mem::transmute(reldatefmt))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20946,7 +20946,7 @@ pub unsafe fn ureldatefmt_closeResult(ufrdt: *mut UFormattedRelativeDateTime) {
         extern "system" {
             fn ureldatefmt_closeResult(ufrdt: *mut UFormattedRelativeDateTime);
         }
-        ::core::mem::transmute(ureldatefmt_closeResult(::core::mem::transmute(ufrdt)))
+        ureldatefmt_closeResult(::core::mem::transmute(ufrdt))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20998,7 +20998,7 @@ pub unsafe fn ureldatefmt_formatNumericToResult(reldatefmt: *const URelativeDate
         extern "system" {
             fn ureldatefmt_formatNumericToResult(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut UFormattedRelativeDateTime, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(ureldatefmt_formatNumericToResult(::core::mem::transmute(reldatefmt), ::core::mem::transmute(offset), ::core::mem::transmute(unit), ::core::mem::transmute(result), ::core::mem::transmute(status)))
+        ureldatefmt_formatNumericToResult(::core::mem::transmute(reldatefmt), ::core::mem::transmute(offset), ::core::mem::transmute(unit), ::core::mem::transmute(result), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21011,7 +21011,7 @@ pub unsafe fn ureldatefmt_formatToResult(reldatefmt: *const URelativeDateTimeFor
         extern "system" {
             fn ureldatefmt_formatToResult(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut UFormattedRelativeDateTime, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(ureldatefmt_formatToResult(::core::mem::transmute(reldatefmt), ::core::mem::transmute(offset), ::core::mem::transmute(unit), ::core::mem::transmute(result), ::core::mem::transmute(status)))
+        ureldatefmt_formatToResult(::core::mem::transmute(reldatefmt), ::core::mem::transmute(offset), ::core::mem::transmute(unit), ::core::mem::transmute(result), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21064,7 +21064,7 @@ pub unsafe fn ures_close(resourcebundle: *mut UResourceBundle) {
         extern "system" {
             fn ures_close(resourcebundle: *mut UResourceBundle);
         }
-        ::core::mem::transmute(ures_close(::core::mem::transmute(resourcebundle)))
+        ures_close(::core::mem::transmute(resourcebundle))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21318,7 +21318,7 @@ pub unsafe fn ures_getVersion(resb: *const UResourceBundle, versioninfo: *mut u8
         extern "system" {
             fn ures_getVersion(resb: *const UResourceBundle, versioninfo: *mut u8);
         }
-        ::core::mem::transmute(ures_getVersion(::core::mem::transmute(resb), ::core::mem::transmute(versioninfo)))
+        ures_getVersion(::core::mem::transmute(resb), ::core::mem::transmute(versioninfo))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21400,7 +21400,7 @@ pub unsafe fn ures_resetIterator(resourcebundle: *mut UResourceBundle) {
         extern "system" {
             fn ures_resetIterator(resourcebundle: *mut UResourceBundle);
         }
-        ::core::mem::transmute(ures_resetIterator(::core::mem::transmute(resourcebundle)))
+        ures_resetIterator(::core::mem::transmute(resourcebundle))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21559,7 +21559,7 @@ pub unsafe fn usearch_close(searchiter: *mut UStringSearch) {
         extern "system" {
             fn usearch_close(searchiter: *mut UStringSearch);
         }
-        ::core::mem::transmute(usearch_close(::core::mem::transmute(searchiter)))
+        usearch_close(::core::mem::transmute(searchiter))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21794,7 +21794,7 @@ pub unsafe fn usearch_reset(strsrch: *mut UStringSearch) {
         extern "system" {
             fn usearch_reset(strsrch: *mut UStringSearch);
         }
-        ::core::mem::transmute(usearch_reset(::core::mem::transmute(strsrch)))
+        usearch_reset(::core::mem::transmute(strsrch))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21807,7 +21807,7 @@ pub unsafe fn usearch_setAttribute(strsrch: *mut UStringSearch, attribute: USear
         extern "system" {
             fn usearch_setAttribute(strsrch: *mut UStringSearch, attribute: USearchAttribute, value: USearchAttributeValue, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(usearch_setAttribute(::core::mem::transmute(strsrch), ::core::mem::transmute(attribute), ::core::mem::transmute(value), ::core::mem::transmute(status)))
+        usearch_setAttribute(::core::mem::transmute(strsrch), ::core::mem::transmute(attribute), ::core::mem::transmute(value), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21820,7 +21820,7 @@ pub unsafe fn usearch_setBreakIterator(strsrch: *mut UStringSearch, breakiter: *
         extern "system" {
             fn usearch_setBreakIterator(strsrch: *mut UStringSearch, breakiter: *mut UBreakIterator, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(usearch_setBreakIterator(::core::mem::transmute(strsrch), ::core::mem::transmute(breakiter), ::core::mem::transmute(status)))
+        usearch_setBreakIterator(::core::mem::transmute(strsrch), ::core::mem::transmute(breakiter), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21833,7 +21833,7 @@ pub unsafe fn usearch_setCollator(strsrch: *mut UStringSearch, collator: *const 
         extern "system" {
             fn usearch_setCollator(strsrch: *mut UStringSearch, collator: *const UCollator, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(usearch_setCollator(::core::mem::transmute(strsrch), ::core::mem::transmute(collator), ::core::mem::transmute(status)))
+        usearch_setCollator(::core::mem::transmute(strsrch), ::core::mem::transmute(collator), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21846,7 +21846,7 @@ pub unsafe fn usearch_setOffset(strsrch: *mut UStringSearch, position: i32, stat
         extern "system" {
             fn usearch_setOffset(strsrch: *mut UStringSearch, position: i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(usearch_setOffset(::core::mem::transmute(strsrch), ::core::mem::transmute(position), ::core::mem::transmute(status)))
+        usearch_setOffset(::core::mem::transmute(strsrch), ::core::mem::transmute(position), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21859,7 +21859,7 @@ pub unsafe fn usearch_setPattern(strsrch: *mut UStringSearch, pattern: *const u1
         extern "system" {
             fn usearch_setPattern(strsrch: *mut UStringSearch, pattern: *const u16, patternlength: i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(usearch_setPattern(::core::mem::transmute(strsrch), ::core::mem::transmute(pattern), ::core::mem::transmute(patternlength), ::core::mem::transmute(status)))
+        usearch_setPattern(::core::mem::transmute(strsrch), ::core::mem::transmute(pattern), ::core::mem::transmute(patternlength), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21872,7 +21872,7 @@ pub unsafe fn usearch_setText(strsrch: *mut UStringSearch, text: *const u16, tex
         extern "system" {
             fn usearch_setText(strsrch: *mut UStringSearch, text: *const u16, textlength: i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(usearch_setText(::core::mem::transmute(strsrch), ::core::mem::transmute(text), ::core::mem::transmute(textlength), ::core::mem::transmute(status)))
+        usearch_setText(::core::mem::transmute(strsrch), ::core::mem::transmute(text), ::core::mem::transmute(textlength), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21885,7 +21885,7 @@ pub unsafe fn uset_add(set: *mut USet, c: i32) {
         extern "system" {
             fn uset_add(set: *mut USet, c: i32);
         }
-        ::core::mem::transmute(uset_add(::core::mem::transmute(set), ::core::mem::transmute(c)))
+        uset_add(::core::mem::transmute(set), ::core::mem::transmute(c))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21898,7 +21898,7 @@ pub unsafe fn uset_addAll(set: *mut USet, additionalset: *const USet) {
         extern "system" {
             fn uset_addAll(set: *mut USet, additionalset: *const USet);
         }
-        ::core::mem::transmute(uset_addAll(::core::mem::transmute(set), ::core::mem::transmute(additionalset)))
+        uset_addAll(::core::mem::transmute(set), ::core::mem::transmute(additionalset))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21911,7 +21911,7 @@ pub unsafe fn uset_addAllCodePoints(set: *mut USet, str: *const u16, strlen: i32
         extern "system" {
             fn uset_addAllCodePoints(set: *mut USet, str: *const u16, strlen: i32);
         }
-        ::core::mem::transmute(uset_addAllCodePoints(::core::mem::transmute(set), ::core::mem::transmute(str), ::core::mem::transmute(strlen)))
+        uset_addAllCodePoints(::core::mem::transmute(set), ::core::mem::transmute(str), ::core::mem::transmute(strlen))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21924,7 +21924,7 @@ pub unsafe fn uset_addRange(set: *mut USet, start: i32, end: i32) {
         extern "system" {
             fn uset_addRange(set: *mut USet, start: i32, end: i32);
         }
-        ::core::mem::transmute(uset_addRange(::core::mem::transmute(set), ::core::mem::transmute(start), ::core::mem::transmute(end)))
+        uset_addRange(::core::mem::transmute(set), ::core::mem::transmute(start), ::core::mem::transmute(end))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21937,7 +21937,7 @@ pub unsafe fn uset_addString(set: *mut USet, str: *const u16, strlen: i32) {
         extern "system" {
             fn uset_addString(set: *mut USet, str: *const u16, strlen: i32);
         }
-        ::core::mem::transmute(uset_addString(::core::mem::transmute(set), ::core::mem::transmute(str), ::core::mem::transmute(strlen)))
+        uset_addString(::core::mem::transmute(set), ::core::mem::transmute(str), ::core::mem::transmute(strlen))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21950,7 +21950,7 @@ pub unsafe fn uset_applyIntPropertyValue(set: *mut USet, prop: UProperty, value:
         extern "system" {
             fn uset_applyIntPropertyValue(set: *mut USet, prop: UProperty, value: i32, ec: *mut UErrorCode);
         }
-        ::core::mem::transmute(uset_applyIntPropertyValue(::core::mem::transmute(set), ::core::mem::transmute(prop), ::core::mem::transmute(value), ::core::mem::transmute(ec)))
+        uset_applyIntPropertyValue(::core::mem::transmute(set), ::core::mem::transmute(prop), ::core::mem::transmute(value), ::core::mem::transmute(ec))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21976,7 +21976,7 @@ pub unsafe fn uset_applyPropertyAlias(set: *mut USet, prop: *const u16, propleng
         extern "system" {
             fn uset_applyPropertyAlias(set: *mut USet, prop: *const u16, proplength: i32, value: *const u16, valuelength: i32, ec: *mut UErrorCode);
         }
-        ::core::mem::transmute(uset_applyPropertyAlias(::core::mem::transmute(set), ::core::mem::transmute(prop), ::core::mem::transmute(proplength), ::core::mem::transmute(value), ::core::mem::transmute(valuelength), ::core::mem::transmute(ec)))
+        uset_applyPropertyAlias(::core::mem::transmute(set), ::core::mem::transmute(prop), ::core::mem::transmute(proplength), ::core::mem::transmute(value), ::core::mem::transmute(valuelength), ::core::mem::transmute(ec))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22002,7 +22002,7 @@ pub unsafe fn uset_clear(set: *mut USet) {
         extern "system" {
             fn uset_clear(set: *mut USet);
         }
-        ::core::mem::transmute(uset_clear(::core::mem::transmute(set)))
+        uset_clear(::core::mem::transmute(set))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22041,7 +22041,7 @@ pub unsafe fn uset_close(set: *mut USet) {
         extern "system" {
             fn uset_close(set: *mut USet);
         }
-        ::core::mem::transmute(uset_close(::core::mem::transmute(set)))
+        uset_close(::core::mem::transmute(set))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22054,7 +22054,7 @@ pub unsafe fn uset_closeOver(set: *mut USet, attributes: i32) {
         extern "system" {
             fn uset_closeOver(set: *mut USet, attributes: i32);
         }
-        ::core::mem::transmute(uset_closeOver(::core::mem::transmute(set), ::core::mem::transmute(attributes)))
+        uset_closeOver(::core::mem::transmute(set), ::core::mem::transmute(attributes))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22067,7 +22067,7 @@ pub unsafe fn uset_compact(set: *mut USet) {
         extern "system" {
             fn uset_compact(set: *mut USet);
         }
-        ::core::mem::transmute(uset_compact(::core::mem::transmute(set)))
+        uset_compact(::core::mem::transmute(set))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22080,7 +22080,7 @@ pub unsafe fn uset_complement(set: *mut USet) {
         extern "system" {
             fn uset_complement(set: *mut USet);
         }
-        ::core::mem::transmute(uset_complement(::core::mem::transmute(set)))
+        uset_complement(::core::mem::transmute(set))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22093,7 +22093,7 @@ pub unsafe fn uset_complementAll(set: *mut USet, complement: *const USet) {
         extern "system" {
             fn uset_complementAll(set: *mut USet, complement: *const USet);
         }
-        ::core::mem::transmute(uset_complementAll(::core::mem::transmute(set), ::core::mem::transmute(complement)))
+        uset_complementAll(::core::mem::transmute(set), ::core::mem::transmute(complement))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22210,7 +22210,7 @@ pub unsafe fn uset_freeze(set: *mut USet) {
         extern "system" {
             fn uset_freeze(set: *mut USet);
         }
-        ::core::mem::transmute(uset_freeze(::core::mem::transmute(set)))
+        uset_freeze(::core::mem::transmute(set))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22379,7 +22379,7 @@ pub unsafe fn uset_remove(set: *mut USet, c: i32) {
         extern "system" {
             fn uset_remove(set: *mut USet, c: i32);
         }
-        ::core::mem::transmute(uset_remove(::core::mem::transmute(set), ::core::mem::transmute(c)))
+        uset_remove(::core::mem::transmute(set), ::core::mem::transmute(c))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22392,7 +22392,7 @@ pub unsafe fn uset_removeAll(set: *mut USet, removeset: *const USet) {
         extern "system" {
             fn uset_removeAll(set: *mut USet, removeset: *const USet);
         }
-        ::core::mem::transmute(uset_removeAll(::core::mem::transmute(set), ::core::mem::transmute(removeset)))
+        uset_removeAll(::core::mem::transmute(set), ::core::mem::transmute(removeset))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22405,7 +22405,7 @@ pub unsafe fn uset_removeAllStrings(set: *mut USet) {
         extern "system" {
             fn uset_removeAllStrings(set: *mut USet);
         }
-        ::core::mem::transmute(uset_removeAllStrings(::core::mem::transmute(set)))
+        uset_removeAllStrings(::core::mem::transmute(set))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22418,7 +22418,7 @@ pub unsafe fn uset_removeRange(set: *mut USet, start: i32, end: i32) {
         extern "system" {
             fn uset_removeRange(set: *mut USet, start: i32, end: i32);
         }
-        ::core::mem::transmute(uset_removeRange(::core::mem::transmute(set), ::core::mem::transmute(start), ::core::mem::transmute(end)))
+        uset_removeRange(::core::mem::transmute(set), ::core::mem::transmute(start), ::core::mem::transmute(end))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22431,7 +22431,7 @@ pub unsafe fn uset_removeString(set: *mut USet, str: *const u16, strlen: i32) {
         extern "system" {
             fn uset_removeString(set: *mut USet, str: *const u16, strlen: i32);
         }
-        ::core::mem::transmute(uset_removeString(::core::mem::transmute(set), ::core::mem::transmute(str), ::core::mem::transmute(strlen)))
+        uset_removeString(::core::mem::transmute(set), ::core::mem::transmute(str), ::core::mem::transmute(strlen))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22457,7 +22457,7 @@ pub unsafe fn uset_retain(set: *mut USet, start: i32, end: i32) {
         extern "system" {
             fn uset_retain(set: *mut USet, start: i32, end: i32);
         }
-        ::core::mem::transmute(uset_retain(::core::mem::transmute(set), ::core::mem::transmute(start), ::core::mem::transmute(end)))
+        uset_retain(::core::mem::transmute(set), ::core::mem::transmute(start), ::core::mem::transmute(end))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22470,7 +22470,7 @@ pub unsafe fn uset_retainAll(set: *mut USet, retain: *const USet) {
         extern "system" {
             fn uset_retainAll(set: *mut USet, retain: *const USet);
         }
-        ::core::mem::transmute(uset_retainAll(::core::mem::transmute(set), ::core::mem::transmute(retain)))
+        uset_retainAll(::core::mem::transmute(set), ::core::mem::transmute(retain))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22509,7 +22509,7 @@ pub unsafe fn uset_set(set: *mut USet, start: i32, end: i32) {
         extern "system" {
             fn uset_set(set: *mut USet, start: i32, end: i32);
         }
-        ::core::mem::transmute(uset_set(::core::mem::transmute(set), ::core::mem::transmute(start), ::core::mem::transmute(end)))
+        uset_set(::core::mem::transmute(set), ::core::mem::transmute(start), ::core::mem::transmute(end))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22522,7 +22522,7 @@ pub unsafe fn uset_setSerializedToOne(fillset: *mut USerializedSet, c: i32) {
         extern "system" {
             fn uset_setSerializedToOne(fillset: *mut USerializedSet, c: i32);
         }
-        ::core::mem::transmute(uset_setSerializedToOne(::core::mem::transmute(fillset), ::core::mem::transmute(c)))
+        uset_setSerializedToOne(::core::mem::transmute(fillset), ::core::mem::transmute(c))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22709,7 +22709,7 @@ pub unsafe fn uspoof_close(sc: *mut USpoofChecker) {
         extern "system" {
             fn uspoof_close(sc: *mut USpoofChecker);
         }
-        ::core::mem::transmute(uspoof_close(::core::mem::transmute(sc)))
+        uspoof_close(::core::mem::transmute(sc))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22722,7 +22722,7 @@ pub unsafe fn uspoof_closeCheckResult(checkresult: *mut USpoofCheckResult) {
         extern "system" {
             fn uspoof_closeCheckResult(checkresult: *mut USpoofCheckResult);
         }
-        ::core::mem::transmute(uspoof_closeCheckResult(::core::mem::transmute(checkresult)))
+        uspoof_closeCheckResult(::core::mem::transmute(checkresult))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22946,7 +22946,7 @@ pub unsafe fn uspoof_setAllowedChars(sc: *mut USpoofChecker, chars: *const USet,
         extern "system" {
             fn uspoof_setAllowedChars(sc: *mut USpoofChecker, chars: *const USet, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(uspoof_setAllowedChars(::core::mem::transmute(sc), ::core::mem::transmute(chars), ::core::mem::transmute(status)))
+        uspoof_setAllowedChars(::core::mem::transmute(sc), ::core::mem::transmute(chars), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22960,7 +22960,7 @@ pub unsafe fn uspoof_setAllowedLocales<'a, Param1: ::windows::core::IntoParam<'a
         extern "system" {
             fn uspoof_setAllowedLocales(sc: *mut USpoofChecker, localeslist: super::Foundation::PSTR, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(uspoof_setAllowedLocales(::core::mem::transmute(sc), localeslist.into_param().abi(), ::core::mem::transmute(status)))
+        uspoof_setAllowedLocales(::core::mem::transmute(sc), localeslist.into_param().abi(), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22973,7 +22973,7 @@ pub unsafe fn uspoof_setChecks(sc: *mut USpoofChecker, checks: i32, status: *mut
         extern "system" {
             fn uspoof_setChecks(sc: *mut USpoofChecker, checks: i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(uspoof_setChecks(::core::mem::transmute(sc), ::core::mem::transmute(checks), ::core::mem::transmute(status)))
+        uspoof_setChecks(::core::mem::transmute(sc), ::core::mem::transmute(checks), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22986,7 +22986,7 @@ pub unsafe fn uspoof_setRestrictionLevel(sc: *mut USpoofChecker, restrictionleve
         extern "system" {
             fn uspoof_setRestrictionLevel(sc: *mut USpoofChecker, restrictionlevel: URestrictionLevel);
         }
-        ::core::mem::transmute(uspoof_setRestrictionLevel(::core::mem::transmute(sc), ::core::mem::transmute(restrictionlevel)))
+        uspoof_setRestrictionLevel(::core::mem::transmute(sc), ::core::mem::transmute(restrictionlevel))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22999,7 +22999,7 @@ pub unsafe fn usprep_close(profile: *mut UStringPrepProfile) {
         extern "system" {
             fn usprep_close(profile: *mut UStringPrepProfile);
         }
-        ::core::mem::transmute(usprep_close(::core::mem::transmute(profile)))
+        usprep_close(::core::mem::transmute(profile))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -23091,7 +23091,7 @@ pub unsafe fn utext_copy(ut: *mut UText, nativestart: i64, nativelimit: i64, des
         extern "system" {
             fn utext_copy(ut: *mut UText, nativestart: i64, nativelimit: i64, destindex: i64, r#move: i8, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(utext_copy(::core::mem::transmute(ut), ::core::mem::transmute(nativestart), ::core::mem::transmute(nativelimit), ::core::mem::transmute(destindex), ::core::mem::transmute(r#move), ::core::mem::transmute(status)))
+        utext_copy(::core::mem::transmute(ut), ::core::mem::transmute(nativestart), ::core::mem::transmute(nativelimit), ::core::mem::transmute(destindex), ::core::mem::transmute(r#move), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -23143,7 +23143,7 @@ pub unsafe fn utext_freeze(ut: *mut UText) {
         extern "system" {
             fn utext_freeze(ut: *mut UText);
         }
-        ::core::mem::transmute(utext_freeze(::core::mem::transmute(ut)))
+        utext_freeze(::core::mem::transmute(ut))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -23339,7 +23339,7 @@ pub unsafe fn utext_setNativeIndex(ut: *mut UText, nativeindex: i64) {
         extern "system" {
             fn utext_setNativeIndex(ut: *mut UText, nativeindex: i64);
         }
-        ::core::mem::transmute(utext_setNativeIndex(::core::mem::transmute(ut), ::core::mem::transmute(nativeindex)))
+        utext_setNativeIndex(::core::mem::transmute(ut), ::core::mem::transmute(nativeindex))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -23485,7 +23485,7 @@ pub unsafe fn utrace_getFunctions(context: *const *const ::core::ffi::c_void, e:
         extern "system" {
             fn utrace_getFunctions(context: *const *const ::core::ffi::c_void, e: *mut ::windows::core::RawPtr, x: *mut ::windows::core::RawPtr, d: *mut ::windows::core::RawPtr);
         }
-        ::core::mem::transmute(utrace_getFunctions(::core::mem::transmute(context), ::core::mem::transmute(e), ::core::mem::transmute(x), ::core::mem::transmute(d)))
+        utrace_getFunctions(::core::mem::transmute(context), ::core::mem::transmute(e), ::core::mem::transmute(x), ::core::mem::transmute(d))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -23512,7 +23512,7 @@ pub unsafe fn utrace_setFunctions(context: *const ::core::ffi::c_void, e: UTrace
         extern "system" {
             fn utrace_setFunctions(context: *const ::core::ffi::c_void, e: ::windows::core::RawPtr, x: ::windows::core::RawPtr, d: ::windows::core::RawPtr);
         }
-        ::core::mem::transmute(utrace_setFunctions(::core::mem::transmute(context), ::core::mem::transmute(e), ::core::mem::transmute(x), ::core::mem::transmute(d)))
+        utrace_setFunctions(::core::mem::transmute(context), ::core::mem::transmute(e), ::core::mem::transmute(x), ::core::mem::transmute(d))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -23525,7 +23525,7 @@ pub unsafe fn utrace_setLevel(tracelevel: i32) {
         extern "system" {
             fn utrace_setLevel(tracelevel: i32);
         }
-        ::core::mem::transmute(utrace_setLevel(::core::mem::transmute(tracelevel)))
+        utrace_setLevel(::core::mem::transmute(tracelevel))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -23565,7 +23565,7 @@ pub unsafe fn utrans_close(trans: *mut *mut ::core::ffi::c_void) {
         extern "system" {
             fn utrans_close(trans: *mut *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(utrans_close(::core::mem::transmute(trans)))
+        utrans_close(::core::mem::transmute(trans))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -23656,7 +23656,7 @@ pub unsafe fn utrans_register(adoptedtrans: *mut *mut ::core::ffi::c_void, statu
         extern "system" {
             fn utrans_register(adoptedtrans: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(utrans_register(::core::mem::transmute(adoptedtrans), ::core::mem::transmute(status)))
+        utrans_register(::core::mem::transmute(adoptedtrans), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -23669,7 +23669,7 @@ pub unsafe fn utrans_setFilter(trans: *mut *mut ::core::ffi::c_void, filterpatte
         extern "system" {
             fn utrans_setFilter(trans: *mut *mut ::core::ffi::c_void, filterpattern: *const u16, filterpatternlen: i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(utrans_setFilter(::core::mem::transmute(trans), ::core::mem::transmute(filterpattern), ::core::mem::transmute(filterpatternlen), ::core::mem::transmute(status)))
+        utrans_setFilter(::core::mem::transmute(trans), ::core::mem::transmute(filterpattern), ::core::mem::transmute(filterpatternlen), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -23695,7 +23695,7 @@ pub unsafe fn utrans_trans(trans: *const *const ::core::ffi::c_void, rep: *mut *
         extern "system" {
             fn utrans_trans(trans: *const *const ::core::ffi::c_void, rep: *mut *mut ::core::ffi::c_void, repfunc: *const UReplaceableCallbacks, start: i32, limit: *mut i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(utrans_trans(::core::mem::transmute(trans), ::core::mem::transmute(rep), ::core::mem::transmute(repfunc), ::core::mem::transmute(start), ::core::mem::transmute(limit), ::core::mem::transmute(status)))
+        utrans_trans(::core::mem::transmute(trans), ::core::mem::transmute(rep), ::core::mem::transmute(repfunc), ::core::mem::transmute(start), ::core::mem::transmute(limit), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -23708,7 +23708,7 @@ pub unsafe fn utrans_transIncremental(trans: *const *const ::core::ffi::c_void, 
         extern "system" {
             fn utrans_transIncremental(trans: *const *const ::core::ffi::c_void, rep: *mut *mut ::core::ffi::c_void, repfunc: *const UReplaceableCallbacks, pos: *mut UTransPosition, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(utrans_transIncremental(::core::mem::transmute(trans), ::core::mem::transmute(rep), ::core::mem::transmute(repfunc), ::core::mem::transmute(pos), ::core::mem::transmute(status)))
+        utrans_transIncremental(::core::mem::transmute(trans), ::core::mem::transmute(rep), ::core::mem::transmute(repfunc), ::core::mem::transmute(pos), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -23721,7 +23721,7 @@ pub unsafe fn utrans_transIncrementalUChars(trans: *const *const ::core::ffi::c_
         extern "system" {
             fn utrans_transIncrementalUChars(trans: *const *const ::core::ffi::c_void, text: *mut u16, textlength: *mut i32, textcapacity: i32, pos: *mut UTransPosition, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(utrans_transIncrementalUChars(::core::mem::transmute(trans), ::core::mem::transmute(text), ::core::mem::transmute(textlength), ::core::mem::transmute(textcapacity), ::core::mem::transmute(pos), ::core::mem::transmute(status)))
+        utrans_transIncrementalUChars(::core::mem::transmute(trans), ::core::mem::transmute(text), ::core::mem::transmute(textlength), ::core::mem::transmute(textcapacity), ::core::mem::transmute(pos), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -23734,7 +23734,7 @@ pub unsafe fn utrans_transUChars(trans: *const *const ::core::ffi::c_void, text:
         extern "system" {
             fn utrans_transUChars(trans: *const *const ::core::ffi::c_void, text: *mut u16, textlength: *mut i32, textcapacity: i32, start: i32, limit: *mut i32, status: *mut UErrorCode);
         }
-        ::core::mem::transmute(utrans_transUChars(::core::mem::transmute(trans), ::core::mem::transmute(text), ::core::mem::transmute(textlength), ::core::mem::transmute(textcapacity), ::core::mem::transmute(start), ::core::mem::transmute(limit), ::core::mem::transmute(status)))
+        utrans_transUChars(::core::mem::transmute(trans), ::core::mem::transmute(text), ::core::mem::transmute(textlength), ::core::mem::transmute(textcapacity), ::core::mem::transmute(start), ::core::mem::transmute(limit), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -23747,7 +23747,7 @@ pub unsafe fn utrans_unregisterID(id: *const u16, idlength: i32) {
         extern "system" {
             fn utrans_unregisterID(id: *const u16, idlength: i32);
         }
-        ::core::mem::transmute(utrans_unregisterID(::core::mem::transmute(id), ::core::mem::transmute(idlength)))
+        utrans_unregisterID(::core::mem::transmute(id), ::core::mem::transmute(idlength))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

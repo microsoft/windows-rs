@@ -205,7 +205,7 @@ pub unsafe fn HcsCloseComputeSystem<'a, Param0: ::windows::core::IntoParam<'a, H
         extern "system" {
             fn HcsCloseComputeSystem(computesystem: HCS_SYSTEM);
         }
-        ::core::mem::transmute(HcsCloseComputeSystem(computesystem.into_param().abi()))
+        HcsCloseComputeSystem(computesystem.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -218,7 +218,7 @@ pub unsafe fn HcsCloseOperation<'a, Param0: ::windows::core::IntoParam<'a, HCS_O
         extern "system" {
             fn HcsCloseOperation(operation: HCS_OPERATION);
         }
-        ::core::mem::transmute(HcsCloseOperation(operation.into_param().abi()))
+        HcsCloseOperation(operation.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -231,7 +231,7 @@ pub unsafe fn HcsCloseProcess<'a, Param0: ::windows::core::IntoParam<'a, HCS_PRO
         extern "system" {
             fn HcsCloseProcess(process: HCS_PROCESS);
         }
-        ::core::mem::transmute(HcsCloseProcess(process.into_param().abi()))
+        HcsCloseProcess(process.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

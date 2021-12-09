@@ -34,7 +34,7 @@ pub unsafe fn AcquireSRWLockExclusive(srwlock: *mut RTL_SRWLOCK) {
         extern "system" {
             fn AcquireSRWLockExclusive(srwlock: *mut RTL_SRWLOCK);
         }
-        ::core::mem::transmute(AcquireSRWLockExclusive(::core::mem::transmute(srwlock)))
+        AcquireSRWLockExclusive(::core::mem::transmute(srwlock))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -47,7 +47,7 @@ pub unsafe fn AcquireSRWLockShared(srwlock: *mut RTL_SRWLOCK) {
         extern "system" {
             fn AcquireSRWLockShared(srwlock: *mut RTL_SRWLOCK);
         }
-        ::core::mem::transmute(AcquireSRWLockShared(::core::mem::transmute(srwlock)))
+        AcquireSRWLockShared(::core::mem::transmute(srwlock))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -127,7 +127,7 @@ pub unsafe fn CancelThreadpoolIo(pio: *mut TP_IO) {
         extern "system" {
             fn CancelThreadpoolIo(pio: *mut TP_IO);
         }
-        ::core::mem::transmute(CancelThreadpoolIo(::core::mem::transmute(pio)))
+        CancelThreadpoolIo(::core::mem::transmute(pio))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -182,7 +182,7 @@ pub unsafe fn CloseThreadpool<'a, Param0: ::windows::core::IntoParam<'a, PTP_POO
         extern "system" {
             fn CloseThreadpool(ptpp: PTP_POOL);
         }
-        ::core::mem::transmute(CloseThreadpool(ptpp.into_param().abi()))
+        CloseThreadpool(ptpp.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -195,7 +195,7 @@ pub unsafe fn CloseThreadpoolCleanupGroup(ptpcg: isize) {
         extern "system" {
             fn CloseThreadpoolCleanupGroup(ptpcg: isize);
         }
-        ::core::mem::transmute(CloseThreadpoolCleanupGroup(::core::mem::transmute(ptpcg)))
+        CloseThreadpoolCleanupGroup(::core::mem::transmute(ptpcg))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -209,7 +209,7 @@ pub unsafe fn CloseThreadpoolCleanupGroupMembers<'a, Param1: ::windows::core::In
         extern "system" {
             fn CloseThreadpoolCleanupGroupMembers(ptpcg: isize, fcancelpendingcallbacks: super::super::Foundation::BOOL, pvcleanupcontext: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(CloseThreadpoolCleanupGroupMembers(::core::mem::transmute(ptpcg), fcancelpendingcallbacks.into_param().abi(), ::core::mem::transmute(pvcleanupcontext)))
+        CloseThreadpoolCleanupGroupMembers(::core::mem::transmute(ptpcg), fcancelpendingcallbacks.into_param().abi(), ::core::mem::transmute(pvcleanupcontext))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -222,7 +222,7 @@ pub unsafe fn CloseThreadpoolIo(pio: *mut TP_IO) {
         extern "system" {
             fn CloseThreadpoolIo(pio: *mut TP_IO);
         }
-        ::core::mem::transmute(CloseThreadpoolIo(::core::mem::transmute(pio)))
+        CloseThreadpoolIo(::core::mem::transmute(pio))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -235,7 +235,7 @@ pub unsafe fn CloseThreadpoolTimer(pti: *mut TP_TIMER) {
         extern "system" {
             fn CloseThreadpoolTimer(pti: *mut TP_TIMER);
         }
-        ::core::mem::transmute(CloseThreadpoolTimer(::core::mem::transmute(pti)))
+        CloseThreadpoolTimer(::core::mem::transmute(pti))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -248,7 +248,7 @@ pub unsafe fn CloseThreadpoolWait(pwa: *mut TP_WAIT) {
         extern "system" {
             fn CloseThreadpoolWait(pwa: *mut TP_WAIT);
         }
-        ::core::mem::transmute(CloseThreadpoolWait(::core::mem::transmute(pwa)))
+        CloseThreadpoolWait(::core::mem::transmute(pwa))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -261,7 +261,7 @@ pub unsafe fn CloseThreadpoolWork(pwk: *mut TP_WORK) {
         extern "system" {
             fn CloseThreadpoolWork(pwk: *mut TP_WORK);
         }
-        ::core::mem::transmute(CloseThreadpoolWork(::core::mem::transmute(pwk)))
+        CloseThreadpoolWork(::core::mem::transmute(pwk))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -889,7 +889,7 @@ pub unsafe fn DeleteBoundaryDescriptor<'a, Param0: ::windows::core::IntoParam<'a
         extern "system" {
             fn DeleteBoundaryDescriptor(boundarydescriptor: BoundaryDescriptorHandle);
         }
-        ::core::mem::transmute(DeleteBoundaryDescriptor(boundarydescriptor.into_param().abi()))
+        DeleteBoundaryDescriptor(boundarydescriptor.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -903,7 +903,7 @@ pub unsafe fn DeleteCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION
         extern "system" {
             fn DeleteCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION);
         }
-        ::core::mem::transmute(DeleteCriticalSection(::core::mem::transmute(lpcriticalsection)))
+        DeleteCriticalSection(::core::mem::transmute(lpcriticalsection))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -916,7 +916,7 @@ pub unsafe fn DeleteFiber(lpfiber: *const ::core::ffi::c_void) {
         extern "system" {
             fn DeleteFiber(lpfiber: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(DeleteFiber(::core::mem::transmute(lpfiber)))
+        DeleteFiber(::core::mem::transmute(lpfiber))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -929,7 +929,7 @@ pub unsafe fn DeleteProcThreadAttributeList<'a, Param0: ::windows::core::IntoPar
         extern "system" {
             fn DeleteProcThreadAttributeList(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST);
         }
-        ::core::mem::transmute(DeleteProcThreadAttributeList(lpattributelist.into_param().abi()))
+        DeleteProcThreadAttributeList(lpattributelist.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1040,7 +1040,7 @@ pub unsafe fn DisassociateCurrentThreadFromCallback(pci: *mut TP_CALLBACK_INSTAN
         extern "system" {
             fn DisassociateCurrentThreadFromCallback(pci: *mut TP_CALLBACK_INSTANCE);
         }
-        ::core::mem::transmute(DisassociateCurrentThreadFromCallback(::core::mem::transmute(pci)))
+        DisassociateCurrentThreadFromCallback(::core::mem::transmute(pci))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1054,7 +1054,7 @@ pub unsafe fn EnterCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION)
         extern "system" {
             fn EnterCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION);
         }
-        ::core::mem::transmute(EnterCriticalSection(::core::mem::transmute(lpcriticalsection)))
+        EnterCriticalSection(::core::mem::transmute(lpcriticalsection))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1109,7 +1109,7 @@ pub unsafe fn ExitProcess(uexitcode: u32) {
         extern "system" {
             fn ExitProcess(uexitcode: u32);
         }
-        ::core::mem::transmute(ExitProcess(::core::mem::transmute(uexitcode)))
+        ExitProcess(::core::mem::transmute(uexitcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1122,7 +1122,7 @@ pub unsafe fn ExitThread(dwexitcode: u32) {
         extern "system" {
             fn ExitThread(dwexitcode: u32);
         }
-        ::core::mem::transmute(ExitThread(::core::mem::transmute(dwexitcode)))
+        ExitThread(::core::mem::transmute(dwexitcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1189,7 +1189,7 @@ pub unsafe fn FlushProcessWriteBuffers() {
         extern "system" {
             fn FlushProcessWriteBuffers();
         }
-        ::core::mem::transmute(FlushProcessWriteBuffers())
+        FlushProcessWriteBuffers()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1203,7 +1203,7 @@ pub unsafe fn FreeLibraryWhenCallbackReturns<'a, Param1: ::windows::core::IntoPa
         extern "system" {
             fn FreeLibraryWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, r#mod: super::super::Foundation::HINSTANCE);
         }
-        ::core::mem::transmute(FreeLibraryWhenCallbackReturns(::core::mem::transmute(pci), r#mod.into_param().abi()))
+        FreeLibraryWhenCallbackReturns(::core::mem::transmute(pci), r#mod.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1288,7 +1288,7 @@ pub unsafe fn GetCurrentProcessorNumberEx(procnumber: *mut super::Kernel::PROCES
         extern "system" {
             fn GetCurrentProcessorNumberEx(procnumber: *mut super::Kernel::PROCESSOR_NUMBER);
         }
-        ::core::mem::transmute(GetCurrentProcessorNumberEx(::core::mem::transmute(procnumber)))
+        GetCurrentProcessorNumberEx(::core::mem::transmute(procnumber))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1328,7 +1328,7 @@ pub unsafe fn GetCurrentThreadStackLimits(lowlimit: *mut usize, highlimit: *mut 
         extern "system" {
             fn GetCurrentThreadStackLimits(lowlimit: *mut usize, highlimit: *mut usize);
         }
-        ::core::mem::transmute(GetCurrentThreadStackLimits(::core::mem::transmute(lowlimit), ::core::mem::transmute(highlimit)))
+        GetCurrentThreadStackLimits(::core::mem::transmute(lowlimit), ::core::mem::transmute(highlimit))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1841,7 +1841,7 @@ pub unsafe fn GetStartupInfoA(lpstartupinfo: *mut STARTUPINFOA) {
         extern "system" {
             fn GetStartupInfoA(lpstartupinfo: *mut STARTUPINFOA);
         }
-        ::core::mem::transmute(GetStartupInfoA(::core::mem::transmute(lpstartupinfo)))
+        GetStartupInfoA(::core::mem::transmute(lpstartupinfo))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1855,7 +1855,7 @@ pub unsafe fn GetStartupInfoW(lpstartupinfo: *mut STARTUPINFOW) {
         extern "system" {
             fn GetStartupInfoW(lpstartupinfo: *mut STARTUPINFOW);
         }
-        ::core::mem::transmute(GetStartupInfoW(::core::mem::transmute(lpstartupinfo)))
+        GetStartupInfoW(::core::mem::transmute(lpstartupinfo))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2140,7 +2140,7 @@ pub unsafe fn InitOnceInitialize(initonce: *mut RTL_RUN_ONCE) {
         extern "system" {
             fn InitOnceInitialize(initonce: *mut RTL_RUN_ONCE);
         }
-        ::core::mem::transmute(InitOnceInitialize(::core::mem::transmute(initonce)))
+        InitOnceInitialize(::core::mem::transmute(initonce))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2153,7 +2153,7 @@ pub unsafe fn InitializeConditionVariable(conditionvariable: *mut RTL_CONDITION_
         extern "system" {
             fn InitializeConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIABLE);
         }
-        ::core::mem::transmute(InitializeConditionVariable(::core::mem::transmute(conditionvariable)))
+        InitializeConditionVariable(::core::mem::transmute(conditionvariable))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2167,7 +2167,7 @@ pub unsafe fn InitializeCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SEC
         extern "system" {
             fn InitializeCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION);
         }
-        ::core::mem::transmute(InitializeCriticalSection(::core::mem::transmute(lpcriticalsection)))
+        InitializeCriticalSection(::core::mem::transmute(lpcriticalsection))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2223,7 +2223,7 @@ pub unsafe fn InitializeSListHead(listhead: *mut super::Kernel::SLIST_HEADER) {
         extern "system" {
             fn InitializeSListHead(listhead: *mut super::Kernel::SLIST_HEADER);
         }
-        ::core::mem::transmute(InitializeSListHead(::core::mem::transmute(listhead)))
+        InitializeSListHead(::core::mem::transmute(listhead))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2236,7 +2236,7 @@ pub unsafe fn InitializeSRWLock(srwlock: *mut RTL_SRWLOCK) {
         extern "system" {
             fn InitializeSRWLock(srwlock: *mut RTL_SRWLOCK);
         }
-        ::core::mem::transmute(InitializeSRWLock(::core::mem::transmute(srwlock)))
+        InitializeSRWLock(::core::mem::transmute(srwlock))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2421,7 +2421,7 @@ pub unsafe fn LeaveCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION)
         extern "system" {
             fn LeaveCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION);
         }
-        ::core::mem::transmute(LeaveCriticalSection(::core::mem::transmute(lpcriticalsection)))
+        LeaveCriticalSection(::core::mem::transmute(lpcriticalsection))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2435,7 +2435,7 @@ pub unsafe fn LeaveCriticalSectionWhenCallbackReturns(pci: *mut TP_CALLBACK_INST
         extern "system" {
             fn LeaveCriticalSectionWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, pcs: *mut RTL_CRITICAL_SECTION);
         }
-        ::core::mem::transmute(LeaveCriticalSectionWhenCallbackReturns(::core::mem::transmute(pci), ::core::mem::transmute(pcs)))
+        LeaveCriticalSectionWhenCallbackReturns(::core::mem::transmute(pci), ::core::mem::transmute(pcs))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3738,7 +3738,7 @@ pub unsafe fn ReleaseMutexWhenCallbackReturns<'a, Param1: ::windows::core::IntoP
         extern "system" {
             fn ReleaseMutexWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, r#mut: super::super::Foundation::HANDLE);
         }
-        ::core::mem::transmute(ReleaseMutexWhenCallbackReturns(::core::mem::transmute(pci), r#mut.into_param().abi()))
+        ReleaseMutexWhenCallbackReturns(::core::mem::transmute(pci), r#mut.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3751,7 +3751,7 @@ pub unsafe fn ReleaseSRWLockExclusive(srwlock: *mut RTL_SRWLOCK) {
         extern "system" {
             fn ReleaseSRWLockExclusive(srwlock: *mut RTL_SRWLOCK);
         }
-        ::core::mem::transmute(ReleaseSRWLockExclusive(::core::mem::transmute(srwlock)))
+        ReleaseSRWLockExclusive(::core::mem::transmute(srwlock))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3764,7 +3764,7 @@ pub unsafe fn ReleaseSRWLockShared(srwlock: *mut RTL_SRWLOCK) {
         extern "system" {
             fn ReleaseSRWLockShared(srwlock: *mut RTL_SRWLOCK);
         }
-        ::core::mem::transmute(ReleaseSRWLockShared(::core::mem::transmute(srwlock)))
+        ReleaseSRWLockShared(::core::mem::transmute(srwlock))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3792,7 +3792,7 @@ pub unsafe fn ReleaseSemaphoreWhenCallbackReturns<'a, Param1: ::windows::core::I
         extern "system" {
             fn ReleaseSemaphoreWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, sem: super::super::Foundation::HANDLE, crel: u32);
         }
-        ::core::mem::transmute(ReleaseSemaphoreWhenCallbackReturns(::core::mem::transmute(pci), sem.into_param().abi(), ::core::mem::transmute(crel)))
+        ReleaseSemaphoreWhenCallbackReturns(::core::mem::transmute(pci), sem.into_param().abi(), ::core::mem::transmute(crel))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4040,7 +4040,7 @@ pub unsafe fn SetEventWhenCallbackReturns<'a, Param1: ::windows::core::IntoParam
         extern "system" {
             fn SetEventWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, evt: super::super::Foundation::HANDLE);
         }
-        ::core::mem::transmute(SetEventWhenCallbackReturns(::core::mem::transmute(pci), evt.into_param().abi()))
+        SetEventWhenCallbackReturns(::core::mem::transmute(pci), evt.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4445,7 +4445,7 @@ pub unsafe fn SetThreadpoolThreadMaximum<'a, Param0: ::windows::core::IntoParam<
         extern "system" {
             fn SetThreadpoolThreadMaximum(ptpp: PTP_POOL, cthrdmost: u32);
         }
-        ::core::mem::transmute(SetThreadpoolThreadMaximum(ptpp.into_param().abi(), ::core::mem::transmute(cthrdmost)))
+        SetThreadpoolThreadMaximum(ptpp.into_param().abi(), ::core::mem::transmute(cthrdmost))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4473,7 +4473,7 @@ pub unsafe fn SetThreadpoolTimer(pti: *mut TP_TIMER, pftduetime: *const super::s
         extern "system" {
             fn SetThreadpoolTimer(pti: *mut TP_TIMER, pftduetime: *const super::super::Foundation::FILETIME, msperiod: u32, mswindowlength: u32);
         }
-        ::core::mem::transmute(SetThreadpoolTimer(::core::mem::transmute(pti), ::core::mem::transmute(pftduetime), ::core::mem::transmute(msperiod), ::core::mem::transmute(mswindowlength)))
+        SetThreadpoolTimer(::core::mem::transmute(pti), ::core::mem::transmute(pftduetime), ::core::mem::transmute(msperiod), ::core::mem::transmute(mswindowlength))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4501,7 +4501,7 @@ pub unsafe fn SetThreadpoolWait<'a, Param1: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn SetThreadpoolWait(pwa: *mut TP_WAIT, h: super::super::Foundation::HANDLE, pfttimeout: *const super::super::Foundation::FILETIME);
         }
-        ::core::mem::transmute(SetThreadpoolWait(::core::mem::transmute(pwa), h.into_param().abi(), ::core::mem::transmute(pfttimeout)))
+        SetThreadpoolWait(::core::mem::transmute(pwa), h.into_param().abi(), ::core::mem::transmute(pfttimeout))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4584,7 +4584,7 @@ pub unsafe fn Sleep(dwmilliseconds: u32) {
         extern "system" {
             fn Sleep(dwmilliseconds: u32);
         }
-        ::core::mem::transmute(Sleep(::core::mem::transmute(dwmilliseconds)))
+        Sleep(::core::mem::transmute(dwmilliseconds))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4639,7 +4639,7 @@ pub unsafe fn StartThreadpoolIo(pio: *mut TP_IO) {
         extern "system" {
             fn StartThreadpoolIo(pio: *mut TP_IO);
         }
-        ::core::mem::transmute(StartThreadpoolIo(::core::mem::transmute(pio)))
+        StartThreadpoolIo(::core::mem::transmute(pio))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4652,7 +4652,7 @@ pub unsafe fn SubmitThreadpoolWork(pwk: *mut TP_WORK) {
         extern "system" {
             fn SubmitThreadpoolWork(pwk: *mut TP_WORK);
         }
-        ::core::mem::transmute(SubmitThreadpoolWork(::core::mem::transmute(pwk)))
+        SubmitThreadpoolWork(::core::mem::transmute(pwk))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4679,7 +4679,7 @@ pub unsafe fn SwitchToFiber(lpfiber: *const ::core::ffi::c_void) {
         extern "system" {
             fn SwitchToFiber(lpfiber: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(SwitchToFiber(::core::mem::transmute(lpfiber)))
+        SwitchToFiber(::core::mem::transmute(lpfiber))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5293,7 +5293,7 @@ pub unsafe fn WaitForThreadpoolIoCallbacks<'a, Param1: ::windows::core::IntoPara
         extern "system" {
             fn WaitForThreadpoolIoCallbacks(pio: *mut TP_IO, fcancelpendingcallbacks: super::super::Foundation::BOOL);
         }
-        ::core::mem::transmute(WaitForThreadpoolIoCallbacks(::core::mem::transmute(pio), fcancelpendingcallbacks.into_param().abi()))
+        WaitForThreadpoolIoCallbacks(::core::mem::transmute(pio), fcancelpendingcallbacks.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5307,7 +5307,7 @@ pub unsafe fn WaitForThreadpoolTimerCallbacks<'a, Param1: ::windows::core::IntoP
         extern "system" {
             fn WaitForThreadpoolTimerCallbacks(pti: *mut TP_TIMER, fcancelpendingcallbacks: super::super::Foundation::BOOL);
         }
-        ::core::mem::transmute(WaitForThreadpoolTimerCallbacks(::core::mem::transmute(pti), fcancelpendingcallbacks.into_param().abi()))
+        WaitForThreadpoolTimerCallbacks(::core::mem::transmute(pti), fcancelpendingcallbacks.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5321,7 +5321,7 @@ pub unsafe fn WaitForThreadpoolWaitCallbacks<'a, Param1: ::windows::core::IntoPa
         extern "system" {
             fn WaitForThreadpoolWaitCallbacks(pwa: *mut TP_WAIT, fcancelpendingcallbacks: super::super::Foundation::BOOL);
         }
-        ::core::mem::transmute(WaitForThreadpoolWaitCallbacks(::core::mem::transmute(pwa), fcancelpendingcallbacks.into_param().abi()))
+        WaitForThreadpoolWaitCallbacks(::core::mem::transmute(pwa), fcancelpendingcallbacks.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5335,7 +5335,7 @@ pub unsafe fn WaitForThreadpoolWorkCallbacks<'a, Param1: ::windows::core::IntoPa
         extern "system" {
             fn WaitForThreadpoolWorkCallbacks(pwk: *mut TP_WORK, fcancelpendingcallbacks: super::super::Foundation::BOOL);
         }
-        ::core::mem::transmute(WaitForThreadpoolWorkCallbacks(::core::mem::transmute(pwk), fcancelpendingcallbacks.into_param().abi()))
+        WaitForThreadpoolWorkCallbacks(::core::mem::transmute(pwk), fcancelpendingcallbacks.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5362,7 +5362,7 @@ pub unsafe fn WakeAllConditionVariable(conditionvariable: *mut RTL_CONDITION_VAR
         extern "system" {
             fn WakeAllConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIABLE);
         }
-        ::core::mem::transmute(WakeAllConditionVariable(::core::mem::transmute(conditionvariable)))
+        WakeAllConditionVariable(::core::mem::transmute(conditionvariable))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5375,7 +5375,7 @@ pub unsafe fn WakeByAddressAll(address: *const ::core::ffi::c_void) {
         extern "system" {
             fn WakeByAddressAll(address: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(WakeByAddressAll(::core::mem::transmute(address)))
+        WakeByAddressAll(::core::mem::transmute(address))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5388,7 +5388,7 @@ pub unsafe fn WakeByAddressSingle(address: *const ::core::ffi::c_void) {
         extern "system" {
             fn WakeByAddressSingle(address: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(WakeByAddressSingle(::core::mem::transmute(address)))
+        WakeByAddressSingle(::core::mem::transmute(address))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5401,7 +5401,7 @@ pub unsafe fn WakeConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIAB
         extern "system" {
             fn WakeConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIABLE);
         }
-        ::core::mem::transmute(WakeConditionVariable(::core::mem::transmute(conditionvariable)))
+        WakeConditionVariable(::core::mem::transmute(conditionvariable))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

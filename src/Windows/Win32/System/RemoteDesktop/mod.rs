@@ -812,10 +812,10 @@ pub struct IAudioEndpointControlVtbl(
 pub struct IAudioEndpointRT(::windows::core::IUnknown);
 impl IAudioEndpointRT {
     pub unsafe fn GetCurrentPadding(&self, ppadding: *mut i64, paecurrentposition: *mut AE_CURRENT_POSITION) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppadding), ::core::mem::transmute(paecurrentposition)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppadding), ::core::mem::transmute(paecurrentposition))
     }
     pub unsafe fn ProcessingComplete(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn SetPinInactive(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
@@ -875,13 +875,13 @@ pub struct IAudioInputEndpointRT(::windows::core::IUnknown);
 impl IAudioInputEndpointRT {
     #[cfg(feature = "Win32_Media_Audio_Apo")]
     pub unsafe fn GetInputDataPointer(&self, pconnectionproperty: *mut super::super::Media::Audio::Apo::APO_CONNECTION_PROPERTY, paetimestamp: *mut AE_CURRENT_POSITION) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pconnectionproperty), ::core::mem::transmute(paetimestamp)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pconnectionproperty), ::core::mem::transmute(paetimestamp))
     }
     pub unsafe fn ReleaseInputDataPointer(&self, u32framecount: u32, pdatapointer: usize) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(u32framecount), ::core::mem::transmute(pdatapointer)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(u32framecount), ::core::mem::transmute(pdatapointer))
     }
     pub unsafe fn PulseEndpoint(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self))
     }
 }
 impl ::core::convert::From<IAudioInputEndpointRT> for ::windows::core::IUnknown {
@@ -938,10 +938,10 @@ impl IAudioOutputEndpointRT {
     }
     #[cfg(feature = "Win32_Media_Audio_Apo")]
     pub unsafe fn ReleaseOutputDataPointer(&self, pconnectionproperty: *const super::super::Media::Audio::Apo::APO_CONNECTION_PROPERTY) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pconnectionproperty)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pconnectionproperty))
     }
     pub unsafe fn PulseEndpoint(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self))
     }
 }
 impl ::core::convert::From<IAudioOutputEndpointRT> for ::windows::core::IUnknown {
@@ -9856,7 +9856,7 @@ pub unsafe fn WTSCloseServer<'a, Param0: ::windows::core::IntoParam<'a, super::s
         extern "system" {
             fn WTSCloseServer(hserver: super::super::Foundation::HANDLE);
         }
-        ::core::mem::transmute(WTSCloseServer(hserver.into_param().abi()))
+        WTSCloseServer(hserver.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10121,7 +10121,7 @@ pub unsafe fn WTSFreeMemory(pmemory: *mut ::core::ffi::c_void) {
         extern "system" {
             fn WTSFreeMemory(pmemory: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(WTSFreeMemory(::core::mem::transmute(pmemory)))
+        WTSFreeMemory(::core::mem::transmute(pmemory))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -576,7 +576,7 @@ pub unsafe fn DrtClose(hdrt: *const ::core::ffi::c_void) {
         extern "system" {
             fn DrtClose(hdrt: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(DrtClose(::core::mem::transmute(hdrt)))
+        DrtClose(::core::mem::transmute(hdrt))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -689,7 +689,7 @@ pub unsafe fn DrtDeleteDerivedKeySecurityProvider(psecurityprovider: *const DRT_
         extern "system" {
             fn DrtDeleteDerivedKeySecurityProvider(psecurityprovider: *const DRT_SECURITY_PROVIDER);
         }
-        ::core::mem::transmute(DrtDeleteDerivedKeySecurityProvider(::core::mem::transmute(psecurityprovider)))
+        DrtDeleteDerivedKeySecurityProvider(::core::mem::transmute(psecurityprovider))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -702,7 +702,7 @@ pub unsafe fn DrtDeleteDnsBootstrapResolver(presolver: *const DRT_BOOTSTRAP_PROV
         extern "system" {
             fn DrtDeleteDnsBootstrapResolver(presolver: *const DRT_BOOTSTRAP_PROVIDER);
         }
-        ::core::mem::transmute(DrtDeleteDnsBootstrapResolver(::core::mem::transmute(presolver)))
+        DrtDeleteDnsBootstrapResolver(::core::mem::transmute(presolver))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -728,7 +728,7 @@ pub unsafe fn DrtDeleteNullSecurityProvider(psecurityprovider: *const DRT_SECURI
         extern "system" {
             fn DrtDeleteNullSecurityProvider(psecurityprovider: *const DRT_SECURITY_PROVIDER);
         }
-        ::core::mem::transmute(DrtDeleteNullSecurityProvider(::core::mem::transmute(psecurityprovider)))
+        DrtDeleteNullSecurityProvider(::core::mem::transmute(psecurityprovider))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -741,7 +741,7 @@ pub unsafe fn DrtDeletePnrpBootstrapResolver(presolver: *const DRT_BOOTSTRAP_PRO
         extern "system" {
             fn DrtDeletePnrpBootstrapResolver(presolver: *const DRT_BOOTSTRAP_PROVIDER);
         }
-        ::core::mem::transmute(DrtDeletePnrpBootstrapResolver(::core::mem::transmute(presolver)))
+        DrtDeletePnrpBootstrapResolver(::core::mem::transmute(presolver))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -920,7 +920,7 @@ pub unsafe fn DrtUnregisterKey(hkeyregistration: *const ::core::ffi::c_void) {
         extern "system" {
             fn DrtUnregisterKey(hkeyregistration: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(DrtUnregisterKey(::core::mem::transmute(hkeyregistration)))
+        DrtUnregisterKey(::core::mem::transmute(hkeyregistration))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4067,7 +4067,7 @@ pub unsafe fn PeerFreeData(pvdata: *const ::core::ffi::c_void) {
         extern "system" {
             fn PeerFreeData(pvdata: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(PeerFreeData(::core::mem::transmute(pvdata)))
+        PeerFreeData(::core::mem::transmute(pvdata))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4273,7 +4273,7 @@ pub unsafe fn PeerGraphFreeData(pvdata: *const ::core::ffi::c_void) {
         extern "system" {
             fn PeerGraphFreeData(pvdata: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(PeerGraphFreeData(::core::mem::transmute(pvdata)))
+        PeerGraphFreeData(::core::mem::transmute(pvdata))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

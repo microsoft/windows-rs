@@ -5998,7 +5998,7 @@ pub unsafe fn InstallHinfSectionA<'a, Param0: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn InstallHinfSectionA(window: super::super::Foundation::HWND, modulehandle: super::super::Foundation::HINSTANCE, commandline: super::super::Foundation::PSTR, showcommand: i32);
         }
-        ::core::mem::transmute(InstallHinfSectionA(window.into_param().abi(), modulehandle.into_param().abi(), commandline.into_param().abi(), ::core::mem::transmute(showcommand)))
+        InstallHinfSectionA(window.into_param().abi(), modulehandle.into_param().abi(), commandline.into_param().abi(), ::core::mem::transmute(showcommand))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6012,7 +6012,7 @@ pub unsafe fn InstallHinfSectionW<'a, Param0: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn InstallHinfSectionW(window: super::super::Foundation::HWND, modulehandle: super::super::Foundation::HINSTANCE, commandline: super::super::Foundation::PWSTR, showcommand: i32);
         }
-        ::core::mem::transmute(InstallHinfSectionW(window.into_param().abi(), modulehandle.into_param().abi(), commandline.into_param().abi(), ::core::mem::transmute(showcommand)))
+        InstallHinfSectionW(window.into_param().abi(), modulehandle.into_param().abi(), commandline.into_param().abi(), ::core::mem::transmute(showcommand))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10856,7 +10856,7 @@ pub unsafe fn SetupCloseInfFile(infhandle: *const ::core::ffi::c_void) {
         extern "system" {
             fn SetupCloseInfFile(infhandle: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(SetupCloseInfFile(::core::mem::transmute(infhandle)))
+        SetupCloseInfFile(::core::mem::transmute(infhandle))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10869,7 +10869,7 @@ pub unsafe fn SetupCloseLog() {
         extern "system" {
             fn SetupCloseLog();
         }
-        ::core::mem::transmute(SetupCloseLog())
+        SetupCloseLog()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15159,7 +15159,7 @@ pub unsafe fn SetupSetThreadLogToken(logtoken: u64) {
         extern "system" {
             fn SetupSetThreadLogToken(logtoken: u64);
         }
-        ::core::mem::transmute(SetupSetThreadLogToken(::core::mem::transmute(logtoken)))
+        SetupSetThreadLogToken(::core::mem::transmute(logtoken))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15172,7 +15172,7 @@ pub unsafe fn SetupTermDefaultQueueCallback(context: *const ::core::ffi::c_void)
         extern "system" {
             fn SetupTermDefaultQueueCallback(context: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(SetupTermDefaultQueueCallback(::core::mem::transmute(context)))
+        SetupTermDefaultQueueCallback(::core::mem::transmute(context))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15270,7 +15270,7 @@ pub unsafe fn SetupWriteTextLog<'a, Param3: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn SetupWriteTextLog(logtoken: u64, category: u32, flags: u32, messagestr: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(SetupWriteTextLog(::core::mem::transmute(logtoken), ::core::mem::transmute(category), ::core::mem::transmute(flags), messagestr.into_param().abi()))
+        SetupWriteTextLog(::core::mem::transmute(logtoken), ::core::mem::transmute(category), ::core::mem::transmute(flags), messagestr.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15284,7 +15284,7 @@ pub unsafe fn SetupWriteTextLogError<'a, Param4: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn SetupWriteTextLogError(logtoken: u64, category: u32, logflags: u32, error: u32, messagestr: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(SetupWriteTextLogError(::core::mem::transmute(logtoken), ::core::mem::transmute(category), ::core::mem::transmute(logflags), ::core::mem::transmute(error), messagestr.into_param().abi()))
+        SetupWriteTextLogError(::core::mem::transmute(logtoken), ::core::mem::transmute(category), ::core::mem::transmute(logflags), ::core::mem::transmute(error), messagestr.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15297,7 +15297,7 @@ pub unsafe fn SetupWriteTextLogInfLine(logtoken: u64, flags: u32, infhandle: *co
         extern "system" {
             fn SetupWriteTextLogInfLine(logtoken: u64, flags: u32, infhandle: *const ::core::ffi::c_void, context: *const INFCONTEXT);
         }
-        ::core::mem::transmute(SetupWriteTextLogInfLine(::core::mem::transmute(logtoken), ::core::mem::transmute(flags), ::core::mem::transmute(infhandle), ::core::mem::transmute(context)))
+        SetupWriteTextLogInfLine(::core::mem::transmute(logtoken), ::core::mem::transmute(flags), ::core::mem::transmute(infhandle), ::core::mem::transmute(context))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

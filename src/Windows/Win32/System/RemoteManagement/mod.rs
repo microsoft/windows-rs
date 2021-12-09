@@ -3750,7 +3750,7 @@ pub unsafe fn WSManCloseCommand(commandhandle: *mut WSMAN_COMMAND, flags: u32, r
         extern "system" {
             fn WSManCloseCommand(commandhandle: *mut WSMAN_COMMAND, flags: u32, r#async: *const WSMAN_SHELL_ASYNC);
         }
-        ::core::mem::transmute(WSManCloseCommand(::core::mem::transmute(commandhandle), ::core::mem::transmute(flags), ::core::mem::transmute(r#async)))
+        WSManCloseCommand(::core::mem::transmute(commandhandle), ::core::mem::transmute(flags), ::core::mem::transmute(r#async))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3790,7 +3790,7 @@ pub unsafe fn WSManCloseShell(shellhandle: *mut WSMAN_SHELL, flags: u32, r#async
         extern "system" {
             fn WSManCloseShell(shellhandle: *mut WSMAN_SHELL, flags: u32, r#async: *const WSMAN_SHELL_ASYNC);
         }
-        ::core::mem::transmute(WSManCloseShell(::core::mem::transmute(shellhandle), ::core::mem::transmute(flags), ::core::mem::transmute(r#async)))
+        WSManCloseShell(::core::mem::transmute(shellhandle), ::core::mem::transmute(flags), ::core::mem::transmute(r#async))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3804,7 +3804,7 @@ pub unsafe fn WSManConnectShell<'a, Param2: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn WSManConnectShell(session: *mut WSMAN_SESSION, flags: u32, resourceuri: super::super::Foundation::PWSTR, shellid: super::super::Foundation::PWSTR, options: *const WSMAN_OPTION_SET, connectxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, shell: *mut *mut WSMAN_SHELL);
         }
-        ::core::mem::transmute(WSManConnectShell(::core::mem::transmute(session), ::core::mem::transmute(flags), resourceuri.into_param().abi(), shellid.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(connectxml), ::core::mem::transmute(r#async), ::core::mem::transmute(shell)))
+        WSManConnectShell(::core::mem::transmute(session), ::core::mem::transmute(flags), resourceuri.into_param().abi(), shellid.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(connectxml), ::core::mem::transmute(r#async), ::core::mem::transmute(shell))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3818,7 +3818,7 @@ pub unsafe fn WSManConnectShellCommand<'a, Param2: ::windows::core::IntoParam<'a
         extern "system" {
             fn WSManConnectShellCommand(shell: *mut WSMAN_SHELL, flags: u32, commandid: super::super::Foundation::PWSTR, options: *const WSMAN_OPTION_SET, connectxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, command: *mut *mut WSMAN_COMMAND);
         }
-        ::core::mem::transmute(WSManConnectShellCommand(::core::mem::transmute(shell), ::core::mem::transmute(flags), commandid.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(connectxml), ::core::mem::transmute(r#async), ::core::mem::transmute(command)))
+        WSManConnectShellCommand(::core::mem::transmute(shell), ::core::mem::transmute(flags), commandid.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(connectxml), ::core::mem::transmute(r#async), ::core::mem::transmute(command))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3846,7 +3846,7 @@ pub unsafe fn WSManCreateShell<'a, Param2: ::windows::core::IntoParam<'a, super:
         extern "system" {
             fn WSManCreateShell(session: *mut WSMAN_SESSION, flags: u32, resourceuri: super::super::Foundation::PWSTR, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, options: *const WSMAN_OPTION_SET, createxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, shell: *mut *mut WSMAN_SHELL);
         }
-        ::core::mem::transmute(WSManCreateShell(::core::mem::transmute(session), ::core::mem::transmute(flags), resourceuri.into_param().abi(), ::core::mem::transmute(startupinfo), ::core::mem::transmute(options), ::core::mem::transmute(createxml), ::core::mem::transmute(r#async), ::core::mem::transmute(shell)))
+        WSManCreateShell(::core::mem::transmute(session), ::core::mem::transmute(flags), resourceuri.into_param().abi(), ::core::mem::transmute(startupinfo), ::core::mem::transmute(options), ::core::mem::transmute(createxml), ::core::mem::transmute(r#async), ::core::mem::transmute(shell))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3860,7 +3860,7 @@ pub unsafe fn WSManCreateShellEx<'a, Param2: ::windows::core::IntoParam<'a, supe
         extern "system" {
             fn WSManCreateShellEx(session: *mut WSMAN_SESSION, flags: u32, resourceuri: super::super::Foundation::PWSTR, shellid: super::super::Foundation::PWSTR, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, options: *const WSMAN_OPTION_SET, createxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, shell: *mut *mut WSMAN_SHELL);
         }
-        ::core::mem::transmute(WSManCreateShellEx(::core::mem::transmute(session), ::core::mem::transmute(flags), resourceuri.into_param().abi(), shellid.into_param().abi(), ::core::mem::transmute(startupinfo), ::core::mem::transmute(options), ::core::mem::transmute(createxml), ::core::mem::transmute(r#async), ::core::mem::transmute(shell)))
+        WSManCreateShellEx(::core::mem::transmute(session), ::core::mem::transmute(flags), resourceuri.into_param().abi(), shellid.into_param().abi(), ::core::mem::transmute(startupinfo), ::core::mem::transmute(options), ::core::mem::transmute(createxml), ::core::mem::transmute(r#async), ::core::mem::transmute(shell))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3892,7 +3892,7 @@ pub unsafe fn WSManDisconnectShell(shell: *mut WSMAN_SHELL, flags: u32, disconne
         extern "system" {
             fn WSManDisconnectShell(shell: *mut WSMAN_SHELL, flags: u32, disconnectinfo: *const WSMAN_SHELL_DISCONNECT_INFO, r#async: *const WSMAN_SHELL_ASYNC);
         }
-        ::core::mem::transmute(WSManDisconnectShell(::core::mem::transmute(shell), ::core::mem::transmute(flags), ::core::mem::transmute(disconnectinfo), ::core::mem::transmute(r#async)))
+        WSManDisconnectShell(::core::mem::transmute(shell), ::core::mem::transmute(flags), ::core::mem::transmute(disconnectinfo), ::core::mem::transmute(r#async))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4124,7 +4124,7 @@ pub unsafe fn WSManReceiveShellOutput(shell: *mut WSMAN_SHELL, command: *const W
         extern "system" {
             fn WSManReceiveShellOutput(shell: *mut WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, desiredstreamset: *const WSMAN_STREAM_ID_SET, r#async: *const WSMAN_SHELL_ASYNC, receiveoperation: *mut *mut WSMAN_OPERATION);
         }
-        ::core::mem::transmute(WSManReceiveShellOutput(::core::mem::transmute(shell), ::core::mem::transmute(command), ::core::mem::transmute(flags), ::core::mem::transmute(desiredstreamset), ::core::mem::transmute(r#async), ::core::mem::transmute(receiveoperation)))
+        WSManReceiveShellOutput(::core::mem::transmute(shell), ::core::mem::transmute(command), ::core::mem::transmute(flags), ::core::mem::transmute(desiredstreamset), ::core::mem::transmute(r#async), ::core::mem::transmute(receiveoperation))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4138,7 +4138,7 @@ pub unsafe fn WSManReconnectShell(shell: *mut WSMAN_SHELL, flags: u32, r#async: 
         extern "system" {
             fn WSManReconnectShell(shell: *mut WSMAN_SHELL, flags: u32, r#async: *const WSMAN_SHELL_ASYNC);
         }
-        ::core::mem::transmute(WSManReconnectShell(::core::mem::transmute(shell), ::core::mem::transmute(flags), ::core::mem::transmute(r#async)))
+        WSManReconnectShell(::core::mem::transmute(shell), ::core::mem::transmute(flags), ::core::mem::transmute(r#async))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4152,7 +4152,7 @@ pub unsafe fn WSManReconnectShellCommand(commandhandle: *mut WSMAN_COMMAND, flag
         extern "system" {
             fn WSManReconnectShellCommand(commandhandle: *mut WSMAN_COMMAND, flags: u32, r#async: *const WSMAN_SHELL_ASYNC);
         }
-        ::core::mem::transmute(WSManReconnectShellCommand(::core::mem::transmute(commandhandle), ::core::mem::transmute(flags), ::core::mem::transmute(r#async)))
+        WSManReconnectShellCommand(::core::mem::transmute(commandhandle), ::core::mem::transmute(flags), ::core::mem::transmute(r#async))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4166,7 +4166,7 @@ pub unsafe fn WSManRunShellCommand<'a, Param2: ::windows::core::IntoParam<'a, su
         extern "system" {
             fn WSManRunShellCommand(shell: *mut WSMAN_SHELL, flags: u32, commandline: super::super::Foundation::PWSTR, args: *const WSMAN_COMMAND_ARG_SET, options: *const WSMAN_OPTION_SET, r#async: *const WSMAN_SHELL_ASYNC, command: *mut *mut WSMAN_COMMAND);
         }
-        ::core::mem::transmute(WSManRunShellCommand(::core::mem::transmute(shell), ::core::mem::transmute(flags), commandline.into_param().abi(), ::core::mem::transmute(args), ::core::mem::transmute(options), ::core::mem::transmute(r#async), ::core::mem::transmute(command)))
+        WSManRunShellCommand(::core::mem::transmute(shell), ::core::mem::transmute(flags), commandline.into_param().abi(), ::core::mem::transmute(args), ::core::mem::transmute(options), ::core::mem::transmute(r#async), ::core::mem::transmute(command))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4180,7 +4180,7 @@ pub unsafe fn WSManRunShellCommandEx<'a, Param2: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn WSManRunShellCommandEx(shell: *mut WSMAN_SHELL, flags: u32, commandid: super::super::Foundation::PWSTR, commandline: super::super::Foundation::PWSTR, args: *const WSMAN_COMMAND_ARG_SET, options: *const WSMAN_OPTION_SET, r#async: *const WSMAN_SHELL_ASYNC, command: *mut *mut WSMAN_COMMAND);
         }
-        ::core::mem::transmute(WSManRunShellCommandEx(::core::mem::transmute(shell), ::core::mem::transmute(flags), commandid.into_param().abi(), commandline.into_param().abi(), ::core::mem::transmute(args), ::core::mem::transmute(options), ::core::mem::transmute(r#async), ::core::mem::transmute(command)))
+        WSManRunShellCommandEx(::core::mem::transmute(shell), ::core::mem::transmute(flags), commandid.into_param().abi(), commandline.into_param().abi(), ::core::mem::transmute(args), ::core::mem::transmute(options), ::core::mem::transmute(r#async), ::core::mem::transmute(command))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4194,7 +4194,7 @@ pub unsafe fn WSManSendShellInput<'a, Param3: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn WSManSendShellInput(shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, streamid: super::super::Foundation::PWSTR, streamdata: *const WSMAN_DATA, endofstream: super::super::Foundation::BOOL, r#async: *const WSMAN_SHELL_ASYNC, sendoperation: *mut *mut WSMAN_OPERATION);
         }
-        ::core::mem::transmute(WSManSendShellInput(::core::mem::transmute(shell), ::core::mem::transmute(command), ::core::mem::transmute(flags), streamid.into_param().abi(), ::core::mem::transmute(streamdata), endofstream.into_param().abi(), ::core::mem::transmute(r#async), ::core::mem::transmute(sendoperation)))
+        WSManSendShellInput(::core::mem::transmute(shell), ::core::mem::transmute(command), ::core::mem::transmute(flags), streamid.into_param().abi(), ::core::mem::transmute(streamdata), endofstream.into_param().abi(), ::core::mem::transmute(r#async), ::core::mem::transmute(sendoperation))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4270,7 +4270,7 @@ pub unsafe fn WSManSignalShell<'a, Param3: ::windows::core::IntoParam<'a, super:
         extern "system" {
             fn WSManSignalShell(shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, code: super::super::Foundation::PWSTR, r#async: *const WSMAN_SHELL_ASYNC, signaloperation: *mut *mut WSMAN_OPERATION);
         }
-        ::core::mem::transmute(WSManSignalShell(::core::mem::transmute(shell), ::core::mem::transmute(command), ::core::mem::transmute(flags), code.into_param().abi(), ::core::mem::transmute(r#async), ::core::mem::transmute(signaloperation)))
+        WSManSignalShell(::core::mem::transmute(shell), ::core::mem::transmute(command), ::core::mem::transmute(flags), code.into_param().abi(), ::core::mem::transmute(r#async), ::core::mem::transmute(signaloperation))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

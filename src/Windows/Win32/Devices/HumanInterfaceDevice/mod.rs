@@ -5266,7 +5266,7 @@ pub unsafe fn HidD_GetHidGuid(hidguid: *mut ::windows::core::GUID) {
         extern "system" {
             fn HidD_GetHidGuid(hidguid: *mut ::windows::core::GUID);
         }
-        ::core::mem::transmute(HidD_GetHidGuid(::core::mem::transmute(hidguid)))
+        HidD_GetHidGuid(::core::mem::transmute(hidguid))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

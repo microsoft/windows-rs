@@ -5775,7 +5775,7 @@ pub unsafe fn FwpmFreeMemory0(p: *mut *mut ::core::ffi::c_void) {
         extern "system" {
             fn FwpmFreeMemory0(p: *mut *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(FwpmFreeMemory0(::core::mem::transmute(p)))
+        FwpmFreeMemory0(::core::mem::transmute(p))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

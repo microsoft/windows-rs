@@ -62,7 +62,7 @@ pub struct BOOL(pub i32);
 impl BOOL {
     #[inline]
     pub fn as_bool(self) -> bool {
-        !(self.0 == 0)
+        self.0 != 0
     }
     #[inline]
     pub fn ok(self) -> ::windows::core::Result<()> {
@@ -170,7 +170,7 @@ impl BSTR {
         }
     }
     pub fn from_wide(value: &[u16]) -> Self {
-        if value.len() == 0 {
+        if value.is_empty() {
             return Self(::core::ptr::null_mut());
         }
         unsafe { SysAllocStringLen(PWSTR(value.as_ptr() as *mut _), value.len() as u32) }
@@ -6709,7 +6709,7 @@ pub unsafe fn SetLastError(dwerrcode: WIN32_ERROR) {
         extern "system" {
             fn SetLastError(dwerrcode: WIN32_ERROR);
         }
-        ::core::mem::transmute(SetLastError(::core::mem::transmute(dwerrcode)))
+        SetLastError(::core::mem::transmute(dwerrcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6722,7 +6722,7 @@ pub unsafe fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32) {
         extern "system" {
             fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32);
         }
-        ::core::mem::transmute(SetLastErrorEx(::core::mem::transmute(dwerrcode), ::core::mem::transmute(dwtype)))
+        SetLastErrorEx(::core::mem::transmute(dwerrcode), ::core::mem::transmute(dwtype))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6787,7 +6787,7 @@ pub unsafe fn SysFreeString<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(bs
         extern "system" {
             fn SysFreeString(bstrstring: ::core::mem::ManuallyDrop<BSTR>);
         }
-        ::core::mem::transmute(SysFreeString(bstrstring.into_param().abi()))
+        SysFreeString(bstrstring.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6826,7 +6826,7 @@ pub unsafe fn SysReleaseString<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>
         extern "system" {
             fn SysReleaseString(bstrstring: ::core::mem::ManuallyDrop<BSTR>);
         }
-        ::core::mem::transmute(SysReleaseString(bstrstring.into_param().abi()))
+        SysReleaseString(bstrstring.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

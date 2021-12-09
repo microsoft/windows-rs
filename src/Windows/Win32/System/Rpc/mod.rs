@@ -545,7 +545,7 @@ pub unsafe fn I_RpcClearMutex(mutex: *mut ::core::ffi::c_void) {
         extern "system" {
             fn I_RpcClearMutex(mutex: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(I_RpcClearMutex(::core::mem::transmute(mutex)))
+        I_RpcClearMutex(::core::mem::transmute(mutex))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -558,7 +558,7 @@ pub unsafe fn I_RpcDeleteMutex(mutex: *mut ::core::ffi::c_void) {
         extern "system" {
             fn I_RpcDeleteMutex(mutex: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(I_RpcDeleteMutex(::core::mem::transmute(mutex)))
+        I_RpcDeleteMutex(::core::mem::transmute(mutex))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -584,7 +584,7 @@ pub unsafe fn I_RpcFree(object: *mut ::core::ffi::c_void) {
         extern "system" {
             fn I_RpcFree(object: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(I_RpcFree(::core::mem::transmute(object)))
+        I_RpcFree(::core::mem::transmute(object))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -806,7 +806,7 @@ pub unsafe fn I_RpcNsRaiseException(message: *mut RPC_MESSAGE, status: RPC_STATU
         extern "system" {
             fn I_RpcNsRaiseException(message: *mut RPC_MESSAGE, status: RPC_STATUS);
         }
-        ::core::mem::transmute(I_RpcNsRaiseException(::core::mem::transmute(message), ::core::mem::transmute(status)))
+        I_RpcNsRaiseException(::core::mem::transmute(message), ::core::mem::transmute(status))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -845,7 +845,7 @@ pub unsafe fn I_RpcPauseExecution(milliseconds: u32) {
         extern "system" {
             fn I_RpcPauseExecution(milliseconds: u32);
         }
-        ::core::mem::transmute(I_RpcPauseExecution(::core::mem::transmute(milliseconds)))
+        I_RpcPauseExecution(::core::mem::transmute(milliseconds))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -945,7 +945,7 @@ pub unsafe fn I_RpcRecordCalloutFailure(rpcstatus: RPC_STATUS, calloutstate: *mu
         extern "system" {
             fn I_RpcRecordCalloutFailure(rpcstatus: RPC_STATUS, calloutstate: *mut RDR_CALLOUT_STATE, dllname: *mut u16);
         }
-        ::core::mem::transmute(I_RpcRecordCalloutFailure(::core::mem::transmute(rpcstatus), ::core::mem::transmute(calloutstate), ::core::mem::transmute(dllname)))
+        I_RpcRecordCalloutFailure(::core::mem::transmute(rpcstatus), ::core::mem::transmute(calloutstate), ::core::mem::transmute(dllname))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -958,7 +958,7 @@ pub unsafe fn I_RpcRequestMutex(mutex: *mut *mut ::core::ffi::c_void) {
         extern "system" {
             fn I_RpcRequestMutex(mutex: *mut *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(I_RpcRequestMutex(::core::mem::transmute(mutex)))
+        I_RpcRequestMutex(::core::mem::transmute(mutex))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1218,7 +1218,7 @@ pub unsafe fn I_RpcSessionStrictContextHandle() {
         extern "system" {
             fn I_RpcSessionStrictContextHandle();
         }
-        ::core::mem::transmute(I_RpcSessionStrictContextHandle())
+        I_RpcSessionStrictContextHandle()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1231,7 +1231,7 @@ pub unsafe fn I_RpcSsDontSerializeContext() {
         extern "system" {
             fn I_RpcSsDontSerializeContext();
         }
-        ::core::mem::transmute(I_RpcSsDontSerializeContext())
+        I_RpcSsDontSerializeContext()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3778,7 +3778,7 @@ pub unsafe fn NDRCContextMarshall(ccontext: isize, pbuff: *mut ::core::ffi::c_vo
         extern "system" {
             fn NDRCContextMarshall(ccontext: isize, pbuff: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(NDRCContextMarshall(::core::mem::transmute(ccontext), ::core::mem::transmute(pbuff)))
+        NDRCContextMarshall(::core::mem::transmute(ccontext), ::core::mem::transmute(pbuff))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3791,7 +3791,7 @@ pub unsafe fn NDRCContextUnmarshall(pccontext: *mut isize, hbinding: *const ::co
         extern "system" {
             fn NDRCContextUnmarshall(pccontext: *mut isize, hbinding: *const ::core::ffi::c_void, pbuff: *const ::core::ffi::c_void, datarepresentation: u32);
         }
-        ::core::mem::transmute(NDRCContextUnmarshall(::core::mem::transmute(pccontext), ::core::mem::transmute(hbinding), ::core::mem::transmute(pbuff), ::core::mem::transmute(datarepresentation)))
+        NDRCContextUnmarshall(::core::mem::transmute(pccontext), ::core::mem::transmute(hbinding), ::core::mem::transmute(pbuff), ::core::mem::transmute(datarepresentation))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3804,7 +3804,7 @@ pub unsafe fn NDRSContextMarshall(ccontext: *const NDR_SCONTEXT_1, pbuff: *mut :
         extern "system" {
             fn NDRSContextMarshall(ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: ::windows::core::RawPtr);
         }
-        ::core::mem::transmute(NDRSContextMarshall(::core::mem::transmute(ccontext), ::core::mem::transmute(pbuff), ::core::mem::transmute(userrundownin)))
+        NDRSContextMarshall(::core::mem::transmute(ccontext), ::core::mem::transmute(pbuff), ::core::mem::transmute(userrundownin))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3817,7 +3817,7 @@ pub unsafe fn NDRSContextMarshall2(bindinghandle: *const ::core::ffi::c_void, cc
         extern "system" {
             fn NDRSContextMarshall2(bindinghandle: *const ::core::ffi::c_void, ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: ::windows::core::RawPtr, ctxguard: *const ::core::ffi::c_void, flags: u32);
         }
-        ::core::mem::transmute(NDRSContextMarshall2(::core::mem::transmute(bindinghandle), ::core::mem::transmute(ccontext), ::core::mem::transmute(pbuff), ::core::mem::transmute(userrundownin), ::core::mem::transmute(ctxguard), ::core::mem::transmute(flags)))
+        NDRSContextMarshall2(::core::mem::transmute(bindinghandle), ::core::mem::transmute(ccontext), ::core::mem::transmute(pbuff), ::core::mem::transmute(userrundownin), ::core::mem::transmute(ctxguard), ::core::mem::transmute(flags))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3830,7 +3830,7 @@ pub unsafe fn NDRSContextMarshallEx(bindinghandle: *const ::core::ffi::c_void, c
         extern "system" {
             fn NDRSContextMarshallEx(bindinghandle: *const ::core::ffi::c_void, ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: ::windows::core::RawPtr);
         }
-        ::core::mem::transmute(NDRSContextMarshallEx(::core::mem::transmute(bindinghandle), ::core::mem::transmute(ccontext), ::core::mem::transmute(pbuff), ::core::mem::transmute(userrundownin)))
+        NDRSContextMarshallEx(::core::mem::transmute(bindinghandle), ::core::mem::transmute(ccontext), ::core::mem::transmute(pbuff), ::core::mem::transmute(userrundownin))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4108,7 +4108,7 @@ pub unsafe fn Ndr64AsyncServerCall64(prpcmsg: *mut RPC_MESSAGE) {
         extern "system" {
             fn Ndr64AsyncServerCall64(prpcmsg: *mut RPC_MESSAGE);
         }
-        ::core::mem::transmute(Ndr64AsyncServerCall64(::core::mem::transmute(prpcmsg)))
+        Ndr64AsyncServerCall64(::core::mem::transmute(prpcmsg))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4121,7 +4121,7 @@ pub unsafe fn Ndr64AsyncServerCallAll(prpcmsg: *mut RPC_MESSAGE) {
         extern "system" {
             fn Ndr64AsyncServerCallAll(prpcmsg: *mut RPC_MESSAGE);
         }
-        ::core::mem::transmute(Ndr64AsyncServerCallAll(::core::mem::transmute(prpcmsg)))
+        Ndr64AsyncServerCallAll(::core::mem::transmute(prpcmsg))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4190,7 +4190,7 @@ pub unsafe fn NdrAsyncServerCall(prpcmsg: *mut RPC_MESSAGE) {
         extern "system" {
             fn NdrAsyncServerCall(prpcmsg: *mut RPC_MESSAGE);
         }
-        ::core::mem::transmute(NdrAsyncServerCall(::core::mem::transmute(prpcmsg)))
+        NdrAsyncServerCall(::core::mem::transmute(prpcmsg))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4204,7 +4204,7 @@ pub unsafe fn NdrByteCountPointerBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pm
         extern "system" {
             fn NdrByteCountPointerBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrByteCountPointerBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrByteCountPointerBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4218,7 +4218,7 @@ pub unsafe fn NdrByteCountPointerFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory:
         extern "system" {
             fn NdrByteCountPointerFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrByteCountPointerFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrByteCountPointerFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4260,7 +4260,7 @@ pub unsafe fn NdrClearOutParameters(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *
         extern "system" {
             fn NdrClearOutParameters(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8, argaddr: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(NdrClearOutParameters(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat), ::core::mem::transmute(argaddr)))
+        NdrClearOutParameters(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat), ::core::mem::transmute(argaddr))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4302,7 +4302,7 @@ pub unsafe fn NdrClientContextMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, context
         extern "system" {
             fn NdrClientContextMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: isize, fcheck: i32);
         }
-        ::core::mem::transmute(NdrClientContextMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(contexthandle), ::core::mem::transmute(fcheck)))
+        NdrClientContextMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(contexthandle), ::core::mem::transmute(fcheck))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4316,7 +4316,7 @@ pub unsafe fn NdrClientContextUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pcont
         extern "system" {
             fn NdrClientContextUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pcontexthandle: *mut isize, bindhandle: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(NdrClientContextUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pcontexthandle), ::core::mem::transmute(bindhandle)))
+        NdrClientContextUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pcontexthandle), ::core::mem::transmute(bindhandle))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4330,7 +4330,7 @@ pub unsafe fn NdrClientInitialize(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL
         extern "system" {
             fn NdrClientInitialize(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *mut MIDL_STUB_DESC, procnum: u32);
         }
-        ::core::mem::transmute(NdrClientInitialize(::core::mem::transmute(prpcmsg), ::core::mem::transmute(pstubmsg), ::core::mem::transmute(pstubdescriptor), ::core::mem::transmute(procnum)))
+        NdrClientInitialize(::core::mem::transmute(prpcmsg), ::core::mem::transmute(pstubmsg), ::core::mem::transmute(pstubdescriptor), ::core::mem::transmute(procnum))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4344,7 +4344,7 @@ pub unsafe fn NdrClientInitializeNew(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut M
         extern "system" {
             fn NdrClientInitializeNew(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *mut MIDL_STUB_DESC, procnum: u32);
         }
-        ::core::mem::transmute(NdrClientInitializeNew(::core::mem::transmute(prpcmsg), ::core::mem::transmute(pstubmsg), ::core::mem::transmute(pstubdescriptor), ::core::mem::transmute(procnum)))
+        NdrClientInitializeNew(::core::mem::transmute(prpcmsg), ::core::mem::transmute(pstubmsg), ::core::mem::transmute(pstubdescriptor), ::core::mem::transmute(procnum))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4358,7 +4358,7 @@ pub unsafe fn NdrComplexArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemor
         extern "system" {
             fn NdrComplexArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrComplexArrayBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrComplexArrayBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4372,7 +4372,7 @@ pub unsafe fn NdrComplexArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mu
         extern "system" {
             fn NdrComplexArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrComplexArrayFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrComplexArrayFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4428,7 +4428,7 @@ pub unsafe fn NdrComplexStructBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemo
         extern "system" {
             fn NdrComplexStructBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrComplexStructBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrComplexStructBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4442,7 +4442,7 @@ pub unsafe fn NdrComplexStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *m
         extern "system" {
             fn NdrComplexStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrComplexStructFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrComplexStructFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4498,7 +4498,7 @@ pub unsafe fn NdrConformantArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pme
         extern "system" {
             fn NdrConformantArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrConformantArrayBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrConformantArrayBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4512,7 +4512,7 @@ pub unsafe fn NdrConformantArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: 
         extern "system" {
             fn NdrConformantArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrConformantArrayFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrConformantArrayFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4568,7 +4568,7 @@ pub unsafe fn NdrConformantStringBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pm
         extern "system" {
             fn NdrConformantStringBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrConformantStringBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrConformantStringBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4624,7 +4624,7 @@ pub unsafe fn NdrConformantStructBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pm
         extern "system" {
             fn NdrConformantStructBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrConformantStructBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrConformantStructBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4638,7 +4638,7 @@ pub unsafe fn NdrConformantStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory:
         extern "system" {
             fn NdrConformantStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrConformantStructFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrConformantStructFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4694,7 +4694,7 @@ pub unsafe fn NdrConformantVaryingArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSA
         extern "system" {
             fn NdrConformantVaryingArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrConformantVaryingArrayBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrConformantVaryingArrayBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4708,7 +4708,7 @@ pub unsafe fn NdrConformantVaryingArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pm
         extern "system" {
             fn NdrConformantVaryingArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrConformantVaryingArrayFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrConformantVaryingArrayFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4764,7 +4764,7 @@ pub unsafe fn NdrConformantVaryingStructBufferSize(pstubmsg: *mut MIDL_STUB_MESS
         extern "system" {
             fn NdrConformantVaryingStructBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrConformantVaryingStructBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrConformantVaryingStructBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4778,7 +4778,7 @@ pub unsafe fn NdrConformantVaryingStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, p
         extern "system" {
             fn NdrConformantVaryingStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrConformantVaryingStructFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrConformantVaryingStructFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4848,7 +4848,7 @@ pub unsafe fn NdrContextHandleSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *m
         extern "system" {
             fn NdrContextHandleSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrContextHandleSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrContextHandleSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4862,7 +4862,7 @@ pub unsafe fn NdrConvert(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) {
         extern "system" {
             fn NdrConvert(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrConvert(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat)))
+        NdrConvert(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4876,7 +4876,7 @@ pub unsafe fn NdrConvert2(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8, nu
         extern "system" {
             fn NdrConvert2(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8, numberparams: i32);
         }
-        ::core::mem::transmute(NdrConvert2(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat), ::core::mem::transmute(numberparams)))
+        NdrConvert2(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat), ::core::mem::transmute(numberparams))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4890,7 +4890,7 @@ pub unsafe fn NdrCorrelationFree(pstubmsg: *mut MIDL_STUB_MESSAGE) {
         extern "system" {
             fn NdrCorrelationFree(pstubmsg: *mut MIDL_STUB_MESSAGE);
         }
-        ::core::mem::transmute(NdrCorrelationFree(::core::mem::transmute(pstubmsg)))
+        NdrCorrelationFree(::core::mem::transmute(pstubmsg))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4904,7 +4904,7 @@ pub unsafe fn NdrCorrelationInitialize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory
         extern "system" {
             fn NdrCorrelationInitialize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut ::core::ffi::c_void, cachesize: u32, flags: u32);
         }
-        ::core::mem::transmute(NdrCorrelationInitialize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(cachesize), ::core::mem::transmute(flags)))
+        NdrCorrelationInitialize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(cachesize), ::core::mem::transmute(flags))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4918,7 +4918,7 @@ pub unsafe fn NdrCorrelationPass(pstubmsg: *mut MIDL_STUB_MESSAGE) {
         extern "system" {
             fn NdrCorrelationPass(pstubmsg: *mut MIDL_STUB_MESSAGE);
         }
-        ::core::mem::transmute(NdrCorrelationPass(::core::mem::transmute(pstubmsg)))
+        NdrCorrelationPass(::core::mem::transmute(pstubmsg))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4974,7 +4974,7 @@ pub unsafe fn NdrEncapsulatedUnionBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, p
         extern "system" {
             fn NdrEncapsulatedUnionBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrEncapsulatedUnionBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrEncapsulatedUnionBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4988,7 +4988,7 @@ pub unsafe fn NdrEncapsulatedUnionFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory
         extern "system" {
             fn NdrEncapsulatedUnionFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrEncapsulatedUnionFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrEncapsulatedUnionFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5044,7 +5044,7 @@ pub unsafe fn NdrFixedArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory:
         extern "system" {
             fn NdrFixedArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrFixedArrayBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrFixedArrayBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5058,7 +5058,7 @@ pub unsafe fn NdrFixedArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut 
         extern "system" {
             fn NdrFixedArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrFixedArrayFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrFixedArrayFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5114,7 +5114,7 @@ pub unsafe fn NdrFreeBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE) {
         extern "system" {
             fn NdrFreeBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE);
         }
-        ::core::mem::transmute(NdrFreeBuffer(::core::mem::transmute(pstubmsg)))
+        NdrFreeBuffer(::core::mem::transmute(pstubmsg))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5127,7 +5127,7 @@ pub unsafe fn NdrFullPointerXlatFree(pxlattables: *mut FULL_PTR_XLAT_TABLES) {
         extern "system" {
             fn NdrFullPointerXlatFree(pxlattables: *mut FULL_PTR_XLAT_TABLES);
         }
-        ::core::mem::transmute(NdrFullPointerXlatFree(::core::mem::transmute(pxlattables)))
+        NdrFullPointerXlatFree(::core::mem::transmute(pxlattables))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5196,7 +5196,7 @@ pub unsafe fn NdrInterfacePointerBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pm
         extern "system" {
             fn NdrInterfacePointerBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrInterfacePointerBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrInterfacePointerBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5210,7 +5210,7 @@ pub unsafe fn NdrInterfacePointerFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory:
         extern "system" {
             fn NdrInterfacePointerFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrInterfacePointerFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrInterfacePointerFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5280,7 +5280,7 @@ pub unsafe fn NdrMesProcEncodeDecode(handle: *mut ::core::ffi::c_void, pstubdesc
         extern "system" {
             fn NdrMesProcEncodeDecode(handle: *mut ::core::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8);
         }
-        ::core::mem::transmute(NdrMesProcEncodeDecode(::core::mem::transmute(handle), ::core::mem::transmute(pstubdesc), ::core::mem::transmute(pformatstring)))
+        NdrMesProcEncodeDecode(::core::mem::transmute(handle), ::core::mem::transmute(pstubdesc), ::core::mem::transmute(pformatstring))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5348,7 +5348,7 @@ pub unsafe fn NdrMesSimpleTypeDecode(handle: *mut ::core::ffi::c_void, pobject: 
         extern "system" {
             fn NdrMesSimpleTypeDecode(handle: *mut ::core::ffi::c_void, pobject: *mut ::core::ffi::c_void, size: i16);
         }
-        ::core::mem::transmute(NdrMesSimpleTypeDecode(::core::mem::transmute(handle), ::core::mem::transmute(pobject), ::core::mem::transmute(size)))
+        NdrMesSimpleTypeDecode(::core::mem::transmute(handle), ::core::mem::transmute(pobject), ::core::mem::transmute(size))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5362,7 +5362,7 @@ pub unsafe fn NdrMesSimpleTypeDecodeAll(handle: *mut ::core::ffi::c_void, pproxy
         extern "system" {
             fn NdrMesSimpleTypeDecodeAll(handle: *mut ::core::ffi::c_void, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, pobject: *mut ::core::ffi::c_void, size: i16);
         }
-        ::core::mem::transmute(NdrMesSimpleTypeDecodeAll(::core::mem::transmute(handle), ::core::mem::transmute(pproxyinfo), ::core::mem::transmute(pobject), ::core::mem::transmute(size)))
+        NdrMesSimpleTypeDecodeAll(::core::mem::transmute(handle), ::core::mem::transmute(pproxyinfo), ::core::mem::transmute(pobject), ::core::mem::transmute(size))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5376,7 +5376,7 @@ pub unsafe fn NdrMesSimpleTypeEncode(handle: *mut ::core::ffi::c_void, pstubdesc
         extern "system" {
             fn NdrMesSimpleTypeEncode(handle: *mut ::core::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pobject: *const ::core::ffi::c_void, size: i16);
         }
-        ::core::mem::transmute(NdrMesSimpleTypeEncode(::core::mem::transmute(handle), ::core::mem::transmute(pstubdesc), ::core::mem::transmute(pobject), ::core::mem::transmute(size)))
+        NdrMesSimpleTypeEncode(::core::mem::transmute(handle), ::core::mem::transmute(pstubdesc), ::core::mem::transmute(pobject), ::core::mem::transmute(size))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5390,7 +5390,7 @@ pub unsafe fn NdrMesSimpleTypeEncodeAll(handle: *mut ::core::ffi::c_void, pproxy
         extern "system" {
             fn NdrMesSimpleTypeEncodeAll(handle: *mut ::core::ffi::c_void, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, pobject: *const ::core::ffi::c_void, size: i16);
         }
-        ::core::mem::transmute(NdrMesSimpleTypeEncodeAll(::core::mem::transmute(handle), ::core::mem::transmute(pproxyinfo), ::core::mem::transmute(pobject), ::core::mem::transmute(size)))
+        NdrMesSimpleTypeEncodeAll(::core::mem::transmute(handle), ::core::mem::transmute(pproxyinfo), ::core::mem::transmute(pobject), ::core::mem::transmute(size))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5446,7 +5446,7 @@ pub unsafe fn NdrMesTypeDecode(handle: *mut ::core::ffi::c_void, pstubdesc: *con
         extern "system" {
             fn NdrMesTypeDecode(handle: *mut ::core::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(NdrMesTypeDecode(::core::mem::transmute(handle), ::core::mem::transmute(pstubdesc), ::core::mem::transmute(pformatstring), ::core::mem::transmute(pobject)))
+        NdrMesTypeDecode(::core::mem::transmute(handle), ::core::mem::transmute(pstubdesc), ::core::mem::transmute(pformatstring), ::core::mem::transmute(pobject))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5460,7 +5460,7 @@ pub unsafe fn NdrMesTypeDecode2(handle: *mut ::core::ffi::c_void, ppicklinginfo:
         extern "system" {
             fn NdrMesTypeDecode2(handle: *mut ::core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(NdrMesTypeDecode2(::core::mem::transmute(handle), ::core::mem::transmute(ppicklinginfo), ::core::mem::transmute(pstubdesc), ::core::mem::transmute(pformatstring), ::core::mem::transmute(pobject)))
+        NdrMesTypeDecode2(::core::mem::transmute(handle), ::core::mem::transmute(ppicklinginfo), ::core::mem::transmute(pstubdesc), ::core::mem::transmute(pformatstring), ::core::mem::transmute(pobject))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5474,7 +5474,7 @@ pub unsafe fn NdrMesTypeDecode3(handle: *mut ::core::ffi::c_void, ppicklinginfo:
         extern "system" {
             fn NdrMesTypeDecode3(handle: *mut ::core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset: *const *const u32, ntypeindex: u32, pobject: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(NdrMesTypeDecode3(::core::mem::transmute(handle), ::core::mem::transmute(ppicklinginfo), ::core::mem::transmute(pproxyinfo), ::core::mem::transmute(arrtypeoffset), ::core::mem::transmute(ntypeindex), ::core::mem::transmute(pobject)))
+        NdrMesTypeDecode3(::core::mem::transmute(handle), ::core::mem::transmute(ppicklinginfo), ::core::mem::transmute(pproxyinfo), ::core::mem::transmute(arrtypeoffset), ::core::mem::transmute(ntypeindex), ::core::mem::transmute(pobject))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5488,7 +5488,7 @@ pub unsafe fn NdrMesTypeEncode(handle: *mut ::core::ffi::c_void, pstubdesc: *con
         extern "system" {
             fn NdrMesTypeEncode(handle: *mut ::core::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(NdrMesTypeEncode(::core::mem::transmute(handle), ::core::mem::transmute(pstubdesc), ::core::mem::transmute(pformatstring), ::core::mem::transmute(pobject)))
+        NdrMesTypeEncode(::core::mem::transmute(handle), ::core::mem::transmute(pstubdesc), ::core::mem::transmute(pformatstring), ::core::mem::transmute(pobject))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5502,7 +5502,7 @@ pub unsafe fn NdrMesTypeEncode2(handle: *mut ::core::ffi::c_void, ppicklinginfo:
         extern "system" {
             fn NdrMesTypeEncode2(handle: *mut ::core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(NdrMesTypeEncode2(::core::mem::transmute(handle), ::core::mem::transmute(ppicklinginfo), ::core::mem::transmute(pstubdesc), ::core::mem::transmute(pformatstring), ::core::mem::transmute(pobject)))
+        NdrMesTypeEncode2(::core::mem::transmute(handle), ::core::mem::transmute(ppicklinginfo), ::core::mem::transmute(pstubdesc), ::core::mem::transmute(pformatstring), ::core::mem::transmute(pobject))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5516,7 +5516,7 @@ pub unsafe fn NdrMesTypeEncode3(handle: *mut ::core::ffi::c_void, ppicklinginfo:
         extern "system" {
             fn NdrMesTypeEncode3(handle: *mut ::core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset: *const *const u32, ntypeindex: u32, pobject: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(NdrMesTypeEncode3(::core::mem::transmute(handle), ::core::mem::transmute(ppicklinginfo), ::core::mem::transmute(pproxyinfo), ::core::mem::transmute(arrtypeoffset), ::core::mem::transmute(ntypeindex), ::core::mem::transmute(pobject)))
+        NdrMesTypeEncode3(::core::mem::transmute(handle), ::core::mem::transmute(ppicklinginfo), ::core::mem::transmute(pproxyinfo), ::core::mem::transmute(arrtypeoffset), ::core::mem::transmute(ntypeindex), ::core::mem::transmute(pobject))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5530,7 +5530,7 @@ pub unsafe fn NdrMesTypeFree2(handle: *mut ::core::ffi::c_void, ppicklinginfo: *
         extern "system" {
             fn NdrMesTypeFree2(handle: *mut ::core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(NdrMesTypeFree2(::core::mem::transmute(handle), ::core::mem::transmute(ppicklinginfo), ::core::mem::transmute(pstubdesc), ::core::mem::transmute(pformatstring), ::core::mem::transmute(pobject)))
+        NdrMesTypeFree2(::core::mem::transmute(handle), ::core::mem::transmute(ppicklinginfo), ::core::mem::transmute(pstubdesc), ::core::mem::transmute(pformatstring), ::core::mem::transmute(pobject))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5544,7 +5544,7 @@ pub unsafe fn NdrMesTypeFree3(handle: *mut ::core::ffi::c_void, ppicklinginfo: *
         extern "system" {
             fn NdrMesTypeFree3(handle: *mut ::core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset: *const *const u32, ntypeindex: u32, pobject: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(NdrMesTypeFree3(::core::mem::transmute(handle), ::core::mem::transmute(ppicklinginfo), ::core::mem::transmute(pproxyinfo), ::core::mem::transmute(arrtypeoffset), ::core::mem::transmute(ntypeindex), ::core::mem::transmute(pobject)))
+        NdrMesTypeFree3(::core::mem::transmute(handle), ::core::mem::transmute(ppicklinginfo), ::core::mem::transmute(pproxyinfo), ::core::mem::transmute(arrtypeoffset), ::core::mem::transmute(ntypeindex), ::core::mem::transmute(pobject))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5558,7 +5558,7 @@ pub unsafe fn NdrNonConformantStringBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE,
         extern "system" {
             fn NdrNonConformantStringBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrNonConformantStringBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrNonConformantStringBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5614,7 +5614,7 @@ pub unsafe fn NdrNonEncapsulatedUnionBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE
         extern "system" {
             fn NdrNonEncapsulatedUnionBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrNonEncapsulatedUnionBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrNonEncapsulatedUnionBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5628,7 +5628,7 @@ pub unsafe fn NdrNonEncapsulatedUnionFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmem
         extern "system" {
             fn NdrNonEncapsulatedUnionFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrNonEncapsulatedUnionFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrNonEncapsulatedUnionFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5724,7 +5724,7 @@ pub unsafe fn NdrOleFree(nodetofree: *const ::core::ffi::c_void) {
         extern "system" {
             fn NdrOleFree(nodetofree: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(NdrOleFree(::core::mem::transmute(nodetofree)))
+        NdrOleFree(::core::mem::transmute(nodetofree))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5738,7 +5738,7 @@ pub unsafe fn NdrPartialIgnoreClientBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE,
         extern "system" {
             fn NdrPartialIgnoreClientBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(NdrPartialIgnoreClientBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory)))
+        NdrPartialIgnoreClientBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5752,7 +5752,7 @@ pub unsafe fn NdrPartialIgnoreClientMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, p
         extern "system" {
             fn NdrPartialIgnoreClientMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(NdrPartialIgnoreClientMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory)))
+        NdrPartialIgnoreClientMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5766,7 +5766,7 @@ pub unsafe fn NdrPartialIgnoreServerInitialize(pstubmsg: *mut MIDL_STUB_MESSAGE,
         extern "system" {
             fn NdrPartialIgnoreServerInitialize(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut ::core::ffi::c_void, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrPartialIgnoreServerInitialize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat)))
+        NdrPartialIgnoreServerInitialize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5780,7 +5780,7 @@ pub unsafe fn NdrPartialIgnoreServerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE,
         extern "system" {
             fn NdrPartialIgnoreServerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(NdrPartialIgnoreServerUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory)))
+        NdrPartialIgnoreServerUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5794,7 +5794,7 @@ pub unsafe fn NdrPointerBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *m
         extern "system" {
             fn NdrPointerBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrPointerBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrPointerBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5808,7 +5808,7 @@ pub unsafe fn NdrPointerFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8,
         extern "system" {
             fn NdrPointerFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrPointerFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrPointerFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5890,7 +5890,7 @@ pub unsafe fn NdrRpcSmClientFree(nodetofree: *const ::core::ffi::c_void) {
         extern "system" {
             fn NdrRpcSmClientFree(nodetofree: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(NdrRpcSmClientFree(::core::mem::transmute(nodetofree)))
+        NdrRpcSmClientFree(::core::mem::transmute(nodetofree))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5904,7 +5904,7 @@ pub unsafe fn NdrRpcSmSetClientToOsf(pmessage: *mut MIDL_STUB_MESSAGE) {
         extern "system" {
             fn NdrRpcSmSetClientToOsf(pmessage: *mut MIDL_STUB_MESSAGE);
         }
-        ::core::mem::transmute(NdrRpcSmSetClientToOsf(::core::mem::transmute(pmessage)))
+        NdrRpcSmSetClientToOsf(::core::mem::transmute(pmessage))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5930,7 +5930,7 @@ pub unsafe fn NdrRpcSsDefaultFree(nodetofree: *const ::core::ffi::c_void) {
         extern "system" {
             fn NdrRpcSsDefaultFree(nodetofree: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(NdrRpcSsDefaultFree(::core::mem::transmute(nodetofree)))
+        NdrRpcSsDefaultFree(::core::mem::transmute(nodetofree))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5944,7 +5944,7 @@ pub unsafe fn NdrRpcSsDisableAllocate(pmessage: *mut MIDL_STUB_MESSAGE) {
         extern "system" {
             fn NdrRpcSsDisableAllocate(pmessage: *mut MIDL_STUB_MESSAGE);
         }
-        ::core::mem::transmute(NdrRpcSsDisableAllocate(::core::mem::transmute(pmessage)))
+        NdrRpcSsDisableAllocate(::core::mem::transmute(pmessage))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5958,7 +5958,7 @@ pub unsafe fn NdrRpcSsEnableAllocate(pmessage: *mut MIDL_STUB_MESSAGE) {
         extern "system" {
             fn NdrRpcSsEnableAllocate(pmessage: *mut MIDL_STUB_MESSAGE);
         }
-        ::core::mem::transmute(NdrRpcSsEnableAllocate(::core::mem::transmute(pmessage)))
+        NdrRpcSsEnableAllocate(::core::mem::transmute(pmessage))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5985,7 +5985,7 @@ pub unsafe fn NdrServerCall2(prpcmsg: *mut RPC_MESSAGE) {
         extern "system" {
             fn NdrServerCall2(prpcmsg: *mut RPC_MESSAGE);
         }
-        ::core::mem::transmute(NdrServerCall2(::core::mem::transmute(prpcmsg)))
+        NdrServerCall2(::core::mem::transmute(prpcmsg))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5998,7 +5998,7 @@ pub unsafe fn NdrServerCallAll(prpcmsg: *mut RPC_MESSAGE) {
         extern "system" {
             fn NdrServerCallAll(prpcmsg: *mut RPC_MESSAGE);
         }
-        ::core::mem::transmute(NdrServerCallAll(::core::mem::transmute(prpcmsg)))
+        NdrServerCallAll(::core::mem::transmute(prpcmsg))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6011,7 +6011,7 @@ pub unsafe fn NdrServerCallNdr64(prpcmsg: *mut RPC_MESSAGE) {
         extern "system" {
             fn NdrServerCallNdr64(prpcmsg: *mut RPC_MESSAGE);
         }
-        ::core::mem::transmute(NdrServerCallNdr64(::core::mem::transmute(prpcmsg)))
+        NdrServerCallNdr64(::core::mem::transmute(prpcmsg))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6025,7 +6025,7 @@ pub unsafe fn NdrServerContextMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, context
         extern "system" {
             fn NdrServerContextMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: ::windows::core::RawPtr);
         }
-        ::core::mem::transmute(NdrServerContextMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(contexthandle), ::core::mem::transmute(rundownroutine)))
+        NdrServerContextMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(contexthandle), ::core::mem::transmute(rundownroutine))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6039,7 +6039,7 @@ pub unsafe fn NdrServerContextNewMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, cont
         extern "system" {
             fn NdrServerContextNewMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: ::windows::core::RawPtr, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrServerContextNewMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(contexthandle), ::core::mem::transmute(rundownroutine), ::core::mem::transmute(pformat)))
+        NdrServerContextNewMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(contexthandle), ::core::mem::transmute(rundownroutine), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6095,7 +6095,7 @@ pub unsafe fn NdrServerInitializeMarshall(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *
         extern "system" {
             fn NdrServerInitializeMarshall(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE);
         }
-        ::core::mem::transmute(NdrServerInitializeMarshall(::core::mem::transmute(prpcmsg), ::core::mem::transmute(pstubmsg)))
+        NdrServerInitializeMarshall(::core::mem::transmute(prpcmsg), ::core::mem::transmute(pstubmsg))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6123,7 +6123,7 @@ pub unsafe fn NdrServerInitializePartial(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *m
         extern "system" {
             fn NdrServerInitializePartial(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *mut MIDL_STUB_DESC, requestedbuffersize: u32);
         }
-        ::core::mem::transmute(NdrServerInitializePartial(::core::mem::transmute(prpcmsg), ::core::mem::transmute(pstubmsg), ::core::mem::transmute(pstubdescriptor), ::core::mem::transmute(requestedbuffersize)))
+        NdrServerInitializePartial(::core::mem::transmute(prpcmsg), ::core::mem::transmute(pstubmsg), ::core::mem::transmute(pstubdescriptor), ::core::mem::transmute(requestedbuffersize))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6151,7 +6151,7 @@ pub unsafe fn NdrSimpleStructBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemor
         extern "system" {
             fn NdrSimpleStructBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrSimpleStructBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrSimpleStructBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6165,7 +6165,7 @@ pub unsafe fn NdrSimpleStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mu
         extern "system" {
             fn NdrSimpleStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrSimpleStructFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrSimpleStructFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6221,7 +6221,7 @@ pub unsafe fn NdrSimpleTypeMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *
         extern "system" {
             fn NdrSimpleTypeMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, formatchar: u8);
         }
-        ::core::mem::transmute(NdrSimpleTypeMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(formatchar)))
+        NdrSimpleTypeMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(formatchar))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6235,7 +6235,7 @@ pub unsafe fn NdrSimpleTypeUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory:
         extern "system" {
             fn NdrSimpleTypeUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, formatchar: u8);
         }
-        ::core::mem::transmute(NdrSimpleTypeUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(formatchar)))
+        NdrSimpleTypeUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(formatchar))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6275,7 +6275,7 @@ pub unsafe fn NdrUserMarshalBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory
         extern "system" {
             fn NdrUserMarshalBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrUserMarshalBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrUserMarshalBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6289,7 +6289,7 @@ pub unsafe fn NdrUserMarshalFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut
         extern "system" {
             fn NdrUserMarshalFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrUserMarshalFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrUserMarshalFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6358,7 +6358,7 @@ pub unsafe fn NdrVaryingArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemor
         extern "system" {
             fn NdrVaryingArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrVaryingArrayBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrVaryingArrayBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6372,7 +6372,7 @@ pub unsafe fn NdrVaryingArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mu
         extern "system" {
             fn NdrVaryingArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrVaryingArrayFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrVaryingArrayFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6428,7 +6428,7 @@ pub unsafe fn NdrXmitOrRepAsBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory
         extern "system" {
             fn NdrXmitOrRepAsBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrXmitOrRepAsBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrXmitOrRepAsBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6442,7 +6442,7 @@ pub unsafe fn NdrXmitOrRepAsFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut
         extern "system" {
             fn NdrXmitOrRepAsFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::core::mem::transmute(NdrXmitOrRepAsFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat)))
+        NdrXmitOrRepAsFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9783,7 +9783,7 @@ pub unsafe fn RpcErrorClearInformation() {
         extern "system" {
             fn RpcErrorClearInformation();
         }
-        ::core::mem::transmute(RpcErrorClearInformation())
+        RpcErrorClearInformation()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11141,7 +11141,7 @@ pub unsafe fn RpcRaiseException(exception: RPC_STATUS) {
         extern "system" {
             fn RpcRaiseException(exception: RPC_STATUS);
         }
-        ::core::mem::transmute(RpcRaiseException(::core::mem::transmute(exception)))
+        RpcRaiseException(::core::mem::transmute(exception))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11753,7 +11753,7 @@ pub unsafe fn RpcServerYield() {
         extern "system" {
             fn RpcServerYield();
         }
-        ::core::mem::transmute(RpcServerYield())
+        RpcServerYield()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11935,7 +11935,7 @@ pub unsafe fn RpcSsDestroyClientContext(contexthandle: *const *const ::core::ffi
         extern "system" {
             fn RpcSsDestroyClientContext(contexthandle: *const *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(RpcSsDestroyClientContext(::core::mem::transmute(contexthandle)))
+        RpcSsDestroyClientContext(::core::mem::transmute(contexthandle))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11948,7 +11948,7 @@ pub unsafe fn RpcSsDisableAllocate() {
         extern "system" {
             fn RpcSsDisableAllocate();
         }
-        ::core::mem::transmute(RpcSsDisableAllocate())
+        RpcSsDisableAllocate()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11961,7 +11961,7 @@ pub unsafe fn RpcSsDontSerializeContext() {
         extern "system" {
             fn RpcSsDontSerializeContext();
         }
-        ::core::mem::transmute(RpcSsDontSerializeContext())
+        RpcSsDontSerializeContext()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11974,7 +11974,7 @@ pub unsafe fn RpcSsEnableAllocate() {
         extern "system" {
             fn RpcSsEnableAllocate();
         }
-        ::core::mem::transmute(RpcSsEnableAllocate())
+        RpcSsEnableAllocate()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11987,7 +11987,7 @@ pub unsafe fn RpcSsFree(nodetofree: *const ::core::ffi::c_void) {
         extern "system" {
             fn RpcSsFree(nodetofree: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(RpcSsFree(::core::mem::transmute(nodetofree)))
+        RpcSsFree(::core::mem::transmute(nodetofree))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12026,7 +12026,7 @@ pub unsafe fn RpcSsSetClientAllocFree(clientalloc: RPC_CLIENT_ALLOC, clientfree:
         extern "system" {
             fn RpcSsSetClientAllocFree(clientalloc: ::windows::core::RawPtr, clientfree: ::windows::core::RawPtr);
         }
-        ::core::mem::transmute(RpcSsSetClientAllocFree(::core::mem::transmute(clientalloc), ::core::mem::transmute(clientfree)))
+        RpcSsSetClientAllocFree(::core::mem::transmute(clientalloc), ::core::mem::transmute(clientfree))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12039,7 +12039,7 @@ pub unsafe fn RpcSsSetThreadHandle(id: *const ::core::ffi::c_void) {
         extern "system" {
             fn RpcSsSetThreadHandle(id: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(RpcSsSetThreadHandle(::core::mem::transmute(id)))
+        RpcSsSetThreadHandle(::core::mem::transmute(id))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12052,7 +12052,7 @@ pub unsafe fn RpcSsSwapClientAllocFree(clientalloc: RPC_CLIENT_ALLOC, clientfree
         extern "system" {
             fn RpcSsSwapClientAllocFree(clientalloc: ::windows::core::RawPtr, clientfree: ::windows::core::RawPtr, oldclientalloc: *mut ::windows::core::RawPtr, oldclientfree: *mut ::windows::core::RawPtr);
         }
-        ::core::mem::transmute(RpcSsSwapClientAllocFree(::core::mem::transmute(clientalloc), ::core::mem::transmute(clientfree), ::core::mem::transmute(oldclientalloc), ::core::mem::transmute(oldclientfree)))
+        RpcSsSwapClientAllocFree(::core::mem::transmute(clientalloc), ::core::mem::transmute(clientfree), ::core::mem::transmute(oldclientalloc), ::core::mem::transmute(oldclientfree))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12156,7 +12156,7 @@ pub unsafe fn RpcUserFree(asynchandle: *mut ::core::ffi::c_void, pbuffer: *mut :
         extern "system" {
             fn RpcUserFree(asynchandle: *mut ::core::ffi::c_void, pbuffer: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(RpcUserFree(::core::mem::transmute(asynchandle), ::core::mem::transmute(pbuffer)))
+        RpcUserFree(::core::mem::transmute(asynchandle), ::core::mem::transmute(pbuffer))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

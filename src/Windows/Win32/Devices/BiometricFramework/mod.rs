@@ -4203,7 +4203,7 @@ pub unsafe fn WinBioGetDomainLogonSetting(value: *mut u8, source: *mut WINBIO_SE
         extern "system" {
             fn WinBioGetDomainLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE);
         }
-        ::core::mem::transmute(WinBioGetDomainLogonSetting(::core::mem::transmute(value), ::core::mem::transmute(source)))
+        WinBioGetDomainLogonSetting(::core::mem::transmute(value), ::core::mem::transmute(source))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4216,7 +4216,7 @@ pub unsafe fn WinBioGetEnabledSetting(value: *mut u8, source: *mut WINBIO_SETTIN
         extern "system" {
             fn WinBioGetEnabledSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE);
         }
-        ::core::mem::transmute(WinBioGetEnabledSetting(::core::mem::transmute(value), ::core::mem::transmute(source)))
+        WinBioGetEnabledSetting(::core::mem::transmute(value), ::core::mem::transmute(source))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4243,7 +4243,7 @@ pub unsafe fn WinBioGetLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_
         extern "system" {
             fn WinBioGetLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE);
         }
-        ::core::mem::transmute(WinBioGetLogonSetting(::core::mem::transmute(value), ::core::mem::transmute(source)))
+        WinBioGetLogonSetting(::core::mem::transmute(value), ::core::mem::transmute(source))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

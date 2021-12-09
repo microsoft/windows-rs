@@ -2544,7 +2544,7 @@ pub unsafe fn sqlite3_free(param0: *mut ::core::ffi::c_void) {
         extern "system" {
             fn sqlite3_free(param0: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(sqlite3_free(::core::mem::transmute(param0)))
+        sqlite3_free(::core::mem::transmute(param0))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2558,7 +2558,7 @@ pub unsafe fn sqlite3_free_filename<'a, Param0: ::windows::core::IntoParam<'a, s
         extern "system" {
             fn sqlite3_free_filename(param0: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(sqlite3_free_filename(param0.into_param().abi()))
+        sqlite3_free_filename(param0.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2571,7 +2571,7 @@ pub unsafe fn sqlite3_free_table(result: *mut *mut i8) {
         extern "system" {
             fn sqlite3_free_table(result: *mut *mut i8);
         }
-        ::core::mem::transmute(sqlite3_free_table(::core::mem::transmute(result)))
+        sqlite3_free_table(::core::mem::transmute(result))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2804,7 +2804,7 @@ pub unsafe fn sqlite3_interrupt(param0: *mut sqlite3) {
         extern "system" {
             fn sqlite3_interrupt(param0: *mut sqlite3);
         }
-        ::core::mem::transmute(sqlite3_interrupt(::core::mem::transmute(param0)))
+        sqlite3_interrupt(::core::mem::transmute(param0))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2969,7 +2969,7 @@ pub unsafe fn sqlite3_log<'a, Param1: ::windows::core::IntoParam<'a, super::supe
         extern "system" {
             fn sqlite3_log(ierrcode: i32, zformat: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(sqlite3_log(::core::mem::transmute(ierrcode), zformat.into_param().abi()))
+        sqlite3_log(::core::mem::transmute(ierrcode), zformat.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3167,7 +3167,7 @@ pub unsafe fn sqlite3_mutex_enter(param0: *mut sqlite3_mutex) {
         extern "system" {
             fn sqlite3_mutex_enter(param0: *mut sqlite3_mutex);
         }
-        ::core::mem::transmute(sqlite3_mutex_enter(::core::mem::transmute(param0)))
+        sqlite3_mutex_enter(::core::mem::transmute(param0))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3180,7 +3180,7 @@ pub unsafe fn sqlite3_mutex_free(param0: *mut sqlite3_mutex) {
         extern "system" {
             fn sqlite3_mutex_free(param0: *mut sqlite3_mutex);
         }
-        ::core::mem::transmute(sqlite3_mutex_free(::core::mem::transmute(param0)))
+        sqlite3_mutex_free(::core::mem::transmute(param0))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3193,7 +3193,7 @@ pub unsafe fn sqlite3_mutex_leave(param0: *mut sqlite3_mutex) {
         extern "system" {
             fn sqlite3_mutex_leave(param0: *mut sqlite3_mutex);
         }
-        ::core::mem::transmute(sqlite3_mutex_leave(::core::mem::transmute(param0)))
+        sqlite3_mutex_leave(::core::mem::transmute(param0))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3536,7 +3536,7 @@ pub unsafe fn sqlite3_progress_handler(param0: *mut sqlite3, param1: i32, param2
         extern "system" {
             fn sqlite3_progress_handler(param0: *mut sqlite3, param1: i32, param2: isize, param3: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(sqlite3_progress_handler(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
+        sqlite3_progress_handler(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3549,7 +3549,7 @@ pub unsafe fn sqlite3_randomness(n: i32, p: *mut ::core::ffi::c_void) {
         extern "system" {
             fn sqlite3_randomness(n: i32, p: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(sqlite3_randomness(::core::mem::transmute(n), ::core::mem::transmute(p)))
+        sqlite3_randomness(::core::mem::transmute(n), ::core::mem::transmute(p))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3614,7 +3614,7 @@ pub unsafe fn sqlite3_reset_auto_extension() {
         extern "system" {
             fn sqlite3_reset_auto_extension();
         }
-        ::core::mem::transmute(sqlite3_reset_auto_extension())
+        sqlite3_reset_auto_extension()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3627,7 +3627,7 @@ pub unsafe fn sqlite3_result_blob(param0: *mut sqlite3_context, param1: *const :
         extern "system" {
             fn sqlite3_result_blob(param0: *mut sqlite3_context, param1: *const ::core::ffi::c_void, param2: i32, param3: isize);
         }
-        ::core::mem::transmute(sqlite3_result_blob(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
+        sqlite3_result_blob(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3640,7 +3640,7 @@ pub unsafe fn sqlite3_result_blob64(param0: *mut sqlite3_context, param1: *const
         extern "system" {
             fn sqlite3_result_blob64(param0: *mut sqlite3_context, param1: *const ::core::ffi::c_void, param2: u64, param3: isize);
         }
-        ::core::mem::transmute(sqlite3_result_blob64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
+        sqlite3_result_blob64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3653,7 +3653,7 @@ pub unsafe fn sqlite3_result_double(param0: *mut sqlite3_context, param1: f64) {
         extern "system" {
             fn sqlite3_result_double(param0: *mut sqlite3_context, param1: f64);
         }
-        ::core::mem::transmute(sqlite3_result_double(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        sqlite3_result_double(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3667,7 +3667,7 @@ pub unsafe fn sqlite3_result_error<'a, Param1: ::windows::core::IntoParam<'a, su
         extern "system" {
             fn sqlite3_result_error(param0: *mut sqlite3_context, param1: super::super::Foundation::PSTR, param2: i32);
         }
-        ::core::mem::transmute(sqlite3_result_error(::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)))
+        sqlite3_result_error(::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3680,7 +3680,7 @@ pub unsafe fn sqlite3_result_error16(param0: *mut sqlite3_context, param1: *cons
         extern "system" {
             fn sqlite3_result_error16(param0: *mut sqlite3_context, param1: *const ::core::ffi::c_void, param2: i32);
         }
-        ::core::mem::transmute(sqlite3_result_error16(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+        sqlite3_result_error16(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3693,7 +3693,7 @@ pub unsafe fn sqlite3_result_error_code(param0: *mut sqlite3_context, param1: i3
         extern "system" {
             fn sqlite3_result_error_code(param0: *mut sqlite3_context, param1: i32);
         }
-        ::core::mem::transmute(sqlite3_result_error_code(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        sqlite3_result_error_code(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3706,7 +3706,7 @@ pub unsafe fn sqlite3_result_error_nomem(param0: *mut sqlite3_context) {
         extern "system" {
             fn sqlite3_result_error_nomem(param0: *mut sqlite3_context);
         }
-        ::core::mem::transmute(sqlite3_result_error_nomem(::core::mem::transmute(param0)))
+        sqlite3_result_error_nomem(::core::mem::transmute(param0))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3719,7 +3719,7 @@ pub unsafe fn sqlite3_result_error_toobig(param0: *mut sqlite3_context) {
         extern "system" {
             fn sqlite3_result_error_toobig(param0: *mut sqlite3_context);
         }
-        ::core::mem::transmute(sqlite3_result_error_toobig(::core::mem::transmute(param0)))
+        sqlite3_result_error_toobig(::core::mem::transmute(param0))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3732,7 +3732,7 @@ pub unsafe fn sqlite3_result_int(param0: *mut sqlite3_context, param1: i32) {
         extern "system" {
             fn sqlite3_result_int(param0: *mut sqlite3_context, param1: i32);
         }
-        ::core::mem::transmute(sqlite3_result_int(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        sqlite3_result_int(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3745,7 +3745,7 @@ pub unsafe fn sqlite3_result_int64(param0: *mut sqlite3_context, param1: i64) {
         extern "system" {
             fn sqlite3_result_int64(param0: *mut sqlite3_context, param1: i64);
         }
-        ::core::mem::transmute(sqlite3_result_int64(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        sqlite3_result_int64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3758,7 +3758,7 @@ pub unsafe fn sqlite3_result_null(param0: *mut sqlite3_context) {
         extern "system" {
             fn sqlite3_result_null(param0: *mut sqlite3_context);
         }
-        ::core::mem::transmute(sqlite3_result_null(::core::mem::transmute(param0)))
+        sqlite3_result_null(::core::mem::transmute(param0))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3772,7 +3772,7 @@ pub unsafe fn sqlite3_result_pointer<'a, Param2: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn sqlite3_result_pointer(param0: *mut sqlite3_context, param1: *mut ::core::ffi::c_void, param2: super::super::Foundation::PSTR, param3: isize);
         }
-        ::core::mem::transmute(sqlite3_result_pointer(::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi(), ::core::mem::transmute(param3)))
+        sqlite3_result_pointer(::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi(), ::core::mem::transmute(param3))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3785,7 +3785,7 @@ pub unsafe fn sqlite3_result_subtype(param0: *mut sqlite3_context, param1: u32) 
         extern "system" {
             fn sqlite3_result_subtype(param0: *mut sqlite3_context, param1: u32);
         }
-        ::core::mem::transmute(sqlite3_result_subtype(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        sqlite3_result_subtype(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3799,7 +3799,7 @@ pub unsafe fn sqlite3_result_text<'a, Param1: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn sqlite3_result_text(param0: *mut sqlite3_context, param1: super::super::Foundation::PSTR, param2: i32, param3: isize);
         }
-        ::core::mem::transmute(sqlite3_result_text(::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
+        sqlite3_result_text(::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3812,7 +3812,7 @@ pub unsafe fn sqlite3_result_text16(param0: *mut sqlite3_context, param1: *const
         extern "system" {
             fn sqlite3_result_text16(param0: *mut sqlite3_context, param1: *const ::core::ffi::c_void, param2: i32, param3: isize);
         }
-        ::core::mem::transmute(sqlite3_result_text16(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
+        sqlite3_result_text16(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3825,7 +3825,7 @@ pub unsafe fn sqlite3_result_text16be(param0: *mut sqlite3_context, param1: *con
         extern "system" {
             fn sqlite3_result_text16be(param0: *mut sqlite3_context, param1: *const ::core::ffi::c_void, param2: i32, param3: isize);
         }
-        ::core::mem::transmute(sqlite3_result_text16be(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
+        sqlite3_result_text16be(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3838,7 +3838,7 @@ pub unsafe fn sqlite3_result_text16le(param0: *mut sqlite3_context, param1: *con
         extern "system" {
             fn sqlite3_result_text16le(param0: *mut sqlite3_context, param1: *const ::core::ffi::c_void, param2: i32, param3: isize);
         }
-        ::core::mem::transmute(sqlite3_result_text16le(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
+        sqlite3_result_text16le(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3852,7 +3852,7 @@ pub unsafe fn sqlite3_result_text64<'a, Param1: ::windows::core::IntoParam<'a, s
         extern "system" {
             fn sqlite3_result_text64(param0: *mut sqlite3_context, param1: super::super::Foundation::PSTR, param2: u64, param3: isize, encoding: u8);
         }
-        ::core::mem::transmute(sqlite3_result_text64(::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(encoding)))
+        sqlite3_result_text64(::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(encoding))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3865,7 +3865,7 @@ pub unsafe fn sqlite3_result_value(param0: *mut sqlite3_context, param1: *mut sq
         extern "system" {
             fn sqlite3_result_value(param0: *mut sqlite3_context, param1: *mut sqlite3_value);
         }
-        ::core::mem::transmute(sqlite3_result_value(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        sqlite3_result_value(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3878,7 +3878,7 @@ pub unsafe fn sqlite3_result_zeroblob(param0: *mut sqlite3_context, n: i32) {
         extern "system" {
             fn sqlite3_result_zeroblob(param0: *mut sqlite3_context, n: i32);
         }
-        ::core::mem::transmute(sqlite3_result_zeroblob(::core::mem::transmute(param0), ::core::mem::transmute(n)))
+        sqlite3_result_zeroblob(::core::mem::transmute(param0), ::core::mem::transmute(n))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4039,7 +4039,7 @@ pub unsafe fn sqlite3_set_auxdata(param0: *mut sqlite3_context, n: i32, param2: 
         extern "system" {
             fn sqlite3_set_auxdata(param0: *mut sqlite3_context, n: i32, param2: *mut ::core::ffi::c_void, param3: isize);
         }
-        ::core::mem::transmute(sqlite3_set_auxdata(::core::mem::transmute(param0), ::core::mem::transmute(n), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
+        sqlite3_set_auxdata(::core::mem::transmute(param0), ::core::mem::transmute(n), ::core::mem::transmute(param2), ::core::mem::transmute(param3))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4052,7 +4052,7 @@ pub unsafe fn sqlite3_set_last_insert_rowid(param0: *mut sqlite3, param1: i64) {
         extern "system" {
             fn sqlite3_set_last_insert_rowid(param0: *mut sqlite3, param1: i64);
         }
-        ::core::mem::transmute(sqlite3_set_last_insert_rowid(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+        sqlite3_set_last_insert_rowid(::core::mem::transmute(param0), ::core::mem::transmute(param1))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4129,7 +4129,7 @@ pub unsafe fn sqlite3_soft_heap_limit(n: i32) {
         extern "system" {
             fn sqlite3_soft_heap_limit(n: i32);
         }
-        ::core::mem::transmute(sqlite3_soft_heap_limit(::core::mem::transmute(n)))
+        sqlite3_soft_heap_limit(::core::mem::transmute(n))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4279,7 +4279,7 @@ pub unsafe fn sqlite3_str_append<'a, Param1: ::windows::core::IntoParam<'a, supe
         extern "system" {
             fn sqlite3_str_append(param0: *mut sqlite3_str, zin: super::super::Foundation::PSTR, n: i32);
         }
-        ::core::mem::transmute(sqlite3_str_append(::core::mem::transmute(param0), zin.into_param().abi(), ::core::mem::transmute(n)))
+        sqlite3_str_append(::core::mem::transmute(param0), zin.into_param().abi(), ::core::mem::transmute(n))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4293,7 +4293,7 @@ pub unsafe fn sqlite3_str_appendall<'a, Param1: ::windows::core::IntoParam<'a, s
         extern "system" {
             fn sqlite3_str_appendall(param0: *mut sqlite3_str, zin: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(sqlite3_str_appendall(::core::mem::transmute(param0), zin.into_param().abi()))
+        sqlite3_str_appendall(::core::mem::transmute(param0), zin.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4307,7 +4307,7 @@ pub unsafe fn sqlite3_str_appendchar<'a, Param2: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn sqlite3_str_appendchar(param0: *mut sqlite3_str, n: i32, c: super::super::Foundation::CHAR);
         }
-        ::core::mem::transmute(sqlite3_str_appendchar(::core::mem::transmute(param0), ::core::mem::transmute(n), c.into_param().abi()))
+        sqlite3_str_appendchar(::core::mem::transmute(param0), ::core::mem::transmute(n), c.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4321,7 +4321,7 @@ pub unsafe fn sqlite3_str_appendf<'a, Param1: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn sqlite3_str_appendf(param0: *mut sqlite3_str, zformat: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(sqlite3_str_appendf(::core::mem::transmute(param0), zformat.into_param().abi()))
+        sqlite3_str_appendf(::core::mem::transmute(param0), zformat.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4387,7 +4387,7 @@ pub unsafe fn sqlite3_str_reset(param0: *mut sqlite3_str) {
         extern "system" {
             fn sqlite3_str_reset(param0: *mut sqlite3_str);
         }
-        ::core::mem::transmute(sqlite3_str_reset(::core::mem::transmute(param0)))
+        sqlite3_str_reset(::core::mem::transmute(param0))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4415,7 +4415,7 @@ pub unsafe fn sqlite3_str_vappendf<'a, Param1: ::windows::core::IntoParam<'a, su
         extern "system" {
             fn sqlite3_str_vappendf(param0: *mut sqlite3_str, zformat: super::super::Foundation::PSTR, param2: *mut i8);
         }
-        ::core::mem::transmute(sqlite3_str_vappendf(::core::mem::transmute(param0), zformat.into_param().abi(), ::core::mem::transmute(param2)))
+        sqlite3_str_vappendf(::core::mem::transmute(param0), zformat.into_param().abi(), ::core::mem::transmute(param2))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4525,7 +4525,7 @@ pub unsafe fn sqlite3_thread_cleanup() {
         extern "system" {
             fn sqlite3_thread_cleanup();
         }
-        ::core::mem::transmute(sqlite3_thread_cleanup())
+        sqlite3_thread_cleanup()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4766,7 +4766,7 @@ pub unsafe fn sqlite3_value_free(param0: *mut sqlite3_value) {
         extern "system" {
             fn sqlite3_value_free(param0: *mut sqlite3_value);
         }
-        ::core::mem::transmute(sqlite3_value_free(::core::mem::transmute(param0)))
+        sqlite3_value_free(::core::mem::transmute(param0))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

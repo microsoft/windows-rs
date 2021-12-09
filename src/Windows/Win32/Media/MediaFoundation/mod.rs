@@ -9384,48 +9384,48 @@ impl ID3D12VideoDecodeCommandList {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pallocator.into_param().abi()).ok()
     }
     pub unsafe fn ClearState(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResourceBarrier(&self, numbarriers: u32, pbarriers: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers)))
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn DiscardResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, presource: Param0, pregion: *const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion)))
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn BeginQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EndQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: Param4, aligneddestinationbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset)))
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pbuffer: Param0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation)))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation))
     }
     pub unsafe fn SetMarker(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn BeginEvent(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn EndEvent(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn DecodeFrame<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoDecoder>>(&self, pdecoder: Param0, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(pinputarguments)))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(pinputarguments))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes)))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -9612,52 +9612,52 @@ impl ID3D12VideoDecodeCommandList1 {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pallocator.into_param().abi()).ok()
     }
     pub unsafe fn ClearState(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResourceBarrier(&self, numbarriers: u32, pbarriers: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers)))
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn DiscardResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, presource: Param0, pregion: *const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion)))
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn BeginQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EndQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: Param4, aligneddestinationbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset)))
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pbuffer: Param0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation)))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation))
     }
     pub unsafe fn SetMarker(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn BeginEvent(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn EndEvent(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn DecodeFrame<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoDecoder>>(&self, pdecoder: Param0, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(pinputarguments)))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(pinputarguments))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes)))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn DecodeFrame1<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoDecoder>>(&self, pdecoder: Param0, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(pinputarguments)))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(pinputarguments))
     }
 }
 impl ::core::convert::From<ID3D12VideoDecodeCommandList1> for ID3D12VideoDecodeCommandList {
@@ -9866,62 +9866,62 @@ impl ID3D12VideoDecodeCommandList2 {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pallocator.into_param().abi()).ok()
     }
     pub unsafe fn ClearState(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResourceBarrier(&self, numbarriers: u32, pbarriers: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers)))
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn DiscardResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, presource: Param0, pregion: *const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion)))
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn BeginQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EndQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: Param4, aligneddestinationbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset)))
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pbuffer: Param0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation)))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation))
     }
     pub unsafe fn SetMarker(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn BeginEvent(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn EndEvent(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn DecodeFrame<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoDecoder>>(&self, pdecoder: Param0, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(pinputarguments)))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(pinputarguments))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes)))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn DecodeFrame1<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoDecoder>>(&self, pdecoder: Param0, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(pinputarguments)))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(pinputarguments))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetProtectedResourceSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>>(&self, pprotectedresourcesession: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), pprotectedresourcesession.into_param().abi()))
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), pprotectedresourcesession.into_param().abi())
     }
     pub unsafe fn InitializeExtensionCommand<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoExtensionCommand>>(&self, pextensioncommand: Param0, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), pextensioncommand.into_param().abi(), ::core::mem::transmute(pinitializationparameters), ::core::mem::transmute(initializationparameterssizeinbytes)))
+        (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), pextensioncommand.into_param().abi(), ::core::mem::transmute(pinitializationparameters), ::core::mem::transmute(initializationparameterssizeinbytes))
     }
     pub unsafe fn ExecuteExtensionCommand<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoExtensionCommand>>(&self, pextensioncommand: Param0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), pextensioncommand.into_param().abi(), ::core::mem::transmute(pexecutionparameters), ::core::mem::transmute(executionparameterssizeinbytes)))
+        (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), pextensioncommand.into_param().abi(), ::core::mem::transmute(pexecutionparameters), ::core::mem::transmute(executionparameterssizeinbytes))
     }
 }
 impl ::core::convert::From<ID3D12VideoDecodeCommandList2> for ID3D12VideoDecodeCommandList1 {
@@ -11336,56 +11336,56 @@ impl ID3D12VideoEncodeCommandList {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pallocator.into_param().abi()).ok()
     }
     pub unsafe fn ClearState(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResourceBarrier(&self, numbarriers: u32, pbarriers: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers)))
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn DiscardResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, presource: Param0, pregion: *const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion)))
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn BeginQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EndQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: Param4, aligneddestinationbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset)))
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pbuffer: Param0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation)))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation))
     }
     pub unsafe fn SetMarker(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn BeginEvent(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn EndEvent(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EstimateMotion<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoMotionEstimator>>(&self, pmotionestimator: Param0, poutputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT, pinputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), pmotionestimator.into_param().abi(), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(pinputarguments)))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), pmotionestimator.into_param().abi(), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(pinputarguments))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveMotionVectorHeap(&self, poutputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT, pinputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(pinputarguments)))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(pinputarguments))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes)))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetProtectedResourceSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>>(&self, pprotectedresourcesession: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), pprotectedresourcesession.into_param().abi()))
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), pprotectedresourcesession.into_param().abi())
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -11576,62 +11576,62 @@ impl ID3D12VideoEncodeCommandList1 {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pallocator.into_param().abi()).ok()
     }
     pub unsafe fn ClearState(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResourceBarrier(&self, numbarriers: u32, pbarriers: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers)))
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn DiscardResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, presource: Param0, pregion: *const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion)))
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn BeginQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EndQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: Param4, aligneddestinationbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset)))
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pbuffer: Param0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation)))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation))
     }
     pub unsafe fn SetMarker(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn BeginEvent(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn EndEvent(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EstimateMotion<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoMotionEstimator>>(&self, pmotionestimator: Param0, poutputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT, pinputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), pmotionestimator.into_param().abi(), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(pinputarguments)))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), pmotionestimator.into_param().abi(), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(pinputarguments))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveMotionVectorHeap(&self, poutputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT, pinputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(pinputarguments)))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(pinputarguments))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes)))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetProtectedResourceSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>>(&self, pprotectedresourcesession: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), pprotectedresourcesession.into_param().abi()))
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), pprotectedresourcesession.into_param().abi())
     }
     pub unsafe fn InitializeExtensionCommand<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoExtensionCommand>>(&self, pextensioncommand: Param0, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), pextensioncommand.into_param().abi(), ::core::mem::transmute(pinitializationparameters), ::core::mem::transmute(initializationparameterssizeinbytes)))
+        (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), pextensioncommand.into_param().abi(), ::core::mem::transmute(pinitializationparameters), ::core::mem::transmute(initializationparameterssizeinbytes))
     }
     pub unsafe fn ExecuteExtensionCommand<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoExtensionCommand>>(&self, pextensioncommand: Param0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), pextensioncommand.into_param().abi(), ::core::mem::transmute(pexecutionparameters), ::core::mem::transmute(executionparameterssizeinbytes)))
+        (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), pextensioncommand.into_param().abi(), ::core::mem::transmute(pexecutionparameters), ::core::mem::transmute(executionparameterssizeinbytes))
     }
 }
 impl ::core::convert::From<ID3D12VideoEncodeCommandList1> for ID3D12VideoEncodeCommandList {
@@ -11844,70 +11844,70 @@ impl ID3D12VideoEncodeCommandList2 {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pallocator.into_param().abi()).ok()
     }
     pub unsafe fn ClearState(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResourceBarrier(&self, numbarriers: u32, pbarriers: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers)))
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn DiscardResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, presource: Param0, pregion: *const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion)))
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn BeginQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EndQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: Param4, aligneddestinationbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset)))
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pbuffer: Param0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation)))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation))
     }
     pub unsafe fn SetMarker(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn BeginEvent(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn EndEvent(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EstimateMotion<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoMotionEstimator>>(&self, pmotionestimator: Param0, poutputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT, pinputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), pmotionestimator.into_param().abi(), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(pinputarguments)))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), pmotionestimator.into_param().abi(), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(pinputarguments))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveMotionVectorHeap(&self, poutputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT, pinputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(pinputarguments)))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(pinputarguments))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes)))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetProtectedResourceSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>>(&self, pprotectedresourcesession: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), pprotectedresourcesession.into_param().abi()))
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), pprotectedresourcesession.into_param().abi())
     }
     pub unsafe fn InitializeExtensionCommand<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoExtensionCommand>>(&self, pextensioncommand: Param0, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), pextensioncommand.into_param().abi(), ::core::mem::transmute(pinitializationparameters), ::core::mem::transmute(initializationparameterssizeinbytes)))
+        (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), pextensioncommand.into_param().abi(), ::core::mem::transmute(pinitializationparameters), ::core::mem::transmute(initializationparameterssizeinbytes))
     }
     pub unsafe fn ExecuteExtensionCommand<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoExtensionCommand>>(&self, pextensioncommand: Param0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), pextensioncommand.into_param().abi(), ::core::mem::transmute(pexecutionparameters), ::core::mem::transmute(executionparameterssizeinbytes)))
+        (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), pextensioncommand.into_param().abi(), ::core::mem::transmute(pexecutionparameters), ::core::mem::transmute(executionparameterssizeinbytes))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn EncodeFrame<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoEncoder>, Param1: ::windows::core::IntoParam<'a, ID3D12VideoEncoderHeap>>(&self, pencoder: Param0, pheap: Param1, pinputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), pencoder.into_param().abi(), pheap.into_param().abi(), ::core::mem::transmute(pinputarguments), ::core::mem::transmute(poutputarguments)))
+        (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), pencoder.into_param().abi(), pheap.into_param().abi(), ::core::mem::transmute(pinputarguments), ::core::mem::transmute(poutputarguments))
     }
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn ResolveEncoderOutputMetadata(&self, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinputarguments), ::core::mem::transmute(poutputarguments)))
+        (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinputarguments), ::core::mem::transmute(poutputarguments))
     }
 }
 impl ::core::convert::From<ID3D12VideoEncodeCommandList2> for ID3D12VideoEncodeCommandList1 {
@@ -12976,48 +12976,48 @@ impl ID3D12VideoProcessCommandList {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pallocator.into_param().abi()).ok()
     }
     pub unsafe fn ClearState(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResourceBarrier(&self, numbarriers: u32, pbarriers: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers)))
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn DiscardResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, presource: Param0, pregion: *const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion)))
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn BeginQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EndQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: Param4, aligneddestinationbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset)))
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pbuffer: Param0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation)))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation))
     }
     pub unsafe fn SetMarker(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn BeginEvent(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn EndEvent(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn ProcessFrames<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoProcessor>>(&self, pvideoprocessor: Param0, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(numinputstreams), ::core::mem::transmute(pinputarguments)))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(numinputstreams), ::core::mem::transmute(pinputarguments))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes)))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -13204,52 +13204,52 @@ impl ID3D12VideoProcessCommandList1 {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pallocator.into_param().abi()).ok()
     }
     pub unsafe fn ClearState(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResourceBarrier(&self, numbarriers: u32, pbarriers: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers)))
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn DiscardResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, presource: Param0, pregion: *const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion)))
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn BeginQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EndQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: Param4, aligneddestinationbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset)))
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pbuffer: Param0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation)))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation))
     }
     pub unsafe fn SetMarker(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn BeginEvent(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn EndEvent(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn ProcessFrames<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoProcessor>>(&self, pvideoprocessor: Param0, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(numinputstreams), ::core::mem::transmute(pinputarguments)))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(numinputstreams), ::core::mem::transmute(pinputarguments))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes)))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn ProcessFrames1<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoProcessor>>(&self, pvideoprocessor: Param0, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(numinputstreams), ::core::mem::transmute(pinputarguments)))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(numinputstreams), ::core::mem::transmute(pinputarguments))
     }
 }
 impl ::core::convert::From<ID3D12VideoProcessCommandList1> for ID3D12VideoProcessCommandList {
@@ -13458,62 +13458,62 @@ impl ID3D12VideoProcessCommandList2 {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pallocator.into_param().abi()).ok()
     }
     pub unsafe fn ClearState(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResourceBarrier(&self, numbarriers: u32, pbarriers: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers)))
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbarriers), ::core::mem::transmute(pbarriers))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn DiscardResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, presource: Param0, pregion: *const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion)))
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pregion))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn BeginQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EndQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(index))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: Param4, aligneddestinationbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset)))
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pbuffer: Param0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation)))
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pbuffer.into_param().abi(), ::core::mem::transmute(alignedbufferoffset), ::core::mem::transmute(operation))
     }
     pub unsafe fn SetMarker(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn BeginEvent(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size)))
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(metadata), ::core::mem::transmute(pdata), ::core::mem::transmute(size))
     }
     pub unsafe fn EndEvent(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn ProcessFrames<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoProcessor>>(&self, pvideoprocessor: Param0, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(numinputstreams), ::core::mem::transmute(pinputarguments)))
+        (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(numinputstreams), ::core::mem::transmute(pinputarguments))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes)))
+        (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn ProcessFrames1<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoProcessor>>(&self, pvideoprocessor: Param0, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(numinputstreams), ::core::mem::transmute(pinputarguments)))
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(poutputarguments), ::core::mem::transmute(numinputstreams), ::core::mem::transmute(pinputarguments))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetProtectedResourceSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>>(&self, pprotectedresourcesession: Param0) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), pprotectedresourcesession.into_param().abi()))
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), pprotectedresourcesession.into_param().abi())
     }
     pub unsafe fn InitializeExtensionCommand<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoExtensionCommand>>(&self, pextensioncommand: Param0, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), pextensioncommand.into_param().abi(), ::core::mem::transmute(pinitializationparameters), ::core::mem::transmute(initializationparameterssizeinbytes)))
+        (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), pextensioncommand.into_param().abi(), ::core::mem::transmute(pinitializationparameters), ::core::mem::transmute(initializationparameterssizeinbytes))
     }
     pub unsafe fn ExecuteExtensionCommand<'a, Param0: ::windows::core::IntoParam<'a, ID3D12VideoExtensionCommand>>(&self, pextensioncommand: Param0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), pextensioncommand.into_param().abi(), ::core::mem::transmute(pexecutionparameters), ::core::mem::transmute(executionparameterssizeinbytes)))
+        (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), pextensioncommand.into_param().abi(), ::core::mem::transmute(pexecutionparameters), ::core::mem::transmute(executionparameterssizeinbytes))
     }
 }
 impl ::core::convert::From<ID3D12VideoProcessCommandList2> for ID3D12VideoProcessCommandList1 {
@@ -17883,10 +17883,10 @@ pub struct IMFAudioStreamVolumeVtbl(
 pub struct IMFBufferListNotify(::windows::core::IUnknown);
 impl IMFBufferListNotify {
     pub unsafe fn OnAddSourceBuffer(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn OnRemoveSourceBuffer(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self))
     }
 }
 impl ::core::convert::From<IMFBufferListNotify> for ::windows::core::IUnknown {
@@ -18566,7 +18566,7 @@ impl IMFCameraSyncObject {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(timeoutinms)).ok()
     }
     pub unsafe fn Shutdown(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self))
     }
 }
 impl ::core::convert::From<IMFCameraSyncObject> for ::windows::core::IUnknown {
@@ -20933,10 +20933,10 @@ impl IMFDesiredSample {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(phnssampletime), ::core::mem::transmute(phnssampleduration)).ok()
     }
     pub unsafe fn SetDesiredSampleTimeAndDuration(&self, hnssampletime: i64, hnssampleduration: i64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(hnssampletime), ::core::mem::transmute(hnssampleduration)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(hnssampletime), ::core::mem::transmute(hnssampleduration))
     }
     pub unsafe fn Clear(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self))
     }
 }
 impl ::core::convert::From<IMFDesiredSample> for ::windows::core::IUnknown {
@@ -22902,10 +22902,10 @@ pub struct IMFMediaEngineEMENotify(::windows::core::IUnknown);
 impl IMFMediaEngineEMENotify {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Encrypted<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pbinitdata: *const u8, cb: u32, bstrinitdatatype: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbinitdata), ::core::mem::transmute(cb), bstrinitdatatype.into_param().abi()))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbinitdata), ::core::mem::transmute(cb), bstrinitdatatype.into_param().abi())
     }
     pub unsafe fn WaitingForKey(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self))
     }
 }
 impl ::core::convert::From<IMFMediaEngineEMENotify> for ::windows::core::IUnknown {
@@ -23496,7 +23496,7 @@ pub struct IMFMediaEngineExtensionVtbl(
 pub struct IMFMediaEngineNeedKeyNotify(::windows::core::IUnknown);
 impl IMFMediaEngineNeedKeyNotify {
     pub unsafe fn NeedKey(&self, initdata: *const u8, cb: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(initdata), ::core::mem::transmute(cb)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(initdata), ::core::mem::transmute(cb))
     }
 }
 impl ::core::convert::From<IMFMediaEngineNeedKeyNotify> for ::windows::core::IUnknown {
@@ -24712,13 +24712,13 @@ pub struct IMFMediaKeySessionNotify(::windows::core::IUnknown);
 impl IMFMediaKeySessionNotify {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn KeyMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, destinationurl: Param0, message: *const u8, cb: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), destinationurl.into_param().abi(), ::core::mem::transmute(message), ::core::mem::transmute(cb)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), destinationurl.into_param().abi(), ::core::mem::transmute(message), ::core::mem::transmute(cb))
     }
     pub unsafe fn KeyAdded(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn KeyError(&self, code: u16, systemcode: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(code), ::core::mem::transmute(systemcode)))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(code), ::core::mem::transmute(systemcode))
     }
 }
 impl ::core::convert::From<IMFMediaKeySessionNotify> for ::windows::core::IUnknown {
@@ -24772,20 +24772,20 @@ pub struct IMFMediaKeySessionNotify2(::windows::core::IUnknown);
 impl IMFMediaKeySessionNotify2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn KeyMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, destinationurl: Param0, message: *const u8, cb: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), destinationurl.into_param().abi(), ::core::mem::transmute(message), ::core::mem::transmute(cb)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), destinationurl.into_param().abi(), ::core::mem::transmute(message), ::core::mem::transmute(cb))
     }
     pub unsafe fn KeyAdded(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn KeyError(&self, code: u16, systemcode: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(code), ::core::mem::transmute(systemcode)))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(code), ::core::mem::transmute(systemcode))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn KeyMessage2<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, emessagetype: MF_MEDIAKEYSESSION_MESSAGETYPE, destinationurl: Param1, pbmessage: *const u8, cbmessage: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(emessagetype), destinationurl.into_param().abi(), ::core::mem::transmute(pbmessage), ::core::mem::transmute(cbmessage)))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(emessagetype), destinationurl.into_param().abi(), ::core::mem::transmute(pbmessage), ::core::mem::transmute(cbmessage))
     }
     pub unsafe fn KeyStatusChange(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self))
     }
 }
 impl ::core::convert::From<IMFMediaKeySessionNotify2> for IMFMediaKeySessionNotify {
@@ -26267,13 +26267,13 @@ pub struct IMFMediaSourceExtensionLiveSeekableRangeVtbl(
 pub struct IMFMediaSourceExtensionNotify(::windows::core::IUnknown);
 impl IMFMediaSourceExtensionNotify {
     pub unsafe fn OnSourceOpen(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn OnSourceEnded(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn OnSourceClose(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self))
     }
 }
 impl ::core::convert::From<IMFMediaSourceExtensionNotify> for ::windows::core::IUnknown {
@@ -29148,7 +29148,7 @@ pub struct IMFPMediaPlayerCallback(::windows::core::IUnknown);
 impl IMFPMediaPlayerCallback {
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn OnMediaPlayerEvent(&self, peventheader: *const MFP_EVENT_HEADER) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(peventheader)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(peventheader))
     }
 }
 impl ::core::convert::From<IMFPMediaPlayerCallback> for ::windows::core::IUnknown {
@@ -32418,10 +32418,10 @@ impl IMFSensorProfileCollection {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(profileid), ::core::mem::transmute(&mut result__)).from_abi::<IMFSensorProfile>(result__)
     }
     pub unsafe fn RemoveProfileByIndex(&self, index: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(index)))
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(index))
     }
     pub unsafe fn RemoveProfile(&self, profileid: *const SENSORPROFILEID) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(profileid)))
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(profileid))
     }
 }
 impl ::core::convert::From<IMFSensorProfileCollection> for ::windows::core::IUnknown {
@@ -33666,19 +33666,19 @@ pub struct IMFSourceBufferListVtbl(
 pub struct IMFSourceBufferNotify(::windows::core::IUnknown);
 impl IMFSourceBufferNotify {
     pub unsafe fn OnUpdateStart(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn OnAbort(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn OnError(&self, hr: ::windows::core::HRESULT) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(hr)))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(hr))
     }
     pub unsafe fn OnUpdate(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self))
     }
     pub unsafe fn OnUpdateEnd(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self))
     }
 }
 impl ::core::convert::From<IMFSourceBufferNotify> for ::windows::core::IUnknown {
@@ -35644,26 +35644,26 @@ pub struct IMFTimedTextFormattedTextVtbl(
 pub struct IMFTimedTextNotify(::windows::core::IUnknown);
 impl IMFTimedTextNotify {
     pub unsafe fn TrackAdded(&self, trackid: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(trackid)))
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(trackid))
     }
     pub unsafe fn TrackRemoved(&self, trackid: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(trackid)))
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(trackid))
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TrackSelected<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, trackid: u32, selected: Param1) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(trackid), selected.into_param().abi()))
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(trackid), selected.into_param().abi())
     }
     pub unsafe fn TrackReadyStateChanged(&self, trackid: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(trackid)))
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(trackid))
     }
     pub unsafe fn Error(&self, errorcode: MF_TIMED_TEXT_ERROR_CODE, extendederrorcode: ::windows::core::HRESULT, sourcetrackid: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(errorcode), ::core::mem::transmute(extendederrorcode), ::core::mem::transmute(sourcetrackid)))
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(errorcode), ::core::mem::transmute(extendederrorcode), ::core::mem::transmute(sourcetrackid))
     }
     pub unsafe fn Cue<'a, Param2: ::windows::core::IntoParam<'a, IMFTimedTextCue>>(&self, cueevent: MF_TIMED_TEXT_CUE_EVENT, currenttime: f64, cue: Param2) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(cueevent), ::core::mem::transmute(currenttime), cue.into_param().abi()))
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(cueevent), ::core::mem::transmute(currenttime), cue.into_param().abi())
     }
     pub unsafe fn Reset(&self) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self)))
+        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self))
     }
 }
 impl ::core::convert::From<IMFTimedTextNotify> for ::windows::core::IUnknown {
@@ -44600,7 +44600,7 @@ pub unsafe fn MFHeapFree(pv: *mut ::core::ffi::c_void) {
         extern "system" {
             fn MFHeapFree(pv: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(MFHeapFree(::core::mem::transmute(pv)))
+        MFHeapFree(::core::mem::transmute(pv))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

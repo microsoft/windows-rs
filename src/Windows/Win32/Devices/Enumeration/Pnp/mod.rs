@@ -2059,7 +2059,7 @@ pub unsafe fn SwDeviceClose<'a, Param0: ::windows::core::IntoParam<'a, HSWDEVICE
         extern "system" {
             fn SwDeviceClose(hswdevice: HSWDEVICE);
         }
-        ::core::mem::transmute(SwDeviceClose(hswdevice.into_param().abi()))
+        SwDeviceClose(hswdevice.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2171,7 +2171,7 @@ pub unsafe fn SwMemFree(pmem: *const ::core::ffi::c_void) {
         extern "system" {
             fn SwMemFree(pmem: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(SwMemFree(::core::mem::transmute(pmem)))
+        SwMemFree(::core::mem::transmute(pmem))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -972,7 +972,7 @@ pub unsafe fn FreeDnsSettings(settings: *mut DNS_SETTINGS) {
         extern "system" {
             fn FreeDnsSettings(settings: *mut DNS_SETTINGS);
         }
-        ::core::mem::transmute(FreeDnsSettings(::core::mem::transmute(settings)))
+        FreeDnsSettings(::core::mem::transmute(settings))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -986,7 +986,7 @@ pub unsafe fn FreeInterfaceDnsSettings(settings: *mut DNS_INTERFACE_SETTINGS) {
         extern "system" {
             fn FreeInterfaceDnsSettings(settings: *mut DNS_INTERFACE_SETTINGS);
         }
-        ::core::mem::transmute(FreeInterfaceDnsSettings(::core::mem::transmute(settings)))
+        FreeInterfaceDnsSettings(::core::mem::transmute(settings))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -999,7 +999,7 @@ pub unsafe fn FreeMibTable(memory: *const ::core::ffi::c_void) {
         extern "system" {
             fn FreeMibTable(memory: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(FreeMibTable(::core::mem::transmute(memory)))
+        FreeMibTable(::core::mem::transmute(memory))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1180,7 +1180,7 @@ pub unsafe fn GetCurrentThreadCompartmentScope(compartmentscope: *mut u32, compa
         extern "system" {
             fn GetCurrentThreadCompartmentScope(compartmentscope: *mut u32, compartmentid: *mut u32);
         }
-        ::core::mem::transmute(GetCurrentThreadCompartmentScope(::core::mem::transmute(compartmentscope), ::core::mem::transmute(compartmentid)))
+        GetCurrentThreadCompartmentScope(::core::mem::transmute(compartmentscope), ::core::mem::transmute(compartmentid))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4264,7 +4264,7 @@ pub unsafe fn InitializeIpForwardEntry(row: *mut MIB_IPFORWARD_ROW2) {
         extern "system" {
             fn InitializeIpForwardEntry(row: *mut MIB_IPFORWARD_ROW2);
         }
-        ::core::mem::transmute(InitializeIpForwardEntry(::core::mem::transmute(row)))
+        InitializeIpForwardEntry(::core::mem::transmute(row))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4278,7 +4278,7 @@ pub unsafe fn InitializeIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) {
         extern "system" {
             fn InitializeIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW);
         }
-        ::core::mem::transmute(InitializeIpInterfaceEntry(::core::mem::transmute(row)))
+        InitializeIpInterfaceEntry(::core::mem::transmute(row))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4292,7 +4292,7 @@ pub unsafe fn InitializeUnicastIpAddressEntry(row: *mut MIB_UNICASTIPADDRESS_ROW
         extern "system" {
             fn InitializeUnicastIpAddressEntry(row: *mut MIB_UNICASTIPADDRESS_ROW);
         }
-        ::core::mem::transmute(InitializeUnicastIpAddressEntry(::core::mem::transmute(row)))
+        InitializeUnicastIpAddressEntry(::core::mem::transmute(row))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10049,7 +10049,7 @@ pub unsafe fn UnregisterInterfaceTimestampConfigChange<'a, Param0: ::windows::co
         extern "system" {
             fn UnregisterInterfaceTimestampConfigChange(notificationhandle: HIFTIMESTAMPCHANGE);
         }
-        ::core::mem::transmute(UnregisterInterfaceTimestampConfigChange(notificationhandle.into_param().abi()))
+        UnregisterInterfaceTimestampConfigChange(notificationhandle.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

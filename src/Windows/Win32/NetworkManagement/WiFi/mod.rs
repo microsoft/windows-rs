@@ -10505,7 +10505,7 @@ pub unsafe fn WlanFreeMemory(pmemory: *const ::core::ffi::c_void) {
         extern "system" {
             fn WlanFreeMemory(pmemory: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(WlanFreeMemory(::core::mem::transmute(pmemory)))
+        WlanFreeMemory(::core::mem::transmute(pmemory))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

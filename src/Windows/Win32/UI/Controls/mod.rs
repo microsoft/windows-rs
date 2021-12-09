@@ -1245,7 +1245,7 @@ pub unsafe fn DPA_DestroyCallback<'a, Param0: ::windows::core::IntoParam<'a, HDP
         extern "system" {
             fn DPA_DestroyCallback(hdpa: HDPA, pfncb: ::windows::core::RawPtr, pdata: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(DPA_DestroyCallback(hdpa.into_param().abi(), ::core::mem::transmute(pfncb), ::core::mem::transmute(pdata)))
+        DPA_DestroyCallback(hdpa.into_param().abi(), ::core::mem::transmute(pfncb), ::core::mem::transmute(pdata))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1259,7 +1259,7 @@ pub unsafe fn DPA_EnumCallback<'a, Param0: ::windows::core::IntoParam<'a, HDPA>>
         extern "system" {
             fn DPA_EnumCallback(hdpa: HDPA, pfncb: ::windows::core::RawPtr, pdata: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(DPA_EnumCallback(hdpa.into_param().abi(), ::core::mem::transmute(pfncb), ::core::mem::transmute(pdata)))
+        DPA_EnumCallback(hdpa.into_param().abi(), ::core::mem::transmute(pfncb), ::core::mem::transmute(pdata))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1580,7 +1580,7 @@ pub unsafe fn DSA_DestroyCallback<'a, Param0: ::windows::core::IntoParam<'a, HDS
         extern "system" {
             fn DSA_DestroyCallback(hdsa: HDSA, pfncb: ::windows::core::RawPtr, pdata: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(DSA_DestroyCallback(hdsa.into_param().abi(), ::core::mem::transmute(pfncb), ::core::mem::transmute(pdata)))
+        DSA_DestroyCallback(hdsa.into_param().abi(), ::core::mem::transmute(pfncb), ::core::mem::transmute(pdata))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1594,7 +1594,7 @@ pub unsafe fn DSA_EnumCallback<'a, Param0: ::windows::core::IntoParam<'a, HDSA>>
         extern "system" {
             fn DSA_EnumCallback(hdsa: HDSA, pfncb: ::windows::core::RawPtr, pdata: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(DSA_EnumCallback(hdsa.into_param().abi(), ::core::mem::transmute(pfncb), ::core::mem::transmute(pdata)))
+        DSA_EnumCallback(hdsa.into_param().abi(), ::core::mem::transmute(pfncb), ::core::mem::transmute(pdata))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1817,7 +1817,7 @@ pub unsafe fn DestroySyntheticPointerDevice<'a, Param0: ::windows::core::IntoPar
         extern "system" {
             fn DestroySyntheticPointerDevice(device: HSYNTHETICPOINTERDEVICE);
         }
-        ::core::mem::transmute(DestroySyntheticPointerDevice(device.into_param().abi()))
+        DestroySyntheticPointerDevice(device.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1943,7 +1943,7 @@ pub unsafe fn DrawInsert<'a, Param0: ::windows::core::IntoParam<'a, super::super
         extern "system" {
             fn DrawInsert(handparent: super::super::Foundation::HWND, hlb: super::super::Foundation::HWND, nitem: i32);
         }
-        ::core::mem::transmute(DrawInsert(handparent.into_param().abi(), hlb.into_param().abi(), ::core::mem::transmute(nitem)))
+        DrawInsert(handparent.into_param().abi(), hlb.into_param().abi(), ::core::mem::transmute(nitem))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1971,7 +1971,7 @@ pub unsafe fn DrawStatusTextA<'a, Param0: ::windows::core::IntoParam<'a, super::
         extern "system" {
             fn DrawStatusTextA(hdc: super::super::Graphics::Gdi::HDC, lprc: *mut super::super::Foundation::RECT, psztext: super::super::Foundation::PSTR, uflags: u32);
         }
-        ::core::mem::transmute(DrawStatusTextA(hdc.into_param().abi(), ::core::mem::transmute(lprc), psztext.into_param().abi(), ::core::mem::transmute(uflags)))
+        DrawStatusTextA(hdc.into_param().abi(), ::core::mem::transmute(lprc), psztext.into_param().abi(), ::core::mem::transmute(uflags))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1985,7 +1985,7 @@ pub unsafe fn DrawStatusTextW<'a, Param0: ::windows::core::IntoParam<'a, super::
         extern "system" {
             fn DrawStatusTextW(hdc: super::super::Graphics::Gdi::HDC, lprc: *mut super::super::Foundation::RECT, psztext: super::super::Foundation::PWSTR, uflags: u32);
         }
-        ::core::mem::transmute(DrawStatusTextW(hdc.into_param().abi(), ::core::mem::transmute(lprc), psztext.into_param().abi(), ::core::mem::transmute(uflags)))
+        DrawStatusTextW(hdc.into_param().abi(), ::core::mem::transmute(lprc), psztext.into_param().abi(), ::core::mem::transmute(uflags))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2651,7 +2651,7 @@ pub unsafe fn GetEffectiveClientRect<'a, Param0: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn GetEffectiveClientRect(hwnd: super::super::Foundation::HWND, lprc: *mut super::super::Foundation::RECT, lpinfo: *const i32);
         }
-        ::core::mem::transmute(GetEffectiveClientRect(hwnd.into_param().abi(), ::core::mem::transmute(lprc), ::core::mem::transmute(lpinfo)))
+        GetEffectiveClientRect(hwnd.into_param().abi(), ::core::mem::transmute(lprc), ::core::mem::transmute(lpinfo))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4534,7 +4534,7 @@ pub unsafe fn ImageList_EndDrag() {
         extern "system" {
             fn ImageList_EndDrag();
         }
-        ::core::mem::transmute(ImageList_EndDrag())
+        ImageList_EndDrag()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4837,7 +4837,7 @@ pub unsafe fn InitCommonControls() {
         extern "system" {
             fn InitCommonControls();
         }
-        ::core::mem::transmute(InitCommonControls())
+        InitCommonControls()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4864,7 +4864,7 @@ pub unsafe fn InitMUILanguage(uilang: u16) {
         extern "system" {
             fn InitMUILanguage(uilang: u16);
         }
-        ::core::mem::transmute(InitMUILanguage(::core::mem::transmute(uilang)))
+        InitMUILanguage(::core::mem::transmute(uilang))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6505,7 +6505,7 @@ pub unsafe fn MenuHelp<'a, Param1: ::windows::core::IntoParam<'a, super::super::
         extern "system" {
             fn MenuHelp(umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, hmainmenu: super::WindowsAndMessaging::HMENU, hinst: super::super::Foundation::HINSTANCE, hwndstatus: super::super::Foundation::HWND, lpwids: *const u32);
         }
-        ::core::mem::transmute(MenuHelp(::core::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi(), hmainmenu.into_param().abi(), hinst.into_param().abi(), hwndstatus.into_param().abi(), ::core::mem::transmute(lpwids)))
+        MenuHelp(::core::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi(), hmainmenu.into_param().abi(), hinst.into_param().abi(), hwndstatus.into_param().abi(), ::core::mem::transmute(lpwids))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12226,7 +12226,7 @@ pub unsafe fn SetThemeAppProperties(dwflags: u32) {
         extern "system" {
             fn SetThemeAppProperties(dwflags: u32);
         }
-        ::core::mem::transmute(SetThemeAppProperties(::core::mem::transmute(dwflags)))
+        SetThemeAppProperties(::core::mem::transmute(dwflags))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

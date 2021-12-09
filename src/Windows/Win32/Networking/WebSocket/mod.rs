@@ -184,7 +184,7 @@ pub unsafe fn WebSocketAbortHandle<'a, Param0: ::windows::core::IntoParam<'a, WE
         extern "system" {
             fn WebSocketAbortHandle(hwebsocket: WEB_SOCKET_HANDLE);
         }
-        ::core::mem::transmute(WebSocketAbortHandle(hwebsocket.into_param().abi()))
+        WebSocketAbortHandle(hwebsocket.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -225,7 +225,7 @@ pub unsafe fn WebSocketCompleteAction<'a, Param0: ::windows::core::IntoParam<'a,
         extern "system" {
             fn WebSocketCompleteAction(hwebsocket: WEB_SOCKET_HANDLE, pvactioncontext: *const ::core::ffi::c_void, ulbytestransferred: u32);
         }
-        ::core::mem::transmute(WebSocketCompleteAction(hwebsocket.into_param().abi(), ::core::mem::transmute(pvactioncontext), ::core::mem::transmute(ulbytestransferred)))
+        WebSocketCompleteAction(hwebsocket.into_param().abi(), ::core::mem::transmute(pvactioncontext), ::core::mem::transmute(ulbytestransferred))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -266,7 +266,7 @@ pub unsafe fn WebSocketDeleteHandle<'a, Param0: ::windows::core::IntoParam<'a, W
         extern "system" {
             fn WebSocketDeleteHandle(hwebsocket: WEB_SOCKET_HANDLE);
         }
-        ::core::mem::transmute(WebSocketDeleteHandle(hwebsocket.into_param().abi()))
+        WebSocketDeleteHandle(hwebsocket.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

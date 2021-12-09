@@ -59,7 +59,7 @@ fn main() -> std::io::Result<()> {
         "Windows.Win32.System.WinRT.IWeakReferenceSource",
     ];
 
-    let mut tokens = "#![allow(non_snake_case, non_upper_case_globals, dead_code, non_camel_case_types)]".to_string();
+    let mut tokens = "#![allow(non_snake_case, non_upper_case_globals, dead_code, non_camel_case_types, clippy::upper_case_acronyms, clippy::derivable_impls)]".to_string();
     let gen = bindgen::Gen { min_enum: true, min_inherit: true, flatten: true, ..Default::default() };
 
     for name in types {
