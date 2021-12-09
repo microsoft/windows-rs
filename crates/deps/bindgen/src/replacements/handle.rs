@@ -2,10 +2,9 @@ use super::*;
 
 pub fn gen() -> TokenStream {
     quote! {
-        #[derive(::core::clone::Clone, ::core::marker::Copy, ::core::default::Default, ::core::fmt::Debug, ::core::cmp::PartialEq, ::core::cmp::Eq)]
         #[repr(transparent)]
         pub struct HANDLE(pub isize);
-        unsafe impl ::windows::core::Handle for HANDLE {
+        impl HANDLE {
             fn is_invalid(&self) -> bool {
                 self.0 == 0 || self.0 == -1
             }
@@ -18,6 +17,23 @@ pub fn gen() -> TokenStream {
                 }
             }
         }
+        impl ::core::default::Default for HANDLE {
+            fn default() -> Self {
+                Self(0)
+            }
+        }
+        impl ::core::clone::Clone for HANDLE {
+            fn clone(&self) -> Self {
+                *self
+            }
+        }
+        impl ::core::marker::Copy for HANDLE {}
+        impl ::core::cmp::PartialEq for HANDLE {
+            fn eq(&self, other: &Self) -> bool {
+                    self.0 == other.0
+            }
+        }
+        impl ::core::cmp::Eq for HANDLE {}
         unsafe impl ::windows::core::Abi for HANDLE {
             type Abi = Self;
         }

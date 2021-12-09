@@ -1210,10 +1210,9 @@ impl<'a> ::windows::core::IntoParam<'a, BSTR> for ::windows::core::alloc::string
         ::windows::core::Param::Owned(self.into())
     }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HANDLE(pub isize);
-unsafe impl ::windows::core::Handle for HANDLE {
+impl HANDLE {
     fn is_invalid(&self) -> bool {
         self.0 == 0 || self.0 == -1
     }
@@ -1225,6 +1224,23 @@ unsafe impl ::windows::core::Handle for HANDLE {
         }
     }
 }
+impl ::core::default::Default for HANDLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::core::clone::Clone for HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HANDLE {}
+impl ::core::cmp::PartialEq for HANDLE {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for HANDLE {}
 unsafe impl ::windows::core::Abi for HANDLE {
     type Abi = Self;
 }
@@ -1362,7 +1378,6 @@ pub unsafe fn SysFreeString<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(bs
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct PWSTR(pub *mut u16);
 impl PWSTR {
@@ -1375,6 +1390,12 @@ impl ::core::default::Default for PWSTR {
         Self(::core::ptr::null_mut())
     }
 }
+impl ::core::clone::Clone for PWSTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for PWSTR {}
 unsafe impl ::windows::core::Abi for PWSTR {
     type Abi = Self;
     #[cfg(feature = "alloc")]
@@ -1411,7 +1432,6 @@ impl<'a> ::windows::core::IntoParam<'a, PWSTR> for ::std::ffi::OsString {
         ::windows::core::IntoParam::into_param(self.as_os_str())
     }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct PSTR(pub *mut u8);
 impl PSTR {
@@ -1424,6 +1444,12 @@ impl ::core::default::Default for PSTR {
         Self(::core::ptr::null_mut())
     }
 }
+impl ::core::clone::Clone for PSTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for PSTR {}
 unsafe impl ::windows::core::Abi for PSTR {
     type Abi = Self;
     #[cfg(feature = "alloc")]

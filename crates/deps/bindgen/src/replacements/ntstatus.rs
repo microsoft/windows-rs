@@ -3,9 +3,7 @@ use super::*;
 pub fn gen() -> TokenStream {
     quote! {
         #[repr(transparent)]
-        #[derive(::core::default::Default, ::core::clone::Clone, ::core::marker::Copy, ::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug)]
         pub struct NTSTATUS(pub i32);
-
         impl NTSTATUS {
             #[inline]
             pub const fn is_ok(self) -> bool {
@@ -31,7 +29,23 @@ pub fn gen() -> TokenStream {
                 }
             }
         }
-
+        impl ::core::default::Default for NTSTATUS {
+            fn default() -> Self {
+                Self(0)
+            }
+        }
+        impl ::core::clone::Clone for NTSTATUS {
+            fn clone(&self) -> Self {
+                *self
+            }
+        }
+        impl ::core::marker::Copy for NTSTATUS {}
+        impl ::core::cmp::PartialEq for NTSTATUS {
+            fn eq(&self, other: &Self) -> bool {
+                    self.0 == other.0
+            }
+        }
+        impl ::core::cmp::Eq for NTSTATUS {}
         unsafe impl ::windows::core::Abi for NTSTATUS {
             type Abi = Self;
         }

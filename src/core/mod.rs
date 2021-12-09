@@ -7,7 +7,6 @@ mod delay_load;
 mod error;
 mod factory_cache;
 mod guid;
-mod handle;
 mod heap;
 mod hresult;
 mod hstring;
@@ -37,8 +36,6 @@ pub use error::*;
 #[doc(hidden)]
 pub use factory_cache::*;
 pub use guid::*;
-#[doc(hidden)]
-pub use handle::*;
 #[doc(hidden)]
 pub use heap::*;
 pub use hresult::*;

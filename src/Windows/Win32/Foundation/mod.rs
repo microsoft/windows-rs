@@ -2096,10 +2096,9 @@ pub unsafe fn GetLastError() -> WIN32_ERROR {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HANDLE(pub isize);
-unsafe impl ::windows::core::Handle for HANDLE {
+impl HANDLE {
     fn is_invalid(&self) -> bool {
         self.0 == 0 || self.0 == -1
     }
@@ -2111,6 +2110,23 @@ unsafe impl ::windows::core::Handle for HANDLE {
         }
     }
 }
+impl ::core::default::Default for HANDLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::core::clone::Clone for HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HANDLE {}
+impl ::core::cmp::PartialEq for HANDLE {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for HANDLE {}
 unsafe impl ::windows::core::Abi for HANDLE {
     type Abi = Self;
 }
@@ -2620,7 +2636,6 @@ pub const NTE_UI_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-
 pub const NTE_USER_CANCELLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146893770i32);
 pub const NTE_VALIDATION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146893774i32);
 #[repr(transparent)]
-#[derive(:: core :: default :: Default, :: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: fmt :: Debug)]
 pub struct NTSTATUS(pub i32);
 impl NTSTATUS {
     #[inline]
@@ -2644,6 +2659,23 @@ impl NTSTATUS {
         }
     }
 }
+impl ::core::default::Default for NTSTATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::core::clone::Clone for NTSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for NTSTATUS {}
+impl ::core::cmp::PartialEq for NTSTATUS {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for NTSTATUS {}
 unsafe impl ::windows::core::Abi for NTSTATUS {
     type Abi = Self;
 }
@@ -3015,7 +3047,6 @@ pub const PSINK_E_INDEX_ONLY: ::windows::core::HRESULT = ::windows::core::HRESUL
 pub const PSINK_E_LARGE_ATTACHMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215470i32);
 pub const PSINK_E_QUERY_ONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215472i32);
 pub const PSINK_S_LARGE_WORD: ::windows::core::HRESULT = ::windows::core::HRESULT(268179i32);
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct PSTR(pub *mut u8);
 impl PSTR {
@@ -3028,6 +3059,12 @@ impl ::core::default::Default for PSTR {
         Self(::core::ptr::null_mut())
     }
 }
+impl ::core::clone::Clone for PSTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for PSTR {}
 unsafe impl ::windows::core::Abi for PSTR {
     type Abi = Self;
     #[cfg(feature = "alloc")]
@@ -3051,7 +3088,6 @@ impl<'a> ::windows::core::IntoParam<'a, PSTR> for ::windows::core::alloc::string
         ::windows::core::IntoParam::into_param(self.as_str())
     }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct PWSTR(pub *mut u16);
 impl PWSTR {
@@ -3064,6 +3100,12 @@ impl ::core::default::Default for PWSTR {
         Self(::core::ptr::null_mut())
     }
 }
+impl ::core::clone::Clone for PWSTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for PWSTR {}
 unsafe impl ::windows::core::Abi for PWSTR {
     type Abi = Self;
     #[cfg(feature = "alloc")]

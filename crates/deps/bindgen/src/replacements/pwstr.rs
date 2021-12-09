@@ -3,8 +3,6 @@ use super::*;
 // TODO: move to windows::core
 pub fn gen() -> TokenStream {
     quote! {
-        // TODO: get rid of derive
-        #[derive(::core::clone::Clone, ::core::marker::Copy, ::core::fmt::Debug, ::core::cmp::PartialEq, ::core::cmp::Eq)]
         #[repr(transparent)]
         pub struct PWSTR(pub *mut u16);
         impl PWSTR {
@@ -17,6 +15,12 @@ pub fn gen() -> TokenStream {
                 Self(::core::ptr::null_mut())
             }
         }
+        impl ::core::clone::Clone for PWSTR {
+            fn clone(&self) -> Self {
+                *self
+            }
+        }
+        impl ::core::marker::Copy for PWSTR {}
         unsafe impl ::windows::core::Abi for PWSTR {
             type Abi = Self;
 
