@@ -9,10 +9,10 @@ pub struct IUnknown(core::ptr::NonNull<core::ffi::c_void>);
 
 #[doc(hidden)]
 #[repr(C)]
-pub struct IUnknown_abi(pub unsafe extern "system" fn(this: RawPtr, iid: *const GUID, interface: *mut RawPtr) -> HRESULT, pub unsafe extern "system" fn(this: RawPtr) -> u32, pub unsafe extern "system" fn(this: RawPtr) -> u32);
+pub struct IUnknownVtbl(pub unsafe extern "system" fn(this: RawPtr, iid: *const GUID, interface: *mut RawPtr) -> HRESULT, pub unsafe extern "system" fn(this: RawPtr) -> u32, pub unsafe extern "system" fn(this: RawPtr) -> u32);
 
 unsafe impl Interface for IUnknown {
-    type Vtable = IUnknown_abi;
+    type Vtable = IUnknownVtbl;
 
     const IID: GUID = GUID::from_u128(0x00000000_0000_0000_c000_000000000046);
 }

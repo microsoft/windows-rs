@@ -114,7 +114,7 @@ mod tests {
     #[test]
     fn test() {
         let reader = TypeReader::get();
-        reader.get_type_entry(TypeName::WIN32_ERROR).unwrap();
+        reader.get_type_entry(TypeName::WIN32_ERROR).unwrap(); // TODO: remove
         reader.get_type_entry(TypeName::NTSTATUS).unwrap();
         reader.get_type_entry(TypeName::BOOL).unwrap();
         reader.get_type_entry(TypeName::PWSTR).unwrap();

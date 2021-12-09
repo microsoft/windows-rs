@@ -4,7 +4,7 @@ use std::collections::*;
 #[derive(Default)]
 pub struct Gen<'a> {
     pub namespace: &'a str,
-    pub inherit: bool, // generated inherited methods
+    pub minimal: bool, // don't generate inherited methods (both composable and non-composable) and avoid large enums 
     pub sys: bool,
     pub flatten: bool,
     pub cfg: bool,

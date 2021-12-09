@@ -1,5 +1,5 @@
 use super::*;
-use bindings::Windows::Win32::System::WinRT::IWeakReferenceSource;
+use bindings::*;
 
 /// Provides low-level access to a COM interface.
 ///

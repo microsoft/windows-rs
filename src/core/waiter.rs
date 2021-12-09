@@ -1,9 +1,5 @@
 use super::*;
-
-use bindings::{
-    Windows::Win32::Foundation::{CloseHandle, HANDLE},
-    Windows::Win32::System::Threading::{CreateEventA, SetEvent, WaitForSingleObject},
-};
+use bindings::*;
 
 #[doc(hidden)]
 pub struct Waiter(HANDLE);

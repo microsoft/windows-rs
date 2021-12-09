@@ -1,5 +1,5 @@
 use super::*;
-use bindings::Windows::Win32::Foundation::{CLASS_E_CLASSNOTAVAILABLE, CO_E_NOTINITIALIZED};
+use bindings::*;
 use core::marker::PhantomData;
 use core::sync::atomic::{AtomicPtr, Ordering};
 

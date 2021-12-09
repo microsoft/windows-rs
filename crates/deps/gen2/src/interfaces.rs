@@ -82,7 +82,7 @@ fn gen_methods(def: &TypeDef, gen: &Gen) -> TokenStream {
         }
     }
 
-    if is_winrt {
+    if is_winrt && !gen.minimal {
         for def in def.required_interfaces() {
                 let mut vtable_offset = 6;
                 for method in def.methods() {

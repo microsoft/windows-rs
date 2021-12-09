@@ -74,7 +74,7 @@ pub use weak_ref_count::*;
 pub type Result<T> = core::result::Result<T, Error>;
 
 #[doc(hidden)]
-pub use bindings::Windows::Win32::System::Com::IAgileObject;
+pub use bindings::IAgileObject;
 
 // TODO: rather than hiding, consider just removing
 #[doc(hidden)]

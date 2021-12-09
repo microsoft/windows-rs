@@ -1,9 +1,9 @@
 use super::*;
-use bindings::Windows::Win32::System::WinRT::{IWeakReference, IWeakReferenceSource};
+use bindings::*;
 use core::marker::PhantomData;
 
 /// `Weak` holds a non-owning reference to an object.
-#[derive(Clone, PartialEq, Eq, Default, Debug)]
+#[derive(Clone, PartialEq, Eq, Default)]
 pub struct Weak<I: Interface>(Option<IWeakReference>, PhantomData<I>);
 
 impl<I: Interface> Weak<I> {

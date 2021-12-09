@@ -35,6 +35,7 @@ pub fn gen_type(name: &str, gen: &Gen) -> String {
         tokens.push_str(gen_element_type(def, gen).as_str());
     }
 
+    assert!(!tokens.is_empty(), "`{}` not found", name);
     tokens
 }
 

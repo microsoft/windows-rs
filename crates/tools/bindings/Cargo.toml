@@ -6,4 +6,4 @@ publish = false
 
 [dependencies]
 reader = { package = "windows_reader", path = "../../deps/reader", version = "0.28.0" }
-macros = { package = "windows_macros", path = "../../deps/macros", version = "0.28.0" }
+gen2 = { package = "windows_gen2", path = "../../deps/gen2", version = "0.28.0" }

@@ -1,5 +1,5 @@
 use super::*;
-use bindings::{Windows::Win32::Foundation::PWSTR, Windows::Win32::System::Diagnostics::Debug::*};
+use bindings::*;
 
 /// A primitive error code value returned by most COM functions.
 #[repr(transparent)]
@@ -9,6 +9,10 @@ use bindings::{Windows::Win32::Foundation::PWSTR, Windows::Win32::System::Diagno
 pub struct HRESULT(pub i32);
 
 impl HRESULT {
+    pub fn from_win32(value: u32) -> HRESULT {
+        Self(if value as i32 <= 0 { value } else { (value & 0x0000_FFFF) | (7 << 16) | 0x8000_0000 } as _)
+    }
+
     /// Returns [`true`] if `self` is a success code.
     #[inline]
     pub const fn is_ok(self) -> bool {
