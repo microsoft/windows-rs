@@ -1,3 +1,4 @@
+#![allow(non_snake_case, non_upper_case_globals, dead_code, non_camel_case_types)]
 #[repr(transparent)]
 pub struct IReference<T>(::windows::core::IUnknown, ::core::marker::PhantomData<T>)
 where
@@ -1266,7 +1267,7 @@ impl ::core::clone::Clone for BOOL {
 impl ::core::marker::Copy for BOOL {}
 impl ::core::cmp::PartialEq for BOOL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { self.0 == other.0 }
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for BOOL {}

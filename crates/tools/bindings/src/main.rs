@@ -67,7 +67,7 @@ fn main() -> std::io::Result<()> {
         "Windows.Win32.System.WinRT.IWeakReferenceSource",
     ];
 
-    let mut tokens = String::new();
+    let mut tokens = "#![allow(non_snake_case, non_upper_case_globals, dead_code, non_camel_case_types)]".to_string();
     let gen = gen2::Gen { minimal:true, flatten: true, ..Default::default() };
 
     for name in types {

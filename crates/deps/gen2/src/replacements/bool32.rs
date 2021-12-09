@@ -49,9 +49,7 @@ pub fn gen() -> TokenStream {
 
         impl ::core::cmp::PartialEq for BOOL {
             fn eq(&self, other: &Self) -> bool {
-                unsafe {
                     self.0 == other.0
-                }
             }
         }
 
