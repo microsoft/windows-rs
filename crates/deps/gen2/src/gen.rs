@@ -4,7 +4,7 @@ use std::collections::*;
 #[derive(Default)]
 pub struct Gen<'a> {
     pub namespace: &'a str,
-    pub minimal: bool, // don't generate inherited methods (both composable and non-composable) and avoid large enums 
+    pub minimal: bool, // don't generate inherited methods (both composable and non-composable) and avoid large enums
     pub sys: bool,
     pub flatten: bool,
     pub cfg: bool,
@@ -127,7 +127,6 @@ impl Gen<'_> {
         }
     }
 
-        
     fn add_namespace(&self, namespace: &'static str, namespaces: &mut BTreeSet<&'static str>) {
         if !namespace.is_empty() && namespace != self.namespace {
             //namespaces.insert(namespace);

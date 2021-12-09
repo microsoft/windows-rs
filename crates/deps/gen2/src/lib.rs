@@ -1,3 +1,4 @@
+mod r#async;
 mod callbacks;
 mod classes;
 mod constants;
@@ -8,24 +9,23 @@ mod functions;
 mod gen;
 mod helpers;
 mod interfaces;
+mod iterator;
 mod methods;
 mod names;
 mod replacements;
 mod signatures;
 mod structs;
-mod r#async;
-mod iterator;
 
 use functions::*;
 pub use gen::*;
 use helpers::*;
+use iterator::*;
 use methods::*;
 use names::*;
 use quote::*;
+use r#async::*;
 use reader::*;
 use signatures::*;
-use r#async::*;
-use iterator::*;
 
 pub fn gen_type(name: &str, gen: &Gen) -> String {
     let reader = TypeReader::get();

@@ -29,7 +29,7 @@ pub fn gen_interface_trait(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> Token
         let vtbl = gen_vtbl_ident(&default, gen);
         let guid = gen_type_guid(&default, gen, &"Self".into());
         let namespace = gen.namespace(default.namespace());
-        
+
         quote! {
             #cfg
             unsafe impl ::windows::core::Interface for #name {
@@ -60,7 +60,9 @@ pub fn gen_runtime_trait(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenSt
         let type_signature = if def.kind() == TypeKind::Class {
             let type_signature = Literal::byte_string(def.type_signature().as_bytes());
             quote! { ::windows::core::ConstBuffer::from_slice(#type_signature) }
-        } else { gen_guid_signature(def, &format!("{{{:#?}}}", def.guid()), gen) };
+        } else {
+            gen_guid_signature(def, &format!("{{{:#?}}}", def.guid()), gen)
+        };
 
         quote! {
             #cfg
@@ -137,7 +139,7 @@ pub fn gen_vtbl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
     quote! { (this: *mut ::core::ffi::c_void, #(#params)* #trailing_return_type) #return_type }
 }
 
-pub fn gen_vtbl(def: &TypeDef, cfg:&TokenStream, gen: &Gen) -> TokenStream {
+pub fn gen_vtbl(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream {
     // TODO: consider using parent field to avoid duplicating inherited vfptrs.
     // And then consider naming them to simplify traits and debugging.
     // Should the first param be the Vtbl type?

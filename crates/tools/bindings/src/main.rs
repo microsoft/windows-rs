@@ -13,7 +13,6 @@ fn main() -> std::io::Result<()> {
         "Windows.Foundation.Size",
         "Windows.Foundation.Rect",
         "Windows.Foundation.IPropertyValueStatics",
-
         "Windows.Win32.Foundation.CloseHandle",
         "Windows.Win32.Foundation.GetLastError",
         "Windows.Win32.Foundation.E_NOINTERFACE",
@@ -32,9 +31,7 @@ fn main() -> std::io::Result<()> {
         "Windows.Win32.Foundation.HINSTANCE",
         "Windows.Win32.Foundation.FARPROC",
         "Windows.Win32.Foundation.WIN32_ERROR",
-
         "Windows.Win32.Security.SECURITY_ATTRIBUTES",
-
         "Windows.Win32.System.Com.CoCreateGuid",
         "Windows.Win32.System.Com.CoTaskMemAlloc",
         "Windows.Win32.System.Com.CoTaskMemFree",
@@ -42,24 +39,19 @@ fn main() -> std::io::Result<()> {
         "Windows.Win32.System.Com.GetErrorInfo",
         "Windows.Win32.System.Com.IErrorInfo",
         "Windows.Win32.System.Com.SetErrorInfo",
-
         "Windows.Win32.System.Diagnostics.Debug.FormatMessageW",
         "Windows.Win32.System.Diagnostics.Debug.FORMAT_MESSAGE_OPTIONS",
-
         "Windows.Win32.System.LibraryLoader.FreeLibrary",
         "Windows.Win32.System.LibraryLoader.GetProcAddress",
         "Windows.Win32.System.LibraryLoader.LoadLibraryA",
-
         "Windows.Win32.System.Memory.GetProcessHeap",
         "Windows.Win32.System.Memory.HEAP_FLAGS",
         "Windows.Win32.System.Memory.HeapHandle",
         "Windows.Win32.System.Memory.HeapAlloc",
         "Windows.Win32.System.Memory.HeapFree",
-
         "Windows.Win32.System.Threading.CreateEventA",
         "Windows.Win32.System.Threading.SetEvent",
         "Windows.Win32.System.Threading.WaitForSingleObject",
-
         "Windows.Win32.System.WinRT.ILanguageExceptionErrorInfo",
         "Windows.Win32.System.WinRT.ILanguageExceptionErrorInfo2",
         "Windows.Win32.System.WinRT.IRestrictedErrorInfo",
@@ -68,7 +60,7 @@ fn main() -> std::io::Result<()> {
     ];
 
     let mut tokens = "#![allow(non_snake_case, non_upper_case_globals, dead_code, non_camel_case_types)]".to_string();
-    let gen = gen2::Gen { minimal:true, flatten: true, ..Default::default() };
+    let gen = gen2::Gen { minimal: true, flatten: true, ..Default::default() };
 
     for name in types {
         tokens += &gen2::gen_type(name, &gen);

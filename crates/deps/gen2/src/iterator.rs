@@ -151,11 +151,7 @@ pub fn gen_iterator(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream 
     let mut cfg = cfg.clone();
     cfg.combine(&gen.iterator_cfg());
 
-    let interfaces = if def.kind() == TypeKind::Class {
-        def.class_interfaces().iter().map(|(def,_)|def.clone()).collect()
-    } else {
-        def.required_interfaces()
-    };
+    let interfaces = if def.kind() == TypeKind::Class { def.class_interfaces().iter().map(|(def, _)| def.clone()).collect() } else { def.required_interfaces() };
 
     // If the class or interface is not one of the well-known collection interfaces, we then see whether it
     // implements any one of them. Here is where we favor IVectorView/IVector over IIterable.

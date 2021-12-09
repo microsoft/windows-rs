@@ -102,22 +102,26 @@ fn gen_tree(output: &std::path::Path, _root: &'static str, tree: &reader::TypeTr
         return;
     }
 
-    println!("{}", tree.namespace);
     let mut path = std::path::PathBuf::from(output);
 
     path.push(tree.namespace.replace('.', "/"));
     path.push("mod.rs");
 
     let gen = gen2::Gen { namespace: tree.namespace, sys: true, cfg: true, ..Default::default() };
+    let mut tokens = gen2::gen_namespace(&gen);
 
-    let tokens = gen2::gen_namespace(&gen);
-
-    let mut child = std::process::Command::new("rustfmt").stdin(std::process::Stdio::piped()).stdout(std::process::Stdio::piped()).spawn().expect("Failed to spawn `rustfmt`");
+    let mut child = std::process::Command::new("rustfmt").stdin(std::process::Stdio::piped()).stdout(std::process::Stdio::piped()).stderr(std::process::Stdio::null()).spawn().expect("Failed to spawn `rustfmt`");
     let mut stdin = child.stdin.take().expect("Failed to open stdin");
     stdin.write_all(tokens.as_bytes()).unwrap();
     drop(stdin);
-
     let output = child.wait_with_output().unwrap();
-    assert!(output.status.success());
-    std::fs::write(&path, String::from_utf8(output.stdout).expect("Failed to parse UTF-8")).unwrap();
+
+    if output.status.success() {
+        println!("{}", tree.namespace);
+        tokens = String::from_utf8(output.stdout).expect("Failed to parse UTF-8");
+    } else {
+        println!("** {} - rustfmt failed", tree.namespace);
+    }
+
+    std::fs::write(&path, tokens).unwrap();
 }

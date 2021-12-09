@@ -7,11 +7,7 @@ pub fn gen_async(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream {
         return gen_async_kind(kind, def, def, gen, cfg);
     }
 
-    let interfaces = if def.kind() == TypeKind::Class {
-        def.class_interfaces().iter().map(|(def,_)|def.clone()).collect()
-    } else {
-        def.required_interfaces()
-    };
+    let interfaces = if def.kind() == TypeKind::Class { def.class_interfaces().iter().map(|(def, _)| def.clone()).collect() } else { def.required_interfaces() };
 
     for interface in interfaces {
         let kind = interface.async_kind();

@@ -6,17 +6,20 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
     let underlying_type = gen_element_name(&underlying_type, gen);
     let is_scoped = def.is_scoped();
 
-    let mut fields: Vec<(TokenStream, TokenStream)> = def.fields().filter_map(|field| {
-        if field.is_literal() {
-            let field_name = gen_ident(field.name());
-            let constant = field.constant().unwrap();
-            let value = gen_constant_value(&constant.value());
+    let mut fields: Vec<(TokenStream, TokenStream)> = def
+        .fields()
+        .filter_map(|field| {
+            if field.is_literal() {
+                let field_name = gen_ident(field.name());
+                let constant = field.constant().unwrap();
+                let value = gen_constant_value(&constant.value());
 
-            Some((field_name, value))
-        } else {
-            None
-        }
-    }).collect();
+                Some((field_name, value))
+            } else {
+                None
+            }
+        })
+        .collect();
 
     if gen.minimal && fields.len() > 100 {
         fields.clear();

@@ -47,7 +47,7 @@ fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
         tokens.combine(&gen_methods(def, gen));
         tokens.combine(&gen_conversions(def, gen));
         tokens.combine(&gen_std_traits(def, &cfg, gen));
-        tokens.combine(&gen_runtime_trait(def, &cfg, gen));    
+        tokens.combine(&gen_runtime_trait(def, &cfg, gen));
         tokens.combine(&gen_async(def, &cfg, gen));
         tokens.combine(&gen_iterator(def, &cfg, gen));
     }
@@ -84,13 +84,13 @@ fn gen_methods(def: &TypeDef, gen: &Gen) -> TokenStream {
 
     if is_winrt && !gen.minimal {
         for def in def.required_interfaces() {
-                let mut vtable_offset = 6;
-                for method in def.methods() {
-                    methods.combine(&gen_winrt_method(&def, InterfaceKind::NonDefault, &method, vtable_offset, &mut method_names, gen));
-                    vtable_offset += 1;
-                }
+            let mut vtable_offset = 6;
+            for method in def.methods() {
+                methods.combine(&gen_winrt_method(&def, InterfaceKind::NonDefault, &method, vtable_offset, &mut method_names, gen));
+                vtable_offset += 1;
             }
         }
+    }
 
     quote! {
         impl<#(#constraints)*> #name {

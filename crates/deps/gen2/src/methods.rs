@@ -3,7 +3,7 @@ use super::*;
 pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, vtable_offset: usize, method_names: &mut BTreeMap<String, u32>, gen: &Gen) -> TokenStream {
     let signature = method.signature(&def.generics);
 
-    let params = if kind == InterfaceKind::Composable  { &signature.params[..signature.params.len() - 2] } else { &signature.params };
+    let params = if kind == InterfaceKind::Composable { &signature.params[..signature.params.len() - 2] } else { &signature.params };
 
     let name = if kind == InterfaceKind::Composable && signature.params.len() == 2 {
         "new".into()

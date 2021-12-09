@@ -5,7 +5,7 @@ fn main() {
     let start = std::time::Instant::now();
     let mut output = std::path::PathBuf::from(reader::workspace_dir());
     output.push("src/Windows");
-    // let _ = std::fs::remove_dir_all(&output);
+    let _ = std::fs::remove_dir_all(&output);
     output.pop();
 
     let reader = reader::TypeReader::get_mut();
@@ -127,10 +127,6 @@ fn gen_tree(output: &std::path::Path, _root: &'static str, tree: &reader::TypeTr
     if tree.namespace == "Windows.Win32.Interop" {
         return;
     }
-
-    // if tree.namespace != "Windows.Foundation" {
-    //     return;
-    // }
 
     let mut path = std::path::PathBuf::from(output);
 

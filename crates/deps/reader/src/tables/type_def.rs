@@ -68,7 +68,7 @@ impl TypeDef {
                 }
             }
         }
-    
+
         let mut result = vec![];
         walk(&mut result, self);
         result.sort_by(|a, b| a.name().cmp(&b.name()));
@@ -126,7 +126,7 @@ impl TypeDef {
                 }
                 "ComposableAttribute" => {
                     if let Some(def) = attribute.composable_type() {
-                        result.push((def,  InterfaceKind::Composable));
+                        result.push((def, InterfaceKind::Composable));
                     }
                 }
                 _ => {}
