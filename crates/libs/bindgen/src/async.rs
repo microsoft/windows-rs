@@ -37,8 +37,7 @@ fn gen_async_kind(kind: AsyncKind, name: &TypeDef, self_name: &TypeDef, gen: &Ge
     let constraints = gen_type_constraints(self_name, gen);
     let name = gen_type_name(self_name, gen);
     let namespace = gen.namespace("Windows.Foundation");
-    let cfg_std = cfg.and_std().gen(gen);
-    let cfg = cfg.gen(gen);
+    let cfg = cfg.and_std().and_async().gen(gen);
 
     quote! {
         #cfg
@@ -55,7 +54,7 @@ fn gen_async_kind(kind: AsyncKind, name: &TypeDef, self_name: &TypeDef, gen: &Ge
                 self.GetResults()
             }
         }
-        #cfg_std
+        #cfg
         impl<#(#constraints)*> ::std::future::Future for #name {
             type Output = ::windows::core::Result<#return_sig>;
 

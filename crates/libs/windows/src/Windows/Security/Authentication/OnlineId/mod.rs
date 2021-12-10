@@ -936,7 +936,7 @@ unsafe impl ::windows::core::Interface for SignOutUserOperation {
 impl ::windows::core::RuntimeName for SignOutUserOperation {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.SignOutUserOperation";
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "std"))]
 impl SignOutUserOperation {
     pub fn get(&self) -> ::windows::core::Result<()> {
         if self.Status()? == super::super::super::Foundation::AsyncStatus::Started {
@@ -1160,7 +1160,7 @@ unsafe impl ::windows::core::Interface for UserAuthenticationOperation {
 impl ::windows::core::RuntimeName for UserAuthenticationOperation {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.UserAuthenticationOperation";
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "std"))]
 impl UserAuthenticationOperation {
     pub fn get(&self) -> ::windows::core::Result<UserIdentity> {
         if self.Status()? == super::super::super::Foundation::AsyncStatus::Started {

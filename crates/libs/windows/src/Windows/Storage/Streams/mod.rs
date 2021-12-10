@@ -566,7 +566,7 @@ unsafe impl ::windows::core::Interface for DataReaderLoadOperation {
 impl ::windows::core::RuntimeName for DataReaderLoadOperation {
     const NAME: &'static str = "Windows.Storage.Streams.DataReaderLoadOperation";
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "std"))]
 impl DataReaderLoadOperation {
     pub fn get(&self) -> ::windows::core::Result<u32> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
@@ -1067,7 +1067,7 @@ unsafe impl ::windows::core::Interface for DataWriterStoreOperation {
 impl ::windows::core::RuntimeName for DataWriterStoreOperation {
     const NAME: &'static str = "Windows.Storage.Streams.DataWriterStoreOperation";
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "std"))]
 impl DataWriterStoreOperation {
     pub fn get(&self) -> ::windows::core::Result<u32> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
