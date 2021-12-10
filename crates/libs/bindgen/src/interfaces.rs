@@ -59,7 +59,7 @@ fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     tokens
 }
 
-fn gen_methods(def: &TypeDef, cfg:&Cfg, gen: &Gen) -> TokenStream {
+fn gen_methods(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let name = gen_type_ident(def, gen);
     let constraints = gen_type_constraints(def, gen);
     let mut methods = quote! {};
@@ -103,7 +103,7 @@ fn gen_methods(def: &TypeDef, cfg:&Cfg, gen: &Gen) -> TokenStream {
     }
 }
 
-fn gen_conversions(def: &TypeDef, cfg:&Cfg, gen: &Gen) -> TokenStream {
+fn gen_conversions(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let name = gen_type_ident(def, gen);
     let constraints = gen_type_constraints(def, gen);
     let mut tokens = quote! {};

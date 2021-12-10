@@ -246,7 +246,7 @@ fn gen_copy_clone(def: &TypeDef, name: &TokenStream, gen: &Gen, cfg: &Cfg) -> To
     }
 }
 
-fn gen_struct_constants(def: &TypeDef, struct_name: &TokenStream, cfg: &Cfg, gen:&Gen) -> TokenStream {
+fn gen_struct_constants(def: &TypeDef, struct_name: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let cfg = cfg.gen(gen);
 
     let constants = def.fields().filter_map(|f| {

@@ -12,10 +12,7 @@ impl Cfg {
     }
 
     pub fn union(&self, other: Self) -> Self {
-        Self {
-            arch: self.arch.union(&other.arch).cloned().collect(),
-            features: self.features.union(&other.features).cloned().collect(),
-        }        
+        Self { arch: self.arch.union(&other.arch).cloned().collect(), features: self.features.union(&other.features).cloned().collect() }
     }
 
     pub fn and_iterator(&self) -> Self {
@@ -96,7 +93,7 @@ impl Cfg {
     }
 }
 
-fn to_feature(name:&str) -> String {
+fn to_feature(name: &str) -> String {
     let mut feature = String::new();
 
     for name in name.split('.').skip(1) {
