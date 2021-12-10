@@ -67,7 +67,7 @@ fn main() -> std::io::Result<()> {
     }
 
     let mut path: std::path::PathBuf = reader::workspace_dir().into();
-    path.push("src/core/bindings.rs");
+    path.push("crates/libs/windows/src/core/bindings.rs");
 
     std::fs::write(&path, tokens)?;
 
